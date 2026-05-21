@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { ConfidenceCell } from "@/features/governance/GovernanceChips";
 import { mockAccounts } from "@/data/mock/accounts";
 import { mockQuotes } from "@/data/mock/quotes";
 import { mockOrders } from "@/data/mock/orders";
@@ -563,14 +564,18 @@ const CONFIGS: Record<Section, SectionConfig> = {
       };
     },
     columns: [
-      { key: "id",     label: "ID",      className: "font-mono text-muted-foreground" },
-      { key: "name",   label: "Name",    className: "font-medium" },
-      { key: "domain", label: "Domain" },
-      { key: "model",  label: "Model",   render: (v) => <span className="font-mono text-xs text-muted-foreground">{String(v)}</span> },
-      { key: "status", label: "Status",  render: statusBadge, sortable: false },
-      { key: "monthlyCallVolume", label: "Calls/Mo",  render: (v) => formatNumber(Number(v)) },
-      { key: "roiMultiple",       label: "ROI",       render: (v) => Number(v) > 0 ? `${Number(v).toFixed(0)}×` : "—" },
-      { key: "actualValueUsd",    label: "Value",     render: fmtMoney },
+      { key: "id",              label: "ID",         className: "font-mono text-muted-foreground" },
+      { key: "name",            label: "Name",       className: "font-medium" },
+      { key: "domain",          label: "Domain" },
+      { key: "model",           label: "Model",      render: (v) => <span className="font-mono text-xs text-muted-foreground">{String(v)}</span> },
+      { key: "status",          label: "Status",     render: statusBadge, sortable: false },
+      { key: "confidenceScore", label: "Confidence", render: (v) => <ConfidenceCell score={Number(v)} />, sortable: true },
+      { key: "humanReviewRequired", label: "Review", render: (v) => v === true
+          ? <Badge variant="warning" className="text-[10px]">Human Review</Badge>
+          : <span className="text-muted-foreground text-xs">—</span>,
+        sortable: false },
+      { key: "roiMultiple",     label: "ROI",        render: (v) => Number(v) > 0 ? `${Number(v).toFixed(0)}×` : "—" },
+      { key: "actualValueUsd",  label: "Value",      render: fmtMoney },
     ],
   },
 };

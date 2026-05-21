@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ChevronUp, ChevronDown, ChevronsUpDown } from "lucide-react";
+import { ChevronUp, ChevronDown, ChevronsUpDown, Download } from "lucide-react";
 import {
   Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useOpsStore } from "@/lib/store";
 
 export interface Column {
   key: string;
@@ -34,6 +35,7 @@ export function ShellTable({
   const [page, setPage] = useState(0);
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const { activeSection, logAuditEvent } = useOpsStore();
 
   const sorted = useMemo(() => {
     if (!sortKey) return data;
@@ -57,6 +59,14 @@ export function ShellTable({
       setSortDir("asc");
     }
     setPage(0);
+  }
+
+  function handleExportAttempt() {
+    logAuditEvent({
+      action: "EXPORT_ATTEMPTED",
+      section: activeSection,
+      detail: `${data.length} rows · export disabled in prototype mode`,
+    });
   }
 
   const SortIcon = ({ colKey }: { colKey: string }) => {
@@ -124,46 +134,64 @@ export function ShellTable({
         </TableBody>
       </Table>
 
-      {/* Pagination */}
+      {/* Pagination + export */}
       <div className="flex items-center justify-between border-t bg-muted/20 px-4 py-2">
         <span className="text-xs text-muted-foreground">
           {sorted.length === 0
             ? "No results"
             : `${page * pageSize + 1}–${Math.min((page + 1) * pageSize, sorted.length)} of ${sorted.length}`}
         </span>
-        <div className="flex items-center gap-1">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-7 px-2 text-xs"
-            disabled={page === 0}
-            onClick={() => setPage((p) => p - 1)}
-          >
-            Prev
-          </Button>
-          {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
-            const pg = totalPages <= 5 ? i : Math.max(0, Math.min(page - 2, totalPages - 5)) + i;
-            return (
-              <Button
-                key={pg}
-                variant={pg === page ? "default" : "ghost"}
-                size="sm"
-                className="h-7 w-7 p-0 text-xs"
-                onClick={() => setPage(pg)}
-              >
-                {pg + 1}
-              </Button>
-            );
-          })}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-7 px-2 text-xs"
-            disabled={page >= totalPages - 1}
-            onClick={() => setPage((p) => p + 1)}
-          >
-            Next
-          </Button>
+
+        <div className="flex items-center gap-2">
+          {/* Pagination */}
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-7 px-2 text-xs"
+              disabled={page === 0}
+              onClick={() => setPage((p) => p - 1)}
+            >
+              Prev
+            </Button>
+            {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+              const pg = totalPages <= 5 ? i : Math.max(0, Math.min(page - 2, totalPages - 5)) + i;
+              return (
+                <Button
+                  key={pg}
+                  variant={pg === page ? "default" : "ghost"}
+                  size="sm"
+                  className="h-7 w-7 p-0 text-xs"
+                  onClick={() => setPage(pg)}
+                >
+                  {pg + 1}
+                </Button>
+              );
+            })}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-7 px-2 text-xs"
+              disabled={page >= totalPages - 1}
+              onClick={() => setPage((p) => p + 1)}
+            >
+              Next
+            </Button>
+          </div>
+
+          {/* Export — disabled in prototype; click is logged */}
+          <div title="Export disabled in prototype mode">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-7 gap-1 px-2 text-xs opacity-50 cursor-not-allowed"
+              onClick={handleExportAttempt}
+              aria-disabled
+            >
+              <Download className="h-3 w-3" />
+              Export CSV
+            </Button>
+          </div>
         </div>
       </div>
     </div>

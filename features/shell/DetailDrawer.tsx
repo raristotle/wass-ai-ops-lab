@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, Ban } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { HumanReviewFlag, ConfidenceChip, ReasonCodeList } from "@/features/governance/GovernanceChips";
 import type { Column } from "./ShellTable";
 
 interface DetailDrawerProps {
@@ -21,6 +23,9 @@ type Tab = (typeof TABS)[number];
 function formatValue(val: unknown): React.ReactNode {
   if (val === null || val === undefined) return <span className="text-muted-foreground">—</span>;
   if (typeof val === "boolean") return val ? "Yes" : "No";
+  if (Array.isArray(val)) {
+    return val.length === 0 ? <span className="text-muted-foreground">—</span> : val.join(", ");
+  }
   if (typeof val === "number") {
     if (val > 100_000) return new Intl.NumberFormat("en-US").format(val);
     return String(val);
@@ -37,6 +42,7 @@ function formatValue(val: unknown): React.ReactNode {
     paid: "success", Paid: "success",
     completed: "success", Completed: "success",
     deployed: "success", Deployed: "success",
+    scaling: "success", Scaling: "success",
     pending: "secondary", Pending: "secondary",
     draft: "secondary", Draft: "secondary",
     queued: "secondary", Queued: "secondary",
@@ -46,7 +52,6 @@ function formatValue(val: unknown): React.ReactNode {
     "in transit": "default", "In Transit": "default",
     running: "default", Running: "default",
     pilot: "warning", Pilot: "warning",
-    scaling: "warning", Scaling: "warning",
     "on hold": "warning", "On Hold": "warning",
     "under review": "warning", "Under Review": "warning",
     mitigated: "warning", Mitigated: "warning",
@@ -64,12 +69,12 @@ function formatValue(val: unknown): React.ReactNode {
 }
 
 function DetailsTab({ row, columns }: { row: Record<string, unknown>; columns: Column[] }) {
+  const governanceKeys = new Set(["confidenceScore", "reasonCodes", "humanReviewRequired"]);
   const displayedKeys = new Set(columns.map((c) => c.key));
-  const allKeys = Object.keys(row);
-  // Show column keys first, then extras
+  const allKeys = Object.keys(row).filter((k) => !governanceKeys.has(k));
   const orderedKeys = [
-    ...columns.map((c) => c.key).filter((k) => k in row),
-    ...allKeys.filter((k) => !displayedKeys.has(k)),
+    ...columns.map((c) => c.key).filter((k) => k in row && !governanceKeys.has(k)),
+    ...allKeys.filter((k) => !displayedKeys.has(k) && !governanceKeys.has(k)),
   ];
 
   return (
@@ -83,6 +88,36 @@ function DetailsTab({ row, columns }: { row: Record<string, unknown>; columns: C
         </div>
       ))}
     </dl>
+  );
+}
+
+function GovernanceSection({ row }: { row: Record<string, unknown> }) {
+  const humanReviewRequired = row.humanReviewRequired === true;
+  const confidenceScore = typeof row.confidenceScore === "number" ? row.confidenceScore : null;
+  const reasonCodes = Array.isArray(row.reasonCodes) ? (row.reasonCodes as string[]) : [];
+
+  const hasGovernanceData = humanReviewRequired || confidenceScore !== null || reasonCodes.length > 0;
+  if (!hasGovernanceData) return null;
+
+  return (
+    <div className="space-y-3 rounded-md border border-dashed p-3">
+      <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+        AI Governance
+      </p>
+      {humanReviewRequired && <HumanReviewFlag />}
+      {confidenceScore !== null && (
+        <div className="space-y-1">
+          <p className="text-xs text-muted-foreground">Confidence score</p>
+          <ConfidenceChip score={confidenceScore} />
+        </div>
+      )}
+      {reasonCodes.length > 0 && (
+        <div className="space-y-1">
+          <p className="text-xs text-muted-foreground">Reason codes</p>
+          <ReasonCodeList codes={reasonCodes} />
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -146,11 +181,14 @@ export function DetailDrawer({ isOpen, onClose, row, columns, sectionTitle }: De
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto px-5 py-4">
+        <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
           {!row ? (
             <p className="text-sm text-muted-foreground">No record selected.</p>
           ) : activeTab === "Details" ? (
-            <DetailsTab row={row} columns={columns} />
+            <>
+              <GovernanceSection row={row} />
+              <DetailsTab row={row} columns={columns} />
+            </>
           ) : activeTab === "Related" ? (
             <div className="space-y-3">
               <Separator />
@@ -168,6 +206,25 @@ export function DetailDrawer({ isOpen, onClose, row, columns, sectionTitle }: De
               />
             </div>
           )}
+        </div>
+
+        {/* Footer — ERP write guard */}
+        <div className="border-t bg-muted/20 px-5 py-3">
+          <div className="flex items-center justify-between gap-3">
+            <p className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+              <Ban className="h-3 w-3 shrink-0" />
+              ERP write-back disabled · prototype mode
+            </p>
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-7 gap-1 px-3 text-xs opacity-50 cursor-not-allowed"
+              aria-disabled
+              title="ERP write-back is disabled in prototype mode"
+            >
+              Save to ERP
+            </Button>
+          </div>
         </div>
       </div>
     </>
