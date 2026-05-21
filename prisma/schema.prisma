@@ -7,6 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ── AI-Ops ───────────────────────────────────────────────────────────────────
+
 model Metric {
   id          Int      @id @default(autoincrement())
   timestamp   DateTime
@@ -39,7 +41,6 @@ model Incident {
 
   @@index([status])
   @@index([severity])
-  @@index([startedAt])
 }
 
 model Pipeline {
@@ -56,7 +57,6 @@ model Pipeline {
   stages      Stage[]
 
   @@index([status])
-  @@index([startedAt])
 }
 
 model Stage {
@@ -68,4 +68,231 @@ model Stage {
   pipeline   Pipeline @relation(fields: [pipelineId], references: [id], onDelete: Cascade)
 
   @@index([pipelineId])
+}
+
+// ── Ops Lab ──────────────────────────────────────────────────────────────────
+
+model Account {
+  id             String   @id
+  name           String
+  sbu            String
+  function       String
+  region         String
+  tier           String
+  status         String
+  annualRevenue  Float
+  contactName    String
+  contactEmail   String
+  accountManager String
+  createdAt      DateTime
+
+  @@index([sbu])
+  @@index([status])
+}
+
+model Quote {
+  id          String   @id
+  accountId   String
+  accountName String
+  title       String
+  value       Float
+  margin      Float
+  status      String
+  sbu         String
+  function    String
+  currency    String
+  validUntil  DateTime
+  owner       String
+  createdAt   DateTime
+
+  @@index([accountId])
+  @@index([status])
+  @@index([sbu])
+}
+
+model Order {
+  id               String    @id
+  quoteId          String
+  accountId        String
+  accountName      String
+  value            Float
+  currency         String
+  status           String
+  sbu              String
+  function         String
+  orderDate        DateTime
+  expectedDelivery DateTime
+  actualDelivery   DateTime?
+  lineItems        Int
+  createdAt        DateTime
+
+  @@index([accountId])
+  @@index([status])
+  @@index([sbu])
+}
+
+model InventoryItem {
+  id            String   @id
+  sku           String   @unique
+  name          String
+  category      String
+  supplierId    String
+  supplierName  String
+  quantity      Int
+  reorderPoint  Int
+  unitCost      Float
+  totalValue    Float
+  location      String
+  status        String
+  sbu           String
+  function      String
+  lastRestocked DateTime
+  createdAt     DateTime
+
+  @@index([status])
+  @@index([sbu])
+  @@index([category])
+}
+
+model Supplier {
+  id            String   @id
+  name          String
+  category      String
+  country       String
+  region        String
+  tier          String
+  status        String
+  annualSpend   Float
+  leadTimeDays  Int
+  qualityScore  Float
+  deliveryScore Float
+  contactName   String
+  contactEmail  String
+  sbu           String
+  function      String
+  createdAt     DateTime
+
+  @@index([status])
+  @@index([tier])
+}
+
+model Rebate {
+  id                String   @id
+  direction         String
+  type              String
+  counterpartyId    String
+  counterpartyName  String
+  counterpartyType  String
+  targetValue       Float
+  achievedValue     Float
+  rebateAmount      Float
+  currency          String
+  period            String
+  status            String
+  sbu               String
+  function          String
+  startDate         DateTime
+  endDate           DateTime
+  createdAt         DateTime
+
+  @@index([status])
+  @@index([direction])
+}
+
+model Project {
+  id            String   @id
+  name          String
+  description   String
+  status        String
+  phase         String
+  sbu           String
+  function      String
+  owner         String
+  sponsor       String
+  budget        Float
+  spent         Float
+  currency      String
+  startDate     DateTime
+  endDate       DateTime
+  completionPct Int
+  teamSize      Int
+  createdAt     DateTime
+
+  @@index([status])
+  @@index([sbu])
+}
+
+model Shipment {
+  id               String    @id
+  orderId          String
+  accountId        String
+  accountName      String
+  carrier          String
+  trackingNumber   String
+  mode             String
+  status           String
+  origin           String
+  destination      String
+  weight           Float
+  weightUnit       String
+  packages         Int
+  shippingCost     Float
+  currency         String
+  dispatchDate     DateTime
+  estimatedDelivery DateTime
+  actualDelivery   DateTime?
+  sbu              String
+  createdAt        DateTime
+
+  @@index([status])
+  @@index([orderId])
+}
+
+model Invoice {
+  id           String    @id
+  orderId      String
+  accountId    String
+  accountName  String
+  amount       Float
+  tax          Float
+  total        Float
+  currency     String
+  status       String
+  paymentTerms String
+  issuedDate   DateTime
+  dueDate      DateTime
+  paidDate     DateTime?
+  daysOutstanding Int?
+  sbu          String
+  function     String
+  createdAt    DateTime
+
+  @@index([status])
+  @@index([accountId])
+  @@index([dueDate])
+}
+
+model AiUseCase {
+  id                 String    @id
+  name               String
+  description        String
+  domain             String
+  status             String
+  model              String
+  sbu                String
+  function           String
+  owner              String
+  launchDate         DateTime?
+  monthlyCallVolume  Int
+  avgLatencyMs       Int
+  errorRatePct       Float
+  estimatedValueUsd  Float
+  actualValueUsd     Float
+  monthlyCostUsd     Float
+  roiMultiple        Float
+  createdAt          DateTime
+
+  @@index([status])
+  @@index([sbu])
+  @@index([domain])
 }

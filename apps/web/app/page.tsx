@@ -1,5 +1,5 @@
-import { Dashboard } from "@/features/dashboard/Dashboard";
+import { ShellDemo } from "@/features/shell/ShellDemo";
 
 export default function Home() {
-  return <Dashboard />;
+  return <ShellDemo />;
 }
