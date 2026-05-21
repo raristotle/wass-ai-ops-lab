@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Metric {
+  id          Int      @id @default(autoincrement())
+  timestamp   DateTime
+  model       String
+  latencyP50  Float
+  latencyP95  Float
+  latencyP99  Float
+  throughput  Float
+  errorRate   Float
+  tokenCount  Int
+  createdAt   DateTime @default(now())
+
+  @@index([timestamp])
+  @@index([model])
+}
+
+model Incident {
+  id            String    @id
+  title         String
+  description   String
+  severity      String
+  status        String
+  affectedModel String
+  startedAt     DateTime
+  resolvedAt    DateTime?
+  errorCount    Int       @default(0)
+  impactedUsers Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([status])
+  @@index([severity])
+  @@index([startedAt])
+}
+
+model Pipeline {
+  id          String    @id
+  name        String
+  status      String
+  triggeredBy String
+  startedAt   DateTime
+  finishedAt  DateTime?
+  totalTokens Int       @default(0)
+  costUsd     Float     @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  stages      Stage[]
+
+  @@index([status])
+  @@index([startedAt])
+}
+
+model Stage {
+  id         Int      @id @default(autoincrement())
+  pipelineId String
+  name       String
+  status     String
+  durationMs Int?
+  pipeline   Pipeline @relation(fields: [pipelineId], references: [id], onDelete: Cascade)
+
+  @@index([pipelineId])
+}

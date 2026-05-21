@@ -1,0 +1,108 @@
+# WASS AI Ops Lab
+
+Monitoring and operations dashboard for AI/LLM workloads — incidents, pipeline runs, model latency, and throughput in one view.
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS 3 + shadcn/ui |
+| Charts | Recharts |
+| State | Zustand |
+| ORM | Prisma 6 + SQLite |
+| Validation | Zod |
+
+## Prerequisites
+
+- Node.js ≥ 20
+- npm ≥ 10
+
+## Setup
+
+```bash
+# 1. Clone and install
+git clone <repo-url>
+cd wass-ai-ops-lab
+npm install
+
+# 2. Configure environment
+cp .env.example .env          # DATABASE_URL already set for local SQLite
+
+# 3. Initialise the database
+npx prisma generate
+npx prisma migrate dev --name init
+
+# 4. Start dev server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+> **Note:** The app runs entirely on mock data — no real API calls or secrets are required.
+
+## Project Structure
+
+```
+wass-ai-ops-lab/
+├── apps/
+│   └── web/                 # Next.js 15 application
+│       ├── app/             # App Router (layout, pages)
+│       ├── next.config.ts
+│       ├── tailwind.config.ts
+│       └── tsconfig.json    # Path aliases → repo-root dirs
+│
+├── components/              # Shared presentational components
+│   ├── charts/              # Recharts wrappers (LatencyChart, ThroughputChart, …)
+│   └── ui/                  # shadcn/ui primitives (Button, Card, Badge)
+│
+├── data/
+│   └── mock/                # Static mock data — no API calls
+│       ├── metrics.ts       # Time-series latency / throughput
+│       ├── incidents.ts     # Incident records
+│       └── pipelines.ts     # ML pipeline runs + stages
+│
+├── features/                # Feature modules (domain-scoped components)
+│   ├── dashboard/           # Summary stats + charts layout
+│   ├── incidents/           # Incident list with severity badges
+│   └── pipelines/           # Pipeline stage progress view
+│
+├── lib/
+│   ├── schemas.ts           # Zod schemas (source of truth for all types)
+│   ├── store.ts             # Zustand global state
+│   └── utils.ts             # cn(), formatMs(), formatTokens(), …
+│
+├── prisma/
+│   └── schema.prisma        # Metric, Incident, Pipeline, Stage models (SQLite)
+│
+├── .env.example             # Environment template (no secrets)
+├── CLAUDE.md                # Claude Code guide — commands + coding rules
+└── README.md
+```
+
+## Available Scripts
+
+| Script | Description |
+|---|---|
+| `npm run dev` | Dev server on :3000 (hot reload) |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript type check (no emit) |
+
+## Prisma
+
+```bash
+npx prisma generate           # Regenerate client after schema edits
+npx prisma migrate dev        # Apply pending migrations
+npx prisma studio             # GUI at http://localhost:5555
+```
+
+## Environment Variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `DATABASE_URL` | `file:./dev.db` | SQLite file path |
+
+No other variables are required. All data is mocked — there are no external API calls.
