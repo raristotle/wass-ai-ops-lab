@@ -26,8 +26,38 @@ export function ShellDemo() {
     drawerOpen,
   } = useOpsStore();
 
-  // IMT Risk has its own full-page layout
-  if (activeSection === "imt-risk") {
+  // All hooks must be called unconditionally — no early returns above this line.
+  const isImtRisk = activeSection === "imt-risk";
+  const config = isImtRisk ? null : SECTION_CONFIGS[activeSection as ShellSection];
+
+  const rawData = useMemo(
+    () => (config ? config.getData() : []),
+    [activeSection], // eslint-disable-line react-hooks/exhaustive-deps
+  );
+
+  const filteredData = useMemo(
+    () =>
+      config ? applyFilters(rawData, selectedSbus, selectedFunctions, dateFrom, dateTo) : [],
+    [rawData, selectedSbus, selectedFunctions, dateFrom, dateTo, config],
+  );
+
+  const kpis = useMemo(
+    () => (config ? config.computeKpis(filteredData) : []),
+    [filteredData, activeSection], // eslint-disable-line react-hooks/exhaustive-deps
+  );
+
+  const chartConfig = useMemo(
+    () => (config ? config.computeChartData(filteredData) : null),
+    [filteredData, activeSection], // eslint-disable-line react-hooks/exhaustive-deps
+  );
+
+  const selectedRow = useMemo(
+    () => (selectedRowId ? (rawData.find((r) => r.id === selectedRowId) ?? null) : null),
+    [selectedRowId, rawData],
+  );
+
+  // Conditional renders only after all hooks.
+  if (isImtRisk) {
     return (
       <AppShell>
         <ImtRiskPage />
@@ -35,32 +65,7 @@ export function ShellDemo() {
     );
   }
 
-  // All other sections use the generic shell
-  const config = SECTION_CONFIGS[activeSection as ShellSection];
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const rawData = useMemo(() => config.getData(), [activeSection]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const filteredData = useMemo(
-    () => applyFilters(rawData, selectedSbus, selectedFunctions, dateFrom, dateTo),
-    [rawData, selectedSbus, selectedFunctions, dateFrom, dateTo]
-  );
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const kpis = useMemo(() => config.computeKpis(filteredData), [filteredData, activeSection]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const chartConfig = useMemo(
-    () => config.computeChartData(filteredData),
-    [filteredData, activeSection] // eslint-disable-line react-hooks/exhaustive-deps
-  );
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const selectedRow = useMemo(
-    () => (selectedRowId ? (rawData.find((r) => r.id === selectedRowId) ?? null) : null),
-    [selectedRowId, rawData]
-  );
+  if (!config || !chartConfig) return null;
 
   return (
     <AppShell>
