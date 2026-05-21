@@ -13,7 +13,8 @@ export type Section =
   | "projects"
   | "shipments"
   | "invoices"
-  | "ai-use-cases";
+  | "ai-use-cases"
+  | "imt-risk";
 
 export type AuditAction = "VIEW_RECORD" | "OPEN_SECTION" | "FILTER_APPLIED" | "EXPORT_ATTEMPTED";
 

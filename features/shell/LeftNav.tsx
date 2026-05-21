@@ -12,6 +12,7 @@ import {
   Ship,
   Receipt,
   Sparkles,
+  ShieldAlert,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
@@ -30,6 +31,7 @@ const NAV_ITEMS: { key: Section; label: string; Icon: React.ComponentType<{ clas
   { key: "shipments",    label: "Shipments",    Icon: Ship            },
   { key: "invoices",     label: "Invoices",     Icon: Receipt         },
   { key: "ai-use-cases", label: "AI Use Cases", Icon: Sparkles        },
+  { key: "imt-risk",     label: "IMT Risk",     Icon: ShieldAlert     },
 ];
 
 export function LeftNav() {
