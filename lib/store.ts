@@ -18,7 +18,8 @@ export type Section =
   | "eproc-risk"
   | "sales-nba"
   | "project-orchestrator"
-  | "dc-control-tower";
+  | "dc-control-tower"
+  | "autobom-assistant";
 
 export type AuditAction = "VIEW_RECORD" | "OPEN_SECTION" | "FILTER_APPLIED" | "EXPORT_ATTEMPTED";
 

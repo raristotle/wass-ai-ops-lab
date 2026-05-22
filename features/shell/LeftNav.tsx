@@ -17,6 +17,7 @@ import {
   Zap,
   Layers,
   Server,
+  ScanSearch,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
@@ -38,8 +39,9 @@ const NAV_ITEMS: { key: Section; label: string; Icon: React.ComponentType<{ clas
   { key: "imt-risk",     label: "IMT Risk",     Icon: ShieldAlert     },
   { key: "eproc-risk",  label: "eProc Risk",   Icon: Network         },
   { key: "sales-nba",            label: "Sales NBA",         Icon: Zap    },
-  { key: "project-orchestrator", label: "Project Orchestrator", Icon: Layers },
-  { key: "dc-control-tower",     label: "DC Control Tower",     Icon: Server },
+  { key: "project-orchestrator", label: "Project Orchestrator", Icon: Layers     },
+  { key: "dc-control-tower",     label: "DC Control Tower",     Icon: Server     },
+  { key: "autobom-assistant",    label: "AutoBOM Assistant",    Icon: ScanSearch },
 ];
 
 export function LeftNav() {

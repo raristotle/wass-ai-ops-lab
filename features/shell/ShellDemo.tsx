@@ -13,9 +13,10 @@ import { EprocRiskPage } from "@/features/eproc-risk/EprocRiskPage";
 import { SalesNbaPage } from "@/features/sales-nba/SalesNbaPage";
 import { ProjectOrchestratorPage } from "@/features/project-orchestrator/ProjectOrchestratorPage";
 import { DcControlTowerPage } from "@/features/dc-control-tower/DcControlTowerPage";
+import { AutoBomPage } from "@/features/autobom-assistant/AutoBomPage";
 import type { Section } from "@/lib/store";
 
-type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk" | "sales-nba" | "project-orchestrator" | "dc-control-tower">;
+type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk" | "sales-nba" | "project-orchestrator" | "dc-control-tower" | "autobom-assistant">;
 
 export function ShellDemo() {
   const {
@@ -36,7 +37,8 @@ export function ShellDemo() {
   const isSalesNba             = activeSection === "sales-nba";
   const isProjectOrchestrator  = activeSection === "project-orchestrator";
   const isDcControlTower       = activeSection === "dc-control-tower";
-  const isSpecial              = isImtRisk || isEprocRisk || isSalesNba || isProjectOrchestrator || isDcControlTower;
+  const isAutoBom              = activeSection === "autobom-assistant";
+  const isSpecial              = isImtRisk || isEprocRisk || isSalesNba || isProjectOrchestrator || isDcControlTower || isAutoBom;
   const config = isSpecial ? null : SECTION_CONFIGS[activeSection as ShellSection];
 
   const rawData = useMemo(
@@ -102,6 +104,14 @@ export function ShellDemo() {
     return (
       <AppShell>
         <DcControlTowerPage />
+      </AppShell>
+    );
+  }
+
+  if (isAutoBom) {
+    return (
+      <AppShell>
+        <AutoBomPage />
       </AppShell>
     );
   }
