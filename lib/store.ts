@@ -15,7 +15,8 @@ export type Section =
   | "invoices"
   | "ai-use-cases"
   | "imt-risk"
-  | "eproc-risk";
+  | "eproc-risk"
+  | "sales-nba";
 
 export type AuditAction = "VIEW_RECORD" | "OPEN_SECTION" | "FILTER_APPLIED" | "EXPORT_ATTEMPTED";
 

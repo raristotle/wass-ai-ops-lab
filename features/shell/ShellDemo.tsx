@@ -10,9 +10,10 @@ import { DetailDrawer } from "./DetailDrawer";
 import { SECTION_CONFIGS, applyFilters } from "./sectionConfigs";
 import { ImtRiskPage } from "@/features/imt-risk/ImtRiskPage";
 import { EprocRiskPage } from "@/features/eproc-risk/EprocRiskPage";
+import { SalesNbaPage } from "@/features/sales-nba/SalesNbaPage";
 import type { Section } from "@/lib/store";
 
-type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk">;
+type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk" | "sales-nba">;
 
 export function ShellDemo() {
   const {
@@ -30,7 +31,8 @@ export function ShellDemo() {
   // All hooks must be called unconditionally — no early returns above this line.
   const isImtRisk   = activeSection === "imt-risk";
   const isEprocRisk = activeSection === "eproc-risk";
-  const isSpecial   = isImtRisk || isEprocRisk;
+  const isSalesNba  = activeSection === "sales-nba";
+  const isSpecial   = isImtRisk || isEprocRisk || isSalesNba;
   const config = isSpecial ? null : SECTION_CONFIGS[activeSection as ShellSection];
 
   const rawData = useMemo(
@@ -72,6 +74,14 @@ export function ShellDemo() {
     return (
       <AppShell>
         <EprocRiskPage />
+      </AppShell>
+    );
+  }
+
+  if (isSalesNba) {
+    return (
+      <AppShell>
+        <SalesNbaPage />
       </AppShell>
     );
   }
