@@ -9,9 +9,10 @@ import { ChartArea } from "./ChartArea";
 import { DetailDrawer } from "./DetailDrawer";
 import { SECTION_CONFIGS, applyFilters } from "./sectionConfigs";
 import { ImtRiskPage } from "@/features/imt-risk/ImtRiskPage";
+import { EprocRiskPage } from "@/features/eproc-risk/EprocRiskPage";
 import type { Section } from "@/lib/store";
 
-type ShellSection = Exclude<Section, "imt-risk">;
+type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk">;
 
 export function ShellDemo() {
   const {
@@ -27,8 +28,10 @@ export function ShellDemo() {
   } = useOpsStore();
 
   // All hooks must be called unconditionally — no early returns above this line.
-  const isImtRisk = activeSection === "imt-risk";
-  const config = isImtRisk ? null : SECTION_CONFIGS[activeSection as ShellSection];
+  const isImtRisk   = activeSection === "imt-risk";
+  const isEprocRisk = activeSection === "eproc-risk";
+  const isSpecial   = isImtRisk || isEprocRisk;
+  const config = isSpecial ? null : SECTION_CONFIGS[activeSection as ShellSection];
 
   const rawData = useMemo(
     () => (config ? config.getData() : []),
@@ -61,6 +64,14 @@ export function ShellDemo() {
     return (
       <AppShell>
         <ImtRiskPage />
+      </AppShell>
+    );
+  }
+
+  if (isEprocRisk) {
+    return (
+      <AppShell>
+        <EprocRiskPage />
       </AppShell>
     );
   }

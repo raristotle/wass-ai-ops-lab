@@ -79,7 +79,7 @@ const fmtPct = (val: unknown) => `${(Number(val ?? 0) * 100).toFixed(1)}%`;
 
 // ── section configs ───────────────────────────────────────────────────────────
 
-const CONFIGS: Record<Exclude<Section, "imt-risk">, SectionConfig> = {
+const CONFIGS: Record<Exclude<Section, "imt-risk" | "eproc-risk">, SectionConfig> = {
 
   dashboard: {
     title: "Dashboard",
