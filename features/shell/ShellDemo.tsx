@@ -11,9 +11,11 @@ import { SECTION_CONFIGS, applyFilters } from "./sectionConfigs";
 import { ImtRiskPage } from "@/features/imt-risk/ImtRiskPage";
 import { EprocRiskPage } from "@/features/eproc-risk/EprocRiskPage";
 import { SalesNbaPage } from "@/features/sales-nba/SalesNbaPage";
+import { ProjectOrchestratorPage } from "@/features/project-orchestrator/ProjectOrchestratorPage";
+import { DcControlTowerPage } from "@/features/dc-control-tower/DcControlTowerPage";
 import type { Section } from "@/lib/store";
 
-type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk" | "sales-nba">;
+type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk" | "sales-nba" | "project-orchestrator" | "dc-control-tower">;
 
 export function ShellDemo() {
   const {
@@ -29,10 +31,12 @@ export function ShellDemo() {
   } = useOpsStore();
 
   // All hooks must be called unconditionally — no early returns above this line.
-  const isImtRisk   = activeSection === "imt-risk";
-  const isEprocRisk = activeSection === "eproc-risk";
-  const isSalesNba  = activeSection === "sales-nba";
-  const isSpecial   = isImtRisk || isEprocRisk || isSalesNba;
+  const isImtRisk              = activeSection === "imt-risk";
+  const isEprocRisk            = activeSection === "eproc-risk";
+  const isSalesNba             = activeSection === "sales-nba";
+  const isProjectOrchestrator  = activeSection === "project-orchestrator";
+  const isDcControlTower       = activeSection === "dc-control-tower";
+  const isSpecial              = isImtRisk || isEprocRisk || isSalesNba || isProjectOrchestrator || isDcControlTower;
   const config = isSpecial ? null : SECTION_CONFIGS[activeSection as ShellSection];
 
   const rawData = useMemo(
@@ -82,6 +86,22 @@ export function ShellDemo() {
     return (
       <AppShell>
         <SalesNbaPage />
+      </AppShell>
+    );
+  }
+
+  if (isProjectOrchestrator) {
+    return (
+      <AppShell>
+        <ProjectOrchestratorPage />
+      </AppShell>
+    );
+  }
+
+  if (isDcControlTower) {
+    return (
+      <AppShell>
+        <DcControlTowerPage />
       </AppShell>
     );
   }

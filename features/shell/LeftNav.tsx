@@ -15,6 +15,8 @@ import {
   ShieldAlert,
   Network,
   Zap,
+  Layers,
+  Server,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
@@ -35,7 +37,9 @@ const NAV_ITEMS: { key: Section; label: string; Icon: React.ComponentType<{ clas
   { key: "ai-use-cases", label: "AI Use Cases", Icon: Sparkles        },
   { key: "imt-risk",     label: "IMT Risk",     Icon: ShieldAlert     },
   { key: "eproc-risk",  label: "eProc Risk",   Icon: Network         },
-  { key: "sales-nba",  label: "Sales NBA",    Icon: Zap             },
+  { key: "sales-nba",            label: "Sales NBA",         Icon: Zap    },
+  { key: "project-orchestrator", label: "Project Orchestrator", Icon: Layers },
+  { key: "dc-control-tower",     label: "DC Control Tower",     Icon: Server },
 ];
 
 export function LeftNav() {

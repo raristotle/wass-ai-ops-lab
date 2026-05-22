@@ -16,7 +16,9 @@ export type Section =
   | "ai-use-cases"
   | "imt-risk"
   | "eproc-risk"
-  | "sales-nba";
+  | "sales-nba"
+  | "project-orchestrator"
+  | "dc-control-tower";
 
 export type AuditAction = "VIEW_RECORD" | "OPEN_SECTION" | "FILTER_APPLIED" | "EXPORT_ATTEMPTED";
 
