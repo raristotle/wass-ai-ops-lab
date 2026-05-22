@@ -4,10 +4,12 @@ import { useState, useMemo } from "react";
 import { ScopeUploader } from "./ScopeUploader";
 import { BomReviewTable } from "./BomReviewTable";
 import { BomLineCard } from "./BomLineCard";
+import { SmeRequestDrawer } from "./SmeRequestDrawer";
 import { cn } from "@/lib/utils";
 import { formatCurrency } from "@/lib/utils";
 import type { BomExtraction, BomLine, BomLineStatus } from "@/lib/autobom";
 import { computeBomStats } from "@/lib/autobom";
+import { parseScopeText } from "@/lib/parsers/autobom-parser";
 
 // ── KPI card ───────────────────────────────────────────────────────────────────
 
@@ -32,16 +34,20 @@ export function AutoBomPage() {
   const [lines, setLines]             = useState<BomLine[]>([]);
   const [isLoading, setIsLoading]     = useState(false);
   const [selectedId, setSelectedId]   = useState<string | null>(null);
+  const [smeLineId, setSmeLineId]     = useState<string | null>(null);
   const [view, setView]               = useState<ViewTab>("table");
 
   // ── handlers ──────────────────────────────────────────────────────────────
 
-  function handleExtract(ext: BomExtraction) {
+  function handleExtract(ext: BomExtraction, fromParser = false) {
     setIsLoading(true);
-    // Simulate a small processing delay for UX realism
+    // Simulate processing delay for UX realism; run live parser for custom input
     setTimeout(() => {
-      setExtraction(ext);
-      setLines(ext.lines.map((l) => ({ ...l }))); // local mutable copy
+      const result = fromParser
+        ? parseScopeText(ext.sourceText, ext.projectName)
+        : ext;
+      setExtraction(result);
+      setLines(result.lines.map((l) => ({ ...l }))); // local mutable copy
       setSelectedId(null);
       setIsLoading(false);
     }, 600);
@@ -58,10 +64,12 @@ export function AutoBomPage() {
   }
 
   function handleRequestSme(id: string) {
-    updateLineStatus(id, "sme-requested", {
-      smeNote: "Awaiting SME clarification on specifications.",
-      smeAssignee: "Unassigned",
-    });
+    setSmeLineId(id); // open the SME drawer
+  }
+
+  function handleSmeSubmit(lineId: string, note: string, assignee: string) {
+    updateLineStatus(lineId, "sme-requested", { smeNote: note, smeAssignee: assignee });
+    setSmeLineId(null);
   }
 
   function handleSendToQuote(id: string) {
@@ -81,6 +89,11 @@ export function AutoBomPage() {
   const selectedLine = useMemo(
     () => (selectedId ? (lines.find((l) => l.id === selectedId) ?? null) : null),
     [selectedId, lines],
+  );
+
+  const smeLine = useMemo(
+    () => (smeLineId ? (lines.find((l) => l.id === smeLineId) ?? null) : null),
+    [smeLineId, lines],
   );
 
   // ── render ─────────────────────────────────────────────────────────────────
@@ -242,6 +255,14 @@ export function AutoBomPage() {
         PROTOTYPE ONLY — SKU suggestions are deterministic stubs. Pricing is placeholder data.
         No ERP writes. Human review required before quoting.
       </p>
+
+      {/* SME request drawer */}
+      <SmeRequestDrawer
+        open={smeLineId !== null}
+        onClose={() => setSmeLineId(null)}
+        line={smeLine}
+        onSubmit={handleSmeSubmit}
+      />
     </div>
   );
 }

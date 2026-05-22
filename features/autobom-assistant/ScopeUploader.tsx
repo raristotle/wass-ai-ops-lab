@@ -27,15 +27,17 @@ export function ScopeUploader({ onExtract, isLoading }: Props) {
       // Return mock pre-parsed result
       onExtract(selectedScope.extraction, false);
     } else {
-      // In commit 1, custom text falls back to scope-a mock with a note;
-      // commit 2 wires the live parser here.
-      const fallback = {
-        ...MOCK_SCOPES[0].extraction,
-        id:          "BOM-CUSTOM-001",
-        projectName: "Custom Scope (live parser not yet wired)",
-        sourceText:  customText,
+      // Pass a minimal BomExtraction shell; AutoBomPage runs the live parser
+      // via parseScopeText when fromParser=true.
+      const shell: import("@/lib/autobom").BomExtraction = {
+        id:            "BOM-CUSTOM-001",
+        projectName:   "Custom Scope",
+        sourceText:    customText,
+        lines:         [],
+        extractedAt:   new Date().toISOString(),
+        parserVersion: "stub-v1",
       };
-      onExtract(fallback, false);
+      onExtract(shell, true);
     }
   }
 
