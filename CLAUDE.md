@@ -69,3 +69,77 @@ Configured in `apps/web/tsconfig.json` (TS) and `apps/web/next.config.ts` (webpa
 - Conventional Commits: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`.
 - Never commit `.env`, API keys, or any credentials.
 - Keep PRs small and focused on a single concern.
+
+---
+
+## Wesco Brand Guidelines
+
+Apply these standards to all UI, charts, presentations, documents, and generated visuals.
+
+### Color Palette
+
+#### Primary Colors
+| Role | Name | HEX | Tailwind usage |
+|---|---|---|---|
+| Signature / accent | Wesco Green | `#00AA13` | `text-[#00AA13]` / `bg-[#00AA13]` |
+| Background (default) | White | `#FFFFFF` | `bg-white` |
+| Text / heading | Charcoal Black | `#1D252D` | `text-[#1D252D]` / `bg-[#1D252D]` |
+
+#### Secondary Colors
+| Name | HEX | Use |
+|---|---|---|
+| Granite Grey | `#4F758B` | Backgrounds, content boxes |
+| Steel Grey | `#B7C9D3` | Backgrounds, content boxes, complementary layout |
+
+#### Tertiary Colors (charts, graphs, infographics only)
+| Name | HEX |
+|---|---|
+| Big Rig Yellow | `#EAAA00` |
+| Eco Green | `#00573F` |
+| Circuit Blue | `#64CCC9` |
+| Mechanical Blue | `#004986` |
+| Logistics Orange | `#DB6B30` |
+
+### Color Distribution (branded materials)
+- **White** ~40% — default background; apply in large amounts for airiness
+- **Charcoal Black** ~30% — body text, headings, stability
+- **Wesco Green** ~10% — accent highlights only; never overuse in body-copy materials
+- **Steel Grey** ~10% — supporting backgrounds / boxes
+- **Granite Grey** ~10% — supporting backgrounds / boxes
+
+> **Exception:** Wesco Green may dominate one-of-a-kind collateral (business cards, shirts, hats) that carry little-to-no body copy.
+
+### WCAG Accessibility
+
+Large text ≥ 18 pt (24 px) or bold ≥ 14 pt (18.66 px).
+
+**Safe combinations (pass Normal + Large text):**
+- `#00AA13` on `#FFFFFF` · `#FFFFFF` on `#00AA13`
+- `#FFFFFF` on `#1D252D` · `#FFFFFF` on `#00573F` · `#FFFFFF` on `#004986`
+- `#B7C9D3` on `#FFFFFF` · `#B7C9D3` on `#1D252D`
+- `#4F758B` on `#FFFFFF` · `#EAAA00` on `#FFFFFF`
+- `#64CCC9` on `#FFFFFF` · `#DB6B30` on `#FFFFFF`
+
+**Large text only (avoid for body copy):**
+- `#1D252D` on `#FFFFFF` · `#00AA13` on `#1D252D`
+- `#EAAA00` on `#1D252D` · `#00573F` on `#FFFFFF`
+- `#004986` on `#FFFFFF` · `#64CCC9` on `#1D252D`
+
+**Always avoid:**
+- `#1D252D` on `#4F758B` · `#B7C9D3` on `#4F758B`
+
+### Typography
+
+| Role | Typeface | Weights | Fallback |
+|---|---|---|---|
+| Headlines / callouts | **Titillium Web** | Bold, Regular, Light | Arial Bold |
+| Body copy | **Source Sans Pro** | Bold, Regular | Arial Regular |
+
+Both fonts are licensed under the Open Font License — download from [Google Fonts](https://fonts.google.com). Use the Google Fonts files specifically (different kerning/leading from Adobe Fonts).
+
+### Application Rules for This Project
+- Use `#00AA13` (Wesco Green) sparingly in the UI — CTA buttons, active nav indicators, positive KPI accents
+- Chart series: prefer tertiary palette (`#EAAA00`, `#64CCC9`, `#DB6B30`, `#004986`, `#00573F`) for multi-series data; never use `#00AA13` as one data series among many
+- Background: `#FFFFFF` (light) / `#1D252D` for dark surfaces
+- Body text on light backgrounds: `#1D252D` (Charcoal Black), not pure `#000000`
+- Avoid `#1D252D` text directly on `#4F758B` backgrounds (fails WCAG)
