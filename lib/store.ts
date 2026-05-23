@@ -19,7 +19,8 @@ export type Section =
   | "sales-nba"
   | "project-orchestrator"
   | "dc-control-tower"
-  | "autobom-assistant";
+  | "autobom-assistant"
+  | "win-loss-workbench";
 
 export type AuditAction = "VIEW_RECORD" | "OPEN_SECTION" | "FILTER_APPLIED" | "EXPORT_ATTEMPTED";
 

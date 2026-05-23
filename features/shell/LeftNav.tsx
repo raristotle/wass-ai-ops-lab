@@ -18,6 +18,7 @@ import {
   Layers,
   Server,
   ScanSearch,
+  BarChart2,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
@@ -42,6 +43,7 @@ const NAV_ITEMS: { key: Section; label: string; Icon: React.ComponentType<{ clas
   { key: "project-orchestrator", label: "Project Orchestrator", Icon: Layers     },
   { key: "dc-control-tower",     label: "DC Control Tower",     Icon: Server     },
   { key: "autobom-assistant",    label: "AutoBOM Assistant",    Icon: ScanSearch },
+  { key: "win-loss-workbench",   label: "Win-Loss Workbench",   Icon: BarChart2  },
 ];
 
 export function LeftNav() {

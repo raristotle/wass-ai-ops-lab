@@ -14,9 +14,10 @@ import { SalesNbaPage } from "@/features/sales-nba/SalesNbaPage";
 import { ProjectOrchestratorPage } from "@/features/project-orchestrator/ProjectOrchestratorPage";
 import { DcControlTowerPage } from "@/features/dc-control-tower/DcControlTowerPage";
 import { AutoBomPage } from "@/features/autobom-assistant/AutoBomPage";
+import { WinLossPage } from "@/features/win-loss-workbench/WinLossPage";
 import type { Section } from "@/lib/store";
 
-type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk" | "sales-nba" | "project-orchestrator" | "dc-control-tower" | "autobom-assistant">;
+type ShellSection = Exclude<Section, "imt-risk" | "eproc-risk" | "sales-nba" | "project-orchestrator" | "dc-control-tower" | "autobom-assistant" | "win-loss-workbench">;
 
 export function ShellDemo() {
   const {
@@ -38,7 +39,8 @@ export function ShellDemo() {
   const isProjectOrchestrator  = activeSection === "project-orchestrator";
   const isDcControlTower       = activeSection === "dc-control-tower";
   const isAutoBom              = activeSection === "autobom-assistant";
-  const isSpecial              = isImtRisk || isEprocRisk || isSalesNba || isProjectOrchestrator || isDcControlTower || isAutoBom;
+  const isWinLoss              = activeSection === "win-loss-workbench";
+  const isSpecial              = isImtRisk || isEprocRisk || isSalesNba || isProjectOrchestrator || isDcControlTower || isAutoBom || isWinLoss;
   const config = isSpecial ? null : SECTION_CONFIGS[activeSection as ShellSection];
 
   const rawData = useMemo(
@@ -112,6 +114,14 @@ export function ShellDemo() {
     return (
       <AppShell>
         <AutoBomPage />
+      </AppShell>
+    );
+  }
+
+  if (isWinLoss) {
+    return (
+      <AppShell>
+        <WinLossPage />
       </AppShell>
     );
   }
