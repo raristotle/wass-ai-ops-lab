@@ -16,6 +16,9 @@ import { CompetitorHeatmap } from "./CompetitorHeatmap";
 import { PriceDeltaChart }   from "./PriceDeltaChart";
 import { QuoteTable }        from "./QuoteTable";
 import { QuoteDetailDrawer } from "./QuoteDetailDrawer";
+import { InsightCards }      from "./InsightCards";
+import { ManagerView }       from "./ManagerView";
+import { generateInsights }  from "@/lib/pricing-insights";
 
 // ── KPI Card ───────────────────────────────────────────────────────────────────
 
@@ -65,6 +68,7 @@ export function WinLossPage() {
   const [productFam,  setProductFam]  = useState<string>("all");
   const [competitor,  setCompetitor]  = useState<string>("all");
   const [selected,    setSelected]    = useState<QuoteRecord | null>(null);
+  const [activeTab,   setActiveTab]   = useState<"overview" | "insights" | "manager">("overview");
 
   const activeMonths = useMemo(() => monthsInRange(timeRange), [timeRange]);
 
@@ -83,7 +87,8 @@ export function WinLossPage() {
     });
   }, [activeMonths, sbu, rep, region, productFam, competitor]);
 
-  const stats = useMemo(() => computeTopStats(filtered), [filtered]);
+  const stats    = useMemo(() => computeTopStats(filtered),     [filtered]);
+  const insights = useMemo(() => generateInsights(filtered),   [filtered]);
 
   // Derive current month label for display
   const [y, m] = LAST_MONTH.split("-");
@@ -189,20 +194,58 @@ export function WinLossPage() {
         />
       </div>
 
-      {/* Win rate trend — full width */}
-      <WinRateTrend records={filtered} />
-
-      {/* 2-column chart row */}
-      <div className="grid gap-4 lg:grid-cols-2">
-        <LossReasonsChart  records={filtered} />
-        <PriceDeltaChart   records={filtered} />
+      {/* Tab bar */}
+      <div className="flex rounded-lg border bg-muted p-0.5 w-fit">
+        {([
+          { key: "overview",  label: "Overview" },
+          { key: "insights",  label: `Insights${insights.length > 0 ? ` (${insights.length})` : ""}` },
+          { key: "manager",   label: "Manager View" },
+        ] as const).map(({ key, label }) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={cn(
+              "rounded-md px-4 py-1.5 text-xs font-medium transition-colors",
+              activeTab === key
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
-      {/* Heatmap — full width */}
-      <CompetitorHeatmap records={filtered} />
+      {/* Tab: Overview */}
+      {activeTab === "overview" && (
+        <>
+          <WinRateTrend records={filtered} />
+          <div className="grid gap-4 lg:grid-cols-2">
+            <LossReasonsChart  records={filtered} />
+            <PriceDeltaChart   records={filtered} />
+          </div>
+          <CompetitorHeatmap records={filtered} />
+          <QuoteTable records={filtered} onSelect={setSelected} />
+        </>
+      )}
 
-      {/* Quote table */}
-      <QuoteTable records={filtered} onSelect={setSelected} />
+      {/* Tab: Insights */}
+      {activeTab === "insights" && (
+        <InsightCards
+          insights={insights}
+          onViewQuotes={(ids) => {
+            // Switch to overview + pre-filter would require state; just switch tab
+            setActiveTab("overview");
+            // ids available if we later wire a highlight mechanism
+            void ids;
+          }}
+        />
+      )}
+
+      {/* Tab: Manager View */}
+      {activeTab === "manager" && (
+        <ManagerView records={filtered} />
+      )}
 
       <p className="text-center text-[10px] text-muted-foreground">
         PROTOTYPE ONLY — Data is simulated. No ERP writes. Not for operational use.
