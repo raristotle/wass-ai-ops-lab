@@ -6,6 +6,7 @@ import { ALL_SUBCATEGORIES, ALL_BRANDS, WESCO_PRODUCTS } from "@/data/mock/wesco
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { FilterState } from "@/features/product-finder/types";
 
 const VISIBLE_LIMIT = 8;
 
@@ -17,16 +18,7 @@ function countForBrand(brand: string): number {
   return WESCO_PRODUCTS.filter((p) => p.brand === brand).length;
 }
 
-function hasActiveFilters(filters: {
-  categories: Set<string>;
-  subcategories: Set<string>;
-  brands: Set<string>;
-  onlyBranchStock: boolean;
-  onlyDCStock: boolean;
-  onlyPreferred: boolean;
-  priceMin: number | null;
-  priceMax: number | null;
-}): boolean {
+function hasActiveFilters(filters: FilterState): boolean {
   return (
     filters.categories.size > 0 ||
     filters.subcategories.size > 0 ||

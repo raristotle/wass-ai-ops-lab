@@ -5,6 +5,7 @@ import {
   useState,
   useCallback,
   useEffect,
+  type RefObject,
   type ChangeEvent,
   type DragEvent,
   type KeyboardEvent,
@@ -83,8 +84,8 @@ interface SingleSearchPanelProps {
   query: string;
   suggestions: WescoProduct[];
   showSuggestions: boolean;
-  inputRef: React.RefObject<HTMLInputElement | null>;
-  dropdownRef: React.RefObject<HTMLDivElement | null>;
+  inputRef: RefObject<HTMLInputElement | null>;
+  dropdownRef: RefObject<HTMLDivElement | null>;
   onQueryChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
   onClear: () => void;
@@ -216,40 +217,34 @@ interface BomTableRowProps {
 }
 
 function BomTableRow({ line, onLineSelect }: BomTableRowProps) {
-  const hasResolved = line.resolved !== null;
+  const resolved: WescoProduct | null = line.resolved;
+
+  const branchQty =
+    resolved !== null
+      ? resolved.branchStock.reduce((s, b) => s + b.quantity, 0)
+      : 0;
+  const dcQty =
+    resolved !== null
+      ? resolved.dcStock.reduce((s, d) => s + d.quantity, 0)
+      : 0;
+  const inStock = branchQty > 0 || dcQty > 0;
 
   const handleClick = () => {
-    if (hasResolved) {
-      // line.resolved is confirmed non-null by the hasResolved guard above
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      onLineSelect(line.resolved!);
-    }
+    if (resolved !== null) onLineSelect(resolved);
   };
-
-  const branchQty = hasResolved
-    ? // line.resolved is confirmed non-null above
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      line.resolved!.branchStock.reduce((s, b) => s + b.quantity, 0)
-    : 0;
-  const dcQty = hasResolved
-    ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      line.resolved!.dcStock.reduce((s, d) => s + d.quantity, 0)
-    : 0;
-  const inStock = branchQty > 0 || dcQty > 0;
 
   return (
     <div
-      role={hasResolved ? "button" : undefined}
-      tabIndex={hasResolved ? 0 : undefined}
+      role={resolved !== null ? "button" : undefined}
+      tabIndex={resolved !== null ? 0 : undefined}
       aria-label={
-        hasResolved
-          ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            `Select ${line.resolved!.name} for ${line.description}`
+        resolved !== null
+          ? `Select ${resolved.name} for ${line.description}`
           : undefined
       }
       onClick={handleClick}
       onKeyDown={(e) => {
-        if (hasResolved && (e.key === "Enter" || e.key === " ")) {
+        if (resolved !== null && (e.key === "Enter" || e.key === " ")) {
           e.preventDefault();
           handleClick();
         }
@@ -257,11 +252,11 @@ function BomTableRow({ line, onLineSelect }: BomTableRowProps) {
       className={cn(
         "grid grid-cols-1 gap-2 rounded-lg border border-[#B7C9D3] bg-white px-4 py-3 text-sm",
         "sm:grid-cols-[3rem_1fr_1fr_5rem_6rem] sm:items-center sm:gap-3",
-        hasResolved && "cursor-pointer hover:bg-[#B7C9D3]/10 transition-colors"
+        resolved !== null && "cursor-pointer transition-colors hover:bg-[#B7C9D3]/10"
       )}
     >
       {/* Qty */}
-      <Badge className="w-fit bg-[#00AA13] text-white border-0 text-xs">
+      <Badge className="w-fit border-0 bg-[#00AA13] text-xs text-white">
         &times;{line.quantity}
       </Badge>
 
@@ -269,15 +264,13 @@ function BomTableRow({ line, onLineSelect }: BomTableRowProps) {
       <span className="truncate text-[#1D252D]">{line.description}</span>
 
       {/* Wesco Match */}
-      {hasResolved ? (
+      {resolved !== null ? (
         <div className="min-w-0">
           <p className="truncate font-medium text-[#1D252D]">
-            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            {line.resolved!.imageIcon} {line.resolved!.name}
+            {resolved.imageIcon} {resolved.name}
           </p>
           <p className="truncate text-xs text-[#4F758B]">
-            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            SKU: {line.resolved!.sku}
+            SKU: {resolved.sku}
           </p>
         </div>
       ) : (
@@ -288,7 +281,7 @@ function BomTableRow({ line, onLineSelect }: BomTableRowProps) {
 
       {/* Alternatives count */}
       <div className="text-center">
-        {hasResolved && line.alternatives.length > 0 ? (
+        {resolved !== null && line.alternatives.length > 0 ? (
           <span className="rounded-full border border-[#B7C9D3] px-2 py-0.5 text-xs text-[#4F758B]">
             {line.alternatives.length}
           </span>
@@ -299,9 +292,9 @@ function BomTableRow({ line, onLineSelect }: BomTableRowProps) {
 
       {/* Status badge */}
       <div>
-        {hasResolved ? (
+        {resolved !== null ? (
           inStock ? (
-            <Badge className="bg-[#00AA13] text-white border-0 text-xs">
+            <Badge className="border-0 bg-[#00AA13] text-xs text-white">
               In Stock
             </Badge>
           ) : (
@@ -374,7 +367,7 @@ interface BomPanelProps {
   bomText: string;
   bomLines: BomLine[];
   isDragging: boolean;
-  fileInputRef: React.RefObject<HTMLInputElement | null>;
+  fileInputRef: RefObject<HTMLInputElement | null>;
   onDrop: (e: DragEvent<HTMLDivElement>) => void;
   onDragOver: (e: DragEvent<HTMLDivElement>) => void;
   onDragLeave: () => void;
