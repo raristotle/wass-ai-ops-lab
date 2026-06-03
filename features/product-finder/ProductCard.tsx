@@ -1,0 +1,381 @@
+"use client";
+
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { StockBadge } from "@/features/product-finder/StockBadge";
+import { useProductFinder } from "@/lib/product-finder-store";
+import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
+import type { WescoProduct, ProductSpec } from "@/features/product-finder/types";
+
+interface ProductCardProps {
+  product: WescoProduct;
+  isAlternative?: boolean;
+  referenceProduct?: WescoProduct;
+}
+
+function computeCompatScore(
+  product: WescoProduct,
+  reference: WescoProduct
+): number {
+  const refNonNeg = reference.specs.filter((s) => s.isNonNeg);
+  if (refNonNeg.length === 0) return 100;
+  const matches = refNonNeg.filter((rs) => {
+    const ps = product.specs.find((s) => s.name === rs.name);
+    return ps?.value === rs.value;
+  });
+  return Math.round((matches.length / refNonNeg.length) * 100);
+}
+
+function SpecRow({
+  spec,
+  referenceSpec,
+}: {
+  spec: ProductSpec;
+  referenceSpec?: ProductSpec;
+}) {
+  const isMatch =
+    referenceSpec === undefined || referenceSpec.value === spec.value;
+  return (
+    <li className="flex items-start gap-1.5 text-xs text-[#1D252D]">
+      {spec.isNonNeg ? (
+        isMatch ? (
+          <span className="text-[#00AA13] font-bold flex-shrink-0">✓</span>
+        ) : (
+          <span className="text-[#EAAA00] flex-shrink-0">⚠</span>
+        )
+      ) : (
+        <span className="w-3 flex-shrink-0" />
+      )}
+      <span className="text-[#4F758B]">{spec.name}:</span>
+      <span className="font-medium">{spec.value}</span>
+    </li>
+  );
+}
+
+export function ProductCard({
+  product,
+  isAlternative = false,
+  referenceProduct,
+}: ProductCardProps) {
+  const [specsOpen, setSpecsOpen] = useState(false);
+  const [externalOpen, setExternalOpen] = useState(false);
+  const [qty, setQty] = useState(1);
+
+  const user = useProductFinder((s) => s.user);
+  const compareIds = useProductFinder((s) => s.compareIds);
+  const toggleCompare = useProductFinder((s) => s.toggleCompare);
+  const setCompareModalOpen = useProductFinder((s) => s.setCompareModalOpen);
+  const addToCart = useProductFinder((s) => s.addToCart);
+
+  const branchQty = getTotalBranchStock(product);
+  const dcQty = getTotalDCStock(product);
+  const isComparing = compareIds.has(product.id);
+  const compareMaxReached = compareIds.size >= 4 && !isComparing;
+
+  const showExternalAlert =
+    branchQty === 0 && dcQty === 0 && product.externalSources.length > 0;
+
+  const compatScore =
+    referenceProduct != null
+      ? (product.compatScore ?? computeCompatScore(product, referenceProduct))
+      : null;
+
+  const nonNegSpecs = product.specs.filter((s) => s.isNonNeg);
+  const otherSpecs = product.specs.filter((s) => !s.isNonNeg);
+
+  function handleQtyChange(value: number) {
+    setQty(Math.max(1, value));
+  }
+
+  function handleAddToCart() {
+    addToCart(product, qty);
+  }
+
+  function handleToggleCompare() {
+    if (compareMaxReached) return;
+    toggleCompare(product.id);
+  }
+
+  return (
+    <div
+      className={cn(
+        "relative flex flex-col bg-white rounded-lg border shadow-sm overflow-hidden",
+        product.preferred
+          ? "border-l-4 border-l-[#00AA13]"
+          : "border-l-4 border-l-[#B7C9D3]"
+      )}
+      data-testid={`product-card-${product.id}`}
+    >
+      {/* ── Header ──────────────────────────────────────────────── */}
+      <div className="p-4 flex gap-3">
+        <div className="text-3xl flex-shrink-0 w-10 h-10 flex items-center justify-center">
+          {product.imageIcon}
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-start gap-2 mb-0.5">
+            <span className="font-semibold text-[#1D252D] text-sm leading-snug">
+              {product.name}
+            </span>
+            {product.preferred && (
+              <Badge
+                variant="success"
+                className="text-[10px] px-1.5 py-0 h-4 flex-shrink-0"
+              >
+                PREFERRED
+              </Badge>
+            )}
+            {isAlternative && (
+              <Badge
+                variant="outline"
+                className="text-[10px] px-1.5 py-0 h-4 flex-shrink-0 text-[#4F758B] border-[#B7C9D3]"
+              >
+                ALTERNATIVE
+              </Badge>
+            )}
+          </div>
+
+          <p className="text-xs text-[#4F758B] mb-1">
+            {product.brand} · SKU: {product.sku}
+          </p>
+
+          <p className="text-xs text-[#1D252D] line-clamp-2 leading-relaxed">
+            {product.description}
+          </p>
+
+          {/* Compat bar */}
+          {compatScore !== null && (
+            <div className="mt-2">
+              <div className="flex items-center justify-between mb-0.5">
+                <span className="text-xs text-[#4F758B]">Compatibility</span>
+                <span
+                  className={cn(
+                    "text-xs font-semibold",
+                    compatScore >= 85 ? "text-[#00AA13]" : "text-[#EAAA00]"
+                  )}
+                >
+                  {compatScore}%
+                </span>
+              </div>
+              <div className="h-1.5 w-full rounded-full bg-[#B7C9D3]">
+                <div
+                  className={cn(
+                    "h-full rounded-full transition-all",
+                    compatScore >= 85 ? "bg-[#00AA13]" : "bg-[#EAAA00]"
+                  )}
+                  style={{ width: `${compatScore}%` }}
+                  role="progressbar"
+                  aria-valuenow={compatScore}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-label={`Compatibility: ${compatScore}%`}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* ── Specs (collapsible) ──────────────────────────────────── */}
+      <div className="border-t border-[#B7C9D3]/40 px-4 py-2">
+        <button
+          type="button"
+          onClick={() => setSpecsOpen((v) => !v)}
+          className="flex items-center gap-1 text-xs text-[#4F758B] hover:text-[#1D252D] w-full"
+          aria-expanded={specsOpen}
+        >
+          <span
+            className={cn(
+              "inline-block transition-transform duration-150 text-[10px]",
+              specsOpen ? "rotate-90" : "rotate-0"
+            )}
+          >
+            ▶
+          </span>
+          <span>Specifications ({product.specs.length})</span>
+        </button>
+
+        {specsOpen && (
+          <div className="mt-2 space-y-2">
+            {nonNegSpecs.length > 0 && (
+              <ul className="space-y-1">
+                {nonNegSpecs.map((spec) => (
+                  <SpecRow
+                    key={spec.name}
+                    spec={spec}
+                    referenceSpec={
+                      referenceProduct?.specs.find(
+                        (s) => s.name === spec.name
+                      )
+                    }
+                  />
+                ))}
+              </ul>
+            )}
+
+            {otherSpecs.length > 0 && (
+              <>
+                {nonNegSpecs.length > 0 && (
+                  <Separator className="bg-[#B7C9D3]/40" />
+                )}
+                <ul className="space-y-1">
+                  {otherSpecs.map((spec) => (
+                    <SpecRow key={spec.name} spec={spec} />
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* ── Stock ───────────────────────────────────────────────── */}
+      <div className="border-t border-[#B7C9D3]/40 px-4 py-2">
+        <StockBadge
+          branchQty={branchQty}
+          dcQty={dcQty}
+          userBranchId={user?.branchId}
+          branchStock={product.branchStock}
+        />
+      </div>
+
+      {/* ── External sources alert ───────────────────────────────── */}
+      {showExternalAlert && (
+        <div className="mx-4 mb-2 rounded border border-[#004986]/30 bg-[#004986]/5 px-3 py-2">
+          <button
+            type="button"
+            className="flex w-full items-center justify-between text-xs text-[#004986]"
+            onClick={() => setExternalOpen((v) => !v)}
+            aria-expanded={externalOpen}
+          >
+            <span>
+              Not in stock at Wesco — available at{" "}
+              <span className="font-semibold">
+                {product.externalSources.length}
+              </span>{" "}
+              external distributor
+              {product.externalSources.length !== 1 ? "s" : ""}
+            </span>
+            <span
+              className={cn(
+                "transition-transform duration-150",
+                externalOpen ? "rotate-180" : "rotate-0"
+              )}
+            >
+              ▾
+            </span>
+          </button>
+
+          {externalOpen && (
+            <ul className="mt-2 space-y-1.5">
+              {product.externalSources.map((src) => (
+                <li
+                  key={src.distributor}
+                  className="flex items-center justify-between text-xs text-[#1D252D]"
+                >
+                  <a
+                    href={src.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#004986] hover:underline"
+                  >
+                    {src.distributor}
+                  </a>
+                  <span className="text-[#4F758B]">
+                    ${src.price.toFixed(2)} · {src.quantity} units
+                    {src.leadTime && ` · ${src.leadTime}`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+      {/* ── Price + Actions ──────────────────────────────────────── */}
+      <div className="border-t border-[#B7C9D3]/40 p-4 flex flex-col sm:flex-row sm:items-center gap-3">
+        {/* Price */}
+        <div className="flex-shrink-0">
+          <span className="text-lg font-semibold text-[#1D252D]">
+            ${product.unitPrice.toFixed(2)}
+          </span>
+          <span className="text-xs text-[#4F758B] ml-1">/ {product.uom}</span>
+        </div>
+
+        {/* Actions */}
+        <div className="flex flex-col gap-2 sm:ml-auto">
+          {/* Qty stepper + add to basket */}
+          <div className="flex items-center gap-2">
+            <div className="flex items-center border border-[#B7C9D3] rounded-md overflow-hidden">
+              <button
+                type="button"
+                aria-label="Decrease quantity"
+                onClick={() => handleQtyChange(qty - 1)}
+                className="px-2 py-1 text-[#4F758B] hover:bg-[#B7C9D3]/20 text-sm font-semibold"
+              >
+                −
+              </button>
+              <input
+                type="number"
+                min="1"
+                value={qty}
+                onChange={(e) => handleQtyChange(parseInt(e.target.value, 10) || 1)}
+                className="w-12 text-center text-sm text-[#1D252D] border-x border-[#B7C9D3] py-1 focus:outline-none"
+                aria-label="Quantity"
+              />
+              <button
+                type="button"
+                aria-label="Increase quantity"
+                onClick={() => handleQtyChange(qty + 1)}
+                className="px-2 py-1 text-[#4F758B] hover:bg-[#B7C9D3]/20 text-sm font-semibold"
+              >
+                +
+              </button>
+            </div>
+
+            <Button
+              size="sm"
+              onClick={handleAddToCart}
+              className="bg-[#00AA13] hover:bg-[#00AA13]/90 text-white border-0"
+            >
+              Add to Basket
+            </Button>
+          </div>
+
+          {/* Compare + View Details */}
+          <div className="flex items-center gap-2">
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={handleToggleCompare}
+              disabled={compareMaxReached}
+              className={cn(
+                "text-xs border-[#B7C9D3]",
+                isComparing && "border-[#00AA13] text-[#00AA13]"
+              )}
+              title={
+                compareMaxReached
+                  ? "Maximum 4 products in compare"
+                  : undefined
+              }
+            >
+              {isComparing ? "✓ Comparing" : "Compare"}
+            </Button>
+
+            <Button
+              size="sm"
+              variant="outline"
+              className="text-xs border-[#B7C9D3]"
+              onClick={() => setCompareModalOpen(true)}
+            >
+              View Details
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
