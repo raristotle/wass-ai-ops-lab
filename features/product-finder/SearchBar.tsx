@@ -15,7 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { searchProducts } from "@/data/mock/wesco-products";
-import type { WescoProduct, BomLine } from "@/features/product-finder/types";
+import type { WescoProduct, BomLine, ParsedFilter } from "@/features/product-finder/types";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -92,6 +92,8 @@ interface SingleSearchPanelProps {
   onSearch: () => void;
   onSelectSuggestion: (product: WescoProduct) => void;
   onQuickPick: (chip: string) => void;
+  appliedNlFilters: ParsedFilter[];
+  onRemoveFilter: (id: string) => void;
 }
 
 function SingleSearchPanel({
@@ -106,6 +108,8 @@ function SingleSearchPanel({
   onSearch,
   onSelectSuggestion,
   onQuickPick,
+  appliedNlFilters,
+  onRemoveFilter,
 }: SingleSearchPanelProps) {
   return (
     <div className="space-y-3">
@@ -205,6 +209,25 @@ function SingleSearchPanel({
           </button>
         ))}
       </div>
+
+      {/* Applied natural-language filter chips */}
+      {appliedNlFilters.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 pt-1">
+          <span className="text-xs font-semibold text-[#4F758B]">Filters:</span>
+          {appliedNlFilters.map((f) => (
+            <button
+              key={f.id}
+              type="button"
+              onClick={() => onRemoveFilter(f.id)}
+              aria-label={`Remove filter ${f.label}`}
+              className="inline-flex items-center gap-1 rounded-full border border-[#00AA13]/40 bg-[#00AA13]/10 px-2.5 py-0.5 text-xs font-medium text-[#00573F] hover:bg-[#00AA13]/20"
+            >
+              {f.label}
+              <span aria-hidden="true" className="text-[#4F758B]">✕</span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -501,7 +524,9 @@ export function SearchBar() {
     setBomText,
     parseBom,
     setActiveProduct,
-    setFilterQuery,
+    runNlSearch,
+    removeNlFilter,
+    appliedNlFilters,
   } = useProductFinder();
 
   const activeTab: "single" | "bom" = bomMode ? "bom" : "single";
@@ -544,8 +569,7 @@ export function SearchBar() {
 
   const handleSearch = () => {
     setShowSuggestions(false);
-    // setFilterQuery sets filters.query (used by runSearch) and auto-triggers runSearch
-    setFilterQuery(query);
+    runNlSearch(query);
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -561,10 +585,9 @@ export function SearchBar() {
   };
 
   const handleQuickPick = (chip: string) => {
-    // Update both display query and filter query (which auto-runs search)
     setQuery(chip);
     setShowSuggestions(false);
-    setFilterQuery(chip);
+    runNlSearch(chip);
   };
 
   // Close dropdown on outside pointer-down
@@ -677,6 +700,8 @@ export function SearchBar() {
             onSearch={handleSearch}
             onSelectSuggestion={handleSelectSuggestion}
             onQuickPick={handleQuickPick}
+            appliedNlFilters={appliedNlFilters}
+            onRemoveFilter={removeNlFilter}
           />
         ) : (
           <BomPanel
