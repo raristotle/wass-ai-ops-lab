@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { computeHeatmap, COMPETITORS, ALL_PRODUCT_FAMILIES, PRODUCT_FAMILY_SHORT } from "@/lib/win-loss";
 import type { QuoteRecord, HeatmapCell } from "@/lib/win-loss";
 import { cn } from "@/lib/utils";
@@ -57,10 +58,9 @@ export function CompetitorHeatmap({ records }: Props) {
 
           {/* Rows */}
           {COMPETITORS.map((competitor) => (
-            <>
+            <React.Fragment key={competitor}>
               {/* Row header */}
               <div
-                key={`label-${competitor}`}
                 className="flex h-10 items-center pr-2"
               >
                 <span className="text-[10px] font-medium text-muted-foreground truncate">
@@ -90,7 +90,7 @@ export function CompetitorHeatmap({ records }: Props) {
                   </div>
                 );
               })}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>
