@@ -6,7 +6,7 @@ function escapeRe(s: string): string {
 }
 
 // Keep in sync with the ProductCategory union in features/product-finder/types.ts.
-const CATEGORIES: ProductCategory[] = ["electrical", "datacom"];
+const CATEGORIES: ProductCategory[] = ["electrical", "datacom", "oem-electrical", "av", "security", "safety"];
 
 export function parseQuery(raw: string): ParsedQuery {
   let working = ` ${raw.toLowerCase()} `;
@@ -52,8 +52,8 @@ export function parseQuery(raw: string): ParsedQuery {
     working = working.replace(/\bpreferred\b/g, " ");
   }
 
-  // Category
-  for (const cat of CATEGORIES) {
+  // Category (longest first so "oem-electrical" is matched before "electrical")
+  for (const cat of [...CATEGORIES].sort((a, b) => b.length - a.length)) {
     const re = new RegExp(`\\b${cat}\\b`);
     if (re.test(working)) {
       push("category", cat.charAt(0).toUpperCase() + cat.slice(1), cat);

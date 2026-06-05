@@ -68,4 +68,41 @@ describe("parseQuery", () => {
     expect(r.text).toContain("20a");
     expect(r.text).toContain("breaker");
   });
+
+  it("parses 'electrical' category", () => {
+    const r = parseQuery("electrical breaker");
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "category", value: "electrical" }));
+    expect(r.text).toBe("breaker");
+  });
+
+  it("parses 'oem-electrical' category as a whole word", () => {
+    const r = parseQuery("oem-electrical connector");
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "category", value: "oem-electrical" }));
+    expect(r.text).toBe("connector");
+  });
+
+  it("parses 'security' category", () => {
+    const r = parseQuery("security camera");
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "category", value: "security" }));
+    expect(r.text).toBe("camera");
+  });
+
+  it("parses 'safety' category", () => {
+    const r = parseQuery("safety equipment");
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "category", value: "safety" }));
+    expect(r.text).toBe("equipment");
+  });
+
+  it("parses 'av' category", () => {
+    const r = parseQuery("av cable");
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "category", value: "av" }));
+    expect(r.text).toBe("cable");
+  });
+
+  it("does not confuse 'electrical' in 'oem-electrical'", () => {
+    const r = parseQuery("electrical widget");
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "category", value: "electrical" }));
+    expect(r.filters.filter((f) => f.kind === "category")).toHaveLength(1);
+    expect(r.text).toBe("widget");
+  });
 });
