@@ -478,16 +478,21 @@ export function hydrateAuth() {
 
 export function hydrateSavedState() {
   if (typeof window === "undefined") return;
-  try {
-    const fav = localStorage.getItem("pf_favorites");
-    const rec = localStorage.getItem("pf_recent");
-    useProductFinder.setState({
-      favorites: fav ? (JSON.parse(fav) as string[]) : [],
-      recentlyViewed: rec ? (JSON.parse(rec) as string[]) : [],
-    });
-  } catch {
-    /* ignore corrupt storage */
-  }
+  const readIds = (key: string): string[] => {
+    const raw = localStorage.getItem(key);
+    if (!raw) return [];
+    try {
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? (parsed as string[]) : [];
+    } catch {
+      localStorage.removeItem(key);
+      return [];
+    }
+  };
+  useProductFinder.setState({
+    favorites: readIds("pf_favorites"),
+    recentlyViewed: readIds("pf_recent"),
+  });
 }
 
 // ─── Derived selectors ────────────────────────────────────────────────────────
