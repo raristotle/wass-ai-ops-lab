@@ -9,6 +9,8 @@ import {
   getTotalBranchStock,
 } from "@/data/mock/wesco-products";
 
+const MAX_RECENT = 12;
+
 // ─── Auth slice ───────────────────────────────────────────────────────────────
 
 const DEMO_USERS: Record<string, AuthUser & { password: string }> = {
@@ -94,6 +96,12 @@ export interface ProductFinderState {
   clearCart: () => void;
   cartOpen: boolean;
   setCartOpen: (v: boolean) => void;
+
+  // Saved & history
+  favorites: string[];
+  toggleFavorite: (id: string) => void;
+  isFavorite: (id: string) => boolean;
+  recentlyViewed: string[];
 
   // Derived
   results: WescoProduct[];
@@ -250,8 +258,31 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Active product ─────────────────────────────────────────
   activeProduct: null,
   setActiveProduct(p) {
-    set({ activeProduct: p });
+    set((s) => {
+      if (!p) return { activeProduct: null };
+      const recentlyViewed = [p.id, ...s.recentlyViewed.filter((id) => id !== p.id)].slice(0, MAX_RECENT);
+      if (typeof window !== "undefined") localStorage.setItem("pf_recent", JSON.stringify(recentlyViewed));
+      return { activeProduct: p, recentlyViewed };
+    });
     if (p) get().runSearch();
+  },
+
+  // ── Favorites & history ────────────────────────────────────
+  favorites: [],
+  recentlyViewed: [],
+
+  toggleFavorite(id) {
+    set((s) => {
+      const next = s.favorites.includes(id)
+        ? s.favorites.filter((f) => f !== id)
+        : [...s.favorites, id];
+      if (typeof window !== "undefined") localStorage.setItem("pf_favorites", JSON.stringify(next));
+      return { favorites: next };
+    });
+  },
+
+  isFavorite(id) {
+    return get().favorites.includes(id);
   },
 
   // ── Filters ───────────────────────────────────────────────
@@ -442,6 +473,20 @@ export function hydrateAuth() {
     } catch {
       localStorage.removeItem("pf_user");
     }
+  }
+}
+
+export function hydrateSavedState() {
+  if (typeof window === "undefined") return;
+  try {
+    const fav = localStorage.getItem("pf_favorites");
+    const rec = localStorage.getItem("pf_recent");
+    useProductFinder.setState({
+      favorites: fav ? (JSON.parse(fav) as string[]) : [],
+      recentlyViewed: rec ? (JSON.parse(rec) as string[]) : [],
+    });
+  } catch {
+    /* ignore corrupt storage */
   }
 }
 

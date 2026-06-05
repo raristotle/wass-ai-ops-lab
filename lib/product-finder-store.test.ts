@@ -19,6 +19,8 @@ function resetStore() {
     compareModalOpen: false,
     results: [],
     appliedNlFilters: [],
+    favorites: [],
+    recentlyViewed: [],
     filters: {
       query: "",
       categories: new Set(),
@@ -244,6 +246,33 @@ describe("runSearch", () => {
     useProductFinder.getState().setPriceRange(null, 10);
     const { results } = useProductFinder.getState();
     expect(results.every((p) => p.unitPrice <= 10)).toBe(true);
+  });
+});
+
+describe("favorites & recently viewed", () => {
+  beforeEach(resetStore);
+
+  it("toggleFavorite adds then removes an id", () => {
+    const id = WESCO_PRODUCTS[0].id;
+    useProductFinder.getState().toggleFavorite(id);
+    expect(useProductFinder.getState().isFavorite(id)).toBe(true);
+    useProductFinder.getState().toggleFavorite(id);
+    expect(useProductFinder.getState().isFavorite(id)).toBe(false);
+  });
+
+  it("setActiveProduct records recently viewed, most-recent-first, deduped", () => {
+    const [a, b] = WESCO_PRODUCTS;
+    useProductFinder.getState().setActiveProduct(a);
+    useProductFinder.getState().setActiveProduct(b);
+    useProductFinder.getState().setActiveProduct(a);
+    expect(useProductFinder.getState().recentlyViewed).toEqual([a.id, b.id]);
+  });
+
+  it("recentlyViewed caps at 12 entries", () => {
+    for (let i = 0; i < WESCO_PRODUCTS.length && i < 15; i++) {
+      useProductFinder.getState().setActiveProduct(WESCO_PRODUCTS[i]);
+    }
+    expect(useProductFinder.getState().recentlyViewed.length).toBeLessThanOrEqual(12);
   });
 });
 
