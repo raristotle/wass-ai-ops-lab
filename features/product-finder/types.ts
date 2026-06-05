@@ -124,3 +124,18 @@ export interface RecommendationScore {
   tier: RecommendationTier;
   factors: ScoreFactor[]; // positive contributors first (points desc), notes last
 }
+
+export type ParsedFilterKind =
+  | "priceMax" | "priceMin" | "branchStock" | "preferred" | "category" | "brand";
+
+export interface ParsedFilter {
+  id: string;
+  kind: ParsedFilterKind;
+  label: string;
+  value: string | number | boolean;
+}
+
+export interface ParsedQuery {
+  text: string;
+  filters: ParsedFilter[];
+}
