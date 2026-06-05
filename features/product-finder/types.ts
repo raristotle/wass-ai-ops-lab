@@ -110,3 +110,17 @@ export type AuthUser = {
   branch: string;
   branchId: string;
 };
+
+export type RecommendationTier = "excellent" | "good" | "partial";
+
+export interface ScoreFactor {
+  label: string;
+  points: number;
+  positive: boolean; // true = contributed points; false = neutral/warning note
+}
+
+export interface RecommendationScore {
+  total: number; // 0–100
+  tier: RecommendationTier;
+  factors: ScoreFactor[]; // positive contributors first (points desc), notes last
+}
