@@ -145,6 +145,11 @@ function applyParsedFilter(filters: FilterState, f: ParsedFilter, on: boolean): 
       if (on) next.brands.add(f.value as string);
       else next.brands.delete(f.value as string);
       break;
+    default: {
+      // Compile-time exhaustiveness: a new ParsedFilterKind must be handled above.
+      const _exhaustive: never = f.kind;
+      return _exhaustive;
+    }
   }
   return next;
 }
@@ -184,7 +189,14 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   runNlSearch(raw) {
     const parsed = parseQuery(raw);
     set((s) => {
-      let filters = { ...s.filters, query: parsed.text };
+      // A new NL search is self-contained: start from defaults so the chips always
+      // match the active filters, but keep the user's sort + view preferences.
+      let filters: FilterState = {
+        ...defaultFilters(),
+        sortKey: s.filters.sortKey,
+        viewMode: s.filters.viewMode,
+        query: parsed.text,
+      };
       for (const f of parsed.filters) filters = applyParsedFilter(filters, f, true);
       return { filters, appliedNlFilters: parsed.filters, query: raw };
     });

@@ -255,7 +255,7 @@ describe("natural-language search", () => {
     const { filters, appliedNlFilters, results } = useProductFinder.getState();
     expect(filters.onlyPreferred).toBe(true);
     expect(filters.priceMax).toBe(50);
-    expect(appliedNlFilters.length).toBeGreaterThanOrEqual(2);
+    expect(appliedNlFilters).toHaveLength(2);
     expect(results.every((p) => p.preferred && p.unitPrice <= 50)).toBe(true);
   });
 
@@ -267,5 +267,33 @@ describe("natural-language search", () => {
     const { filters, appliedNlFilters } = useProductFinder.getState();
     expect(filters.onlyPreferred).toBe(false);
     expect(appliedNlFilters.some((f) => f.kind === "preferred")).toBe(false);
+  });
+
+  it("removeNlFilter for a price chip resets priceMax to null", () => {
+    useProductFinder.getState().runNlSearch("breaker under $50");
+    const priceChip = useProductFinder.getState().appliedNlFilters.find((f) => f.kind === "priceMax");
+    expect(priceChip).toBeDefined();
+    expect(useProductFinder.getState().filters.priceMax).toBe(50);
+    useProductFinder.getState().removeNlFilter(priceChip!.id);
+    expect(useProductFinder.getState().filters.priceMax).toBeNull();
+    expect(useProductFinder.getState().appliedNlFilters.some((f) => f.kind === "priceMax")).toBe(false);
+  });
+
+  it("a new NL search replaces the previous one's filters (no stuck filters)", () => {
+    useProductFinder.getState().runNlSearch("preferred");
+    expect(useProductFinder.getState().filters.onlyPreferred).toBe(true);
+    useProductFinder.getState().runNlSearch("under $50");
+    const { filters, appliedNlFilters } = useProductFinder.getState();
+    expect(filters.onlyPreferred).toBe(false); // previous NL filter cleared
+    expect(filters.priceMax).toBe(50);
+    expect(appliedNlFilters.every((f) => f.kind !== "preferred")).toBe(true);
+  });
+
+  it("removeNlFilter re-runs the search so results reflect the cleared filter", () => {
+    useProductFinder.getState().runNlSearch("preferred");
+    const prefChip = useProductFinder.getState().appliedNlFilters.find((f) => f.kind === "preferred");
+    useProductFinder.getState().removeNlFilter(prefChip!.id);
+    const { results } = useProductFinder.getState();
+    expect(results.some((p) => !p.preferred)).toBe(true);
   });
 });
