@@ -93,6 +93,60 @@ function ActiveProductBanner({ product }: ActiveProductBannerProps) {
   );
 }
 
+// ─── Loading placeholder ──────────────────────────────────────────────────────
+
+function SearchLoadingState() {
+  return (
+    <div className="space-y-3" aria-busy="true" aria-label="Searching…">
+      {[0, 1, 2].map((i) => (
+        <div
+          key={i}
+          className="animate-pulse rounded-xl border border-[#B7C9D3] bg-white p-4"
+        >
+          <div className="flex items-start gap-3">
+            <div className="h-10 w-10 rounded-lg bg-[#B7C9D3]/40 shrink-0" />
+            <div className="min-w-0 flex-1 space-y-2">
+              <div className="h-4 w-2/5 rounded bg-[#B7C9D3]/50" />
+              <div className="h-3 w-3/5 rounded bg-[#B7C9D3]/30" />
+              <div className="h-3 w-1/4 rounded bg-[#B7C9D3]/30" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Error banner ─────────────────────────────────────────────────────────────
+
+interface SearchErrorBannerProps {
+  message: string;
+  onRetry: () => void;
+}
+
+function SearchErrorBanner({ message, onRetry }: SearchErrorBannerProps) {
+  return (
+    <div className="rounded-xl border border-[#DB6B30]/40 bg-[#DB6B30]/5 p-5">
+      <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:text-left">
+        <span className="text-2xl shrink-0" role="img" aria-label="Warning">⚠️</span>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold text-[#1D252D]">Search failed — please try again</p>
+          {message && (
+            <p className="mt-0.5 text-xs text-[#4F758B] truncate">{message}</p>
+          )}
+        </div>
+        <button
+          type="button"
+          onClick={onRetry}
+          className="shrink-0 rounded-lg border border-[#1D252D] bg-white px-4 py-2 text-sm font-semibold text-[#1D252D] hover:bg-[#1D252D] hover:text-white transition-colors"
+        >
+          Retry
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProductFinderPage() {
@@ -101,6 +155,8 @@ export default function ProductFinderPage() {
   const runNlSearch = useProductFinder((s) => s.runNlSearch);
   const filters = useProductFinder((s) => s.filters);
   const runSearch = useProductFinder((s) => s.runSearch);
+  const loading = useProductFinder((s) => s.loading);
+  const error = useProductFinder((s) => s.error);
 
   useEffect(() => { runSearch(); }, [runSearch]);
 
@@ -143,7 +199,11 @@ export default function ProductFinderPage() {
             </div>
           ) : (
             <div className="space-y-4">
-              {results.length === 0 && hasQueryOrFilters ? (
+              {loading && results.length === 0 ? (
+                <SearchLoadingState />
+              ) : error && !loading ? (
+                <SearchErrorBanner message={error} onRetry={runSearch} />
+              ) : results.length === 0 && hasQueryOrFilters ? (
                 <NoResultsState onClear={() => runNlSearch("")} />
               ) : results.length === 0 ? (
                 <LandingState />
