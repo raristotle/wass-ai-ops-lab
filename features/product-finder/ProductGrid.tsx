@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { WescoProduct, SortKey } from "@/features/product-finder/types";
-import { getTotalBranchStock } from "@/data/mock/wesco-products";
 
 interface ProductGridProps {
   products: WescoProduct[];
@@ -22,47 +20,25 @@ const SORT_OPTIONS: { value: SortKey; label: string }[] = [
   { value: "brand", label: "Brand A–Z" },
 ];
 
-function sortProducts(
-  products: WescoProduct[],
-  sortKey: SortKey,
-  referenceProduct?: WescoProduct | null
-): WescoProduct[] {
-  return [...products].sort((a, b) => {
-    if (sortKey === "preferred")
-      return (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0);
-    if (sortKey === "branchStock")
-      return getTotalBranchStock(b) - getTotalBranchStock(a);
-    if (sortKey === "priceLow") return a.unitPrice - b.unitPrice;
-    if (sortKey === "priceHigh") return b.unitPrice - a.unitPrice;
-    if (sortKey === "brand") return a.brand.localeCompare(b.brand);
-    // relevance: alternatives of active product first, then preferred
-    const aIsAlt = referenceProduct?.alternativeIds?.includes(a.id) ? 1 : 0;
-    const bIsAlt = referenceProduct?.alternativeIds?.includes(b.id) ? 1 : 0;
-    if (aIsAlt !== bIsAlt) return bIsAlt - aIsAlt;
-    return (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0);
-  });
-}
-
 export function ProductGrid({
   products,
   referenceProduct,
 }: ProductGridProps) {
   const viewMode = useProductFinder((s) => s.filters.viewMode);
   const setViewMode = useProductFinder((s) => s.setViewMode);
+  const sortKey = useProductFinder((s) => s.filters.sortKey);
   const setSortKey = useProductFinder((s) => s.setSortKey);
+  const loading = useProductFinder((s) => s.loading);
+  const total = useProductFinder((s) => s.total);
+  const results = useProductFinder((s) => s.results);
+  const loadMore = useProductFinder((s) => s.loadMore);
   const compareIds = useProductFinder((s) => s.compareIds);
   const clearCompare = useProductFinder((s) => s.clearCompare);
   const setCompareModalOpen = useProductFinder((s) => s.setCompareModalOpen);
 
-  const [localSortKey, setLocalSortKey] = useState<SortKey>("relevance");
-
   function handleSortChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    const key = e.target.value as SortKey;
-    setLocalSortKey(key);
-    setSortKey(key);
+    setSortKey(e.target.value as SortKey);
   }
-
-  const sorted = sortProducts(products, localSortKey, referenceProduct);
 
   return (
     <div className="flex flex-col gap-3">
@@ -94,16 +70,16 @@ export function ProductGrid({
         <span
           className={cn(
             "text-sm font-semibold",
-            products.length > 0 ? "text-[#00AA13]" : "text-[#4F758B]"
+            total > 0 ? "text-[#00AA13]" : "text-[#4F758B]"
           )}
         >
-          {products.length} product{products.length !== 1 ? "s" : ""} found
+          {total} product{total !== 1 ? "s" : ""} found
         </span>
 
         <div className="flex items-center gap-2 ml-auto">
           {/* Sort select */}
           <select
-            value={localSortKey}
+            value={sortKey}
             onChange={handleSortChange}
             className="text-xs border border-[#B7C9D3] rounded-md px-2 py-1.5 text-[#1D252D] bg-white focus:outline-none focus:ring-1 focus:ring-[#004986]"
             aria-label="Sort products"
@@ -173,13 +149,23 @@ export function ProductGrid({
               : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           )}
         >
-          {sorted.map((product) => (
+          {products.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
               referenceProduct={referenceProduct ?? undefined}
             />
           ))}
+        </div>
+      )}
+
+      {/* ── Load more ────────────────────────────────────────────── */}
+      {results.length < total && (
+        <div className="flex justify-center pt-2">
+          <Button type="button" onClick={() => loadMore()} disabled={loading}
+            className="bg-[#1D252D] text-white hover:bg-[#2d3740]">
+            {loading ? "Loading…" : `Load more (${total - results.length} more)`}
+          </Button>
         </div>
       )}
     </div>
