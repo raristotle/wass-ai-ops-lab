@@ -93,6 +93,7 @@ export function FilterSidebar() {
                 key={cat}
                 type="button"
                 onClick={() => toggleCategory(cat)}
+                aria-pressed={active}
                 className={cn(
                   "rounded-full border px-3 py-1 text-xs font-semibold transition-colors",
                   active
