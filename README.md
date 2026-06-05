@@ -91,6 +91,19 @@ wass-ai-ops-lab/
 | `npm run lint` | ESLint |
 | `npm run typecheck` | TypeScript type check (no emit) |
 
+## Deployment
+
+Production runs on **Vercel** (project `web`), served at
+<https://web-xi-virid-59.vercel.app>.
+
+Pushes to `master` deploy to production automatically via the Vercel GitHub
+integration; pull-request branches get their own preview URLs. To deploy
+manually from a linked checkout:
+
+```bash
+npx vercel --prod
+```
+
 ## Prisma
 
 ```bash
