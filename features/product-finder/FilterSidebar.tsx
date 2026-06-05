@@ -2,21 +2,13 @@
 
 import { useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { ALL_SUBCATEGORIES, ALL_BRANDS, WESCO_PRODUCTS } from "@/data/mock/wesco-products";
+import { ALL_SUBCATEGORIES, ALL_BRANDS, CATEGORY_META, CATEGORIES } from "@/lib/catalog/taxonomy";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { FilterState } from "@/features/product-finder/types";
 
 const VISIBLE_LIMIT = 8;
-
-function countForSubcategory(sub: string): number {
-  return WESCO_PRODUCTS.filter((p) => p.subcategory === sub).length;
-}
-
-function countForBrand(brand: string): number {
-  return WESCO_PRODUCTS.filter((p) => p.brand === brand).length;
-}
 
 function hasActiveFilters(filters: FilterState): boolean {
   return (
@@ -94,12 +86,7 @@ export function FilterSidebar() {
       {/* Category chips */}
       <SidebarSection title="Category">
         <div className="flex flex-wrap gap-2">
-          {(
-            [
-              { cat: "electrical" as const, label: "Electrical" },
-              { cat: "datacom" as const, label: "Datacom" },
-            ] as const
-          ).map(({ cat, label }) => {
+          {CATEGORIES.map((cat) => {
             const active = filters.categories.has(cat);
             return (
               <button
@@ -113,7 +100,7 @@ export function FilterSidebar() {
                     : "border-[#B7C9D3] bg-white text-[#1D252D] hover:border-[#4F758B]"
                 )}
               >
-                {cat === "electrical" ? "⚡ " : "🌐 "}{label}
+                {CATEGORY_META[cat].icon} {CATEGORY_META[cat].label}
               </button>
             );
           })}
@@ -157,7 +144,7 @@ export function FilterSidebar() {
           {visibleSubs.map((sub) => (
             <label
               key={sub}
-              className="flex cursor-pointer items-center justify-between text-sm text-[#1D252D]"
+              className="flex cursor-pointer items-center text-sm text-[#1D252D]"
             >
               <span className="flex items-center gap-2">
                 <input
@@ -167,9 +154,6 @@ export function FilterSidebar() {
                   className="h-4 w-4 cursor-pointer rounded accent-[#00AA13]"
                 />
                 {sub}
-              </span>
-              <span className="text-xs text-[#4F758B]">
-                {countForSubcategory(sub)}
               </span>
             </label>
           ))}
@@ -193,7 +177,7 @@ export function FilterSidebar() {
           {visibleBrands.map((brand) => (
             <label
               key={brand}
-              className="flex cursor-pointer items-center justify-between text-sm text-[#1D252D]"
+              className="flex cursor-pointer items-center text-sm text-[#1D252D]"
             >
               <span className="flex items-center gap-2">
                 <input
@@ -203,9 +187,6 @@ export function FilterSidebar() {
                   className="h-4 w-4 cursor-pointer rounded accent-[#00AA13]"
                 />
                 {brand}
-              </span>
-              <span className="text-xs text-[#4F758B]">
-                {countForBrand(brand)}
               </span>
             </label>
           ))}
