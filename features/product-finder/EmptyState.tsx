@@ -29,7 +29,7 @@ export function NoResultsState({ onClear }: { onClear: () => void }) {
         onClick={onClear}
         className="mt-4 rounded-lg bg-[#00AA13] px-4 py-2 text-sm font-semibold text-white hover:bg-[#009911]"
       >
-        Clear all filters
+        Clear search & filters
       </button>
     </div>
   );

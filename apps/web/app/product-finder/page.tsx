@@ -98,7 +98,7 @@ function ActiveProductBanner({ product }: ActiveProductBannerProps) {
 export default function ProductFinderPage() {
   const activeProduct = useProductFinder((s) => s.activeProduct);
   const results = useProductFinder((s) => s.results);
-  const clearFilters = useProductFinder((s) => s.clearFilters);
+  const runNlSearch = useProductFinder((s) => s.runNlSearch);
   const filters = useProductFinder((s) => s.filters);
 
   const hasQueryOrFilters =
@@ -142,14 +142,11 @@ export default function ProductFinderPage() {
           ) : (
             <div className="space-y-4">
               {results.length === 0 && hasQueryOrFilters ? (
-                <NoResultsState onClear={() => clearFilters()} />
+                <NoResultsState onClear={() => runNlSearch("")} />
               ) : results.length === 0 ? (
                 <LandingState />
               ) : (
-                <>
-                  <LandingState />
-                  <ProductGrid products={results} />
-                </>
+                <ProductGrid products={results} />
               )}
             </div>
           )}
