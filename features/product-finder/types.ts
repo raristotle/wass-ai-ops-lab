@@ -1,4 +1,10 @@
-export type ProductCategory = "electrical" | "datacom";
+export type ProductCategory =
+  | "electrical"
+  | "datacom"
+  | "oem-electrical"
+  | "av"
+  | "security"
+  | "safety";
 
 export type StockLevel = "in-stock" | "low-stock" | "out-of-stock";
 
@@ -62,9 +68,9 @@ export interface WescoProduct {
   preferred: boolean;
   branchStock: BranchStock[];
   dcStock: DCStock[];
-  alternativeIds: string[];
-  crossSellIds: string[];
-  upsellIds: string[];
+  alternativeIds?: string[];
+  crossSellIds?: string[];
+  upsellIds?: string[];
   externalSources: ExternalSource[];
   compatScore?: number;
   imageIcon: string;
@@ -143,4 +149,33 @@ export interface ParsedFilter {
 export interface ParsedQuery {
   text: string;
   filters: ParsedFilter[];
+}
+
+export interface ProductSnapshot {
+  id: string;
+  name: string;
+  brand: string;
+  unitPrice: number;
+  imageIcon: string;
+  category: ProductCategory;
+}
+
+export interface SearchResponse {
+  items: WescoProduct[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface SuggestItem {
+  id: string;
+  name: string;
+  sku: string;
+  brand: string;
+  imageIcon: string;
+}
+
+export interface ProductDetail {
+  product: WescoProduct;
+  equivalents: WescoProduct[];
 }

@@ -1284,19 +1284,19 @@ export function getProductById(id: string): WescoProduct | undefined {
 }
 
 export function getAlternatives(product: WescoProduct): WescoProduct[] {
-  return product.alternativeIds
+  return (product.alternativeIds ?? [])
     .map((id) => PRODUCT_MAP.get(id))
     .filter((p): p is WescoProduct => p !== undefined);
 }
 
 export function getCrossSells(product: WescoProduct): WescoProduct[] {
-  return product.crossSellIds
+  return (product.crossSellIds ?? [])
     .map((id) => PRODUCT_MAP.get(id))
     .filter((p): p is WescoProduct => p !== undefined);
 }
 
 export function getUpsells(product: WescoProduct): WescoProduct[] {
-  return product.upsellIds
+  return (product.upsellIds ?? [])
     .map((id) => PRODUCT_MAP.get(id))
     .filter((p): p is WescoProduct => p !== undefined);
 }
