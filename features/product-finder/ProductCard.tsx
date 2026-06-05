@@ -57,6 +57,8 @@ export function ProductCard({
   const toggleCompare = useProductFinder((s) => s.toggleCompare);
   const setCompareModalOpen = useProductFinder((s) => s.setCompareModalOpen);
   const addToCart = useProductFinder((s) => s.addToCart);
+  const isFavorite = useProductFinder((s) => s.favorites.includes(product.id));
+  const toggleFavorite = useProductFinder((s) => s.toggleFavorite);
 
   const branchQty = getTotalBranchStock(product);
   const dcQty = getTotalDCStock(product);
@@ -92,6 +94,18 @@ export function ProductCard({
       )}
       data-testid={`product-card-${product.id}`}
     >
+      <button
+        type="button"
+        onClick={() => toggleFavorite(product.id)}
+        aria-pressed={isFavorite}
+        aria-label={isFavorite ? `Remove ${product.name} from favorites` : `Add ${product.name} to favorites`}
+        className={cn(
+          "absolute right-2 top-2 z-10 text-lg leading-none transition-colors",
+          isFavorite ? "text-[#EAAA00]" : "text-[#B7C9D3] hover:text-[#EAAA00]",
+        )}
+      >
+        <span aria-hidden="true">{isFavorite ? "★" : "☆"}</span>
+      </button>
       {/* ── Header ──────────────────────────────────────────────── */}
       <div className="p-4 flex gap-3">
         <div className="text-3xl flex-shrink-0 w-10 h-10 flex items-center justify-center">

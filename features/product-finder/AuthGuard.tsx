@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useProductFinder, hydrateAuth } from "@/lib/product-finder-store";
+import { useProductFinder, hydrateAuth, hydrateSavedState } from "@/lib/product-finder-store";
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -15,6 +15,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
 
   useEffect(() => {
     hydrateAuth();
+    hydrateSavedState();
     setHydrated(true);
   }, []);
 
