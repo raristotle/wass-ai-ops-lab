@@ -36,8 +36,8 @@ function sortProducts(
     if (sortKey === "priceHigh") return b.unitPrice - a.unitPrice;
     if (sortKey === "brand") return a.brand.localeCompare(b.brand);
     // relevance: alternatives of active product first, then preferred
-    const aIsAlt = referenceProduct?.alternativeIds.includes(a.id) ? 1 : 0;
-    const bIsAlt = referenceProduct?.alternativeIds.includes(b.id) ? 1 : 0;
+    const aIsAlt = referenceProduct?.alternativeIds?.includes(a.id) ? 1 : 0;
+    const bIsAlt = referenceProduct?.alternativeIds?.includes(b.id) ? 1 : 0;
     if (aIsAlt !== bIsAlt) return bIsAlt - aIsAlt;
     return (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0);
   });
