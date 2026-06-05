@@ -1,11 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { AuthGuard } from "@/features/product-finder/AuthGuard";
 import { ProductFinderShell } from "@/features/product-finder/ProductFinderShell";
 import { SearchBar } from "@/features/product-finder/SearchBar";
 import { ProductGrid } from "@/features/product-finder/ProductGrid";
-import { GoesWithPanel } from "@/features/product-finder/GoesWithPanel";
 import { ExternalSourcesCard } from "@/features/product-finder/ExternalSourcesCard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -100,6 +100,9 @@ export default function ProductFinderPage() {
   const results = useProductFinder((s) => s.results);
   const runNlSearch = useProductFinder((s) => s.runNlSearch);
   const filters = useProductFinder((s) => s.filters);
+  const runSearch = useProductFinder((s) => s.runSearch);
+
+  useEffect(() => { runSearch(); }, [runSearch]);
 
   const hasQueryOrFilters =
     filters.query.length > 0 ||
@@ -131,13 +134,12 @@ export default function ProductFinderPage() {
                 <ProductGrid products={results} referenceProduct={activeProduct} />
               </div>
 
-              {/* Right: goes-with + external sources */}
-              <div className="w-full shrink-0 space-y-4 lg:w-72">
-                <GoesWithPanel product={activeProduct} />
-                {totalWescoStock === 0 && (
+              {/* Right: external sources */}
+              {totalWescoStock === 0 && (
+                <div className="w-full shrink-0 lg:w-72">
                   <ExternalSourcesCard product={activeProduct} />
-                )}
-              </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className="space-y-4">

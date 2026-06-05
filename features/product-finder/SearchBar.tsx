@@ -18,12 +18,7 @@ import type { SuggestItem, ParsedFilter } from "@/features/product-finder/types"
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const QUICK_PICKS: readonly string[] = [
-  "Circuit Breakers",
-  "Wire & Cable",
-  "Conduit",
-  "Cat6 Cable",
-  "Patch Panels",
-  "Network Switches",
+  "Circuit Breakers", "Cat6 Cable", "IP Cameras", "Safety Glasses", "Relays", "Displays",
 ];
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
