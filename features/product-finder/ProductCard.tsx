@@ -96,7 +96,7 @@ export function ProductCard({
     >
       <button
         type="button"
-        onClick={() => toggleFavorite(product.id)}
+        onClick={() => toggleFavorite(product)}
         aria-pressed={isFavorite}
         aria-label={isFavorite ? `Remove ${product.name} from favorites` : `Add ${product.name} to favorites`}
         className={cn(

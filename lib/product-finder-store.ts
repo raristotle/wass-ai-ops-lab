@@ -8,6 +8,8 @@ import {
   getUpsells,
   getTotalBranchStock,
 } from "@/data/mock/wesco-products";
+import { apiSearch, apiGetProduct } from "@/lib/product-finder-api";
+import type { ProductSnapshot } from "@/features/product-finder/types";
 
 const MAX_RECENT = 12;
 
@@ -53,8 +55,8 @@ export interface ProductFinderState {
   query: string;
   setQuery: (q: string) => void;
   appliedNlFilters: ParsedFilter[];
-  runNlSearch: (raw: string) => void;
-  removeNlFilter: (id: string) => void;
+  runNlSearch: (raw: string) => Promise<void>;
+  removeNlFilter: (id: string) => Promise<void>;
 
   // BOM mode
   bomMode: boolean;
@@ -66,7 +68,7 @@ export interface ProductFinderState {
 
   // Active product (single search result)
   activeProduct: WescoProduct | null;
-  setActiveProduct: (p: WescoProduct | null) => void;
+  setActiveProduct: (p: WescoProduct | null) => Promise<void>;
 
   // Filters
   filters: FilterState;
@@ -99,13 +101,21 @@ export interface ProductFinderState {
 
   // Saved & history
   favorites: string[];
-  toggleFavorite: (id: string) => void;
+  favoriteSnapshots: Record<string, ProductSnapshot>;
+  recentSnapshots: Record<string, ProductSnapshot>;
+  toggleFavorite: (product: WescoProduct) => void;
   isFavorite: (id: string) => boolean;
   recentlyViewed: string[];
 
-  // Derived
+  // Derived / Results
   results: WescoProduct[];
-  runSearch: () => void;
+  loading: boolean;
+  error: string | null;
+  page: number;
+  total: number;
+  pageSize: number;
+  runSearch: () => Promise<void>;
+  loadMore: () => Promise<void>;
 }
 
 function defaultFilters(): FilterState {
@@ -193,7 +203,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   appliedNlFilters: [],
 
-  runNlSearch(raw) {
+  async runNlSearch(raw) {
     const parsed = parseQuery(raw);
     set((s) => {
       // A new NL search is self-contained: start from defaults so the chips always
@@ -207,10 +217,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       for (const f of parsed.filters) filters = applyParsedFilter(filters, f, true);
       return { filters, appliedNlFilters: parsed.filters, query: raw };
     });
-    get().runSearch();
+    await get().runSearch();
   },
 
-  removeNlFilter(id) {
+  async removeNlFilter(id) {
     set((s) => {
       const target = s.appliedNlFilters.find((f) => f.id === id);
       if (!target) return s;
@@ -219,7 +229,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
         appliedNlFilters: s.appliedNlFilters.filter((f) => f.id !== id),
       };
     });
-    get().runSearch();
+    await get().runSearch();
   },
 
   // ── BOM ───────────────────────────────────────────────────
@@ -257,27 +267,43 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   // ── Active product ─────────────────────────────────────────
   activeProduct: null,
-  setActiveProduct(p) {
+
+  async setActiveProduct(p) {
+    if (!p) { set({ activeProduct: null }); return; }
+    const snap: ProductSnapshot = { id: p.id, name: p.name, brand: p.brand, unitPrice: p.unitPrice, imageIcon: p.imageIcon, category: p.category };
     set((s) => {
-      if (!p) return { activeProduct: null };
       const recentlyViewed = [p.id, ...s.recentlyViewed.filter((id) => id !== p.id)].slice(0, MAX_RECENT);
-      if (typeof localStorage !== "undefined") localStorage.setItem("pf_recent", JSON.stringify(recentlyViewed));
-      return { activeProduct: p, recentlyViewed };
+      const recentSnapshots = { ...s.recentSnapshots, [p.id]: snap };
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_recent", JSON.stringify(recentlyViewed));
+        localStorage.setItem("pf_recent_snap", JSON.stringify(recentSnapshots));
+      }
+      return { activeProduct: p, recentlyViewed, recentSnapshots };
     });
-    if (p) get().runSearch();
+    try {
+      const detail = await apiGetProduct(p.id, get().user?.branchId);
+      set({ activeProduct: detail.product, results: detail.equivalents });
+    } catch { /* keep the passed product + existing results on failure */ }
   },
 
   // ── Favorites & history ────────────────────────────────────
   favorites: [],
+  favoriteSnapshots: {},
+  recentSnapshots: {},
   recentlyViewed: [],
 
-  toggleFavorite(id) {
+  toggleFavorite(product) {
     set((s) => {
-      const next = s.favorites.includes(id)
-        ? s.favorites.filter((f) => f !== id)
-        : [...s.favorites, id];
-      if (typeof localStorage !== "undefined") localStorage.setItem("pf_favorites", JSON.stringify(next));
-      return { favorites: next };
+      const has = s.favorites.includes(product.id);
+      const favorites = has ? s.favorites.filter((f) => f !== product.id) : [...s.favorites, product.id];
+      const favoriteSnapshots = { ...s.favoriteSnapshots };
+      if (has) delete favoriteSnapshots[product.id];
+      else favoriteSnapshots[product.id] = { id: product.id, name: product.name, brand: product.brand, unitPrice: product.unitPrice, imageIcon: product.imageIcon, category: product.category };
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_favorites", JSON.stringify(favorites));
+        localStorage.setItem("pf_fav_snap", JSON.stringify(favoriteSnapshots));
+      }
+      return { favorites, favoriteSnapshots };
     });
   },
 
@@ -406,59 +432,31 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   // ── Results / search engine ───────────────────────────────
   results: [],
+  loading: false,
+  error: null,
+  page: 0,
+  total: 0,
+  pageSize: 24,
 
-  runSearch() {
-    const { filters, activeProduct } = get();
-    let pool = searchProducts(filters.query);
+  async runSearch() {
+    set({ loading: true, error: null, page: 0 });
+    try {
+      const res = await apiSearch(get().filters, 0, get().pageSize);
+      set({ results: res.items, total: res.total, page: 0, loading: false });
+    } catch (e) {
+      set({ loading: false, error: e instanceof Error ? e.message : "Search failed", results: [], total: 0 });
+    }
+  },
 
-    // Category filter
-    if (filters.categories.size > 0) {
-      pool = pool.filter((p) => filters.categories.has(p.category));
+  async loadMore() {
+    const next = get().page + 1;
+    set({ loading: true });
+    try {
+      const res = await apiSearch(get().filters, next, get().pageSize);
+      set((s) => ({ results: [...s.results, ...res.items], total: res.total, page: next, loading: false }));
+    } catch (e) {
+      set({ loading: false, error: e instanceof Error ? e.message : "Load more failed" });
     }
-    // Subcategory filter
-    if (filters.subcategories.size > 0) {
-      pool = pool.filter((p) => filters.subcategories.has(p.subcategory));
-    }
-    // Brand filter
-    if (filters.brands.size > 0) {
-      pool = pool.filter((p) => filters.brands.has(p.brand));
-    }
-    // Branch stock
-    if (filters.onlyBranchStock) {
-      pool = pool.filter((p) => getTotalBranchStock(p) > 0);
-    }
-    // DC stock
-    if (filters.onlyDCStock) {
-      pool = pool.filter((p) => p.dcStock.some((d) => d.quantity > 0));
-    }
-    // Preferred only
-    if (filters.onlyPreferred) {
-      pool = pool.filter((p) => p.preferred);
-    }
-    // Price range
-    if (filters.priceMin !== null) {
-      pool = pool.filter((p) => p.unitPrice >= filters.priceMin!);
-    }
-    if (filters.priceMax !== null) {
-      pool = pool.filter((p) => p.unitPrice <= filters.priceMax!);
-    }
-
-    // Sort
-    const sort = filters.sortKey;
-    pool = [...pool].sort((a, b) => {
-      if (sort === "preferred")    return (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0);
-      if (sort === "branchStock")  return getTotalBranchStock(b) - getTotalBranchStock(a);
-      if (sort === "priceLow")     return a.unitPrice - b.unitPrice;
-      if (sort === "priceHigh")    return b.unitPrice - a.unitPrice;
-      if (sort === "brand")        return a.brand.localeCompare(b.brand);
-      // relevance: preferred first, then alternatives of active product
-      const aIsAlt = activeProduct?.alternativeIds?.includes(a.id) ? 1 : 0;
-      const bIsAlt = activeProduct?.alternativeIds?.includes(b.id) ? 1 : 0;
-      if (aIsAlt !== bIsAlt) return bIsAlt - aIsAlt;
-      return (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0);
-    });
-
-    set({ results: pool });
   },
 }));
 
@@ -478,20 +476,23 @@ export function hydrateAuth() {
 
 export function hydrateSavedState() {
   if (typeof localStorage === "undefined") return;
-  const readIds = (key: string): string[] => {
-    const raw = localStorage.getItem(key);
+  const readArr = (k: string): string[] => {
+    const raw = localStorage.getItem(k);
     if (!raw) return [];
-    try {
-      const parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? (parsed as string[]) : [];
-    } catch {
-      localStorage.removeItem(key);
-      return [];
-    }
+    try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as string[]) : []; }
+    catch { localStorage.removeItem(k); return []; }
+  };
+  const readMap = (k: string): Record<string, ProductSnapshot> => {
+    const raw = localStorage.getItem(k);
+    if (!raw) return {};
+    try { const v = JSON.parse(raw); return v && typeof v === "object" ? (v as Record<string, ProductSnapshot>) : {}; }
+    catch { localStorage.removeItem(k); return {}; }
   };
   useProductFinder.setState({
-    favorites: readIds("pf_favorites"),
-    recentlyViewed: readIds("pf_recent"),
+    favorites: readArr("pf_favorites"),
+    recentlyViewed: readArr("pf_recent"),
+    favoriteSnapshots: readMap("pf_fav_snap"),
+    recentSnapshots: readMap("pf_recent_snap"),
   });
 }
 

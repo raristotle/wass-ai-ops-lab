@@ -1,6 +1,17 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useProductFinder, selectCartCount, selectCartTotal } from "@/lib/product-finder-store";
 import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
+
+// ─── Fetch mock ───────────────────────────────────────────────────────────────
+
+globalThis.fetch = vi.fn(async (url: string | URL) => {
+  const u = String(url);
+  if (u.includes("/api/products/search")) {
+    return { ok: true, json: async () => ({ items: [], total: 0, page: 0, pageSize: 24 }) } as Response;
+  }
+  // detail endpoint — echo the product id back so activeProduct stays non-null
+  return { ok: true, json: async () => ({ product: null, equivalents: [] }) } as Response;
+}) as typeof fetch;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -20,7 +31,14 @@ function resetStore() {
     results: [],
     appliedNlFilters: [],
     favorites: [],
+    favoriteSnapshots: {},
+    recentSnapshots: {},
     recentlyViewed: [],
+    loading: false,
+    error: null,
+    page: 0,
+    total: 0,
+    pageSize: 24,
     filters: {
       query: "",
       categories: new Set(),
@@ -218,116 +236,89 @@ describe("auth", () => {
   });
 });
 
-// ─── runSearch integration ────────────────────────────────────────────────────
-
-describe("runSearch", () => {
-  beforeEach(resetStore);
-
-  it("returns all products when no query or filters are set", () => {
-    useProductFinder.getState().runSearch();
-    const { results } = useProductFinder.getState();
-    expect(results.length).toBe(WESCO_PRODUCTS.length);
-  });
-
-  it("filters to only preferred products when onlyPreferred is true", () => {
-    useProductFinder.getState().setOnlyPreferred(true);
-    const { results } = useProductFinder.getState();
-    expect(results.every((p) => p.preferred)).toBe(true);
-  });
-
-  it("filters by category", () => {
-    useProductFinder.getState().toggleCategory("datacom");
-    const { results } = useProductFinder.getState();
-    expect(results.length).toBeGreaterThan(0);
-    expect(results.every((p) => p.category === "datacom")).toBe(true);
-  });
-
-  it("filters by price max", () => {
-    useProductFinder.getState().setPriceRange(null, 10);
-    const { results } = useProductFinder.getState();
-    expect(results.every((p) => p.unitPrice <= 10)).toBe(true);
-  });
-});
+// ─── favorites & recently viewed ─────────────────────────────────────────────
 
 describe("favorites & recently viewed", () => {
   beforeEach(resetStore);
 
-  it("toggleFavorite adds then removes an id", () => {
-    const id = WESCO_PRODUCTS[0].id;
-    useProductFinder.getState().toggleFavorite(id);
-    expect(useProductFinder.getState().isFavorite(id)).toBe(true);
-    useProductFinder.getState().toggleFavorite(id);
-    expect(useProductFinder.getState().isFavorite(id)).toBe(false);
+  it("toggleFavorite adds then removes a product", () => {
+    const product = WESCO_PRODUCTS[0];
+    useProductFinder.getState().toggleFavorite(product);
+    expect(useProductFinder.getState().isFavorite(product.id)).toBe(true);
+    useProductFinder.getState().toggleFavorite(product);
+    expect(useProductFinder.getState().isFavorite(product.id)).toBe(false);
   });
 
-  it("setActiveProduct records recently viewed, most-recent-first, deduped", () => {
+  it("setActiveProduct records recently viewed, most-recent-first, deduped", async () => {
     const [a, b] = WESCO_PRODUCTS;
-    useProductFinder.getState().setActiveProduct(a);
-    useProductFinder.getState().setActiveProduct(b);
-    useProductFinder.getState().setActiveProduct(a);
+    await useProductFinder.getState().setActiveProduct(a);
+    await useProductFinder.getState().setActiveProduct(b);
+    await useProductFinder.getState().setActiveProduct(a);
     expect(useProductFinder.getState().recentlyViewed).toEqual([a.id, b.id]);
   });
 
-  it("recentlyViewed caps at 12 entries", () => {
+  it("recentlyViewed caps at 12 entries", async () => {
     for (let i = 0; i < WESCO_PRODUCTS.length && i < 15; i++) {
-      useProductFinder.getState().setActiveProduct(WESCO_PRODUCTS[i]);
+      await useProductFinder.getState().setActiveProduct(WESCO_PRODUCTS[i]);
     }
     expect(useProductFinder.getState().recentlyViewed.length).toBeLessThanOrEqual(12);
   });
 });
 
+// ─── natural-language search ──────────────────────────────────────────────────
+
 describe("natural-language search", () => {
   beforeEach(resetStore);
 
-  it("runNlSearch applies parsed filters to FilterState and stores chips", () => {
-    useProductFinder.getState().runNlSearch("preferred breaker under $50");
-    const { filters, appliedNlFilters, results } = useProductFinder.getState();
+  it("runNlSearch applies parsed filters to FilterState and stores chips", async () => {
+    await useProductFinder.getState().runNlSearch("preferred breaker under $50");
+    const { filters, appliedNlFilters } = useProductFinder.getState();
     expect(filters.onlyPreferred).toBe(true);
     expect(filters.priceMax).toBe(50);
     expect(appliedNlFilters).toHaveLength(2);
-    expect(results.every((p) => p.preferred && p.unitPrice <= 50)).toBe(true);
   });
 
-  it("removeNlFilter clears that filter's effect and re-runs search", () => {
-    useProductFinder.getState().runNlSearch("preferred under $50");
+  it("removeNlFilter clears that filter's effect and re-runs search", async () => {
+    await useProductFinder.getState().runNlSearch("preferred under $50");
     const pref = useProductFinder.getState().appliedNlFilters.find((f) => f.kind === "preferred");
     expect(pref).toBeDefined();
-    useProductFinder.getState().removeNlFilter(pref!.id);
+    await useProductFinder.getState().removeNlFilter(pref!.id);
     const { filters, appliedNlFilters } = useProductFinder.getState();
     expect(filters.onlyPreferred).toBe(false);
     expect(appliedNlFilters.some((f) => f.kind === "preferred")).toBe(false);
   });
 
-  it("removeNlFilter for a price chip resets priceMax to null", () => {
-    useProductFinder.getState().runNlSearch("breaker under $50");
+  it("removeNlFilter for a price chip resets priceMax to null", async () => {
+    await useProductFinder.getState().runNlSearch("breaker under $50");
     const priceChip = useProductFinder.getState().appliedNlFilters.find((f) => f.kind === "priceMax");
     expect(priceChip).toBeDefined();
     expect(useProductFinder.getState().filters.priceMax).toBe(50);
-    useProductFinder.getState().removeNlFilter(priceChip!.id);
+    await useProductFinder.getState().removeNlFilter(priceChip!.id);
     expect(useProductFinder.getState().filters.priceMax).toBeNull();
     expect(useProductFinder.getState().appliedNlFilters.some((f) => f.kind === "priceMax")).toBe(false);
   });
 
-  it("a new NL search replaces the previous one's filters (no stuck filters)", () => {
-    useProductFinder.getState().runNlSearch("preferred");
+  it("a new NL search replaces the previous one's filters (no stuck filters)", async () => {
+    await useProductFinder.getState().runNlSearch("preferred");
     expect(useProductFinder.getState().filters.onlyPreferred).toBe(true);
-    useProductFinder.getState().runNlSearch("under $50");
+    await useProductFinder.getState().runNlSearch("under $50");
     const { filters, appliedNlFilters } = useProductFinder.getState();
     expect(filters.onlyPreferred).toBe(false); // previous NL filter cleared
     expect(filters.priceMax).toBe(50);
     expect(appliedNlFilters.every((f) => f.kind !== "preferred")).toBe(true);
   });
 
-  it("removeNlFilter re-runs the search so results reflect the cleared filter", () => {
-    useProductFinder.getState().runNlSearch("preferred");
+  it("removeNlFilter re-runs the search (async, no error)", async () => {
+    await useProductFinder.getState().runNlSearch("preferred");
     const prefChip = useProductFinder.getState().appliedNlFilters.find((f) => f.kind === "preferred");
-    useProductFinder.getState().removeNlFilter(prefChip!.id);
-    const { results } = useProductFinder.getState();
-    expect(results.some((p) => !p.preferred)).toBe(true);
+    await useProductFinder.getState().removeNlFilter(prefChip!.id);
+    // search is now server-side; assert no error and preferred filter is gone
+    expect(useProductFinder.getState().error).toBeNull();
+    expect(useProductFinder.getState().filters.onlyPreferred).toBe(false);
   });
 
-  it("clearFilters also clears applied NL filter chips", () => {
-    useProductFinder.getState().runNlSearch("preferred under $50");
+  it("clearFilters also clears applied NL filter chips", async () => {
+    await useProductFinder.getState().runNlSearch("preferred under $50");
     expect(useProductFinder.getState().appliedNlFilters.length).toBeGreaterThan(0);
     useProductFinder.getState().clearFilters();
     expect(useProductFinder.getState().appliedNlFilters).toHaveLength(0);
