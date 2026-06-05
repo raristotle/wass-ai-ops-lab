@@ -100,7 +100,7 @@ export function ProductCard({
         aria-pressed={isFavorite}
         aria-label={isFavorite ? `Remove ${product.name} from favorites` : `Add ${product.name} to favorites`}
         className={cn(
-          "absolute right-2 top-2 z-10 text-lg leading-none transition-colors",
+          "absolute right-2 top-2 z-10 p-1 text-lg leading-none transition-colors",
           isFavorite ? "text-[#EAAA00]" : "text-[#B7C9D3] hover:text-[#EAAA00]",
         )}
       >

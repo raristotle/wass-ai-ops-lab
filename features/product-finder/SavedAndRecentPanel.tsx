@@ -42,7 +42,7 @@ export function SavedAndRecentPanel() {
       )}
       {favProducts.length > 0 && (
         <section>
-          <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-[#4F758B]">★ Favorites</h3>
+          <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-[#4F758B]"><span aria-hidden="true">★</span> Favorites</h3>
           <div className="space-y-2">
             {favProducts.map((p) => <MiniRow key={p.id} product={p} />)}
           </div>
