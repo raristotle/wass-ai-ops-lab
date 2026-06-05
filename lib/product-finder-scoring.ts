@@ -4,7 +4,6 @@ import type {
   RecommendationTier,
   ScoreFactor,
 } from "@/features/product-finder/types";
-import { getTotalDCStock } from "@/data/mock/wesco-products";
 
 export const SCORE_WEIGHTS = {
   spec: 45,
@@ -14,6 +13,12 @@ export const SCORE_WEIGHTS = {
   cheaper: 8,
   subcategory: 7,
 } as const;
+
+// 1 point per 5% cheaper than the reference; saturates at 40% cheaper (= SCORE_WEIGHTS.cheaper).
+const PRICE_SCALE = 20;
+
+// How many individual spec mismatches to name before collapsing the rest into a summary note.
+const MAX_MISMATCH_NOTES = 3;
 
 export function tierForScore(total: number): RecommendationTier {
   if (total >= 85) return "excellent";
@@ -51,20 +56,25 @@ export function scoreProduct(
           ? `Matches all ${refNonNeg.length} non-negotiable specs`
           : `Matches ${matched.length} of ${refNonNeg.length} non-negotiable specs`,
       points: specPoints,
-      positive: true,
+      positive: matched.length > 0,
     });
-    const missing = refNonNeg.find((rs) => {
+
+    const mismatches = refNonNeg.filter((rs) => {
       const cs = candidate.specs.find((s) => s.name === rs.name);
       return cs?.value !== rs.value;
     });
-    if (missing) {
-      factors.push({ label: `Differs on ${missing.name} (needs ${missing.value})`, points: 0, positive: false });
+    for (const m of mismatches.slice(0, MAX_MISMATCH_NOTES)) {
+      factors.push({ label: `Differs on ${m.name} (needs ${m.value})`, points: 0, positive: false });
+    }
+    const hidden = mismatches.length - Math.min(mismatches.length, MAX_MISMATCH_NOTES);
+    if (hidden > 0) {
+      factors.push({ label: `…and ${hidden} more spec differences`, points: 0, positive: false });
     }
   }
 
   // 2. Stock (branch beats DC)
   const branchQty = branchQtyFor(candidate, userBranchId);
-  const dcQty = getTotalDCStock(candidate);
+  const dcQty = candidate.dcStock.reduce((sum, d) => sum + d.quantity, 0);
   let stockPoints = 0;
   if (branchQty > 0) {
     stockPoints = SCORE_WEIGHTS.branchStock;
@@ -87,7 +97,7 @@ export function scoreProduct(
   let pricePoints = 0;
   if (candidate.unitPrice < reference.unitPrice && reference.unitPrice > 0) {
     const pctCheaper = (reference.unitPrice - candidate.unitPrice) / reference.unitPrice;
-    pricePoints = Math.min(SCORE_WEIGHTS.cheaper, Math.round(pctCheaper * 20));
+    pricePoints = Math.min(SCORE_WEIGHTS.cheaper, Math.round(pctCheaper * PRICE_SCALE));
     if (pricePoints > 0) {
       factors.push({ label: `${Math.round(pctCheaper * 100)}% cheaper than your reference`, points: pricePoints, positive: true });
     }

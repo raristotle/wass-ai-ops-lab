@@ -16,6 +16,7 @@ function makeProduct(overrides: Partial<WescoProduct> = {}): WescoProduct {
 }
 
 const nonNeg = (name: string, value: string): ProductSpec => ({ name, value, isNonNeg: true });
+const inBranch = { branchId: "B-HOU-01", branchName: "Houston", city: "Houston", state: "TX", quantity: 5 };
 
 const reference = makeProduct({
   id: "ref", unitPrice: 10, subcategory: "Circuit Breakers",
@@ -36,29 +37,42 @@ describe("scoreProduct", () => {
     const cand = makeProduct({
       preferred: true, unitPrice: 10, subcategory: "Circuit Breakers",
       specs: [nonNeg("Amperage", "15A"), nonNeg("Voltage", "120/240V")],
-      branchStock: [{ branchId: "B-HOU-01", branchName: "Houston", city: "Houston", state: "TX", quantity: 5 }],
+      branchStock: [inBranch],
     });
     const s = scoreProduct(cand, reference, "B-HOU-01");
     expect(s.total).toBe(SCORE_WEIGHTS.spec + SCORE_WEIGHTS.branchStock + SCORE_WEIGHTS.preferred + SCORE_WEIGHTS.subcategory);
     expect(s.tier).toBe("excellent");
   });
 
-  it("partial spec match scales proportionally and adds a mismatch note", () => {
-    const cand = makeProduct({
-      specs: [nonNeg("Amperage", "15A"), nonNeg("Voltage", "240V")], // 1 of 2
-    });
+  it("partial spec match scales proportionally and notes the mismatch", () => {
+    const cand = makeProduct({ specs: [nonNeg("Amperage", "15A"), nonNeg("Voltage", "240V")] }); // 1 of 2
     const s = scoreProduct(cand, reference);
     const specFactor = s.factors.find((f) => f.label.includes("non-negotiable"));
     expect(specFactor?.points).toBe(Math.round((1 / 2) * SCORE_WEIGHTS.spec)); // 23
+    expect(specFactor?.positive).toBe(true);
+    expect(s.factors.some((f) => !f.positive && f.label.includes("Voltage"))).toBe(true);
+  });
+
+  it("marks the spec factor negative and notes every mismatch when nothing matches", () => {
+    const cand = makeProduct({ specs: [nonNeg("Amperage", "99A"), nonNeg("Voltage", "9V")] }); // 0 of 2
+    const s = scoreProduct(cand, reference);
+    const specFactor = s.factors.find((f) => f.label.includes("non-negotiable"));
+    expect(specFactor?.points).toBe(0);
+    expect(specFactor?.positive).toBe(false);
+    expect(s.factors.some((f) => !f.positive && f.label.includes("Amperage"))).toBe(true);
     expect(s.factors.some((f) => !f.positive && f.label.includes("Voltage"))).toBe(true);
   });
 
   it("awards DC points when not in the user's branch but in a DC", () => {
-    const cand = makeProduct({
-      dcStock: [{ dcId: "DC-TEX-01", dcName: "Texas DC", location: "Katy", quantity: 9 }],
-    });
+    const cand = makeProduct({ dcStock: [{ dcId: "DC-TEX-01", dcName: "Texas DC", location: "Katy", quantity: 9 }] });
     const s = scoreProduct(cand, reference, "B-HOU-01");
     expect(s.factors.some((f) => f.label.includes("distribution center") && f.points === SCORE_WEIGHTS.dcStock)).toBe(true);
+  });
+
+  it("emits a 'Not in Wesco stock' note when there is no branch or DC stock", () => {
+    const cand = makeProduct({ branchStock: [], dcStock: [] });
+    const s = scoreProduct(cand, reference, "B-HOU-01");
+    expect(s.factors.some((f) => !f.positive && f.label.includes("Not in Wesco stock"))).toBe(true);
   });
 
   it("gives full spec points when reference has no non-negotiable specs", () => {
@@ -75,27 +89,44 @@ describe("scoreProduct", () => {
     expect(f?.points).toBe(4); // round(0.20 * 20)
   });
 
-  it("clamps total to 0–100 and orders positive factors before notes", () => {
+  it("adds no price factor when the candidate costs the same as the reference", () => {
+    const cand = makeProduct({ unitPrice: 10 });
+    const s = scoreProduct(cand, reference);
+    expect(s.factors.some((f) => f.label.includes("cheaper") || f.label.includes("more expensive"))).toBe(false);
+  });
+
+  it("never exceeds a total of 100", () => {
     const cand = makeProduct({
       preferred: true, unitPrice: 1, subcategory: "Circuit Breakers",
       specs: [nonNeg("Amperage", "15A"), nonNeg("Voltage", "120/240V")],
-      branchStock: [{ branchId: "B-HOU-01", branchName: "H", city: "H", state: "TX", quantity: 5 }],
+      branchStock: [inBranch],
     });
     const s = scoreProduct(cand, reference, "B-HOU-01");
-    expect(s.total).toBeLessThanOrEqual(100);
-    const firstNoteIdx = s.factors.findIndex((f) => !f.positive);
-    const lastPosIdx = s.factors.map((f) => f.positive).lastIndexOf(true);
-    if (firstNoteIdx >= 0) expect(lastPosIdx).toBeLessThan(firstNoteIdx);
+    expect(s.total).toBe(100);
   });
 
-  it("topReasons returns the highest-point positive factors only", () => {
+  it("orders positive factors before neutral notes", () => {
+    // matches specs + same subcat (positive), but out of stock + more expensive (notes)
+    const cand = makeProduct({
+      unitPrice: 12, subcategory: "Circuit Breakers", branchStock: [], dcStock: [],
+      specs: [nonNeg("Amperage", "15A"), nonNeg("Voltage", "120/240V")],
+    });
+    const s = scoreProduct(cand, reference, "B-HOU-01");
+    const firstNoteIdx = s.factors.findIndex((f) => !f.positive);
+    const lastPosIdx = s.factors.map((f) => f.positive).lastIndexOf(true);
+    expect(firstNoteIdx).toBeGreaterThanOrEqual(0); // there ARE notes
+    expect(lastPosIdx).toBeGreaterThanOrEqual(0);   // there ARE positives
+    expect(lastPosIdx).toBeLessThan(firstNoteIdx);
+  });
+
+  it("topReasons returns the highest-point positive factors only, default n=2", () => {
     const cand = makeProduct({
       preferred: true,
       specs: [nonNeg("Amperage", "15A"), nonNeg("Voltage", "120/240V")],
-      branchStock: [{ branchId: "B-HOU-01", branchName: "H", city: "H", state: "TX", quantity: 5 }],
+      branchStock: [inBranch],
     });
     const s = scoreProduct(cand, reference, "B-HOU-01");
-    const top = topReasons(s, 2);
+    const top = topReasons(s); // default n
     expect(top).toHaveLength(2);
     expect(top.every((f) => f.positive && f.points > 0)).toBe(true);
     expect(top[0].points).toBeGreaterThanOrEqual(top[1].points);
