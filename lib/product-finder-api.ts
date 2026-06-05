@@ -51,7 +51,7 @@ export async function apiGetProduct(
   branchId?: string
 ): Promise<ProductDetail> {
   const res = await fetch(
-    `/api/products/${encodeURIComponent(id)}${branchId ? `?branchId=${branchId}` : ""}`
+    `/api/products/${encodeURIComponent(id)}${branchId ? `?branchId=${encodeURIComponent(branchId)}` : ""}`
   );
   if (!res.ok) throw new Error(`detail failed: ${res.status}`);
   return res.json();
