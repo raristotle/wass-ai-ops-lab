@@ -15,7 +15,7 @@ const TIER_LABEL: Record<RecommendationTier, string> = {
 // WCAG: text colors chosen to pass on white / light tints
 const TIER_TEXT: Record<RecommendationTier, string> = {
   excellent: "text-[#00573F]",
-  good: "text-[#8a6500]",
+  good: "text-[#8A6500]",
   partial: "text-[#4F758B]",
 };
 
@@ -53,7 +53,7 @@ export function RecommendationExplanation({ product, reference }: Props) {
             {score.total}%
           </span>
         </div>
-        <span className={cn("text-sm font-bold", TIER_TEXT[score.tier])}>{TIER_LABEL[score.tier]}</span>
+        <span aria-hidden="true" className={cn("text-sm font-bold", TIER_TEXT[score.tier])}>{TIER_LABEL[score.tier]}</span>
       </div>
 
       {/* Top-2 reason chips */}
@@ -64,7 +64,7 @@ export function RecommendationExplanation({ product, reference }: Props) {
               key={f.label}
               className="rounded-full border border-[#00AA13]/30 bg-[#00AA13]/10 px-2 py-0.5 text-[11px] font-semibold text-[#00573F]"
             >
-              ✓ {f.label}
+              <span aria-hidden="true">✓</span> {f.label}
             </span>
           ))}
         </div>
@@ -77,7 +77,7 @@ export function RecommendationExplanation({ product, reference }: Props) {
         aria-expanded={open}
         className="mt-2 flex items-center gap-1.5 text-[11px] font-bold text-[#004986] hover:underline"
       >
-        <span className={cn("text-[9px] transition-transform", open ? "rotate-90" : "rotate-0")}>▶</span>
+        <span aria-hidden="true" className={cn("text-[9px] transition-transform", open ? "rotate-90" : "rotate-0")}>▶</span>
         Why recommended?
       </button>
 
@@ -85,7 +85,7 @@ export function RecommendationExplanation({ product, reference }: Props) {
         <ul className="mt-2 space-y-1.5 border-t border-dashed border-[#cfd9e0] pt-2">
           {score.factors.map((f) => (
             <li key={f.label} className="flex items-start gap-1.5 text-[11px] text-[#1D252D]">
-              <span className={f.positive ? "font-bold text-[#00AA13]" : "font-bold text-[#EAAA00]"}>
+              <span aria-hidden="true" className={f.positive ? "font-bold text-[#00AA13]" : "font-bold text-[#EAAA00]"}>
                 {f.positive ? "✓" : "⚠"}
               </span>
               <span className="flex-1">{f.label}</span>
