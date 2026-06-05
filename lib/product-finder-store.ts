@@ -282,7 +282,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     });
     try {
       const detail = await apiGetProduct(p.id, get().user?.branchId);
-      set({ activeProduct: detail.product, results: detail.equivalents });
+      set({ activeProduct: detail.product, results: detail.equivalents, total: detail.equivalents.length, page: 0 });
     } catch { /* keep the passed product + existing results on failure */ }
   },
 
