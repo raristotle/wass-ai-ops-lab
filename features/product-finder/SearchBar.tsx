@@ -7,15 +7,13 @@ import {
   useEffect,
   type RefObject,
   type ChangeEvent,
-  type DragEvent,
   type KeyboardEvent,
 } from "react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { searchProducts } from "@/data/mock/wesco-products";
-import type { WescoProduct, BomLine, ParsedFilter } from "@/features/product-finder/types";
+import { apiSuggest } from "@/lib/product-finder-api";
+import type { SuggestItem, ParsedFilter } from "@/features/product-finder/types";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -27,8 +25,6 @@ const QUICK_PICKS: readonly string[] = [
   "Patch Panels",
   "Network Switches",
 ];
-
-const MAX_SUGGESTIONS = 6;
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -54,8 +50,8 @@ function SuggestionRow({
   product,
   onSelect,
 }: {
-  product: WescoProduct;
-  onSelect: (p: WescoProduct) => void;
+  product: SuggestItem;
+  onSelect: (p: SuggestItem) => void;
 }) {
   return (
     <button
@@ -82,7 +78,7 @@ function SuggestionRow({
 
 interface SingleSearchPanelProps {
   query: string;
-  suggestions: WescoProduct[];
+  suggestions: SuggestItem[];
   showSuggestions: boolean;
   inputRef: RefObject<HTMLInputElement | null>;
   dropdownRef: RefObject<HTMLDivElement | null>;
@@ -90,7 +86,7 @@ interface SingleSearchPanelProps {
   onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
   onClear: () => void;
   onSearch: () => void;
-  onSelectSuggestion: (product: WescoProduct) => void;
+  onSelectSuggestion: (item: SuggestItem) => void;
   onQuickPick: (chip: string) => void;
   appliedNlFilters: ParsedFilter[];
   onRemoveFilter: (id: string) => void;
@@ -235,325 +231,33 @@ function SingleSearchPanel({
   );
 }
 
-// ─── BOM Table Row ────────────────────────────────────────────────────────────
-
-interface BomTableRowProps {
-  line: BomLine;
-  onLineSelect: (product: WescoProduct) => void;
-}
-
-function BomTableRow({ line, onLineSelect }: BomTableRowProps) {
-  const resolved: WescoProduct | null = line.resolved;
-
-  const branchQty =
-    resolved !== null
-      ? resolved.branchStock.reduce((s, b) => s + b.quantity, 0)
-      : 0;
-  const dcQty =
-    resolved !== null
-      ? resolved.dcStock.reduce((s, d) => s + d.quantity, 0)
-      : 0;
-  const inStock = branchQty > 0 || dcQty > 0;
-
-  const handleClick = () => {
-    if (resolved !== null) onLineSelect(resolved);
-  };
-
-  return (
-    <div
-      role={resolved !== null ? "button" : undefined}
-      tabIndex={resolved !== null ? 0 : undefined}
-      aria-label={
-        resolved !== null
-          ? `Select ${resolved.name} for ${line.description}`
-          : undefined
-      }
-      onClick={handleClick}
-      onKeyDown={(e) => {
-        if (resolved !== null && (e.key === "Enter" || e.key === " ")) {
-          e.preventDefault();
-          handleClick();
-        }
-      }}
-      className={cn(
-        "grid grid-cols-1 gap-2 rounded-lg border border-[#B7C9D3] bg-white px-4 py-3 text-sm",
-        "sm:grid-cols-[3rem_1fr_1fr_5rem_6rem] sm:items-center sm:gap-3",
-        resolved !== null && "cursor-pointer transition-colors hover:bg-[#B7C9D3]/10"
-      )}
-    >
-      {/* Qty */}
-      <Badge className="w-fit border-0 bg-[#00AA13] text-xs text-white">
-        &times;{line.quantity}
-      </Badge>
-
-      {/* Description */}
-      <span className="truncate text-[#1D252D]">{line.description}</span>
-
-      {/* Wesco Match */}
-      {resolved !== null ? (
-        <div className="min-w-0">
-          <p className="truncate font-medium text-[#1D252D]">
-            {resolved.imageIcon} {resolved.name}
-          </p>
-          <p className="truncate text-xs text-[#4F758B]">
-            SKU: {resolved.sku}
-          </p>
-        </div>
-      ) : (
-        <span className="text-xs font-medium text-[#DB6B30]">
-          No match found
-        </span>
-      )}
-
-      {/* Alternatives count */}
-      <div className="text-center">
-        {resolved !== null && line.alternatives.length > 0 ? (
-          <span className="rounded-full border border-[#B7C9D3] px-2 py-0.5 text-xs text-[#4F758B]">
-            {line.alternatives.length}
-          </span>
-        ) : (
-          <span className="text-xs text-[#B7C9D3]">—</span>
-        )}
-      </div>
-
-      {/* Status badge */}
-      <div>
-        {resolved !== null ? (
-          inStock ? (
-            <Badge className="border-0 bg-[#00AA13] text-xs text-white">
-              In Stock
-            </Badge>
-          ) : (
-            <Badge variant="destructive" className="text-xs">
-              Out of Stock
-            </Badge>
-          )
-        ) : (
-          <span className="text-xs text-[#B7C9D3]">—</span>
-        )}
-      </div>
-    </div>
-  );
-}
-
-// ─── BOM Results Table ────────────────────────────────────────────────────────
-
-interface BomResultsTableProps {
-  bomLines: BomLine[];
-  onLineSelect: (product: WescoProduct) => void;
-}
-
-function BomResultsTable({ bomLines, onLineSelect }: BomResultsTableProps) {
-  return (
-    <div className="space-y-2">
-      {/* Column headers — visible only on sm+ */}
-      <div className="hidden grid-cols-[3rem_1fr_1fr_5rem_6rem] gap-3 px-4 text-xs font-semibold uppercase tracking-wide text-[#4F758B] sm:grid">
-        <span>Qty</span>
-        <span>Description</span>
-        <span>Wesco Match</span>
-        <span className="text-center">Alts</span>
-        <span>Status</span>
-      </div>
-
-      {/* Rows */}
-      <div className="space-y-1">
-        {bomLines.map((line) => (
-          <BomTableRow key={line.id} line={line} onLineSelect={onLineSelect} />
-        ))}
-      </div>
-
-      {/* Summary */}
-      <div className="flex gap-4 pt-2 text-xs text-[#4F758B]">
-        <span>
-          <span className="font-semibold text-[#00AA13]">
-            {bomLines.filter((l) => l.resolved !== null).length}
-          </span>{" "}
-          matched
-        </span>
-        <span>
-          <span className="font-semibold text-[#DB6B30]">
-            {bomLines.filter((l) => l.resolved === null).length}
-          </span>{" "}
-          unmatched
-        </span>
-        <span>
-          <span className="font-semibold text-[#1D252D]">
-            {bomLines.length}
-          </span>{" "}
-          total
-        </span>
-      </div>
-    </div>
-  );
-}
-
-// ─── BOM Panel ────────────────────────────────────────────────────────────────
-
-interface BomPanelProps {
-  bomText: string;
-  bomLines: BomLine[];
-  isDragging: boolean;
-  fileInputRef: RefObject<HTMLInputElement | null>;
-  onDrop: (e: DragEvent<HTMLDivElement>) => void;
-  onDragOver: (e: DragEvent<HTMLDivElement>) => void;
-  onDragLeave: () => void;
-  onFileInput: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBomTextChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  onParseBom: () => void;
-  onLineSelect: (product: WescoProduct) => void;
-}
-
-function BomPanel({
-  bomText,
-  bomLines,
-  isDragging,
-  fileInputRef,
-  onDrop,
-  onDragOver,
-  onDragLeave,
-  onFileInput,
-  onBomTextChange,
-  onParseBom,
-  onLineSelect,
-}: BomPanelProps) {
-  return (
-    <div className="space-y-4">
-      {/* Instructions */}
-      <p className="text-sm text-[#4F758B]">
-        Upload a BOM or paste a list. Supported: CSV, plain text. One item per
-        line. Optionally start with quantity (e.g.&nbsp;
-        <span className="font-medium text-[#1D252D]">
-          &ldquo;20x 15A circuit breaker&rdquo;
-        </span>
-        ).
-      </p>
-
-      {/* Drop zone */}
-      <div
-        role="button"
-        tabIndex={0}
-        aria-label="Drop zone: drop a CSV or text file here, or press Enter to browse"
-        onDrop={onDrop}
-        onDragOver={onDragOver}
-        onDragLeave={onDragLeave}
-        onClick={() => fileInputRef.current?.click()}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            fileInputRef.current?.click();
-          }
-        }}
-        className={cn(
-          "flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed px-6 py-8 text-center transition-colors",
-          isDragging
-            ? "border-[#00AA13] bg-[#00AA13]/5"
-            : "border-[#B7C9D3] hover:border-[#4F758B] hover:bg-[#B7C9D3]/10",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00AA13]"
-        )}
-      >
-        <svg
-          className="mb-2 h-8 w-8 text-[#4F758B]"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.5}
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"
-          />
-        </svg>
-        <p className="text-sm font-medium text-[#1D252D]">
-          Drop CSV or text file here, or{" "}
-          <span className="text-[#00AA13] underline">click to browse</span>
-        </p>
-        <p className="mt-1 text-xs text-[#4F758B]">Accepts .csv, .txt</p>
-      </div>
-
-      {/* Hidden file input */}
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept=".csv,.txt"
-        className="sr-only"
-        onChange={onFileInput}
-        aria-hidden="true"
-        tabIndex={-1}
-      />
-
-      {/* Paste textarea */}
-      <textarea
-        rows={8}
-        value={bomText}
-        onChange={onBomTextChange}
-        placeholder={`Paste your BOM here, one item per line:\n20x 15A circuit breaker\n5x Cat6 cable 1000ft\n10x EMT conduit 3/4"`}
-        className={cn(
-          "w-full resize-y rounded-lg border border-[#B7C9D3] bg-white px-3 py-2 text-sm text-[#1D252D]",
-          "placeholder:text-[#4F758B]/60",
-          "focus:outline-none focus:ring-2 focus:ring-[#00AA13] focus:border-[#00AA13]",
-          "transition-colors"
-        )}
-      />
-
-      {/* Parse button */}
-      <Button
-        type="button"
-        onClick={onParseBom}
-        className="h-10 bg-[#1D252D] px-6 text-sm font-medium text-white hover:bg-[#1D252D]/90"
-      >
-        Parse BOM
-      </Button>
-
-      {/* Results */}
-      {bomLines.length > 0 && (
-        <BomResultsTable bomLines={bomLines} onLineSelect={onLineSelect} />
-      )}
-    </div>
-  );
-}
-
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export function SearchBar() {
   const {
     query,
     setQuery,
-    bomMode,
-    bomText,
-    bomLines,
-    setBomMode,
-    setBomText,
-    parseBom,
-    setActiveProduct,
     runNlSearch,
     removeNlFilter,
     appliedNlFilters,
   } = useProductFinder();
 
-  const activeTab: "single" | "bom" = bomMode ? "bom" : "single";
-
   // Suggestion dropdown state
-  const [suggestions, setSuggestions] = useState<WescoProduct[]>([]);
+  const [suggestions, setSuggestions] = useState<SuggestItem[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // BOM drag state
-  const [isDragging, setIsDragging] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const suggestTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // ── Suggestion logic ────────────────────────────────────────────────────────
   const updateSuggestions = useCallback((value: string) => {
-    if (!value.trim()) {
-      setSuggestions([]);
-      setShowSuggestions(false);
-      return;
-    }
-    const results = searchProducts(value).slice(0, MAX_SUGGESTIONS);
-    setSuggestions(results);
-    setShowSuggestions(results.length > 0);
+    if (suggestTimer.current) clearTimeout(suggestTimer.current);
+    if (!value.trim()) { setSuggestions([]); setShowSuggestions(false); return; }
+    suggestTimer.current = setTimeout(async () => {
+      const items = await apiSuggest(value);
+      setSuggestions(items);
+      setShowSuggestions(items.length > 0);
+    }, 150);
   }, []);
 
   const handleQueryChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -562,12 +266,11 @@ export function SearchBar() {
     updateSuggestions(value);
   };
 
-  const handleSelectSuggestion = (product: WescoProduct) => {
-    setQuery(product.name);
+  const handleSelectSuggestion = (item: SuggestItem) => {
+    setQuery(item.name);
     setSuggestions([]);
     setShowSuggestions(false);
-    setActiveProduct(product);
-    // setActiveProduct calls runSearch internally
+    runNlSearch(item.name);
   };
 
   const handleSearch = () => {
@@ -612,118 +315,26 @@ export function SearchBar() {
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, []);
 
-  // ── BOM helpers ─────────────────────────────────────────────────────────────
-  const readFileText = (file: File) => {
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const text = ev.target?.result;
-      if (typeof text === "string") {
-        setBomText(text);
-        parseBom();
-      }
-    };
-    reader.readAsText(file);
-  };
-
-  const handleFileDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(false);
-    const file = e.dataTransfer.files[0];
-    if (file) readFileText(file);
-  };
-
-  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = () => setIsDragging(false);
-
-  const handleFileInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) readFileText(file);
-    e.target.value = ""; // allow re-selecting same file
-  };
-
-  const handleBomTextChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setBomText(e.target.value);
-  };
-
-  const handleBomLineSelect = (product: WescoProduct) => {
-    setActiveProduct(product);
-  };
-
-  const switchTab = (tab: "single" | "bom") => {
-    setBomMode(tab === "bom");
-    setShowSuggestions(false);
-  };
-
   // ── Render ──────────────────────────────────────────────────────────────────
   return (
     <div className="w-full rounded-xl border border-[#B7C9D3] bg-white shadow-sm">
-      {/* Tabs */}
-      <div className="flex overflow-hidden rounded-t-xl border-b border-[#B7C9D3]">
-        <button
-          type="button"
-          onClick={() => switchTab("single")}
-          className={cn(
-            "flex-1 px-4 py-3 text-sm font-medium transition-colors",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#00AA13]",
-            activeTab === "single"
-              ? "bg-[#1D252D] text-white"
-              : "bg-white text-[#1D252D] hover:bg-[#1D252D] hover:text-white"
-          )}
-        >
-          Single Search
-        </button>
-        <button
-          type="button"
-          onClick={() => switchTab("bom")}
-          className={cn(
-            "flex-1 px-4 py-3 text-sm font-medium transition-colors",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#00AA13]",
-            activeTab === "bom"
-              ? "bg-[#1D252D] text-white"
-              : "bg-white text-[#1D252D] hover:bg-[#1D252D] hover:text-white"
-          )}
-        >
-          BOM / List
-        </button>
-      </div>
-
       {/* Panel body */}
       <div className="p-4">
-        {activeTab === "single" ? (
-          <SingleSearchPanel
-            query={query}
-            suggestions={suggestions}
-            showSuggestions={showSuggestions}
-            inputRef={inputRef}
-            dropdownRef={dropdownRef}
-            onQueryChange={handleQueryChange}
-            onKeyDown={handleKeyDown}
-            onClear={handleClear}
-            onSearch={handleSearch}
-            onSelectSuggestion={handleSelectSuggestion}
-            onQuickPick={handleQuickPick}
-            appliedNlFilters={appliedNlFilters}
-            onRemoveFilter={removeNlFilter}
-          />
-        ) : (
-          <BomPanel
-            bomText={bomText}
-            bomLines={bomLines}
-            isDragging={isDragging}
-            fileInputRef={fileInputRef}
-            onDrop={handleFileDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onFileInput={handleFileInput}
-            onBomTextChange={handleBomTextChange}
-            onParseBom={parseBom}
-            onLineSelect={handleBomLineSelect}
-          />
-        )}
+        <SingleSearchPanel
+          query={query}
+          suggestions={suggestions}
+          showSuggestions={showSuggestions}
+          inputRef={inputRef}
+          dropdownRef={dropdownRef}
+          onQueryChange={handleQueryChange}
+          onKeyDown={handleKeyDown}
+          onClear={handleClear}
+          onSearch={handleSearch}
+          onSelectSuggestion={handleSelectSuggestion}
+          onQuickPick={handleQuickPick}
+          appliedNlFilters={appliedNlFilters}
+          onRemoveFilter={removeNlFilter}
+        />
       </div>
     </div>
   );
