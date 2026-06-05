@@ -79,9 +79,17 @@ function genOne(
 
 export function generateCatalog(size: number = CATALOG_SIZE): WescoProduct[] {
   const rng = makeRng(FIXED_SEED);
-  // Only fold in curated products that satisfy the shape contract (≥1 isNonNeg spec).
-  const qualifiedCurated = WESCO_PRODUCTS.filter((p) => p.specs.some((s) => s.isNonNeg));
-  const featured = qualifiedCurated.slice(0, Math.min(qualifiedCurated.length, size));
+  // Fail fast if any curated product is missing a non-negotiable spec — data gaps must not
+  // silently shrink the catalog or break cross-sell/upsell/alternative links.
+  for (const p of WESCO_PRODUCTS) {
+    if (!p.specs.some((s) => s.isNonNeg)) {
+      throw new Error(
+        `Curated product "${p.id}" has no isNonNeg spec. ` +
+        `Add isNonNeg: true to at least one spec in data/mock/wesco-products.ts.`
+      );
+    }
+  }
+  const featured = WESCO_PRODUCTS.slice(0, Math.min(WESCO_PRODUCTS.length, size));
   const out: WescoProduct[] = [...featured];
   const usedIds = new Set(out.map((p) => p.id));
   const remaining = size - out.length;

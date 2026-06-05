@@ -632,7 +632,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔩",
     specs: [
-      { name: "Size", value: "3/4\"" },
+      { name: "Size", value: "3/4\"", isNonNeg: true },
       { name: "Type", value: "Set-Screw" },
       { name: "Material", value: "Steel, Zinc Die-Cast" },
     ],
@@ -656,7 +656,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔩",
     specs: [
-      { name: "Size", value: "3/4\"" },
+      { name: "Size", value: "3/4\"", isNonNeg: true },
       { name: "Type", value: "1-Hole Strap" },
       { name: "Qty/Box", value: "50" },
     ],
@@ -684,7 +684,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔌",
     specs: [
-      { name: "Compatibility", value: "HOM Load Centers" },
+      { name: "Compatibility", value: "HOM Load Centers", isNonNeg: true },
     ],
     branchStock: b(100, 150, 50, 40),
     dcStock: d(2000, 3000),
@@ -807,7 +807,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔌",
     specs: [
-      { name: "Amperage", value: "15A" },
+      { name: "Amperage", value: "15A", isNonNeg: true },
       { name: "Poles", value: "Single-Pole" },
       { name: "Style", value: "Decora Rocker" },
       { name: "Color", value: "Ivory" },
@@ -951,7 +951,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔗",
     specs: [
-      { name: "Category", value: "Cat6" },
+      { name: "Category", value: "Cat6", isNonNeg: true },
       { name: "Wiring", value: "T568A/T568B" },
       { name: "Type", value: "Keystone Jack" },
       { name: "Color", value: "Blue" },
@@ -976,7 +976,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔗",
     specs: [
-      { name: "Category", value: "Cat6" },
+      { name: "Category", value: "Cat6", isNonNeg: true },
       { name: "Color", value: "Grey" },
     ],
     branchStock: b(150, 250, 80, 60),
@@ -999,7 +999,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔗",
     specs: [
-      { name: "Category", value: "Cat6A" },
+      { name: "Category", value: "Cat6A", isNonNeg: true },
       { name: "Shielded", value: "Yes" },
       { name: "Color", value: "Blue" },
     ],
@@ -1023,7 +1023,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🔗",
     specs: [
-      { name: "Ports", value: "1" },
+      { name: "Ports", value: "1", isNonNeg: true },
       { name: "Type", value: "Keystone" },
     ],
     branchStock: b(300, 450, 150, 100),
@@ -1096,7 +1096,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: false,
     imageIcon: "🖥️",
     specs: [
-      { name: "Ports", value: "48" },
+      { name: "Ports", value: "48", isNonNeg: true },
       { name: "Category", value: "Cat6A" },
       { name: "Shielded", value: "Yes" },
       { name: "Rack Units", value: "2U" },
@@ -1121,7 +1121,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: false,
     imageIcon: "🖥️",
     specs: [
-      { name: "Ports", value: "48" },
+      { name: "Ports", value: "48", isNonNeg: true },
       { name: "Category", value: "Cat6" },
       { name: "Rack Units", value: "2U" },
       { name: "Brand", value: "Panduit" },
@@ -1235,7 +1235,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     preferred: true,
     imageIcon: "🗄️",
     specs: [
-      { name: "Rack Units", value: "24U" },
+      { name: "Rack Units", value: "24U", isNonNeg: true },
       { name: "Depth", value: "600mm" },
       { name: "Mount", value: "Floor-Stand" },
       { name: "Type", value: "Enclosed Cabinet" },
@@ -1261,7 +1261,7 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
     imageIcon: "🗄️",
     specs: [
       { name: "Outlets", value: "8 × NEMA 5-15R" },
-      { name: "Amperage", value: "15A" },
+      { name: "Amperage", value: "15A", isNonNeg: true },
       { name: "Voltage", value: "120V" },
       { name: "Rack Units", value: "1U" },
     ],
