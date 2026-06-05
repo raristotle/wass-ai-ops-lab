@@ -8,10 +8,14 @@ import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
 let detailProduct: unknown = null;
 let detailEquivalents: unknown[] = [];
 
+// search mock — configurable so tests can verify what runSearch returns
+let searchItems: unknown[] = [];
+let searchTotal = 0;
+
 globalThis.fetch = vi.fn(async (url: string | URL) => {
   const u = String(url);
   if (u.includes("/api/products/search")) {
-    return { ok: true, json: async () => ({ items: [], total: 0, page: 0, pageSize: 24 }) } as Response;
+    return { ok: true, json: async () => ({ items: searchItems, total: searchTotal, page: 0, pageSize: 24 }) } as Response;
   }
   // detail endpoint — returns the product set by tests so activeProduct enriches correctly
   return { ok: true, json: async () => ({ product: detailProduct, equivalents: detailEquivalents }) } as Response;
@@ -276,6 +280,8 @@ describe("setActiveProduct enrichment", () => {
     resetStore();
     detailProduct = null;
     detailEquivalents = [];
+    searchItems = [];
+    searchTotal = 0;
   });
 
   it("enriches activeProduct and results from the detail API response", async () => {
@@ -291,6 +297,34 @@ describe("setActiveProduct enrichment", () => {
     expect(state.activeProduct).toEqual(enriched);
     expect(state.results).toEqual(equivalents);
     expect(state.total).toBe(equivalents.length);
+  });
+
+  it("setActiveProduct(null) clears activeProduct and restores prior search results", async () => {
+    // Step 1: simulate viewing equivalents for a product
+    const product = WESCO_PRODUCTS[0];
+    const enriched = { ...product, description: "enriched" };
+    const equivalents = [WESCO_PRODUCTS[1], WESCO_PRODUCTS[2]];
+    detailProduct = enriched;
+    detailEquivalents = equivalents;
+    await useProductFinder.getState().setActiveProduct(product);
+
+    // Confirm we're in the equivalents view
+    expect(useProductFinder.getState().results).toEqual(equivalents);
+
+    // Step 2: configure the search mock to return distinct prior-search items
+    const priorSearchItems = [WESCO_PRODUCTS[3], WESCO_PRODUCTS[4]];
+    const priorSearchTotal = 42;
+    searchItems = priorSearchItems;
+    searchTotal = priorSearchTotal;
+
+    // Step 3: call setActiveProduct(null) — "Change Product" button
+    await useProductFinder.getState().setActiveProduct(null);
+
+    const state = useProductFinder.getState();
+    expect(state.activeProduct).toBeNull();
+    expect(state.results).toEqual(priorSearchItems);
+    expect(state.total).toBe(priorSearchTotal);
+    expect(state.page).toBe(0);
   });
 });
 

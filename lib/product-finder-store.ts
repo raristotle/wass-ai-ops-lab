@@ -268,7 +268,11 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   activeProduct: null,
 
   async setActiveProduct(p) {
-    if (!p) { set({ activeProduct: null }); return; }
+    if (!p) {
+      set({ activeProduct: null });
+      await get().runSearch();
+      return;
+    }
     const snap: ProductSnapshot = { id: p.id, name: p.name, brand: p.brand, unitPrice: p.unitPrice, imageIcon: p.imageIcon, category: p.category };
     set((s) => {
       const recentlyViewed = [p.id, ...s.recentlyViewed.filter((id) => id !== p.id)].slice(0, MAX_RECENT);
