@@ -579,11 +579,14 @@ export function SearchBar() {
 
   const handleClear = () => {
     setQuery("");
+    runNlSearch(""); // also clears applied filter chips and resets results
     setSuggestions([]);
     setShowSuggestions(false);
     inputRef.current?.focus();
   };
 
+  // Quick-picks run through the same NL parser as typed queries, so a pick that
+  // contains a brand or price token would surface as a removable filter chip.
   const handleQuickPick = (chip: string) => {
     setQuery(chip);
     setShowSuggestions(false);

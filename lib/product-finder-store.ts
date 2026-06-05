@@ -68,7 +68,6 @@ export interface ProductFinderState {
 
   // Filters
   filters: FilterState;
-  setFilterQuery: (q: string) => void;
   toggleCategory: (cat: ProductCategory) => void;
   toggleBrand: (brand: string) => void;
   toggleSubcategory: (sub: string) => void;
@@ -257,11 +256,6 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   // ── Filters ───────────────────────────────────────────────
   filters: defaultFilters(),
-
-  setFilterQuery(q) {
-    set((s) => ({ filters: { ...s.filters, query: q } }));
-    get().runSearch();
-  },
 
   toggleCategory(cat) {
     set((s) => {
