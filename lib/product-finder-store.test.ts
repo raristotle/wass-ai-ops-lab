@@ -325,4 +325,11 @@ describe("natural-language search", () => {
     const { results } = useProductFinder.getState();
     expect(results.some((p) => !p.preferred)).toBe(true);
   });
+
+  it("clearFilters also clears applied NL filter chips", () => {
+    useProductFinder.getState().runNlSearch("preferred under $50");
+    expect(useProductFinder.getState().appliedNlFilters.length).toBeGreaterThan(0);
+    useProductFinder.getState().clearFilters();
+    expect(useProductFinder.getState().appliedNlFilters).toHaveLength(0);
+  });
 });

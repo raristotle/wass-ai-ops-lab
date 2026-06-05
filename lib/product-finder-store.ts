@@ -348,7 +348,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   },
 
   clearFilters() {
-    set({ filters: defaultFilters() });
+    set({ filters: defaultFilters(), appliedNlFilters: [] });
     get().runSearch();
   },
 
