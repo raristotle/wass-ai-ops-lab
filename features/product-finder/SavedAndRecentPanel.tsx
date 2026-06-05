@@ -9,7 +9,7 @@ function MiniRow({ snap }: { snap: ProductSnapshot }) {
       <span className="text-xl" aria-hidden="true">{snap.imageIcon}</span>
       <span className="min-w-0 flex-1">
         <span className="block truncate text-sm font-medium text-[#1D252D]">{snap.name}</span>
-        <span className="block truncate text-xs text-[#4F758B]">{snap.brand} · ${snap.unitPrice.toFixed(2)}</span>
+        <span className="block truncate text-xs text-[#4F758B]">{snap.brand} · ${Number(snap.unitPrice).toFixed(2)}</span>
       </span>
     </div>
   );
