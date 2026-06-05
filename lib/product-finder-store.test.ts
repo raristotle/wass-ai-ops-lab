@@ -4,13 +4,17 @@ import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
 
 // ─── Fetch mock ───────────────────────────────────────────────────────────────
 
+// detail mock echoes whatever product was last set here, with a companion equivalents list
+let detailProduct: unknown = null;
+let detailEquivalents: unknown[] = [];
+
 globalThis.fetch = vi.fn(async (url: string | URL) => {
   const u = String(url);
   if (u.includes("/api/products/search")) {
     return { ok: true, json: async () => ({ items: [], total: 0, page: 0, pageSize: 24 }) } as Response;
   }
-  // detail endpoint — echo the product id back so activeProduct stays non-null
-  return { ok: true, json: async () => ({ product: null, equivalents: [] }) } as Response;
+  // detail endpoint — returns the product set by tests so activeProduct enriches correctly
+  return { ok: true, json: async () => ({ product: detailProduct, equivalents: detailEquivalents }) } as Response;
 }) as typeof fetch;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -262,6 +266,31 @@ describe("favorites & recently viewed", () => {
       await useProductFinder.getState().setActiveProduct(WESCO_PRODUCTS[i]);
     }
     expect(useProductFinder.getState().recentlyViewed.length).toBeLessThanOrEqual(12);
+  });
+});
+
+// ─── setActiveProduct enrichment ─────────────────────────────────────────────
+
+describe("setActiveProduct enrichment", () => {
+  beforeEach(() => {
+    resetStore();
+    detailProduct = null;
+    detailEquivalents = [];
+  });
+
+  it("enriches activeProduct and results from the detail API response", async () => {
+    const product = WESCO_PRODUCTS[0];
+    const enriched = { ...product, description: "enriched-description" };
+    const equivalents = [WESCO_PRODUCTS[1], WESCO_PRODUCTS[2]];
+    detailProduct = enriched;
+    detailEquivalents = equivalents;
+
+    await useProductFinder.getState().setActiveProduct(product);
+
+    const state = useProductFinder.getState();
+    expect(state.activeProduct).toEqual(enriched);
+    expect(state.results).toEqual(equivalents);
+    expect(state.total).toBe(equivalents.length);
   });
 });
 
