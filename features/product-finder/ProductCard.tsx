@@ -59,6 +59,7 @@ export function ProductCard({
   const addToCart = useProductFinder((s) => s.addToCart);
   const isFavorite = useProductFinder((s) => s.favorites.includes(product.id));
   const toggleFavorite = useProductFinder((s) => s.toggleFavorite);
+  const setActiveProduct = useProductFinder((s) => s.setActiveProduct);
 
   const branchQty = getTotalBranchStock(product);
   const dcQty = getTotalDCStock(product);
@@ -315,7 +316,7 @@ export function ProductCard({
             </Button>
           </div>
 
-          {/* Compare + View Details */}
+          {/* Compare + Find Alternatives + View Details */}
           <div className="flex items-center gap-2">
             <Button
               size="sm"
@@ -333,6 +334,15 @@ export function ProductCard({
               }
             >
               {isComparing ? "✓ Comparing" : "Compare"}
+            </Button>
+
+            <Button
+              size="sm"
+              variant="outline"
+              className="text-xs border-[#B7C9D3]"
+              onClick={() => setActiveProduct(product)}
+            >
+              Find Alternatives
             </Button>
 
             <Button
