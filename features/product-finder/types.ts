@@ -126,7 +126,12 @@ export interface RecommendationScore {
 }
 
 export type ParsedFilterKind =
-  | "priceMax" | "priceMin" | "branchStock" | "preferred" | "category" | "brand";
+  | "priceMax"
+  | "priceMin"
+  | "branchStock"
+  | "preferred"
+  | "category"
+  | "brand";
 
 export interface ParsedFilter {
   id: string;

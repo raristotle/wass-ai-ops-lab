@@ -5,6 +5,7 @@ function escapeRe(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+// Keep in sync with the ProductCategory union in features/product-finder/types.ts.
 const CATEGORIES: ProductCategory[] = ["electrical", "datacom"];
 
 export function parseQuery(raw: string): ParsedQuery {
@@ -13,13 +14,18 @@ export function parseQuery(raw: string): ParsedQuery {
   const push = (kind: ParsedFilterKind, label: string, value: string | number | boolean) =>
     filters.push({ id: `${kind}:${value}`, kind, label, value });
 
-  // Price range first ($10-$30 / 10 to 30)
-  const range = working.match(/\$?(\d+(?:\.\d+)?)\s*(?:-|to)\s*\$?(\d+(?:\.\d+)?)/);
+  // Price range first. Require at least one '$' so product specs such as
+  // "12-2" (NM cable) or "10-32" (screw thread) are NOT read as price ranges.
+  const range = working.match(
+    /\$\s*(\d+(?:\.\d+)?)\s*(?:-|to)\s*\$?\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(?:-|to)\s*\$\s*(\d+(?:\.\d+)?)/,
+  );
   if (range) {
-    const lo = Number(range[1]);
-    const hi = Number(range[2]);
-    push("priceMin", `Over $${lo}`, lo);
-    push("priceMax", `Under $${hi}`, hi);
+    const lo = Number(range[1] ?? range[3]);
+    const hi = Number(range[2] ?? range[4]);
+    const min = Math.min(lo, hi);
+    const max = Math.max(lo, hi);
+    push("priceMin", `Over $${min}`, min);
+    push("priceMax", `Under $${max}`, max);
     working = working.replace(range[0], " ");
   } else {
     const under = working.match(/(?:under|below|less than|<)\s*\$?(\d+(?:\.\d+)?)/);

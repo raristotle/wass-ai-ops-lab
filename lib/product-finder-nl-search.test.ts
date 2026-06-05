@@ -37,9 +37,27 @@ describe("parseQuery", () => {
     expect(r.filters).toContainEqual(expect.objectContaining({ kind: "preferred", value: true }));
   });
 
-  it("parses a known brand keyword", () => {
+  it("parses a known brand keyword and strips it from the text", () => {
     const r = parseQuery("square d breaker");
     expect(r.filters).toContainEqual(expect.objectContaining({ kind: "brand", value: "Square D" }));
+    expect(r.text).toBe("breaker");
+  });
+
+  it("does NOT treat a hyphenated product spec like '12-2' as a price range", () => {
+    const r = parseQuery("12-2 wire");
+    expect(r.filters.some((f) => f.kind === "priceMin" || f.kind === "priceMax")).toBe(false);
+    expect(r.text).toContain("12-2");
+  });
+
+  it("does NOT treat '10-32' (screw thread) as a price range", () => {
+    const r = parseQuery("10-32 screw");
+    expect(r.filters.some((f) => f.kind === "priceMin" || f.kind === "priceMax")).toBe(false);
+  });
+
+  it("normalizes an inverted price range", () => {
+    const r = parseQuery("wire $30-$10");
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "priceMin", value: 10 }));
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "priceMax", value: 30 }));
   });
 
   it("parses a combined query", () => {
