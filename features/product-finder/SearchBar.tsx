@@ -248,13 +248,21 @@ export function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const suggestTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const suggestSeq = useRef(0);
 
   // ── Suggestion logic ────────────────────────────────────────────────────────
   const updateSuggestions = useCallback((value: string) => {
     if (suggestTimer.current) clearTimeout(suggestTimer.current);
-    if (!value.trim()) { setSuggestions([]); setShowSuggestions(false); return; }
+    if (!value.trim()) {
+      suggestSeq.current++;
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
     suggestTimer.current = setTimeout(async () => {
+      const seq = ++suggestSeq.current;
       const items = await apiSuggest(value);
+      if (seq !== suggestSeq.current) return;
       setSuggestions(items);
       setShowSuggestions(items.length > 0);
     }, 150);
@@ -298,6 +306,11 @@ export function SearchBar() {
     setShowSuggestions(false);
     runNlSearch(chip);
   };
+
+  // Cancel any pending suggest timer on unmount
+  useEffect(() => {
+    return () => { if (suggestTimer.current) clearTimeout(suggestTimer.current); };
+  }, []);
 
   // Close dropdown on outside pointer-down
   useEffect(() => {
