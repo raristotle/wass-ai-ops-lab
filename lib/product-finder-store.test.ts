@@ -18,6 +18,7 @@ function resetStore() {
     compareIds: new Set(),
     compareModalOpen: false,
     results: [],
+    appliedNlFilters: [],
     filters: {
       query: "",
       categories: new Set(),
@@ -243,5 +244,28 @@ describe("runSearch", () => {
     useProductFinder.getState().setPriceRange(null, 10);
     const { results } = useProductFinder.getState();
     expect(results.every((p) => p.unitPrice <= 10)).toBe(true);
+  });
+});
+
+describe("natural-language search", () => {
+  beforeEach(resetStore);
+
+  it("runNlSearch applies parsed filters to FilterState and stores chips", () => {
+    useProductFinder.getState().runNlSearch("preferred breaker under $50");
+    const { filters, appliedNlFilters, results } = useProductFinder.getState();
+    expect(filters.onlyPreferred).toBe(true);
+    expect(filters.priceMax).toBe(50);
+    expect(appliedNlFilters.length).toBeGreaterThanOrEqual(2);
+    expect(results.every((p) => p.preferred && p.unitPrice <= 50)).toBe(true);
+  });
+
+  it("removeNlFilter clears that filter's effect and re-runs search", () => {
+    useProductFinder.getState().runNlSearch("preferred under $50");
+    const pref = useProductFinder.getState().appliedNlFilters.find((f) => f.kind === "preferred");
+    expect(pref).toBeDefined();
+    useProductFinder.getState().removeNlFilter(pref!.id);
+    const { filters, appliedNlFilters } = useProductFinder.getState();
+    expect(filters.onlyPreferred).toBe(false);
+    expect(appliedNlFilters.some((f) => f.kind === "preferred")).toBe(false);
   });
 });

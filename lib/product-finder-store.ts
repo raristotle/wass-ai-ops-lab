@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import type { FilterState, SortKey, ViewMode, WescoProduct, BomLine, AuthUser, ProductCategory } from "@/features/product-finder/types";
+import type { FilterState, ParsedFilter, SortKey, ViewMode, WescoProduct, BomLine, AuthUser, ProductCategory } from "@/features/product-finder/types";
+import { parseQuery } from "@/lib/product-finder-nl-search";
 import {
   searchProducts,
   getAlternatives,
@@ -49,6 +50,9 @@ export interface ProductFinderState {
   // Search
   query: string;
   setQuery: (q: string) => void;
+  appliedNlFilters: ParsedFilter[];
+  runNlSearch: (raw: string) => void;
+  removeNlFilter: (id: string) => void;
 
   // BOM mode
   bomMode: boolean;
@@ -113,6 +117,38 @@ function defaultFilters(): FilterState {
   };
 }
 
+function applyParsedFilter(filters: FilterState, f: ParsedFilter, on: boolean): FilterState {
+  const next: FilterState = {
+    ...filters,
+    categories: new Set(filters.categories),
+    brands: new Set(filters.brands),
+    subcategories: new Set(filters.subcategories),
+  };
+  switch (f.kind) {
+    case "priceMax":
+      next.priceMax = on ? (f.value as number) : null;
+      break;
+    case "priceMin":
+      next.priceMin = on ? (f.value as number) : null;
+      break;
+    case "branchStock":
+      next.onlyBranchStock = on;
+      break;
+    case "preferred":
+      next.onlyPreferred = on;
+      break;
+    case "category":
+      if (on) next.categories.add(f.value as ProductCategory);
+      else next.categories.delete(f.value as ProductCategory);
+      break;
+    case "brand":
+      if (on) next.brands.add(f.value as string);
+      else next.brands.delete(f.value as string);
+      break;
+  }
+  return next;
+}
+
 export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Auth ──────────────────────────────────────────────────
   user: null,
@@ -141,6 +177,30 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   query: "",
   setQuery(q) {
     set({ query: q });
+  },
+
+  appliedNlFilters: [],
+
+  runNlSearch(raw) {
+    const parsed = parseQuery(raw);
+    set((s) => {
+      let filters = { ...s.filters, query: parsed.text };
+      for (const f of parsed.filters) filters = applyParsedFilter(filters, f, true);
+      return { filters, appliedNlFilters: parsed.filters, query: raw };
+    });
+    get().runSearch();
+  },
+
+  removeNlFilter(id) {
+    set((s) => {
+      const target = s.appliedNlFilters.find((f) => f.id === id);
+      if (!target) return s;
+      return {
+        filters: applyParsedFilter(s.filters, target, false),
+        appliedNlFilters: s.appliedNlFilters.filter((f) => f.id !== id),
+      };
+    });
+    get().runSearch();
   },
 
   // ── BOM ───────────────────────────────────────────────────
