@@ -9,24 +9,12 @@ import { StockBadge } from "@/features/product-finder/StockBadge";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
 import type { WescoProduct, ProductSpec } from "@/features/product-finder/types";
+import { RecommendationExplanation } from "@/features/product-finder/RecommendationExplanation";
 
 interface ProductCardProps {
   product: WescoProduct;
   isAlternative?: boolean;
   referenceProduct?: WescoProduct;
-}
-
-function computeCompatScore(
-  product: WescoProduct,
-  reference: WescoProduct
-): number {
-  const refNonNeg = reference.specs.filter((s) => s.isNonNeg);
-  if (refNonNeg.length === 0) return 100;
-  const matches = refNonNeg.filter((rs) => {
-    const ps = product.specs.find((s) => s.name === rs.name);
-    return ps?.value === rs.value;
-  });
-  return Math.round((matches.length / refNonNeg.length) * 100);
 }
 
 function SpecRow({
@@ -77,11 +65,6 @@ export function ProductCard({
 
   const showExternalAlert =
     branchQty === 0 && dcQty === 0 && product.externalSources.length > 0;
-
-  const compatScore =
-    referenceProduct != null
-      ? (product.compatScore ?? computeCompatScore(product, referenceProduct))
-      : null;
 
   const nonNegSpecs = product.specs.filter((s) => s.isNonNeg);
   const otherSpecs = product.specs.filter((s) => !s.isNonNeg);
@@ -146,35 +129,8 @@ export function ProductCard({
             {product.description}
           </p>
 
-          {/* Compat bar */}
-          {compatScore !== null && (
-            <div className="mt-2">
-              <div className="flex items-center justify-between mb-0.5">
-                <span className="text-xs text-[#4F758B]">Compatibility</span>
-                <span
-                  className={cn(
-                    "text-xs font-semibold",
-                    compatScore >= 85 ? "text-[#00AA13]" : "text-[#EAAA00]"
-                  )}
-                >
-                  {compatScore}%
-                </span>
-              </div>
-              <div className="h-1.5 w-full rounded-full bg-[#B7C9D3]">
-                <div
-                  className={cn(
-                    "h-full rounded-full transition-all",
-                    compatScore >= 85 ? "bg-[#00AA13]" : "bg-[#EAAA00]"
-                  )}
-                  style={{ width: `${compatScore}%` }}
-                  role="progressbar"
-                  aria-valuenow={compatScore}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-label={`Compatibility: ${compatScore}%`}
-                />
-              </div>
-            </div>
+          {referenceProduct != null && referenceProduct.id !== product.id && (
+            <RecommendationExplanation product={product} reference={referenceProduct} />
           )}
         </div>
       </div>
