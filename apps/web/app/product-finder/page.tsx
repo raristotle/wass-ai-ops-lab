@@ -10,6 +10,7 @@ import { ExternalSourcesCard } from "@/features/product-finder/ExternalSourcesCa
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { WescoProduct } from "@/features/product-finder/types";
+import { LandingState, NoResultsState } from "@/features/product-finder/EmptyState";
 
 // ─── Active Product Banner ────────────────────────────────────────────────────
 
@@ -97,6 +98,19 @@ function ActiveProductBanner({ product }: ActiveProductBannerProps) {
 export default function ProductFinderPage() {
   const activeProduct = useProductFinder((s) => s.activeProduct);
   const results = useProductFinder((s) => s.results);
+  const clearFilters = useProductFinder((s) => s.clearFilters);
+  const filters = useProductFinder((s) => s.filters);
+
+  const hasQueryOrFilters =
+    filters.query.length > 0 ||
+    filters.categories.size > 0 ||
+    filters.brands.size > 0 ||
+    filters.subcategories.size > 0 ||
+    filters.onlyBranchStock ||
+    filters.onlyDCStock ||
+    filters.onlyPreferred ||
+    filters.priceMin !== null ||
+    filters.priceMax !== null;
 
   const totalWescoStock = activeProduct
     ? activeProduct.branchStock.reduce((s, b) => s + b.quantity, 0) +
@@ -127,7 +141,16 @@ export default function ProductFinderPage() {
             </div>
           ) : (
             <div className="space-y-4">
-              <ProductGrid products={results} />
+              {results.length === 0 && hasQueryOrFilters ? (
+                <NoResultsState onClear={() => clearFilters()} />
+              ) : results.length === 0 ? (
+                <LandingState />
+              ) : (
+                <>
+                  <LandingState />
+                  <ProductGrid products={results} />
+                </>
+              )}
             </div>
           )}
         </div>
