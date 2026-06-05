@@ -9,7 +9,7 @@ export function LandingState() {
         <p className="text-3xl" aria-hidden="true">🔎</p>
         <h2 className="mt-2 text-lg font-bold text-[#1D252D]">Find the right product, fast</h2>
         <p className="mt-1 text-sm text-[#4F758B]">
-          Search by name, SKU, spec, or plain English — e.g. "20A breaker in stock under $50".
+          Search by name, SKU, spec, or plain English — e.g. &ldquo;20A breaker in stock under $50&rdquo;.
           Pick a product to see scored, explained alternatives.
         </p>
       </div>

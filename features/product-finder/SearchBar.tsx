@@ -127,6 +127,7 @@ function SingleSearchPanel({
               value={query}
               onChange={onQueryChange}
               onKeyDown={onKeyDown}
+              role="combobox"
               placeholder="Search by product name, SKU, brand, or spec (e.g. '15A circuit breaker', 'Cat6 cable')"
               className={cn(
                 "h-10 w-full rounded-lg border border-[#B7C9D3] bg-white py-2 pl-9 pr-8 text-sm text-[#1D252D]",
@@ -135,6 +136,7 @@ function SingleSearchPanel({
                 "transition-colors"
               )}
               aria-autocomplete="list"
+              aria-controls="pf-search-suggestions"
               aria-expanded={showSuggestions}
               aria-haspopup="listbox"
             />
@@ -168,6 +170,7 @@ function SingleSearchPanel({
           {showSuggestions && (
             <div
               ref={dropdownRef}
+              id="pf-search-suggestions"
               role="listbox"
               className="absolute left-0 right-0 top-full z-50 mt-1 rounded-lg border border-[#B7C9D3] bg-white py-1 shadow-lg"
             >
