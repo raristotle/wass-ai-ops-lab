@@ -174,7 +174,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     }
     const { password: _pw, ...user } = record;
     set({ user, authError: null });
-    if (typeof window !== "undefined") {
+    if (typeof localStorage !== "undefined") {
       localStorage.setItem("pf_user", JSON.stringify(user));
     }
     return true;
@@ -182,7 +182,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   logout() {
     set({ user: null });
-    if (typeof window !== "undefined") localStorage.removeItem("pf_user");
+    if (typeof localStorage !== "undefined") localStorage.removeItem("pf_user");
   },
 
   // ── Search ─────────────────────────────────────────────────
@@ -261,7 +261,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     set((s) => {
       if (!p) return { activeProduct: null };
       const recentlyViewed = [p.id, ...s.recentlyViewed.filter((id) => id !== p.id)].slice(0, MAX_RECENT);
-      if (typeof window !== "undefined") localStorage.setItem("pf_recent", JSON.stringify(recentlyViewed));
+      if (typeof localStorage !== "undefined") localStorage.setItem("pf_recent", JSON.stringify(recentlyViewed));
       return { activeProduct: p, recentlyViewed };
     });
     if (p) get().runSearch();
@@ -276,7 +276,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       const next = s.favorites.includes(id)
         ? s.favorites.filter((f) => f !== id)
         : [...s.favorites, id];
-      if (typeof window !== "undefined") localStorage.setItem("pf_favorites", JSON.stringify(next));
+      if (typeof localStorage !== "undefined") localStorage.setItem("pf_favorites", JSON.stringify(next));
       return { favorites: next };
     });
   },
@@ -464,7 +464,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
 // ─── Hydrate auth from localStorage on client ─────────────────────────────────
 export function hydrateAuth() {
-  if (typeof window === "undefined") return;
+  if (typeof localStorage === "undefined") return;
   const raw = localStorage.getItem("pf_user");
   if (raw) {
     try {
@@ -477,7 +477,7 @@ export function hydrateAuth() {
 }
 
 export function hydrateSavedState() {
-  if (typeof window === "undefined") return;
+  if (typeof localStorage === "undefined") return;
   const readIds = (key: string): string[] => {
     const raw = localStorage.getItem(key);
     if (!raw) return [];
