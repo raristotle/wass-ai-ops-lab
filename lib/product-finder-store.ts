@@ -452,8 +452,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       if (sort === "priceHigh")    return b.unitPrice - a.unitPrice;
       if (sort === "brand")        return a.brand.localeCompare(b.brand);
       // relevance: preferred first, then alternatives of active product
-      const aIsAlt = activeProduct?.alternativeIds.includes(a.id) ? 1 : 0;
-      const bIsAlt = activeProduct?.alternativeIds.includes(b.id) ? 1 : 0;
+      const aIsAlt = activeProduct?.alternativeIds?.includes(a.id) ? 1 : 0;
+      const bIsAlt = activeProduct?.alternativeIds?.includes(b.id) ? 1 : 0;
       if (aIsAlt !== bIsAlt) return bIsAlt - aIsAlt;
       return (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0);
     });
