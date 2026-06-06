@@ -1,3 +1,233 @@
+# Quote / Proposal PDF Export (F3) Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Add a "Generate Quote (PDF)" button to CartDrawer that opens an in-drawer printable quote block with customer/project fields, auto-generated quote number, tiered line-item pricing, and Wesco-branded print layout.
+
+**Architecture:** Extract two pure helpers (`quoteNumber`, `quoteValidityDate`) into `lib/product-finder-quote.ts` so they can be unit-tested with injected dates. The CartDrawer gets a `quoteOpen` toggle boolean (local state only — no store change), and when open renders a `<section id="quote-sheet">` below the cart list. Print scoping mirrors ProductDetailModal: the drawer panel gets `print:static print:h-auto print:overflow-visible`, the overlay and cart list/footer get `print:hidden`, and the shell's existing `print:hidden` on chrome is already in place. Customer and Project values are controlled inputs persisted to `localStorage` under `pf_quote_customer`/`pf_quote_project` with `typeof localStorage` guards.
+
+**Tech Stack:** Next.js App Router, React 19 (hooks), Zustand (read-only: `cart`, `user`, `selectCartTotal`), `tierUnitPrice` from `lib/product-finder-pricing.ts`, Tailwind CSS 3 print variants, Vitest for pure helpers.
+
+---
+
+## File Map
+
+| File | Action | Responsibility |
+|---|---|---|
+| `lib/product-finder-quote.ts` | **Create** | Two pure functions: `quoteNumber(date, seq?)` and `quoteValidityDate(date)` |
+| `lib/product-finder-quote.test.ts` | **Create** | Unit tests for both functions |
+| `features/product-finder/CartDrawer.tsx` | **Modify** | Add Generate Quote button + `#quote-sheet` in-drawer block + print classes |
+
+---
+
+## Task 1: Pure helpers — `lib/product-finder-quote.ts`
+
+**Files:**
+- Create: `lib/product-finder-quote.ts`
+
+- [ ] **Step 1: Create the file with two pure helpers**
+
+```typescript
+// lib/product-finder-quote.ts
+
+/**
+ * Formats a quote number: Q-YYYYMMDD-XXXX
+ * seq defaults to a 4-digit zero-padded number derived from the date's
+ * milliseconds-within-minute (deterministic given an injected date).
+ *
+ * In the component, call: quoteNumber(new Date())
+ */
+export function quoteNumber(date: Date, seq?: number): string {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  const datePart = `${yyyy}${mm}${dd}`;
+  const seqPart = seq !== undefined
+    ? String(seq).padStart(4, "0")
+    : String(date.getSeconds() * 1000 + date.getMilliseconds()).padStart(4, "0").slice(0, 4);
+  return `Q-${datePart}-${seqPart}`;
+}
+
+/**
+ * Returns a new Date that is `days` calendar days after `date`.
+ * Used to compute the "Valid until" date (30 days from today).
+ *
+ * In the component, call: quoteValidityDate(new Date())
+ */
+export function quoteValidityDate(date: Date, days = 30): Date {
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+/**
+ * Formats a Date as "Month DD, YYYY" (e.g. "June 6, 2026").
+ * Pure — safe to unit-test.
+ */
+export function formatDisplayDate(date: Date): string {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+```
+
+---
+
+## Task 2: Unit tests — `lib/product-finder-quote.test.ts`
+
+**Files:**
+- Create: `lib/product-finder-quote.test.ts`
+- Test: `lib/product-finder-quote.test.ts`
+
+- [ ] **Step 1: Write the tests**
+
+```typescript
+import { describe, it, expect } from "vitest";
+import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
+
+// Fixed date for deterministic tests: 2026-06-06, 14:05:03.042
+const FIXED = new Date(2026, 5, 6, 14, 5, 3, 42); // month is 0-indexed
+
+describe("quoteNumber", () => {
+  it("produces Q-YYYYMMDD-XXXX format", () => {
+    const result = quoteNumber(FIXED, 1);
+    expect(result).toMatch(/^Q-\d{8}-\d{4}$/);
+  });
+
+  it("encodes the correct date part", () => {
+    const result = quoteNumber(FIXED, 1);
+    expect(result.startsWith("Q-20260606-")).toBe(true);
+  });
+
+  it("zero-pads seq to 4 digits", () => {
+    expect(quoteNumber(FIXED, 1)).toBe("Q-20260606-0001");
+    expect(quoteNumber(FIXED, 99)).toBe("Q-20260606-0099");
+    expect(quoteNumber(FIXED, 1000)).toBe("Q-20260606-1000");
+  });
+
+  it("uses provided seq when given", () => {
+    expect(quoteNumber(FIXED, 42)).toBe("Q-20260606-0042");
+  });
+
+  it("auto-derives seq from seconds+ms when seq is omitted (deterministic given same date)", () => {
+    const a = quoteNumber(FIXED);
+    const b = quoteNumber(FIXED);
+    expect(a).toBe(b); // same date → same result
+    expect(a).toMatch(/^Q-20260606-\d{4}$/);
+  });
+
+  it("different dates produce different date parts", () => {
+    const other = new Date(2025, 0, 1, 0, 0, 0, 0);
+    expect(quoteNumber(other, 1).startsWith("Q-20250101-")).toBe(true);
+  });
+
+  it("month is zero-padded", () => {
+    const jan = new Date(2026, 0, 5); // January
+    expect(quoteNumber(jan, 1)).toBe("Q-20260105-0001");
+  });
+
+  it("day is zero-padded", () => {
+    const early = new Date(2026, 5, 6); // June 6
+    expect(quoteNumber(early, 1)).toBe("Q-20260606-0001");
+  });
+});
+
+describe("quoteValidityDate", () => {
+  it("adds 30 days by default", () => {
+    const start = new Date(2026, 5, 6); // June 6
+    const valid = quoteValidityDate(start);
+    expect(valid.getFullYear()).toBe(2026);
+    expect(valid.getMonth()).toBe(6); // July (0-indexed)
+    expect(valid.getDate()).toBe(6);
+  });
+
+  it("does not mutate the input date", () => {
+    const start = new Date(2026, 5, 6);
+    const startCopy = new Date(start);
+    quoteValidityDate(start);
+    expect(start.getTime()).toBe(startCopy.getTime());
+  });
+
+  it("handles month rollover (Jan 20 + 30 = Feb 19)", () => {
+    const jan20 = new Date(2026, 0, 20);
+    const result = quoteValidityDate(jan20);
+    expect(result.getMonth()).toBe(1); // February
+    expect(result.getDate()).toBe(19);
+  });
+
+  it("handles year rollover (Dec 15 + 30 = Jan 14 next year)", () => {
+    const dec15 = new Date(2026, 11, 15);
+    const result = quoteValidityDate(dec15);
+    expect(result.getFullYear()).toBe(2027);
+    expect(result.getMonth()).toBe(0); // January
+    expect(result.getDate()).toBe(14);
+  });
+
+  it("accepts a custom days argument", () => {
+    const start = new Date(2026, 5, 6);
+    const result = quoteValidityDate(start, 7);
+    expect(result.getDate()).toBe(13);
+    expect(result.getMonth()).toBe(5); // still June
+  });
+});
+
+describe("formatDisplayDate", () => {
+  it("formats a date as 'Month DD, YYYY'", () => {
+    const d = new Date(2026, 5, 6); // June 6, 2026
+    expect(formatDisplayDate(d)).toBe("June 6, 2026");
+  });
+
+  it("formats single-digit day without padding", () => {
+    const d = new Date(2026, 0, 1); // January 1, 2026
+    expect(formatDisplayDate(d)).toBe("January 1, 2026");
+  });
+});
+```
+
+- [ ] **Step 2: Run tests to verify they fail (lib not yet created — but lib IS created in Task 1, so run now)**
+
+```bash
+npx vitest run lib/product-finder-quote.test.ts
+```
+
+Expected: All tests PASS (Task 1 was written first).
+
+- [ ] **Step 3: Commit the pure helpers + tests**
+
+```bash
+git add lib/product-finder-quote.ts lib/product-finder-quote.test.ts
+git commit -m "feat(product-finder): add pure quote-number and validity-date helpers with tests"
+```
+
+---
+
+## Task 3: CartDrawer — quote button + in-drawer quote sheet
+
+**Files:**
+- Modify: `features/product-finder/CartDrawer.tsx`
+
+This task replaces the entire file. Read the current file first (already done in planning), then apply the full replacement below.
+
+Key changes:
+1. Import `quoteNumber`, `quoteValidityDate`, `formatDisplayDate` from `@/lib/product-finder-quote`.
+2. Add `user` read from store (`useProductFinder((s) => s.user)`).
+3. Add local state: `quoteOpen` (boolean), `customer` (string), `project` (string).
+4. `useEffect` on mount: hydrate `customer`/`project` from `localStorage` (guarded on `typeof localStorage`).
+5. `useEffect` watching `customer`/`project`: persist to `localStorage`.
+6. Inside the drawer panel add a **Generate Quote (PDF)** button in the footer (disabled when cart empty; already in footer area — add before or after the existing CTAs, replacing the no-op "Add to Quote" button).
+7. When `quoteOpen`, render `<section id="quote-sheet">` with the full quote layout.
+8. Add print classes to the drawer panel: `print:fixed print:inset-0 print:translate-x-0 print:w-full print:h-auto print:shadow-none print:overflow-visible` — ensures the drawer is the printable surface.
+9. The overlay div gets `print:hidden`.
+10. The cart items list div gets `print:hidden`.
+11. The footer gets `print:hidden`.
+12. The drawer header gets `print:hidden`.
+13. The `#quote-sheet` itself is `hidden` when `!quoteOpen`, or just conditionally rendered and always `print:block`.
+
+- [ ] **Step 1: Replace `features/product-finder/CartDrawer.tsx` with the full updated version**
+
+```tsx
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -32,20 +262,18 @@ export function CartDrawer() {
     setProject(localStorage.getItem("pf_quote_project") ?? "");
   }, []);
 
-  // Persist customer changes
+  // Persist customer/project changes
   useEffect(() => {
     if (typeof localStorage === "undefined") return;
     localStorage.setItem("pf_quote_customer", customer);
   }, [customer]);
 
-  // Persist project changes
   useEffect(() => {
     if (typeof localStorage === "undefined") return;
     localStorage.setItem("pf_quote_project", project);
   }, [project]);
 
-  // Seed quote date once per open; reset to null when closed so a fresh date
-  // is used the next time the quote panel is opened.
+  // Generate quote metadata once per open (stable for current session)
   const quoteDateRef = useRef<Date | null>(null);
   if (quoteOpen && quoteDateRef.current === null) {
     quoteDateRef.current = new Date();
@@ -74,8 +302,8 @@ export function CartDrawer() {
       />
 
       {/* Drawer panel
-          Screen: fixed slide-in panel from the right
-          Print:  static full-width surface — becomes the printable document
+          Screen: fixed slide-in panel
+          Print: static, full-width, no transform, auto height — becomes printable surface
       */}
       <div
         className={cn(
@@ -120,7 +348,6 @@ export function CartDrawer() {
               {items.map(({ product, qty }) => {
                 const effectiveUnitPrice = tierUnitPrice(product, qty);
                 const lineTotal = effectiveUnitPrice * qty;
-                // Find the qualifying tier break (minQty > 1 means a vol-price discount applies)
                 const tiers = priceTiers(product);
                 const activeTier = [...tiers].reverse().find((t) => qty >= t.minQty);
                 const hasVolBreak = activeTier !== undefined && activeTier.minQty > 1;
@@ -259,9 +486,8 @@ export function CartDrawer() {
 
         {/* ── Quote Sheet ──────────────────────────────────────────────────────
             Screen: shown only when quoteOpen; sits below the footer.
-            Print:  the drawer panel (print:static above) becomes the print
-                    surface. The quote sheet fills it; everything else is
-                    print:hidden.
+            Print:  always rendered (print:block overrides hidden); the drawer
+                    panel becomes the print surface via print:static above.
         ── */}
         {quoteOpen && (
           <section
@@ -429,3 +655,123 @@ export function CartDrawer() {
     </>
   );
 }
+```
+
+- [ ] **Step 2: Run typecheck**
+
+```bash
+npm run typecheck
+```
+
+Expected: Zero errors. If TypeScript complains about `useRef` import, ensure the import line includes it: `import { useEffect, useState, useRef } from "react";`
+
+---
+
+## Task 4: Gate — run all tests and verify build
+
+**Files:** (no new files — verification only)
+
+- [ ] **Step 1: Run the new quote helper tests**
+
+```bash
+npx vitest run lib/product-finder-quote.test.ts
+```
+
+Expected: All tests PASS.
+
+- [ ] **Step 2: Run the full test suite**
+
+```bash
+npm test
+```
+
+Expected: All tests PASS (pricing tests, store tests, etc. unchanged).
+
+- [ ] **Step 3: Typecheck**
+
+```bash
+npm run typecheck
+```
+
+Expected: Zero errors.
+
+- [ ] **Step 4: Build**
+
+```bash
+npm run build
+```
+
+Expected: Build succeeds with no errors. Ignore any pre-existing warnings.
+
+- [ ] **Step 5: Lint touched files**
+
+```bash
+npx eslint features/product-finder/CartDrawer.tsx lib/product-finder-quote.ts lib/product-finder-quote.test.ts --max-warnings 0
+```
+
+Expected: No errors (warnings are OK if pre-existing). If you see `react-hooks/exhaustive-deps` warnings on the `useEffect([customer])` / `useEffect([project])` guards, they are correct as-is — each effect has exactly one dep.
+
+---
+
+## Task 5: Commit
+
+- [ ] **Step 1: Stage quote-related files only**
+
+```bash
+git add features/product-finder/CartDrawer.tsx lib/product-finder-quote.ts lib/product-finder-quote.test.ts
+```
+
+- [ ] **Step 2: Verify staged files**
+
+```bash
+git diff --staged --stat
+```
+
+Expected: Only the three files above appear.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git commit -m "feat(product-finder): generate printable quote/proposal PDF from the cart"
+```
+
+Expected: Commit succeeds. Note the SHA for the report.
+
+---
+
+## Self-Review Checklist
+
+**Spec coverage (F3):**
+- [x] "Generate Quote (PDF)" button in CartDrawer disabled when cart empty — Task 3, button has `disabled={items.length === 0}`
+- [x] Reveals in-drawer quote block (`id="quote-sheet"`) — Task 3
+- [x] Header: "QUOTE" + Wesco branding — Task 3, quote header section
+- [x] Quote # format `Q-YYYYMMDD-XXXX` — `quoteNumber()` in Task 1
+- [x] Date/number derived from `new Date()` INSIDE component only — Task 3 uses `quoteDateRef` seeded with `new Date()` inside the component
+- [x] Today's date displayed — Task 3, `formatDisplayDate(quoteDate)`
+- [x] "Valid for 30 days" line + validity date — Task 3, quote meta block
+- [x] Customer + Project editable inputs — Task 3, controlled inputs
+- [x] Persist to localStorage `pf_quote_customer` / `pf_quote_project` — Task 3, two `useEffect`s
+- [x] Guarded on `typeof localStorage` — Task 3, both effects and the mount effect
+- [x] Hydrate on mount via useEffect — Task 3, first `useEffect`
+- [x] Prepared-by: `user.name` · `user.branch` — Task 3
+- [x] Line table: SKU, Name, Qty, Unit (tierUnitPrice), Extended — Task 3, line-item table
+- [x] Subtotal = `selectCartTotal` — Task 3, tfoot row uses `cartTotal`
+- [x] Print inputs as values — Task 3, `print:hidden` on inputs + `hidden print:block` spans
+- [x] Print button calls `window.print()` — Task 3, `handlePrint`
+- [x] Reuse print scoping from ProductDetailModal — Task 3, drawer gets `print:static print:translate-x-0 print:w-full print:h-auto print:overflow-visible`; overlay, header, items list, footer get `print:hidden`
+- [x] Shell chrome already `print:hidden` — confirmed in ProductFinderShell.tsx (header has `print:hidden`)
+- [x] No new server — confirmed
+- [x] No store schema change — confirmed (local state only)
+- [x] Pure helpers extracted to `lib/product-finder-quote.ts` — Task 1
+- [x] Pure helpers unit-tested — Task 2
+- [x] `quoteValidityDate(today)` and `quoteNumber(today, seq?)` pure functions — Task 1
+- [x] Component passes `new Date()` — Task 3
+
+**Placeholder scan:** No TBD, TODO, or "implement later" found.
+
+**Type consistency:**
+- `quoteNumber(date: Date, seq?: number): string` — used as `quoteNumber(quoteDate)` in Task 3 ✓
+- `quoteValidityDate(date: Date, days?: number): Date` — used as `quoteValidityDate(quoteDate)` in Task 3 ✓
+- `formatDisplayDate(date: Date): string` — used in Task 3 ✓
+- `items` is `{ product: WescoProduct; qty: number }[]` — matches store type ✓
+- `user` is `AuthUser | null` with `.name` and `.branch` — confirmed from store ✓
