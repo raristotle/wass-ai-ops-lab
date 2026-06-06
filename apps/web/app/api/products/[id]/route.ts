@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCatalog } from "@/lib/catalog/index";
 import { findEquivalents } from "@/lib/catalog/equivalents";
-import { goesWith } from "@/lib/catalog/goeswith";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +13,6 @@ export function GET(req: Request, ctx: { params: Promise<{ id: string }> }) {
     return NextResponse.json({
       product,
       equivalents: findEquivalents(product, 8, branchId),
-      goesWith: goesWith(product, 6),
     });
   });
 }
