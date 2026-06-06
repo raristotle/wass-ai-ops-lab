@@ -103,28 +103,51 @@ Each product card shows the name, brand, SKU, and description, plus:
 ### Product details (View Details)
 Click **View Details** on any card to open the full detail view:
 - a **product image** and the basic info (name, brand, SKU, price, stock, Preferred);
+- **Volume pricing** — quantity-break tiers (1+, 10+, 50+, 100+) with the
+  qualifying tier highlighted for your current quantity;
 - **Add to Basket** and **Find Alternatives** right inside the view;
 - a formal **Spec Sheet** — every specification with **Required** flags on the
   non-negotiable ones — plus **Download Spec Sheet (PDF)** (prints a clean cut
   sheet, no app clutter);
+- **Goes well with** — complementary products (breaker → load center, wire →
+  connectors, receptacle → wall plate); click one to jump to it;
 - **Where to Buy** — working search links to **Grainger, Graybar, Platt, Rexel,
   Zoro, and Home Depot** for the product, opening in a new tab.
+
+### Volume / tiered pricing
+Larger quantities get better pricing — breaks at **1, 10, 50, and 100+**. The
+detail view shows the full tier table, and the **cart applies the right tier per
+line automatically** (lines that qualify show a "vol. price (NN+)" note), so the
+running total always reflects volume discounts.
 
 ### Compare
 Click **Compare** on up to **4** products, then open the **comparison view** to see
 them **side-by-side**, with differences and the **cheapest option** highlighted.
+**Download Comparison (PDF)** prints the side-by-side as a clean sheet.
+
+### Import a list / BOM
+Click **Import List / BOM** by the search box to bulk-add products:
+- **Paste** a parts list (one per line) or **upload** a `.csv` / `.txt` file;
+- quantities are understood — `12x 15A breaker`, `5 led troffer`, `3, transformer`,
+  or just a name (defaults to qty 1);
+- each line is matched to the best catalog product with a **matched / unmatched**
+  summary; click **Add N matched to cart** to add them all at their quantities.
 
 ### External sources
 - If a product is **out of stock at Wesco**, the app lists **external distributors**
   (with price, quantity, and lead time) so you still have an answer.
 
-> The **"Goes with"** accessory panel from an earlier version is temporarily
-> hidden while it's rebuilt for the larger catalog.
-
-### Basket
+### Basket, saved baskets & quotes
 Add products (with a quantity) to your **basket**. Click the **Cart** button to open
-it: change quantities, remove items, see the **running total**, or clear it. The
-cart badge shows your item count.
+it: change quantities, remove items, see the **running total** (with volume pricing
+applied), or clear it.
+- **Saved baskets** — save the current basket under a name (e.g. a customer or
+  job), then **Load** it back later or **Delete** it. Saved baskets persist across
+  sessions.
+- **Generate Quote (PDF)** — turn the basket into a branded, printable quote: add a
+  **Customer** and **Project / PO #**, and it fills in an auto **quote number**,
+  today's date, a **30-day validity**, your name & branch, and a priced line table.
+  Print or save as PDF.
 
 ### Saved, history & recently viewed
 Above the grid (when browsing without a search or filters) the panel shows three
@@ -159,24 +182,31 @@ A clean walkthrough that shows off the best parts, in order:
    breakdown** (specs, stock, preferred, price). *This is the headline moment.*
 6. Expand **Specifications** on two products to show the **✓ / ⚠** spec matching
    against your selected product.
-7. Click **View Details** on a product — show the **product image**, the formal
-   **Spec Sheet** with Required flags, the **Download Spec Sheet (PDF)** button,
-   and the **Where to Buy** links to real distributor sites. Then click
-   **Compare** on 2–3 products and open the **comparison** — the side-by-side
-   view with the **cheapest highlighted**.
-8. **Add a product to the basket** (set quantity to 5), open the **Cart**, and show
-   the **running total**.
-9. **★ a couple of products**, then click **"Change Product"** and clear the search
-   (✕ in the box) — your starred and viewed products now appear under
-   **Favorites / Recently viewed** above the grid, alongside a **Search history**
-   list of everything you searched. Click a history chip to re-run it, collapse a
-   section with its **▾** header, or hit **Clear** to reset a list.
-10. *(Optional)* Search something that shows the breadth — **`gfci receptacle`**
-    or **`wall plate`** (the catalog carries 10,000+ wiring devices), **`led
-    troffer`** (1,400+ lighting products), or **`transformer`**.
+7. Click **View Details** on a product — show the **product image**, the
+   **Volume pricing** tiers, the formal **Spec Sheet** with Required flags + the
+   **Download Spec Sheet (PDF)** button, the **Goes well with** suggestions, and
+   the **Where to Buy** links to real distributor sites. Then **Compare** 2–3
+   products, open the **comparison**, and hit **Download Comparison (PDF)**.
+8. **Add a product to the basket at quantity 50** — open the **Cart** and point out
+   the **volume price** kicking in on that line and the discounted **running total**.
+9. In the cart, click **Generate Quote (PDF)** — type a **Customer** and **Project**,
+   show the branded quote (auto number, 30-day validity, your name & branch, priced
+   lines), then **Save** the basket as a named job and show it can be **Loaded** back.
+10. Click **Import List / BOM** and paste:
+    ```
+    12x gfci receptacle
+    5 led troffer
+    10x 3/4" EMT conduit
+    3, transformer
+    ```
+    Hit **Match** → matched rows appear → **Add matched to cart** drops them all in
+    at their quantities.
+11. **★ a couple of products**, then **"Change Product"** and clear the search — your
+    starred/viewed products and a **Search history** of chips appear above the grid;
+    click a chip to re-run, collapse a section with **▾**, or **Clear** a list.
 
 **Wrap-up line:** *"One screen takes a rep from a rough request to a stocked, priced,
-and justified recommendation."*
+quoted, and justified recommendation — paste a whole BOM and it's a cart in seconds."*
 
 ---
 
@@ -189,3 +219,9 @@ and justified recommendation."*
 - **Plain English works** — `preferred safety under $20`, `in stock Square D`,
   `security cameras under $500`, etc.
 - Results load **24 at a time** — use **Load more** or narrow with filters.
+- **Buying in bulk?** Quantities of 10/50/100+ unlock **volume pricing** automatically
+  in the cart and on the quote.
+- **Repeat customers** — save a basket per job, then **Load** it next time instead of
+  rebuilding it.
+- **Got a parts list already?** Skip searching — **Import List / BOM** turns a paste or
+  CSV into a cart.
