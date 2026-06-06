@@ -5,7 +5,7 @@ import type {
   FilterState,
 } from "@/features/product-finder/types";
 
-function filtersToQuery(
+export function filtersToQuery(
   filters: FilterState,
   page: number,
   pageSize: number
@@ -27,10 +27,12 @@ function filtersToQuery(
   sp.set("pageSize", String(pageSize));
 
   // Serialize specFilters as spec.<Name>=v1,v2
-  // encodeURIComponent the name so spaces/special chars survive the round-trip
+  // Do NOT encodeURIComponent the name — URLSearchParams.set encodes the key once,
+  // and parseSearchQuery's URLSearchParams parsing decodes it once, giving the real name.
+  // Values are encodeURIComponent'd so a comma inside a value isn't confused with the separator.
   for (const [name, values] of Object.entries(filters.specFilters ?? {})) {
     if (values.length > 0) {
-      sp.set(`spec.${encodeURIComponent(name)}`, values.map(encodeURIComponent).join(","));
+      sp.set(`spec.${name}`, values.map(encodeURIComponent).join(","));
     }
   }
 
