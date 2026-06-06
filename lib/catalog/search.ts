@@ -47,10 +47,12 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
   const subSet = f.subcategories && f.subcategories.length ? new Set(f.subcategories) : null;
   const brandSet = f.brands && f.brands.length ? new Set(f.brands) : null;
 
+  const terms = text.split(/\s+/).filter(Boolean);
+
   const matched: WescoProduct[] = [];
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
-    if (text && !haystack[i].includes(text)) continue;
+    if (terms.length > 0 && !terms.every((t) => haystack[i].includes(t))) continue;
     if (catSet && !catSet.has(p.category)) continue;
     if (subSet && !subSet.has(p.subcategory)) continue;
     if (brandSet && !brandSet.has(p.brand)) continue;

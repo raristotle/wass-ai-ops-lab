@@ -38,4 +38,22 @@ describe("searchCatalog", () => {
       expect(r.items[i].unitPrice).toBeGreaterThanOrEqual(r.items[i - 1].unitPrice);
     }
   });
+
+  it("multi-word tokenized AND: 'gfci receptacle' returns results", () => {
+    const r = searchCatalog({ text: "gfci receptacle", pageSize: 24 });
+    expect(r.total).toBeGreaterThan(0);
+    r.items.forEach((p) => {
+      const haystack = (p.name + " " + JSON.stringify(p.specs ?? {}) + " " + (p.description ?? "")).toLowerCase();
+      const subcat = (p.subcategory ?? "").toLowerCase();
+      expect(/gfci/.test(haystack) || /gfci/.test(subcat)).toBe(true);
+      expect(/receptacle/.test(haystack) || /receptacle/.test(subcat)).toBe(true);
+    });
+  });
+
+  it("multi-word tokenized AND: term order is irrelevant", () => {
+    const forward = searchCatalog({ text: "gfci receptacle" });
+    const backward = searchCatalog({ text: "receptacle gfci" });
+    expect(forward.total).toBe(backward.total);
+    expect(forward.total).toBeGreaterThan(0);
+  });
 });

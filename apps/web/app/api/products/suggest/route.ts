@@ -8,10 +8,11 @@ export function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const q = (searchParams.get("q") ?? "").trim().toLowerCase();
   if (!q) return NextResponse.json({ items: [] });
+  const terms = q.split(/\s+/).filter(Boolean);
   const { products, haystack } = getCatalog();
   const items: SuggestItem[] = [];
   for (let i = 0; i < products.length && items.length < 6; i++) {
-    if (haystack[i].includes(q)) {
+    if (terms.every((t) => haystack[i].includes(t))) {
       const p = products[i];
       items.push({ id: p.id, name: p.name, sku: p.sku, brand: p.brand, imageIcon: p.imageIcon });
     }
