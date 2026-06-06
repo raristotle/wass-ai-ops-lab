@@ -5,6 +5,7 @@ import { useProductFinder, selectCartCount, selectCartTotal } from "@/lib/produc
 import { tierUnitPrice, priceTiers } from "@/lib/product-finder-pricing";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
+import { encodeCart } from "@/lib/product-finder-share";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -38,6 +39,25 @@ export function CartDrawer() {
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [customer, setCustomer] = useState("");
   const [project, setProject] = useState("");
+
+  // ── Share state ────────────────────────────────────────────────────────────
+  const [shareCopied, setShareCopied] = useState(false);
+
+  const handleShare = () => {
+    const lines = Object.values(cart).map(({ product, qty }) => ({
+      id: product.id,
+      qty,
+    }));
+    const encoded = encodeCart(lines, {
+      customer: customer || undefined,
+      project: project || undefined,
+    });
+    const url = `${location.origin}/product-finder?cart=${encoded}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2500);
+    });
+  };
 
   // Hydrate from localStorage on mount
   useEffect(() => {
@@ -373,6 +393,16 @@ export function CartDrawer() {
               disabled={items.length === 0}
             >
               {quoteOpen ? "Hide Quote" : "Generate Quote (PDF)"}
+            </Button>
+
+            {/* Share basket via URL */}
+            <Button
+              variant="outline"
+              className="w-full border-[#4F758B] text-[#4F758B] hover:bg-[#EEF4F7]"
+              onClick={handleShare}
+              disabled={items.length === 0}
+            >
+              {shareCopied ? "Link copied!" : "Share Basket"}
             </Button>
 
             <Button

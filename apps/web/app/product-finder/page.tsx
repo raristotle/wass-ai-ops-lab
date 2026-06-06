@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
+import { decodeCart } from "@/lib/product-finder-share";
+import { apiGetProduct } from "@/lib/product-finder-api";
 import { AuthGuard } from "@/features/product-finder/AuthGuard";
 import { ProductFinderShell } from "@/features/product-finder/ProductFinderShell";
 import { SearchBar } from "@/features/product-finder/SearchBar";
@@ -148,6 +150,14 @@ function SearchErrorBanner({ message, onRetry }: SearchErrorBannerProps) {
   );
 }
 
+// ─── Chunk helper for bounded concurrency ────────────────────────────────────
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProductFinderPage() {
@@ -158,6 +168,56 @@ export default function ProductFinderPage() {
   const runSearch = useProductFinder((s) => s.runSearch);
   const loading = useProductFinder((s) => s.loading);
   const error = useProductFinder((s) => s.error);
+  const addToCart = useProductFinder((s) => s.addToCart);
+
+  // ── Load cart from ?cart= URL param (runs once on mount) ─────────────────
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const cartParam = sp.get("cart");
+    if (!cartParam) return;
+
+    const decoded = decodeCart(cartParam);
+    if (!decoded || decoded.items.length === 0) {
+      // Strip the param even if we can't decode it
+      sp.delete("cart");
+      const next = sp.toString();
+      history.replaceState(null, "", next ? `?${next}` : window.location.pathname);
+      return;
+    }
+
+    // Fetch products in chunks of 6 to avoid too many concurrent requests
+    const { items, customer, project } = decoded;
+
+    const loadAndPopulate = async () => {
+      const chunks = chunk(items, 6);
+      for (const batch of chunks) {
+        const settled = await Promise.allSettled(
+          batch.map((line) => apiGetProduct(line.id))
+        );
+        settled.forEach((result, idx) => {
+          if (result.status === "fulfilled") {
+            const product = result.value.product;
+            addToCart(product, batch[idx].qty);
+          }
+          // ids that 404 or error are silently ignored
+        });
+      }
+
+      // Restore quote meta to localStorage so CartDrawer picks it up on next render
+      if (typeof localStorage !== "undefined") {
+        if (customer) localStorage.setItem("pf_quote_customer", customer);
+        if (project) localStorage.setItem("pf_quote_project", project);
+      }
+
+      // Strip the cart param from the URL to prevent re-adding on refresh
+      sp.delete("cart");
+      const next = sp.toString();
+      history.replaceState(null, "", next ? `?${next}` : window.location.pathname);
+    };
+
+    loadAndPopulate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // intentionally empty — run once on mount only
 
   useEffect(() => { runSearch(); }, [runSearch]);
 
