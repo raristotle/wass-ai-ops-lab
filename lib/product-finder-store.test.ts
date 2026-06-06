@@ -38,6 +38,7 @@ function resetStore() {
     activeProduct: null,
     compareIds: new Set(),
     compareModalOpen: false,
+    bomModalOpen: false,
     detailModalProduct: null,
     results: [],
     appliedNlFilters: [],
@@ -830,5 +831,32 @@ describe("savedBaskets – persistence via hydrateSavedState", () => {
     expect(parsed.some((b) => b.id === "del-persist-2")).toBe(true);
 
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+});
+
+// ─── bomModalOpen ─────────────────────────────────────────────────────────────
+
+describe("bomModalOpen", () => {
+  beforeEach(resetStore);
+
+  it("starts closed (false)", () => {
+    expect(useProductFinder.getState().bomModalOpen).toBe(false);
+  });
+
+  it("setBomModalOpen(true) opens the modal", () => {
+    useProductFinder.getState().setBomModalOpen(true);
+    expect(useProductFinder.getState().bomModalOpen).toBe(true);
+  });
+
+  it("setBomModalOpen(false) closes the modal", () => {
+    useProductFinder.getState().setBomModalOpen(true);
+    useProductFinder.getState().setBomModalOpen(false);
+    expect(useProductFinder.getState().bomModalOpen).toBe(false);
+  });
+
+  it("resetStore resets bomModalOpen to false", () => {
+    useProductFinder.getState().setBomModalOpen(true);
+    resetStore();
+    expect(useProductFinder.getState().bomModalOpen).toBe(false);
   });
 });

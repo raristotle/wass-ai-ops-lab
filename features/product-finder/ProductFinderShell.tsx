@@ -5,6 +5,7 @@ import { FilterSidebar } from "@/features/product-finder/FilterSidebar";
 import { CartDrawer } from "@/features/product-finder/CartDrawer";
 import { SpecCompareModal } from "@/features/product-finder/SpecCompareModal";
 import { ProductDetailModal } from "@/features/product-finder/ProductDetailModal";
+import { BomImportModal } from "@/features/product-finder/BomImportModal";
 import { cn } from "@/lib/utils";
 
 interface ProductFinderShellProps {
@@ -106,6 +107,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <CartDrawer />
       <SpecCompareModal />
       <ProductDetailModal />
+      <BomImportModal />
     </div>
   );
 }

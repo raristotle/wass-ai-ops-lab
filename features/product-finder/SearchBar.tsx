@@ -15,6 +15,24 @@ import { useProductFinder } from "@/lib/product-finder-store";
 import { apiSuggest } from "@/lib/product-finder-api";
 import type { SuggestItem, ParsedFilter } from "@/features/product-finder/types";
 
+// ─── BOM import icon ──────────────────────────────────────────────────────────
+
+function ListImportIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("h-3.5 w-3.5 shrink-0", className)}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      aria-hidden="true"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h10M4 14h7M4 18h7" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17 14v6m0 0l-2.5-2.5M17 20l2.5-2.5" />
+    </svg>
+  );
+}
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const QUICK_PICKS: readonly string[] = [
@@ -85,6 +103,7 @@ interface SingleSearchPanelProps {
   onQuickPick: (chip: string) => void;
   appliedNlFilters: ParsedFilter[];
   onRemoveFilter: (id: string) => void;
+  onOpenBom: () => void;
 }
 
 function SingleSearchPanel({
@@ -101,6 +120,7 @@ function SingleSearchPanel({
   onQuickPick,
   appliedNlFilters,
   onRemoveFilter,
+  onOpenBom,
 }: SingleSearchPanelProps) {
   return (
     <div className="space-y-3">
@@ -186,8 +206,8 @@ function SingleSearchPanel({
         </Button>
       </div>
 
-      {/* Quick-pick chips */}
-      <div className="flex flex-wrap gap-2">
+      {/* Quick-pick chips + BOM import button */}
+      <div className="flex flex-wrap items-center gap-2">
         {QUICK_PICKS.map((chip) => (
           <button
             key={chip}
@@ -202,6 +222,21 @@ function SingleSearchPanel({
             {chip}
           </button>
         ))}
+
+        {/* Import List / BOM — secondary action aligned with quick-picks */}
+        <button
+          type="button"
+          onClick={onOpenBom}
+          className={cn(
+            "ml-auto flex items-center gap-1.5 rounded-full border border-[#4F758B]/50 px-3 py-1 text-xs font-medium text-[#4F758B]",
+            "hover:border-[#1D252D] hover:bg-[#1D252D]/5 hover:text-[#1D252D]",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1D252D]"
+          )}
+          aria-label="Import List / BOM"
+        >
+          <ListImportIcon />
+          Import List / BOM
+        </button>
       </div>
 
       {/* Applied natural-language filter chips */}
@@ -235,6 +270,7 @@ export function SearchBar() {
     runNlSearch,
     removeNlFilter,
     appliedNlFilters,
+    setBomModalOpen,
   } = useProductFinder();
 
   // Suggestion dropdown state
@@ -342,6 +378,7 @@ export function SearchBar() {
           onQuickPick={handleQuickPick}
           appliedNlFilters={appliedNlFilters}
           onRemoveFilter={removeNlFilter}
+          onOpenBom={() => setBomModalOpen(true)}
         />
       </div>
     </div>

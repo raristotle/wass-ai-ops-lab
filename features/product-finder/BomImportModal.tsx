@@ -1,0 +1,370 @@
+"use client";
+
+import { useRef, useState, type ChangeEvent, type KeyboardEvent } from "react";
+import { useProductFinder } from "@/lib/product-finder-store";
+import { parseBomLines, matchBom } from "@/lib/product-finder-bom";
+import { apiSearch } from "@/lib/product-finder-api";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type { WescoProduct } from "@/features/product-finder/types";
+import type { MatchedBomLine } from "@/lib/product-finder-bom";
+
+// ─── Real searchFn: calls apiSearch with query as text, pageSize=1 ─────────────
+
+async function searchTopHit(query: string): Promise<WescoProduct | null> {
+  try {
+    const res = await apiSearch(
+      {
+        query,
+        categories: new Set(),
+        subcategories: new Set(),
+        brands: new Set(),
+        onlyBranchStock: false,
+        onlyDCStock: false,
+        onlyPreferred: false,
+        priceMin: null,
+        priceMax: null,
+        sortKey: "relevance",
+        viewMode: "list",
+      },
+      0,
+      1
+    );
+    return res.items[0] ?? null;
+  } catch {
+    return null;
+  }
+}
+
+// ─── Icons ────────────────────────────────────────────────────────────────────
+
+function CloseIcon() {
+  return (
+    <svg
+      className="h-5 w-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      aria-hidden="true"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  );
+}
+
+function SpinnerIcon() {
+  return (
+    <svg
+      className="h-4 w-4 animate-spin text-white"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 12 0 12 0v4a8 8 0 00-8 8z"
+      />
+    </svg>
+  );
+}
+
+// ─── Match result row ─────────────────────────────────────────────────────────
+
+function MatchRow({ line }: { line: MatchedBomLine }) {
+  const { match } = line;
+  return (
+    <tr className="border-b border-[#B7C9D3]/30 last:border-0">
+      <td className="px-3 py-2 text-sm font-mono text-center text-[#4F758B] align-middle w-12">
+        {line.qty}
+      </td>
+      <td className="px-3 py-2 text-sm text-[#1D252D] align-middle max-w-[200px]">
+        <span className="truncate block" title={line.query}>{line.query}</span>
+      </td>
+      <td className="px-3 py-2 align-middle">
+        {match ? (
+          <div className="flex items-center gap-2">
+            <span className="text-lg leading-none" aria-hidden="true">{match.imageIcon}</span>
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-[#1D252D] truncate">{match.name}</p>
+              <p className="text-xs text-[#4F758B] truncate">
+                {match.brand} &middot; ${match.unitPrice.toFixed(2)}/{match.uom}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
+            <span aria-hidden="true">—</span> No match
+          </span>
+        )}
+      </td>
+    </tr>
+  );
+}
+
+// ─── BomImportModal ───────────────────────────────────────────────────────────
+
+export function BomImportModal() {
+  const bomModalOpen = useProductFinder((s) => s.bomModalOpen);
+  const setBomModalOpen = useProductFinder((s) => s.setBomModalOpen);
+  const addToCart = useProductFinder((s) => s.addToCart);
+
+  const [text, setText] = useState("");
+  const [matching, setMatching] = useState(false);
+  const [matched, setMatched] = useState<MatchedBomLine[] | null>(null);
+  const [added, setAdded] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  if (!bomModalOpen) return null;
+
+  // ── Handlers ────────────────────────────────────────────────────────────────
+
+  function handleClose() {
+    setBomModalOpen(false);
+    // reset local state on close so the next open is fresh
+    setText("");
+    setMatched(null);
+    setAdded(false);
+  }
+
+  function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
+    if (e.target === e.currentTarget) handleClose();
+  }
+
+  function handleKeyDown(e: KeyboardEvent<HTMLDivElement>) {
+    if (e.key === "Escape") handleClose();
+  }
+
+  function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const content = ev.target?.result;
+      if (typeof content === "string") {
+        setText(content);
+        setMatched(null);
+        setAdded(false);
+      }
+    };
+    reader.readAsText(file);
+    // reset file input so the same file can be re-selected
+    e.target.value = "";
+  }
+
+  async function handleMatch() {
+    const parsed = parseBomLines(text);
+    if (parsed.length === 0) return;
+    setMatching(true);
+    setMatched(null);
+    setAdded(false);
+    try {
+      const results = await matchBom(parsed, searchTopHit);
+      setMatched(results);
+    } finally {
+      setMatching(false);
+    }
+  }
+
+  function handleAddMatched() {
+    if (!matched) return;
+    for (const line of matched) {
+      if (line.match) {
+        addToCart(line.match, line.qty);
+      }
+    }
+    setAdded(true);
+    // Close after a brief moment to let the user see the confirmation
+    setTimeout(() => handleClose(), 800);
+  }
+
+  // ── Summary counts ──────────────────────────────────────────────────────────
+
+  const matchedCount = matched ? matched.filter((l) => l.match !== null).length : 0;
+  const totalCount = matched ? matched.length : 0;
+
+  // ── Render ──────────────────────────────────────────────────────────────────
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      onClick={handleOverlayClick}
+      onKeyDown={handleKeyDown}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Import List / BOM"
+      tabIndex={-1}
+    >
+      <div className="flex w-full max-w-3xl max-h-[90vh] flex-col overflow-hidden rounded-xl bg-white shadow-2xl">
+        {/* ── Header ── */}
+        <div className="flex shrink-0 items-center justify-between bg-[#1D252D] px-6 py-4 rounded-t-xl">
+          <div>
+            <h2 className="text-white font-semibold text-lg [font-family:var(--font-titillium,'Arial_Bold',sans-serif)]">
+              Import List / BOM
+            </h2>
+            <p className="text-[#B7C9D3] text-xs mt-0.5">
+              Paste a parts list or upload a .csv/.txt file
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={handleClose}
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Close BOM import modal"
+          >
+            <CloseIcon />
+          </button>
+        </div>
+
+        {/* ── Body (scrollable) ── */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-5">
+          {/* Textarea */}
+          <div>
+            <label
+              htmlFor="bom-textarea"
+              className="block text-sm font-medium text-[#1D252D] mb-1.5"
+            >
+              Parts list
+            </label>
+            <textarea
+              id="bom-textarea"
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+                setMatched(null);
+                setAdded(false);
+              }}
+              rows={8}
+              placeholder={
+                "Paste one item per line. Quantity prefix is optional:\n\n12x 15A circuit breaker\n5 Cat6 Cable\n3, Safety Glasses\n2 - LED Troffer\nRelay"
+              }
+              className={cn(
+                "w-full rounded-lg border border-[#B7C9D3] bg-white px-3 py-2 text-sm text-[#1D252D]",
+                "placeholder:text-[#4F758B]/50",
+                "focus:outline-none focus:ring-2 focus:ring-[#00AA13] focus:border-[#00AA13]",
+                "resize-y font-mono"
+              )}
+              aria-describedby="bom-format-hint"
+            />
+            <p id="bom-format-hint" className="mt-1 text-xs text-[#4F758B]">
+              Formats: <code>12x Item</code>, <code>12 Item</code>, <code>12, Item</code>,{" "}
+              <code>12 - Item</code>, or <code>Item</code> (qty defaults to 1). Up to 200 lines.
+            </p>
+          </div>
+
+          {/* File upload */}
+          <div className="flex items-center gap-3">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".csv,.txt"
+              className="sr-only"
+              id="bom-file-input"
+              aria-label="Upload .csv or .txt file"
+              onChange={handleFileChange}
+            />
+            <label
+              htmlFor="bom-file-input"
+              className={cn(
+                "cursor-pointer rounded-lg border border-[#B7C9D3] px-3 py-1.5 text-xs font-medium text-[#4F758B]",
+                "hover:border-[#00AA13] hover:bg-[#00AA13]/10 hover:text-[#00AA13] transition-colors"
+              )}
+            >
+              Upload .csv / .txt
+            </label>
+            <span className="text-xs text-[#4F758B]">— or paste directly above</span>
+          </div>
+
+          {/* Match button + summary */}
+          <div className="flex items-center gap-4">
+            <Button
+              type="button"
+              onClick={handleMatch}
+              disabled={matching || text.trim().length === 0}
+              className={cn(
+                "flex items-center gap-2 bg-[#00AA13] hover:bg-[#009911] text-white text-sm",
+                (matching || text.trim().length === 0) && "opacity-60 cursor-not-allowed"
+              )}
+            >
+              {matching && <SpinnerIcon />}
+              {matching ? "Matching…" : "Match"}
+            </Button>
+
+            {matched !== null && (
+              <span className="text-sm text-[#4F758B]">
+                <span className="font-semibold text-[#1D252D]">{matchedCount}</span> of{" "}
+                <span className="font-semibold text-[#1D252D]">{totalCount}</span> line
+                {totalCount !== 1 ? "s" : ""} matched
+              </span>
+            )}
+
+            {added && (
+              <span className="text-sm font-semibold text-[#00AA13]">
+                ✓ Added to cart
+              </span>
+            )}
+          </div>
+
+          {/* Results table */}
+          {matched !== null && matched.length > 0 && (
+            <div className="overflow-x-auto rounded-lg border border-[#B7C9D3]/60">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-[#B7C9D3]/60">
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-[#4F758B] w-12">
+                      Qty
+                    </th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-[#4F758B]">
+                      Query
+                    </th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-[#4F758B]">
+                      Matched product
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {matched.map((line, i) => (
+                    <MatchRow key={i} line={line} />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {matched !== null && matched.length === 0 && (
+            <p className="text-sm text-[#4F758B] text-center py-4">
+              No valid lines found. Try pasting items above.
+            </p>
+          )}
+        </div>
+
+        {/* ── Footer ── */}
+        <div className="shrink-0 flex items-center justify-between border-t border-[#B7C9D3]/60 bg-gray-50 px-6 py-4 rounded-b-xl">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={handleClose}
+            className="text-sm border-[#B7C9D3] text-[#4F758B] hover:bg-gray-100"
+          >
+            Cancel
+          </Button>
+
+          <Button
+            type="button"
+            onClick={handleAddMatched}
+            disabled={!matched || matchedCount === 0 || added}
+            className={cn(
+              "bg-[#1D252D] hover:bg-[#2d3843] text-white text-sm",
+              (!matched || matchedCount === 0 || added) && "opacity-50 cursor-not-allowed"
+            )}
+          >
+            Add {matchedCount > 0 ? `${matchedCount} matched` : "matched"} to cart
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
