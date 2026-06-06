@@ -56,3 +56,9 @@ export async function apiGetProduct(
   if (!res.ok) throw new Error(`detail failed: ${res.status}`);
   return res.json();
 }
+
+export async function apiGoesWith(id: string): Promise<import("@/features/product-finder/types").WescoProduct[]> {
+  const res = await fetch(`/api/products/${encodeURIComponent(id)}/goeswith`);
+  if (!res.ok) return [];
+  return (await res.json()).items as import("@/features/product-finder/types").WescoProduct[];
+}

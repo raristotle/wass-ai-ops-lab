@@ -178,4 +178,5 @@ export interface SuggestItem {
 export interface ProductDetail {
   product: WescoProduct;
   equivalents: WescoProduct[];
+  goesWith: WescoProduct[];
 }

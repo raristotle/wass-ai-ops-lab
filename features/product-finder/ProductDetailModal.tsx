@@ -5,10 +5,12 @@ import { useProductFinder } from "@/lib/product-finder-store";
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
 import { externalSearchLinks } from "@/lib/product-finder-links";
 import { priceTiers } from "@/lib/product-finder-pricing";
+import { apiGoesWith } from "@/lib/product-finder-api";
 import { ProductArt } from "@/features/product-finder/ProductArt";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { WescoProduct } from "@/features/product-finder/types";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -84,9 +86,27 @@ export function ProductDetailModal() {
   const [qty, setQty] = useState(1);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  // Reset qty each time a new product opens
+  // Goes-with cross-sell
+  const [goesWithItems, setGoesWithItems] = useState<WescoProduct[]>([]);
+
+  // Reset qty and fetch goes-with each time a new product opens
   useEffect(() => {
     if (product) setQty(1);
+  }, [product?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (!product) {
+      setGoesWithItems([]);
+      return;
+    }
+    let cancelled = false;
+    setGoesWithItems([]);
+    void apiGoesWith(product.id).then((items) => {
+      if (!cancelled) setGoesWithItems(items);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [product?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Escape closes
@@ -402,6 +422,43 @@ export function ProductDetailModal() {
             </table>
           </div>
         </div>
+
+        {/* ── Goes well with ──────────────────────────────────── */}
+        {goesWithItems.length > 0 && (
+          <div className="print:hidden px-6 py-5 border-b border-[#B7C9D3]/40">
+            <h3 className="text-sm font-semibold text-[#1D252D] uppercase tracking-wide mb-3">
+              Goes well with
+            </h3>
+            <ul className="divide-y divide-[#B7C9D3]/40">
+              {goesWithItems.map((gwp) => (
+                <li key={gwp.id}>
+                  <button
+                    type="button"
+                    className="w-full flex items-center gap-3 py-2 text-left hover:bg-[#F8FAFB] transition-colors rounded"
+                    onClick={() => setDetailModal(gwp)}
+                    aria-label={`View details for ${gwp.name}`}
+                  >
+                    <span className="text-xl flex-shrink-0" role="img" aria-hidden="true">
+                      {gwp.imageIcon}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium text-[#1D252D] truncate">{gwp.name}</p>
+                      <p className="text-xs text-[#4F758B]">{gwp.brand}</p>
+                    </div>
+                    <span className="text-sm font-semibold text-[#1D252D] flex-shrink-0">
+                      ${gwp.unitPrice.toFixed(2)}
+                    </span>
+                    {gwp.preferred && (
+                      <Badge className="text-[10px] bg-[#00AA13] text-white border-0 flex-shrink-0 px-1.5 py-0.5">
+                        Preferred
+                      </Badge>
+                    )}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* ── Where to Buy section ────────────────────────────── */}
         <div className="print:hidden px-6 py-5">
