@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useProductFinder, selectCartCount, selectCartTotal } from "@/lib/product-finder-store";
 import { tierUnitPrice, priceTiers } from "@/lib/product-finder-pricing";
+import type { SavedBasket } from "@/lib/product-finder-store";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -18,7 +19,15 @@ export function CartDrawer() {
   const cartTotal = useProductFinder(selectCartTotal);
   const user = useProductFinder((s) => s.user);
 
+  const savedBaskets = useProductFinder((s) => s.savedBaskets);
+  const saveCurrentBasket = useProductFinder((s) => s.saveCurrentBasket);
+  const loadBasket = useProductFinder((s) => s.loadBasket);
+  const deleteBasket = useProductFinder((s) => s.deleteBasket);
+
   const items = Object.values(cart);
+
+  // ── Saved baskets state ────────────────────────────────────────────────────
+  const [basketName, setBasketName] = useState("");
 
   // ── Quote state ────────────────────────────────────────────────────────────
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -59,6 +68,11 @@ export function CartDrawer() {
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const formatSavedAt = (ts: number) => {
+    const d = new Date(ts);
+    return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
   };
 
   return (
@@ -195,6 +209,83 @@ export function CartDrawer() {
                   </li>
                 );
               })}
+            </ul>
+          )}
+        </div>
+
+        {/* ── Saved Baskets section — hidden during print ───────────────────── */}
+        <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
+            Saved Baskets
+          </p>
+
+          {/* Save current basket row */}
+          <div className="flex gap-2 mb-3">
+            <input
+              type="text"
+              value={basketName}
+              onChange={(e) => setBasketName(e.target.value)}
+              placeholder="Basket name…"
+              className="min-w-0 flex-1 rounded border border-[#B7C9D3] px-2 py-1.5 text-sm text-[#1D252D] placeholder-[#B7C9D3] focus:border-[#4F758B] focus:outline-none"
+              aria-label="Saved basket name"
+            />
+            <button
+              type="button"
+              disabled={items.length === 0 || basketName.trim() === ""}
+              onClick={() => {
+                const trimmed = basketName.trim();
+                if (!trimmed || items.length === 0) return;
+                saveCurrentBasket(trimmed, undefined, Date.now());
+                setBasketName("");
+              }}
+              className="rounded bg-[#1D252D] px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[#2d3a47] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Save
+            </button>
+          </div>
+
+          {/* Saved basket list */}
+          {savedBaskets.length === 0 ? (
+            <p className="text-xs text-[#B7C9D3]">No saved baskets yet.</p>
+          ) : (
+            <ul className="space-y-1.5 max-h-48 overflow-y-auto">
+              {savedBaskets.map((basket: SavedBasket) => (
+                <li
+                  key={basket.id}
+                  className="flex items-center gap-2 rounded border border-[#B7C9D3] bg-white px-3 py-2"
+                >
+                  {/* Name + meta */}
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-semibold text-[#1D252D]">
+                      {basket.name}
+                    </p>
+                    <p className="text-[10px] text-[#4F758B]">
+                      {basket.lines.length} {basket.lines.length === 1 ? "item" : "items"} ·{" "}
+                      {formatSavedAt(basket.savedAt)}
+                    </p>
+                  </div>
+
+                  {/* Load button */}
+                  <button
+                    type="button"
+                    onClick={() => loadBasket(basket.id)}
+                    className="shrink-0 rounded bg-[#00AA13] px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-[#009911]"
+                    aria-label={`Load basket ${basket.name}`}
+                  >
+                    Load
+                  </button>
+
+                  {/* Delete button */}
+                  <button
+                    type="button"
+                    onClick={() => deleteBasket(basket.id)}
+                    className="shrink-0 text-[#B7C9D3] transition-colors hover:text-red-600"
+                    aria-label={`Delete basket ${basket.name}`}
+                  >
+                    ✕
+                  </button>
+                </li>
+              ))}
             </ul>
           )}
         </div>

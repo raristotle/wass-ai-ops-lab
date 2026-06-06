@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useProductFinder, selectCartCount, selectCartTotal, hydrateSavedState } from "@/lib/product-finder-store";
+import type { SavedBasket } from "@/lib/product-finder-store";
 import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
 
@@ -50,6 +51,7 @@ function resetStore() {
     page: 0,
     total: 0,
     pageSize: 24,
+    savedBaskets: [],
     filters: {
       query: "",
       categories: new Set(),
@@ -574,6 +576,259 @@ describe("hydrateSavedState – searchHistory", () => {
     expect(useProductFinder.getState().searchHistory).toEqual(stored);
 
     // Restore
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+});
+
+// ─── savedBaskets ─────────────────────────────────────────────────────────────
+
+describe("savedBaskets – saveCurrentBasket", () => {
+  beforeEach(resetStore);
+
+  it("snapshots cart lines into a new saved basket with the given name", () => {
+    const p1 = WESCO_PRODUCTS[0];
+    const p2 = WESCO_PRODUCTS[1];
+    useProductFinder.getState().addToCart(p1, 3);
+    useProductFinder.getState().addToCart(p2, 7);
+
+    useProductFinder.getState().saveCurrentBasket("My Basket", "id-001", 1000000);
+
+    const { savedBaskets } = useProductFinder.getState();
+    expect(savedBaskets).toHaveLength(1);
+    const basket = savedBaskets[0];
+    expect(basket.name).toBe("My Basket");
+    expect(basket.id).toBe("id-001");
+    expect(basket.savedAt).toBe(1000000);
+    expect(basket.lines).toHaveLength(2);
+    const lineIds = basket.lines.map((l) => l.product.id);
+    expect(lineIds).toContain(p1.id);
+    expect(lineIds).toContain(p2.id);
+    const p1Line = basket.lines.find((l) => l.product.id === p1.id)!;
+    expect(p1Line.qty).toBe(3);
+  });
+
+  it("is a no-op when the name is empty after trimming", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("  ", "id-002", 1000001);
+    expect(useProductFinder.getState().savedBaskets).toHaveLength(0);
+  });
+
+  it("is a no-op when the cart is empty", () => {
+    useProductFinder.getState().saveCurrentBasket("Full Name", "id-003", 1000002);
+    expect(useProductFinder.getState().savedBaskets).toHaveLength(0);
+  });
+
+  it("overwrites (does not duplicate) a basket with the same name case-insensitively", () => {
+    const p1 = WESCO_PRODUCTS[0];
+    const p2 = WESCO_PRODUCTS[1];
+
+    useProductFinder.getState().addToCart(p1, 2);
+    useProductFinder.getState().saveCurrentBasket("Electrical Run", "id-010", 1000010);
+
+    // Clear cart, add different product, save with same name (different case)
+    useProductFinder.getState().clearCart();
+    useProductFinder.getState().addToCart(p2, 5);
+    useProductFinder.getState().saveCurrentBasket("ELECTRICAL RUN", "id-011", 1000011);
+
+    const { savedBaskets } = useProductFinder.getState();
+    // Must still be exactly one basket — no duplicate
+    expect(savedBaskets).toHaveLength(1);
+    // Lines should reflect the second save
+    expect(savedBaskets[0].lines).toHaveLength(1);
+    expect(savedBaskets[0].lines[0].product.id).toBe(p2.id);
+    expect(savedBaskets[0].lines[0].qty).toBe(5);
+    expect(savedBaskets[0].savedAt).toBe(1000011);
+  });
+
+  it("prepends a new basket at the front of the list", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("First", "id-100", 1000100);
+    useProductFinder.getState().saveCurrentBasket("Second", "id-101", 1000101);
+
+    const { savedBaskets } = useProductFinder.getState();
+    expect(savedBaskets[0].name).toBe("Second");
+    expect(savedBaskets[1].name).toBe("First");
+  });
+});
+
+describe("savedBaskets – loadBasket", () => {
+  beforeEach(resetStore);
+
+  it("replaces the current cart with the saved basket lines (deep clone)", () => {
+    const p1 = WESCO_PRODUCTS[0];
+    const p2 = WESCO_PRODUCTS[1];
+
+    // Save a basket with p1 qty 4
+    useProductFinder.getState().addToCart(p1, 4);
+    useProductFinder.getState().saveCurrentBasket("Saved", "basket-load-1", 2000000);
+
+    // Change cart
+    useProductFinder.getState().clearCart();
+    useProductFinder.getState().addToCart(p2, 9);
+
+    // Load the saved basket
+    useProductFinder.getState().loadBasket("basket-load-1");
+
+    const { cart } = useProductFinder.getState();
+    expect(cart[p1.id]).toBeDefined();
+    expect(cart[p1.id].qty).toBe(4);
+    expect(cart[p2.id]).toBeUndefined();
+  });
+
+  it("loadBasket is independent: mutating cart after load does not change the saved basket", () => {
+    const p1 = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p1, 3);
+    useProductFinder.getState().saveCurrentBasket("Isolated", "basket-iso", 2000100);
+
+    useProductFinder.getState().loadBasket("basket-iso");
+    // Mutate the loaded cart
+    useProductFinder.getState().updateCartQty(p1.id, 99);
+
+    // The saved basket should still have qty 3
+    const saved = useProductFinder.getState().savedBaskets.find((b) => b.id === "basket-iso")!;
+    expect(saved.lines[0].qty).toBe(3);
+  });
+
+  it("is a no-op when the id is not found", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 2);
+    useProductFinder.getState().loadBasket("does-not-exist");
+    // cart should be unchanged
+    expect(useProductFinder.getState().cart[p.id]?.qty).toBe(2);
+  });
+});
+
+describe("savedBaskets – deleteBasket", () => {
+  beforeEach(resetStore);
+
+  it("removes the basket with the given id", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("To Delete", "del-001", 3000000);
+    useProductFinder.getState().saveCurrentBasket("To Keep", "keep-001", 3000001);
+
+    useProductFinder.getState().deleteBasket("del-001");
+
+    const { savedBaskets } = useProductFinder.getState();
+    expect(savedBaskets).toHaveLength(1);
+    expect(savedBaskets[0].id).toBe("keep-001");
+  });
+
+  it("is a no-op when the id is not found", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("Existing", "existing-1", 3000100);
+    useProductFinder.getState().deleteBasket("ghost-id");
+    expect(useProductFinder.getState().savedBaskets).toHaveLength(1);
+  });
+});
+
+describe("savedBaskets – renameBasket", () => {
+  beforeEach(resetStore);
+
+  it("renames the basket with the given id", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("Old Name", "rename-001", 4000000);
+
+    useProductFinder.getState().renameBasket("rename-001", "New Name");
+
+    expect(useProductFinder.getState().savedBaskets[0].name).toBe("New Name");
+  });
+
+  it("trims the new name before saving", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("Padded", "rename-002", 4000001);
+
+    useProductFinder.getState().renameBasket("rename-002", "  Trimmed  ");
+
+    expect(useProductFinder.getState().savedBaskets[0].name).toBe("Trimmed");
+  });
+
+  it("is a no-op when the trimmed new name is empty", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("Keep This", "rename-003", 4000002);
+
+    useProductFinder.getState().renameBasket("rename-003", "   ");
+
+    expect(useProductFinder.getState().savedBaskets[0].name).toBe("Keep This");
+  });
+});
+
+describe("savedBaskets – persistence via hydrateSavedState", () => {
+  beforeEach(resetStore);
+
+  it("loads savedBaskets from pf_saved_baskets key when localStorage has valid data", () => {
+    const p = WESCO_PRODUCTS[0];
+    const storedBaskets: SavedBasket[] = [
+      { id: "hydrate-1", name: "Hydrated Basket", lines: [{ product: p, qty: 2 }], savedAt: 5000000 },
+    ];
+    const mockStorage: Record<string, string> = {
+      pf_saved_baskets: JSON.stringify(storedBaskets),
+    };
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { savedBaskets } = useProductFinder.getState();
+    expect(savedBaskets).toHaveLength(1);
+    expect(savedBaskets[0].name).toBe("Hydrated Basket");
+    expect(savedBaskets[0].lines[0].qty).toBe(2);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("persists savedBaskets to localStorage when saveCurrentBasket is called", () => {
+    const p = WESCO_PRODUCTS[0];
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().addToCart(p, 3);
+    useProductFinder.getState().saveCurrentBasket("Persist Me", "persist-1", 5000100);
+
+    const raw = mockStorage["pf_saved_baskets"];
+    expect(raw).toBeDefined();
+    const parsed = JSON.parse(raw) as SavedBasket[];
+    expect(parsed).toHaveLength(1);
+    expect(parsed[0].name).toBe("Persist Me");
+    expect(parsed[0].lines[0].qty).toBe(3);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("persists savedBaskets to localStorage when deleteBasket is called", () => {
+    const p = WESCO_PRODUCTS[0];
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().saveCurrentBasket("A", "del-persist-1", 5000200);
+    useProductFinder.getState().saveCurrentBasket("B", "del-persist-2", 5000201);
+    useProductFinder.getState().deleteBasket("del-persist-1");
+
+    const raw = mockStorage["pf_saved_baskets"];
+    const parsed = JSON.parse(raw) as SavedBasket[];
+    expect(parsed.some((b) => b.id === "del-persist-1")).toBe(false);
+    expect(parsed.some((b) => b.id === "del-persist-2")).toBe(true);
+
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
 });

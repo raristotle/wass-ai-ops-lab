@@ -1,5 +1,13 @@
 import { create } from "zustand";
 import type { FilterState, ParsedFilter, SortKey, ViewMode, WescoProduct, BomLine, AuthUser, ProductCategory } from "@/features/product-finder/types";
+
+// ─── SavedBasket type ─────────────────────────────────────────────────────────
+export type SavedBasket = {
+  id: string;
+  name: string;
+  lines: { product: WescoProduct; qty: number }[];
+  savedAt: number;
+};
 import { parseQuery } from "@/lib/product-finder-nl-search";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
 import {
@@ -103,6 +111,13 @@ export interface ProductFinderState {
   clearCart: () => void;
   cartOpen: boolean;
   setCartOpen: (v: boolean) => void;
+
+  // Saved baskets
+  savedBaskets: SavedBasket[];
+  saveCurrentBasket: (name: string, id?: string, now?: number) => void;
+  loadBasket: (id: string) => void;
+  deleteBasket: (id: string) => void;
+  renameBasket: (id: string, name: string) => void;
 
   // Saved & history
   favorites: string[];
@@ -479,6 +494,76 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   clearCart() { set({ cart: {} }); },
   setCartOpen(v) { set({ cartOpen: v }); },
 
+  // ── Saved baskets ─────────────────────────────────────────
+  savedBaskets: [],
+
+  saveCurrentBasket(name, id, now) {
+    const trimmedName = name.trim();
+    if (!trimmedName) return;
+    const cart = get().cart;
+    const cartValues = Object.values(cart);
+    if (cartValues.length === 0) return;
+
+    const lines = cartValues.map((entry) => ({ product: entry.product, qty: entry.qty }));
+    const ts = now ?? Date.now();
+    const basketId = id ?? `basket-${ts}-${trimmedName.replace(/\s+/g, "-").toLowerCase()}`;
+
+    set((s) => {
+      const lowerName = trimmedName.toLowerCase();
+      const existingIdx = s.savedBaskets.findIndex(
+        (b) => b.name.toLowerCase() === lowerName
+      );
+      let nextBaskets: SavedBasket[];
+      if (existingIdx !== -1) {
+        // Overwrite in-place (keep position? spec says overwrite — keep same slot)
+        nextBaskets = s.savedBaskets.map((b, i) =>
+          i === existingIdx ? { ...b, lines, savedAt: ts } : b
+        );
+      } else {
+        const newBasket: SavedBasket = { id: basketId, name: trimmedName, lines, savedAt: ts };
+        nextBaskets = [newBasket, ...s.savedBaskets];
+      }
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_saved_baskets", JSON.stringify(nextBaskets));
+      }
+      return { savedBaskets: nextBaskets };
+    });
+  },
+
+  loadBasket(id) {
+    const basket = get().savedBaskets.find((b) => b.id === id);
+    if (!basket) return;
+    const newCart: Record<string, { product: WescoProduct; qty: number }> = {};
+    for (const line of basket.lines) {
+      newCart[line.product.id] = { product: line.product, qty: line.qty };
+    }
+    set({ cart: newCart });
+  },
+
+  deleteBasket(id) {
+    set((s) => {
+      const nextBaskets = s.savedBaskets.filter((b) => b.id !== id);
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_saved_baskets", JSON.stringify(nextBaskets));
+      }
+      return { savedBaskets: nextBaskets };
+    });
+  },
+
+  renameBasket(id, name) {
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    set((s) => {
+      const nextBaskets = s.savedBaskets.map((b) =>
+        b.id === id ? { ...b, name: trimmed } : b
+      );
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_saved_baskets", JSON.stringify(nextBaskets));
+      }
+      return { savedBaskets: nextBaskets };
+    });
+  },
+
   // ── Results / search engine ───────────────────────────────
   results: [],
   loading: false,
@@ -537,12 +622,19 @@ export function hydrateSavedState() {
     try { const v = JSON.parse(raw); return v && typeof v === "object" ? (v as Record<string, ProductSnapshot>) : {}; }
     catch { localStorage.removeItem(k); return {}; }
   };
+  const readBaskets = (k: string): SavedBasket[] => {
+    const raw = localStorage.getItem(k);
+    if (!raw) return [];
+    try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as SavedBasket[]) : []; }
+    catch { localStorage.removeItem(k); return []; }
+  };
   useProductFinder.setState({
     favorites: readArr("pf_favorites"),
     recentlyViewed: readArr("pf_recent"),
     favoriteSnapshots: readMap("pf_fav_snap"),
     recentSnapshots: readMap("pf_recent_snap"),
     searchHistory: readArr("pf_search_history"),
+    savedBaskets: readBaskets("pf_saved_baskets"),
   });
 }
 
