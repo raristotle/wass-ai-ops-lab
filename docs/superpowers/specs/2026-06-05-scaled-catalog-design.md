@@ -1,5 +1,10 @@
 # Scaled Synthetic Catalog (20k) + Server-Side Search — Design
 
+> **Superseded (2026-06-05):** executed as written at 20,000 products, then scaled
+> the same day to **50,000 products** (+30k electrical, construction-commodity-weighted,
+> 49 new subcategories) in commits `573ea33` and `4d55a37`. Figures below are the
+> original 20k design.
+
 **Date:** 2026-06-05
 **Status:** Approved (design)
 **Area:** `lib/catalog/` (new), `apps/web/app/api/products/` (new), `lib/product-finder-store.ts`, `features/product-finder/`, `features/product-finder/types.ts`

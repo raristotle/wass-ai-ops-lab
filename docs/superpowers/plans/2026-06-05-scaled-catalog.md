@@ -1,5 +1,10 @@
 # Scaled Synthetic Catalog (20k) + Server-Side Search — Implementation Plan
 
+> **Superseded (2026-06-05):** this plan was fully executed at 20,000 products, then
+> the catalog was scaled the same day to **50,000 products** (+30k electrical,
+> construction-commodity-weighted, 49 new subcategories) in commits `573ea33` and
+> `4d55a37`. Code snippets below reflect the original 20k implementation.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the 46-product client-side catalog with a deterministic 20,000-product synthetic catalog across 6 categories, served by in-memory-backed API routes, with similarity-based equivalents.
