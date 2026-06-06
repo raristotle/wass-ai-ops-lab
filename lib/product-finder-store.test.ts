@@ -53,6 +53,7 @@ function resetStore() {
     total: 0,
     pageSize: 24,
     savedBaskets: [],
+    watches: [],
     filters: {
       query: "",
       categories: new Set(),
@@ -858,5 +859,99 @@ describe("bomModalOpen", () => {
     useProductFinder.getState().setBomModalOpen(true);
     resetStore();
     expect(useProductFinder.getState().bomModalOpen).toBe(false);
+  });
+});
+
+// ─── watches (product alert / notify-when-available) ─────────────────────────
+
+describe("watches – toggleWatch", () => {
+  beforeEach(resetStore);
+
+  it("starts as an empty array", () => {
+    expect(useProductFinder.getState().watches).toEqual([]);
+  });
+
+  it("toggleWatch adds a product id that is not yet watched", () => {
+    useProductFinder.getState().toggleWatch("prod-001");
+    expect(useProductFinder.getState().watches).toContain("prod-001");
+  });
+
+  it("toggleWatch removes a product id that is already watched (toggle off)", () => {
+    useProductFinder.getState().toggleWatch("prod-001");
+    useProductFinder.getState().toggleWatch("prod-001");
+    expect(useProductFinder.getState().watches).not.toContain("prod-001");
+  });
+
+  it("toggleWatch does not duplicate: adding the same id twice yields one entry", () => {
+    useProductFinder.getState().toggleWatch("prod-002");
+    useProductFinder.getState().toggleWatch("prod-002"); // removes
+    useProductFinder.getState().toggleWatch("prod-002"); // adds again
+    const { watches } = useProductFinder.getState();
+    const count = watches.filter((id) => id === "prod-002").length;
+    expect(count).toBe(1);
+  });
+
+  it("persists watches to localStorage via pf_watches key", () => {
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().toggleWatch("persist-id");
+    const raw = mockStorage["pf_watches"];
+    expect(raw).toBeDefined();
+    const parsed = JSON.parse(raw) as string[];
+    expect(parsed).toContain("persist-id");
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("removes id from localStorage when toggled off", () => {
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().toggleWatch("unwatch-id");
+    useProductFinder.getState().toggleWatch("unwatch-id");
+    const raw = mockStorage["pf_watches"];
+    const parsed = raw ? (JSON.parse(raw) as string[]) : [];
+    expect(parsed).not.toContain("unwatch-id");
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("resetStore resets watches to []", () => {
+    useProductFinder.getState().toggleWatch("reset-id");
+    resetStore();
+    expect(useProductFinder.getState().watches).toEqual([]);
+  });
+});
+
+describe("watches – hydrateSavedState loads pf_watches", () => {
+  beforeEach(resetStore);
+
+  it("loads watches from localStorage on hydrate", () => {
+    const stored = ["product-a", "product-b"];
+    const mockStorage: Record<string, string> = {
+      pf_watches: JSON.stringify(stored),
+    };
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    expect(useProductFinder.getState().watches).toEqual(stored);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
 });

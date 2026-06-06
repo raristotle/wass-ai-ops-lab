@@ -123,6 +123,10 @@ export interface ProductFinderState {
   deleteBasket: (id: string) => void;
   renameBasket: (id: string, name: string) => void;
 
+  // Watches (notify-when-available)
+  watches: string[];
+  toggleWatch: (id: string) => void;
+
   // Saved & history
   favorites: string[];
   favoriteSnapshots: Record<string, ProductSnapshot>;
@@ -572,6 +576,20 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     });
   },
 
+  // ── Watches (notify-when-available) ──────────────────────
+  watches: [],
+
+  toggleWatch(id) {
+    set((s) => {
+      const has = s.watches.includes(id);
+      const watches = has ? s.watches.filter((w) => w !== id) : [...s.watches, id];
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_watches", JSON.stringify(watches));
+      }
+      return { watches };
+    });
+  },
+
   // ── Results / search engine ───────────────────────────────
   results: [],
   loading: false,
@@ -643,6 +661,7 @@ export function hydrateSavedState() {
     recentSnapshots: readMap("pf_recent_snap"),
     searchHistory: readArr("pf_search_history"),
     savedBaskets: readBaskets("pf_saved_baskets"),
+    watches: readArr("pf_watches"),
   });
 }
 

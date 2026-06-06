@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
+import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -82,6 +83,8 @@ export function ProductDetailModal() {
   const setDetailModal = useProductFinder((s) => s.setDetailModalProduct);
   const addToCart      = useProductFinder((s) => s.addToCart);
   const setActiveProduct = useProductFinder((s) => s.setActiveProduct);
+  const watches        = useProductFinder((s) => s.watches);
+  const toggleWatch    = useProductFinder((s) => s.toggleWatch);
 
   const [qty, setQty] = useState(1);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -130,6 +133,9 @@ export function ProductDetailModal() {
   const dcQty     = getTotalDCStock(product);
   const dotColor  = branchQty > 0 ? "bg-[#00AA13]" : dcQty > 0 ? "bg-[#EAAA00]" : "bg-gray-300";
   const links     = externalSearchLinks(product);
+  const productInStock = isInStock(product);
+  const leadTime  = leadTimeFor(product);
+  const isWatched = watches.includes(product.id);
 
   const nonNegSpecs = product.specs.filter((s) => s.isNonNeg);
   const otherSpecs  = product.specs.filter((s) => !s.isNonNeg);
@@ -261,6 +267,31 @@ export function ProductDetailModal() {
                 <span className="text-[#4F758B]"> DC</span>
               </span>
             </div>
+
+            {/* OOS: lead-time + notify-when-available */}
+            {!productInStock && (
+              <div className="flex items-center gap-3 flex-wrap">
+                {leadTime && (
+                  <span className="text-xs text-[#4F758B]">
+                    Lead time:{" "}
+                    <span className="font-medium text-[#1D252D]">{leadTime}</span>
+                  </span>
+                )}
+                <button
+                  type="button"
+                  onClick={() => toggleWatch(product.id)}
+                  aria-pressed={isWatched}
+                  className={cn(
+                    "flex items-center gap-1 rounded border px-2.5 py-1 text-xs font-medium transition-colors",
+                    isWatched
+                      ? "border-[#00AA13] bg-[#00AA13]/10 text-[#00AA13]"
+                      : "border-[#4F758B] text-[#4F758B] hover:border-[#1D252D] hover:text-[#1D252D]"
+                  )}
+                >
+                  {isWatched ? "✓ We'll notify you" : "Notify when available"}
+                </button>
+              </div>
+            )}
 
             {/* Qty stepper + Add to Basket */}
             <div className="flex items-center gap-2 flex-wrap">

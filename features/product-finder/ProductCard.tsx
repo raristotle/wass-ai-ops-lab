@@ -10,6 +10,7 @@ import { useProductFinder } from "@/lib/product-finder-store";
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 import { RecommendationExplanation } from "@/features/product-finder/RecommendationExplanation";
+import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
 
 interface ProductCardProps {
   product: CatalogProduct;
@@ -60,11 +61,16 @@ export function ProductCard({
   const isFavorite = useProductFinder((s) => s.favorites.includes(product.id));
   const toggleFavorite = useProductFinder((s) => s.toggleFavorite);
   const setActiveProduct = useProductFinder((s) => s.setActiveProduct);
+  const isWatched = useProductFinder((s) => s.watches.includes(product.id));
+  const toggleWatch = useProductFinder((s) => s.toggleWatch);
 
   const branchQty = getTotalBranchStock(product);
   const dcQty = getTotalDCStock(product);
   const isComparing = compareIds.has(product.id);
   const compareMaxReached = compareIds.size >= 4 && !isComparing;
+
+  const productInStock = isInStock(product);
+  const leadTime = leadTimeFor(product);
 
   const showExternalAlert =
     branchQty === 0 && dcQty === 0 && product.externalSources.length > 0;
@@ -263,6 +269,31 @@ export function ProductCard({
               ))}
             </ul>
           )}
+        </div>
+      )}
+
+      {/* ── OOS: lead-time + notify-when-available ────────────────── */}
+      {!productInStock && (
+        <div className="mx-4 mb-2 flex items-center justify-between gap-2">
+          {leadTime && (
+            <span className="text-xs text-[#4F758B]">
+              Lead time:{" "}
+              <span className="font-medium text-[#1D252D]">{leadTime}</span>
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={() => toggleWatch(product.id)}
+            aria-pressed={isWatched}
+            className={cn(
+              "ml-auto flex items-center gap-1 rounded border px-2.5 py-1 text-xs font-medium transition-colors",
+              isWatched
+                ? "border-[#00AA13] bg-[#00AA13]/10 text-[#00AA13]"
+                : "border-[#4F758B] text-[#4F758B] hover:border-[#1D252D] hover:text-[#1D252D]"
+            )}
+          >
+            {isWatched ? "✓ We'll notify you" : "Notify when available"}
+          </button>
         </div>
       )}
 
