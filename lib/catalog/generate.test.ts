@@ -14,8 +14,8 @@ describe("generateCatalog", () => {
     expect(generateCatalog(500)).toHaveLength(500);
   });
 
-  it("default CATALOG_SIZE is 50000", () => {
-    expect(CATALOG_SIZE).toBe(50000);
+  it("default CATALOG_SIZE is 60000", () => {
+    expect(CATALOG_SIZE).toBe(60000);
   });
 
   it("electrical dominates — more than 65% of products are electrical", () => {
@@ -52,5 +52,19 @@ describe("generateCatalog", () => {
       expect(typeof p.preferred).toBe("boolean");
       expect(p.imageIcon).toBeTruthy();
     }
+  });
+
+  it("wiring-device family (6 new subcategories) is well represented — ≥ 10000 products", () => {
+    const WIRING_DEVICE_SUBS = new Set([
+      "Receptacles & Outlets",
+      "Switches",
+      "Wall Plates & Covers",
+      "Cord Plugs & Connectors",
+      "Combination Devices",
+      "Lighting Accessories",
+    ]);
+    const cat = generateCatalog();
+    const count = cat.filter((p) => WIRING_DEVICE_SUBS.has(p.subcategory)).length;
+    expect(count).toBeGreaterThanOrEqual(10000);
   });
 });

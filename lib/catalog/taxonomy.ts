@@ -49,6 +49,33 @@ export const TAXONOMY: Record<ProductCategory, SubcategoryTemplate[]> = {
       { name: "Type", isNonNeg: true, values: ["Receptacle", "Switch", "GFCI", "Dimmer"] },
       { name: "Amperage", isNonNeg: true, values: ["15A", "20A"] },
       { name: "Color", values: ["White", "Ivory", "Black", "Gray"] } ] },
+    { name: "Receptacles & Outlets", skuPrefix: "RO", uom: "EA", icon: "🔌", priceRange: [1, 75], weight: 30, brands: ["Leviton", "Hubbell", "Pass & Seymour", "Eaton", "Bryant"], specs: [
+      { name: "Type", isNonNeg: true, values: ["Duplex", "GFCI", "AFCI", "USB Combo", "Tamper-Resistant", "Weather-Resistant"] },
+      { name: "Amperage", isNonNeg: true, values: ["15A", "20A"] },
+      { name: "Grade", values: ["Residential", "Commercial", "Hospital"] },
+      { name: "Color", values: ["White", "Ivory", "Light Almond", "Black", "Gray"] } ] },
+    { name: "Switches", skuPrefix: "SS", uom: "EA", icon: "💡", priceRange: [1, 60], weight: 28, brands: ["Leviton", "Lutron", "Pass & Seymour", "Hubbell", "Eaton"], specs: [
+      { name: "Type", isNonNeg: true, values: ["Single-Pole", "3-Way", "4-Way", "Double-Pole"] },
+      { name: "Style", isNonNeg: true, values: ["Toggle", "Rocker/Decorator", "Illuminated"] },
+      { name: "Amperage", values: ["15A", "20A"] },
+      { name: "Color", values: ["White", "Ivory", "Light Almond", "Black"] } ] },
+    { name: "Wall Plates & Covers", skuPrefix: "WP", uom: "EA", icon: "🔳", priceRange: [0.5, 30], weight: 26, brands: ["Leviton", "Pass & Seymour", "Hubbell", "Mulberry", "TayMac"], specs: [
+      { name: "Gang", isNonNeg: true, values: ["1-Gang", "2-Gang", "3-Gang", "4-Gang"] },
+      { name: "Opening", isNonNeg: true, values: ["Toggle", "Decorator", "Duplex", "Blank", "Combination"] },
+      { name: "Material", values: ["Nylon", "Thermoset", "Stainless Steel", "Brushed Brass"] },
+      { name: "Color", values: ["White", "Ivory", "Light Almond", "Stainless"] } ] },
+    { name: "Cord Plugs & Connectors", skuPrefix: "CP", uom: "EA", icon: "🔌", priceRange: [2, 90], weight: 16, brands: ["Hubbell", "Leviton", "Bryant", "Eaton", "Legrand"], specs: [
+      { name: "Configuration", isNonNeg: true, values: ["NEMA 5-15P", "NEMA 5-20P", "NEMA L5-20P", "NEMA L6-30P", "NEMA 6-15P"] },
+      { name: "Type", isNonNeg: true, values: ["Straight Blade Plug", "Twist-Lock Plug", "Connector Body"] },
+      { name: "Termination", values: ["Screw", "Clamp"] } ] },
+    { name: "Combination Devices", skuPrefix: "CO", uom: "EA", icon: "🎚️", priceRange: [4, 70], weight: 14, brands: ["Leviton", "Eaton", "Pass & Seymour", "Hubbell"], specs: [
+      { name: "Combination", isNonNeg: true, values: ["Switch + Outlet", "Dual Switch", "Switch + Pilot Light", "Switch + GFCI", "Outlet + USB"] },
+      { name: "Amperage", isNonNeg: true, values: ["15A", "20A"] },
+      { name: "Color", values: ["White", "Ivory", "Light Almond"] } ] },
+    { name: "Lighting Accessories", skuPrefix: "LT", uom: "EA", icon: "🛠️", priceRange: [1, 45], weight: 14, brands: ["Leviton", "Eaton", "Satco", "Westinghouse"], specs: [
+      { name: "Type", isNonNeg: true, values: ["Keyless Lampholder", "Pull-Chain Lampholder", "Socket Adapter", "Canopy Kit", "Fixture Whip"] },
+      { name: "Base", values: ["Medium E26", "Candelabra E12", "Mogul E39"] },
+      { name: "Rating", values: ["660W/600V", "250W/250V"] } ] },
     { name: "Load Centers", skuPrefix: "LC", uom: "EA", icon: "🏠", priceRange: [45, 850], weight: 8, brands: ["Square D", "Eaton", "Siemens", "GE", "Leviton"], specs: [
       { name: "Main Rating", isNonNeg: true, values: ["100A", "125A", "150A", "200A", "225A", "400A"] },
       { name: "Spaces", isNonNeg: true, values: ["12-Space", "20-Space", "30-Space", "40-Space", "42-Space"] },

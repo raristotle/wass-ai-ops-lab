@@ -3,7 +3,7 @@ import { CATEGORIES, TAXONOMY, type SubcategoryTemplate } from "@/lib/catalog/ta
 import { makeRng, pick, randInt, round2 } from "@/lib/catalog/prng";
 import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
 
-export const CATALOG_SIZE = 50000;
+export const CATALOG_SIZE = 60000;
 const FIXED_SEED = 1337;
 
 const BRANCHES: Omit<BranchStock, "quantity">[] = [
@@ -20,7 +20,7 @@ const EXTERNAL = ["Grainger", "Graybar", "Platt Electric Supply", "Rexel USA"] a
 
 // Per-category target weights (sum normalized to the requested size).
 const WEIGHTS: Record<ProductCategory, number> = {
-  electrical: 36000, datacom: 3500, "oem-electrical": 3000, av: 2500, security: 2500, safety: 2500,
+  electrical: 46000, datacom: 3500, "oem-electrical": 3000, av: 2500, security: 2500, safety: 2500,
 };
 
 function makeStock(rng: () => number): { branchStock: BranchStock[]; dcStock: DCStock[] } {
