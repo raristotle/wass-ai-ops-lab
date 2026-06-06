@@ -35,56 +35,56 @@ describe("product-finder auth slice", () => {
 
   describe("login()", () => {
     it("returns true and sets user on valid credentials", () => {
-      const success = useProductFinder.getState().login("sales@wesco.com", "wesco2024");
+      const success = useProductFinder.getState().login("sales@meridiansupply.com", "meridian2024");
       expect(success).toBe(true);
       const { user } = useProductFinder.getState();
       expect(user).not.toBeNull();
-      expect(user?.email).toBe("sales@wesco.com");
+      expect(user?.email).toBe("sales@meridiansupply.com");
       expect(user?.name).toBe("Sarah Chen");
       expect(user?.role).toBe("sales");
     });
 
     it("is case-insensitive for email", () => {
-      const success = useProductFinder.getState().login("SALES@WESCO.COM", "wesco2024");
+      const success = useProductFinder.getState().login("SALES@MERIDIANSUPPLY.COM", "meridian2024");
       expect(success).toBe(true);
-      expect(useProductFinder.getState().user?.email).toBe("sales@wesco.com");
+      expect(useProductFinder.getState().user?.email).toBe("sales@meridiansupply.com");
     });
 
     it("returns false and sets authError on wrong password", () => {
-      const success = useProductFinder.getState().login("sales@wesco.com", "wrongpassword");
+      const success = useProductFinder.getState().login("sales@meridiansupply.com", "wrongpassword");
       expect(success).toBe(false);
       expect(useProductFinder.getState().user).toBeNull();
       expect(useProductFinder.getState().authError).toBe("Invalid email or password.");
     });
 
     it("returns false and sets authError on unknown email", () => {
-      const success = useProductFinder.getState().login("unknown@wesco.com", "wesco2024");
+      const success = useProductFinder.getState().login("unknown@meridiansupply.com", "meridian2024");
       expect(success).toBe(false);
       expect(useProductFinder.getState().user).toBeNull();
       expect(useProductFinder.getState().authError).toBe("Invalid email or password.");
     });
 
     it("persists user to localStorage on success", () => {
-      useProductFinder.getState().login("manager@wesco.com", "wesco2024");
+      useProductFinder.getState().login("manager@meridiansupply.com", "meridian2024");
       const stored = localStorage.getItem("pf_user");
       expect(stored).not.toBeNull();
       // stored is confirmed non-null by the assertion above
       const parsed = JSON.parse(stored!) as { email: string; role: string };
-      expect(parsed.email).toBe("manager@wesco.com");
+      expect(parsed.email).toBe("manager@meridiansupply.com");
       expect(parsed.role).toBe("manager");
     });
 
     it("does not store the password in localStorage", () => {
-      useProductFinder.getState().login("admin@wesco.com", "wesco2024");
+      useProductFinder.getState().login("admin@meridiansupply.com", "meridian2024");
       const stored = localStorage.getItem("pf_user");
       expect(stored).not.toBeNull();
-      expect(stored).not.toContain("wesco2024");
+      expect(stored).not.toContain("meridian2024");
     });
   });
 
   describe("logout()", () => {
     it("clears user and removes localStorage entry", () => {
-      useProductFinder.getState().login("sales@wesco.com", "wesco2024");
+      useProductFinder.getState().login("sales@meridiansupply.com", "meridian2024");
       expect(useProductFinder.getState().user).not.toBeNull();
 
       useProductFinder.getState().logout();
@@ -97,7 +97,7 @@ describe("product-finder auth slice", () => {
     it("restores user from localStorage if entry is present", () => {
       const fakeUser = {
         name: "Sarah Chen",
-        email: "sales@wesco.com",
+        email: "sales@meridiansupply.com",
         role: "sales",
         branch: "Houston Downtown",
         branchId: "B-HOU-01",
@@ -108,7 +108,7 @@ describe("product-finder auth slice", () => {
 
       const { user } = useProductFinder.getState();
       expect(user).not.toBeNull();
-      expect(user?.email).toBe("sales@wesco.com");
+      expect(user?.email).toBe("sales@meridiansupply.com");
     });
 
     it("does nothing when localStorage entry is absent", () => {

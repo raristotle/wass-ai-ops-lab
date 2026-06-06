@@ -261,15 +261,15 @@ describe("auth", () => {
   beforeEach(resetStore);
 
   it("login succeeds with correct credentials", () => {
-    const result = useProductFinder.getState().login("sales@wesco.com", "wesco2024");
+    const result = useProductFinder.getState().login("sales@meridiansupply.com", "meridian2024");
     expect(result).toBe(true);
     const { user } = useProductFinder.getState();
     expect(user).not.toBeNull();
-    expect(user?.email).toBe("sales@wesco.com");
+    expect(user?.email).toBe("sales@meridiansupply.com");
   });
 
   it("login fails with wrong password", () => {
-    const result = useProductFinder.getState().login("sales@wesco.com", "wrongpassword");
+    const result = useProductFinder.getState().login("sales@meridiansupply.com", "wrongpassword");
     expect(result).toBe(false);
     const { user, authError } = useProductFinder.getState();
     expect(user).toBeNull();
@@ -277,7 +277,7 @@ describe("auth", () => {
   });
 
   it("logout clears user", () => {
-    useProductFinder.getState().login("sales@wesco.com", "wesco2024");
+    useProductFinder.getState().login("sales@meridiansupply.com", "meridian2024");
     useProductFinder.getState().logout();
     const { user } = useProductFinder.getState();
     expect(user).toBeNull();

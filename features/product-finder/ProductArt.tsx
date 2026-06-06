@@ -19,7 +19,7 @@ interface ProductArtProps {
 /**
  * Deterministic SVG product plate. Same product → identical output (no randomness).
  * Uses a category-tinted background band + a soft inner plate with the product emoji,
- * brand name, and SKU. Wesco tertiary palette per category.
+ * brand name, and SKU. Meridian tertiary palette per category.
  */
 export function ProductArt({ product, className }: ProductArtProps) {
   const colors = CATEGORY_COLORS[product.category] ?? CATEGORY_COLORS.electrical;

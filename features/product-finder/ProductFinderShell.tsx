@@ -24,13 +24,13 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <header className="z-30 flex shrink-0 items-center justify-between bg-[#1D252D] px-4 py-3 shadow-md sm:px-6 print:hidden">
         {/* Left: Logo + title */}
         <div className="flex items-center gap-3">
-          {/* WESCO logo box */}
+          {/* MERIDIAN logo box */}
           <div className="flex flex-col items-center">
             <span className="inline-flex items-center justify-center rounded bg-[#00AA13] px-2 py-1 text-xs font-bold tracking-widest text-white [font-family:var(--font-titillium,'Arial_Bold',sans-serif)] sm:text-sm">
-              WESCO
+              MERIDIAN
             </span>
             <span className="text-[9px] font-semibold uppercase tracking-widest text-[#B7C9D3]">
-              Distribution
+              Supply Co.
             </span>
           </div>
 

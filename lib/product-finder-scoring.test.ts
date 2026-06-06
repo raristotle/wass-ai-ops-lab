@@ -69,10 +69,10 @@ describe("scoreProduct", () => {
     expect(s.factors.some((f) => f.label.includes("distribution center") && f.points === SCORE_WEIGHTS.dcStock)).toBe(true);
   });
 
-  it("emits a 'Not in Wesco stock' note when there is no branch or DC stock", () => {
+  it("emits a 'Not in Meridian stock' note when there is no branch or DC stock", () => {
     const cand = makeProduct({ branchStock: [], dcStock: [] });
     const s = scoreProduct(cand, reference, "B-HOU-01");
-    expect(s.factors.some((f) => !f.positive && f.label.includes("Not in Wesco stock"))).toBe(true);
+    expect(s.factors.some((f) => !f.positive && f.label.includes("Not in Meridian stock"))).toBe(true);
   });
 
   it("gives full spec points when reference has no non-negotiable specs", () => {

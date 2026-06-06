@@ -361,14 +361,14 @@ export function CartDrawer() {
           >
             {/* ── Quote header ─────────────────────────────── */}
             <div className="flex items-start justify-between mb-6 print:mb-8">
-              {/* Wesco brand mark */}
+              {/* Meridian brand mark */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="inline-flex items-center justify-center rounded bg-[#00AA13] px-2 py-1 text-xs font-bold tracking-widest text-white">
-                    WESCO
+                    MERIDIAN
                   </span>
                   <span className="text-xs font-semibold uppercase tracking-widest text-[#4F758B]">
-                    Distribution
+                    Supply Co.
                   </span>
                 </div>
                 <h1 className="text-2xl font-bold text-[#1D252D] tracking-wide mt-1">

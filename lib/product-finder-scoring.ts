@@ -83,14 +83,14 @@ export function scoreProduct(
     stockPoints = SCORE_WEIGHTS.dcStock;
     factors.push({ label: "Available from distribution center", points: stockPoints, positive: true });
   } else {
-    factors.push({ label: "Not in Wesco stock", points: 0, positive: false });
+    factors.push({ label: "Not in Meridian stock", points: 0, positive: false });
   }
 
   // 3. Preferred line
   let preferredPoints = 0;
   if (candidate.preferred) {
     preferredPoints = SCORE_WEIGHTS.preferred;
-    factors.push({ label: "Wesco Preferred line", points: preferredPoints, positive: true });
+    factors.push({ label: "Meridian Preferred line", points: preferredPoints, positive: true });
   }
 
   // 4. Price vs reference

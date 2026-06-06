@@ -71,7 +71,7 @@ export function ExternalSourcesCard({ product }: Props) {
             Available at External Distributors
           </h3>
           <p className="text-xs text-gray-500 mt-0.5">
-            Not in stock at Wesco &mdash; verified external availability:
+            Not in stock at Meridian Supply Co. &mdash; verified external availability:
           </p>
         </div>
       </div>
@@ -166,7 +166,7 @@ export function ExternalSourcesCard({ product }: Props) {
 
         {/* Disclaimer */}
         <p className="text-[10px] text-gray-400 px-4 py-2.5 border-t border-gray-100 leading-relaxed">
-          Prices and availability sourced externally. Wesco is not responsible for third-party
+          Prices and availability sourced externally. Meridian Supply Co. is not responsible for third-party
           pricing.
         </p>
       </CardContent>

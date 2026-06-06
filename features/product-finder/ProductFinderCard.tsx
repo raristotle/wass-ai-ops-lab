@@ -17,7 +17,7 @@ export function ProductFinderCard() {
         href="/product-finder"
         className="flex items-center gap-3 rounded-xl bg-[#1D252D] px-5 py-3 shadow-xl ring-1 ring-[#4F758B]/40 transition-all hover:bg-[#2d3a44] hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00AA13]"
       >
-        {/* Wesco green AI badge */}
+        {/* Meridian green AI badge */}
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#00AA13] text-white text-base font-bold">
           AI
         </span>

@@ -14,9 +14,9 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 const DEMO_USERS = [
-  { email: "sales@wesco.com", name: "Sarah Chen", role: "Sales Rep", branch: "Houston Downtown" },
-  { email: "manager@wesco.com", name: "Marcus Rivera", role: "Manager", branch: "Dallas North" },
-  { email: "admin@wesco.com", name: "Admin User", role: "Admin", branch: "Corporate" },
+  { email: "sales@meridiansupply.com", name: "Sarah Chen", role: "Sales Rep", branch: "Houston Downtown" },
+  { email: "manager@meridiansupply.com", name: "Marcus Rivera", role: "Manager", branch: "Dallas North" },
+  { email: "admin@meridiansupply.com", name: "Admin User", role: "Admin", branch: "Corporate" },
 ];
 
 export default function LoginPage() {
@@ -45,7 +45,7 @@ export default function LoginPage() {
       <header className="w-full bg-[#1D252D] px-6 py-4 shadow-sm">
         <div className="mx-auto flex max-w-6xl items-center gap-3">
           <span className="inline-flex h-9 w-20 items-center justify-center rounded bg-[#00AA13] px-2 text-sm font-bold tracking-widest text-white [font-family:var(--font-titillium,'Arial Bold',sans-serif)]">
-            WESCO
+            MERIDIAN
           </span>
           <span className="text-base font-medium text-[#B7C9D3]">
             AI Product Recommender
@@ -76,7 +76,7 @@ export default function LoginPage() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="you@wesco.com"
+                    placeholder="you@meridiansupply.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -134,7 +134,7 @@ export default function LoginPage() {
           <div className="mt-6 rounded-lg border border-[#B7C9D3] bg-[#EEF4F7] px-5 py-4 text-sm text-[#1D252D]">
             <p className="mb-3 font-semibold text-[#4F758B]">
               Demo credentials — password for all:{" "}
-              <span className="font-bold text-[#1D252D]">wesco2024</span>
+              <span className="font-bold text-[#1D252D]">meridian2024</span>
             </p>
             <ul className="flex flex-col gap-2">
               {DEMO_USERS.map((u) => (

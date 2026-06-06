@@ -223,7 +223,7 @@ export function ProductCard({
             aria-expanded={externalOpen}
           >
             <span>
-              Not in stock at Wesco — available at{" "}
+              Not in stock at Meridian Supply Co. — available at{" "}
               <span className="font-semibold">
                 {product.externalSources.length}
               </span>{" "}

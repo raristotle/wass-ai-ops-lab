@@ -31,10 +31,10 @@ export function AuthGuard({ children }: AuthGuardProps) {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-[#00AA13] text-sm font-bold text-white">
-              W
+              M
             </span>
             <span className="text-lg font-bold tracking-wide text-[#1D252D]">
-              WESCO
+              MERIDIAN
             </span>
           </div>
           <div

@@ -25,29 +25,29 @@ const MAX_SEARCH_HISTORY = 12;
 // ─── Auth slice ───────────────────────────────────────────────────────────────
 
 const DEMO_USERS: Record<string, AuthUser & { password: string }> = {
-  "sales@wesco.com": {
+  "sales@meridiansupply.com": {
     name: "Sarah Chen",
-    email: "sales@wesco.com",
+    email: "sales@meridiansupply.com",
     role: "sales",
     branch: "Houston Downtown",
     branchId: "B-HOU-01",
-    password: "wesco2024",
+    password: "meridian2024",
   },
-  "manager@wesco.com": {
+  "manager@meridiansupply.com": {
     name: "Marcus Rivera",
-    email: "manager@wesco.com",
+    email: "manager@meridiansupply.com",
     role: "manager",
     branch: "Dallas North",
     branchId: "B-DAL-01",
-    password: "wesco2024",
+    password: "meridian2024",
   },
-  "admin@wesco.com": {
+  "admin@meridiansupply.com": {
     name: "Admin User",
-    email: "admin@wesco.com",
+    email: "admin@meridiansupply.com",
     role: "admin",
     branch: "Corporate",
     branchId: "B-CORP",
-    password: "wesco2024",
+    password: "meridian2024",
   },
 };
 
