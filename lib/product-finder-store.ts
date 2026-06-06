@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import type { FilterState, ParsedFilter, SortKey, ViewMode, WescoProduct, BomLine, AuthUser, ProductCategory } from "@/features/product-finder/types";
 import { parseQuery } from "@/lib/product-finder-nl-search";
+import { tierUnitPrice } from "@/lib/product-finder-pricing";
 import {
   searchProducts,
   getAlternatives,
@@ -562,6 +563,6 @@ export function selectCartCount(state: ProductFinderState) {
 
 export function selectCartTotal(state: ProductFinderState) {
   return Object.values(state.cart).reduce(
-    (s, i) => s + i.product.unitPrice * i.qty, 0
+    (s, i) => s + tierUnitPrice(i.product, i.qty) * i.qty, 0
   );
 }

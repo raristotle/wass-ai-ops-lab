@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useProductFinder, selectCartCount, selectCartTotal, hydrateSavedState } from "@/lib/product-finder-store";
 import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
+import { tierUnitPrice } from "@/lib/product-finder-pricing";
 
 // ─── Fetch mock ───────────────────────────────────────────────────────────────
 
@@ -118,6 +119,40 @@ describe("selectCartTotal", () => {
     const state = useProductFinder.getState();
     const expected = p1.unitPrice * 2 + p2.unitPrice * 3;
     expect(selectCartTotal(state)).toBeCloseTo(expected, 5);
+  });
+
+  it("applies tiered (5% off) pricing when qty >= 10", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 10);
+    const state = useProductFinder.getState();
+    const expectedUnitPrice = tierUnitPrice(p, 10); // 5% off
+    expect(expectedUnitPrice).toBeLessThan(p.unitPrice);
+    expect(selectCartTotal(state)).toBeCloseTo(expectedUnitPrice * 10, 5);
+  });
+
+  it("applies tiered (10% off) pricing when qty >= 50", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 50);
+    const state = useProductFinder.getState();
+    const expectedUnitPrice = tierUnitPrice(p, 50); // 10% off
+    expect(selectCartTotal(state)).toBeCloseTo(expectedUnitPrice * 50, 5);
+  });
+
+  it("applies tiered (15% off) pricing when qty >= 100", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 100);
+    const state = useProductFinder.getState();
+    const expectedUnitPrice = tierUnitPrice(p, 100); // 15% off
+    expect(selectCartTotal(state)).toBeCloseTo(expectedUnitPrice * 100, 5);
+  });
+
+  it("tiered total is less than flat total when qty triggers a break", () => {
+    const p = WESCO_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 10);
+    const state = useProductFinder.getState();
+    const tieredTotal = selectCartTotal(state);
+    const flatTotal = p.unitPrice * 10;
+    expect(tieredTotal).toBeLessThan(flatTotal);
   });
 });
 

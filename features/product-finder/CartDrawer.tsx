@@ -1,6 +1,7 @@
 "use client";
 
 import { useProductFinder, selectCartCount, selectCartTotal } from "@/lib/product-finder-store";
+import { tierUnitPrice, priceTiers } from "@/lib/product-finder-pricing";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -69,7 +70,12 @@ export function CartDrawer() {
           ) : (
             <ul className="divide-y divide-[#B7C9D3]">
               {items.map(({ product, qty }) => {
-                const lineTotal = product.unitPrice * qty;
+                const effectiveUnitPrice = tierUnitPrice(product, qty);
+                const lineTotal = effectiveUnitPrice * qty;
+                // Find the qualifying tier break (minQty > 1 means a vol-price discount applies)
+                const tiers = priceTiers(product);
+                const activeTier = [...tiers].reverse().find((t) => qty >= t.minQty);
+                const hasVolBreak = activeTier !== undefined && activeTier.minQty > 1;
                 return (
                   <li key={product.id} className="px-4 py-4">
                     <div className="flex items-start gap-3">
@@ -91,11 +97,18 @@ export function CartDrawer() {
 
                         {/* Unit price × qty */}
                         <p className="mt-1 text-xs text-[#4F758B]">
-                          ${product.unitPrice.toFixed(2)} × {qty} ={" "}
+                          ${effectiveUnitPrice.toFixed(2)} × {qty} ={" "}
                           <span className="font-semibold text-[#1D252D]">
                             ${lineTotal.toFixed(2)}
                           </span>
                         </p>
+
+                        {/* Vol. price note */}
+                        {hasVolBreak && activeTier && (
+                          <p className="mt-0.5 text-[10px] font-semibold text-[#00AA13]">
+                            vol. price ({activeTier.minQty}+)
+                          </p>
+                        )}
 
                         {/* Qty stepper */}
                         <div className="mt-2 flex items-center gap-1">

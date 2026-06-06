@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
 import { externalSearchLinks } from "@/lib/product-finder-links";
+import { priceTiers } from "@/lib/product-finder-pricing";
 import { ProductArt } from "@/features/product-finder/ProductArt";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -182,6 +183,43 @@ export function ProductDetailModal() {
                 ${product.unitPrice.toFixed(2)}
               </span>
               <span className="text-sm text-[#4F758B] ml-1">/ {product.uom}</span>
+            </div>
+
+            {/* Volume pricing table */}
+            <div>
+              <p className="text-xs font-semibold text-[#4F758B] uppercase tracking-wide mb-1">
+                Volume pricing
+              </p>
+              <table className="w-full text-xs border-collapse">
+                <thead>
+                  <tr className="bg-[#F8FAFB]">
+                    <th className="text-left px-2 py-1 font-semibold text-[#4F758B] border border-[#B7C9D3]/60">
+                      Qty
+                    </th>
+                    <th className="text-right px-2 py-1 font-semibold text-[#4F758B] border border-[#B7C9D3]/60">
+                      Unit price
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {priceTiers(product).map((tier) => (
+                    <tr
+                      key={tier.minQty}
+                      className={cn(
+                        "border-b border-[#B7C9D3]/40",
+                        qty >= tier.minQty && "bg-[#00AA13]/5"
+                      )}
+                    >
+                      <td className="px-2 py-1 text-[#1D252D] border border-[#B7C9D3]/60">
+                        {tier.minQty}+
+                      </td>
+                      <td className="px-2 py-1 text-right font-semibold text-[#1D252D] border border-[#B7C9D3]/60">
+                        ${tier.unitPrice.toFixed(2)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
             {/* Stock */}
