@@ -8,6 +8,16 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { WescoProduct, ProductSpec } from "@/features/product-finder/types";
 
+// ─── Print date helper ────────────────────────────────────────────────────────
+
+function formatPrintDate(): string {
+  return new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function buildSpecOrder(products: WescoProduct[]): ProductSpec[] {
@@ -58,8 +68,12 @@ function cheapestIndex(products: WescoProduct[]): number {
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function SpecCompareModal() {
-  const { compareIds, compareModalOpen, setCompareModalOpen, clearCompare, addToCart, results } =
+  const { compareIds, compareModalOpen, setCompareModalOpen, clearCompare, addToCart, results, user } =
     useProductFinder();
+
+  const handlePrint = () => {
+    window.print();
+  };
 
   if (!compareModalOpen) return null;
 
@@ -84,15 +98,18 @@ export function SpecCompareModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 print:static print:bg-white print:p-0 print:block print:h-auto print:overflow-visible"
       onClick={handleOverlayClick}
       role="dialog"
       aria-modal="true"
       aria-label="Compare Products"
     >
-      <div className="w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-xl bg-white shadow-2xl flex flex-col">
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#1D252D] rounded-t-xl">
+      <div
+        id="spec-compare-sheet"
+        className="w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-xl bg-white shadow-2xl flex flex-col print:max-h-none print:overflow-visible print:shadow-none print:rounded-none print:max-w-none"
+      >
+        {/* Header — screen only */}
+        <div className="print:hidden flex items-center justify-between px-6 py-4 bg-[#1D252D] rounded-t-xl">
           <h2 className="text-white font-semibold text-lg">
             Compare Products ({compareProducts.length} selected)
           </h2>
@@ -105,8 +122,22 @@ export function SpecCompareModal() {
           </button>
         </div>
 
+        {/* Print-only header */}
+        <div className="hidden print:block px-0 pb-4 border-b border-[#B7C9D3]/60 mb-4">
+          <h1 className="text-lg font-bold text-[#1D252D]">Product Comparison</h1>
+          <p className="text-xs text-[#4F758B] mt-0.5">
+            {formatPrintDate()}
+            {user && (
+              <span>
+                {" "}
+                &middot; {user.name} &middot; {user.branch}
+              </span>
+            )}
+          </p>
+        </div>
+
         {/* Scrollable content */}
-        <div className="overflow-x-auto flex-1">
+        <div className="overflow-x-auto flex-1 print:overflow-visible">
           <table className="w-full text-sm border-collapse min-w-[600px]">
             {/* Product header columns */}
             <thead>
@@ -147,10 +178,10 @@ export function SpecCompareModal() {
                           /{product.uom}
                         </span>
                       </span>
-                      {/* Add to Basket */}
+                      {/* Add to Basket — screen only */}
                       <Button
                         size="sm"
-                        className="bg-[#00AA13] hover:bg-[#008f10] text-white text-xs"
+                        className="bg-[#00AA13] hover:bg-[#008f10] text-white text-xs print:hidden"
                         onClick={() => addToCart(product)}
                       >
                         Add to Basket
@@ -262,8 +293,8 @@ export function SpecCompareModal() {
           </table>
         </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50 rounded-b-xl">
+        {/* Footer — screen only */}
+        <div className="print:hidden flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50 rounded-b-xl">
           <Button
             variant="outline"
             size="sm"
@@ -272,13 +303,23 @@ export function SpecCompareModal() {
           >
             Clear Compare
           </Button>
-          <Button
-            size="sm"
-            className="bg-[#1D252D] hover:bg-[#2d3843] text-white"
-            onClick={handleAddAll}
-          >
-            Add All to Basket
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              size="sm"
+              variant="outline"
+              className="text-xs border-[#B7C9D3] text-[#1D252D]"
+              onClick={handlePrint}
+            >
+              Download Comparison (PDF)
+            </Button>
+            <Button
+              size="sm"
+              className="bg-[#1D252D] hover:bg-[#2d3843] text-white"
+              onClick={handleAddAll}
+            >
+              Add All to Basket
+            </Button>
+          </div>
         </div>
       </div>
     </div>
