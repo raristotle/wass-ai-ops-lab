@@ -13,6 +13,22 @@ export function parseSearchQuery(sp: URLSearchParams) {
     return Number.isFinite(n) ? n : null;
   };
   const bool = (k: string) => sp.get(k) === "true";
+
+  // Parse spec.<Name>=v1,v2 params into specFilters
+  // spec names arrive URL-encoded; URLSearchParams decodes keys automatically
+  const specFilters: Record<string, string[]> = {};
+  for (const [key, val] of sp.entries()) {
+    if (key.startsWith("spec.")) {
+      const name = key.slice(5); // strip "spec." prefix — already decoded by URLSearchParams
+      if (name) {
+        const values = val.split(",").map((v) => decodeURIComponent(v.trim())).filter(Boolean);
+        if (values.length > 0) {
+          specFilters[name] = values;
+        }
+      }
+    }
+  }
+
   return {
     text: sp.get("q") ?? "",
     filters: {
@@ -24,6 +40,7 @@ export function parseSearchQuery(sp: URLSearchParams) {
       onlyPreferred: bool("onlyPreferred"),
       priceMin: num("priceMin"),
       priceMax: num("priceMax"),
+      specFilters: Object.keys(specFilters).length > 0 ? specFilters : undefined,
     },
     sort: SortKeySchema.catch("relevance").parse(sp.get("sort") ?? "relevance"),
     page: Math.max(0, Number(sp.get("page") ?? 0) || 0),

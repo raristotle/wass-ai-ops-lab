@@ -57,3 +57,85 @@ describe("searchCatalog", () => {
     expect(forward.total).toBeGreaterThan(0);
   });
 });
+
+// ─── specFilters + facets ──────────────────────────────────────────────────────
+
+describe("searchCatalog – specFilters", () => {
+  it("narrows results when a specFilter matches only a subset", () => {
+    // Circuit Breakers have Amperage: 15A, 20A, 30A, 40A, 50A, 60A
+    const all = searchCatalog({ filters: { categories: ["electrical"], subcategories: ["Circuit Breakers"] }, pageSize: 100 });
+    const filtered = searchCatalog({
+      filters: { categories: ["electrical"], subcategories: ["Circuit Breakers"], specFilters: { Amperage: ["15A"] } },
+      pageSize: 100,
+    });
+    expect(filtered.total).toBeGreaterThan(0);
+    expect(filtered.total).toBeLessThan(all.total);
+    expect(filtered.items.every((p) => p.specs.some((s) => s.name === "Amperage" && s.value === "15A"))).toBe(true);
+  });
+
+  it("OR within a spec name: selecting two values returns products with either value", () => {
+    const r15 = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specFilters: { Amperage: ["15A"] } },
+      pageSize: 200,
+    });
+    const r20 = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specFilters: { Amperage: ["20A"] } },
+      pageSize: 200,
+    });
+    const r1520 = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specFilters: { Amperage: ["15A", "20A"] } },
+      pageSize: 200,
+    });
+    expect(r1520.total).toBe(r15.total + r20.total);
+  });
+
+  it("AND across spec names: product must satisfy all spec name filters", () => {
+    // Circuit breakers have both Amperage and Poles specs
+    const ampOnly = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specFilters: { Amperage: ["15A"] } },
+      pageSize: 200,
+    });
+    const bothFilters = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specFilters: { Amperage: ["15A"], Poles: ["1-Pole"] } },
+      pageSize: 200,
+    });
+    // AND: result must be <= amp-only count
+    expect(bothFilters.total).toBeGreaterThan(0);
+    expect(bothFilters.total).toBeLessThanOrEqual(ampOnly.total);
+    expect(bothFilters.items.every((p) =>
+      p.specs.some((s) => s.name === "Amperage" && s.value === "15A") &&
+      p.specs.some((s) => s.name === "Poles" && s.value === "1-Pole")
+    )).toBe(true);
+  });
+
+  it("specFilters with empty values array is ignored (no narrowing)", () => {
+    const base = searchCatalog({ filters: { subcategories: ["Circuit Breakers"] }, pageSize: 100 });
+    const noNarrow = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specFilters: { Amperage: [] } },
+      pageSize: 100,
+    });
+    expect(noNarrow.total).toBe(base.total);
+  });
+
+  it("response includes facets array computed over pre-specFilter matched set", () => {
+    const r = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specFilters: { Amperage: ["15A"] } },
+      pageSize: 10,
+    });
+
+    expect(Array.isArray(r.facets)).toBe(true);
+    expect(r.facets.length).toBeGreaterThan(0);
+
+    // Facets are over pre-specFilter set — Amperage facet should show ALL amp values,
+    // not just 15A
+    const ampFacet = r.facets.find((f) => f.name === "Amperage");
+    expect(ampFacet).toBeDefined();
+    expect(ampFacet!.values.length).toBeGreaterThan(1); // not just 15A
+  });
+
+  it("facets present even when no specFilters applied", () => {
+    const r = searchCatalog({ filters: { subcategories: ["Circuit Breakers"] }, pageSize: 10 });
+    expect(Array.isArray(r.facets)).toBe(true);
+    expect(r.facets.length).toBeGreaterThan(0);
+  });
+});

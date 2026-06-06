@@ -19,7 +19,8 @@ function hasActiveFilters(filters: FilterState): boolean {
     filters.onlyDCStock ||
     filters.onlyPreferred ||
     filters.priceMin !== null ||
-    filters.priceMax !== null
+    filters.priceMax !== null ||
+    Object.keys(filters.specFilters ?? {}).length > 0
   );
 }
 
@@ -48,6 +49,7 @@ function SidebarSection({ title, children }: SectionProps) {
 
 export function FilterSidebar() {
   const filters = useProductFinder((s) => s.filters);
+  const facets = useProductFinder((s) => s.facets);
   const toggleCategory = useProductFinder((s) => s.toggleCategory);
   const toggleSubcategory = useProductFinder((s) => s.toggleSubcategory);
   const toggleBrand = useProductFinder((s) => s.toggleBrand);
@@ -56,6 +58,7 @@ export function FilterSidebar() {
   const setOnlyPreferred = useProductFinder((s) => s.setOnlyPreferred);
   const setPriceRange = useProductFinder((s) => s.setPriceRange);
   const clearFilters = useProductFinder((s) => s.clearFilters);
+  const toggleSpecFilter = useProductFinder((s) => s.toggleSpecFilter);
 
   const [showAllSubs, setShowAllSubs] = useState(false);
   const [showAllBrands, setShowAllBrands] = useState(false);
@@ -204,6 +207,34 @@ export function FilterSidebar() {
           )}
         </div>
       </SidebarSection>
+
+      {/* Spec Facets — rendered only when the server returns facets */}
+      {facets.length > 0 && facets.map((facet) => (
+        <SidebarSection key={facet.name} title={facet.name}>
+          <div className="space-y-1.5">
+            {facet.values.map(({ value, count }) => {
+              const selected = (filters.specFilters[facet.name] ?? []).includes(value);
+              return (
+                <label
+                  key={value}
+                  className="flex cursor-pointer items-center justify-between text-sm text-[#1D252D]"
+                >
+                  <span className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={selected}
+                      onChange={() => toggleSpecFilter(facet.name, value)}
+                      className="h-4 w-4 cursor-pointer rounded accent-[#00AA13]"
+                    />
+                    {value}
+                  </span>
+                  <span className="text-xs text-[#4F758B]">{count}</span>
+                </label>
+              );
+            })}
+          </div>
+        </SidebarSection>
+      ))}
 
       {/* Price Range */}
       <SidebarSection title="Price Range">

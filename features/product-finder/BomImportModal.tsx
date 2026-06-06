@@ -26,6 +26,7 @@ async function searchTopHit(query: string): Promise<CatalogProduct | null> {
         priceMax: null,
         sortKey: "relevance",
         viewMode: "list",
+        specFilters: {},
       },
       0,
       1

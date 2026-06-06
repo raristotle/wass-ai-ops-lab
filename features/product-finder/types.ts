@@ -107,6 +107,7 @@ export interface FilterState {
   priceMax: number | null;
   sortKey: SortKey;
   viewMode: ViewMode;
+  specFilters: Record<string, string[]>;
 }
 
 export type AuthUser = {
@@ -165,6 +166,7 @@ export interface SearchResponse {
   total: number;
   page: number;
   pageSize: number;
+  facets: { name: string; values: { value: string; count: number }[] }[];
 }
 
 export interface SuggestItem {

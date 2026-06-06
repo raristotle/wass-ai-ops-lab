@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { FilterState, ParsedFilter, SortKey, ViewMode, CatalogProduct, BomLine, AuthUser, ProductCategory } from "@/features/product-finder/types";
+import type { FilterState, ParsedFilter, SortKey, ViewMode, CatalogProduct, BomLine, AuthUser, ProductCategory, SearchResponse } from "@/features/product-finder/types";
 
 // ─── SavedBasket type ─────────────────────────────────────────────────────────
 export type SavedBasket = {
@@ -100,6 +100,7 @@ export interface ProductFinderState {
   setSortKey: (k: SortKey) => void;
   setViewMode: (v: ViewMode) => void;
   clearFilters: () => void;
+  toggleSpecFilter: (name: string, value: string) => Promise<void>;
 
   // Compare
   compareIds: Set<string>;
@@ -156,6 +157,7 @@ export interface ProductFinderState {
 
   // Derived / Results
   results: CatalogProduct[];
+  facets: SearchResponse["facets"];
   loading: boolean;
   error: string | null;
   page: number;
@@ -178,6 +180,7 @@ function defaultFilters(): FilterState {
     priceMax: null,
     sortKey: "relevance",
     viewMode: "list",
+    specFilters: {},
   };
 }
 
@@ -659,6 +662,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   // ── Results / search engine ───────────────────────────────
   results: [],
+  facets: [],
   loading: false,
   error: null,
   page: 0,
@@ -669,7 +673,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     set({ loading: true, error: null, page: 0 });
     try {
       const res = await apiSearch(get().filters, 0, get().pageSize);
-      set({ results: res.items, total: res.total, page: 0, loading: false });
+      set({ results: res.items, total: res.total, page: 0, loading: false, facets: res.facets ?? [] });
     } catch (e) {
       set({ loading: false, error: e instanceof Error ? e.message : "Search failed", results: [], total: 0 });
     }
@@ -680,10 +684,32 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     set({ loading: true, error: null });
     try {
       const res = await apiSearch(get().filters, next, get().pageSize);
+      // Keep the first page's facets stable — don't clobber on loadMore
       set((s) => ({ results: [...s.results, ...res.items], total: res.total, page: next, loading: false }));
     } catch (e) {
       set({ loading: false, error: e instanceof Error ? e.message : "Load more failed" });
     }
+  },
+
+  // ── Spec-level facet filters ──────────────────────────────
+  async toggleSpecFilter(name, value) {
+    set((s) => {
+      const current = s.filters.specFilters[name] ?? [];
+      let next: string[];
+      if (current.includes(value)) {
+        next = current.filter((v) => v !== value);
+      } else {
+        next = [...current, value];
+      }
+      const newSpecFilters = { ...s.filters.specFilters };
+      if (next.length === 0) {
+        delete newSpecFilters[name];
+      } else {
+        newSpecFilters[name] = next;
+      }
+      return { filters: { ...s.filters, specFilters: newSpecFilters } };
+    });
+    await get().runSearch();
   },
 }));
 

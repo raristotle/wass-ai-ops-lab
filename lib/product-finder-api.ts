@@ -25,6 +25,15 @@ function filtersToQuery(
   sp.set("sort", filters.sortKey);
   sp.set("page", String(page));
   sp.set("pageSize", String(pageSize));
+
+  // Serialize specFilters as spec.<Name>=v1,v2
+  // encodeURIComponent the name so spaces/special chars survive the round-trip
+  for (const [name, values] of Object.entries(filters.specFilters ?? {})) {
+    if (values.length > 0) {
+      sp.set(`spec.${encodeURIComponent(name)}`, values.map(encodeURIComponent).join(","));
+    }
+  }
+
   return sp.toString();
 }
 

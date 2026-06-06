@@ -13,11 +13,12 @@ let detailEquivalents: unknown[] = [];
 // search mock — configurable so tests can verify what runSearch returns
 let searchItems: unknown[] = [];
 let searchTotal = 0;
+let searchFacets: unknown[] = [];
 
 globalThis.fetch = vi.fn(async (url: string | URL) => {
   const u = String(url);
   if (u.includes("/api/products/search")) {
-    return { ok: true, json: async () => ({ items: searchItems, total: searchTotal, page: 0, pageSize: 24 }) } as Response;
+    return { ok: true, json: async () => ({ items: searchItems, total: searchTotal, page: 0, pageSize: 24, facets: searchFacets }) } as Response;
   }
   // detail endpoint — returns the product set by tests so activeProduct enriches correctly
   return { ok: true, json: async () => ({ product: detailProduct, equivalents: detailEquivalents }) } as Response;
@@ -67,7 +68,9 @@ function resetStore() {
       priceMax: null,
       sortKey: "relevance",
       viewMode: "list",
+      specFilters: {},
     },
+    facets: [],
   });
 }
 
@@ -1252,5 +1255,110 @@ describe("orders – hydrateSavedState seed behavior", () => {
     expect(useProductFinder.getState().orders).toHaveLength(2);
 
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+});
+
+// ─── G4: spec-level facet filters ────────────────────────────────────────────
+
+describe("specFilters – toggleSpecFilter", () => {
+  beforeEach(() => {
+    resetStore();
+    searchItems = [];
+    searchTotal = 0;
+    searchFacets = [];
+  });
+
+  it("starts with specFilters as an empty object", () => {
+    expect(useProductFinder.getState().filters.specFilters).toEqual({});
+  });
+
+  it("toggleSpecFilter adds a value for a new spec name", async () => {
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A");
+    expect(useProductFinder.getState().filters.specFilters).toEqual({ Amperage: ["15A"] });
+  });
+
+  it("toggleSpecFilter appends a second value for the same spec name", async () => {
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A");
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "20A");
+    const { specFilters } = useProductFinder.getState().filters;
+    expect(specFilters["Amperage"]).toContain("15A");
+    expect(specFilters["Amperage"]).toContain("20A");
+    expect(specFilters["Amperage"]).toHaveLength(2);
+  });
+
+  it("toggleSpecFilter removes a value when it is already selected", async () => {
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A");
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "20A");
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A"); // remove
+    const { specFilters } = useProductFinder.getState().filters;
+    expect(specFilters["Amperage"]).toEqual(["20A"]);
+  });
+
+  it("toggleSpecFilter removes the spec name key when its values array becomes empty", async () => {
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A");
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A"); // remove last
+    const { specFilters } = useProductFinder.getState().filters;
+    expect("Amperage" in specFilters).toBe(false);
+  });
+
+  it("toggleSpecFilter re-runs search after each toggle", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const callsBefore = fetchSpy.mock.calls.length;
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A");
+    expect(fetchSpy.mock.calls.length).toBeGreaterThan(callsBefore);
+  });
+});
+
+describe("specFilters – clearFilters resets specFilters", () => {
+  beforeEach(() => {
+    resetStore();
+    searchItems = [];
+    searchTotal = 0;
+    searchFacets = [];
+  });
+
+  it("clearFilters resets specFilters to {}", async () => {
+    await useProductFinder.getState().toggleSpecFilter("Amperage", "15A");
+    await useProductFinder.getState().toggleSpecFilter("Poles", "1-Pole");
+    useProductFinder.getState().clearFilters();
+    expect(useProductFinder.getState().filters.specFilters).toEqual({});
+  });
+});
+
+describe("facets – runSearch stores facets from response", () => {
+  beforeEach(() => {
+    resetStore();
+    searchItems = [];
+    searchTotal = 0;
+    searchFacets = [];
+  });
+
+  it("starts with facets as an empty array", () => {
+    expect(useProductFinder.getState().facets).toEqual([]);
+  });
+
+  it("runSearch stores facets from search response", async () => {
+    const mockFacets = [{ name: "Amperage", values: [{ value: "15A", count: 5 }] }];
+    searchFacets = mockFacets;
+
+    await useProductFinder.getState().runSearch();
+    expect(useProductFinder.getState().facets).toEqual(mockFacets);
+  });
+
+  it("loadMore does not overwrite facets (keeps facets from first runSearch)", async () => {
+    const mockFacets = [{ name: "Voltage", values: [{ value: "120V", count: 10 }] }];
+    searchFacets = mockFacets;
+    searchItems = [CATALOG_PRODUCTS[0]];
+    searchTotal = 2;
+
+    await useProductFinder.getState().runSearch();
+    expect(useProductFinder.getState().facets).toEqual(mockFacets);
+
+    // Change the mock facets before loadMore — loadMore should NOT clobber
+    searchFacets = [{ name: "Other", values: [{ value: "X", count: 1 }] }];
+    await useProductFinder.getState().loadMore();
+
+    // Facets should still be the first page's facets
+    expect(useProductFinder.getState().facets).toEqual(mockFacets);
   });
 });
