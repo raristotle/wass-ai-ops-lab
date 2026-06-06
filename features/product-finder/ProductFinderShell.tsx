@@ -18,9 +18,9 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const cartCount = useProductFinder(selectCartCount);
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-[#F8FAFB]">
+    <div className="flex h-screen flex-col overflow-hidden bg-[#F8FAFB] print:block print:h-auto print:overflow-visible">
       {/* ── Header ──────────────────────────────────────────────────────────── */}
-      <header className="z-30 flex shrink-0 items-center justify-between bg-[#1D252D] px-4 py-3 shadow-md sm:px-6">
+      <header className="z-30 flex shrink-0 items-center justify-between bg-[#1D252D] px-4 py-3 shadow-md sm:px-6 print:hidden">
         {/* Left: Logo + title */}
         <div className="flex items-center gap-3">
           {/* WESCO logo box */}
@@ -92,12 +92,12 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       </header>
 
       {/* ── Body: sidebar + main ─────────────────────────────────────────────── */}
-      <div className="flex min-h-0 flex-1">
+      <div className="flex min-h-0 flex-1 print:hidden">
         {/* Filter sidebar (desktop only — mobile is handled by FilterSidebar's FAB) */}
         <FilterSidebar />
 
         {/* Main scrollable content */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto print:overflow-visible print:h-auto">
           {children}
         </main>
       </div>

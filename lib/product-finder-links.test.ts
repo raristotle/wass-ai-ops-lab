@@ -230,6 +230,77 @@ describe("deduplication of generic rows", () => {
   });
 });
 
+// ─── M3: no doubled brand in search query ─────────────────────────────────────
+
+describe("M3 — no doubled brand in search query", () => {
+  it("uses name alone when name already starts with brand (avoids doubling)", () => {
+    // Product whose name starts with the brand ("Hubbell Receptacle HBL…")
+    const product = makeProduct({
+      brand: "Hubbell",
+      name: "Hubbell Receptacle HBL5362I",
+      externalSources: [
+        { distributor: "Grainger", url: "https://www.grainger.com", price: 12.00, quantity: 5, status: "in-stock" },
+      ],
+    });
+    const links = externalSearchLinks(product);
+    const row = links.find((l) => l.distributor === "Grainger" && l.price !== undefined);
+    expect(row).toBeDefined();
+    // Should NOT contain the brand doubled
+    expect(row!.url).not.toContain("Hubbell%20Hubbell");
+    expect(row!.url).toContain("Hubbell%20Receptacle%20HBL5362I");
+  });
+
+  it("prepends brand when name does NOT start with brand (curated-style short name)", () => {
+    // Product whose name is a model number not starting with brand
+    const product = makeProduct({
+      brand: "Square D",
+      name: "QO115",
+      externalSources: [
+        { distributor: "Grainger", url: "https://www.grainger.com", price: 8.99, quantity: 10, status: "in-stock" },
+      ],
+    });
+    const links = externalSearchLinks(product);
+    const row = links.find((l) => l.distributor === "Grainger" && l.price !== undefined);
+    expect(row).toBeDefined();
+    expect(row!.url).toContain("Square%20D%20QO115");
+  });
+});
+
+// ─── M2: Home Depot Pro mapped + normalized deduplication ─────────────────────
+
+describe("M2 — Home Depot Pro mapped and deduplication", () => {
+  it("maps Home Depot Pro to homedepot.com search URL", () => {
+    const product = makeProduct({
+      brand: "Leviton",
+      name: "5262-W",
+      externalSources: [
+        { distributor: "Home Depot Pro", url: "https://example.com", price: 3.50, quantity: 20, status: "in-stock" },
+      ],
+    });
+    const links = externalSearchLinks(product);
+    const row = links.find((l) => l.distributor === "Home Depot Pro");
+    expect(row).toBeDefined();
+    expect(row!.url).toBe("https://www.homedepot.com/s/Leviton%205262-W");
+  });
+
+  it("suppresses generic Home Depot row when Home Depot Pro is already sourced", () => {
+    const product = makeProduct({
+      brand: "Leviton",
+      name: "5262-W",
+      externalSources: [
+        { distributor: "Home Depot Pro", url: "https://example.com", price: 3.50, quantity: 20, status: "in-stock" },
+      ],
+    });
+    const links = externalSearchLinks(product);
+    // Must not see a separate generic "Home Depot" row alongside "Home Depot Pro"
+    const homeDepotRows = links.filter(
+      (l) => l.distributor === "Home Depot" || l.distributor === "Home Depot Pro"
+    );
+    expect(homeDepotRows).toHaveLength(1);
+    expect(homeDepotRows[0].distributor).toBe("Home Depot Pro");
+  });
+});
+
 // ─── URL encoding edge cases ──────────────────────────────────────────────────
 
 describe("URL encoding edge cases", () => {

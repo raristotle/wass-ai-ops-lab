@@ -15,6 +15,8 @@ const DISTRIBUTOR_URL: Record<string, (q: string) => string> = {
   "Graybar": (q) => `https://www.graybar.com/search/?text=${q}`,
   "Platt Electric Supply": (q) => `https://www.platt.com/search?text=${q}`,
   "Rexel USA": (q) => `https://www.rexelusa.com/s?q=${q}`,
+  // M2: map "Home Depot Pro" variant to the same Home Depot search URL
+  "Home Depot Pro": (q) => `https://www.homedepot.com/s/${q}`,
 };
 
 // Generic-only fallback distributors (appended when not already sourced)
@@ -23,6 +25,21 @@ const GENERIC_FALLBACKS: { distributor: string; urlFn: (q: string) => string }[]
   { distributor: "Zoro", urlFn: (q) => `https://www.zoro.com/search?q=${q}` },
   { distributor: "Home Depot", urlFn: (q) => `https://www.homedepot.com/s/${q}` },
 ];
+
+/**
+ * Returns true when a sourced distributor name "covers" a generic distributor
+ * name — i.e. the generic should be suppressed as a duplicate.
+ *
+ * Examples:
+ *   sourcedName = "Home Depot Pro", genericName = "Home Depot"  → true
+ *   sourcedName = "Grainger",       genericName = "Grainger"    → true  (exact)
+ *   sourcedName = "Rexel USA",      genericName = "Home Depot"  → false
+ */
+function sourcedCoversGeneric(sourcedName: string, genericName: string): boolean {
+  const s = sourcedName.toLowerCase();
+  const g = genericName.toLowerCase();
+  return s === g || s.startsWith(g) || s.includes(g);
+}
 
 /**
  * Returns a list of external distributor search links for a given product.
@@ -35,13 +52,17 @@ const GENERIC_FALLBACKS: { distributor: string; urlFn: (q: string) => string }[]
  *   deduped by distributor name against any sourced rows.
  */
 export function externalSearchLinks(product: WescoProduct): ExternalLink[] {
-  const q = encodeURIComponent(`${product.brand} ${product.name}`);
+  // M3: avoid doubled brand in query when product name already starts with brand
+  const queryText = product.name.toLowerCase().startsWith(product.brand.toLowerCase())
+    ? product.name
+    : `${product.brand} ${product.name}`;
+  const q = encodeURIComponent(queryText);
   const result: ExternalLink[] = [];
-  const sourcedDistributors = new Set<string>();
+  const sourcedDistributors: string[] = [];
 
   // Emit a row per external source with a real mapped URL
   for (const src of product.externalSources) {
-    sourcedDistributors.add(src.distributor);
+    sourcedDistributors.push(src.distributor);
 
     const urlFn = DISTRIBUTOR_URL[src.distributor];
     const url = urlFn
@@ -55,9 +76,10 @@ export function externalSearchLinks(product: WescoProduct): ExternalLink[] {
     result.push(row);
   }
 
-  // Append generic fallback rows, skipping any already sourced
+  // M2: Append generic fallback rows, skipping any whose name is covered by a sourced distributor
   for (const fallback of GENERIC_FALLBACKS) {
-    if (!sourcedDistributors.has(fallback.distributor)) {
+    const covered = sourcedDistributors.some((s) => sourcedCoversGeneric(s, fallback.distributor));
+    if (!covered) {
       result.push({ distributor: fallback.distributor, url: fallback.urlFn(q) });
     }
   }

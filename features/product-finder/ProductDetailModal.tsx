@@ -56,7 +56,7 @@ function QtyStepper({
         type="number"
         min="1"
         value={qty}
-        onChange={(e) => onChange(parseInt(e.target.value, 10) || 1)}
+        onChange={(e) => onChange(Math.max(1, parseInt(e.target.value, 10) || 1))}
         className="w-12 text-center text-sm text-[#1D252D] border-x border-[#B7C9D3] py-1 focus:outline-none"
         aria-label="Quantity"
       />
@@ -133,14 +133,14 @@ export function ProductDetailModal() {
   return (
     // Overlay — print: lift out of fixed stacking so spec sheet fills the page
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4 print:static print:bg-white print:p-0 print:block"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4 print:static print:bg-white print:p-0 print:block print:h-auto print:overflow-visible"
       onClick={handleOverlayClick}
       role="dialog"
       aria-modal="true"
       aria-label={`Product details: ${product.name}`}
     >
       {/* Dialog container */}
-      <div className="relative w-full max-w-3xl my-8 rounded-xl bg-white shadow-2xl flex flex-col print:shadow-none print:rounded-none print:my-0 print:max-w-none">
+      <div className="relative w-full max-w-3xl my-8 rounded-xl bg-white shadow-2xl flex flex-col print:shadow-none print:rounded-none print:my-0 print:max-w-none print:max-h-none print:overflow-visible">
 
         {/* ── Header ──────────────────────────────────────────── */}
         <div className="print:hidden flex items-start justify-between px-6 py-4 bg-[#1D252D] rounded-t-xl gap-3">
