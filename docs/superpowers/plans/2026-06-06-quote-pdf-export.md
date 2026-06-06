@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a "Generate Quote (PDF)" button to CartDrawer that opens an in-drawer printable quote block with customer/project fields, auto-generated quote number, tiered line-item pricing, and Wesco-branded print layout.
+**Goal:** Add a "Generate Quote (PDF)" button to CartDrawer that opens an in-drawer printable quote block with customer/project fields, auto-generated quote number, tiered line-item pricing, and Meridian-branded print layout.
 
 **Architecture:** Extract two pure helpers (`quoteNumber`, `quoteValidityDate`) into `lib/product-finder-quote.ts` so they can be unit-tested with injected dates. The CartDrawer gets a `quoteOpen` toggle boolean (local state only — no store change), and when open renders a `<section id="quote-sheet">` below the cart list. Print scoping mirrors ProductDetailModal: the drawer panel gets `print:static print:h-auto print:overflow-visible`, the overlay and cart list/footer get `print:hidden`, and the shell's existing `print:hidden` on chrome is already in place. Customer and Project values are controlled inputs persisted to `localStorage` under `pf_quote_customer`/`pf_quote_project` with `typeof localStorage` guards.
 
@@ -496,11 +496,11 @@ export function CartDrawer() {
           >
             {/* ── Quote header ─────────────────────────────── */}
             <div className="flex items-start justify-between mb-6 print:mb-8">
-              {/* Wesco brand mark */}
+              {/* Meridian brand mark */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="inline-flex items-center justify-center rounded bg-[#00AA13] px-2 py-1 text-xs font-bold tracking-widest text-white">
-                    WESCO
+                    MERIDIAN
                   </span>
                   <span className="text-xs font-semibold uppercase tracking-widest text-[#4F758B]">
                     Distribution
@@ -744,7 +744,7 @@ Expected: Commit succeeds. Note the SHA for the report.
 **Spec coverage (F3):**
 - [x] "Generate Quote (PDF)" button in CartDrawer disabled when cart empty — Task 3, button has `disabled={items.length === 0}`
 - [x] Reveals in-drawer quote block (`id="quote-sheet"`) — Task 3
-- [x] Header: "QUOTE" + Wesco branding — Task 3, quote header section
+- [x] Header: "QUOTE" + Meridian branding — Task 3, quote header section
 - [x] Quote # format `Q-YYYYMMDD-XXXX` — `quoteNumber()` in Task 1
 - [x] Date/number derived from `new Date()` INSIDE component only — Task 3 uses `quoteDateRef` seeded with `new Date()` inside the component
 - [x] Today's date displayed — Task 3, `formatDisplayDate(quoteDate)`
@@ -773,5 +773,5 @@ Expected: Commit succeeds. Note the SHA for the report.
 - `quoteNumber(date: Date, seq?: number): string` — used as `quoteNumber(quoteDate)` in Task 3 ✓
 - `quoteValidityDate(date: Date, days?: number): Date` — used as `quoteValidityDate(quoteDate)` in Task 3 ✓
 - `formatDisplayDate(date: Date): string` — used in Task 3 ✓
-- `items` is `{ product: WescoProduct; qty: number }[]` — matches store type ✓
+- `items` is `{ product: CatalogProduct; qty: number }[]` — matches store type ✓
 - `user` is `AuthUser | null` with `.name` and `.branch` — confirmed from store ✓

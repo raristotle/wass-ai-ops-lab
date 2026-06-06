@@ -21,7 +21,7 @@ product image, a formal spec sheet, and links to third-party detail pages.
 
 ## Architecture (no new API calls)
 
-The product card already holds the complete `WescoProduct` (specs, stock,
+The product card already holds the complete `CatalogProduct` (specs, stock,
 pricing, externalSources). The modal renders in-hand data; links and art are
 pure functions. No endpoints, no loading states, no fetch failure modes.
 
@@ -42,7 +42,7 @@ pure functions. No endpoints, no loading states, no fetch failure modes.
      (`https://www.homedepot.com/s/`) — deduped against the sourced rows.
 
 2. **`features/product-finder/ProductArt.tsx`** — presentational SVG.
-   - Deterministic per product: category-tinted plate (Wesco tertiary palette:
+   - Deterministic per product: category-tinted plate (Meridian tertiary palette:
      electrical `#EAAA00`, datacom `#64CCC9`, oem-electrical `#DB6B30`,
      av `#004986`, security `#00573F`, safety `#EAAA00`-variant), large category
      emoji, brand name, SKU. Props: `{ product, className? }`.
@@ -67,8 +67,8 @@ pure functions. No endpoints, no loading states, no fetch failure modes.
 
 ### Edits
 
-4. **`lib/product-finder-store.ts`** — add `detailModalProduct: WescoProduct |
-   null` (initial null) + `setDetailModalProduct(p: WescoProduct | null)`. Same
+4. **`lib/product-finder-store.ts`** — add `detailModalProduct: CatalogProduct |
+   null` (initial null) + `setDetailModalProduct(p: CatalogProduct | null)`. Same
    slice style as `compareModalOpen`.
 5. **`features/product-finder/ProductCard.tsx`** — "View Details" calls
    `setDetailModalProduct(product)` instead of `setCompareModalOpen(true)`.

@@ -49,7 +49,7 @@ New slice + actions:
 
 `CollapsibleSection` helper (same file): props `{ title, count, collapsed,
 onToggle, onClear?, children }`. Header is a button row — chevron `▾` (expanded)
-/ `▸` (collapsed), title (uppercase, Wesco `#4F758B`), count badge, and an
+/ `▸` (collapsed), title (uppercase, Meridian `#4F758B`), count badge, and an
 optional **Clear** text link (right-aligned, `#4F758B` hover `#1D252D`) that
 stops propagation. Body hidden when collapsed. `aria-expanded` on the toggle.
 

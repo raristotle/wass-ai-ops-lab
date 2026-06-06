@@ -74,7 +74,7 @@ export type ProductCategory =
   | "safety";
 ```
 
-In `interface WescoProduct`, change these three lines to optional:
+In `interface CatalogProduct`, change these three lines to optional:
 ```ts
   alternativeIds: string[];
   crossSellIds: string[];
@@ -99,7 +99,7 @@ export interface ProductSnapshot {
 }
 
 export interface SearchResponse {
-  items: WescoProduct[];
+  items: CatalogProduct[];
   total: number;
   page: number;
   pageSize: number;
@@ -114,20 +114,20 @@ export interface SuggestItem {
 }
 
 export interface ProductDetail {
-  product: WescoProduct;
-  equivalents: WescoProduct[];
+  product: CatalogProduct;
+  equivalents: CatalogProduct[];
 }
 ```
 
 - [ ] **Step 2: Verify**
 
 Run: `npm run typecheck`
-Expected: a few errors where code reads `product.alternativeIds.includes(...)` without a guard (e.g. `ProductGrid.tsx`, `data/mock/wesco-products.ts`'s `getAlternatives`). That is expected — they are fixed in later tasks. If `data/mock/wesco-products.ts` itself errors on `product.alternativeIds.map`, add `?? []`:
+Expected: a few errors where code reads `product.alternativeIds.includes(...)` without a guard (e.g. `ProductGrid.tsx`, `data/mock/catalog-products.ts`'s `getAlternatives`). That is expected — they are fixed in later tasks. If `data/mock/catalog-products.ts` itself errors on `product.alternativeIds.map`, add `?? []`:
 in `getAlternatives`/`getCrossSells`/`getUpsells`, change `product.alternativeIds.map` → `(product.alternativeIds ?? []).map` (same for crossSellIds/upsellIds). Re-run typecheck; the only remaining error should be `ProductGrid.tsx:39-40` (fixed in Task 13).
 
 - [ ] **Step 3: Commit**
 ```bash
-git add features/product-finder/types.ts data/mock/wesco-products.ts
+git add features/product-finder/types.ts data/mock/catalog-products.ts
 git commit -m "feat(catalog): expand ProductCategory to 6 values; add catalog DTO types"
 ```
 
@@ -419,10 +419,10 @@ describe("generateCatalog", () => {
 
 - [ ] **Step 4: Implement** `lib/catalog/generate.ts`:
 ```ts
-import type { WescoProduct, ProductCategory, ProductSpec, BranchStock, DCStock, ExternalSource } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductCategory, ProductSpec, BranchStock, DCStock, ExternalSource } from "@/features/product-finder/types";
 import { CATEGORIES, TAXONOMY, type SubcategoryTemplate } from "@/lib/catalog/taxonomy";
 import { makeRng, pick, randInt, round2 } from "@/lib/catalog/prng";
-import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
+import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 
 export const CATALOG_SIZE = 20000;
 const SEED = 0x5w3sc0 || 1337; // fixed
@@ -472,7 +472,7 @@ function genOne(
   category: ProductCategory,
   sub: SubcategoryTemplate,
   seq: number,
-): WescoProduct {
+): CatalogProduct {
   const brand = pick(rng, sub.brands);
   const specs: ProductSpec[] = sub.specs.map((s) => ({
     name: s.name,
@@ -499,10 +499,10 @@ function genOne(
   };
 }
 
-export function generateCatalog(size: number = CATALOG_SIZE): WescoProduct[] {
+export function generateCatalog(size: number = CATALOG_SIZE): CatalogProduct[] {
   const rng = makeRng(FIXED_SEED);
-  const featured = WESCO_PRODUCTS.slice(0, Math.min(WESCO_PRODUCTS.length, size));
-  const out: WescoProduct[] = [...featured];
+  const featured = CATALOG_PRODUCTS.slice(0, Math.min(CATALOG_PRODUCTS.length, size));
+  const out: CatalogProduct[] = [...featured];
   const usedIds = new Set(out.map((p) => p.id));
   const remaining = size - out.length;
   if (remaining <= 0) return out.slice(0, size);
@@ -573,12 +573,12 @@ describe("getCatalog", () => {
 
 - [ ] **Step 3: Implement** `lib/catalog/index.ts`:
 ```ts
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import { generateCatalog } from "@/lib/catalog/generate";
 
 export interface Catalog {
-  products: WescoProduct[];
-  byId: Map<string, WescoProduct>;
+  products: CatalogProduct[];
+  byId: Map<string, CatalogProduct>;
   haystack: string[];
 }
 
@@ -594,10 +594,10 @@ function build(): Catalog {
 }
 
 // Cache on globalThis so warm serverless invocations and HMR reuse one instance.
-const g = globalThis as unknown as { __wescoCatalog?: Catalog };
+const g = globalThis as unknown as { __catalog?: Catalog };
 export function getCatalog(): Catalog {
-  if (!g.__wescoCatalog) g.__wescoCatalog = build();
-  return g.__wescoCatalog;
+  if (!g.__catalog) g.__catalog = build();
+  return g.__catalog;
 }
 ```
 
@@ -664,7 +664,7 @@ describe("searchCatalog", () => {
 
 - [ ] **Step 3: Implement** `lib/catalog/search.ts`:
 ```ts
-import type { WescoProduct, ProductCategory, SortKey, SearchResponse } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductCategory, SortKey, SearchResponse } from "@/features/product-finder/types";
 import { getCatalog } from "@/lib/catalog/index";
 
 export interface SearchFilters {
@@ -686,11 +686,11 @@ export interface SearchParams {
   pageSize?: number;
 }
 
-function totalBranch(p: WescoProduct): number {
+function totalBranch(p: CatalogProduct): number {
   return p.branchStock.reduce((s, b) => s + b.quantity, 0);
 }
 
-function sortItems(items: WescoProduct[], sort: SortKey): WescoProduct[] {
+function sortItems(items: CatalogProduct[], sort: SortKey): CatalogProduct[] {
   const arr = [...items];
   switch (sort) {
     case "preferred": return arr.sort((a, b) => (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0));
@@ -713,7 +713,7 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
   const subSet = f.subcategories && f.subcategories.length ? new Set(f.subcategories) : null;
   const brandSet = f.brands && f.brands.length ? new Set(f.brands) : null;
 
-  const matched: WescoProduct[] = [];
+  const matched: CatalogProduct[] = [];
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
     if (text && !haystack[i].includes(text)) continue;
@@ -773,11 +773,11 @@ describe("findEquivalents", () => {
 
 - [ ] **Step 3: Implement** `lib/catalog/equivalents.ts`:
 ```ts
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import { getCatalog } from "@/lib/catalog/index";
 import { scoreProduct } from "@/lib/product-finder-scoring";
 
-export function findEquivalents(product: WescoProduct, k = 8, branchId?: string): WescoProduct[] {
+export function findEquivalents(product: CatalogProduct, k = 8, branchId?: string): CatalogProduct[] {
   const { products } = getCatalog();
   let pool = products.filter((p) => p.id !== product.id && p.subcategory === product.subcategory);
   if (pool.length < k) {
@@ -998,7 +998,7 @@ to:
   favoriteSnapshots: Record<string, ProductSnapshot>;
   recentSnapshots: Record<string, ProductSnapshot>;
 ```
-and `toggleFavorite: (id: string) => void;` → `toggleFavorite: (product: WescoProduct) => void;`.
+and `toggleFavorite: (id: string) => void;` → `toggleFavorite: (product: CatalogProduct) => void;`.
 
 Add the import:
 ```ts
@@ -1059,7 +1059,7 @@ Every existing filter action that calls `get().runSearch()` now calls an async f
     } catch { /* keep the passed product + existing results on failure */ }
   },
 ```
-Note the param type changes to `WescoProduct | null` (it already is). NOTE: `setActiveProduct` is also called with a full product object from suggestions/cards — that still works (we have the object, then enrich with equivalents).
+Note the param type changes to `CatalogProduct | null` (it already is). NOTE: `setActiveProduct` is also called with a full product object from suggestions/cards — that still works (we have the object, then enrich with equivalents).
 
 - [ ] **Step 5: Update favorites to store snapshots.** Replace `toggleFavorite`/`isFavorite` and add snapshot init:
 ```ts
@@ -1112,7 +1112,7 @@ export function hydrateSavedState() {
 }
 ```
 
-- [ ] **Step 7: Remove the now-unused `searchProducts`-based `runSearch` logic and imports.** Delete the old in-memory `runSearch` body (replaced in Step 2) and remove any now-unused imports from `@/data/mock/wesco-products` in the store (keep only what is still referenced — `getCrossSells`/`getUpsells`/`getTotalBranchStock` may still be imported for the deferred selectors; if `selectCrossSells`/`selectUpsells` remain, keep their imports; otherwise remove). Run `npm run typecheck` and remove whatever it flags as unused.
+- [ ] **Step 7: Remove the now-unused `searchProducts`-based `runSearch` logic and imports.** Delete the old in-memory `runSearch` body (replaced in Step 2) and remove any now-unused imports from `@/data/mock/catalog-products` in the store (keep only what is still referenced — `getCrossSells`/`getUpsells`/`getTotalBranchStock` may still be imported for the deferred selectors; if `selectCrossSells`/`selectUpsells` remain, keep their imports; otherwise remove). Run `npm run typecheck` and remove whatever it flags as unused.
 
 - [ ] **Step 8: Rework the store tests.** In `lib/product-finder-store.test.ts`:
   - Add a `fetch` mock at the top (after imports):
@@ -1129,7 +1129,7 @@ export function hydrateSavedState() {
   - In `resetStore()`, add `favoriteSnapshots: {}`, `recentSnapshots: {}`, `loading: false`, `error: null`, `page: 0`, `total: 0`, `pageSize: 24`.
   - DELETE the `describe("runSearch", ...)` block (it asserted sync filtering over the 46-product array, which no longer applies — search is server-side and covered by `lib/catalog/search.test.ts`).
   - In the `natural-language search` tests, the assertions on `results` are no longer valid (results come from the mocked fetch). Change those two tests to assert on `filters`/`appliedNlFilters` only (drop the `results.every(...)` and `results.some(...)` lines).
-  - In `favorites & recently viewed` tests, change `toggleFavorite(id)` calls to `toggleFavorite(WESCO_PRODUCTS[0])` (pass the product), and `setActiveProduct(a)` still works (pass the product). Keep the dedupe/cap assertions on `recentlyViewed`.
+  - In `favorites & recently viewed` tests, change `toggleFavorite(id)` calls to `toggleFavorite(CATALOG_PRODUCTS[0])` (pass the product), and `setActiveProduct(a)` still works (pass the product). Keep the dedupe/cap assertions on `recentlyViewed`.
   - Keep all cart, filter-action, and auth tests unchanged.
 
 - [ ] **Step 9: Run tests + typecheck.** `npx vitest run lib/product-finder-store.test.ts` → all pass. `npm run typecheck` → clean.
@@ -1257,7 +1257,7 @@ Replace the `suggestions` state type with `SuggestItem[]` and `updateSuggestions
     runNlSearch(item.name);
   };
 ```
-Update `SuggestionRow` to accept a `SuggestItem` (fields `imageIcon`, `name`, `brand`, `sku`) — it already reads those fields; change its prop type from `WescoProduct` to `SuggestItem` and the `onSelect` param type accordingly. Update `SingleSearchPanelProps.suggestions` to `SuggestItem[]` and `onSelectSuggestion: (item: SuggestItem) => void`.
+Update `SuggestionRow` to accept a `SuggestItem` (fields `imageIcon`, `name`, `brand`, `sku`) — it already reads those fields; change its prop type from `CatalogProduct` to `SuggestItem` and the `onSelect` param type accordingly. Update `SingleSearchPanelProps.suggestions` to `SuggestItem[]` and `onSelectSuggestion: (item: SuggestItem) => void`.
 
 - [ ] **Step 3: Verify** `npm run typecheck && npm run build`. Manual: `npm run dev`, type in the box → suggestions appear from the API; selecting one searches. Stop dev.
 
@@ -1325,7 +1325,7 @@ git commit -m "feat(catalog): server-ordered grid with Load more + loading"
 ```tsx
 import { ALL_SUBCATEGORIES, ALL_BRANDS, CATEGORY_META, CATEGORIES } from "@/lib/catalog/taxonomy";
 ```
-(remove the `@/data/mock/wesco-products` import). Delete `countForSubcategory` and `countForBrand` and the `<span className="text-xs text-[#4F758B]">{count...}</span>` count badges in the subcategory and brand rows (drop counts in v1).
+(remove the `@/data/mock/catalog-products` import). Delete `countForSubcategory` and `countForBrand` and the `<span className="text-xs text-[#4F758B]">{count...}</span>` count badges in the subcategory and brand rows (drop counts in v1).
 
 - [ ] **Step 2: Render all 6 categories** from `CATEGORIES`/`CATEGORY_META`. Replace the hardcoded 2-item category array with:
 ```tsx

@@ -74,9 +74,9 @@ Create `lib/product-finder-scoring.test.ts`:
 ```ts
 import { describe, it, expect } from "vitest";
 import { scoreProduct, tierForScore, topReasons, SCORE_WEIGHTS } from "@/lib/product-finder-scoring";
-import type { WescoProduct, ProductSpec } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 
-function makeProduct(overrides: Partial<WescoProduct> = {}): WescoProduct {
+function makeProduct(overrides: Partial<CatalogProduct> = {}): CatalogProduct {
   return {
     id: "p", sku: "P", name: "Prod", brand: "BrandA",
     category: "electrical", subcategory: "Circuit Breakers",
@@ -189,12 +189,12 @@ Create `lib/product-finder-scoring.ts`:
 
 ```ts
 import type {
-  WescoProduct,
+  CatalogProduct,
   RecommendationScore,
   RecommendationTier,
   ScoreFactor,
 } from "@/features/product-finder/types";
-import { getTotalDCStock } from "@/data/mock/wesco-products";
+import { getTotalDCStock } from "@/data/mock/catalog-products";
 
 export const SCORE_WEIGHTS = {
   spec: 45,
@@ -211,14 +211,14 @@ export function tierForScore(total: number): RecommendationTier {
   return "partial";
 }
 
-function branchQtyFor(product: WescoProduct, branchId?: string): number {
+function branchQtyFor(product: CatalogProduct, branchId?: string): number {
   if (!branchId) return 0;
   return product.branchStock.find((s) => s.branchId === branchId)?.quantity ?? 0;
 }
 
 export function scoreProduct(
-  candidate: WescoProduct,
-  reference: WescoProduct,
+  candidate: CatalogProduct,
+  reference: CatalogProduct,
   userBranchId?: string,
 ): RecommendationScore {
   const factors: ScoreFactor[] = [];
@@ -263,14 +263,14 @@ export function scoreProduct(
     stockPoints = SCORE_WEIGHTS.dcStock;
     factors.push({ label: "Available from distribution center", points: stockPoints, positive: true });
   } else {
-    factors.push({ label: "Not in Wesco stock", points: 0, positive: false });
+    factors.push({ label: "Not in Meridian stock", points: 0, positive: false });
   }
 
   // 3. Preferred line
   let preferredPoints = 0;
   if (candidate.preferred) {
     preferredPoints = SCORE_WEIGHTS.preferred;
-    factors.push({ label: "Wesco Preferred line", points: preferredPoints, positive: true });
+    factors.push({ label: "Meridian Preferred line", points: preferredPoints, positive: true });
   }
 
   // 4. Price vs reference
@@ -342,7 +342,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { scoreProduct, topReasons } from "@/lib/product-finder-scoring";
 import { useProductFinder } from "@/lib/product-finder-store";
-import type { WescoProduct, RecommendationTier } from "@/features/product-finder/types";
+import type { CatalogProduct, RecommendationTier } from "@/features/product-finder/types";
 
 const TIER_LABEL: Record<RecommendationTier, string> = {
   excellent: "Excellent match",
@@ -364,8 +364,8 @@ const TIER_RING: Record<RecommendationTier, string> = {
 };
 
 interface Props {
-  product: WescoProduct;
-  reference: WescoProduct;
+  product: CatalogProduct;
+  reference: CatalogProduct;
 }
 
 export function RecommendationExplanation({ product, reference }: Props) {
@@ -466,7 +466,7 @@ Expected: build succeeds.
 
 - [ ] **Step 4: Manual check**
 
-Run `npm run dev`, log in (`sales@wesco.com` / `wesco2024`), search "circuit breaker", click a result to set an active product. Confirm each alternative card shows the ring + tier + chips, and "Why recommended?" expands the factor list. Stop the dev server.
+Run `npm run dev`, log in (`sales@meridiansupply.com` / `meridian2024`), search "circuit breaker", click a result to set an active product. Confirm each alternative card shows the ring + tier + chips, and "Why recommended?" expands the factor list. Stop the dev server.
 
 - [ ] **Step 5: Commit**
 
@@ -577,7 +577,7 @@ Expected: FAIL — module not found.
 Create `lib/product-finder-nl-search.ts`:
 
 ```ts
-import { ALL_BRANDS } from "@/data/mock/wesco-products";
+import { ALL_BRANDS } from "@/data/mock/catalog-products";
 import type { ParsedFilter, ParsedFilterKind, ParsedQuery, ProductCategory } from "@/features/product-finder/types";
 
 function escapeRe(s: string): string {
@@ -837,9 +837,9 @@ and pass them from `SearchBar`'s render:
 4. Add the import to SearchBar:
 
 ```tsx
-import type { WescoProduct, BomLine, ParsedFilter } from "@/features/product-finder/types";
+import type { CatalogProduct, BomLine, ParsedFilter } from "@/features/product-finder/types";
 ```
-(replace the existing `WescoProduct, BomLine` type import line).
+(replace the existing `CatalogProduct, BomLine` type import line).
 
 5. Render the chips at the bottom of `SingleSearchPanel`'s returned JSX, after the quick-pick `</div>`:
 
@@ -898,7 +898,7 @@ describe("favorites & recently viewed", () => {
   beforeEach(resetStore);
 
   it("toggleFavorite adds then removes an id", () => {
-    const id = WESCO_PRODUCTS[0].id;
+    const id = CATALOG_PRODUCTS[0].id;
     useProductFinder.getState().toggleFavorite(id);
     expect(useProductFinder.getState().isFavorite(id)).toBe(true);
     useProductFinder.getState().toggleFavorite(id);
@@ -906,7 +906,7 @@ describe("favorites & recently viewed", () => {
   });
 
   it("setActiveProduct records recently viewed, most-recent-first, deduped", () => {
-    const [a, b] = WESCO_PRODUCTS;
+    const [a, b] = CATALOG_PRODUCTS;
     useProductFinder.getState().setActiveProduct(a);
     useProductFinder.getState().setActiveProduct(b);
     useProductFinder.getState().setActiveProduct(a);
@@ -914,8 +914,8 @@ describe("favorites & recently viewed", () => {
   });
 
   it("recentlyViewed caps at 12 entries", () => {
-    for (let i = 0; i < WESCO_PRODUCTS.length && i < 15; i++) {
-      useProductFinder.getState().setActiveProduct(WESCO_PRODUCTS[i]);
+    for (let i = 0; i < CATALOG_PRODUCTS.length && i < 15; i++) {
+      useProductFinder.getState().setActiveProduct(CATALOG_PRODUCTS[i]);
     }
     expect(useProductFinder.getState().recentlyViewed.length).toBeLessThanOrEqual(12);
   });
@@ -1057,10 +1057,10 @@ Create `features/product-finder/SavedAndRecentPanel.tsx`:
 "use client";
 
 import { useProductFinder } from "@/lib/product-finder-store";
-import { PRODUCT_MAP } from "@/data/mock/wesco-products";
-import type { WescoProduct } from "@/features/product-finder/types";
+import { PRODUCT_MAP } from "@/data/mock/catalog-products";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
-function MiniRow({ product }: { product: WescoProduct }) {
+function MiniRow({ product }: { product: CatalogProduct }) {
   const setActiveProduct = useProductFinder((s) => s.setActiveProduct);
   return (
     <button
@@ -1081,8 +1081,8 @@ export function SavedAndRecentPanel() {
   const favorites = useProductFinder((s) => s.favorites);
   const recentlyViewed = useProductFinder((s) => s.recentlyViewed);
 
-  const favProducts = favorites.map((id) => PRODUCT_MAP.get(id)).filter((p): p is WescoProduct => !!p);
-  const recentProducts = recentlyViewed.map((id) => PRODUCT_MAP.get(id)).filter((p): p is WescoProduct => !!p);
+  const favProducts = favorites.map((id) => PRODUCT_MAP.get(id)).filter((p): p is CatalogProduct => !!p);
+  const recentProducts = recentlyViewed.map((id) => PRODUCT_MAP.get(id)).filter((p): p is CatalogProduct => !!p);
 
   if (favProducts.length === 0 && recentProducts.length === 0) return null;
 

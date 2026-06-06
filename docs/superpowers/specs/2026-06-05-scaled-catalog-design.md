@@ -12,9 +12,9 @@
 ## Summary
 
 The Product Finder catalog is 46 hand-authored products in 2 categories, held in a
-client-side array (`data/mock/wesco-products.ts`) and searched in-memory. This
+client-side array (`data/mock/catalog-products.ts`) and searched in-memory. This
 initiative scales it to **20,000 deterministically-generated synthetic products
-across all 6 Wesco categories** (electrical, datacom, OEM electrical, AV, security,
+across all 6 Meridian categories** (electrical, datacom, OEM electrical, AV, security,
 safety), moves search **server-side**, and computes **functional-equivalent
 alternatives** at scale using the existing explainable scoring engine.
 
@@ -70,7 +70,7 @@ parse/validate input and call the lib functions.
 - **Seeded PRNG** (e.g. `mulberry32` with a fixed constant seed) so the same 20,000
   products — and stable `id`/`sku` values — are produced on every process start.
   Stable IDs make favorites/recently-viewed snapshots and shared links consistent.
-- **`generateCatalog(size = 20000): WescoProduct[]`** (size param so tests run on a
+- **`generateCatalog(size = 20000): CatalogProduct[]`** (size param so tests run on a
   small set quickly).
 - **6 categories**, each defined by a template: subcategories, brand pool, name
   patterns, spec templates (with `isNonNeg` flags), price range, UOM, icon. Target
@@ -88,7 +88,7 @@ parse/validate input and call the lib functions.
 - Each product: `id`, unique `sku`, `name`, `brand`, `category`, `subcategory`,
   `description`, `unitPrice`, `uom`, `specs[]`, `preferred` (~20%),
   `branchStock[]`/`dcStock[]` across the existing Texas branches/DCs (reusing the
-  current `BRANCHES`/`DCS` helpers), and `externalSources[]` when out of Wesco stock.
+  current `BRANCHES`/`DCS` helpers), and `externalSources[]` when out of Meridian stock.
 - **The existing 46 curated products are folded in first** (as "featured" seed) so
   the hand-built breaker/Cat6 examples remain; the generator produces the remaining
   ~19,950. IDs/SKUs are de-duplicated against the seed.
@@ -107,7 +107,7 @@ parse/validate input and call the lib functions.
 ## Component 3 — Search (`lib/catalog/search.ts`)
 
 - `searchCatalog({ text, filters, sort, page = 0, pageSize = 24 })
-   → { items: WescoProduct[], total: number, page: number, pageSize: number }`.
+   → { items: CatalogProduct[], total: number, page: number, pageSize: number }`.
 - Filters (reusing current semantics, scaled): category, subcategory, brand,
   onlyBranchStock, onlyDCStock, onlyPreferred, priceMin, priceMax.
 - Sort keys reuse the current set: relevance, preferred, branchStock, priceLow,
@@ -119,7 +119,7 @@ parse/validate input and call the lib functions.
 
 ## Component 4 — Equivalents (`lib/catalog/equivalents.ts`)
 
-- `findEquivalents(product, k = 8): WescoProduct[]`: candidate pool = same
+- `findEquivalents(product, k = 8): CatalogProduct[]`: candidate pool = same
   `subcategory` (widen to same `category` if too few), excluding the product itself,
   ranked by `scoreProduct(candidate, product, userBranchId?)` from the existing
   `lib/product-finder-scoring.ts`. Returns the top `k`. The explainable
@@ -162,7 +162,7 @@ A new thin client module **`lib/product-finder-api.ts`** wraps the fetch calls
   active-product load.
 
 The pure `parseQuery`, `scoreProduct`, and the explainable `RecommendationExplanation`
-component are unchanged — they operate on `WescoProduct` objects regardless of source.
+component are unchanged — they operate on `CatalogProduct` objects regardless of source.
 
 ## Component 7 — Category expansion (UI)
 
@@ -182,8 +182,8 @@ labels to include the four new categories. Card/banner shapes are unchanged.
 ## Data Model Changes (`features/product-finder/types.ts`)
 
 - `ProductCategory` → 6 values (above).
-- `WescoProduct.alternativeIds` / `crossSellIds` / `upsellIds` become optional.
-- **Response shapes:** `/search` and `/[id]` return full `WescoProduct` objects
+- `CatalogProduct.alternativeIds` / `crossSellIds` / `upsellIds` become optional.
+- **Response shapes:** `/search` and `/[id]` return full `CatalogProduct` objects
   (≈1–2 KB each; 24/page is fine). `/suggest` returns the lightweight
   `{ id, name, sku, brand, imageIcon }`. New type `ProductSnapshot` (favorites/recent).
 - `/[id]` and `findEquivalents` accept an **optional `branchId`** so equivalents can

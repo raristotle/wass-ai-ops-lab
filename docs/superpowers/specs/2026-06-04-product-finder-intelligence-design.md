@@ -29,7 +29,7 @@ plus a UX polish pass:
   helpers live in `lib/` and `data/mock/`).
 - **Single Zustand store.** Extend `lib/product-finder-store.ts`; no nested
   slice patterns.
-- **Strict TypeScript** (no `any`), **Wesco brand + WCAG** compliance, and
+- **Strict TypeScript** (no `any`), **Meridian brand + WCAG** compliance, and
   **Vitest** coverage for every new logic module.
 
 ## Architecture Overview
@@ -61,8 +61,8 @@ they are tested in isolation and reused by components.
 
 ```ts
 scoreProduct(
-  candidate: WescoProduct,
-  reference: WescoProduct,
+  candidate: CatalogProduct,
+  reference: CatalogProduct,
   userBranchId?: string,
 ): RecommendationScore
 ```
@@ -86,7 +86,7 @@ type RecommendationScore = {
 | Non-negotiable spec match | up to **+45** | `45 * (matchedNonNeg / totalNonNeg)`; if reference has no non-neg specs, award full 45 |
 | Stock at user's branch | **+25** | branch stock > 0 at `userBranchId` |
 | Stock at DC only | **+12** | no branch stock, but DC stock > 0 |
-| Wesco Preferred line | **+15** | `candidate.preferred` |
+| Meridian Preferred line | **+15** | `candidate.preferred` |
 | Cheaper than reference | up to **+8** | scaled by % cheaper, capped at 8; equal/more = 0 |
 | Same subcategory | **+7** | `candidate.subcategory === reference.subcategory` |
 

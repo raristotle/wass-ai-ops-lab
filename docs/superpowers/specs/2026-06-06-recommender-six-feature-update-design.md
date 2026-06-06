@@ -49,7 +49,7 @@ Ballasts; etc.), with same-category fallback. `goesWith(product, catalog, k)`
 returns up to k preferred/in-branch-stock products from complementary
 subcategories (excluding self/same subcategory). A new `/api/products/goeswith/[id]`
 route (thin, mirrors detail route) OR fold into the existing detail route's
-response (`goesWith: WescoProduct[]`) — prefer extending the detail route to
+response (`goesWith: CatalogProduct[]`) — prefer extending the detail route to
 avoid a new endpoint. Render a **"Goes well with"** panel in `ProductDetailModal`
 and a compact strip in `CartDrawer` (suggest accessories for cart items).
 Unit-test the affinity resolution + exclusions.
@@ -78,7 +78,7 @@ verified live.
 - No secrets, no real network beyond the app's own API + (existing) outbound
   distributor links. All deterministic where testable (no `Date.now`/`Math.random`
   in unit-tested modules — inject timestamps).
-- Wesco brand styling throughout; print layouts are clean cut sheets.
+- Meridian brand styling throughout; print layouts are clean cut sheets.
 - Each feature commits its own code + tests; docs updated per feature or batched.
 
 ## Out of scope (this update)
