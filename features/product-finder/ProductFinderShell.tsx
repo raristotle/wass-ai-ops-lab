@@ -4,6 +4,7 @@ import { useProductFinder, selectCartCount } from "@/lib/product-finder-store";
 import { FilterSidebar } from "@/features/product-finder/FilterSidebar";
 import { CartDrawer } from "@/features/product-finder/CartDrawer";
 import { SpecCompareModal } from "@/features/product-finder/SpecCompareModal";
+import { ProductDetailModal } from "@/features/product-finder/ProductDetailModal";
 import { cn } from "@/lib/utils";
 
 interface ProductFinderShellProps {
@@ -104,6 +105,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       {/* ── Overlays (always in DOM) ─────────────────────────────────────────── */}
       <CartDrawer />
       <SpecCompareModal />
+      <ProductDetailModal />
     </div>
   );
 }

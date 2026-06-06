@@ -55,7 +55,7 @@ export function ProductCard({
   const user = useProductFinder((s) => s.user);
   const compareIds = useProductFinder((s) => s.compareIds);
   const toggleCompare = useProductFinder((s) => s.toggleCompare);
-  const setCompareModalOpen = useProductFinder((s) => s.setCompareModalOpen);
+  const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
   const addToCart = useProductFinder((s) => s.addToCart);
   const isFavorite = useProductFinder((s) => s.favorites.includes(product.id));
   const toggleFavorite = useProductFinder((s) => s.toggleFavorite);
@@ -349,7 +349,7 @@ export function ProductCard({
               size="sm"
               variant="outline"
               className="text-xs border-[#B7C9D3]"
-              onClick={() => setCompareModalOpen(true)}
+              onClick={() => setDetailModalProduct(product)}
             >
               View Details
             </Button>
