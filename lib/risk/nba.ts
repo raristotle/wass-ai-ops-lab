@@ -268,7 +268,7 @@ Do you have availability this week or early next week? I'm happy to work around 
 
 Best regards,
 [Your Name]
-Wesco International
+Meridian Supply Co.
 [Your Phone] | [Your Email]`;
 }
 
@@ -289,7 +289,7 @@ Thank you for your continued partnership — let's get this resolved.
 
 Best regards,
 [Your Name]
-Wesco International
+Meridian Supply Co.
 [Your Phone] | [Your Email]`;
 }
 
@@ -301,17 +301,17 @@ function draftPlatformDiscovery(input: NbaInput): string {
 
 Hi [Contact Name],
 
-I've been reviewing your account and noticed that ${name} is using an eProcurement platform${integrationStatus === "none" ? " without a direct Wesco integration" : " with a partial Wesco integration"}. Given your purchasing volume${annualRevenueUsd >= 1_000_000 ? ` of ${fmtUsd(annualRevenueUsd)} annually` : ""}, a tighter connection could meaningfully reduce your team's manual processing time and improve order accuracy.
+I've been reviewing your account and noticed that ${name} is using an eProcurement platform${integrationStatus === "none" ? " without a direct Meridian integration" : " with a partial Meridian integration"}. Given your purchasing volume${annualRevenueUsd >= 1_000_000 ? ` of ${fmtUsd(annualRevenueUsd)} annually` : ""}, a tighter connection could meaningfully reduce your team's manual processing time and improve order accuracy.
 
 ${competitorPresent ? "I also want to make sure we're staying competitive with any other suppliers you may be working with — a proper integration often tips the scale." : "Our integration team has helped similar accounts cut PO processing time by up to 60%."}
 
-I'd love to schedule a 30-minute discovery call to walk through what a Wesco integration would look like for your workflow.
+I'd love to schedule a 30-minute discovery call to walk through what a Meridian integration would look like for your workflow.
 
 Are you available this week?
 
 Best regards,
 [Your Name]
-Wesco International
+Meridian Supply Co.
 [Your Phone] | [Your Email]`;
 }
 
@@ -326,7 +326,7 @@ Hi [Contact Name],
 
 As part of our ongoing account review, I wanted to connect regarding the pricing structure on your ${name} account.${declinePp > 0 ? ` Our records show a ${declinePp}-point margin shift over the past period` : ""}${belowAvgPp > 0 ? `, and current margins are tracking ${belowAvgPp} points below the category average` : ""}.
 
-I'd like to schedule a brief pricing review to ensure you're getting the best value from the Wesco product mix — and to make sure our pricing reflects your current volume and strategic commitments.
+I'd like to schedule a brief pricing review to ensure you're getting the best value from the Meridian Supply Co. product mix — and to make sure our pricing reflects your current volume and strategic commitments.
 
 This is also a good opportunity to explore any contract pricing or tier adjustments we might be able to put in place.
 
@@ -334,7 +334,7 @@ Would a 20-minute call work for you this week?
 
 Best regards,
 [Your Name]
-Wesco International
+Meridian Supply Co.
 [Your Phone] | [Your Email]`;
 }
 
@@ -347,7 +347,7 @@ function draftCrossSell(input: NbaInput): string {
 
 Hi [Contact Name],
 
-Thank you for your continued business with Wesco. As I've been looking at your account, I noticed there are several product categories where we can add significant value that ${name} isn't currently sourcing through us: ${cats}${more}.
+Thank you for your continued business with Meridian Supply Co. As I've been looking at your account, I noticed there are several product categories where we can add significant value that ${name} isn't currently sourcing through us: ${cats}${more}.
 
 Based on your purchasing patterns and industry benchmarks, we estimate ${fmtUsd(estimatedPotentialUsd)} in incremental opportunity — representing a meaningful expansion of our ${fmtUsd(annualRevenueUsd)} relationship.
 
@@ -357,7 +357,7 @@ Would next week work for a brief call?
 
 Best regards,
 [Your Name]
-Wesco International
+Meridian Supply Co.
 [Your Phone] | [Your Email]`;
 }
 
@@ -376,7 +376,7 @@ Is there a convenient time this week or next that works for you?
 
 Best regards,
 [Your Name]
-Wesco International
+Meridian Supply Co.
 [Your Phone] | [Your Email]`;
 }
 

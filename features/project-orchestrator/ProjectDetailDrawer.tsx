@@ -76,7 +76,7 @@ export function ProjectDetailDrawer({ open, onClose, project, score, onOpenBrief
               className="flex items-center gap-1.5 rounded-md border border-[#00AA13] px-2.5 py-1.5 text-xs font-medium text-[#00573F] transition-colors hover:bg-[#00AA13]/10"
             >
               <FileText className="h-3.5 w-3.5" />
-              One Wesco Brief
+              One Meridian Brief
             </button>
             <button
               onClick={onClose}

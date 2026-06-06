@@ -141,12 +141,12 @@ export function scoreProject(p: ComplexProject, allProjects: ComplexProject[]): 
   };
 }
 
-// ── One Wesco Brief ────────────────────────────────────────────────────────────
+// ── One Meridian Brief ────────────────────────────────────────────────────────
 
 const fmtUsd = (v: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(v);
 
-export function generateOneWescoBrief(project: ComplexProject, score: ProjectScore): string {
+export function generateOneMeridianBrief(project: ComplexProject, score: ProjectScore): string {
   const lateMs      = project.milestones.filter((m) => m.status === "late");
   const critRisks   = project.risks.filter((r) => r.severity === "critical");
   const openXsell   = project.crossSell.filter((c) => c.status !== "quoted");
@@ -157,7 +157,7 @@ export function generateOneWescoBrief(project: ComplexProject, score: ProjectSco
   const line = (label: string, val: string) =>
     `  ${label.padEnd(18)}${val}`;
 
-  return `ONE WESCO PROJECT BRIEF
+  return `ONE MERIDIAN PROJECT BRIEF
 ${"═".repeat(56)}
   Project:           ${project.name}
   Customer:          ${project.customer}

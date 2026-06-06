@@ -4,7 +4,7 @@ import { useState } from "react";
 import { X, Copy, CheckCheck, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ComplexProject, ProjectScore } from "@/lib/risk/project-orchestrator";
-import { generateOneWescoBrief } from "@/lib/risk/project-orchestrator";
+import { generateOneMeridianBrief } from "@/lib/risk/project-orchestrator";
 
 interface Props {
   open: boolean;
@@ -13,12 +13,12 @@ interface Props {
   score: ProjectScore | null;
 }
 
-export function OneWescoBrief({ open, onClose, project, score }: Props) {
+export function OneMeridianBrief({ open, onClose, project, score }: Props) {
   const [copied, setCopied] = useState(false);
 
   if (!open || !project || !score) return null;
 
-  const brief = generateOneWescoBrief(project, score);
+  const brief = generateOneMeridianBrief(project, score);
 
   function handleCopy() {
     navigator.clipboard.writeText(brief).then(() => {
@@ -36,7 +36,7 @@ export function OneWescoBrief({ open, onClose, project, score }: Props) {
           <div className="flex items-center gap-2">
             <FileText className="h-4 w-4 text-[#00AA13]" />
             <div>
-              <h2 className="text-sm font-semibold">One Wesco Brief</h2>
+              <h2 className="text-sm font-semibold">One Meridian Brief</h2>
               <p className="text-[10px] text-muted-foreground">{project.name}</p>
             </div>
           </div>

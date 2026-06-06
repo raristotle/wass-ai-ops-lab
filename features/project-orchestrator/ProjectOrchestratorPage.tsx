@@ -8,7 +8,7 @@ import { ALL_SBUS } from "@/lib/risk/project-orchestrator";
 import { ProjectKanban } from "./ProjectKanban";
 import { ProjectGantt } from "./ProjectGantt";
 import { ProjectRiskHeatmap } from "./ProjectRiskHeatmap";
-import { OneWescoBrief } from "./OneWescoBrief";
+import { OneMeridianBrief } from "./OneMeridianBrief";
 import { ProjectDetailDrawer } from "./ProjectDetailDrawer";
 import { cn } from "@/lib/utils";
 import { formatCurrency } from "@/lib/utils";
@@ -287,8 +287,8 @@ export function ProjectOrchestratorPage() {
         onOpenBrief={() => { setDetailOpen(false); setBriefOpen(true); }}
       />
 
-      {/* One Wesco Brief */}
-      <OneWescoBrief
+      {/* One Meridian Brief */}
+      <OneMeridianBrief
         open={briefOpen}
         onClose={() => setBriefOpen(false)}
         project={selectedProject}
