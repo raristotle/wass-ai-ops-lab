@@ -101,6 +101,27 @@ export function parseBomLines(text: string): ParsedBomLine[] {
 
 // ─── matchBom ─────────────────────────────────────────────────────────────────
 
+/** Maximum concurrent searches to run in parallel. Prevents request floods. */
+const MATCH_CONCURRENCY = 6;
+
+/**
+ * Process an array into chunks of a fixed size, awaiting each chunk sequentially,
+ * and concatenate results preserving original order.
+ */
+async function batchedAwait<T, R>(
+  items: T[],
+  processFn: (item: T) => Promise<R>,
+  batchSize: number
+): Promise<R[]> {
+  const results: R[] = [];
+  for (let i = 0; i < items.length; i += batchSize) {
+    const chunk = items.slice(i, i + batchSize);
+    const chunkResults = await Promise.all(chunk.map(processFn));
+    results.push(...chunkResults);
+  }
+  return results;
+}
+
 /**
  * Match parsed BOM lines against the catalog via an injected search function.
  *
@@ -112,13 +133,17 @@ export function parseBomLines(text: string): ParsedBomLine[] {
  * The real searchFn used in BomImportModal calls apiSearch with the line's
  * query as the text filter and pageSize=1, returning items[0] ?? null.
  * Keeping searchFn injected means matchBom can be unit-tested with a fake.
+ *
+ * Internally limits concurrent searches to MATCH_CONCURRENCY (6) at a time
+ * to avoid flooding the serverless API with unbounded parallel requests.
  */
 export async function matchBom(
   parsed: ParsedBomLine[],
   searchFn: (query: string) => Promise<WescoProduct | null>
 ): Promise<MatchedBomLine[]> {
-  return Promise.all(
-    parsed.map(async (line) => {
+  return batchedAwait(
+    parsed,
+    async (line) => {
       let match: WescoProduct | null = null;
       try {
         match = await searchFn(line.query);
@@ -126,6 +151,7 @@ export async function matchBom(
         match = null;
       }
       return { ...line, match };
-    })
+    },
+    MATCH_CONCURRENCY
   );
 }

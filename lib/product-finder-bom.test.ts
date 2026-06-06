@@ -244,4 +244,45 @@ describe("matchBom", () => {
     const result = await matchBom(parsed, searchFn);
     expect(result[0].match).toBeNull();
   });
+
+  it("enforces max concurrency of 6 and preserves output order for 20 lines", async () => {
+    let maxConcurrent = 0;
+    let currentConcurrent = 0;
+
+    const searchFn = vi.fn(async () => {
+      // Increment in-flight count on entry
+      currentConcurrent++;
+      maxConcurrent = Math.max(maxConcurrent, currentConcurrent);
+
+      // Simulate async work with a microtask delay
+      await new Promise((resolve) => setTimeout(resolve, 1));
+
+      // Decrement on exit
+      currentConcurrent--;
+      return MOCK_PRODUCT;
+    });
+
+    // Create 20 parsed lines
+    const lines = Array.from({ length: 20 }, (_, i) => ({
+      raw: `${i + 1}x Item ${i + 1}`,
+      qty: i + 1,
+      query: `Item ${i + 1}`,
+    }));
+
+    const result = await matchBom(lines, searchFn);
+
+    // Assert max concurrency never exceeds 6
+    expect(maxConcurrent).toBeLessThanOrEqual(6);
+
+    // Assert output order matches input order
+    expect(result).toHaveLength(20);
+    for (let i = 0; i < 20; i++) {
+      expect(result[i].qty).toBe(i + 1);
+      expect(result[i].query).toBe(`Item ${i + 1}`);
+      expect(result[i].match).toBe(MOCK_PRODUCT);
+    }
+
+    // Assert searchFn was called once per line
+    expect(searchFn).toHaveBeenCalledTimes(20);
+  });
 });
