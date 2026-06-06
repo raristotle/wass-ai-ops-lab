@@ -4,7 +4,7 @@ import { searchCatalog } from "@/lib/catalog/search";
 describe("searchCatalog", () => {
   it("paginates: total reflects all matches, items is one page", () => {
     const r = searchCatalog({ pageSize: 24, page: 0 });
-    expect(r.total).toBe(20000);
+    expect(r.total).toBe(50000);
     expect(r.items).toHaveLength(24);
     expect(r.page).toBe(0);
   });

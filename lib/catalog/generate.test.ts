@@ -14,8 +14,14 @@ describe("generateCatalog", () => {
     expect(generateCatalog(500)).toHaveLength(500);
   });
 
-  it("default CATALOG_SIZE is 20000", () => {
-    expect(CATALOG_SIZE).toBe(20000);
+  it("default CATALOG_SIZE is 50000", () => {
+    expect(CATALOG_SIZE).toBe(50000);
+  });
+
+  it("electrical dominates — more than 65% of products are electrical", () => {
+    const cat = generateCatalog(10000);
+    const electrical = cat.filter((p) => p.category === "electrical").length;
+    expect(electrical / cat.length).toBeGreaterThan(0.65);
   });
 
   it("covers all 6 categories", () => {

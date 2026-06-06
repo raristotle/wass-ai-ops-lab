@@ -26,6 +26,10 @@ describe("taxonomy", () => {
     }
   });
 
+  it("has rich subcategory coverage — more than 40 subcategories", () => {
+    expect(ALL_SUBCATEGORIES.length).toBeGreaterThan(40);
+  });
+
   it("ALL_SUBCATEGORIES and ALL_BRANDS are sorted, unique, non-empty", () => {
     expect(ALL_SUBCATEGORIES.length).toBeGreaterThan(10);
     expect(new Set(ALL_SUBCATEGORIES).size).toBe(ALL_SUBCATEGORIES.length);
