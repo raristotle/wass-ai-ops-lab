@@ -1,6 +1,6 @@
 # Product Finder — Help & Demo Guide
 
-The **Product Finder** (the "AI Product Recommender") helps a Wesco rep go from a
+The **Product Finder** (the "AI Product Recommender") helps a Meridian Supply Co. rep go from a
 rough request to a **stocked, priced, and justified** product recommendation — on
 one screen. It finds products, suggests smart alternatives **with clear reasons**,
 checks stock, compares options, and builds a basket.
@@ -21,9 +21,9 @@ checks stock, compares options, and builds a basket.
 
   | Email | Password | Signs in as |
   |---|---|---|
-  | `sales@wesco.com` | `wesco2024` | Sarah Chen — Sales, Houston Downtown |
-  | `manager@wesco.com` | `wesco2024` | Marcus Rivera — Manager, Dallas North |
-  | `admin@wesco.com` | `wesco2024` | Admin User — Corporate |
+  | `sales@meridiansupply.com` | `meridian2024` | Sarah Chen — Sales, Houston Downtown |
+  | `manager@meridiansupply.com` | `meridian2024` | Marcus Rivera — Manager, Dallas North |
+  | `admin@meridiansupply.com` | `meridian2024` | Admin User — Corporate |
 
 - Your **name and branch** show top-right. **Sign out** is next to the cart.
 - You stay signed in if you come back later.
@@ -35,7 +35,7 @@ checks stock, compares options, and builds a basket.
 
 ## 2. The screen at a glance
 
-- **Top bar:** Wesco logo, app title, your name/branch, the **Cart** button, Sign out.
+- **Top bar:** Meridian Supply Co. logo, app title, your name/branch, the **Cart** button, Sign out.
 - **Left sidebar:** Filters.
 - **Middle:** the search box and your results.
 - **Right side** (appears for an out-of-stock selected product): **external
@@ -134,7 +134,7 @@ Click **Import List / BOM** by the search box to bulk-add products:
   summary; click **Add N matched to cart** to add them all at their quantities.
 
 ### External sources
-- If a product is **out of stock at Wesco**, the app lists **external distributors**
+- If a product is **out of stock at Meridian Supply Co.**, the app lists **external distributors**
   (with price, quantity, and lead time) so you still have an answer.
 
 ### Basket, saved baskets & quotes
@@ -168,7 +168,7 @@ All three persist **even after you close the browser**.
 
 A clean walkthrough that shows off the best parts, in order:
 
-1. **Sign in** as `sales@wesco.com` / `wesco2024`. Point out the **name + branch**
+1. **Sign in** as `sales@meridiansupply.com` / `meridian2024`. Point out the **name + branch**
    (Houston Downtown) at the top right, and the grid already browsing
    **all 60,000 products**.
 2. Show the **six category chips** in the sidebar — click **⚡ Electrical** to show

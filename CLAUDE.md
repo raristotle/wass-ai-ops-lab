@@ -72,7 +72,7 @@ Configured in `apps/web/tsconfig.json` (TS) and `apps/web/next.config.ts` (webpa
 
 ---
 
-## Wesco Brand Guidelines
+## Meridian Brand Guidelines
 
 Apply these standards to all UI, charts, presentations, documents, and generated visuals.
 
@@ -81,7 +81,7 @@ Apply these standards to all UI, charts, presentations, documents, and generated
 #### Primary Colors
 | Role | Name | HEX | Tailwind usage |
 |---|---|---|---|
-| Signature / accent | Wesco Green | `#00AA13` | `text-[#00AA13]` / `bg-[#00AA13]` |
+| Signature / accent | Meridian Green | `#00AA13` | `text-[#00AA13]` / `bg-[#00AA13]` |
 | Background (default) | White | `#FFFFFF` | `bg-white` |
 | Text / heading | Charcoal Black | `#1D252D` | `text-[#1D252D]` / `bg-[#1D252D]` |
 
@@ -103,11 +103,11 @@ Apply these standards to all UI, charts, presentations, documents, and generated
 ### Color Distribution (branded materials)
 - **White** ~40% — default background; apply in large amounts for airiness
 - **Charcoal Black** ~30% — body text, headings, stability
-- **Wesco Green** ~10% — accent highlights only; never overuse in body-copy materials
+- **Meridian Green** ~10% — accent highlights only; never overuse in body-copy materials
 - **Steel Grey** ~10% — supporting backgrounds / boxes
 - **Granite Grey** ~10% — supporting backgrounds / boxes
 
-> **Exception:** Wesco Green may dominate one-of-a-kind collateral (business cards, shirts, hats) that carry little-to-no body copy.
+> **Exception:** Meridian Green may dominate one-of-a-kind collateral (business cards, shirts, hats) that carry little-to-no body copy.
 
 ### WCAG Accessibility
 
@@ -138,7 +138,7 @@ Large text ≥ 18 pt (24 px) or bold ≥ 14 pt (18.66 px).
 Both fonts are licensed under the Open Font License — download from [Google Fonts](https://fonts.google.com). Use the Google Fonts files specifically (different kerning/leading from Adobe Fonts).
 
 ### Application Rules for This Project
-- Use `#00AA13` (Wesco Green) sparingly in the UI — CTA buttons, active nav indicators, positive KPI accents
+- Use `#00AA13` (Meridian Green) sparingly in the UI — CTA buttons, active nav indicators, positive KPI accents
 - Chart series: prefer tertiary palette (`#EAAA00`, `#64CCC9`, `#DB6B30`, `#004986`, `#00573F`) for multi-series data; never use `#00AA13` as one data series among many
 - Background: `#FFFFFF` (light) / `#1D252D` for dark surfaces
 - Body text on light backgrounds: `#1D252D` (Charcoal Black), not pure `#000000`
