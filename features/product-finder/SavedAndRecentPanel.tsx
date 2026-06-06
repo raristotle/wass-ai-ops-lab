@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { ProductSnapshot } from "@/features/product-finder/types";
 
@@ -15,29 +16,162 @@ function MiniRow({ snap }: { snap: ProductSnapshot }) {
   );
 }
 
+interface CollapsibleSectionProps {
+  title: string;
+  count: number;
+  collapsed: boolean;
+  onToggle: () => void;
+  onClear?: () => void;
+  children: React.ReactNode;
+}
+
+function CollapsibleSection({ title, count, collapsed, onToggle, onClear, children }: CollapsibleSectionProps) {
+  return (
+    <section>
+      <div className="mb-2 flex items-center justify-between">
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={!collapsed}
+          className="flex items-center gap-1.5 text-left"
+        >
+          <span className="text-[#4F758B]" aria-hidden="true">
+            {collapsed ? "▸" : "▾"}
+          </span>
+          <span className="text-xs font-bold uppercase tracking-wide text-[#4F758B]">
+            {title}
+          </span>
+          <span className="text-xs text-[#B7C9D3]">({count})</span>
+        </button>
+        {onClear && (
+          <button
+            type="button"
+            onClick={onClear}
+            className="text-xs text-[#4F758B] hover:text-[#1D252D]"
+          >
+            Clear
+          </button>
+        )}
+      </div>
+      {!collapsed && <div>{children}</div>}
+    </section>
+  );
+}
+
+function readBool(key: string): boolean {
+  if (typeof localStorage === "undefined") return false;
+  return localStorage.getItem(key) === "1";
+}
+
+function writeBool(key: string, value: boolean): void {
+  if (typeof localStorage === "undefined") return;
+  localStorage.setItem(key, value ? "1" : "0");
+}
+
 export function SavedAndRecentPanel() {
   const recentlyViewed = useProductFinder((s) => s.recentlyViewed);
   const recentSnapshots = useProductFinder((s) => s.recentSnapshots);
   const favorites = useProductFinder((s) => s.favorites);
   const favoriteSnapshots = useProductFinder((s) => s.favoriteSnapshots);
+  const searchHistory = useProductFinder((s) => s.searchHistory);
+  const clearSearchHistory = useProductFinder((s) => s.clearSearchHistory);
+  const clearRecentlyViewed = useProductFinder((s) => s.clearRecentlyViewed);
+  const runNlSearch = useProductFinder((s) => s.runNlSearch);
 
   const recent = recentlyViewed.map((id) => recentSnapshots[id]).filter(Boolean) as ProductSnapshot[];
   const favs = favorites.map((id) => favoriteSnapshots[id]).filter(Boolean) as ProductSnapshot[];
-  if (recent.length === 0 && favs.length === 0) return null;
+
+  // Collapsed state — initialize to false (expanded) to avoid SSR/hydration mismatch.
+  // A useEffect sets the real stored values after mount (panel only renders client-side
+  // after AuthGuard hydration, but useEffect is the safest pattern regardless).
+  const [historyCollapsed, setHistoryCollapsed] = useState(false);
+  const [recentCollapsed, setRecentCollapsed] = useState(false);
+  const [favsCollapsed, setFavsCollapsed] = useState(false);
+
+  useEffect(() => {
+    setHistoryCollapsed(readBool("pf_collapsed_history"));
+    setRecentCollapsed(readBool("pf_collapsed_recent"));
+    setFavsCollapsed(readBool("pf_collapsed_favorites"));
+  }, []);
+
+  const toggleHistory = () => {
+    const next = !historyCollapsed;
+    setHistoryCollapsed(next);
+    writeBool("pf_collapsed_history", next);
+  };
+
+  const toggleRecent = () => {
+    const next = !recentCollapsed;
+    setRecentCollapsed(next);
+    writeBool("pf_collapsed_recent", next);
+  };
+
+  const toggleFavs = () => {
+    const next = !favsCollapsed;
+    setFavsCollapsed(next);
+    writeBool("pf_collapsed_favorites", next);
+  };
+
+  if (searchHistory.length === 0 && recent.length === 0 && favs.length === 0) return null;
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
-      {recent.length > 0 && (
-        <section>
-          <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-[#4F758B]">Recently viewed</h3>
-          <div className="space-y-2">{recent.slice(0, 6).map((s) => <MiniRow key={s.id} snap={s} />)}</div>
-        </section>
+    <div className="space-y-4">
+      {searchHistory.length > 0 && (
+        <CollapsibleSection
+          title="Search history"
+          count={searchHistory.length}
+          collapsed={historyCollapsed}
+          onToggle={toggleHistory}
+          onClear={clearSearchHistory}
+        >
+          <div className="flex flex-wrap gap-2">
+            {searchHistory.map((term) => (
+              <button
+                key={term}
+                type="button"
+                onClick={() => runNlSearch(term)}
+                className="rounded-full border border-[#B7C9D3] px-3 py-1 text-sm text-[#1D252D] hover:border-[#4F758B]"
+              >
+                {term}
+              </button>
+            ))}
+          </div>
+        </CollapsibleSection>
       )}
-      {favs.length > 0 && (
-        <section>
-          <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-[#4F758B]"><span aria-hidden="true">★</span> Favorites</h3>
-          <div className="space-y-2">{favs.map((s) => <MiniRow key={s.id} snap={s} />)}</div>
-        </section>
+
+      {(recent.length > 0 || favs.length > 0) && (
+        <div className="grid gap-4 sm:grid-cols-2">
+          {recent.length > 0 && (
+            <CollapsibleSection
+              title="Recently viewed"
+              count={recent.length}
+              collapsed={recentCollapsed}
+              onToggle={toggleRecent}
+              onClear={clearRecentlyViewed}
+            >
+              <div className="space-y-2">
+                {recent.slice(0, 6).map((s) => (
+                  <MiniRow key={s.id} snap={s} />
+                ))}
+              </div>
+            </CollapsibleSection>
+          )}
+
+          {favs.length > 0 && (
+            <CollapsibleSection
+              title="★ Favorites"
+              count={favs.length}
+              collapsed={favsCollapsed}
+              onToggle={toggleFavs}
+            >
+              <div className="space-y-2">
+                {favs.map((s) => (
+                  <MiniRow key={s.id} snap={s} />
+                ))}
+              </div>
+            </CollapsibleSection>
+          )}
+        </div>
       )}
     </div>
   );
