@@ -80,6 +80,10 @@ describe("priceTiers", () => {
     }
   });
 
+  it("rounds half-cent up (round-half-away-from-zero): 5% off $2.10 = $2.00", () => {
+    expect(priceTiers(makeProduct(2.10))[1].unitPrice).toBe(2.0);
+  });
+
   it("discount math: 5% off $37.49 = $35.62 (rounded)", () => {
     // 37.49 * 0.95 = 35.6155 -> rounds to 35.62
     const tiers = priceTiers(makeProduct(37.49));

@@ -190,36 +190,41 @@ export function ProductDetailModal() {
               <p className="text-xs font-semibold text-[#4F758B] uppercase tracking-wide mb-1">
                 Volume pricing
               </p>
-              <table className="w-full text-xs border-collapse">
-                <thead>
-                  <tr className="bg-[#F8FAFB]">
-                    <th className="text-left px-2 py-1 font-semibold text-[#4F758B] border border-[#B7C9D3]/60">
-                      Qty
-                    </th>
-                    <th className="text-right px-2 py-1 font-semibold text-[#4F758B] border border-[#B7C9D3]/60">
-                      Unit price
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {priceTiers(product).map((tier) => (
-                    <tr
-                      key={tier.minQty}
-                      className={cn(
-                        "border-b border-[#B7C9D3]/40",
-                        qty >= tier.minQty && "bg-[#00AA13]/5"
-                      )}
-                    >
-                      <td className="px-2 py-1 text-[#1D252D] border border-[#B7C9D3]/60">
-                        {tier.minQty}+
-                      </td>
-                      <td className="px-2 py-1 text-right font-semibold text-[#1D252D] border border-[#B7C9D3]/60">
-                        ${tier.unitPrice.toFixed(2)}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              {(() => {
+                const activeTierMinQty = [...priceTiers(product)].reverse().find((t) => qty >= t.minQty)?.minQty;
+                return (
+                  <table className="w-full text-xs border-collapse">
+                    <thead>
+                      <tr className="bg-[#F8FAFB]">
+                        <th className="text-left px-2 py-1 font-semibold text-[#4F758B] border border-[#B7C9D3]/60">
+                          Qty
+                        </th>
+                        <th className="text-right px-2 py-1 font-semibold text-[#4F758B] border border-[#B7C9D3]/60">
+                          Unit price
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {priceTiers(product).map((tier) => (
+                        <tr
+                          key={tier.minQty}
+                          className={cn(
+                            "border-b border-[#B7C9D3]/40",
+                            activeTierMinQty === tier.minQty && "bg-[#00AA13]/5"
+                          )}
+                        >
+                          <td className="px-2 py-1 text-[#1D252D] border border-[#B7C9D3]/60">
+                            {tier.minQty}+
+                          </td>
+                          <td className="px-2 py-1 text-right font-semibold text-[#1D252D] border border-[#B7C9D3]/60">
+                            ${tier.unitPrice.toFixed(2)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                );
+              })()}
             </div>
 
             {/* Stock */}
