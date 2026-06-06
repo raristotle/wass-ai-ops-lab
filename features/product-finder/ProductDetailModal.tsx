@@ -166,8 +166,8 @@ export function ProductDetailModal() {
       aria-modal="true"
       aria-label={`Product details: ${product.name}`}
     >
-      {/* Dialog container */}
-      <div className="relative w-full max-w-3xl my-8 rounded-xl bg-white shadow-2xl flex flex-col print:shadow-none print:rounded-none print:my-0 print:max-w-none print:max-h-none print:overflow-visible">
+      {/* Dialog container — bounded height on screen; body scrolls internally */}
+      <div className="relative w-full max-w-3xl my-8 rounded-xl bg-white shadow-2xl flex flex-col max-h-[calc(100vh-4rem)] overflow-hidden print:shadow-none print:rounded-none print:my-0 print:max-w-none print:max-h-none print:overflow-visible">
 
         {/* ── Header ──────────────────────────────────────────── */}
         <div className="print:hidden flex items-start justify-between px-6 py-4 bg-[#1D252D] rounded-t-xl gap-3">
@@ -193,6 +193,9 @@ export function ProductDetailModal() {
             &#x2715;
           </button>
         </div>
+
+        {/* ── Scrollable body (header above stays fixed) ───────── */}
+        <div className="flex-1 overflow-y-auto print:overflow-visible print:flex-none">
 
         {/* ── Top section: art + actions ───────────────────────── */}
         <div className="print:hidden flex flex-col sm:flex-row gap-6 px-6 py-5 border-b border-[#B7C9D3]/40">
@@ -547,6 +550,8 @@ export function ProductDetailModal() {
               Availability shown is simulated; links open live distributor search.
             </p>
           )}
+        </div>
+        {/* end scrollable body */}
         </div>
       </div>
     </div>
