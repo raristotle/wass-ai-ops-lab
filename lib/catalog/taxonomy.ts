@@ -42,14 +42,14 @@ export const TAXONOMY: Record<ProductCategory, SubcategoryTemplate[]> = {
       { name: "Gauge", isNonNeg: true, values: ["14 AWG", "12 AWG", "10 AWG", "8 AWG"] },
       { name: "Conductor", isNonNeg: true, values: ["Copper", "Aluminum"] },
       { name: "Insulation", values: ["THHN", "XHHW", "Romex NM-B"] } ] },
-    { name: "Conduit", skuPrefix: "CD", uom: "FT", icon: "🧵", priceRange: [0.5, 12], weight: 10, brands: ["Allied Tube", "Wheatland", "Republic Conduit"], specs: [
+    { name: "Conduit", skuPrefix: "CD", uom: "FT", icon: "🧵", priceRange: [0.5, 12], weight: 18, brands: ["Allied Tube", "Wheatland", "Republic Conduit"], specs: [
       { name: "Trade Size", isNonNeg: true, values: ['1/2"', '3/4"', '1"', '2"'] },
       { name: "Type", isNonNeg: true, values: ["EMT", "Rigid", "PVC"] } ] },
-    { name: "Wiring Devices", skuPrefix: "WD", uom: "EA", icon: "🔘", priceRange: [1, 35], weight: 14, brands: ["Leviton", "Hubbell", "Pass & Seymour", "Lutron"], specs: [
+    { name: "Wiring Devices", skuPrefix: "WD", uom: "EA", icon: "🔘", priceRange: [1, 35], weight: 16, brands: ["Leviton", "Hubbell", "Pass & Seymour", "Lutron"], specs: [
       { name: "Type", isNonNeg: true, values: ["Receptacle", "Switch", "GFCI", "Dimmer"] },
       { name: "Amperage", isNonNeg: true, values: ["15A", "20A"] },
       { name: "Color", values: ["White", "Ivory", "Black", "Gray"] } ] },
-    { name: "Load Centers", skuPrefix: "LC", uom: "EA", icon: "🏠", priceRange: [45, 850], weight: 18, brands: ["Square D", "Eaton", "Siemens", "GE", "Leviton"], specs: [
+    { name: "Load Centers", skuPrefix: "LC", uom: "EA", icon: "🏠", priceRange: [45, 850], weight: 8, brands: ["Square D", "Eaton", "Siemens", "GE", "Leviton"], specs: [
       { name: "Main Rating", isNonNeg: true, values: ["100A", "125A", "150A", "200A", "225A", "400A"] },
       { name: "Spaces", isNonNeg: true, values: ["12-Space", "20-Space", "30-Space", "40-Space", "42-Space"] },
       { name: "Main Type", isNonNeg: true, values: ["Main Breaker", "Main Lug"] },
@@ -212,7 +212,7 @@ export const TAXONOMY: Record<ProductCategory, SubcategoryTemplate[]> = {
       { name: "Controls", values: ["Photocell", "Motion Sensor", "None"] } ] },
   ],
   datacom: [
-    { name: "Ethernet Cable", skuPrefix: "EC", uom: "FT", icon: "🌐", priceRange: [0.1, 2], weight: 5, brands: ["Belden", "CommScope", "Panduit", "Berk-Tek"], specs: [
+    { name: "Ethernet Cable", skuPrefix: "EC", uom: "FT", icon: "🌐", priceRange: [0.1, 2], weight: 14, brands: ["Belden", "CommScope", "Panduit", "Berk-Tek"], specs: [
       { name: "Category", isNonNeg: true, values: ["Cat5e", "Cat6", "Cat6A"] },
       { name: "Shielding", isNonNeg: true, values: ["UTP", "STP", "F/UTP"] },
       { name: "Jacket", values: ["CMR", "CMP Plenum"] } ] },
@@ -327,32 +327,32 @@ export const TAXONOMY: Record<ProductCategory, SubcategoryTemplate[]> = {
       { name: "Jacket Color", values: ["White", "Gray", "Red"] } ] },
   ],
   safety: [
-    { name: "Hard Hats", skuPrefix: "HH", uom: "EA", icon: "⛑️", priceRange: [8, 45], weight: 5, brands: ["MSA", "3M", "Honeywell", "Pyramex"], specs: [
+    { name: "Hard Hats", skuPrefix: "HH", uom: "EA", icon: "⛑️", priceRange: [8, 45], weight: 10, brands: ["MSA", "3M", "Honeywell", "Pyramex"], specs: [
       { name: "Type", isNonNeg: true, values: ["Type I", "Type II"] },
       { name: "Class", isNonNeg: true, values: ["Class E", "Class G", "Class C"] },
       { name: "Color", values: ["White", "Yellow", "Orange", "Blue"] } ] },
-    { name: "Safety Glasses", skuPrefix: "SG", uom: "EA", icon: "🥽", priceRange: [2, 24], weight: 5, brands: ["3M", "Honeywell", "Pyramex", "MCR Safety"], specs: [
+    { name: "Safety Glasses", skuPrefix: "SG", uom: "EA", icon: "🥽", priceRange: [2, 24], weight: 12, brands: ["3M", "Honeywell", "Pyramex", "MCR Safety"], specs: [
       { name: "Lens", isNonNeg: true, values: ["Clear", "Gray", "Anti-Fog"] },
       { name: "Rating", isNonNeg: true, values: ["ANSI Z87.1"] } ] },
-    { name: "Gloves", skuPrefix: "GL", uom: "PR", icon: "🧤", priceRange: [1, 30], weight: 5, brands: ["Ansell", "MCR Safety", "Mechanix", "Showa"], specs: [
+    { name: "Gloves", skuPrefix: "GL", uom: "PR", icon: "🧤", priceRange: [1, 30], weight: 14, brands: ["Ansell", "MCR Safety", "Mechanix", "Showa"], specs: [
       { name: "Material", isNonNeg: true, values: ["Nitrile", "Leather", "Cut-Resistant"] },
       { name: "Cut Level", isNonNeg: true, values: ["A2", "A4", "A6"] } ] },
-    { name: "Hi-Vis Apparel", skuPrefix: "HV", uom: "EA", icon: "🦺", priceRange: [6, 60], weight: 5, brands: ["ML Kishigo", "PIP", "Radians", "Ergodyne"], specs: [
+    { name: "Hi-Vis Apparel", skuPrefix: "HV", uom: "EA", icon: "🦺", priceRange: [6, 60], weight: 8, brands: ["ML Kishigo", "PIP", "Radians", "Ergodyne"], specs: [
       { name: "Class", isNonNeg: true, values: ["Class 2", "Class 3"] },
       { name: "Type", isNonNeg: true, values: ["Vest", "Jacket", "T-Shirt"] } ] },
-    { name: "Fall Protection", skuPrefix: "FP", uom: "EA", icon: "🪢", priceRange: [20, 850], weight: 14, brands: ["3M DBI-SALA", "Guardian Fall Protection", "Honeywell Miller", "MSA", "FallTech"], specs: [
+    { name: "Fall Protection", skuPrefix: "FP", uom: "EA", icon: "🪢", priceRange: [20, 850], weight: 6, brands: ["3M DBI-SALA", "Guardian Fall Protection", "Honeywell Miller", "MSA", "FallTech"], specs: [
       { name: "Type", isNonNeg: true, values: ["Full-Body Harness", "Shock-Absorbing Lanyard", "Self-Retracting Lifeline", "Anchor Point", "Roof Kit"] },
       { name: "Capacity", isNonNeg: true, values: ["310 lb", "420 lb"] },
       { name: "Standard", values: ["ANSI Z359", "OSHA 1926.502"] } ] },
-    { name: "Hearing Protection", skuPrefix: "HG", uom: "PK", icon: "🎧", priceRange: [4, 175], weight: 12, brands: ["3M", "Honeywell Howard Leight", "Moldex", "Radians"], specs: [
+    { name: "Hearing Protection", skuPrefix: "HG", uom: "PK", icon: "🎧", priceRange: [4, 175], weight: 6, brands: ["3M", "Honeywell Howard Leight", "Moldex", "Radians"], specs: [
       { name: "Type", isNonNeg: true, values: ["Foam Earplugs", "Corded Earplugs", "Earmuffs", "Banded"] },
       { name: "NRR", isNonNeg: true, values: ["22 dB", "25 dB", "28 dB", "31 dB", "33 dB"] },
       { name: "Style", values: ["Disposable", "Reusable"] } ] },
-    { name: "Respiratory Protection", skuPrefix: "RS", uom: "EA", icon: "😷", priceRange: [1.5, 600], weight: 10, brands: ["3M", "Honeywell North", "Moldex", "MSA"], specs: [
+    { name: "Respiratory Protection", skuPrefix: "RS", uom: "EA", icon: "😷", priceRange: [1.5, 600], weight: 6, brands: ["3M", "Honeywell North", "Moldex", "MSA"], specs: [
       { name: "Type", isNonNeg: true, values: ["N95 Disposable", "Half-Mask", "Full-Face", "PAPR"] },
       { name: "Filter Rating", isNonNeg: true, values: ["N95", "P100", "OV/AG Cartridge"] },
       { name: "Size", values: ["S", "M", "L"] } ] },
-    { name: "Lockout/Tagout", skuPrefix: "LO", uom: "EA", icon: "🔒", priceRange: [3, 400], weight: 8, brands: ["Master Lock", "Brady", "ABUS", "Panduit"], specs: [
+    { name: "Lockout/Tagout", skuPrefix: "LO", uom: "EA", icon: "🔒", priceRange: [3, 400], weight: 6, brands: ["Master Lock", "Brady", "ABUS", "Panduit"], specs: [
       { name: "Type", isNonNeg: true, values: ["Safety Padlock", "Breaker Lockout", "Valve Lockout", "Hasp", "Station Kit"] },
       { name: "Keying", values: ["Keyed Different", "Keyed Alike"] },
       { name: "Body Material", values: ["Aluminum", "Nylon", "Steel"] } ] },
