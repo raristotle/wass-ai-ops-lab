@@ -126,12 +126,18 @@ Add products (with a quantity) to your **basket**. Click the **Cart** button to 
 it: change quantities, remove items, see the **running total**, or clear it. The
 cart badge shows your item count.
 
-### Saved & Recently viewed
-- **★** any product to favorite it.
-- The app remembers the **last 12 products** you viewed via Find Alternatives.
-- Both appear in the **Saved & Recent** panel above the grid whenever you're
-  browsing without a search or filters. These are remembered **even after you
-  close the browser**.
+### Saved, history & recently viewed
+Above the grid (when browsing without a search or filters) the panel shows three
+collapsible sections — click a section's **▾/▸ header** to hide or show it, and
+the choice is remembered:
+- **Search history** — the **last 12 search terms** you typed, as clickable
+  chips. Click one to **re-run that search**. **Clear** empties the list.
+- **Recently viewed** — the last 6 products you opened via Find Alternatives.
+  **Clear** resets it.
+- **★ Favorites** — products you starred (★ on any card or detail view); un-star
+  to remove.
+
+All three persist **even after you close the browser**.
 
 ---
 
@@ -162,7 +168,9 @@ A clean walkthrough that shows off the best parts, in order:
    the **running total**.
 9. **★ a couple of products**, then click **"Change Product"** and clear the search
    (✕ in the box) — your starred and viewed products now appear under
-   **Favorites / Recently viewed** above the grid.
+   **Favorites / Recently viewed** above the grid, alongside a **Search history**
+   list of everything you searched. Click a history chip to re-run it, collapse a
+   section with its **▾** header, or hit **Clear** to reset a list.
 10. *(Optional)* Search something that shows the breadth — **`gfci receptacle`**
     or **`wall plate`** (the catalog carries 10,000+ wiring devices), **`led
     troffer`** (1,400+ lighting products), or **`transformer`**.
