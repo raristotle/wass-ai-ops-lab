@@ -5,9 +5,11 @@ rough request to a **stocked, priced, and justified** product recommendation —
 one screen. It finds products, suggests smart alternatives **with clear reasons**,
 checks stock, compares options, and builds a basket.
 
-> Everything runs on a built-in catalog of **50,000 synthetic products** spanning
-> six categories — Electrical (~72%, weighted toward common commercial/residential
-> construction products), Datacom, OEM Electrical, AV, Security, and Safety.
+> Everything runs on a built-in catalog of **60,000 synthetic products** spanning
+> six categories — Electrical (~77%, weighted toward common commercial/residential
+> construction products, including **10,000+ wiring devices** — receptacles,
+> switches, wall plates & covers, cord plugs, combination devices, and lighting
+> accessories), Datacom, OEM Electrical, AV, Security, and Safety.
 > Nothing is sent anywhere, so you can click around freely.
 
 ---
@@ -44,7 +46,7 @@ checks stock, compares options, and builds a basket.
 ## 3. Features
 
 ### Search
-Search runs **server-side over all 50,000 products**.
+Search runs **server-side over all 60,000 products**.
 
 - Type a **product name, SKU, brand, or spec** (e.g. `15A breaker`, `led troffer`,
   `Cat6`).
@@ -68,8 +70,9 @@ Search runs **server-side over all 50,000 products**.
 > unavailable while it's rebuilt for the larger catalog.
 
 ### Filters (left sidebar)
-Narrow the results by **Category** (all six), **Subcategory** (40+ — from Load
-Centers and Conduit Fittings to LED Troffers and Fiber Optic Cable), **Brand**,
+Narrow the results by **Category** (all six), **Subcategory** (nearly 80 — from
+Receptacles & Outlets, Switches, and Wall Plates & Covers to Load Centers, LED
+Troffers, and Fiber Optic Cable), **Brand**,
 **in stock at your branch**, **in stock at a DC**, **Preferred only**, and a
 **Price range**. **Sort** by relevance, preferred, stock, price, or brand, and
 switch **list / grid** view. **Clear all filters** resets everything (and clears
@@ -128,9 +131,9 @@ A clean walkthrough that shows off the best parts, in order:
 
 1. **Sign in** as `sales@wesco.com` / `wesco2024`. Point out the **name + branch**
    (Houston Downtown) at the top right, and the grid already browsing
-   **all 50,000 products**.
+   **all 60,000 products**.
 2. Show the **six category chips** in the sidebar — click **⚡ Electrical** to show
-   ~36,000 products, the bulk of the catalog. Click it again to clear.
+   ~46,000 products, the bulk of the catalog. Click it again to clear.
 3. In the search box, type **`20A breaker in stock under $50`** and press Enter.
    Point out the **filter chips** that appear (`In stock`, `Under $50`). Remove one
    with its **✕** to show results update instantly.
@@ -147,8 +150,9 @@ A clean walkthrough that shows off the best parts, in order:
 9. **★ a couple of products**, then click **"Change Product"** and clear the search
    (✕ in the box) — your starred and viewed products now appear under
    **Favorites / Recently viewed** above the grid.
-10. *(Optional)* Search something only the new catalog has — **`led troffer`**
-    (1,400+ lighting products) or **`transformer`** — to show the breadth.
+10. *(Optional)* Search something that shows the breadth — **`gfci receptacle`**
+    or **`wall plate`** (the catalog carries 10,000+ wiring devices), **`led
+    troffer`** (1,400+ lighting products), or **`transformer`**.
 
 **Wrap-up line:** *"One screen takes a rep from a rough request to a stocked, priced,
 and justified recommendation."*
@@ -157,7 +161,7 @@ and justified recommendation."*
 
 ## 5. Quick tips
 
-- All **50,000 products are sample data** — click anything; nothing leaves the app.
+- All **60,000 products are sample data** — click anything; nothing leaves the app.
 - **No results?** Use **Clear search & filters** to start over.
 - **Try different logins** — each has a different home branch, which changes the
   *"in stock at your branch"* part of the match score.

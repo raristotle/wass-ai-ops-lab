@@ -3,10 +3,11 @@
 Monitoring and operations dashboard for AI/LLM workloads — incidents, pipeline runs, model latency, and throughput in one view.
 
 Also hosts the **Product Finder** (`/product-finder`) — an AI product recommender
-over a deterministic **50,000-product synthetic catalog** (72% electrical, weighted
-toward common commercial/residential construction products, across 6 categories and
-70+ subcategories), with server-side search/suggest/detail APIs, scored "find
-alternatives" recommendations, and demo auth. See
+over a deterministic **60,000-product synthetic catalog** (~77% electrical, weighted
+toward common commercial/residential construction products — including 10,000+
+wiring devices: receptacles, switches, wall plates, plugs, combination devices —
+across 6 categories and 79 subcategories), with server-side search/suggest/detail
+APIs, scored "find alternatives" recommendations, and demo auth. See
 [docs/product-finder-help.md](docs/product-finder-help.md).
 
 ## Stack
