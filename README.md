@@ -7,9 +7,10 @@ over a deterministic **60,000-product synthetic catalog** (~77% electrical, weig
 toward common commercial/residential construction products — including 10,000+
 wiring devices: receptacles, switches, wall plates, plugs, combination devices —
 across 6 categories and 79 subcategories), with server-side search/suggest/detail
-APIs, scored "find alternatives" recommendations, volume/tiered pricing,
-goes-with cross-sell, BOM/list import, named saved baskets, printable spec
-sheets / comparisons / quotes (PDF), and demo auth. See
+APIs, scored "find alternatives" recommendations, spec-level facet filters,
+volume/tiered pricing, goes-with cross-sell, BOM/list import, named saved baskets,
+order history with reorder, shareable cart links, out-of-stock lead times with
+notify-me, printable spec sheets / comparisons / quotes (PDF), and demo auth. See
 [docs/product-finder-help.md](docs/product-finder-help.md).
 
 ## Stack

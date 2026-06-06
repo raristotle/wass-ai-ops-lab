@@ -72,7 +72,7 @@ Search runs **server-side over all 60,000 products**.
 ### Filters (left sidebar)
 Narrow the results by **Category** (all six), **Subcategory** (nearly 80 — from
 Receptacles & Outlets, Switches, and Wall Plates & Covers to Load Centers, LED
-Troffers, and Fiber Optic Cable), **Brand**,
+Troffers, and Fiber Optic Cable), **Spec facets**, **Brand**,
 **in stock at your branch**, **in stock at a DC**, **Preferred only**, and a
 **Price range**. **Sort** by relevance, preferred, stock, price, or brand, and
 switch **list / grid** view. **Clear all filters** resets everything (and clears
@@ -114,6 +114,19 @@ Click **View Details** on any card to open the full detail view:
 - **Where to Buy** — working search links to **Grainger, Graybar, Platt, Rexel,
   Zoro, and Home Depot** for the product, opening in a new tab.
 
+### Spec-level facet filters
+Once you've narrowed to a category or subcategory, the sidebar shows **spec facets**
+specific to those products — e.g. for breakers: **Amperage, Voltage, Poles, Int.
+Rating**. Each facet value is a checkbox with a live **count**; tick any combination
+to filter precisely (multiple values within one spec broaden; different specs
+narrow). **Clear all filters** resets these too.
+
+### Stock alerts & lead time
+When a product is **out of stock at Meridian Supply Co.**, the card and detail view
+show an estimated **lead time** and a **"Notify when available"** button. Click it to
+add the product to your watch list (remembered in your browser); click again to stop
+watching. *(Demo: no email is actually sent.)*
+
 ### Volume / tiered pricing
 Larger quantities get better pricing — breaks at **1, 10, 50, and 100+**. The
 detail view shows the full tier table, and the **cart applies the right tier per
@@ -148,6 +161,11 @@ applied), or clear it.
   **Customer** and **Project / PO #**, and it fills in an auto **quote number**,
   today's date, a **30-day validity**, your name & branch, and a priced line table.
   Print or save as PDF.
+- **Share** — copies a link that encodes the basket (and customer/project); anyone
+  who opens it (signed in) gets the same basket rebuilt automatically.
+- **Add to Order** — records the basket as a placed **order** and clears the cart.
+- **Order History** — your past orders (date, item count, total), each with a
+  one-click **Reorder** that loads it straight back into the basket.
 
 ### Saved, history & recently viewed
 Above the grid (when browsing without a search or filters) the panel shows three
