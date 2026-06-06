@@ -8,6 +8,14 @@ export type SavedBasket = {
   lines: { product: CatalogProduct; qty: number }[];
   savedAt: number;
 };
+
+// ─── Order type ───────────────────────────────────────────────────────────────
+export type Order = {
+  id: string;
+  placedAt: number;
+  lines: { product: CatalogProduct; qty: number }[];
+  total: number;
+};
 import { parseQuery } from "@/lib/product-finder-nl-search";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
 import {
@@ -15,6 +23,7 @@ import {
   getAlternatives,
   getCrossSells,
   getUpsells,
+  CATALOG_PRODUCTS,
 } from "@/data/mock/catalog-products";
 import { apiSearch, apiGetProduct } from "@/lib/product-finder-api";
 import type { ProductSnapshot } from "@/features/product-finder/types";
@@ -122,6 +131,12 @@ export interface ProductFinderState {
   loadBasket: (id: string) => void;
   deleteBasket: (id: string) => void;
   renameBasket: (id: string, name: string) => void;
+
+  // Order history
+  orders: Order[];
+  placeOrder: (now: number, id?: string) => void;
+  reorder: (id: string) => void;
+  deleteOrder: (id: string) => void;
 
   // Watches (notify-when-available)
   watches: string[];
@@ -576,6 +591,58 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     });
   },
 
+  // ── Order history ─────────────────────────────────────────
+  orders: [],
+
+  placeOrder(now, id) {
+    const cart = get().cart;
+    const cartValues = Object.values(cart);
+    if (cartValues.length === 0) return;
+
+    const lines = cartValues.map((entry) => ({
+      product: entry.product,
+      qty: entry.qty,
+    }));
+    const total = lines.reduce(
+      (sum, l) => sum + tierUnitPrice(l.product, l.qty) * l.qty,
+      0
+    );
+    const orderId = id ?? `order-${now}`;
+    const newOrder: Order = { id: orderId, placedAt: now, lines, total };
+
+    set((s) => {
+      const orders = [newOrder, ...s.orders];
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_orders", JSON.stringify(orders));
+      }
+      return { orders, cart: {} };
+    });
+  },
+
+  reorder(id) {
+    const order = get().orders.find((o) => o.id === id);
+    if (!order) return;
+    // Deep independent copy so mutating the cart never changes the stored order
+    const newCart: Record<string, { product: CatalogProduct; qty: number }> = {};
+    for (const line of order.lines) {
+      newCart[line.product.id] = {
+        product: { ...line.product, specs: line.product.specs ? [...line.product.specs] : [] },
+        qty: line.qty,
+      };
+    }
+    set({ cart: newCart });
+  },
+
+  deleteOrder(id) {
+    set((s) => {
+      const orders = s.orders.filter((o) => o.id !== id);
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_orders", JSON.stringify(orders));
+      }
+      return { orders };
+    });
+  },
+
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
 
@@ -654,6 +721,17 @@ export function hydrateSavedState() {
     try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as SavedBasket[]) : []; }
     catch { localStorage.removeItem(k); return []; }
   };
+  const readOrders = (): Order[] => {
+    const raw = localStorage.getItem("pf_orders");
+    // null means ABSENT (never been set) → seed demo orders
+    if (raw === null) {
+      const demoOrders = buildDemoOrders();
+      localStorage.setItem("pf_orders", JSON.stringify(demoOrders));
+      return demoOrders;
+    }
+    try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as Order[]) : []; }
+    catch { localStorage.removeItem("pf_orders"); return []; }
+  };
   useProductFinder.setState({
     favorites: readArr("pf_favorites"),
     recentlyViewed: readArr("pf_recent"),
@@ -662,7 +740,45 @@ export function hydrateSavedState() {
     searchHistory: readArr("pf_search_history"),
     savedBaskets: readBaskets("pf_saved_baskets"),
     watches: readArr("pf_watches"),
+    orders: readOrders(),
   });
+}
+
+// ─── Demo order seed (first-ever load only) ───────────────────────────────────
+function buildDemoOrders(): Order[] {
+  // Use known, stable catalog product ids for deterministic demo history.
+  // Order 1: CB-SQD-QO115 (qty 10) + CB-EAT-CH115 (qty 5)
+  // Order 2: CB-SQD-QO115DF (qty 2)
+  const p1 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115");
+  const p2 = CATALOG_PRODUCTS.find((p) => p.id === "CB-EAT-CH115");
+  const p3 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115DF");
+
+  const orders: Order[] = [];
+
+  if (p1 && p2) {
+    const lines1 = [
+      { product: p1, qty: 10 },
+      { product: p2, qty: 5 },
+    ];
+    orders.push({
+      id: "demo-order-001",
+      placedAt: 1748995200000, // 2025-06-04T00:00:00Z (fixed, deterministic)
+      lines: lines1,
+      total: lines1.reduce((s, l) => s + tierUnitPrice(l.product, l.qty) * l.qty, 0),
+    });
+  }
+
+  if (p3) {
+    const lines2 = [{ product: p3, qty: 2 }];
+    orders.push({
+      id: "demo-order-002",
+      placedAt: 1748908800000, // 2025-06-03T00:00:00Z (fixed, deterministic)
+      lines: lines2,
+      total: lines2.reduce((s, l) => s + tierUnitPrice(l.product, l.qty) * l.qty, 0),
+    });
+  }
+
+  return orders;
 }
 
 // ─── Derived selectors ────────────────────────────────────────────────────────

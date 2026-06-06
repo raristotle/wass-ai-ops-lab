@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useProductFinder, selectCartCount, selectCartTotal, hydrateSavedState } from "@/lib/product-finder-store";
-import type { SavedBasket } from "@/lib/product-finder-store";
+import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
 
@@ -54,6 +54,7 @@ function resetStore() {
     pageSize: 24,
     savedBaskets: [],
     watches: [],
+    orders: [],
     filters: {
       query: "",
       categories: new Set(),
@@ -951,6 +952,304 @@ describe("watches – hydrateSavedState loads pf_watches", () => {
 
     hydrateSavedState();
     expect(useProductFinder.getState().watches).toEqual(stored);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+});
+
+// ─── orders – placeOrder ──────────────────────────────────────────────────────
+
+describe("orders – placeOrder", () => {
+  beforeEach(resetStore);
+
+  it("is a no-op when the cart is empty", () => {
+    useProductFinder.getState().placeOrder(1000000, "ord-noop");
+    expect(useProductFinder.getState().orders).toHaveLength(0);
+  });
+
+  it("snapshots cart lines into a new order prepended to history", () => {
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
+    useProductFinder.getState().addToCart(p1, 2);
+    useProductFinder.getState().addToCart(p2, 3);
+
+    useProductFinder.getState().placeOrder(1000001, "ord-snap");
+
+    const { orders } = useProductFinder.getState();
+    expect(orders).toHaveLength(1);
+    const order = orders[0];
+    expect(order.id).toBe("ord-snap");
+    expect(order.placedAt).toBe(1000001);
+    expect(order.lines).toHaveLength(2);
+    const ids = order.lines.map((l) => l.product.id);
+    expect(ids).toContain(p1.id);
+    expect(ids).toContain(p2.id);
+    const l1 = order.lines.find((l) => l.product.id === p1.id)!;
+    expect(l1.qty).toBe(2);
+  });
+
+  it("computes order total using the same tiered pricing as selectCartTotal", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 10); // qty 10 triggers 5% tier
+
+    useProductFinder.getState().placeOrder(1000002, "ord-total");
+
+    const { orders } = useProductFinder.getState();
+    const order = orders[0];
+    const expectedTotal = tierUnitPrice(p, 10) * 10;
+    expect(order.total).toBeCloseTo(expectedTotal, 5);
+    // confirm it IS a tiered price (less than flat)
+    expect(order.total).toBeLessThan(p.unitPrice * 10);
+  });
+
+  it("clears the cart after placing an order", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 5);
+    useProductFinder.getState().placeOrder(1000003, "ord-clear");
+
+    const { cart } = useProductFinder.getState();
+    expect(Object.keys(cart)).toHaveLength(0);
+  });
+
+  it("prepends new orders so the most recent is first", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(1000004, "ord-first");
+
+    useProductFinder.getState().addToCart(p, 2);
+    useProductFinder.getState().placeOrder(1000005, "ord-second");
+
+    const { orders } = useProductFinder.getState();
+    expect(orders[0].id).toBe("ord-second");
+    expect(orders[1].id).toBe("ord-first");
+  });
+});
+
+// ─── orders – reorder ─────────────────────────────────────────────────────────
+
+describe("orders – reorder", () => {
+  beforeEach(resetStore);
+
+  it("replaces the cart with the lines from a past order", () => {
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
+    useProductFinder.getState().addToCart(p1, 4);
+    useProductFinder.getState().addToCart(p2, 7);
+    useProductFinder.getState().placeOrder(2000000, "reord-src");
+
+    // Cart is now empty — add a different product
+    useProductFinder.getState().addToCart(CATALOG_PRODUCTS[2], 99);
+
+    useProductFinder.getState().reorder("reord-src");
+
+    const { cart } = useProductFinder.getState();
+    expect(cart[p1.id]).toBeDefined();
+    expect(cart[p1.id].qty).toBe(4);
+    expect(cart[p2.id]).toBeDefined();
+    expect(cart[p2.id].qty).toBe(7);
+    // The third product should be gone (replaced)
+    expect(cart[CATALOG_PRODUCTS[2].id]).toBeUndefined();
+  });
+
+  it("reorder produces an independent deep copy: mutating cart does not alter stored order", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 3);
+    useProductFinder.getState().placeOrder(2000001, "reord-deep");
+
+    useProductFinder.getState().reorder("reord-deep");
+    // Mutate the reloaded cart qty
+    useProductFinder.getState().updateCartQty(p.id, 999);
+
+    // The stored order lines must be unchanged
+    const order = useProductFinder.getState().orders.find((o) => o.id === "reord-deep")!;
+    expect(order.lines[0].qty).toBe(3);
+  });
+
+  it("is a no-op when the id is not found", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 2);
+    useProductFinder.getState().reorder("ghost-order");
+    // cart unchanged
+    expect(useProductFinder.getState().cart[p.id]?.qty).toBe(2);
+  });
+});
+
+// ─── orders – deleteOrder ─────────────────────────────────────────────────────
+
+describe("orders – deleteOrder", () => {
+  beforeEach(resetStore);
+
+  it("removes the order with the given id", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(3000000, "del-ord-1");
+    useProductFinder.getState().addToCart(p, 2);
+    useProductFinder.getState().placeOrder(3000001, "del-ord-2");
+
+    useProductFinder.getState().deleteOrder("del-ord-1");
+
+    const { orders } = useProductFinder.getState();
+    expect(orders).toHaveLength(1);
+    expect(orders[0].id).toBe("del-ord-2");
+  });
+
+  it("is a no-op when the id is not found", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(3000100, "keep-ord");
+    useProductFinder.getState().deleteOrder("ghost-id");
+    expect(useProductFinder.getState().orders).toHaveLength(1);
+  });
+});
+
+// ─── orders – persistence & hydrateSavedState ─────────────────────────────────
+
+describe("orders – persistence via hydrateSavedState", () => {
+  beforeEach(resetStore);
+
+  it("persists orders to pf_orders key in localStorage when placeOrder is called", () => {
+    const p = CATALOG_PRODUCTS[0];
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().addToCart(p, 3);
+    useProductFinder.getState().placeOrder(4000000, "persist-ord");
+
+    const raw = mockStorage["pf_orders"];
+    expect(raw).toBeDefined();
+    const parsed = JSON.parse(raw) as Order[];
+    expect(parsed).toHaveLength(1);
+    expect(parsed[0].id).toBe("persist-ord");
+    expect(parsed[0].lines[0].qty).toBe(3);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("loads orders from pf_orders key when hydrateSavedState is called", () => {
+    const p = CATALOG_PRODUCTS[0];
+    const storedOrders: Order[] = [
+      { id: "hyd-ord-1", placedAt: 5000000, lines: [{ product: p, qty: 2 }], total: p.unitPrice * 2 },
+    ];
+    const mockStorage: Record<string, string> = {
+      pf_orders: JSON.stringify(storedOrders),
+    };
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    expect(orders).toHaveLength(1);
+    expect(orders[0].id).toBe("hyd-ord-1");
+    expect(orders[0].lines[0].qty).toBe(2);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+});
+
+// ─── orders – seed on first-ever load ─────────────────────────────────────────
+
+describe("orders – hydrateSavedState seed behavior", () => {
+  beforeEach(resetStore);
+
+  it("seeds 2 demo orders when pf_orders key is absent (null from getItem)", () => {
+    const mockStorage: Record<string, string> = {}; // no pf_orders key
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    expect(orders).toHaveLength(2);
+    // Seed also writes to localStorage so it persists
+    expect(mockStorage["pf_orders"]).toBeDefined();
+    const persisted = JSON.parse(mockStorage["pf_orders"]) as Order[];
+    expect(persisted).toHaveLength(2);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("does NOT seed when pf_orders is present but an empty array (key exists with value '[]')", () => {
+    const mockStorage: Record<string, string> = { pf_orders: "[]" };
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    expect(useProductFinder.getState().orders).toHaveLength(0);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("does NOT seed when pf_orders has real orders already", () => {
+    const p = CATALOG_PRODUCTS[0];
+    const existing: Order[] = [
+      { id: "existing-1", placedAt: 9000000, lines: [{ product: p, qty: 1 }], total: p.unitPrice },
+    ];
+    const mockStorage: Record<string, string> = { pf_orders: JSON.stringify(existing) };
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    expect(useProductFinder.getState().orders).toHaveLength(1);
+    expect(useProductFinder.getState().orders[0].id).toBe("existing-1");
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("seed orders have deterministic ids and fixed placedAt values", () => {
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    // Both orders have non-empty ids and positive placedAt timestamps
+    for (const o of orders) {
+      expect(o.id.length).toBeGreaterThan(0);
+      expect(o.placedAt).toBeGreaterThan(0);
+      expect(o.lines.length).toBeGreaterThan(0);
+      expect(o.total).toBeGreaterThan(0);
+    }
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("calling hydrateSavedState twice with absent key seeds only once (idempotent after first write)", () => {
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState(); // seeds 2, writes to mockStorage
+    resetStore();
+    hydrateSavedState(); // pf_orders now present → no re-seed
+    expect(useProductFinder.getState().orders).toHaveLength(2);
 
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });

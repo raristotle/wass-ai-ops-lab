@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useProductFinder, selectCartCount, selectCartTotal } from "@/lib/product-finder-store";
 import { tierUnitPrice, priceTiers } from "@/lib/product-finder-pricing";
-import type { SavedBasket } from "@/lib/product-finder-store";
+import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -23,6 +23,11 @@ export function CartDrawer() {
   const saveCurrentBasket = useProductFinder((s) => s.saveCurrentBasket);
   const loadBasket = useProductFinder((s) => s.loadBasket);
   const deleteBasket = useProductFinder((s) => s.deleteBasket);
+
+  const orders = useProductFinder((s) => s.orders);
+  const placeOrder = useProductFinder((s) => s.placeOrder);
+  const reorder = useProductFinder((s) => s.reorder);
+  const deleteOrder = useProductFinder((s) => s.deleteOrder);
 
   const items = Object.values(cart);
 
@@ -290,6 +295,66 @@ export function CartDrawer() {
           )}
         </div>
 
+        {/* ── Order History section — hidden during print ───────────────────── */}
+        <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
+            Order History
+          </p>
+
+          {orders.length === 0 ? (
+            <p className="text-xs text-[#B7C9D3]">No orders yet.</p>
+          ) : (
+            <ul className="space-y-1.5 max-h-48 overflow-y-auto">
+              {orders.map((order: Order) => {
+                const orderDate = new Date(order.placedAt);
+                const dateLabel = orderDate.toLocaleDateString(undefined, {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                });
+                const itemCount = order.lines.reduce((s, l) => s + l.qty, 0);
+                return (
+                  <li
+                    key={order.id}
+                    className="flex items-center gap-2 rounded border border-[#B7C9D3] bg-white px-3 py-2"
+                  >
+                    {/* Date + meta */}
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold text-[#1D252D]">
+                        {dateLabel}
+                      </p>
+                      <p className="text-[10px] text-[#4F758B]">
+                        {itemCount} {itemCount === 1 ? "item" : "items"} ·{" "}
+                        <span className="font-semibold">${order.total.toFixed(2)}</span>
+                      </p>
+                    </div>
+
+                    {/* Reorder button */}
+                    <button
+                      type="button"
+                      onClick={() => reorder(order.id)}
+                      className="shrink-0 rounded bg-[#00AA13] px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-[#009911]"
+                      aria-label={`Reorder items from ${dateLabel}`}
+                    >
+                      Reorder
+                    </button>
+
+                    {/* Delete button */}
+                    <button
+                      type="button"
+                      onClick={() => deleteOrder(order.id)}
+                      className="shrink-0 text-[#B7C9D3] transition-colors hover:text-red-600"
+                      aria-label={`Remove order from ${dateLabel}`}
+                    >
+                      ✕
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+
         {/* Footer — hidden during print */}
         {items.length > 0 && (
           <div className="shrink-0 border-t border-[#B7C9D3] bg-white px-5 py-5 space-y-3 print:hidden">
@@ -322,7 +387,7 @@ export function CartDrawer() {
               variant="outline"
               className="w-full border-[#1D252D] text-[#1D252D] hover:bg-[#F8FAFB]"
               onClick={() => {
-                // Add to Order — no-op in demo
+                placeOrder(Date.now());
               }}
             >
               Add to Order
