@@ -6,12 +6,12 @@ import { parseBomLines, matchBom } from "@/lib/product-finder-bom";
 import { apiSearch } from "@/lib/product-finder-api";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import type { MatchedBomLine } from "@/lib/product-finder-bom";
 
 // ─── Real searchFn: calls apiSearch with query as text, pageSize=1 ─────────────
 
-async function searchTopHit(query: string): Promise<WescoProduct | null> {
+async function searchTopHit(query: string): Promise<CatalogProduct | null> {
   try {
     const res = await apiSearch(
       {

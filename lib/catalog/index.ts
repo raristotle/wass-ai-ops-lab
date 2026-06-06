@@ -1,9 +1,9 @@
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import { generateCatalog } from "@/lib/catalog/generate";
 
 export interface Catalog {
-  products: WescoProduct[];
-  byId: Map<string, WescoProduct>;
+  products: CatalogProduct[];
+  byId: Map<string, CatalogProduct>;
   haystack: string[];
 }
 
@@ -19,8 +19,8 @@ function build(): Catalog {
 }
 
 // Cache on globalThis so warm serverless invocations and HMR reuse one instance.
-const g = globalThis as unknown as { __wescoCatalog?: Catalog };
+const g = globalThis as unknown as { __catalog?: Catalog };
 export function getCatalog(): Catalog {
-  if (!g.__wescoCatalog) g.__wescoCatalog = build();
-  return g.__wescoCatalog;
+  if (!g.__catalog) g.__catalog = build();
+  return g.__catalog;
 }

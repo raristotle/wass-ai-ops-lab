@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
+import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import { externalSearchLinks } from "@/lib/product-finder-links";
 import { priceTiers } from "@/lib/product-finder-pricing";
 import { apiGoesWith } from "@/lib/product-finder-api";
@@ -10,7 +10,7 @@ import { ProductArt } from "@/features/product-finder/ProductArt";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -87,7 +87,7 @@ export function ProductDetailModal() {
   const closeRef = useRef<HTMLButtonElement>(null);
 
   // Goes-with cross-sell
-  const [goesWithItems, setGoesWithItems] = useState<WescoProduct[]>([]);
+  const [goesWithItems, setGoesWithItems] = useState<CatalogProduct[]>([]);
 
   // Reset qty and fetch goes-with each time a new product opens
   useEffect(() => {

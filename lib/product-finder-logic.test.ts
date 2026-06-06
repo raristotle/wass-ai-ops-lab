@@ -15,13 +15,13 @@ import {
   getUpsells,
   getTotalBranchStock,
   getTotalDCStock,
-  WESCO_PRODUCTS,
-} from "@/data/mock/wesco-products";
-import type { WescoProduct, ProductSpec, ExternalSource } from "@/features/product-finder/types";
+  CATALOG_PRODUCTS,
+} from "@/data/mock/catalog-products";
+import type { CatalogProduct, ProductSpec, ExternalSource } from "@/features/product-finder/types";
 
 // ─── Helpers duplicated from SpecCompareModal for isolated testing ─────────────
 
-function buildSpecOrder(products: WescoProduct[]): ProductSpec[] {
+function buildSpecOrder(products: CatalogProduct[]): ProductSpec[] {
   const nonNegSeen = new Map<string, string>();
   const regularSeen = new Map<string, string>();
   for (const p of products) {
@@ -45,7 +45,7 @@ function buildSpecOrder(products: WescoProduct[]): ProductSpec[] {
   return [...nonNeg, ...regular];
 }
 
-function getSpecValue(product: WescoProduct, specName: string): string | null {
+function getSpecValue(product: CatalogProduct, specName: string): string | null {
   const found = product.specs.find((s) => s.name === specName);
   return found ? found.value : null;
 }
@@ -56,7 +56,7 @@ function allSame(values: (string | null)[]): boolean {
   return filled.every((v) => v === filled[0]);
 }
 
-function cheapestIndex(products: WescoProduct[]): number {
+function cheapestIndex(products: CatalogProduct[]): number {
   let minIdx = 0;
   for (let i = 1; i < products.length; i++) {
     if (products[i].unitPrice < products[minIdx].unitPrice) minIdx = i;
@@ -77,8 +77,8 @@ function bestPriceIndex(sources: ExternalSource[]): number {
 // ─── Tests ────────────────────────────────────────────────────────────────────
 
 describe("PRODUCT_MAP", () => {
-  it("contains every product from WESCO_PRODUCTS", () => {
-    expect(PRODUCT_MAP.size).toBe(WESCO_PRODUCTS.length);
+  it("contains every product from CATALOG_PRODUCTS", () => {
+    expect(PRODUCT_MAP.size).toBe(CATALOG_PRODUCTS.length);
   });
 
   it("retrieves the correct product by id", () => {
@@ -122,7 +122,7 @@ describe("getCrossSells", () => {
   });
 
   it("only returns valid products (no undefined)", () => {
-    for (const p of WESCO_PRODUCTS) {
+    for (const p of CATALOG_PRODUCTS) {
       const result = getCrossSells(p);
       expect(result.every((c) => c !== undefined)).toBe(true);
     }
@@ -165,7 +165,7 @@ describe("buildSpecOrder", () => {
   });
 
   it("returns an empty array for products with no specs", () => {
-    const emptyProduct: WescoProduct = {
+    const emptyProduct: CatalogProduct = {
       id: "test",
       sku: "TST",
       name: "Test",

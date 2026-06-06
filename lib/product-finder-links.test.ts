@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { externalSearchLinks } from "@/lib/product-finder-links";
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── Minimal product factory ──────────────────────────────────────────────────
 
-function makeProduct(overrides: Partial<WescoProduct> = {}): WescoProduct {
+function makeProduct(overrides: Partial<CatalogProduct> = {}): CatalogProduct {
   return {
     id: "TEST-001",
     sku: "TST001",

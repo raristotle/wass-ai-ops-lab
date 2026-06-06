@@ -1,4 +1,4 @@
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import { getCatalog } from "@/lib/catalog/index";
 
 /**
@@ -101,7 +101,7 @@ export const AFFINITY: Partial<Record<string, string[]>> = {
  *
  * Deterministic: no random; same catalog → same output.
  */
-export function goesWith(product: WescoProduct, k = 6): WescoProduct[] {
+export function goesWith(product: CatalogProduct, k = 6): CatalogProduct[] {
   const { products } = getCatalog();
 
   const affinityList = AFFINITY[product.subcategory];
@@ -135,9 +135,9 @@ export function goesWith(product: WescoProduct, k = 6): WescoProduct[] {
  * rank higher among same preferred/stock tier.
  */
 function sortByPreferredThenStock(
-  pool: WescoProduct[],
+  pool: CatalogProduct[],
   affinityList: string[]
-): WescoProduct[] {
+): CatalogProduct[] {
   const affinityIndex = new Map(affinityList.map((sub, i) => [sub, i]));
 
   return [...pool].sort((a, b) => {

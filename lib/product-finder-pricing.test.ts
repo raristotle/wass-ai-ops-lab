@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { priceTiers, tierUnitPrice } from "@/lib/product-finder-pricing";
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── Minimal product fixture ──────────────────────────────────────────────────
 
-function makeProduct(unitPrice: number): WescoProduct {
+function makeProduct(unitPrice: number): CatalogProduct {
   return {
     id: "test-1",
     sku: "TEST-001",

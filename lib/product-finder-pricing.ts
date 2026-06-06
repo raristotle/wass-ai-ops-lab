@@ -1,4 +1,4 @@
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── Tier definitions ─────────────────────────────────────────────────────────
 // Breaks at qty 1, 10, 50, 100 with discounts 0%, 5%, 10%, 15%.
@@ -21,7 +21,7 @@ const TIER_BREAKS: { minQty: number; discount: number }[] = [
  * and monotonically non-increasing unitPrice.
  */
 export function priceTiers(
-  product: WescoProduct
+  product: CatalogProduct
 ): { minQty: number; unitPrice: number }[] {
   return TIER_BREAKS.map(({ minQty, discount }) => ({
     minQty,
@@ -36,7 +36,7 @@ export function priceTiers(
  * using the highest tier whose minQty is <= qty.
  * Quantities below 1 are treated as 1 (tier 1 applies).
  */
-export function tierUnitPrice(product: WescoProduct, qty: number): number {
+export function tierUnitPrice(product: CatalogProduct, qty: number): number {
   const effectiveQty = Math.max(1, qty);
   const tiers = priceTiers(product);
 

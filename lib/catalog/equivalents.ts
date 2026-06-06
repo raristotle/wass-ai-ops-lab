@@ -1,8 +1,8 @@
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import { getCatalog } from "@/lib/catalog/index";
 import { scoreProduct } from "@/lib/product-finder-scoring";
 
-export function findEquivalents(product: WescoProduct, k = 8, branchId?: string): WescoProduct[] {
+export function findEquivalents(product: CatalogProduct, k = 8, branchId?: string): CatalogProduct[] {
   const { products } = getCatalog();
   let pool = products.filter((p) => p.id !== product.id && p.subcategory === product.subcategory);
   if (pool.length < k) {

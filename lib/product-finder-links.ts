@@ -1,4 +1,4 @@
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 export type ExternalLink = {
   distributor: string;
@@ -51,7 +51,7 @@ function sourcedCoversGeneric(sourcedName: string, genericName: string): boolean
  * - Always appends generic fallback rows for Grainger, Zoro, and Home Depot,
  *   deduped by distributor name against any sourced rows.
  */
-export function externalSearchLinks(product: WescoProduct): ExternalLink[] {
+export function externalSearchLinks(product: CatalogProduct): ExternalLink[] {
   // M3: avoid doubled brand in query when product name already starts with brand
   const queryText = product.name.toLowerCase().startsWith(product.brand.toLowerCase())
     ? product.name

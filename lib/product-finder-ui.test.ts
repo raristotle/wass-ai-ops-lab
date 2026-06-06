@@ -3,8 +3,8 @@
 // and ProductGrid.  Run: npm test  (vitest run, config: lib/**/*.test.ts)
 
 import { describe, it, expect } from "vitest";
-import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
-import type { WescoProduct, ProductSpec, BranchStock } from "@/features/product-finder/types";
+import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
+import type { CatalogProduct, ProductSpec, BranchStock } from "@/features/product-finder/types";
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -24,7 +24,7 @@ const BRANCH_DAL: BranchStock = {
   quantity: 67,
 };
 
-function makeProduct(overrides: Partial<WescoProduct> = {}): WescoProduct {
+function makeProduct(overrides: Partial<CatalogProduct> = {}): CatalogProduct {
   return {
     id: "test-product",
     sku: "TEST-001",
@@ -118,8 +118,8 @@ describe("StockBadge branch qty resolution", () => {
 // Pure replica of the function used inside ProductCard so we can test it
 // without importing a React component.
 function computeCompatScore(
-  product: WescoProduct,
-  reference: WescoProduct
+  product: CatalogProduct,
+  reference: CatalogProduct
 ): number {
   const refNonNeg = reference.specs.filter((s) => s.isNonNeg);
   if (refNonNeg.length === 0) return 100;
@@ -199,10 +199,10 @@ describe("computeCompatScore", () => {
 // ─── ProductGrid sort logic ────────────────────────────────────────────────────
 
 function sortProducts(
-  products: WescoProduct[],
+  products: CatalogProduct[],
   sortKey: string,
-  referenceProduct?: WescoProduct | null
-): WescoProduct[] {
+  referenceProduct?: CatalogProduct | null
+): CatalogProduct[] {
   return [...products].sort((a, b) => {
     if (sortKey === "preferred")
       return (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0);

@@ -1,5 +1,5 @@
 import type {
-  WescoProduct,
+  CatalogProduct,
   RecommendationScore,
   RecommendationTier,
   ScoreFactor,
@@ -26,14 +26,14 @@ export function tierForScore(total: number): RecommendationTier {
   return "partial";
 }
 
-function branchQtyFor(product: WescoProduct, branchId?: string): number {
+function branchQtyFor(product: CatalogProduct, branchId?: string): number {
   if (!branchId) return 0;
   return product.branchStock.find((s) => s.branchId === branchId)?.quantity ?? 0;
 }
 
 export function scoreProduct(
-  candidate: WescoProduct,
-  reference: WescoProduct,
+  candidate: CatalogProduct,
+  reference: CatalogProduct,
   userBranchId?: string,
 ): RecommendationScore {
   const factors: ScoreFactor[] = [];

@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useProductFinder, selectCartCount, selectCartTotal, hydrateSavedState } from "@/lib/product-finder-store";
 import type { SavedBasket } from "@/lib/product-finder-store";
-import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
+import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
 
 // ─── Fetch mock ───────────────────────────────────────────────────────────────
@@ -80,8 +80,8 @@ describe("selectCartCount", () => {
   });
 
   it("returns total quantity across multiple items", () => {
-    const p1 = WESCO_PRODUCTS[0];
-    const p2 = WESCO_PRODUCTS[1];
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
     useProductFinder.getState().addToCart(p1, 3);
     useProductFinder.getState().addToCart(p2, 7);
     const state = useProductFinder.getState();
@@ -89,7 +89,7 @@ describe("selectCartCount", () => {
   });
 
   it("increments correctly when adding the same product twice", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 2);
     useProductFinder.getState().addToCart(p, 5);
     const state = useProductFinder.getState();
@@ -108,15 +108,15 @@ describe("selectCartTotal", () => {
   });
 
   it("returns unit price × qty for a single item", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 4);
     const state = useProductFinder.getState();
     expect(selectCartTotal(state)).toBeCloseTo(p.unitPrice * 4, 5);
   });
 
   it("sums across multiple items", () => {
-    const p1 = WESCO_PRODUCTS[0];
-    const p2 = WESCO_PRODUCTS[1];
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
     useProductFinder.getState().addToCart(p1, 2);
     useProductFinder.getState().addToCart(p2, 3);
     const state = useProductFinder.getState();
@@ -125,7 +125,7 @@ describe("selectCartTotal", () => {
   });
 
   it("applies tiered (5% off) pricing when qty >= 10", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 10);
     const state = useProductFinder.getState();
     const expectedUnitPrice = tierUnitPrice(p, 10); // 5% off
@@ -134,7 +134,7 @@ describe("selectCartTotal", () => {
   });
 
   it("applies tiered (10% off) pricing when qty >= 50", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 50);
     const state = useProductFinder.getState();
     const expectedUnitPrice = tierUnitPrice(p, 50); // 10% off
@@ -142,7 +142,7 @@ describe("selectCartTotal", () => {
   });
 
   it("applies tiered (15% off) pricing when qty >= 100", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 100);
     const state = useProductFinder.getState();
     const expectedUnitPrice = tierUnitPrice(p, 100); // 15% off
@@ -150,7 +150,7 @@ describe("selectCartTotal", () => {
   });
 
   it("tiered total is less than flat total when qty triggers a break", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 10);
     const state = useProductFinder.getState();
     const tieredTotal = selectCartTotal(state);
@@ -165,7 +165,7 @@ describe("cart mutations", () => {
   beforeEach(resetStore);
 
   it("removeFromCart deletes the item", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 2);
     useProductFinder.getState().removeFromCart(p.id);
     const state = useProductFinder.getState();
@@ -174,7 +174,7 @@ describe("cart mutations", () => {
   });
 
   it("updateCartQty changes quantity", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 2);
     useProductFinder.getState().updateCartQty(p.id, 10);
     const state = useProductFinder.getState();
@@ -182,7 +182,7 @@ describe("cart mutations", () => {
   });
 
   it("updateCartQty with qty <= 0 removes item", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 2);
     useProductFinder.getState().updateCartQty(p.id, 0);
     const state = useProductFinder.getState();
@@ -190,8 +190,8 @@ describe("cart mutations", () => {
   });
 
   it("clearCart empties everything", () => {
-    const p1 = WESCO_PRODUCTS[0];
-    const p2 = WESCO_PRODUCTS[1];
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
     useProductFinder.getState().addToCart(p1, 1);
     useProductFinder.getState().addToCart(p2, 1);
     useProductFinder.getState().clearCart();
@@ -220,14 +220,14 @@ describe("filter actions", () => {
   });
 
   it("toggleBrand adds a brand when not present", () => {
-    const brand = WESCO_PRODUCTS[0].brand;
+    const brand = CATALOG_PRODUCTS[0].brand;
     useProductFinder.getState().toggleBrand(brand);
     const { filters } = useProductFinder.getState();
     expect(filters.brands.has(brand)).toBe(true);
   });
 
   it("toggleSubcategory adds a subcategory when not present", () => {
-    const sub = WESCO_PRODUCTS[0].subcategory;
+    const sub = CATALOG_PRODUCTS[0].subcategory;
     useProductFinder.getState().toggleSubcategory(sub);
     const { filters } = useProductFinder.getState();
     expect(filters.subcategories.has(sub)).toBe(true);
@@ -242,7 +242,7 @@ describe("filter actions", () => {
 
   it("clearFilters resets all filter values", () => {
     useProductFinder.getState().toggleCategory("electrical");
-    useProductFinder.getState().toggleBrand(WESCO_PRODUCTS[0].brand);
+    useProductFinder.getState().toggleBrand(CATALOG_PRODUCTS[0].brand);
     useProductFinder.getState().setOnlyPreferred(true);
     useProductFinder.getState().setPriceRange(5, 50);
     useProductFinder.getState().clearFilters();
@@ -290,7 +290,7 @@ describe("favorites & recently viewed", () => {
   beforeEach(resetStore);
 
   it("toggleFavorite adds then removes a product", () => {
-    const product = WESCO_PRODUCTS[0];
+    const product = CATALOG_PRODUCTS[0];
     useProductFinder.getState().toggleFavorite(product);
     expect(useProductFinder.getState().isFavorite(product.id)).toBe(true);
     useProductFinder.getState().toggleFavorite(product);
@@ -298,7 +298,7 @@ describe("favorites & recently viewed", () => {
   });
 
   it("setActiveProduct records recently viewed, most-recent-first, deduped", async () => {
-    const [a, b] = WESCO_PRODUCTS;
+    const [a, b] = CATALOG_PRODUCTS;
     await useProductFinder.getState().setActiveProduct(a);
     await useProductFinder.getState().setActiveProduct(b);
     await useProductFinder.getState().setActiveProduct(a);
@@ -306,8 +306,8 @@ describe("favorites & recently viewed", () => {
   });
 
   it("recentlyViewed caps at 12 entries", async () => {
-    for (let i = 0; i < WESCO_PRODUCTS.length && i < 15; i++) {
-      await useProductFinder.getState().setActiveProduct(WESCO_PRODUCTS[i]);
+    for (let i = 0; i < CATALOG_PRODUCTS.length && i < 15; i++) {
+      await useProductFinder.getState().setActiveProduct(CATALOG_PRODUCTS[i]);
     }
     expect(useProductFinder.getState().recentlyViewed.length).toBeLessThanOrEqual(12);
   });
@@ -325,9 +325,9 @@ describe("setActiveProduct enrichment", () => {
   });
 
   it("enriches activeProduct and results from the detail API response", async () => {
-    const product = WESCO_PRODUCTS[0];
+    const product = CATALOG_PRODUCTS[0];
     const enriched = { ...product, description: "enriched-description" };
-    const equivalents = [WESCO_PRODUCTS[1], WESCO_PRODUCTS[2]];
+    const equivalents = [CATALOG_PRODUCTS[1], CATALOG_PRODUCTS[2]];
     detailProduct = enriched;
     detailEquivalents = equivalents;
 
@@ -341,9 +341,9 @@ describe("setActiveProduct enrichment", () => {
 
   it("setActiveProduct(null) clears activeProduct and restores prior search results", async () => {
     // Step 1: simulate viewing equivalents for a product
-    const product = WESCO_PRODUCTS[0];
+    const product = CATALOG_PRODUCTS[0];
     const enriched = { ...product, description: "enriched" };
-    const equivalents = [WESCO_PRODUCTS[1], WESCO_PRODUCTS[2]];
+    const equivalents = [CATALOG_PRODUCTS[1], CATALOG_PRODUCTS[2]];
     detailProduct = enriched;
     detailEquivalents = equivalents;
     await useProductFinder.getState().setActiveProduct(product);
@@ -352,7 +352,7 @@ describe("setActiveProduct enrichment", () => {
     expect(useProductFinder.getState().results).toEqual(equivalents);
 
     // Step 2: configure the search mock to return distinct prior-search items
-    const priorSearchItems = [WESCO_PRODUCTS[3], WESCO_PRODUCTS[4]];
+    const priorSearchItems = [CATALOG_PRODUCTS[3], CATALOG_PRODUCTS[4]];
     const priorSearchTotal = 42;
     searchItems = priorSearchItems;
     searchTotal = priorSearchTotal;
@@ -438,13 +438,13 @@ describe("detailModalProduct", () => {
   });
 
   it("setDetailModalProduct stores the product in state", () => {
-    const product = WESCO_PRODUCTS[0];
+    const product = CATALOG_PRODUCTS[0];
     useProductFinder.getState().setDetailModalProduct(product);
     expect(useProductFinder.getState().detailModalProduct).toEqual(product);
   });
 
   it("setDetailModalProduct(null) clears the product", () => {
-    const product = WESCO_PRODUCTS[0];
+    const product = CATALOG_PRODUCTS[0];
     useProductFinder.getState().setDetailModalProduct(product);
     useProductFinder.getState().setDetailModalProduct(null);
     expect(useProductFinder.getState().detailModalProduct).toBeNull();
@@ -545,7 +545,7 @@ describe("clearRecentlyViewed", () => {
   beforeEach(resetStore);
 
   it("empties recentlyViewed and recentSnapshots", async () => {
-    const [a, b] = WESCO_PRODUCTS;
+    const [a, b] = CATALOG_PRODUCTS;
     await useProductFinder.getState().setActiveProduct(a);
     await useProductFinder.getState().setActiveProduct(b);
     expect(useProductFinder.getState().recentlyViewed.length).toBeGreaterThan(0);
@@ -587,8 +587,8 @@ describe("savedBaskets – saveCurrentBasket", () => {
   beforeEach(resetStore);
 
   it("snapshots cart lines into a new saved basket with the given name", () => {
-    const p1 = WESCO_PRODUCTS[0];
-    const p2 = WESCO_PRODUCTS[1];
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
     useProductFinder.getState().addToCart(p1, 3);
     useProductFinder.getState().addToCart(p2, 7);
 
@@ -609,7 +609,7 @@ describe("savedBaskets – saveCurrentBasket", () => {
   });
 
   it("is a no-op when the name is empty after trimming", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 1);
     useProductFinder.getState().saveCurrentBasket("  ", "id-002", 1000001);
     expect(useProductFinder.getState().savedBaskets).toHaveLength(0);
@@ -621,8 +621,8 @@ describe("savedBaskets – saveCurrentBasket", () => {
   });
 
   it("overwrites (does not duplicate) a basket with the same name case-insensitively", () => {
-    const p1 = WESCO_PRODUCTS[0];
-    const p2 = WESCO_PRODUCTS[1];
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
 
     useProductFinder.getState().addToCart(p1, 2);
     useProductFinder.getState().saveCurrentBasket("Electrical Run", "id-010", 1000010);
@@ -643,7 +643,7 @@ describe("savedBaskets – saveCurrentBasket", () => {
   });
 
   it("prepends a new basket at the front of the list", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 1);
     useProductFinder.getState().saveCurrentBasket("First", "id-100", 1000100);
     useProductFinder.getState().saveCurrentBasket("Second", "id-101", 1000101);
@@ -658,8 +658,8 @@ describe("savedBaskets – loadBasket", () => {
   beforeEach(resetStore);
 
   it("replaces the current cart with the saved basket lines (deep clone)", () => {
-    const p1 = WESCO_PRODUCTS[0];
-    const p2 = WESCO_PRODUCTS[1];
+    const p1 = CATALOG_PRODUCTS[0];
+    const p2 = CATALOG_PRODUCTS[1];
 
     // Save a basket with p1 qty 4
     useProductFinder.getState().addToCart(p1, 4);
@@ -679,7 +679,7 @@ describe("savedBaskets – loadBasket", () => {
   });
 
   it("loadBasket is independent: mutating cart after load does not change the saved basket", () => {
-    const p1 = WESCO_PRODUCTS[0];
+    const p1 = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p1, 3);
     useProductFinder.getState().saveCurrentBasket("Isolated", "basket-iso", 2000100);
 
@@ -693,7 +693,7 @@ describe("savedBaskets – loadBasket", () => {
   });
 
   it("is a no-op when the id is not found", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 2);
     useProductFinder.getState().loadBasket("does-not-exist");
     // cart should be unchanged
@@ -705,7 +705,7 @@ describe("savedBaskets – deleteBasket", () => {
   beforeEach(resetStore);
 
   it("removes the basket with the given id", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 1);
     useProductFinder.getState().saveCurrentBasket("To Delete", "del-001", 3000000);
     useProductFinder.getState().saveCurrentBasket("To Keep", "keep-001", 3000001);
@@ -718,7 +718,7 @@ describe("savedBaskets – deleteBasket", () => {
   });
 
   it("is a no-op when the id is not found", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 1);
     useProductFinder.getState().saveCurrentBasket("Existing", "existing-1", 3000100);
     useProductFinder.getState().deleteBasket("ghost-id");
@@ -730,7 +730,7 @@ describe("savedBaskets – renameBasket", () => {
   beforeEach(resetStore);
 
   it("renames the basket with the given id", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 1);
     useProductFinder.getState().saveCurrentBasket("Old Name", "rename-001", 4000000);
 
@@ -740,7 +740,7 @@ describe("savedBaskets – renameBasket", () => {
   });
 
   it("trims the new name before saving", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 1);
     useProductFinder.getState().saveCurrentBasket("Padded", "rename-002", 4000001);
 
@@ -750,7 +750,7 @@ describe("savedBaskets – renameBasket", () => {
   });
 
   it("is a no-op when the trimmed new name is empty", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     useProductFinder.getState().addToCart(p, 1);
     useProductFinder.getState().saveCurrentBasket("Keep This", "rename-003", 4000002);
 
@@ -764,7 +764,7 @@ describe("savedBaskets – persistence via hydrateSavedState", () => {
   beforeEach(resetStore);
 
   it("loads savedBaskets from pf_saved_baskets key when localStorage has valid data", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     const storedBaskets: SavedBasket[] = [
       { id: "hydrate-1", name: "Hydrated Basket", lines: [{ product: p, qty: 2 }], savedAt: 5000000 },
     ];
@@ -788,7 +788,7 @@ describe("savedBaskets – persistence via hydrateSavedState", () => {
   });
 
   it("persists savedBaskets to localStorage when saveCurrentBasket is called", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     const mockStorage: Record<string, string> = {};
     const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
     (globalThis as Record<string, unknown>).localStorage = {
@@ -811,7 +811,7 @@ describe("savedBaskets – persistence via hydrateSavedState", () => {
   });
 
   it("persists savedBaskets to localStorage when deleteBasket is called", () => {
-    const p = WESCO_PRODUCTS[0];
+    const p = CATALOG_PRODUCTS[0];
     const mockStorage: Record<string, string> = {};
     const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
     (globalThis as Record<string, unknown>).localStorage = {

@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
 import { useProductFinder } from "@/lib/product-finder-store";
-import type { WescoProduct, SortKey } from "@/features/product-finder/types";
+import type { CatalogProduct, SortKey } from "@/features/product-finder/types";
 
 interface ProductGridProps {
-  products: WescoProduct[];
-  referenceProduct?: WescoProduct | null;
+  products: CatalogProduct[];
+  referenceProduct?: CatalogProduct | null;
 }
 
 const SORT_OPTIONS: { value: SortKey; label: string }[] = [

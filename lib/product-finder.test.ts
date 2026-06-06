@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { searchProducts, getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
+import { searchProducts, getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 
 // ─── searchProducts ────────────────────────────────────────────────────────────
 

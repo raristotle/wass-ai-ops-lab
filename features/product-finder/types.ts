@@ -54,7 +54,7 @@ export interface ProductSpec {
   isNonNeg?: boolean;
 }
 
-export interface WescoProduct {
+export interface CatalogProduct {
   id: string;
   sku: string;
   name: string;
@@ -81,15 +81,15 @@ export interface BomLine {
   rawText: string;
   quantity: number;
   description: string;
-  resolved: WescoProduct | null;
-  alternatives: WescoProduct[];
+  resolved: CatalogProduct | null;
+  alternatives: CatalogProduct[];
 }
 
 export interface SearchResult {
-  product: WescoProduct;
-  alternatives: WescoProduct[];
-  crossSells: WescoProduct[];
-  upsells: WescoProduct[];
+  product: CatalogProduct;
+  alternatives: CatalogProduct[];
+  crossSells: CatalogProduct[];
+  upsells: CatalogProduct[];
 }
 
 export type ViewMode = "list" | "grid";
@@ -161,7 +161,7 @@ export interface ProductSnapshot {
 }
 
 export interface SearchResponse {
-  items: WescoProduct[];
+  items: CatalogProduct[];
   total: number;
   page: number;
   pageSize: number;
@@ -176,6 +176,6 @@ export interface SuggestItem {
 }
 
 export interface ProductDetail {
-  product: WescoProduct;
-  equivalents: WescoProduct[];
+  product: CatalogProduct;
+  equivalents: CatalogProduct[];
 }

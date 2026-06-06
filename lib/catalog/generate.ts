@@ -1,7 +1,7 @@
-import type { WescoProduct, ProductCategory, ProductSpec, BranchStock, DCStock, ExternalSource } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductCategory, ProductSpec, BranchStock, DCStock, ExternalSource } from "@/features/product-finder/types";
 import { CATEGORIES, TAXONOMY, type SubcategoryTemplate } from "@/lib/catalog/taxonomy";
 import { makeRng, pick, randInt, round2 } from "@/lib/catalog/prng";
-import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
+import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 
 export const CATALOG_SIZE = 60000;
 const FIXED_SEED = 1337;
@@ -50,7 +50,7 @@ function genOne(
   category: ProductCategory,
   sub: SubcategoryTemplate,
   seq: number,
-): WescoProduct {
+): CatalogProduct {
   const brand = pick(rng, sub.brands);
   const specs: ProductSpec[] = sub.specs.map((s) => ({
     name: s.name,
@@ -77,20 +77,20 @@ function genOne(
   };
 }
 
-export function generateCatalog(size: number = CATALOG_SIZE): WescoProduct[] {
+export function generateCatalog(size: number = CATALOG_SIZE): CatalogProduct[] {
   const rng = makeRng(FIXED_SEED);
   // Fail fast if any curated product is missing a non-negotiable spec — data gaps must not
   // silently shrink the catalog or break cross-sell/upsell/alternative links.
-  for (const p of WESCO_PRODUCTS) {
+  for (const p of CATALOG_PRODUCTS) {
     if (!p.specs.some((s) => s.isNonNeg)) {
       throw new Error(
         `Curated product "${p.id}" has no isNonNeg spec. ` +
-        `Add isNonNeg: true to at least one spec in data/mock/wesco-products.ts.`
+        `Add isNonNeg: true to at least one spec in data/mock/catalog-products.ts.`
       );
     }
   }
-  const featured = WESCO_PRODUCTS.slice(0, Math.min(WESCO_PRODUCTS.length, size));
-  const out: WescoProduct[] = [...featured];
+  const featured = CATALOG_PRODUCTS.slice(0, Math.min(CATALOG_PRODUCTS.length, size));
+  const out: CatalogProduct[] = [...featured];
   const usedIds = new Set(out.map((p) => p.id));
   const remaining = size - out.length;
   if (remaining <= 0) return out.slice(0, size);

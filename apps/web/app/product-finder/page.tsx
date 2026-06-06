@@ -9,14 +9,14 @@ import { ProductGrid } from "@/features/product-finder/ProductGrid";
 import { ExternalSourcesCard } from "@/features/product-finder/ExternalSourcesCard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import { LandingState, NoResultsState } from "@/features/product-finder/EmptyState";
 import { SavedAndRecentPanel } from "@/features/product-finder/SavedAndRecentPanel";
 
 // ─── Active Product Banner ────────────────────────────────────────────────────
 
 interface ActiveProductBannerProps {
-  product: WescoProduct;
+  product: CatalogProduct;
 }
 
 function ActiveProductBanner({ product }: ActiveProductBannerProps) {
@@ -172,7 +172,7 @@ export default function ProductFinderPage() {
     filters.priceMin !== null ||
     filters.priceMax !== null;
 
-  const totalWescoStock = activeProduct
+  const totalInStock = activeProduct
     ? activeProduct.branchStock.reduce((s, b) => s + b.quantity, 0) +
       activeProduct.dcStock.reduce((s, d) => s + d.quantity, 0)
     : 0;
@@ -192,7 +192,7 @@ export default function ProductFinderPage() {
               </div>
 
               {/* Right: external sources */}
-              {totalWescoStock === 0 && (
+              {totalInStock === 0 && (
                 <div className="w-full shrink-0 lg:w-72">
                   <ExternalSourcesCard product={activeProduct} />
                 </div>

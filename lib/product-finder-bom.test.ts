@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { parseBomLines, matchBom, BOM_LINE_CAP } from "@/lib/product-finder-bom";
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── parseBomLines ────────────────────────────────────────────────────────────
 
@@ -179,7 +179,7 @@ describe("parseBomLines", () => {
 
 // ─── matchBom ─────────────────────────────────────────────────────────────────
 
-const MOCK_PRODUCT: WescoProduct = {
+const MOCK_PRODUCT: CatalogProduct = {
   id: "p-001",
   sku: "SKU-001",
   name: "15A Circuit Breaker",

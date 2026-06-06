@@ -1,11 +1,11 @@
 import { create } from "zustand";
-import type { FilterState, ParsedFilter, SortKey, ViewMode, WescoProduct, BomLine, AuthUser, ProductCategory } from "@/features/product-finder/types";
+import type { FilterState, ParsedFilter, SortKey, ViewMode, CatalogProduct, BomLine, AuthUser, ProductCategory } from "@/features/product-finder/types";
 
 // ─── SavedBasket type ─────────────────────────────────────────────────────────
 export type SavedBasket = {
   id: string;
   name: string;
-  lines: { product: WescoProduct; qty: number }[];
+  lines: { product: CatalogProduct; qty: number }[];
   savedAt: number;
 };
 import { parseQuery } from "@/lib/product-finder-nl-search";
@@ -15,7 +15,7 @@ import {
   getAlternatives,
   getCrossSells,
   getUpsells,
-} from "@/data/mock/wesco-products";
+} from "@/data/mock/catalog-products";
 import { apiSearch, apiGetProduct } from "@/lib/product-finder-api";
 import type { ProductSnapshot } from "@/features/product-finder/types";
 
@@ -76,8 +76,8 @@ export interface ProductFinderState {
   parseBom: () => void;
 
   // Active product (single search result)
-  activeProduct: WescoProduct | null;
-  setActiveProduct: (p: WescoProduct | null) => Promise<void>;
+  activeProduct: CatalogProduct | null;
+  setActiveProduct: (p: CatalogProduct | null) => Promise<void>;
 
   // Filters
   filters: FilterState;
@@ -100,16 +100,16 @@ export interface ProductFinderState {
   setCompareModalOpen: (v: boolean) => void;
 
   // Detail modal
-  detailModalProduct: WescoProduct | null;
-  setDetailModalProduct: (p: WescoProduct | null) => void;
+  detailModalProduct: CatalogProduct | null;
+  setDetailModalProduct: (p: CatalogProduct | null) => void;
 
   // BOM import modal
   bomModalOpen: boolean;
   setBomModalOpen: (v: boolean) => void;
 
   // Cart (basket)
-  cart: Record<string, { product: WescoProduct; qty: number }>;
-  addToCart: (product: WescoProduct, qty?: number) => void;
+  cart: Record<string, { product: CatalogProduct; qty: number }>;
+  addToCart: (product: CatalogProduct, qty?: number) => void;
   removeFromCart: (id: string) => void;
   updateCartQty: (id: string, qty: number) => void;
   clearCart: () => void;
@@ -127,7 +127,7 @@ export interface ProductFinderState {
   favorites: string[];
   favoriteSnapshots: Record<string, ProductSnapshot>;
   recentSnapshots: Record<string, ProductSnapshot>;
-  toggleFavorite: (product: WescoProduct) => void;
+  toggleFavorite: (product: CatalogProduct) => void;
   isFavorite: (id: string) => boolean;
   recentlyViewed: string[];
   searchHistory: string[];
@@ -136,7 +136,7 @@ export interface ProductFinderState {
   clearRecentlyViewed: () => void;
 
   // Derived / Results
-  results: WescoProduct[];
+  results: CatalogProduct[];
   loading: boolean;
   error: string | null;
   page: number;
@@ -541,7 +541,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   loadBasket(id) {
     const basket = get().savedBaskets.find((b) => b.id === id);
     if (!basket) return;
-    const newCart: Record<string, { product: WescoProduct; qty: number }> = {};
+    const newCart: Record<string, { product: CatalogProduct; qty: number }> = {};
     for (const line of basket.lines) {
       newCart[line.product.id] = { product: line.product, qty: line.qty };
     }

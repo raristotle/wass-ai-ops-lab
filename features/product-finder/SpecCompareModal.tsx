@@ -2,11 +2,11 @@
 
 import type { MouseEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { PRODUCT_MAP, getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
+import { PRODUCT_MAP, getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import type { WescoProduct, ProductSpec } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 
 // ─── Print date helper ────────────────────────────────────────────────────────
 
@@ -20,7 +20,7 @@ function formatPrintDate(): string {
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
-function buildSpecOrder(products: WescoProduct[]): ProductSpec[] {
+function buildSpecOrder(products: CatalogProduct[]): ProductSpec[] {
   const nonNegSeen = new Map<string, string>(); // name -> first value seen
   const regularSeen = new Map<string, string>();
 
@@ -46,7 +46,7 @@ function buildSpecOrder(products: WescoProduct[]): ProductSpec[] {
   return [...nonNeg, ...regular];
 }
 
-function getSpecValue(product: WescoProduct, specName: string): string | null {
+function getSpecValue(product: CatalogProduct, specName: string): string | null {
   const found = product.specs.find((s) => s.name === specName);
   return found ? found.value : null;
 }
@@ -57,7 +57,7 @@ function allSame(values: (string | null)[]): boolean {
   return filled.every((v) => v === filled[0]);
 }
 
-function cheapestIndex(products: WescoProduct[]): number {
+function cheapestIndex(products: CatalogProduct[]): number {
   let minIdx = 0;
   for (let i = 1; i < products.length; i++) {
     if (products[i].unitPrice < products[minIdx].unitPrice) minIdx = i;
@@ -78,9 +78,9 @@ export function SpecCompareModal() {
   if (!compareModalOpen) return null;
 
   // Resolve compare products: look in PRODUCT_MAP first, fallback to results
-  const compareProducts: WescoProduct[] = Array.from(compareIds)
+  const compareProducts: CatalogProduct[] = Array.from(compareIds)
     .map((id) => PRODUCT_MAP.get(id) ?? results.find((p) => p.id === id) ?? null)
-    .filter((p): p is WescoProduct => p !== null)
+    .filter((p): p is CatalogProduct => p !== null)
     .slice(0, 4);
 
   if (compareProducts.length === 0) return null;

@@ -3,14 +3,14 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { BomLine, WescoProduct } from "@/features/product-finder/types";
+import type { BomLine, CatalogProduct } from "@/features/product-finder/types";
 
 interface BomLineCardProps {
   line: BomLine;
-  onSelect: (product: WescoProduct) => void;
+  onSelect: (product: CatalogProduct) => void;
 }
 
-function StockBadge({ product }: { product: WescoProduct }) {
+function StockBadge({ product }: { product: CatalogProduct }) {
   const branchQty = product.branchStock.reduce((s, b) => s + b.quantity, 0);
   const dcQty = product.dcStock.reduce((s, d) => s + d.quantity, 0);
 
@@ -36,7 +36,7 @@ function StockBadge({ product }: { product: WescoProduct }) {
 }
 
 export function BomLineCard({ line, onSelect }: BomLineCardProps) {
-  const resolved: WescoProduct | null = line.resolved;
+  const resolved: CatalogProduct | null = line.resolved;
 
   return (
     <div

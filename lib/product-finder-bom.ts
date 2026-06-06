@@ -6,7 +6,7 @@
  *                  without a real network.
  */
 
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -25,7 +25,7 @@ export type ParsedBomLine = {
 };
 
 export type MatchedBomLine = ParsedBomLine & {
-  match: WescoProduct | null;
+  match: CatalogProduct | null;
 };
 
 // ─── parseBomLines ────────────────────────────────────────────────────────────
@@ -126,7 +126,7 @@ async function batchedAwait<T, R>(
  * Match parsed BOM lines against the catalog via an injected search function.
  *
  * @param parsed    Output of parseBomLines.
- * @param searchFn  Async function: query string → WescoProduct | null (top hit).
+ * @param searchFn  Async function: query string → CatalogProduct | null (top hit).
  *                  Errors from searchFn are caught and treated as no-match.
  * @returns         Array of MatchedBomLine with `.match` populated.
  *
@@ -139,12 +139,12 @@ async function batchedAwait<T, R>(
  */
 export async function matchBom(
   parsed: ParsedBomLine[],
-  searchFn: (query: string) => Promise<WescoProduct | null>
+  searchFn: (query: string) => Promise<CatalogProduct | null>
 ): Promise<MatchedBomLine[]> {
   return batchedAwait(
     parsed,
     async (line) => {
-      let match: WescoProduct | null = null;
+      let match: CatalogProduct | null = null;
       try {
         match = await searchFn(line.query);
       } catch {

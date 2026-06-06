@@ -57,8 +57,8 @@ export async function apiGetProduct(
   return res.json();
 }
 
-export async function apiGoesWith(id: string): Promise<import("@/features/product-finder/types").WescoProduct[]> {
+export async function apiGoesWith(id: string): Promise<import("@/features/product-finder/types").CatalogProduct[]> {
   const res = await fetch(`/api/products/${encodeURIComponent(id)}/goeswith`);
   if (!res.ok) return [];
-  return (await res.json()).items as import("@/features/product-finder/types").WescoProduct[];
+  return (await res.json()).items as import("@/features/product-finder/types").CatalogProduct[];
 }

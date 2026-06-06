@@ -1,4 +1,4 @@
-import type { WescoProduct, ProductCategory, SortKey, SearchResponse } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductCategory, SortKey, SearchResponse } from "@/features/product-finder/types";
 import { getCatalog } from "@/lib/catalog/index";
 
 export interface SearchFilters {
@@ -20,11 +20,11 @@ export interface SearchParams {
   pageSize?: number;
 }
 
-function totalBranch(p: WescoProduct): number {
+function totalBranch(p: CatalogProduct): number {
   return p.branchStock.reduce((s, b) => s + b.quantity, 0);
 }
 
-function sortItems(items: WescoProduct[], sort: SortKey): WescoProduct[] {
+function sortItems(items: CatalogProduct[], sort: SortKey): CatalogProduct[] {
   const arr = [...items];
   switch (sort) {
     case "preferred": return arr.sort((a, b) => (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0));
@@ -49,7 +49,7 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
 
   const terms = text.split(/\s+/).filter(Boolean);
 
-  const matched: WescoProduct[] = [];
+  const matched: CatalogProduct[] = [];
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
     if (terms.length > 0 && !terms.every((t) => haystack[i].includes(t))) continue;

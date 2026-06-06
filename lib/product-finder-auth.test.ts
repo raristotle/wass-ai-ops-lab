@@ -7,7 +7,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 
 // Mock the data layer so the store can be imported in a Node environment without loading the full product dataset.
-vi.mock("@/data/mock/wesco-products", () => ({
+vi.mock("@/data/mock/catalog-products", () => ({
   searchProducts: vi.fn(() => []),
   getAlternatives: vi.fn(() => []),
   getCrossSells: vi.fn(() => []),

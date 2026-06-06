@@ -3,12 +3,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import type { WescoProduct, ExternalSource } from "@/features/product-finder/types";
+import type { CatalogProduct, ExternalSource } from "@/features/product-finder/types";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Props {
-  product: WescoProduct;
+  product: CatalogProduct;
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────

@@ -1,4 +1,4 @@
-import { ALL_BRANDS } from "@/data/mock/wesco-products";
+import { ALL_BRANDS } from "@/data/mock/catalog-products";
 import type { ParsedFilter, ParsedFilterKind, ParsedQuery, ProductCategory } from "@/features/product-finder/types";
 
 function escapeRe(s: string): string {

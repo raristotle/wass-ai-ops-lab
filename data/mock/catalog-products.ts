@@ -1,4 +1,4 @@
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── Branches ────────────────────────────────────────────────────────────────
 const BRANCHES = {
@@ -30,7 +30,7 @@ const d = (tex: number, gulf = 0, sw = 0) => [
 ].filter((s) => s.quantity > 0);
 
 // ─── Product Catalog ──────────────────────────────────────────────────────────
-export const WESCO_PRODUCTS: WescoProduct[] = [
+export const CATALOG_PRODUCTS: CatalogProduct[] = [
 
   // ════════════════════════════════════════════════════════════
   // CIRCUIT BREAKERS
@@ -1275,36 +1275,36 @@ export const WESCO_PRODUCTS: WescoProduct[] = [
 ];
 
 // ─── Lookup helpers ───────────────────────────────────────────────────────────
-export const PRODUCT_MAP = new Map<string, WescoProduct>(
-  WESCO_PRODUCTS.map((p) => [p.id, p])
+export const PRODUCT_MAP = new Map<string, CatalogProduct>(
+  CATALOG_PRODUCTS.map((p) => [p.id, p])
 );
 
-export function getProductById(id: string): WescoProduct | undefined {
+export function getProductById(id: string): CatalogProduct | undefined {
   return PRODUCT_MAP.get(id);
 }
 
-export function getAlternatives(product: WescoProduct): WescoProduct[] {
+export function getAlternatives(product: CatalogProduct): CatalogProduct[] {
   return (product.alternativeIds ?? [])
     .map((id) => PRODUCT_MAP.get(id))
-    .filter((p): p is WescoProduct => p !== undefined);
+    .filter((p): p is CatalogProduct => p !== undefined);
 }
 
-export function getCrossSells(product: WescoProduct): WescoProduct[] {
+export function getCrossSells(product: CatalogProduct): CatalogProduct[] {
   return (product.crossSellIds ?? [])
     .map((id) => PRODUCT_MAP.get(id))
-    .filter((p): p is WescoProduct => p !== undefined);
+    .filter((p): p is CatalogProduct => p !== undefined);
 }
 
-export function getUpsells(product: WescoProduct): WescoProduct[] {
+export function getUpsells(product: CatalogProduct): CatalogProduct[] {
   return (product.upsellIds ?? [])
     .map((id) => PRODUCT_MAP.get(id))
-    .filter((p): p is WescoProduct => p !== undefined);
+    .filter((p): p is CatalogProduct => p !== undefined);
 }
 
-export function searchProducts(query: string): WescoProduct[] {
+export function searchProducts(query: string): CatalogProduct[] {
   const q = query.toLowerCase().trim();
-  if (!q) return WESCO_PRODUCTS;
-  return WESCO_PRODUCTS.filter((p) => {
+  if (!q) return CATALOG_PRODUCTS;
+  return CATALOG_PRODUCTS.filter((p) => {
     const hay = [
       p.name, p.sku, p.brand, p.category, p.subcategory, p.description,
       ...p.specs.map((s) => `${s.name} ${s.value}`),
@@ -1313,18 +1313,18 @@ export function searchProducts(query: string): WescoProduct[] {
   });
 }
 
-export function getTotalBranchStock(p: WescoProduct): number {
+export function getTotalBranchStock(p: CatalogProduct): number {
   return p.branchStock.reduce((s, b) => s + b.quantity, 0);
 }
 
-export function getTotalDCStock(p: WescoProduct): number {
+export function getTotalDCStock(p: CatalogProduct): number {
   return p.dcStock.reduce((s, b) => s + b.quantity, 0);
 }
 
 export const ALL_SUBCATEGORIES = [
-  ...new Set(WESCO_PRODUCTS.map((p) => p.subcategory)),
+  ...new Set(CATALOG_PRODUCTS.map((p) => p.subcategory)),
 ].sort();
 
 export const ALL_BRANDS = [
-  ...new Set(WESCO_PRODUCTS.map((p) => p.brand)),
+  ...new Set(CATALOG_PRODUCTS.map((p) => p.brand)),
 ].sort();

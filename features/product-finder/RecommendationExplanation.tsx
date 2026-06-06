@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { scoreProduct, topReasons } from "@/lib/product-finder-scoring";
 import { useProductFinder } from "@/lib/product-finder-store";
-import type { WescoProduct, RecommendationTier } from "@/features/product-finder/types";
+import type { CatalogProduct, RecommendationTier } from "@/features/product-finder/types";
 
 const TIER_LABEL: Record<RecommendationTier, string> = {
   excellent: "Excellent match",
@@ -26,8 +26,8 @@ const TIER_RING: Record<RecommendationTier, string> = {
 };
 
 interface Props {
-  product: WescoProduct;
-  reference: WescoProduct;
+  product: CatalogProduct;
+  reference: CatalogProduct;
 }
 
 export function RecommendationExplanation({ product, reference }: Props) {

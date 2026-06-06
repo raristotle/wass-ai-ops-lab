@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { scoreProduct, tierForScore, topReasons, SCORE_WEIGHTS } from "@/lib/product-finder-scoring";
-import type { WescoProduct, ProductSpec } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 
-function makeProduct(overrides: Partial<WescoProduct> = {}): WescoProduct {
+function makeProduct(overrides: Partial<CatalogProduct> = {}): CatalogProduct {
   return {
     id: "p", sku: "P", name: "Prod", brand: "BrandA",
     category: "electrical", subcategory: "Circuit Breakers",

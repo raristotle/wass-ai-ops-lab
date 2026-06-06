@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { StockBadge } from "@/features/product-finder/StockBadge";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
-import type { WescoProduct, ProductSpec } from "@/features/product-finder/types";
+import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
+import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 import { RecommendationExplanation } from "@/features/product-finder/RecommendationExplanation";
 
 interface ProductCardProps {
-  product: WescoProduct;
+  product: CatalogProduct;
   isAlternative?: boolean;
-  referenceProduct?: WescoProduct;
+  referenceProduct?: CatalogProduct;
 }
 
 function SpecRow({

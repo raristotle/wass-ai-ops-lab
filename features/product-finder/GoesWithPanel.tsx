@@ -1,23 +1,23 @@
 "use client";
 
-import { getCrossSells, getUpsells, getTotalBranchStock, getTotalDCStock } from "@/data/mock/wesco-products";
+import { getCrossSells, getUpsells, getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import type { WescoProduct } from "@/features/product-finder/types";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Props {
-  product: WescoProduct;
+  product: CatalogProduct;
 }
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-function StockDot({ product }: { product: WescoProduct }) {
+function StockDot({ product }: { product: CatalogProduct }) {
   const branch = getTotalBranchStock(product);
   const dc = getTotalDCStock(product);
   const color =
@@ -39,7 +39,7 @@ function StockDot({ product }: { product: WescoProduct }) {
 }
 
 interface MiniProductRowProps {
-  product: WescoProduct;
+  product: CatalogProduct;
   isUpsell?: boolean;
 }
 

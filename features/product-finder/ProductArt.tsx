@@ -1,4 +1,4 @@
-import type { WescoProduct, ProductCategory } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductCategory } from "@/features/product-finder/types";
 
 // ─── Category palette ─────────────────────────────────────────────────────────
 
@@ -12,7 +12,7 @@ const CATEGORY_COLORS: Record<ProductCategory, { band: string; plate: string; te
 };
 
 interface ProductArtProps {
-  product: WescoProduct;
+  product: CatalogProduct;
   className?: string;
 }
 
