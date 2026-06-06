@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { WescoProduct } from "@/features/product-finder/types";
 import { LandingState, NoResultsState } from "@/features/product-finder/EmptyState";
+import { SavedAndRecentPanel } from "@/features/product-finder/SavedAndRecentPanel";
 
 // ─── Active Product Banner ────────────────────────────────────────────────────
 
@@ -208,7 +209,11 @@ export default function ProductFinderPage() {
               ) : results.length === 0 ? (
                 <LandingState />
               ) : (
-                <ProductGrid products={results} />
+                <>
+                  {/* Default browse view (no query/filters): surface saved & recent above the grid */}
+                  {!hasQueryOrFilters && <SavedAndRecentPanel />}
+                  <ProductGrid products={results} />
+                </>
               )}
             </div>
           )}
