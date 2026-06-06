@@ -100,6 +100,16 @@ Each product card shows the name, brand, SKU, and description, plus:
 - **Compare**, **Find Alternatives**, and **View Details** actions;
 - a **★ star** to save it as a favorite.
 
+### Product details (View Details)
+Click **View Details** on any card to open the full detail view:
+- a **product image** and the basic info (name, brand, SKU, price, stock, Preferred);
+- **Add to Basket** and **Find Alternatives** right inside the view;
+- a formal **Spec Sheet** — every specification with **Required** flags on the
+  non-negotiable ones — plus **Download Spec Sheet (PDF)** (prints a clean cut
+  sheet, no app clutter);
+- **Where to Buy** — working search links to **Grainger, Graybar, Platt, Rexel,
+  Zoro, and Home Depot** for the product, opening in a new tab.
+
 ### Compare
 Click **Compare** on up to **4** products, then open the **comparison view** to see
 them **side-by-side**, with differences and the **cheapest option** highlighted.
@@ -143,8 +153,11 @@ A clean walkthrough that shows off the best parts, in order:
    breakdown** (specs, stock, preferred, price). *This is the headline moment.*
 6. Expand **Specifications** on two products to show the **✓ / ⚠** spec matching
    against your selected product.
-7. Click **Compare** on 2–3 products, then open the **comparison** — show the
-   side-by-side view with the **cheapest highlighted**.
+7. Click **View Details** on a product — show the **product image**, the formal
+   **Spec Sheet** with Required flags, the **Download Spec Sheet (PDF)** button,
+   and the **Where to Buy** links to real distributor sites. Then click
+   **Compare** on 2–3 products and open the **comparison** — the side-by-side
+   view with the **cheapest highlighted**.
 8. **Add a product to the basket** (set quantity to 5), open the **Cart**, and show
    the **running total**.
 9. **★ a couple of products**, then click **"Change Product"** and clear the search
