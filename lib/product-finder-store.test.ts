@@ -36,6 +36,7 @@ function resetStore() {
     activeProduct: null,
     compareIds: new Set(),
     compareModalOpen: false,
+    detailModalProduct: null,
     results: [],
     appliedNlFilters: [],
     favorites: [],
@@ -385,5 +386,28 @@ describe("natural-language search", () => {
     expect(useProductFinder.getState().appliedNlFilters.length).toBeGreaterThan(0);
     useProductFinder.getState().clearFilters();
     expect(useProductFinder.getState().appliedNlFilters).toHaveLength(0);
+  });
+});
+
+// ─── detailModalProduct ───────────────────────────────────────────────────────
+
+describe("detailModalProduct", () => {
+  beforeEach(resetStore);
+
+  it("starts as null", () => {
+    expect(useProductFinder.getState().detailModalProduct).toBeNull();
+  });
+
+  it("setDetailModalProduct stores the product in state", () => {
+    const product = WESCO_PRODUCTS[0];
+    useProductFinder.getState().setDetailModalProduct(product);
+    expect(useProductFinder.getState().detailModalProduct).toEqual(product);
+  });
+
+  it("setDetailModalProduct(null) clears the product", () => {
+    const product = WESCO_PRODUCTS[0];
+    useProductFinder.getState().setDetailModalProduct(product);
+    useProductFinder.getState().setDetailModalProduct(null);
+    expect(useProductFinder.getState().detailModalProduct).toBeNull();
   });
 });

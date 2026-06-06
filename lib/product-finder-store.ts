@@ -89,6 +89,10 @@ export interface ProductFinderState {
   compareModalOpen: boolean;
   setCompareModalOpen: (v: boolean) => void;
 
+  // Detail modal
+  detailModalProduct: WescoProduct | null;
+  setDetailModalProduct: (p: WescoProduct | null) => void;
+
   // Cart (basket)
   cart: Record<string, { product: WescoProduct; qty: number }>;
   addToCart: (product: WescoProduct, qty?: number) => void;
@@ -385,6 +389,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Compare ───────────────────────────────────────────────
   compareIds: new Set(),
   compareModalOpen: false,
+
+  // ── Detail modal ──────────────────────────────────────────
+  detailModalProduct: null,
+  setDetailModalProduct(p) { set({ detailModalProduct: p }); },
 
   toggleCompare(id) {
     set((s) => {
