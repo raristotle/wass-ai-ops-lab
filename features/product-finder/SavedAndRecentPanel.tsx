@@ -95,21 +95,27 @@ export function SavedAndRecentPanel() {
   }, []);
 
   const toggleHistory = () => {
-    const next = !historyCollapsed;
-    setHistoryCollapsed(next);
-    writeBool("pf_collapsed_history", next);
+    setHistoryCollapsed((prev) => {
+      const next = !prev;
+      writeBool("pf_collapsed_history", next);
+      return next;
+    });
   };
 
   const toggleRecent = () => {
-    const next = !recentCollapsed;
-    setRecentCollapsed(next);
-    writeBool("pf_collapsed_recent", next);
+    setRecentCollapsed((prev) => {
+      const next = !prev;
+      writeBool("pf_collapsed_recent", next);
+      return next;
+    });
   };
 
   const toggleFavs = () => {
-    const next = !favsCollapsed;
-    setFavsCollapsed(next);
-    writeBool("pf_collapsed_favorites", next);
+    setFavsCollapsed((prev) => {
+      const next = !prev;
+      writeBool("pf_collapsed_favorites", next);
+      return next;
+    });
   };
 
   if (searchHistory.length === 0 && recent.length === 0 && favs.length === 0) return null;
@@ -144,7 +150,7 @@ export function SavedAndRecentPanel() {
           {recent.length > 0 && (
             <CollapsibleSection
               title="Recently viewed"
-              count={recent.length}
+              count={Math.min(6, recent.length)}
               collapsed={recentCollapsed}
               onToggle={toggleRecent}
               onClear={clearRecentlyViewed}
