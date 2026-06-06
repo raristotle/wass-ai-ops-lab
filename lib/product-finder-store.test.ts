@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { useProductFinder, selectCartCount, selectCartTotal } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, hydrateSavedState } from "@/lib/product-finder-store";
 import { WESCO_PRODUCTS } from "@/data/mock/wesco-products";
 
 // ─── Fetch mock ───────────────────────────────────────────────────────────────
@@ -43,6 +43,7 @@ function resetStore() {
     favoriteSnapshots: {},
     recentSnapshots: {},
     recentlyViewed: [],
+    searchHistory: [],
     loading: false,
     error: null,
     page: 0,
@@ -409,5 +410,135 @@ describe("detailModalProduct", () => {
     useProductFinder.getState().setDetailModalProduct(product);
     useProductFinder.getState().setDetailModalProduct(null);
     expect(useProductFinder.getState().detailModalProduct).toBeNull();
+  });
+});
+
+// ─── searchHistory – addSearchTerm ────────────────────────────────────────────
+
+describe("searchHistory – addSearchTerm", () => {
+  beforeEach(resetStore);
+
+  it("records a term and places it at the front", () => {
+    useProductFinder.getState().addSearchTerm("breaker");
+    expect(useProductFinder.getState().searchHistory[0]).toBe("breaker");
+    expect(useProductFinder.getState().searchHistory.length).toBe(1);
+  });
+
+  it("case-insensitive dedupe: adding a variant of an existing term moves it to front with new casing", () => {
+    useProductFinder.getState().addSearchTerm("GFCI");
+    useProductFinder.getState().addSearchTerm("gfci");
+    const history = useProductFinder.getState().searchHistory;
+    expect(history.length).toBe(1);
+    expect(history[0]).toBe("gfci");
+  });
+
+  it("empty string is a no-op", () => {
+    useProductFinder.getState().addSearchTerm("");
+    expect(useProductFinder.getState().searchHistory.length).toBe(0);
+  });
+
+  it("whitespace-only is a no-op", () => {
+    useProductFinder.getState().addSearchTerm("   ");
+    expect(useProductFinder.getState().searchHistory.length).toBe(0);
+  });
+
+  it("caps at MAX_SEARCH_HISTORY (12): adding 15 terms yields length 12, newest first, oldest dropped", () => {
+    for (let i = 1; i <= 15; i++) {
+      useProductFinder.getState().addSearchTerm(`term${i}`);
+    }
+    const history = useProductFinder.getState().searchHistory;
+    expect(history.length).toBe(12);
+    expect(history[0]).toBe("term15");
+    expect(history[11]).toBe("term4");
+    // term1, term2, term3 should have been dropped
+    expect(history.includes("term1")).toBe(false);
+    expect(history.includes("term2")).toBe(false);
+    expect(history.includes("term3")).toBe(false);
+  });
+
+  it("preserves original casing of subsequent unique terms", () => {
+    useProductFinder.getState().addSearchTerm("Breaker");
+    useProductFinder.getState().addSearchTerm("GFCI");
+    const history = useProductFinder.getState().searchHistory;
+    expect(history[0]).toBe("GFCI");
+    expect(history[1]).toBe("Breaker");
+  });
+});
+
+// ─── searchHistory – runNlSearch integration ──────────────────────────────────
+
+describe("searchHistory – runNlSearch integration", () => {
+  beforeEach(() => {
+    resetStore();
+  });
+
+  it('runNlSearch("gfci receptacle") records "gfci receptacle" as first history entry', async () => {
+    await useProductFinder.getState().runNlSearch("gfci receptacle");
+    expect(useProductFinder.getState().searchHistory[0]).toBe("gfci receptacle");
+  });
+
+  it('runNlSearch("   ") records nothing', async () => {
+    await useProductFinder.getState().runNlSearch("   ");
+    expect(useProductFinder.getState().searchHistory.length).toBe(0);
+  });
+
+  it('runNlSearch("") records nothing', async () => {
+    await useProductFinder.getState().runNlSearch("");
+    expect(useProductFinder.getState().searchHistory.length).toBe(0);
+  });
+});
+
+// ─── searchHistory – clearSearchHistory ──────────────────────────────────────
+
+describe("clearSearchHistory", () => {
+  beforeEach(resetStore);
+
+  it("empties the search history", () => {
+    useProductFinder.getState().addSearchTerm("breaker");
+    useProductFinder.getState().addSearchTerm("gfci");
+    useProductFinder.getState().clearSearchHistory();
+    expect(useProductFinder.getState().searchHistory).toEqual([]);
+  });
+});
+
+// ─── clearRecentlyViewed ──────────────────────────────────────────────────────
+
+describe("clearRecentlyViewed", () => {
+  beforeEach(resetStore);
+
+  it("empties recentlyViewed and recentSnapshots", async () => {
+    const [a, b] = WESCO_PRODUCTS;
+    await useProductFinder.getState().setActiveProduct(a);
+    await useProductFinder.getState().setActiveProduct(b);
+    expect(useProductFinder.getState().recentlyViewed.length).toBeGreaterThan(0);
+    useProductFinder.getState().clearRecentlyViewed();
+    expect(useProductFinder.getState().recentlyViewed).toEqual([]);
+    expect(useProductFinder.getState().recentSnapshots).toEqual({});
+  });
+});
+
+// ─── hydrateSavedState loads searchHistory ────────────────────────────────────
+
+describe("hydrateSavedState – searchHistory", () => {
+  beforeEach(resetStore);
+
+  it("loads searchHistory from the pf_search_history key when localStorage has valid data", () => {
+    // Simulate a localStorage with search history already stored
+    const stored = ["breaker", "gfci", "wire nut"];
+    const mockStorage: Record<string, string> = {
+      pf_search_history: JSON.stringify(stored),
+    };
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    expect(useProductFinder.getState().searchHistory).toEqual(stored);
+
+    // Restore
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
 });

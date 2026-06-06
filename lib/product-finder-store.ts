@@ -11,6 +11,7 @@ import { apiSearch, apiGetProduct } from "@/lib/product-finder-api";
 import type { ProductSnapshot } from "@/features/product-finder/types";
 
 const MAX_RECENT = 12;
+const MAX_SEARCH_HISTORY = 12;
 
 // ─── Auth slice ───────────────────────────────────────────────────────────────
 
@@ -109,6 +110,10 @@ export interface ProductFinderState {
   toggleFavorite: (product: WescoProduct) => void;
   isFavorite: (id: string) => boolean;
   recentlyViewed: string[];
+  searchHistory: string[];
+  addSearchTerm: (term: string) => void;
+  clearSearchHistory: () => void;
+  clearRecentlyViewed: () => void;
 
   // Derived / Results
   results: WescoProduct[];
@@ -207,6 +212,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   appliedNlFilters: [],
 
   async runNlSearch(raw) {
+    if (raw.trim()) get().addSearchTerm(raw);
     const parsed = parseQuery(raw);
     set((s) => {
       // A new NL search is self-contained: start from defaults so the chips always
@@ -299,6 +305,36 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   favoriteSnapshots: {},
   recentSnapshots: {},
   recentlyViewed: [],
+  searchHistory: [],
+
+  addSearchTerm(term) {
+    const trimmed = term.trim();
+    if (!trimmed) return;
+    set((s) => {
+      const lower = trimmed.toLowerCase();
+      const deduped = s.searchHistory.filter((t) => t.toLowerCase() !== lower);
+      const next = [trimmed, ...deduped].slice(0, MAX_SEARCH_HISTORY);
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_search_history", JSON.stringify(next));
+      }
+      return { searchHistory: next };
+    });
+  },
+
+  clearSearchHistory() {
+    if (typeof localStorage !== "undefined") {
+      localStorage.removeItem("pf_search_history");
+    }
+    set({ searchHistory: [] });
+  },
+
+  clearRecentlyViewed() {
+    if (typeof localStorage !== "undefined") {
+      localStorage.removeItem("pf_recent");
+      localStorage.removeItem("pf_recent_snap");
+    }
+    set({ recentlyViewed: [], recentSnapshots: {} });
+  },
 
   toggleFavorite(product) {
     set((s) => {
@@ -505,6 +541,7 @@ export function hydrateSavedState() {
     recentlyViewed: readArr("pf_recent"),
     favoriteSnapshots: readMap("pf_fav_snap"),
     recentSnapshots: readMap("pf_recent_snap"),
+    searchHistory: readArr("pf_search_history"),
   });
 }
 
