@@ -191,40 +191,43 @@ A clean walkthrough that shows off the best parts, in order:
    **all 60,000 products**.
 2. Show the **six category chips** in the sidebar — click **⚡ Electrical** to show
    ~46,000 products, the bulk of the catalog. Click it again to clear.
-3. In the search box, type **`20A breaker in stock under $50`** and press Enter.
-   Point out the **filter chips** that appear (`In stock`, `Under $50`). Remove one
-   with its **✕** to show results update instantly.
-4. Click **"Find Alternatives"** on a result. The grid now shows that product's
-   **alternatives**, each with a **match ring** and reason chips.
-5. On a strong match, click **"Why recommended?"** and walk through the **point
-   breakdown** (specs, stock, preferred, price). *This is the headline moment.*
-6. Expand **Specifications** on two products to show the **✓ / ⚠** spec matching
-   against your selected product.
-7. Click **View Details** on a product — show the **product image**, the
-   **Volume pricing** tiers, the formal **Spec Sheet** with Required flags + the
-   **Download Spec Sheet (PDF)** button, the **Goes well with** suggestions, and
-   the **Where to Buy** links to real distributor sites. Then **Compare** 2–3
-   products, open the **comparison**, and hit **Download Comparison (PDF)**.
-8. **Add a product to the basket at quantity 50** — open the **Cart** and point out
-   the **volume price** kicking in on that line and the discounted **running total**.
-9. In the cart, click **Generate Quote (PDF)** — type a **Customer** and **Project**,
-   show the branded quote (auto number, 30-day validity, your name & branch, priced
-   lines), then **Save** the basket as a named job and show it can be **Loaded** back.
-10. Click **Import List / BOM** and paste:
-    ```
-    12x gfci receptacle
-    5 led troffer
-    10x 3/4" EMT conduit
-    3, transformer
-    ```
-    Hit **Match** → matched rows appear → **Add matched to cart** drops them all in
-    at their quantities.
-11. **★ a couple of products**, then **"Change Product"** and clear the search — your
+3. Type **`circuit breaker`** and press Enter. In the sidebar, point out the
+   **spec facets** that appear (Amperage, Voltage, Poles, Int. Rating) — tick
+   **Amperage → 15A** and watch the **live counts** narrow the results precisely.
+4. Type a plain-English query like **`20A breaker in stock under $50`** — point out
+   the **filter chips** (`In stock`, `Under $50`); remove one with its **✕** to show
+   results update instantly.
+5. Click **"Find Alternatives"** on a result → the grid shows that product's
+   **scored alternatives**. On a strong match, click **"Why recommended?"** and walk
+   the **point breakdown** (specs, stock, preferred, price). *Headline moment.*
+6. Click **View Details** — show the **product image**, **Volume pricing** tiers, the
+   **Spec Sheet** + **Download Spec Sheet (PDF)**, **Goes well with** suggestions, and
+   **Where to Buy** links to real distributor sites. On an **out-of-stock** product,
+   show the **lead time** and **"Notify when available"**. Then **Compare** 2–3
+   products and hit **Download Comparison (PDF)**.
+7. **Add a product at quantity 50** → open the **Cart** → point out the **volume
+   price (50+)** on that line and the discounted **running total**.
+8. In the cart, run the rep's deliverables:
+   - **Generate Quote (PDF)** — add a **Customer** and **Project**; show the branded
+     quote (auto number, 30-day validity, your name & branch, priced lines).
+   - **Save** the basket as a named job; show **Order History** with seeded past
+     orders and a one-click **Reorder**; **Add to Order** to place the current cart.
+   - **Share** — copies a link that rebuilds this exact basket for whoever opens it.
+9. Click **Import List / BOM** and paste:
+   ```
+   12x gfci receptacle
+   5 led troffer
+   10x 3/4" EMT conduit
+   3, transformer
+   ```
+   Hit **Match** → matched rows appear → **Add matched to cart** drops them all in at
+   their quantities.
+10. **★ a couple of products**, then **"Change Product"** and clear the search — your
     starred/viewed products and a **Search history** of chips appear above the grid;
     click a chip to re-run, collapse a section with **▾**, or **Clear** a list.
 
-**Wrap-up line:** *"One screen takes a rep from a rough request to a stocked, priced,
-quoted, and justified recommendation — paste a whole BOM and it's a cart in seconds."*
+**Wrap-up line:** *"One screen takes a rep from a rough request to a filtered, priced,
+quoted, shareable order — paste a whole BOM and it's a cart in seconds."*
 
 ---
 
