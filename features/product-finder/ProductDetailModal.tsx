@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
-import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
-import { getPricingProvider } from "@/lib/integration/index";
+import { isInStock } from "@/lib/product-finder-leadtime";
+import { getPricingProvider, getInventoryProvider } from "@/lib/integration/index";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -87,6 +87,7 @@ export function ProductDetailModal() {
   const watches        = useProductFinder((s) => s.watches);
   const toggleWatch    = useProductFinder((s) => s.toggleWatch);
   const activeCustomer = useProductFinder(selectActiveCustomer);
+  const repUser        = useProductFinder((s) => s.user);
 
   const [qty, setQty] = useState(1);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -136,7 +137,6 @@ export function ProductDetailModal() {
   const dotColor  = branchQty > 0 ? "bg-[#00AA13]" : dcQty > 0 ? "bg-[#EAAA00]" : "bg-gray-300";
   const links     = externalSearchLinks(product);
   const productInStock = isInStock(product);
-  const leadTime  = leadTimeFor(product);
   const isWatched = watches.includes(product.id);
 
   const nonNegSpecs = product.specs.filter((s) => s.isNonNeg);
@@ -288,30 +288,87 @@ export function ProductDetailModal() {
               })()}
             </div>
 
-            {/* Stock */}
-            <div className="flex items-center gap-2">
-              <span
-                className={cn("inline-block h-2.5 w-2.5 rounded-full flex-shrink-0", dotColor)}
-                aria-hidden="true"
-              />
-              <span className="text-sm text-[#1D252D]">
-                <span className="font-semibold">{branchQty}</span>
-                <span className="text-[#4F758B]"> branch</span>
-                {"  /  "}
-                <span className="font-semibold">{dcQty}</span>
-                <span className="text-[#4F758B]"> DC</span>
-              </span>
-            </div>
+            {/* ── Availability panel ─────────────────────────────── */}
+            {(() => {
+              const availability = getInventoryProvider().getAvailability(product, {
+                branchId: repUser?.branchId,
+                today: new Date(),
+              });
+              return (
+                <div className="rounded-lg border border-[#B7C9D3]/60 bg-[#F8FAFB] px-3 py-2.5 flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-semibold text-[#1D252D] uppercase tracking-wide">
+                      Availability
+                    </span>
+                    <span className="text-[10px] text-[#4F758B] italic">
+                      live inventory — simulated
+                    </span>
+                  </div>
 
-            {/* OOS: lead-time + notify-when-available */}
+                  {/* Branch + DC qty row */}
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={cn("inline-block h-2.5 w-2.5 rounded-full flex-shrink-0", dotColor)}
+                      aria-hidden="true"
+                    />
+                    <span className="text-sm text-[#1D252D]">
+                      <span className="font-semibold">{availability.branchQty}</span>
+                      <span className="text-[#4F758B]"> branch</span>
+                      {"  /  "}
+                      <span className="font-semibold">{availability.dcQty}</span>
+                      <span className="text-[#4F758B]"> DC</span>
+                    </span>
+                  </div>
+
+                  {/* ATP date + lead time for OOS */}
+                  {!availability.inStock && (
+                    <div className="flex flex-col gap-0.5">
+                      {availability.leadTime && (
+                        <span className="text-xs text-[#4F758B]">
+                          Lead time:{" "}
+                          <span className="font-medium text-[#1D252D]">{availability.leadTime}</span>
+                        </span>
+                      )}
+                      {availability.atpDate && (
+                        <span className="text-xs text-[#4F758B]">
+                          Available to promise:{" "}
+                          <span className="font-medium text-[#1D252D]">{availability.atpDate}</span>
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Also stocked at (other branches with qty > 0) */}
+                  {availability.otherBranches.length > 0 && (
+                    <div>
+                      <p className="text-[10px] font-semibold text-[#4F758B] uppercase tracking-wide mb-0.5">
+                        Also stocked at
+                      </p>
+                      <ul className="flex flex-col gap-0.5">
+                        {availability.otherBranches.map((b) => (
+                          <li key={b.branchId} className="flex items-center justify-between text-xs">
+                            <span className="text-[#1D252D]">{b.name}</span>
+                            <span className="font-semibold text-[#1D252D] ml-2">{b.qty}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Branch transfer ETA */}
+                  {availability.transferEtaDays !== null && (
+                    <p className="text-xs text-[#4F758B]">
+                      Branch transfer{" "}
+                      <span className="font-medium text-[#1D252D]">~{availability.transferEtaDays} days</span>
+                    </p>
+                  )}
+                </div>
+              );
+            })()}
+
+            {/* Notify when OOS */}
             {!productInStock && (
               <div className="flex items-center gap-3 flex-wrap">
-                {leadTime && (
-                  <span className="text-xs text-[#4F758B]">
-                    Lead time:{" "}
-                    <span className="font-medium text-[#1D252D]">{leadTime}</span>
-                  </span>
-                )}
                 <button
                   type="button"
                   onClick={() => toggleWatch(product.id)}

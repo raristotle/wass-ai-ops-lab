@@ -78,12 +78,46 @@ export interface PricingProvider {
   ): ProductPricing;
 }
 
+// ─── Inventory / ATP ─────────────────────────────────────────────────────────
+
+export interface BranchAvailability {
+  branchId: string;
+  name: string;
+  qty: number;
+}
+
+export interface Availability {
+  inStock: boolean;
+  /** Total qty across all branchStock entries (including zeros). */
+  branchQty: number;
+  /** Total qty across all dcStock entries. */
+  dcQty: number;
+  /**
+   * null when in stock; else ISO yyyy-mm-dd date = today + lead-time bucket days.
+   * Deterministic: derived from product.id hash + injected today.
+   */
+  atpDate: string | null;
+  /** null when in stock; else one of the 4 lead-time bucket strings. */
+  leadTime: string | null;
+  /** Branches (from branchStock) that have qty > 0. */
+  otherBranches: BranchAvailability[];
+  /**
+   * null when in stock at the rep's branch or no branchId ctx given.
+   * Small positive int (days) when the rep's branch has 0 but others do.
+   */
+  transferEtaDays: number | null;
+}
+
+export interface InventoryProvider {
+  getAvailability(
+    product: CatalogProduct,
+    ctx: { branchId?: string; today: Date }
+  ): Availability;
+}
+
 // ─── Reserved interfaces for later tasks ──────────────────────────────────────
 // These are stub-reserved so later tasks can extend this file without
 // disrupting the foundation types above.
-
-// InventoryProvider — task I-3 (live inventory / ATP)
-// export interface InventoryProvider { ... }
 
 // CatalogSource — task I-2 (catalog / PIM integration framing)
 // export interface CatalogSource { ... }
