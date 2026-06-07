@@ -10,7 +10,9 @@ across 6 categories and 79 subcategories), with server-side search/suggest/detai
 APIs, scored "find alternatives" recommendations, spec-level facet filters,
 volume/tiered pricing, goes-with cross-sell, BOM/list import, named saved baskets,
 order history with reorder, shareable cart links, out-of-stock lead times with
-notify-me, printable spec sheets / comparisons / quotes (PDF), and demo auth.
+notify-me, printable spec sheets / comparisons / quotes (PDF), value + numeric
+**range** facets, category product images, a **manager analytics dashboard**
+(Recharts), and demo auth.
 It also includes a **simulated enterprise-integration layer** (`lib/integration/`)
 behind swap-in adapter interfaces — customer accounts, contract/customer pricing,
 live inventory/ATP, PIM catalog provenance, and competitor/legacy part
@@ -112,11 +114,11 @@ wass-ai-ops-lab/
 ## Deployment
 
 Production runs on **Vercel** (project `web`), served at
-<https://web-xi-virid-59.vercel.app>.
+<https://web-xi-virid-59.vercel.app> (and **https://app.raristotle.com** once the
+`app` CNAME/A record is added at the registrar — A `app` → `76.76.21.21`).
 
-Pushes to `master` deploy to production automatically via the Vercel GitHub
-integration; pull-request branches get their own preview URLs. To deploy
-manually from a linked checkout:
+Deploys are run **manually via the CLI** (`vercel --prod`) from a linked checkout —
+pushing to `master` does not auto-deploy. To deploy:
 
 ```bash
 npx vercel --prod

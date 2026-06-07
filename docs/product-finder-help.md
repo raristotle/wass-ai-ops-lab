@@ -116,10 +116,14 @@ Click **View Details** on any card to open the full detail view:
 
 ### Spec-level facet filters
 Once you've narrowed to a category or subcategory, the sidebar shows **spec facets**
-specific to those products — e.g. for breakers: **Amperage, Voltage, Poles, Int.
-Rating**. Each facet value is a checkbox with a live **count**; tick any combination
-to filter precisely (multiple values within one spec broaden; different specs
-narrow). **Clear all filters** resets these too.
+specific to those products. Two kinds:
+- **Value facets** (checkboxes with live counts) — e.g. Poles, Color, Type. Tick any
+  combination (multiple values within one spec broaden; different specs narrow).
+- **Range facets** (Min / Max with the unit) — for numeric specs like **Amperage (A),
+  Voltage (V), Wattage (W), Lumens (lm), kVA, Ports** — enter a min and/or max to
+  filter to a range.
+
+**Clear all filters** resets all facets (and the range inputs).
 
 ### Stock alerts & lead time
 When a product is **out of stock at Meridian Supply Co.**, the card and detail view
@@ -149,6 +153,19 @@ Click **Import List / BOM** by the search box to bulk-add products:
 ### External sources
 - If a product is **out of stock at Meridian Supply Co.**, the app lists **external distributors**
   (with price, quantity, and lead time) so you still have an answer.
+
+### Product images
+Each product card and the detail view show a **category image**. *(Demo: images come
+from a keyless third-party photo service mapped by subcategory, so they're
+representative rather than exact-SKU; if a photo fails to load, a branded product
+graphic shows instead. Swappable for a curated/real image source later.)*
+
+### Analytics dashboard (managers & admins only)
+Signed in as a **manager** or **admin**, an **Insights** link appears in the header →
+an **Analytics Dashboard**: KPI cards (orders, total/avg value, active customers),
+**contract savings delivered**, **top categories** and **orders over time** charts,
+top products, and customer mix. Sales reps don't see it. *(Demo analytics derived
+from seeded sample orders.)*
 
 ### Enterprise integration (simulated)
 A set of "system of record" capabilities, built behind clean adapter interfaces so
