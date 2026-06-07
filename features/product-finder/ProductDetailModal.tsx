@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
 import { isInStock } from "@/lib/product-finder-leadtime";
-import { getPricingProvider, getInventoryProvider } from "@/lib/integration/index";
+import { getPricingProvider, getInventoryProvider, getCrossReferenceProvider } from "@/lib/integration/index";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -545,6 +545,37 @@ export function ProductDetailModal() {
             </table>
           </div>
         </div>
+
+        {/* ── Cross-references / Replaces ────────────────────── */}
+        {(() => {
+          const refs = getCrossReferenceProvider().referencesFor(product);
+          if (refs.length === 0) return null;
+          return (
+            <div className="print:hidden px-6 py-4 border-b border-[#B7C9D3]/40">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xs font-semibold text-[#1D252D] uppercase tracking-wide">
+                  Cross-references / Replaces
+                </h3>
+                <span className="text-[10px] text-[#4F758B] italic">
+                  cross-reference data — simulated
+                </span>
+              </div>
+              <ul className="flex flex-wrap gap-2">
+                {refs.map((ref) => (
+                  <li
+                    key={ref.competitorSku}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#B7C9D3] bg-[#F8FAFB] px-2.5 py-0.5 text-xs"
+                  >
+                    <span className="font-mono font-semibold text-[#1D252D]">
+                      {ref.competitorSku}
+                    </span>
+                    <span className="text-[#4F758B]">{ref.brand}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })()}
 
         {/* ── Goes well with ──────────────────────────────────── */}
         {goesWithItems.length > 0 && (

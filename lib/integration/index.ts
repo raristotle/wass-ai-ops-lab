@@ -9,6 +9,9 @@ import { mockCustomerProvider } from "@/lib/integration/customers";
 import { mockPricingProvider } from "@/lib/integration/pricing";
 import { mockInventoryProvider } from "@/lib/integration/inventory";
 import { mockCatalogProvider } from "@/lib/integration/catalog-source";
+import { lookupCrossReference, crossReferencesFor } from "@/lib/integration/cross-reference";
+import type { CompetitorRef } from "@/lib/integration/cross-reference";
+import type { CatalogProduct } from "@/features/product-finder/types";
 
 /**
  * Returns the customer account provider.
@@ -44,6 +47,21 @@ export function getInventoryProvider(): InventoryProvider {
  */
 export function getCatalogProvider(): CatalogProvider {
   return mockCatalogProvider;
+}
+
+/**
+ * Returns a thin cross-reference provider object wrapping the pure functions.
+ * INTEGRATION SEAM — replace with a real competitor cross-reference feed here;
+ * the function signatures are the contract.
+ */
+export function getCrossReferenceProvider(): {
+  lookup(sku: string): CatalogProduct | null;
+  referencesFor(product: CatalogProduct): CompetitorRef[];
+} {
+  return {
+    lookup: lookupCrossReference,
+    referencesFor: crossReferencesFor,
+  };
 }
 
 // Future registry functions (added by later tasks):

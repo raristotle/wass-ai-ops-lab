@@ -13,7 +13,143 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { apiSuggest } from "@/lib/product-finder-api";
+import { lookupCrossReference } from "@/lib/integration/cross-reference";
 import type { SuggestItem, ParsedFilter } from "@/features/product-finder/types";
+
+// ─── Cross-reference icon ─────────────────────────────────────────────────────
+
+function CrossRefIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("h-3.5 w-3.5 shrink-0", className)}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      aria-hidden="true"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4M16 17H4m0 0l4 4m-4-4l4-4" />
+    </svg>
+  );
+}
+
+// ─── Cross-reference modal ────────────────────────────────────────────────────
+
+function CrossReferenceModal({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
+  const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
+  const [inputValue, setInputValue] = useState("");
+  const [missMsg, setMissMsg] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (open) {
+      setInputValue("");
+      setMissMsg(null);
+      setTimeout(() => inputRef.current?.focus(), 50);
+    }
+  }, [open]);
+
+  if (!open) return null;
+
+  function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
+    if (e.target === e.currentTarget) onClose();
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Escape") onClose();
+    if (e.key === "Enter") handleFind();
+  }
+
+  function handleFind() {
+    const sku = inputValue.trim();
+    if (!sku) return;
+    const product = lookupCrossReference(sku);
+    if (product) {
+      setDetailModalProduct(product);
+      onClose();
+    } else {
+      setMissMsg(`No Meridian equivalent found for '${sku}'.`);
+    }
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      onClick={handleOverlayClick}
+      onKeyDown={handleKeyDown}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Cross-reference lookup"
+      tabIndex={-1}
+    >
+      <div className="w-full max-w-md rounded-xl bg-white shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="flex items-center justify-between bg-[#1D252D] px-6 py-4 rounded-t-xl">
+          <div>
+            <h2 className="text-white font-semibold text-base [font-family:var(--font-titillium,'Arial_Bold',sans-serif)]">
+              Cross-reference Lookup
+            </h2>
+            <p className="text-[#B7C9D3] text-xs mt-0.5">
+              Paste a competitor or legacy part number
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-white/70 hover:text-white transition-colors text-xl leading-none"
+            aria-label="Close cross-reference modal"
+          >
+            &#x2715;
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="px-6 py-5 space-y-4">
+          <div className="flex gap-2">
+            <input
+              ref={inputRef}
+              type="text"
+              value={inputValue}
+              onChange={(e) => { setInputValue(e.target.value); setMissMsg(null); }}
+              onKeyDown={(e) => { if (e.key === "Enter") handleFind(); }}
+              placeholder="e.g. GRN-2B4K0Q or ACE-1X7FZW"
+              className={cn(
+                "flex-1 h-10 rounded-lg border border-[#B7C9D3] px-3 text-sm text-[#1D252D]",
+                "placeholder:text-[#4F758B]/60",
+                "focus:outline-none focus:ring-2 focus:ring-[#00AA13] focus:border-[#00AA13]",
+              )}
+              aria-label="Competitor or legacy part number"
+            />
+            <Button
+              type="button"
+              onClick={handleFind}
+              disabled={!inputValue.trim()}
+              className="h-10 shrink-0 bg-[#00AA13] px-4 text-sm font-medium text-white hover:bg-[#009911] disabled:opacity-50"
+            >
+              Find
+            </Button>
+          </div>
+
+          {missMsg && (
+            <p className="text-sm text-[#4F758B] bg-[#F8FAFB] rounded-lg px-4 py-3 border border-[#B7C9D3]/60">
+              {missMsg}
+            </p>
+          )}
+
+          <p className="text-[10px] text-[#4F758B] italic">
+            cross-reference data — simulated
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── BOM import icon ──────────────────────────────────────────────────────────
 
@@ -104,6 +240,7 @@ interface SingleSearchPanelProps {
   appliedNlFilters: ParsedFilter[];
   onRemoveFilter: (id: string) => void;
   onOpenBom: () => void;
+  onOpenCrossRef: () => void;
 }
 
 function SingleSearchPanel({
@@ -121,6 +258,7 @@ function SingleSearchPanel({
   appliedNlFilters,
   onRemoveFilter,
   onOpenBom,
+  onOpenCrossRef,
 }: SingleSearchPanelProps) {
   return (
     <div className="space-y-3">
@@ -237,6 +375,21 @@ function SingleSearchPanel({
           <ListImportIcon />
           Import List / BOM
         </button>
+
+        {/* Cross-reference — paste a competitor/legacy part number */}
+        <button
+          type="button"
+          onClick={onOpenCrossRef}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#4F758B]/50 px-3 py-1 text-xs font-medium text-[#4F758B]",
+            "hover:border-[#1D252D] hover:bg-[#1D252D]/5 hover:text-[#1D252D]",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1D252D]"
+          )}
+          aria-label="Cross-reference lookup"
+        >
+          <CrossRefIcon />
+          Cross-reference
+        </button>
       </div>
 
       {/* Applied natural-language filter chips */}
@@ -280,6 +433,9 @@ export function SearchBar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const suggestTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const suggestSeq = useRef(0);
+
+  // Cross-reference modal state
+  const [crossRefOpen, setCrossRefOpen] = useState(false);
 
   // ── Suggestion logic ────────────────────────────────────────────────────────
   const updateSuggestions = useCallback((value: string) => {
@@ -361,26 +517,34 @@ export function SearchBar() {
 
   // ── Render ──────────────────────────────────────────────────────────────────
   return (
-    <div className="w-full rounded-xl border border-[#B7C9D3] bg-white shadow-sm">
-      {/* Panel body */}
-      <div className="p-4">
-        <SingleSearchPanel
-          query={query}
-          suggestions={suggestions}
-          showSuggestions={showSuggestions}
-          inputRef={inputRef}
-          dropdownRef={dropdownRef}
-          onQueryChange={handleQueryChange}
-          onKeyDown={handleKeyDown}
-          onClear={handleClear}
-          onSearch={handleSearch}
-          onSelectSuggestion={handleSelectSuggestion}
-          onQuickPick={handleQuickPick}
-          appliedNlFilters={appliedNlFilters}
-          onRemoveFilter={removeNlFilter}
-          onOpenBom={() => setBomModalOpen(true)}
-        />
+    <>
+      <div className="w-full rounded-xl border border-[#B7C9D3] bg-white shadow-sm">
+        {/* Panel body */}
+        <div className="p-4">
+          <SingleSearchPanel
+            query={query}
+            suggestions={suggestions}
+            showSuggestions={showSuggestions}
+            inputRef={inputRef}
+            dropdownRef={dropdownRef}
+            onQueryChange={handleQueryChange}
+            onKeyDown={handleKeyDown}
+            onClear={handleClear}
+            onSearch={handleSearch}
+            onSelectSuggestion={handleSelectSuggestion}
+            onQuickPick={handleQuickPick}
+            appliedNlFilters={appliedNlFilters}
+            onRemoveFilter={removeNlFilter}
+            onOpenBom={() => setBomModalOpen(true)}
+            onOpenCrossRef={() => setCrossRefOpen(true)}
+          />
+        </div>
       </div>
-    </div>
+
+      <CrossReferenceModal
+        open={crossRefOpen}
+        onClose={() => setCrossRefOpen(false)}
+      />
+    </>
   );
 }
