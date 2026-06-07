@@ -249,7 +249,7 @@ export function ProductDetailModal() {
             {/* Volume pricing table */}
             <div>
               <p className="text-xs font-semibold text-[#4F758B] uppercase tracking-wide mb-1">
-                Volume pricing
+                Published volume pricing
               </p>
               {(() => {
                 const activeTierMinQty = [...priceTiers(product)].reverse().find((t) => qty >= t.minQty)?.minQty;

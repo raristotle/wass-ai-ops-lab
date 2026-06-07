@@ -51,12 +51,17 @@ export const mockPricingProvider: PricingProvider = {
 
     // ── Determine contractPrice (base unit price before volume) ──────────────
     let contractPrice: number | null = null;
+    // Track whether the contract base is a hard net price override.
+    // Net prices are a FLOOR: volume tiers must NOT further discount them.
+    // Category-discount contract prices still stack with volume tiers.
+    let isNetPriceOverride = false;
 
     if (customer !== null && customer.tier === "contract") {
       // Check net price override first
       const net = customer.netPrices?.[product.id];
       if (net !== undefined) {
         contractPrice = round2(net);
+        isNetPriceOverride = true;
       } else {
         // Category discount
         const disc = customer.discountByCategory[product.category] ?? 0;
@@ -68,9 +73,13 @@ export const mockPricingProvider: PricingProvider = {
     }
 
     // ── Apply volume multiplier to the chosen base ────────────────────────────
+    // Net price overrides are a floor — skip the volume multiplier entirely.
+    // Category-discount contract prices and list prices still apply volume tiers.
     const base = contractPrice !== null ? contractPrice : listPrice;
     const volMult = volumeMultiplier(product, qty);
-    const effectiveUnitPrice = round2(base * volMult);
+    const effectiveUnitPrice = isNetPriceOverride
+      ? contractPrice! // net price is the final price; no further discounting
+      : round2(base * volMult);
 
     // ── savingsPct ─────────────────────────────────────────────────────────────
     const savingsPct =
@@ -80,7 +89,8 @@ export const mockPricingProvider: PricingProvider = {
 
     // ── source ─────────────────────────────────────────────────────────────────
     const hasContract = contractPrice !== null;
-    const hasVolume = volMult < 1;
+    // Volume is only meaningful when it was actually applied (not suppressed by net override).
+    const hasVolume = !isNetPriceOverride && volMult < 1;
 
     let source: ProductPricing["source"];
     if (hasContract && hasVolume) {

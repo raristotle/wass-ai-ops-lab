@@ -63,7 +63,7 @@ export interface ProductPricing {
   /** What the customer actually pays per unit at this qty, after all discounts. */
   effectiveUnitPrice: number;
   /**
-   * Percentage saved vs listPrice at qty 1 baseline.
+   * Percentage saved vs listPrice at the current qty.
    * 0 when there are no savings or listPrice is 0.
    */
   savingsPct: number;

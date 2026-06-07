@@ -207,6 +207,22 @@ describe("mockPricingProvider — net price override", () => {
     const result = mockPricingProvider.getPricing(netProduct, { customer: CONTRACT_CUSTOMER, qty: 1 });
     expect(result.effectiveUnitPrice).toBe(6);
   });
+
+  it("net price is a FLOOR — effectiveUnitPrice = netPrice at qty 100 (volume does NOT stack)", () => {
+    // Business rule: a negotiated netPrice is the final unit price; volume tiers
+    // must not further discount it. At qty 100 the list-based volume multiplier
+    // would be 0.85, but the net price of $6.00 must be returned unchanged.
+    const result = mockPricingProvider.getPricing(netProduct, { customer: CONTRACT_CUSTOMER, qty: 100 });
+    expect(result.effectiveUnitPrice).toBe(6);
+    expect(result.contractPrice).toBe(6);
+    expect(result.source).toBe("contract");
+  });
+
+  it("source = 'contract' (not 'contract+volume') for net price at volume qty", () => {
+    const result = mockPricingProvider.getPricing(netProduct, { customer: CONTRACT_CUSTOMER, qty: 50 });
+    expect(result.source).toBe("contract");
+    expect(result.effectiveUnitPrice).toBe(6);
+  });
 });
 
 // ─── Contract + volume stacking ───────────────────────────────────────────────
