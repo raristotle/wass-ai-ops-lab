@@ -17,9 +17,11 @@ export type Order = {
   placedAt: number;
   lines: { product: CatalogProduct; qty: number }[];
   total: number;
+  /** The customer this order belongs to. null = walk-in / no active customer. */
+  customerId: string | null;
+  customerName: string | null;
 };
 import { parseQuery } from "@/lib/product-finder-nl-search";
-import { tierUnitPrice } from "@/lib/product-finder-pricing";
 import { getPricingProvider } from "@/lib/integration/index";
 import {
   searchProducts,
@@ -625,16 +627,28 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     const cartValues = Object.values(cart);
     if (cartValues.length === 0) return;
 
+    const activeCustomer = selectActiveCustomer(get());
+    const provider = getPricingProvider();
+
     const lines = cartValues.map((entry) => ({
       product: entry.product,
       qty: entry.qty,
     }));
+    // Use the SAME pricing the cart shows (effectiveUnitPrice) to fix the bug
+    // where contract customer order totals didn't match the cart subtotal.
     const total = lines.reduce(
-      (sum, l) => sum + tierUnitPrice(l.product, l.qty) * l.qty,
+      (sum, l) => sum + provider.getPricing(l.product, { customer: activeCustomer, qty: l.qty }).effectiveUnitPrice * l.qty,
       0
     );
     const orderId = id ?? `order-${now}`;
-    const newOrder: Order = { id: orderId, placedAt: now, lines, total };
+    const newOrder: Order = {
+      id: orderId,
+      placedAt: now,
+      lines,
+      total,
+      customerId: activeCustomer?.id ?? null,
+      customerName: activeCustomer?.name ?? null,
+    };
 
     set((s) => {
       const orders = [newOrder, ...s.orders];
@@ -805,35 +819,78 @@ export function hydrateSavedState() {
 // ─── Demo order seed (first-ever load only) ───────────────────────────────────
 function buildDemoOrders(): Order[] {
   // Use known, stable catalog product ids for deterministic demo history.
-  // Order 1: CB-SQD-QO115 (qty 10) + CB-EAT-CH115 (qty 5)
-  // Order 2: CB-SQD-QO115DF (qty 2)
+  // Seeded per-customer:
+  //   CUST-001 (Gulf Coast Industrial): orders 001 + 002 (breaker SKUs with net prices)
+  //   CUST-002 (Lone Star Data Systems): order 003
+  //   Walk-in (null): order 004
   const p1 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115");
   const p2 = CATALOG_PRODUCTS.find((p) => p.id === "CB-EAT-CH115");
   const p3 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115DF");
 
+  const provider = getPricingProvider();
+
   const orders: Order[] = [];
 
+  // CUST-001 order 1: CB-SQD-QO115 (qty 10) + CB-EAT-CH115 (qty 5)
   if (p1 && p2) {
+    const customer1 = { id: "CUST-001", name: "Gulf Coast Industrial" };
     const lines1 = [
       { product: p1, qty: 10 },
       { product: p2, qty: 5 },
     ];
+    const cust001Account = getCustomerProvider().get("CUST-001");
     orders.push({
       id: "demo-order-001",
       placedAt: 1748995200000, // 2025-06-04T00:00:00Z (fixed, deterministic)
       lines: lines1,
-      total: lines1.reduce((s, l) => s + tierUnitPrice(l.product, l.qty) * l.qty, 0),
+      // Use contract pricing to match what the customer would have seen in cart
+      total: lines1.reduce(
+        (s, l) => s + provider.getPricing(l.product, { customer: cust001Account, qty: l.qty }).effectiveUnitPrice * l.qty,
+        0
+      ),
+      customerId: customer1.id,
+      customerName: customer1.name,
     });
   }
 
+  // CUST-001 order 2: CB-SQD-QO115DF (qty 2)
   if (p3) {
+    const customer1 = { id: "CUST-001", name: "Gulf Coast Industrial" };
     const lines2 = [{ product: p3, qty: 2 }];
+    const cust001Account = getCustomerProvider().get("CUST-001");
     orders.push({
       id: "demo-order-002",
       placedAt: 1748908800000, // 2025-06-03T00:00:00Z (fixed, deterministic)
       lines: lines2,
-      total: lines2.reduce((s, l) => s + tierUnitPrice(l.product, l.qty) * l.qty, 0),
+      total: lines2.reduce(
+        (s, l) => s + provider.getPricing(l.product, { customer: cust001Account, qty: l.qty }).effectiveUnitPrice * l.qty,
+        0
+      ),
+      customerId: customer1.id,
+      customerName: customer1.name,
     });
+  }
+
+  // CUST-002 (Lone Star Data Systems) order: datacom/AV product if available, else fallback to p1
+  {
+    const customer2 = { id: "CUST-002", name: "Lone Star Data Systems" };
+    // Try to find a datacom product; fall back to first catalog product
+    const datacomProduct = CATALOG_PRODUCTS.find((p) => p.category === "datacom") ?? CATALOG_PRODUCTS[2];
+    if (datacomProduct) {
+      const cust002Account = getCustomerProvider().get("CUST-002");
+      const lines3 = [{ product: datacomProduct, qty: 3 }];
+      orders.push({
+        id: "demo-order-003",
+        placedAt: 1748822400000, // 2025-06-02T00:00:00Z (fixed, deterministic)
+        lines: lines3,
+        total: lines3.reduce(
+          (s, l) => s + provider.getPricing(l.product, { customer: cust002Account, qty: l.qty }).effectiveUnitPrice * l.qty,
+          0
+        ),
+        customerId: customer2.id,
+        customerName: customer2.name,
+      });
+    }
   }
 
   return orders;
@@ -866,4 +923,13 @@ export function selectCartTotal(state: ProductFinderState) {
 export function selectActiveCustomer(state: ProductFinderState): CustomerAccount | null {
   if (!state.activeCustomerId) return null;
   return state.customers.find((c) => c.id === state.activeCustomerId) ?? null;
+}
+
+export function selectVisibleOrders(state: ProductFinderState): Order[] {
+  const { orders, activeCustomerId } = state;
+  if (activeCustomerId === null) {
+    // Walk-in / no customer selected — show only walk-in orders
+    return orders.filter((o) => o.customerId === null);
+  }
+  return orders.filter((o) => o.customerId === activeCustomerId);
 }

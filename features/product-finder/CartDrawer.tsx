@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders } from "@/lib/product-finder-store";
 import { priceTiers } from "@/lib/product-finder-pricing";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { getPricingProvider } from "@/lib/integration/index";
@@ -26,7 +26,7 @@ export function CartDrawer() {
   const loadBasket = useProductFinder((s) => s.loadBasket);
   const deleteBasket = useProductFinder((s) => s.deleteBasket);
 
-  const orders = useProductFinder((s) => s.orders);
+  const visibleOrders = useProductFinder(selectVisibleOrders);
   const placeOrder = useProductFinder((s) => s.placeOrder);
   const reorder = useProductFinder((s) => s.reorder);
   const deleteOrder = useProductFinder((s) => s.deleteOrder);
@@ -68,6 +68,13 @@ export function CartDrawer() {
     setCustomer(localStorage.getItem("pf_quote_customer") ?? "");
     setProject(localStorage.getItem("pf_quote_project") ?? "");
   }, []);
+
+  // Pre-fill quote customer field when an active customer is selected
+  useEffect(() => {
+    if (activeCustomer && activeCustomer.tier === "contract") {
+      setCustomer(activeCustomer.name);
+    }
+  }, [activeCustomer?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Persist customer changes
   useEffect(() => {
@@ -356,15 +363,20 @@ export function CartDrawer() {
 
         {/* ── Order History section — hidden during print ───────────────────── */}
         <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
-            Order History
-          </p>
+          <div className="mb-3 flex items-baseline justify-between gap-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
+              Order History
+            </p>
+            <span className="text-[10px] text-[#4F758B] italic truncate">
+              {activeCustomer ? activeCustomer.name : "Walk-in"}
+            </span>
+          </div>
 
-          {orders.length === 0 ? (
+          {visibleOrders.length === 0 ? (
             <p className="text-xs text-[#B7C9D3]">No orders yet.</p>
           ) : (
             <ul className="space-y-1.5 max-h-48 overflow-y-auto">
-              {orders.map((order: Order) => {
+              {visibleOrders.map((order: Order) => {
                 const orderDate = new Date(order.placedAt);
                 const dateLabel = orderDate.toLocaleDateString(undefined, {
                   month: "short",

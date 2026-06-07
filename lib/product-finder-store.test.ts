@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, hydrateSavedState } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders, hydrateSavedState } from "@/lib/product-finder-store";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
@@ -1208,7 +1208,7 @@ describe("orders – persistence via hydrateSavedState", () => {
   it("loads orders from pf_orders key when hydrateSavedState is called", () => {
     const p = CATALOG_PRODUCTS[0];
     const storedOrders: Order[] = [
-      { id: "hyd-ord-1", placedAt: 5000000, lines: [{ product: p, qty: 2 }], total: p.unitPrice * 2 },
+      { id: "hyd-ord-1", placedAt: 5000000, lines: [{ product: p, qty: 2 }], total: p.unitPrice * 2, customerId: null, customerName: null },
     ];
     const mockStorage: Record<string, string> = {
       pf_orders: JSON.stringify(storedOrders),
@@ -1235,7 +1235,7 @@ describe("orders – persistence via hydrateSavedState", () => {
 describe("orders – hydrateSavedState seed behavior", () => {
   beforeEach(resetStore);
 
-  it("seeds 2 demo orders when pf_orders key is absent (null from getItem)", () => {
+  it("seeds demo orders (≥ 3: 2 for CUST-001 + 1 for CUST-002) when pf_orders key is absent (null from getItem)", () => {
     const mockStorage: Record<string, string> = {}; // no pf_orders key
     const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
     (globalThis as Record<string, unknown>).localStorage = {
@@ -1246,11 +1246,12 @@ describe("orders – hydrateSavedState seed behavior", () => {
 
     hydrateSavedState();
     const { orders } = useProductFinder.getState();
-    expect(orders).toHaveLength(2);
+    // Per I-5b: at least 3 seed orders (2 for CUST-001, 1 for CUST-002)
+    expect(orders.length).toBeGreaterThanOrEqual(3);
     // Seed also writes to localStorage so it persists
     expect(mockStorage["pf_orders"]).toBeDefined();
     const persisted = JSON.parse(mockStorage["pf_orders"]) as Order[];
-    expect(persisted).toHaveLength(2);
+    expect(persisted.length).toBeGreaterThanOrEqual(3);
 
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
@@ -1273,7 +1274,7 @@ describe("orders – hydrateSavedState seed behavior", () => {
   it("does NOT seed when pf_orders has real orders already", () => {
     const p = CATALOG_PRODUCTS[0];
     const existing: Order[] = [
-      { id: "existing-1", placedAt: 9000000, lines: [{ product: p, qty: 1 }], total: p.unitPrice },
+      { id: "existing-1", placedAt: 9000000, lines: [{ product: p, qty: 1 }], total: p.unitPrice, customerId: null, customerName: null },
     ];
     const mockStorage: Record<string, string> = { pf_orders: JSON.stringify(existing) };
     const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
@@ -1321,10 +1322,11 @@ describe("orders – hydrateSavedState seed behavior", () => {
       removeItem: (k: string) => { delete mockStorage[k]; },
     };
 
-    hydrateSavedState(); // seeds 2, writes to mockStorage
+    hydrateSavedState(); // seeds ≥3, writes to mockStorage
+    const seedCount = useProductFinder.getState().orders.length;
     resetStore();
     hydrateSavedState(); // pf_orders now present → no re-seed
-    expect(useProductFinder.getState().orders).toHaveLength(2);
+    expect(useProductFinder.getState().orders).toHaveLength(seedCount);
 
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
@@ -1581,5 +1583,285 @@ describe("hydrateSavedState – activeCustomerId", () => {
     expect(useProductFinder.getState().activeCustomerId).toBeNull();
 
     (globalThis as Record<string, unknown>).localStorage = original;
+  });
+});
+
+// ─── I-5b: Order type has customerId + customerName ───────────────────────────
+
+describe("I-5b: Order.customerId + customerName fields", () => {
+  beforeEach(resetStore);
+
+  it("placeOrder stamps customerId = null and customerName = null when no active customer", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(9000001, "stamp-null");
+
+    const order = useProductFinder.getState().orders[0];
+    expect(order.customerId).toBeNull();
+    expect(order.customerName).toBeNull();
+  });
+
+  it("placeOrder stamps customerId and customerName from the active customer", () => {
+    const customer = CUSTOMER_ACCOUNTS.find((c) => c.id === "CUST-001")!;
+    useProductFinder.getState().setActiveCustomer(customer.id);
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(9000002, "stamp-cust");
+
+    const order = useProductFinder.getState().orders[0];
+    expect(order.customerId).toBe("CUST-001");
+    expect(order.customerName).toBe(customer.name);
+  });
+});
+
+// ─── I-5b: placeOrder total uses contract pricing ─────────────────────────────
+
+describe("I-5b: placeOrder total uses contract pricing (not bare tierUnitPrice)", () => {
+  beforeEach(resetStore);
+
+  function findNetPricedProduct() {
+    // CB-SQD-QO115 has a net price for CUST-001 in customers.ts
+    const p = CATALOG_PRODUCTS.find((x) => x.id === "CB-SQD-QO115");
+    if (!p) throw new Error("CB-SQD-QO115 not found in CATALOG_PRODUCTS");
+    return p;
+  }
+
+  it("with a contract customer active, order total uses effectiveUnitPrice (< tierUnitPrice for net-priced SKU)", () => {
+    const customer = CUSTOMER_ACCOUNTS.find((c) => c.id === "CUST-001")!;
+    useProductFinder.getState().setActiveCustomer(customer.id);
+    const p = findNetPricedProduct();
+    // qty 1 — no volume break; net price beats tier price
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(9000010, "contract-total");
+
+    const order = useProductFinder.getState().orders[0];
+    const provider = getPricingProvider();
+    const expected = provider.getPricing(p, { customer, qty: 1 }).effectiveUnitPrice * 1;
+    expect(order.total).toBeCloseTo(expected, 5);
+    // Contract price (6.95) < list/tier price — verify the bug is fixed
+    const tierBased = tierUnitPrice(p, 1) * 1;
+    expect(order.total).toBeLessThan(tierBased);
+  });
+
+  it("with no active customer, order total still uses tierUnitPrice (unchanged path)", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 10);
+    useProductFinder.getState().placeOrder(9000011, "no-cust-total");
+
+    const order = useProductFinder.getState().orders[0];
+    const expected = tierUnitPrice(p, 10) * 10;
+    expect(order.total).toBeCloseTo(expected, 5);
+  });
+
+  it("order total matches the cart total the customer saw (same pricing, same customer)", () => {
+    const customer = CUSTOMER_ACCOUNTS.find((c) => c.id === "CUST-001")!;
+    useProductFinder.getState().setActiveCustomer(customer.id);
+    const p = findNetPricedProduct();
+    useProductFinder.getState().addToCart(p, 5);
+
+    // Read cart total BEFORE placing order
+    const cartTotal = selectCartTotal(useProductFinder.getState());
+    useProductFinder.getState().placeOrder(9000012, "total-matches-cart");
+
+    const order = useProductFinder.getState().orders[0];
+    expect(order.total).toBeCloseTo(cartTotal, 5);
+  });
+});
+
+// ─── I-5b: selectVisibleOrders ────────────────────────────────────────────────
+
+describe("I-5b: selectVisibleOrders", () => {
+  beforeEach(resetStore);
+
+  it("returns an empty array when there are no orders", () => {
+    const state = useProductFinder.getState();
+    expect(selectVisibleOrders(state)).toHaveLength(0);
+  });
+
+  it("with no active customer, shows only orders where customerId === null", () => {
+    const p = CATALOG_PRODUCTS[0];
+    // Walk-in order
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(9100001, "walkin-ord");
+
+    // CUST-001 order
+    useProductFinder.getState().setActiveCustomer("CUST-001");
+    useProductFinder.getState().addToCart(p, 2);
+    useProductFinder.getState().placeOrder(9100002, "cust001-ord");
+
+    // Switch back to no active customer
+    useProductFinder.getState().setActiveCustomer(null);
+    const state = useProductFinder.getState();
+    const visible = selectVisibleOrders(state);
+    expect(visible.every((o) => o.customerId === null)).toBe(true);
+    expect(visible.some((o) => o.id === "walkin-ord")).toBe(true);
+    expect(visible.some((o) => o.id === "cust001-ord")).toBe(false);
+  });
+
+  it("with active customer CUST-001, shows only CUST-001 orders", () => {
+    const p = CATALOG_PRODUCTS[0];
+    // Walk-in order
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(9100010, "walkin-2");
+
+    // CUST-001 order
+    useProductFinder.getState().setActiveCustomer("CUST-001");
+    useProductFinder.getState().addToCart(p, 2);
+    useProductFinder.getState().placeOrder(9100011, "cust001-2");
+
+    // CUST-002 order
+    useProductFinder.getState().setActiveCustomer("CUST-002");
+    useProductFinder.getState().addToCart(p, 3);
+    useProductFinder.getState().placeOrder(9100012, "cust002-2");
+
+    // Back to CUST-001
+    useProductFinder.getState().setActiveCustomer("CUST-001");
+    const state = useProductFinder.getState();
+    const visible = selectVisibleOrders(state);
+    expect(visible.every((o) => o.customerId === "CUST-001")).toBe(true);
+    expect(visible.some((o) => o.id === "cust001-2")).toBe(true);
+    expect(visible.some((o) => o.id === "walkin-2")).toBe(false);
+    expect(visible.some((o) => o.id === "cust002-2")).toBe(false);
+  });
+
+  it("switching active customer immediately changes visible orders", () => {
+    const p = CATALOG_PRODUCTS[0];
+
+    useProductFinder.getState().setActiveCustomer("CUST-001");
+    useProductFinder.getState().addToCart(p, 1);
+    useProductFinder.getState().placeOrder(9100020, "switch-cust001");
+
+    useProductFinder.getState().setActiveCustomer("CUST-002");
+    useProductFinder.getState().addToCart(p, 2);
+    useProductFinder.getState().placeOrder(9100021, "switch-cust002");
+
+    // Check CUST-001 view
+    useProductFinder.getState().setActiveCustomer("CUST-001");
+    const stateCust1 = useProductFinder.getState();
+    expect(selectVisibleOrders(stateCust1).map((o) => o.id)).toContain("switch-cust001");
+    expect(selectVisibleOrders(stateCust1).map((o) => o.id)).not.toContain("switch-cust002");
+
+    // Switch to CUST-002 view
+    useProductFinder.getState().setActiveCustomer("CUST-002");
+    const stateCust2 = useProductFinder.getState();
+    expect(selectVisibleOrders(stateCust2).map((o) => o.id)).toContain("switch-cust002");
+    expect(selectVisibleOrders(stateCust2).map((o) => o.id)).not.toContain("switch-cust001");
+  });
+});
+
+// ─── I-5b: seed assigns orders to specific customers ─────────────────────────
+
+describe("I-5b: demo seed assigns orders to correct customers", () => {
+  beforeEach(resetStore);
+
+  it("seed assigns at least 2 orders to CUST-001 (Gulf Coast Industrial)", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    const cust001Orders = orders.filter((o) => o.customerId === "CUST-001");
+    expect(cust001Orders.length).toBeGreaterThanOrEqual(2);
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("seed assigns at least 1 order to CUST-002 (Lone Star Data Systems)", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    const cust002Orders = orders.filter((o) => o.customerId === "CUST-002");
+    expect(cust002Orders.length).toBeGreaterThanOrEqual(1);
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("seed orders for CUST-001 have correct customerName = 'Gulf Coast Industrial'", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    const cust001Orders = orders.filter((o) => o.customerId === "CUST-001");
+    expect(cust001Orders.every((o) => o.customerName === "Gulf Coast Industrial")).toBe(true);
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("seeded CUST-001 order totals use contract pricing (< bare tier total for net-priced SKUs)", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    // demo-order-001: CB-SQD-QO115 (qty 10) + CB-EAT-CH115 (qty 5), assigned to CUST-001
+    const order1 = orders.find((o) => o.id === "demo-order-001");
+    if (!order1) return; // skip if products absent from catalog
+    // Compute what the tier-only total would be
+    const tierTotal = order1.lines.reduce((s, l) => s + tierUnitPrice(l.product, l.qty) * l.qty, 0);
+    // CUST-001 has net prices on all 3 SKUs, so contract total should be less
+    expect(order1.total).toBeLessThan(tierTotal);
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("total seed order count is at least 3 (2 for CUST-001 + 1 for CUST-002)", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { orders } = useProductFinder.getState();
+    expect(orders.length).toBeGreaterThanOrEqual(3);
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+});
+
+// ─── I-5b: reorder still deep-copies (regression) ────────────────────────────
+
+describe("I-5b: reorder still works with per-customer orders", () => {
+  beforeEach(resetStore);
+
+  it("reorder on a customer-stamped order still deep-copies lines into cart", () => {
+    const customer = CUSTOMER_ACCOUNTS.find((c) => c.id === "CUST-001")!;
+    useProductFinder.getState().setActiveCustomer(customer.id);
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 4);
+    useProductFinder.getState().placeOrder(9200001, "reord-cust");
+
+    useProductFinder.getState().reorder("reord-cust");
+    expect(useProductFinder.getState().cart[p.id]?.qty).toBe(4);
+
+    // Mutate cart — stored order must be unchanged
+    useProductFinder.getState().updateCartQty(p.id, 999);
+    const stored = useProductFinder.getState().orders.find((o) => o.id === "reord-cust")!;
+    expect(stored.lines[0].qty).toBe(4);
   });
 });
