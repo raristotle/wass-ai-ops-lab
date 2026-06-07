@@ -6,11 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { StockBadge } from "@/features/product-finder/StockBadge";
-import { useProductFinder } from "@/lib/product-finder-store";
+import { useProductFinder, selectActiveCustomer } from "@/lib/product-finder-store";
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 import { RecommendationExplanation } from "@/features/product-finder/RecommendationExplanation";
 import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
+import { getPricingProvider } from "@/lib/integration/index";
 
 interface ProductCardProps {
   product: CatalogProduct;
@@ -63,6 +64,7 @@ export function ProductCard({
   const setActiveProduct = useProductFinder((s) => s.setActiveProduct);
   const isWatched = useProductFinder((s) => s.watches.includes(product.id));
   const toggleWatch = useProductFinder((s) => s.toggleWatch);
+  const activeCustomer = useProductFinder(selectActiveCustomer);
 
   const branchQty = getTotalBranchStock(product);
   const dcQty = getTotalDCStock(product);
@@ -301,10 +303,38 @@ export function ProductCard({
       <div className="border-t border-[#B7C9D3]/40 p-4 flex flex-col sm:flex-row sm:items-center gap-3">
         {/* Price */}
         <div className="flex-shrink-0">
-          <span className="text-lg font-semibold text-[#1D252D]">
-            ${product.unitPrice.toFixed(2)}
-          </span>
-          <span className="text-xs text-[#4F758B] ml-1">/ {product.uom}</span>
+          {(() => {
+            const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
+            const hasContract = pricing.contractPrice !== null;
+            return hasContract ? (
+              <div className="flex flex-col gap-0.5">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-lg font-semibold text-[#00AA13]">
+                    ${pricing.effectiveUnitPrice.toFixed(2)}
+                  </span>
+                  <span className="text-xs text-[#4F758B]">/ {product.uom}</span>
+                </div>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-xs text-[#4F758B] line-through">
+                    List ${pricing.listPrice.toFixed(2)}
+                  </span>
+                  {pricing.savingsPct > 0 && (
+                    <span className="text-[10px] font-semibold text-[#00AA13] bg-[#00AA13]/10 px-1.5 py-0.5 rounded">
+                      You save {pricing.savingsPct}%
+                    </span>
+                  )}
+                </div>
+                <p className="text-[9px] text-[#4F758B] italic">contract pricing — simulated</p>
+              </div>
+            ) : (
+              <>
+                <span className="text-lg font-semibold text-[#1D252D]">
+                  ${pricing.effectiveUnitPrice.toFixed(2)}
+                </span>
+                <span className="text-xs text-[#4F758B] ml-1">/ {product.uom}</span>
+              </>
+            );
+          })()}
         </div>
 
         {/* Actions */}

@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { useProductFinder, selectCartCount, selectCartTotal } from "@/lib/product-finder-store";
-import { tierUnitPrice, priceTiers } from "@/lib/product-finder-pricing";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer } from "@/lib/product-finder-store";
+import { priceTiers } from "@/lib/product-finder-pricing";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
+import { getPricingProvider } from "@/lib/integration/index";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { encodeCart } from "@/lib/product-finder-share";
 import { Button } from "@/components/ui/button";
@@ -29,8 +30,10 @@ export function CartDrawer() {
   const placeOrder = useProductFinder((s) => s.placeOrder);
   const reorder = useProductFinder((s) => s.reorder);
   const deleteOrder = useProductFinder((s) => s.deleteOrder);
+  const activeCustomer = useProductFinder(selectActiveCustomer);
 
   const items = Object.values(cart);
+  const hasContractCustomer = activeCustomer !== null && activeCustomer.tier === "contract";
 
   // ── Saved baskets state ────────────────────────────────────────────────────
   const [basketName, setBasketName] = useState("");
@@ -155,10 +158,19 @@ export function CartDrawer() {
               </p>
             </div>
           ) : (
+            <>
+            {/* Contract pricing note — once per drawer, not per line */}
+            {hasContractCustomer && (
+              <p className="px-4 pt-3 pb-1 text-[10px] text-[#4F758B] italic">
+                contract pricing — simulated
+              </p>
+            )}
             <ul className="divide-y divide-[#B7C9D3]">
               {items.map(({ product, qty }) => {
-                const effectiveUnitPrice = tierUnitPrice(product, qty);
+                const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
+                const effectiveUnitPrice = pricing.effectiveUnitPrice;
                 const lineTotal = effectiveUnitPrice * qty;
+                const hasContract = pricing.contractPrice !== null;
                 // Find the qualifying tier break (minQty > 1 means a vol-price discount applies)
                 const tiers = priceTiers(product);
                 const activeTier = [...tiers].reverse().find((t) => qty >= t.minQty);
@@ -183,15 +195,41 @@ export function CartDrawer() {
                         <p className="text-xs text-[#4F758B]">SKU: {product.sku}</p>
 
                         {/* Unit price × qty */}
-                        <p className="mt-1 text-xs text-[#4F758B]">
-                          ${effectiveUnitPrice.toFixed(2)} × {qty} ={" "}
-                          <span className="font-semibold text-[#1D252D]">
-                            ${lineTotal.toFixed(2)}
-                          </span>
-                        </p>
+                        <div className="mt-1">
+                          {hasContract ? (
+                            <>
+                              <p className="text-xs text-[#4F758B]">
+                                <span className="font-semibold text-[#00AA13]">
+                                  ${effectiveUnitPrice.toFixed(2)}
+                                </span>
+                                {" × "}{qty} ={" "}
+                                <span className="font-semibold text-[#1D252D]">
+                                  ${lineTotal.toFixed(2)}
+                                </span>
+                              </p>
+                              <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                                <span className="text-[10px] text-[#4F758B] line-through">
+                                  List ${pricing.listPrice.toFixed(2)}
+                                </span>
+                                {pricing.savingsPct > 0 && (
+                                  <span className="text-[10px] font-semibold text-[#00AA13]">
+                                    save {pricing.savingsPct}%
+                                  </span>
+                                )}
+                              </div>
+                            </>
+                          ) : (
+                            <p className="text-xs text-[#4F758B]">
+                              ${effectiveUnitPrice.toFixed(2)} × {qty} ={" "}
+                              <span className="font-semibold text-[#1D252D]">
+                                ${lineTotal.toFixed(2)}
+                              </span>
+                            </p>
+                          )}
+                        </div>
 
                         {/* Vol. price note */}
-                        {hasVolBreak && activeTier && (
+                        {!hasContract && hasVolBreak && activeTier && (
                           <p className="mt-0.5 text-[10px] font-semibold text-[#00AA13]">
                             vol. price ({activeTier.minQty}+)
                           </p>
@@ -235,6 +273,7 @@ export function CartDrawer() {
                 );
               })}
             </ul>
+            </>
           )}
         </div>
 
@@ -557,7 +596,8 @@ export function CartDrawer() {
                 </thead>
                 <tbody>
                   {items.map(({ product, qty }) => {
-                    const unit = tierUnitPrice(product, qty);
+                    const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
+                    const unit = pricing.effectiveUnitPrice;
                     const ext = unit * qty;
                     return (
                       <tr key={product.id} className="border-b border-[#B7C9D3]/60">

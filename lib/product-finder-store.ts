@@ -20,6 +20,7 @@ export type Order = {
 };
 import { parseQuery } from "@/lib/product-finder-nl-search";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
+import { getPricingProvider } from "@/lib/integration/index";
 import {
   searchProducts,
   getAlternatives,
@@ -854,9 +855,12 @@ export function selectCartCount(state: ProductFinderState) {
 }
 
 export function selectCartTotal(state: ProductFinderState) {
-  return Object.values(state.cart).reduce(
-    (s, i) => s + tierUnitPrice(i.product, i.qty) * i.qty, 0
-  );
+  const customer = selectActiveCustomer(state);
+  const provider = getPricingProvider();
+  return Object.values(state.cart).reduce((sum, { product, qty }) => {
+    const effectiveUnitPrice = provider.getPricing(product, { customer, qty }).effectiveUnitPrice;
+    return sum + effectiveUnitPrice * qty;
+  }, 0);
 }
 
 export function selectActiveCustomer(state: ProductFinderState): CustomerAccount | null {

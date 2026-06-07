@@ -50,12 +50,37 @@ export interface CustomerProvider {
   get(id: string): CustomerAccount | null;
 }
 
+// ─── Pricing ─────────────────────────────────────────────────────────────────
+
+export interface ProductPricing {
+  /** The published list price (= product.unitPrice). */
+  listPrice: number;
+  /**
+   * The customer's negotiated base unit price before volume breaks.
+   * null when no contract applies (standard customer or no customer).
+   */
+  contractPrice: number | null;
+  /** What the customer actually pays per unit at this qty, after all discounts. */
+  effectiveUnitPrice: number;
+  /**
+   * Percentage saved vs listPrice at qty 1 baseline.
+   * 0 when there are no savings or listPrice is 0.
+   */
+  savingsPct: number;
+  /** Which discount(s) drove the effectiveUnitPrice. */
+  source: "list" | "contract" | "volume" | "contract+volume";
+}
+
+export interface PricingProvider {
+  getPricing(
+    product: CatalogProduct,
+    ctx: { customer: CustomerAccount | null; qty: number }
+  ): ProductPricing;
+}
+
 // ─── Reserved interfaces for later tasks ──────────────────────────────────────
 // These are stub-reserved so later tasks can extend this file without
 // disrupting the foundation types above.
-
-// PricingProvider — task I-1 (contract / customer pricing)
-// export interface PricingProvider { ... }
 
 // InventoryProvider — task I-3 (live inventory / ATP)
 // export interface InventoryProvider { ... }

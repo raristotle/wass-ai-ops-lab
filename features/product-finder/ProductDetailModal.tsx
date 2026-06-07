@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type MouseEvent } from "react";
-import { useProductFinder } from "@/lib/product-finder-store";
+import { useProductFinder, selectActiveCustomer } from "@/lib/product-finder-store";
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import { externalSearchLinks } from "@/lib/product-finder-links";
 import { priceTiers } from "@/lib/product-finder-pricing";
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
 import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
+import { getPricingProvider } from "@/lib/integration/index";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -85,6 +86,7 @@ export function ProductDetailModal() {
   const setActiveProduct = useProductFinder((s) => s.setActiveProduct);
   const watches        = useProductFinder((s) => s.watches);
   const toggleWatch    = useProductFinder((s) => s.toggleWatch);
+  const activeCustomer = useProductFinder(selectActiveCustomer);
 
   const [qty, setQty] = useState(1);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -207,12 +209,42 @@ export function ProductDetailModal() {
           {/* Right: price, stock, actions */}
           <div className="flex-1 flex flex-col gap-3 min-w-0">
             {/* Price */}
-            <div>
-              <span className="text-2xl font-bold text-[#1D252D]">
-                ${product.unitPrice.toFixed(2)}
-              </span>
-              <span className="text-sm text-[#4F758B] ml-1">/ {product.uom}</span>
-            </div>
+            {(() => {
+              const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
+              const hasContract = pricing.contractPrice !== null;
+              return (
+                <div>
+                  {hasContract ? (
+                    <>
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        <span className="text-2xl font-bold text-[#00AA13]">
+                          ${pricing.effectiveUnitPrice.toFixed(2)}
+                        </span>
+                        <span className="text-sm text-[#4F758B]">/ {product.uom}</span>
+                      </div>
+                      <div className="flex items-center gap-2 flex-wrap mt-0.5">
+                        <span className="text-sm text-[#4F758B] line-through">
+                          List ${pricing.listPrice.toFixed(2)}
+                        </span>
+                        {pricing.savingsPct > 0 && (
+                          <span className="text-xs font-semibold text-[#00AA13] bg-[#00AA13]/10 px-2 py-0.5 rounded">
+                            You save {pricing.savingsPct}%
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[10px] text-[#4F758B] italic mt-0.5">contract pricing — simulated</p>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-2xl font-bold text-[#1D252D]">
+                        ${pricing.effectiveUnitPrice.toFixed(2)}
+                      </span>
+                      <span className="text-sm text-[#4F758B] ml-1">/ {product.uom}</span>
+                    </>
+                  )}
+                </div>
+              );
+            })()}
 
             {/* Volume pricing table */}
             <div>

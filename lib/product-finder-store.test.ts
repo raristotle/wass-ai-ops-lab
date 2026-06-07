@@ -4,6 +4,7 @@ import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
 import { CUSTOMER_ACCOUNTS } from "@/lib/integration/customers";
+import { getPricingProvider } from "@/lib/integration/index";
 
 // ─── Fetch mock ───────────────────────────────────────────────────────────────
 
@@ -163,6 +164,75 @@ describe("selectCartTotal", () => {
     const tieredTotal = selectCartTotal(state);
     const flatTotal = p.unitPrice * 10;
     expect(tieredTotal).toBeLessThan(flatTotal);
+  });
+});
+
+// ─── selectCartTotal — contract pricing ───────────────────────────────────────
+
+describe("selectCartTotal — contract pricing", () => {
+  beforeEach(resetStore);
+
+  // Find a product in the "electrical" category so the Gulf Coast contract applies
+  function findElectricalProduct() {
+    const p = CATALOG_PRODUCTS.find((x) => x.category === "electrical");
+    if (!p) throw new Error("No electrical product found in CATALOG_PRODUCTS");
+    return p;
+  }
+
+  it("selectCartTotal uses effectiveUnitPrice from pricing provider, not raw tierUnitPrice", () => {
+    const p = findElectricalProduct();
+    const gulfCoast = CUSTOMER_ACCOUNTS.find((c) => c.id === "CUST-001")!;
+    useProductFinder.getState().setActiveCustomer(gulfCoast.id);
+    useProductFinder.getState().addToCart(p, 1);
+
+    const state = useProductFinder.getState();
+    const activeCustomer = CUSTOMER_ACCOUNTS.find((c) => c.id === state.activeCustomerId) ?? null;
+    const expected = getPricingProvider().getPricing(p, { customer: activeCustomer, qty: 1 }).effectiveUnitPrice * 1;
+    expect(selectCartTotal(state)).toBeCloseTo(expected, 5);
+  });
+
+  it("with a contract customer who has a category discount, cart total is lower than list×qty", () => {
+    const p = findElectricalProduct();
+    const gulfCoast = CUSTOMER_ACCOUNTS.find((c) => c.id === "CUST-001")!;
+    useProductFinder.getState().setActiveCustomer(gulfCoast.id);
+    useProductFinder.getState().addToCart(p, 1);
+
+    const state = useProductFinder.getState();
+    const contractTotal = selectCartTotal(state);
+    const listTotal = p.unitPrice * 1;
+    // Gulf Coast has ≥ 15% off electrical — contract total should be lower
+    expect(contractTotal).toBeLessThan(listTotal);
+  });
+
+  it("with no active customer, selectCartTotal matches tierUnitPrice×qty (unchanged path)", () => {
+    const p = CATALOG_PRODUCTS[0];
+    useProductFinder.getState().addToCart(p, 10);
+    const state = useProductFinder.getState();
+    const expected = tierUnitPrice(p, 10) * 10;
+    expect(selectCartTotal(state)).toBeCloseTo(expected, 5);
+  });
+
+  it("sums contract totals across multiple items for an active contract customer", () => {
+    const p1 = findElectricalProduct();
+    // Use a second electrical product if available, otherwise same product is fine
+    const allElec = CATALOG_PRODUCTS.filter((x) => x.category === "electrical");
+    const p2 = allElec.length > 1 ? allElec[1] : p1;
+
+    const gulfCoast = CUSTOMER_ACCOUNTS.find((c) => c.id === "CUST-001")!;
+    useProductFinder.getState().setActiveCustomer(gulfCoast.id);
+    useProductFinder.getState().addToCart(p1, 2);
+    // Only add p2 to cart if it's a different product
+    if (p2.id !== p1.id) {
+      useProductFinder.getState().addToCart(p2, 3);
+    }
+
+    const state = useProductFinder.getState();
+    const activeCustomer = CUSTOMER_ACCOUNTS.find((c) => c.id === state.activeCustomerId) ?? null;
+    const items = Object.values(state.cart);
+    const expected = items.reduce((sum, { product, qty }) => {
+      return sum + getPricingProvider().getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice * qty;
+    }, 0);
+    expect(selectCartTotal(state)).toBeCloseTo(expected, 5);
   });
 });
 
