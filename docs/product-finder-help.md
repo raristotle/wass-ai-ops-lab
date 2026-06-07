@@ -150,6 +150,24 @@ Click **Import List / BOM** by the search box to bulk-add products:
 - If a product is **out of stock at Meridian Supply Co.**, the app lists **external distributors**
   (with price, quantity, and lead time) so you still have an answer.
 
+### Enterprise integration (simulated)
+A set of "system of record" capabilities, built behind clean adapter interfaces so
+they can later connect to real ERP / PIM / CRM / pricing systems. **In this demo
+they run on synthetic data** (each is labeled "simulated"):
+- **Quoting for / customer accounts** — pick the customer you're quoting for from the
+  header selector. The choice drives pricing, order history, and the quote.
+- **Contract / customer pricing** — for a contract customer, products and the cart
+  show **List → Your price → You save N%** (category discounts and negotiated net
+  prices, layered with volume tiers). Net prices are treated as a price floor.
+- **Live inventory / ATP** — the detail view's **Availability** panel shows branch &
+  DC stock, an **Available-to-Promise date** and lead time for out-of-stock items,
+  which other branches stock it, and a branch-transfer ETA.
+- **Catalog source (PIM)** — a small strip in the sidebar shows the catalog
+  provenance (source, product count, last sync).
+- **Competitor / legacy cross-reference** — click **Cross-reference** by the search
+  box and paste a competitor or legacy part number to find the Meridian equivalent;
+  each product's detail lists the parts it **Replaces**.
+
 ### Basket, saved baskets & quotes
 Add products (with a quantity) to your **basket**. Click the **Cart** button to open
 it: change quantities, remove items, see the **running total** (with volume pricing

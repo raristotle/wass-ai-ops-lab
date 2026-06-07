@@ -10,8 +10,12 @@ across 6 categories and 79 subcategories), with server-side search/suggest/detai
 APIs, scored "find alternatives" recommendations, spec-level facet filters,
 volume/tiered pricing, goes-with cross-sell, BOM/list import, named saved baskets,
 order history with reorder, shareable cart links, out-of-stock lead times with
-notify-me, printable spec sheets / comparisons / quotes (PDF), and demo auth. See
-[docs/product-finder-help.md](docs/product-finder-help.md).
+notify-me, printable spec sheets / comparisons / quotes (PDF), and demo auth.
+It also includes a **simulated enterprise-integration layer** (`lib/integration/`)
+behind swap-in adapter interfaces — customer accounts, contract/customer pricing,
+live inventory/ATP, PIM catalog provenance, and competitor/legacy part
+cross-reference (all on synthetic data, ready to point at real ERP/PIM/CRM/pricing
+systems). See [docs/product-finder-help.md](docs/product-finder-help.md).
 
 ## Stack
 
