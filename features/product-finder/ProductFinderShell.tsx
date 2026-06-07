@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useProductFinder, selectCartCount } from "@/lib/product-finder-store";
 import { FilterSidebar } from "@/features/product-finder/FilterSidebar";
 import { CartDrawer } from "@/features/product-finder/CartDrawer";
@@ -84,6 +85,17 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
               <span className="text-sm font-bold text-white">{user.name}</span>
               <span className="text-xs text-[#B7C9D3]">{user.branch}</span>
             </div>
+          )}
+
+          {/* Dashboard link — manager/admin only */}
+          {(user?.role === "manager" || user?.role === "admin") && (
+            <Link
+              href="/product-finder/dashboard"
+              className="hidden items-center gap-1 rounded-lg border border-[#4F758B] px-3 py-1.5 text-xs font-semibold text-[#B7C9D3] transition-colors hover:border-[#64CCC9] hover:text-[#64CCC9] sm:flex"
+            >
+              <span aria-hidden="true">📊</span>
+              <span>Insights</span>
+            </Link>
           )}
 
           {/* Cart FAB */}
