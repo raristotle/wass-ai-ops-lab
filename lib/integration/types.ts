@@ -115,12 +115,41 @@ export interface InventoryProvider {
   ): Availability;
 }
 
+// ─── Catalog / PIM source ─────────────────────────────────────────────────────
+
+/** Metadata returned by the PIM catalog source adapter. */
+export interface CatalogSource {
+  /** Human-readable source label, e.g. "PIM (simulated)". */
+  source: string;
+  /** Total number of products in the catalog. */
+  productCount: number;
+  /**
+   * ISO 8601 timestamp of the last sync.
+   * Injected by the caller (no Date.now inside the module).
+   */
+  lastSyncedAt: string;
+  /**
+   * Percentage (0–100) of products that have at least one isNonNeg spec.
+   * Deterministic over the generated catalog.
+   */
+  attributeCompleteness: number;
+  /** Number of distinct top-level categories in the catalog. */
+  categories: number;
+  /** Number of distinct subcategories in the catalog. */
+  subcategories: number;
+}
+
+export interface CatalogProvider {
+  /**
+   * Returns catalog source metadata.
+   * @param now  Injected timestamp — callers pass `new Date()`; tests pass a fixed date.
+   */
+  getSource(now: Date): CatalogSource;
+}
+
 // ─── Reserved interfaces for later tasks ──────────────────────────────────────
 // These are stub-reserved so later tasks can extend this file without
 // disrupting the foundation types above.
-
-// CatalogSource — task I-2 (catalog / PIM integration framing)
-// export interface CatalogSource { ... }
 
 // OrderProvider — task I-5b (per-customer order history)
 // export interface OrderProvider { ... }

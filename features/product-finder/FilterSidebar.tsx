@@ -7,8 +7,40 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { FilterState } from "@/features/product-finder/types";
+import { getCatalogProvider } from "@/lib/integration/index";
 
 const VISIBLE_LIMIT = 8;
+
+/** Small provenance strip shown at the bottom of the sidebar. */
+function CatalogSourceStrip() {
+  const catalogSource = getCatalogProvider().getSource(new Date());
+  const productCountFormatted = catalogSource.productCount.toLocaleString("en-US");
+  const syncedAt = new Date(catalogSource.lastSyncedAt).toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  return (
+    <div className="mt-auto border-t border-[#B7C9D3] pt-3">
+      <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#4F758B]">
+        Catalog source
+      </p>
+      <p className="text-xs text-[#4F758B]">
+        {catalogSource.source} &middot; {productCountFormatted} products
+      </p>
+      <p className="text-[10px] text-[#B7C9D3]">
+        Synced {syncedAt}
+      </p>
+      <p className="mt-1 text-[10px] italic text-[#B7C9D3]">
+        Attributes synced from PIM &mdash; simulated integration.
+      </p>
+    </div>
+  );
+}
 
 function hasActiveFilters(filters: FilterState): boolean {
   return (
@@ -283,6 +315,9 @@ export function FilterSidebar() {
           </button>
         </div>
       )}
+
+      {/* Catalog source provenance strip */}
+      <CatalogSourceStrip />
     </div>
   );
 

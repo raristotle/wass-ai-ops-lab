@@ -4,10 +4,11 @@
 // Replace the mock return values with real CRM/ERP API clients when connectivity
 // is available; the interfaces in types.ts are the contracts.
 
-import type { CustomerProvider, PricingProvider, InventoryProvider } from "@/lib/integration/types";
+import type { CustomerProvider, PricingProvider, InventoryProvider, CatalogProvider } from "@/lib/integration/types";
 import { mockCustomerProvider } from "@/lib/integration/customers";
 import { mockPricingProvider } from "@/lib/integration/pricing";
 import { mockInventoryProvider } from "@/lib/integration/inventory";
+import { mockCatalogProvider } from "@/lib/integration/catalog-source";
 
 /**
  * Returns the customer account provider.
@@ -36,6 +37,14 @@ export function getInventoryProvider(): InventoryProvider {
   return mockInventoryProvider;
 }
 
+/**
+ * Returns the catalog / PIM source provider.
+ * INTEGRATION SEAM — replace with real PIM API client here;
+ * interface in lib/integration/types.ts is the contract.
+ */
+export function getCatalogProvider(): CatalogProvider {
+  return mockCatalogProvider;
+}
+
 // Future registry functions (added by later tasks):
-// export function getCatalogSource(): CatalogSource { ... }       // task I-2
 // export function getOrderProvider(): OrderProvider { ... }       // task I-5b
