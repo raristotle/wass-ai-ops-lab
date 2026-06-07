@@ -73,6 +73,7 @@ function resetStore() {
       sortKey: "relevance",
       viewMode: "list",
       specFilters: {},
+      specRanges: {},
     },
     facets: [],
   });
@@ -1879,5 +1880,51 @@ describe("I-5b: reorder still works with per-customer orders", () => {
     useProductFinder.getState().updateCartQty(p.id, 999);
     const stored = useProductFinder.getState().orders.find((o) => o.id === "reord-cust")!;
     expect(stored.lines[0].qty).toBe(4);
+  });
+});
+
+// ─── specRanges – setSpecRange ────────────────────────────────────────────────
+
+describe("specRanges – setSpecRange", () => {
+  beforeEach(resetStore);
+
+  it("starts with empty specRanges in defaultFilters", () => {
+    expect(useProductFinder.getState().filters.specRanges).toEqual({});
+  });
+
+  it("setSpecRange sets a range entry and re-runs search", async () => {
+    await useProductFinder.getState().setSpecRange("Amperage", { min: 15, max: 30 });
+    const { filters } = useProductFinder.getState();
+    expect(filters.specRanges["Amperage"]).toEqual({ min: 15, max: 30 });
+  });
+
+  it("setSpecRange with min-only stores a partial range", async () => {
+    await useProductFinder.getState().setSpecRange("Voltage", { min: 120 });
+    expect(useProductFinder.getState().filters.specRanges["Voltage"]).toEqual({ min: 120 });
+  });
+
+  it("setSpecRange with max-only stores a partial range", async () => {
+    await useProductFinder.getState().setSpecRange("Wattage", { max: 600 });
+    expect(useProductFinder.getState().filters.specRanges["Wattage"]).toEqual({ max: 600 });
+  });
+
+  it("setSpecRange with both undefined deletes the key (clears the range)", async () => {
+    await useProductFinder.getState().setSpecRange("Amperage", { min: 15, max: 30 });
+    await useProductFinder.getState().setSpecRange("Amperage", {});
+    const { filters } = useProductFinder.getState();
+    expect(filters.specRanges["Amperage"]).toBeUndefined();
+  });
+
+  it("clearFilters resets specRanges to {}", async () => {
+    await useProductFinder.getState().setSpecRange("Amperage", { min: 10, max: 50 });
+    expect(Object.keys(useProductFinder.getState().filters.specRanges).length).toBeGreaterThan(0);
+    useProductFinder.getState().clearFilters();
+    expect(useProductFinder.getState().filters.specRanges).toEqual({});
+  });
+
+  it("resetStore resets specRanges to {}", async () => {
+    await useProductFinder.getState().setSpecRange("CCT", { min: 3000, max: 5000 });
+    resetStore();
+    expect(useProductFinder.getState().filters.specRanges).toEqual({});
   });
 });

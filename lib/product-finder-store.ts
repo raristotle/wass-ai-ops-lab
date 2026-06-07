@@ -111,6 +111,8 @@ export interface ProductFinderState {
   setViewMode: (v: ViewMode) => void;
   clearFilters: () => void;
   toggleSpecFilter: (name: string, value: string) => Promise<void>;
+  /** Set or clear a numeric range for a spec. When both min and max are undefined the key is deleted. */
+  setSpecRange: (name: string, range: { min?: number; max?: number }) => Promise<void>;
 
   // Compare
   compareIds: Set<string>;
@@ -191,6 +193,7 @@ function defaultFilters(): FilterState {
     sortKey: "relevance",
     viewMode: "list",
     specFilters: {},
+    specRanges: {},
   };
 }
 
@@ -745,6 +748,21 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
         newSpecFilters[name] = next;
       }
       return { filters: { ...s.filters, specFilters: newSpecFilters } };
+    });
+    await get().runSearch();
+  },
+
+  // ── Numeric range filters ─────────────────────────────────
+  async setSpecRange(name, range) {
+    set((s) => {
+      const newSpecRanges = { ...s.filters.specRanges };
+      if (range.min === undefined && range.max === undefined) {
+        // Clear this range key entirely
+        delete newSpecRanges[name];
+      } else {
+        newSpecRanges[name] = range;
+      }
+      return { filters: { ...s.filters, specRanges: newSpecRanges } };
     });
     await get().runSearch();
   },

@@ -1,6 +1,7 @@
 import type { CatalogProduct, ProductCategory, SortKey, SearchResponse } from "@/features/product-finder/types";
 import { getCatalog } from "@/lib/catalog/index";
 import { computeFacets } from "@/lib/catalog/facets";
+import { parseAttribute } from "@/lib/catalog/attributes";
 
 export interface SearchFilters {
   categories?: ProductCategory[];
@@ -13,6 +14,8 @@ export interface SearchFilters {
   priceMax?: number | null;
   /** spec name → selected values (OR within a name, AND across names) */
   specFilters?: Record<string, string[]>;
+  /** Numeric range filters: spec name → { min?, max? } — applied AFTER facets are computed */
+  specRanges?: Record<string, { min?: number; max?: number }>;
 }
 
 export interface SearchParams {
@@ -55,10 +58,14 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
     .filter(([, vals]) => vals.length > 0)
     .map(([name, vals]) => [name, new Set(vals)]);
 
+  // Normalize specRanges: only keep entries with at least one bound
+  const rangeEntries: [string, { min?: number; max?: number }][] = Object.entries(f.specRanges ?? {})
+    .filter(([, range]) => range.min !== undefined || range.max !== undefined);
+
   const terms = text.split(/\s+/).filter(Boolean);
 
   // Phase 1: match text + structural filters (category/subcat/brand/stock/price)
-  // This set is used to compute facets BEFORE specFilters are applied.
+  // This set is used to compute facets BEFORE specFilters/specRanges are applied.
   const baseMatched: CatalogProduct[] = [];
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
@@ -78,13 +85,33 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
   const facets = computeFacets(baseMatched);
 
   // Phase 2: apply specFilters (AND across names, OR within a name's values)
-  const matched: CatalogProduct[] =
+  const afterSpecFilters: CatalogProduct[] =
     specEntries.length === 0
       ? baseMatched
       : baseMatched.filter((p) =>
           specEntries.every(([name, valueSet]) =>
             p.specs.some((s) => s.name === name && valueSet.has(s.value))
           )
+        );
+
+  // Phase 3: apply specRanges (AND across names)
+  // A product matches a range entry if parseAttribute(name, its spec value) is
+  // non-null and within [min ?? -Inf, max ?? +Inf] (inclusive).
+  const matched: CatalogProduct[] =
+    rangeEntries.length === 0
+      ? afterSpecFilters
+      : afterSpecFilters.filter((p) =>
+          rangeEntries.every(([name, range]) => {
+            // Find the spec value for this name on this product
+            const spec = p.specs.find((s) => s.name === name);
+            if (!spec) return false;
+            const parsed = parseAttribute(name, spec.value);
+            if (parsed === null) return false;
+            const { numeric } = parsed;
+            const low = range.min ?? -Infinity;
+            const high = range.max ?? Infinity;
+            return numeric >= low && numeric <= high;
+          })
         );
 
   const sorted = sortItems(matched, params.sort ?? "relevance");

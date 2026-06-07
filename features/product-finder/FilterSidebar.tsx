@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { ALL_SUBCATEGORIES, ALL_BRANDS, CATEGORY_META, CATEGORIES } from "@/lib/catalog/taxonomy";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { FilterState } from "@/features/product-finder/types";
+import type { FilterState, EnumFacet, RangeFacet } from "@/features/product-finder/types";
 import { getCatalogProvider } from "@/lib/integration/index";
 
 const VISIBLE_LIMIT = 8;
@@ -52,7 +52,8 @@ function hasActiveFilters(filters: FilterState): boolean {
     filters.onlyPreferred ||
     filters.priceMin !== null ||
     filters.priceMax !== null ||
-    Object.keys(filters.specFilters ?? {}).length > 0
+    Object.keys(filters.specFilters ?? {}).length > 0 ||
+    Object.keys(filters.specRanges ?? {}).length > 0
   );
 }
 
@@ -79,6 +80,83 @@ function SidebarSection({ title, children }: SectionProps) {
   );
 }
 
+/**
+ * Range facet control — two number inputs for Min and Max.
+ * Reflects the current specRanges value and applies on change/blur.
+ * Uses the facet's min/max as placeholders (catalog bounds).
+ */
+function RangeFacetControl({
+  facet,
+  currentRange,
+  onApply,
+}: {
+  facet: RangeFacet;
+  currentRange: { min?: number; max?: number } | undefined;
+  onApply: (range: { min?: number; max?: number }) => void;
+}) {
+  const [localMin, setLocalMin] = useState(
+    currentRange?.min !== undefined ? String(currentRange.min) : ""
+  );
+  const [localMax, setLocalMax] = useState(
+    currentRange?.max !== undefined ? String(currentRange.max) : ""
+  );
+
+  function apply(newMin: string, newMax: string) {
+    const parsedMin = newMin !== "" ? parseFloat(newMin) : undefined;
+    const parsedMax = newMax !== "" ? parseFloat(newMax) : undefined;
+    onApply({
+      min: parsedMin !== undefined && Number.isFinite(parsedMin) ? parsedMin : undefined,
+      max: parsedMax !== undefined && Number.isFinite(parsedMax) ? parsedMax : undefined,
+    });
+  }
+
+  return (
+    <div className="space-y-2">
+      <p className="text-[11px] text-[#4F758B]">
+        Range: {facet.min}–{facet.max} {facet.unit}
+      </p>
+      <div className="flex items-center gap-2">
+        <Input
+          type="number"
+          placeholder={`Min ${facet.unit}`}
+          value={localMin}
+          onChange={(e) => setLocalMin(e.target.value)}
+          onBlur={() => apply(localMin, localMax)}
+          className="h-8 text-xs"
+          min={facet.min}
+          max={facet.max}
+          aria-label={`Minimum ${facet.name}`}
+        />
+        <span className="text-xs text-[#4F758B]">–</span>
+        <Input
+          type="number"
+          placeholder={`Max ${facet.unit}`}
+          value={localMax}
+          onChange={(e) => setLocalMax(e.target.value)}
+          onBlur={() => apply(localMin, localMax)}
+          className="h-8 text-xs"
+          min={facet.min}
+          max={facet.max}
+          aria-label={`Maximum ${facet.name}`}
+        />
+      </div>
+      {(localMin !== "" || localMax !== "") && (
+        <button
+          type="button"
+          className="text-xs text-[#DB6B30] underline underline-offset-1 hover:text-[#c05a22]"
+          onClick={() => {
+            setLocalMin("");
+            setLocalMax("");
+            onApply({});
+          }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function FilterSidebar() {
   const filters = useProductFinder((s) => s.filters);
   const facets = useProductFinder((s) => s.facets);
@@ -91,6 +169,10 @@ export function FilterSidebar() {
   const setPriceRange = useProductFinder((s) => s.setPriceRange);
   const clearFilters = useProductFinder((s) => s.clearFilters);
   const toggleSpecFilter = useProductFinder((s) => s.toggleSpecFilter);
+  const setSpecRange = useProductFinder((s) => s.setSpecRange);
+
+  // Derive specRanges as a stable reference (plain object from store — no new-array issue)
+  const specRanges = filters.specRanges;
 
   const [showAllSubs, setShowAllSubs] = useState(false);
   const [showAllBrands, setShowAllBrands] = useState(false);
@@ -106,6 +188,18 @@ export function FilterSidebar() {
     : ALL_BRANDS.slice(0, VISIBLE_LIMIT);
 
   const anyActive = hasActiveFilters(filters);
+
+  // Partition facets into enum and range — useMemo so we don't create new arrays
+  // per render (render-loop guard: stable reference via useMemo over stable `facets`).
+  const { enumFacets, rangeFacets } = useMemo(() => {
+    const enumFacets: EnumFacet[] = [];
+    const rangeFacets: RangeFacet[] = [];
+    for (const f of facets) {
+      if (f.type === "enum") enumFacets.push(f);
+      else rangeFacets.push(f);
+    }
+    return { enumFacets, rangeFacets };
+  }, [facets]);
 
   function handlePriceApply() {
     const min = priceMin !== "" ? parseFloat(priceMin) : null;
@@ -240,8 +334,8 @@ export function FilterSidebar() {
         </div>
       </SidebarSection>
 
-      {/* Spec Facets — rendered only when the server returns facets */}
-      {facets.length > 0 && facets.map((facet) => (
+      {/* Enum Spec Facets — checkbox groups for categorical specs */}
+      {enumFacets.map((facet) => (
         <SidebarSection key={facet.name} title={facet.name}>
           <div className="space-y-1.5">
             {facet.values.map(({ value, count }) => {
@@ -265,6 +359,17 @@ export function FilterSidebar() {
               );
             })}
           </div>
+        </SidebarSection>
+      ))}
+
+      {/* Range Spec Facets — min/max number inputs for numeric specs */}
+      {rangeFacets.map((facet) => (
+        <SidebarSection key={facet.name} title={`${facet.name} (${facet.unit})`}>
+          <RangeFacetControl
+            facet={facet}
+            currentRange={specRanges[facet.name]}
+            onApply={(range) => setSpecRange(facet.name, range)}
+          />
         </SidebarSection>
       ))}
 

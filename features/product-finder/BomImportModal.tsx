@@ -27,6 +27,7 @@ async function searchTopHit(query: string): Promise<CatalogProduct | null> {
         sortKey: "relevance",
         viewMode: "list",
         specFilters: {},
+        specRanges: {},
       },
       0,
       1

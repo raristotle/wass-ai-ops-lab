@@ -36,6 +36,18 @@ export function filtersToQuery(
     }
   }
 
+  // Serialize specRanges as specmin.<Name>=<number> and specmax.<Name>=<number>.
+  // Same key-encoding rule: pass the raw name to URLSearchParams.set — it encodes once,
+  // and parseSearchQuery's URLSearchParams decodes once, giving the real name.
+  for (const [name, range] of Object.entries(filters.specRanges ?? {})) {
+    if (range.min !== undefined) {
+      sp.set(`specmin.${name}`, String(range.min));
+    }
+    if (range.max !== undefined) {
+      sp.set(`specmax.${name}`, String(range.max));
+    }
+  }
+
   return sp.toString();
 }
 

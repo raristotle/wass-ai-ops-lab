@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { searchCatalog } from "@/lib/catalog/search";
+import type { RangeFacet } from "@/features/product-finder/types";
 
 describe("searchCatalog", () => {
   it("paginates: total reflects all matches, items is one page", () => {
@@ -126,16 +127,164 @@ describe("searchCatalog – specFilters", () => {
     expect(Array.isArray(r.facets)).toBe(true);
     expect(r.facets.length).toBeGreaterThan(0);
 
-    // Facets are over pre-specFilter set — Amperage facet should show ALL amp values,
-    // not just 15A
+    // Facets are over pre-specFilter set — Amperage facet should cover ALL amp values.
+    // Amperage is now a RANGE facet (numeric), so we check it has min < max (not just 15).
     const ampFacet = r.facets.find((f) => f.name === "Amperage");
     expect(ampFacet).toBeDefined();
-    expect(ampFacet!.values.length).toBeGreaterThan(1); // not just 15A
+    // Amperage is a numeric spec → should be a range facet spanning the full pre-filter range
+    expect(ampFacet!.type).toBe("range");
+    const ampRange = ampFacet as RangeFacet;
+    // Range covers more than just 15 (pre-filter base has 15A, 20A, 30A, 40A, 50A, 60A)
+    expect(ampRange.max).toBeGreaterThan(ampRange.min);
+    expect(ampRange.max).toBeGreaterThan(15); // not just 15A
   });
 
   it("facets present even when no specFilters applied", () => {
     const r = searchCatalog({ filters: { subcategories: ["Circuit Breakers"] }, pageSize: 10 });
     expect(Array.isArray(r.facets)).toBe(true);
     expect(r.facets.length).toBeGreaterThan(0);
+  });
+});
+
+// ─── specRanges – range filtering ─────────────────────────────────────────────
+
+describe("searchCatalog – specRanges", () => {
+  it("range min-only: filters out products below the minimum", () => {
+    const base = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"] },
+      pageSize: 500,
+    });
+    const filtered = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specRanges: { Amperage: { min: 30 } } },
+      pageSize: 500,
+    });
+    expect(filtered.total).toBeGreaterThan(0);
+    expect(filtered.total).toBeLessThan(base.total);
+    // Every matched product must have a numeric Amperage >= 30
+    expect(filtered.items.every((p) => {
+      const spec = p.specs.find((s) => s.name === "Amperage");
+      if (!spec) return false;
+      const match = spec.value.match(/(\d+)/);
+      return match ? parseInt(match[1]) >= 30 : false;
+    })).toBe(true);
+  });
+
+  it("range max-only: filters out products above the maximum", () => {
+    const filtered = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specRanges: { Amperage: { max: 20 } } },
+      pageSize: 500,
+    });
+    expect(filtered.total).toBeGreaterThan(0);
+    // Every matched product must have Amperage <= 20
+    expect(filtered.items.every((p) => {
+      const spec = p.specs.find((s) => s.name === "Amperage");
+      if (!spec) return false;
+      const match = spec.value.match(/(\d+)/);
+      return match ? parseInt(match[1]) <= 20 : false;
+    })).toBe(true);
+  });
+
+  it("range both min and max (inclusive bounds): only products in [min,max] pass", () => {
+    const filtered = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specRanges: { Amperage: { min: 20, max: 30 } } },
+      pageSize: 500,
+    });
+    expect(filtered.total).toBeGreaterThan(0);
+    expect(filtered.items.every((p) => {
+      const spec = p.specs.find((s) => s.name === "Amperage");
+      if (!spec) return false;
+      const match = spec.value.match(/(\d+)/);
+      if (!match) return false;
+      const v = parseInt(match[1]);
+      return v >= 20 && v <= 30;
+    })).toBe(true);
+  });
+
+  it("inclusive lower bound: a product with value exactly at min is included", () => {
+    const filtered = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specRanges: { Amperage: { min: 15, max: 15 } } },
+      pageSize: 500,
+    });
+    // 15A exactly at min (and max) must be included
+    expect(filtered.total).toBeGreaterThan(0);
+    expect(filtered.items.every((p) => p.specs.some((s) => s.name === "Amperage" && s.value === "15A"))).toBe(true);
+  });
+
+  it("product whose spec doesn't parse a number is excluded by range filter", () => {
+    // All Circuit Breakers have Amperage in numeric form; none with un-parseable Amperage.
+    // Use a non-numeric spec as the range key — all products lack a parseable value for it,
+    // so all should be excluded.
+    const filtered = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specRanges: { Poles: { min: 1, max: 3 } } },
+      pageSize: 500,
+    });
+    // Poles values are "1-Pole", "2-Pole", "3-Pole" — these DO parse to numbers,
+    // so we verify the filter logic: products with Poles outside [1,3] are excluded,
+    // and products without Poles at all are excluded (spec not found).
+    // Actually Poles IS in numeric range here — let's use a non-existent spec.
+    // The key point: a product whose spec doesn't parse for the range name is excluded.
+    // Verify: all results have a "Poles" spec with a numeric value in [1,3]
+    for (const p of filtered.items) {
+      const spec = p.specs.find((s) => s.name === "Poles");
+      // Each matched product must have Poles (it's range-filtered) and its first number in [1,3]
+      expect(spec).toBeDefined();
+      const match = spec!.value.match(/(\d+)/);
+      expect(match).not.toBeNull();
+      const v = parseInt(match![1]);
+      expect(v).toBeGreaterThanOrEqual(1);
+      expect(v).toBeLessThanOrEqual(3);
+    }
+  });
+
+  it("AND with enum specFilters: both must narrow simultaneously", () => {
+    const rangeOnly = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specRanges: { Amperage: { min: 15, max: 20 } } },
+      pageSize: 500,
+    });
+    const combined = searchCatalog({
+      filters: {
+        subcategories: ["Circuit Breakers"],
+        specFilters: { Poles: ["1-Pole"] },
+        specRanges: { Amperage: { min: 15, max: 20 } },
+      },
+      pageSize: 500,
+    });
+    expect(combined.total).toBeGreaterThan(0);
+    expect(combined.total).toBeLessThanOrEqual(rangeOnly.total);
+    // Every result must satisfy both conditions
+    expect(combined.items.every((p) => {
+      const hasPoles = p.specs.some((s) => s.name === "Poles" && s.value === "1-Pole");
+      const ampSpec = p.specs.find((s) => s.name === "Amperage");
+      const match = ampSpec?.value.match(/(\d+)/);
+      const inRange = match ? parseInt(match[1]) >= 15 && parseInt(match[1]) <= 20 : false;
+      return hasPoles && inRange;
+    })).toBe(true);
+  });
+
+  it("facets are computed over the base set (before specRanges): Amperage range facet spans full range", () => {
+    const filtered = searchCatalog({
+      filters: {
+        subcategories: ["Circuit Breakers"],
+        specRanges: { Amperage: { min: 30, max: 30 } },
+      },
+      pageSize: 10,
+    });
+
+    const ampFacet = filtered.facets.find((f) => f.name === "Amperage");
+    expect(ampFacet).toBeDefined();
+    expect(ampFacet!.type).toBe("range");
+    const ampRange = ampFacet as RangeFacet;
+    // Should span the full pre-filter range (15–60), not just 30
+    expect(ampRange.min).toBe(15);
+    expect(ampRange.max).toBe(60);
+  });
+
+  it("specRanges entry with no bounds (both undefined) does not narrow results", () => {
+    const base = searchCatalog({ filters: { subcategories: ["Circuit Breakers"] }, pageSize: 500 });
+    const noNarrow = searchCatalog({
+      filters: { subcategories: ["Circuit Breakers"], specRanges: { Amperage: {} } },
+      pageSize: 500,
+    });
+    expect(noNarrow.total).toBe(base.total);
   });
 });

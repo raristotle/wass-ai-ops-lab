@@ -17,6 +17,11 @@ export function parseSearchQuery(sp: URLSearchParams) {
   // Parse spec.<Name>=v1,v2 params into specFilters
   // spec names arrive URL-encoded; URLSearchParams decodes keys automatically
   const specFilters: Record<string, string[]> = {};
+  // Parse specmin.<Name> and specmax.<Name> params into specRanges
+  // Name handling mirrors spec.<Name>: URLSearchParams decodes the key, so the
+  // name we receive is the raw (unencoded) spec name.
+  const specRanges: Record<string, { min?: number; max?: number }> = {};
+
   for (const [key, val] of sp.entries()) {
     if (key.startsWith("spec.")) {
       const name = key.slice(5); // strip "spec." prefix — already decoded by URLSearchParams
@@ -24,6 +29,24 @@ export function parseSearchQuery(sp: URLSearchParams) {
         const values = val.split(",").map((v) => decodeURIComponent(v.trim())).filter(Boolean);
         if (values.length > 0) {
           specFilters[name] = values;
+        }
+      }
+    } else if (key.startsWith("specmin.")) {
+      const name = key.slice(8); // strip "specmin." prefix
+      if (name) {
+        const n = Number(val);
+        if (Number.isFinite(n)) {
+          if (!specRanges[name]) specRanges[name] = {};
+          specRanges[name].min = n;
+        }
+      }
+    } else if (key.startsWith("specmax.")) {
+      const name = key.slice(8); // strip "specmax." prefix
+      if (name) {
+        const n = Number(val);
+        if (Number.isFinite(n)) {
+          if (!specRanges[name]) specRanges[name] = {};
+          specRanges[name].max = n;
         }
       }
     }
@@ -41,6 +64,7 @@ export function parseSearchQuery(sp: URLSearchParams) {
       priceMin: num("priceMin"),
       priceMax: num("priceMax"),
       specFilters: Object.keys(specFilters).length > 0 ? specFilters : undefined,
+      specRanges: Object.keys(specRanges).length > 0 ? specRanges : undefined,
     },
     sort: SortKeySchema.catch("relevance").parse(sp.get("sort") ?? "relevance"),
     page: Math.max(0, Number(sp.get("page") ?? 0) || 0),

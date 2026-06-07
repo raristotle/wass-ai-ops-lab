@@ -108,6 +108,8 @@ export interface FilterState {
   sortKey: SortKey;
   viewMode: ViewMode;
   specFilters: Record<string, string[]>;
+  /** Numeric range filters: spec name → { min?, max? } */
+  specRanges: Record<string, { min?: number; max?: number }>;
 }
 
 export type AuthUser = {
@@ -161,12 +163,30 @@ export interface ProductSnapshot {
   category: ProductCategory;
 }
 
+/** A categorical (enum) facet — checkboxes for each distinct value. */
+export interface EnumFacet {
+  type: "enum";
+  name: string;
+  values: { value: string; count: number }[];
+}
+
+/** A numeric range facet — slider / min-max inputs. */
+export interface RangeFacet {
+  type: "range";
+  name: string;
+  unit: string;
+  min: number;
+  max: number;
+}
+
+export type Facet = EnumFacet | RangeFacet;
+
 export interface SearchResponse {
   items: CatalogProduct[];
   total: number;
   page: number;
   pageSize: number;
-  facets: { name: string; values: { value: string; count: number }[] }[];
+  facets: Facet[];
 }
 
 export interface SuggestItem {
