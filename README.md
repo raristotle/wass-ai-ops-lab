@@ -15,7 +15,10 @@ It also includes a **simulated enterprise-integration layer** (`lib/integration/
 behind swap-in adapter interfaces — customer accounts, contract/customer pricing,
 live inventory/ATP, PIM catalog provenance, and competitor/legacy part
 cross-reference (all on synthetic data, ready to point at real ERP/PIM/CRM/pricing
-systems). See [docs/product-finder-help.md](docs/product-finder-help.md).
+systems). See [docs/product-finder-help.md](docs/product-finder-help.md) for the
+end-user guide + demo script, and
+[docs/wesco-it-integration-guide.md](docs/wesco-it-integration-guide.md) for how to
+connect the adapter layer to live ERP/PIM/CRM/pricing systems.
 
 ## Stack
 

@@ -204,48 +204,64 @@ All three persist **even after you close the browser**.
 
 A clean walkthrough that shows off the best parts, in order:
 
-1. **Sign in** as `sales@meridiansupply.com` / `meridian2024`. Point out the **name + branch**
-   (Houston Downtown) at the top right, and the grid already browsing
+1. **Sign in** as `sales@meridiansupply.com` / `meridian2024`. Point out the **rep
+   name + branch** (Houston Downtown) at the top right and the grid already browsing
    **all 60,000 products**.
-2. Show the **six category chips** in the sidebar — click **⚡ Electrical** to show
-   ~46,000 products, the bulk of the catalog. Click it again to clear.
-3. Type **`circuit breaker`** and press Enter. In the sidebar, point out the
-   **spec facets** that appear (Amperage, Voltage, Poles, Int. Rating) — tick
-   **Amperage → 15A** and watch the **live counts** narrow the results precisely.
-4. Type a plain-English query like **`20A breaker in stock under $50`** — point out
-   the **filter chips** (`In stock`, `Under $50`); remove one with its **✕** to show
-   results update instantly.
-5. Click **"Find Alternatives"** on a result → the grid shows that product's
-   **scored alternatives**. On a strong match, click **"Why recommended?"** and walk
-   the **point breakdown** (specs, stock, preferred, price). *Headline moment.*
-6. Click **View Details** — show the **product image**, **Volume pricing** tiers, the
-   **Spec Sheet** + **Download Spec Sheet (PDF)**, **Goes well with** suggestions, and
-   **Where to Buy** links to real distributor sites. On an **out-of-stock** product,
-   show the **lead time** and **"Notify when available"**. Then **Compare** 2–3
-   products and hit **Download Comparison (PDF)**.
-7. **Add a product at quantity 50** → open the **Cart** → point out the **volume
-   price (50+)** on that line and the discounted **running total**.
-8. In the cart, run the rep's deliverables:
-   - **Generate Quote (PDF)** — add a **Customer** and **Project**; show the branded
-     quote (auto number, 30-day validity, your name & branch, priced lines).
-   - **Save** the basket as a named job; show **Order History** with seeded past
-     orders and a one-click **Reorder**; **Add to Order** to place the current cart.
-   - **Share** — copies a link that rebuilds this exact basket for whoever opens it.
-9. Click **Import List / BOM** and paste:
-   ```
-   12x gfci receptacle
-   5 led troffer
-   10x 3/4" EMT conduit
-   3, transformer
-   ```
-   Hit **Match** → matched rows appear → **Add matched to cart** drops them all in at
-   their quantities.
-10. **★ a couple of products**, then **"Change Product"** and clear the search — your
-    starred/viewed products and a **Search history** of chips appear above the grid;
-    click a chip to re-run, collapse a section with **▾**, or **Clear** a list.
+2. In the header, set **"Quoting for:" → Gulf Coast Industrial** (a contract
+   customer). Explain this is the **customer account** context — it drives pricing,
+   order history, and the quote. *(Simulated CRM — real integration noted below.)*
+3. Show the **six category chips** — click **⚡ Electrical** (~46,000 products), then
+   clear.
+4. Type **`circuit breaker`** and press Enter. In the sidebar, tick a **spec facet**
+   (e.g. **Amperage → 15A**) and watch the **live counts** narrow results.
+5. **Contract pricing moment:** point out that breaker cards now show **List → Your
+   price → You save %** because a contract customer is active (category discounts and
+   negotiated net prices). Switch "Quoting for" to **Walk-in / Standard** to show list
+   pricing return, then back to Gulf Coast.
+6. Type plain English — **`20A breaker in stock under $50`** — and show the **filter
+   chips** (`In stock`, `Under $50`); remove one with **✕** to update instantly.
+7. Click **"Find Alternatives"** → **scored alternatives**; click **"Why
+   recommended?"** for the **point breakdown** (specs, stock, preferred, price).
+   *Headline moment.*
+8. Click **View Details** — walk the full record:
+   - **product image**, **Availability** panel (branch & DC stock, **ATP date** + lead
+     time for out-of-stock, "also stocked at" branches, transfer ETA),
+   - **Volume pricing** tiers, **Spec Sheet** + **Download Spec Sheet (PDF)**,
+   - **Goes well with** cross-sell, **Cross-references / Replaces** (competitor &
+     legacy parts this item replaces), and **Where to Buy** distributor links.
+9. **Cross-reference lookup:** click **Cross-reference** by the search box, paste a
+   competitor/legacy part number (e.g. one of the "Replaces" SKUs from step 8), and
+   **Find** the Meridian equivalent.
+10. **Compare** 2–3 products → **Download Comparison (PDF)**.
+11. **Add a product at quantity 50** → open the **Cart** → show the **contract/volume
+    price** on the line and the discounted **running total**.
+12. In the cart, run the rep's deliverables:
+    - **Generate Quote (PDF)** — Customer pre-fills from the active account; show the
+      branded quote (auto number, 30-day validity, rep & branch, priced lines).
+    - **Save** the basket as a named job; show **Order History for Gulf Coast
+      Industrial** with seeded past orders + one-click **Reorder**; **Add to Order**.
+    - **Share** — copies a link that rebuilds this exact basket for whoever opens it.
+13. Click **Import List / BOM** and paste:
+    ```
+    12x gfci receptacle
+    5 led troffer
+    10x 3/4" EMT conduit
+    3, transformer
+    ```
+    Hit **Match** → **Add matched to cart**.
+14. **★ a couple of products**, **"Change Product"**, clear the search — starred/viewed
+    products and a **Search history** of chips appear above the grid. Note the
+    **Catalog source** strip at the bottom of the sidebar (PIM provenance).
 
-**Wrap-up line:** *"One screen takes a rep from a rough request to a filtered, priced,
-quoted, shareable order — paste a whole BOM and it's a cart in seconds."*
+**Wrap-up line:** *"One screen takes a rep from a rough request to a customer-priced,
+quoted, shareable order — with live stock, cross-references, and a whole BOM imported
+in seconds."*
+
+> **Demo honesty note:** customer accounts, contract pricing, live inventory/ATP, the
+> PIM catalog source, and competitor cross-references are **simulated on synthetic
+> data** in this demo, built behind swap-in adapter interfaces. See
+> **[Wesco IT integration guide](wesco-it-integration-guide.md)** for what connecting
+> them to Wesco's live systems requires.
 
 ---
 
