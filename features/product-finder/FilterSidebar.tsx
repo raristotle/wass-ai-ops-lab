@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { ALL_SUBCATEGORIES, ALL_BRANDS, CATEGORY_META, CATEGORIES } from "@/lib/catalog/taxonomy";
 import { Input } from "@/components/ui/input";
@@ -100,6 +100,13 @@ function RangeFacetControl({
   const [localMax, setLocalMax] = useState(
     currentRange?.max !== undefined ? String(currentRange.max) : ""
   );
+
+  // Sync local input state whenever the store's currentRange changes (e.g. after
+  // "Clear All Filters" sets specRanges to {}, making currentRange undefined).
+  useEffect(() => {
+    setLocalMin(currentRange?.min !== undefined ? String(currentRange.min) : "");
+    setLocalMax(currentRange?.max !== undefined ? String(currentRange.max) : "");
+  }, [currentRange?.min, currentRange?.max]);
 
   function apply(newMin: string, newMax: string) {
     const parsedMin = newMin !== "" ? parseFloat(newMin) : undefined;

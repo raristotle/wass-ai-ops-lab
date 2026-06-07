@@ -210,30 +210,37 @@ describe("searchCatalog – specRanges", () => {
     expect(filtered.items.every((p) => p.specs.some((s) => s.name === "Amperage" && s.value === "15A"))).toBe(true);
   });
 
-  it("product whose spec doesn't parse a number is excluded by range filter", () => {
-    // All Circuit Breakers have Amperage in numeric form; none with un-parseable Amperage.
-    // Use a non-numeric spec as the range key — all products lack a parseable value for it,
-    // so all should be excluded.
-    const filtered = searchCatalog({
-      filters: { subcategories: ["Circuit Breakers"], specRanges: { Poles: { min: 1, max: 3 } } },
+  it("products lacking the ranged spec are excluded by range filter", () => {
+    // Query across both electrical (Circuit Breakers have Amperage) and datacom
+    // subcategories (e.g. Ethernet Cable — no Amperage spec at all).
+    // When Amperage: { min:15, max:20 } is active:
+    //   1. results are non-empty (electrical products satisfy the range)
+    //   2. every returned item has an Amperage spec whose parsed value is in [15,20]
+    //   3. no returned item is from a datacom subcategory that lacks Amperage
+    //      (products without the ranged spec must be excluded, not passed through)
+    const withRange = searchCatalog({
+      filters: {
+        subcategories: ["Circuit Breakers", "Ethernet Cable"],
+        specRanges: { Amperage: { min: 15, max: 20 } },
+      },
       pageSize: 500,
     });
-    // Poles values are "1-Pole", "2-Pole", "3-Pole" — these DO parse to numbers,
-    // so we verify the filter logic: products with Poles outside [1,3] are excluded,
-    // and products without Poles at all are excluded (spec not found).
-    // Actually Poles IS in numeric range here — let's use a non-existent spec.
-    // The key point: a product whose spec doesn't parse for the range name is excluded.
-    // Verify: all results have a "Poles" spec with a numeric value in [1,3]
-    for (const p of filtered.items) {
-      const spec = p.specs.find((s) => s.name === "Poles");
-      // Each matched product must have Poles (it's range-filtered) and its first number in [1,3]
-      expect(spec).toBeDefined();
-      const match = spec!.value.match(/(\d+)/);
-      expect(match).not.toBeNull();
-      const v = parseInt(match![1]);
-      expect(v).toBeGreaterThanOrEqual(1);
-      expect(v).toBeLessThanOrEqual(3);
-    }
+
+    // Must be non-empty — proves the filter isn't just discarding everything.
+    expect(withRange.total).toBeGreaterThan(0);
+
+    // Every result must have a parseable Amperage within [15, 20].
+    // This assertion fails if the range logic were removed or inverted.
+    expect(withRange.items.every((p) => {
+      const spec = p.specs.find((s) => s.name === "Amperage");
+      if (!spec) return false; // products without the spec must not appear
+      const parsed = parseFloat(spec.value);
+      return Number.isFinite(parsed) && parsed >= 15 && parsed <= 20;
+    })).toBe(true);
+
+    // No result should be from "Ethernet Cable" — those products carry no
+    // Amperage spec and must be excluded when a range filter is active.
+    expect(withRange.items.every((p) => p.subcategory !== "Ethernet Cable")).toBe(true);
   });
 
   it("AND with enum specFilters: both must narrow simultaneously", () => {
