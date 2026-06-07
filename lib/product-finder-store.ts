@@ -788,7 +788,7 @@ export function hydrateSavedState() {
     const raw = localStorage.getItem("pf_orders");
     // null means ABSENT (never been set) → seed demo orders
     if (raw === null) {
-      const demoOrders = buildDemoOrders();
+      const demoOrders = buildDemoOrders(Date.now());
       localStorage.setItem("pf_orders", JSON.stringify(demoOrders));
       return demoOrders;
     }
@@ -817,21 +817,34 @@ export function hydrateSavedState() {
 }
 
 // ─── Demo order seed (first-ever load only) ───────────────────────────────────
-function buildDemoOrders(): Order[] {
+/**
+ * Build demo seed orders with placedAt timestamps relative to `now`.
+ * Each order lands in a distinct recent month so the Orders-Over-Time chart
+ * always shows populated buckets regardless of when the app is first opened.
+ *
+ * Offsets (days before `now`):
+ *   demo-order-001 →  5 days ago  (this month or very recent)
+ *   demo-order-002 → 35 days ago  (~1 month ago)
+ *   demo-order-003 → 70 days ago  (~2 months ago)
+ *
+ * `now` is injected by the caller so the function remains pure / testable.
+ * Exported so unit tests can call it with a fixed `now` for deterministic assertions.
+ */
+export function buildDemoOrders(now: number): Order[] {
   // Use known, stable catalog product ids for deterministic demo history.
   // Seeded per-customer:
   //   CUST-001 (Gulf Coast Industrial): orders 001 + 002 (breaker SKUs with net prices)
   //   CUST-002 (Lone Star Data Systems): order 003
-  //   Walk-in (null): order 004
   const p1 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115");
   const p2 = CATALOG_PRODUCTS.find((p) => p.id === "CB-EAT-CH115");
   const p3 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115DF");
 
+  const MS_PER_DAY = 86_400_000;
   const provider = getPricingProvider();
 
   const orders: Order[] = [];
 
-  // CUST-001 order 1: CB-SQD-QO115 (qty 10) + CB-EAT-CH115 (qty 5)
+  // CUST-001 order 1: CB-SQD-QO115 (qty 10) + CB-EAT-CH115 (qty 5) — 5 days ago
   if (p1 && p2) {
     const customer1 = { id: "CUST-001", name: "Gulf Coast Industrial" };
     const lines1 = [
@@ -841,7 +854,7 @@ function buildDemoOrders(): Order[] {
     const cust001Account = getCustomerProvider().get("CUST-001");
     orders.push({
       id: "demo-order-001",
-      placedAt: 1748995200000, // 2025-06-04T00:00:00Z (fixed, deterministic)
+      placedAt: now - 5 * MS_PER_DAY,
       lines: lines1,
       // Use contract pricing to match what the customer would have seen in cart
       total: lines1.reduce(
@@ -853,14 +866,14 @@ function buildDemoOrders(): Order[] {
     });
   }
 
-  // CUST-001 order 2: CB-SQD-QO115DF (qty 2)
+  // CUST-001 order 2: CB-SQD-QO115DF (qty 2) — 35 days ago
   if (p3) {
     const customer1 = { id: "CUST-001", name: "Gulf Coast Industrial" };
     const lines2 = [{ product: p3, qty: 2 }];
     const cust001Account = getCustomerProvider().get("CUST-001");
     orders.push({
       id: "demo-order-002",
-      placedAt: 1748908800000, // 2025-06-03T00:00:00Z (fixed, deterministic)
+      placedAt: now - 35 * MS_PER_DAY,
       lines: lines2,
       total: lines2.reduce(
         (s, l) => s + provider.getPricing(l.product, { customer: cust001Account, qty: l.qty }).effectiveUnitPrice * l.qty,
@@ -871,7 +884,7 @@ function buildDemoOrders(): Order[] {
     });
   }
 
-  // CUST-002 (Lone Star Data Systems) order: datacom/AV product if available, else fallback to p1
+  // CUST-002 (Lone Star Data Systems) order: datacom/AV product if available, else fallback — 70 days ago
   {
     const customer2 = { id: "CUST-002", name: "Lone Star Data Systems" };
     // Try to find a datacom product; fall back to first catalog product
@@ -881,7 +894,7 @@ function buildDemoOrders(): Order[] {
       const lines3 = [{ product: datacomProduct, qty: 3 }];
       orders.push({
         id: "demo-order-003",
-        placedAt: 1748822400000, // 2025-06-02T00:00:00Z (fixed, deterministic)
+        placedAt: now - 70 * MS_PER_DAY,
         lines: lines3,
         total: lines3.reduce(
           (s, l) => s + provider.getPricing(l.product, { customer: cust002Account, qty: l.qty }).effectiveUnitPrice * l.qty,

@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders, hydrateSavedState } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders, hydrateSavedState, buildDemoOrders } from "@/lib/product-finder-store";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
+import { ordersOverTime } from "@/lib/analytics";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
 import { CUSTOMER_ACCOUNTS } from "@/lib/integration/customers";
@@ -1291,18 +1292,16 @@ describe("orders – hydrateSavedState seed behavior", () => {
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
 
-  it("seed orders have deterministic ids and fixed placedAt values", () => {
-    const mockStorage: Record<string, string> = {};
-    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
-    (globalThis as Record<string, unknown>).localStorage = {
-      getItem: (k: string) => mockStorage[k] ?? null,
-      setItem: (k: string, v: string) => { mockStorage[k] = v; },
-      removeItem: (k: string) => { delete mockStorage[k]; },
-    };
+  it("seed orders have deterministic ids and recent placedAt values (within 6-month window)", () => {
+    // Use a fixed `now` so assertions are deterministic regardless of wall-clock time.
+    // 2026-06-07T00:00:00Z — a stable epoch for test purposes.
+    const FIXED_NOW = new Date("2026-06-07T00:00:00Z").getTime();
+    const MS_PER_DAY = 86_400_000;
+    const SIX_MONTHS_MS = 183 * MS_PER_DAY; // conservative 183-day window
 
-    hydrateSavedState();
-    const { orders } = useProductFinder.getState();
-    // Both orders have non-empty ids and positive placedAt timestamps
+    const orders = buildDemoOrders(FIXED_NOW);
+
+    // All orders must have non-empty ids, positive totals, and at least one line
     for (const o of orders) {
       expect(o.id.length).toBeGreaterThan(0);
       expect(o.placedAt).toBeGreaterThan(0);
@@ -1310,7 +1309,24 @@ describe("orders – hydrateSavedState seed behavior", () => {
       expect(o.total).toBeGreaterThan(0);
     }
 
-    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+    // Each placedAt must be within the last 6 months of FIXED_NOW
+    for (const o of orders) {
+      expect(o.placedAt).toBeGreaterThan(FIXED_NOW - SIX_MONTHS_MS);
+      expect(o.placedAt).toBeLessThanOrEqual(FIXED_NOW);
+    }
+
+    // Verify the three expected offsets: 5, 35, 70 days before FIXED_NOW
+    const demo001 = orders.find((o) => o.id === "demo-order-001");
+    const demo002 = orders.find((o) => o.id === "demo-order-002");
+    const demo003 = orders.find((o) => o.id === "demo-order-003");
+    if (demo001) expect(demo001.placedAt).toBe(FIXED_NOW - 5 * MS_PER_DAY);
+    if (demo002) expect(demo002.placedAt).toBe(FIXED_NOW - 35 * MS_PER_DAY);
+    if (demo003) expect(demo003.placedAt).toBe(FIXED_NOW - 70 * MS_PER_DAY);
+
+    // ordersOverTime must yield ≥ 1 non-empty bucket for this seeded set
+    const buckets = ordersOverTime(orders, FIXED_NOW, 6);
+    const nonEmpty = buckets.filter((b) => b.count > 0);
+    expect(nonEmpty.length).toBeGreaterThanOrEqual(1);
   });
 
   it("calling hydrateSavedState twice with absent key seeds only once (idempotent after first write)", () => {
