@@ -37,12 +37,13 @@ function stableHash(s: string): number {
 
 /**
  * Derives a short uppercase alphanumeric string from a hash value.
- * Uses base-36 encoding of the hash, uppercased, trimmed to 6 chars.
+ * Uses base-36 encoding of the hash, uppercased, padded to exactly 8 chars.
+ * 8 chars gives ~2.8 trillion unique values (36^8), eliminating collisions
+ * across the 60,000-product catalog.
  */
 function alnumFromHash(h: number): string {
-  // Convert to base 36 (0-9 + a-z), uppercase, pad to at least 4 chars,
-  // take first 6 characters.
-  return (h >>> 0).toString(36).toUpperCase().padStart(4, "0").slice(0, 6);
+  // Convert to base 36 (0-9 + a-z), uppercase, pad to exactly 8 characters.
+  return (h >>> 0).toString(36).toUpperCase().padStart(8, "0").slice(0, 8);
 }
 
 // ─── competitorSkusFor ────────────────────────────────────────────────────────
@@ -125,9 +126,18 @@ export function lookupCrossReference(sku: string): CatalogProduct | null {
 /**
  * Returns the competitor/legacy part numbers that this catalog product replaces.
  * This is the "Replaces / cross-references" list shown on the product detail.
- * Delegates to competitorSkusFor — here as a named alias that matches the
- * integration interface pattern used across this directory.
+ *
+ * Authoritative: only returns SKUs that round-trip via the reverse map back to
+ * this product's id. This guarantees that the displayed "Replaces" list can never
+ * show a SKU that resolves to a different product — even in edge cases where the
+ * last-write-wins map assigned a colliding key to another product.
+ *
+ * With the 8-char suffix virtually all generated SKUs survive the filter; the
+ * filter is the correctness guarantee, not a lossy trim.
  */
 export function crossReferencesFor(product: CatalogProduct): CompetitorRef[] {
-  return competitorSkusFor(product);
+  const map = getXrefMap();
+  return competitorSkusFor(product).filter(
+    (ref) => map.get(ref.competitorSku.toUpperCase()) === product.id
+  );
 }

@@ -1,12 +1,13 @@
 /**
  * TDD tests for lib/integration/cross-reference.ts
- * Written BEFORE the implementation — must fail on first run.
  *
  * Tests cover:
  *  - competitorSkusFor: deterministic, 1–2 entries, well-formed SKU strings
  *  - lookupCrossReference: round-trip (lookup returns same product whose
  *    competitorSkusFor contains that SKU), case/whitespace-insensitive, unknown → null
- *  - No collisions break the round-trip for a 50-product sample
+ *  - crossReferencesFor: authoritative filter — every returned SKU round-trips
+ *    to the same product; results are a subset of competitorSkusFor output
+ *  - Full-catalog integrity: zero round-trip failures across ALL products
  */
 
 import { describe, it, expect } from "vitest";
@@ -184,12 +185,27 @@ describe("lookupCrossReference", () => {
 // ─── crossReferencesFor ───────────────────────────────────────────────────────
 
 describe("crossReferencesFor", () => {
-  it("returns the same entries as competitorSkusFor for a given product", () => {
+  it("returns a subset of competitorSkusFor entries (authoritative filter)", () => {
+    // crossReferencesFor only keeps SKUs that round-trip, so its output must be
+    // a subset (by competitorSku) of what competitorSkusFor generates.
     const catalog = getCatalog();
     const product = catalog.products[5];
-    const fromCompetitorFn = competitorSkusFor(product);
-    const fromCrossRefFn = crossReferencesFor(product);
-    expect(fromCrossRefFn).toEqual(fromCompetitorFn);
+    const allSkus = new Set(competitorSkusFor(product).map((r) => r.competitorSku));
+    const filtered = crossReferencesFor(product);
+    for (const ref of filtered) {
+      expect(allSkus.has(ref.competitorSku)).toBe(true);
+    }
+  });
+
+  it("every SKU returned by crossReferencesFor round-trips to the same product", () => {
+    const catalog = getCatalog();
+    const product = catalog.products[5];
+    const refs = crossReferencesFor(product);
+    for (const ref of refs) {
+      const found = lookupCrossReference(ref.competitorSku);
+      expect(found).not.toBeNull();
+      expect(found!.id).toBe(product.id);
+    }
   });
 
   it("is deterministic across multiple calls", () => {
@@ -198,5 +214,41 @@ describe("crossReferencesFor", () => {
     const refs1 = crossReferencesFor(product);
     const refs2 = crossReferencesFor(product);
     expect(refs1).toEqual(refs2);
+  });
+});
+
+// ─── Full-catalog integrity ────────────────────────────────────────────────────
+
+describe("full-catalog round-trip integrity", () => {
+  it("every SKU in crossReferencesFor(p) resolves back to p.id — zero failures across all products", () => {
+    const catalog = getCatalog();
+    const failures: string[] = [];
+
+    for (const product of catalog.products) {
+      const refs = crossReferencesFor(product);
+      for (const ref of refs) {
+        const found = lookupCrossReference(ref.competitorSku);
+        if (!found || found.id !== product.id) {
+          failures.push(
+            `product ${product.id}: SKU ${ref.competitorSku} → ${found?.id ?? "null"}`
+          );
+        }
+      }
+    }
+
+    expect(failures).toHaveLength(0);
+  });
+
+  it("more than 95% of products still have at least one cross-reference after filtering", () => {
+    const catalog = getCatalog();
+    const total = catalog.products.length;
+    const withRefs = catalog.products.filter(
+      (p) => crossReferencesFor(p).length >= 1
+    ).length;
+
+    const pct = (withRefs / total) * 100;
+    // With 8-char suffixes collisions are vanishingly rare; expect the filter
+    // to preserve refs for virtually every product.
+    expect(pct).toBeGreaterThan(95);
   });
 });
