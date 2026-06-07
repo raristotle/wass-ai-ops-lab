@@ -1,8 +1,9 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { useProductFinder, selectCartCount, selectCartTotal, hydrateSavedState } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, hydrateSavedState } from "@/lib/product-finder-store";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
+import { CUSTOMER_ACCOUNTS } from "@/lib/integration/customers";
 
 // ─── Fetch mock ───────────────────────────────────────────────────────────────
 
@@ -56,6 +57,7 @@ function resetStore() {
     savedBaskets: [],
     watches: [],
     orders: [],
+    activeCustomerId: null,
     filters: {
       query: "",
       categories: new Set(),
@@ -1360,5 +1362,154 @@ describe("facets – runSearch stores facets from response", () => {
 
     // Facets should still be the first page's facets
     expect(useProductFinder.getState().facets).toEqual(mockFacets);
+  });
+});
+
+// ─── Customer accounts – store slice ─────────────────────────────────────────
+
+describe("customers – store slice", () => {
+  beforeEach(resetStore);
+
+  it("customers is populated from the provider on store init", () => {
+    const { customers } = useProductFinder.getState();
+    expect(customers).toHaveLength(CUSTOMER_ACCOUNTS.length);
+    expect(customers.map((c) => c.id)).toEqual(CUSTOMER_ACCOUNTS.map((c) => c.id));
+  });
+
+  it("activeCustomerId starts as null", () => {
+    expect(useProductFinder.getState().activeCustomerId).toBeNull();
+  });
+
+  it("setActiveCustomer sets activeCustomerId", () => {
+    const id = CUSTOMER_ACCOUNTS[0].id;
+    useProductFinder.getState().setActiveCustomer(id);
+    expect(useProductFinder.getState().activeCustomerId).toBe(id);
+  });
+
+  it("setActiveCustomer(null) clears activeCustomerId", () => {
+    useProductFinder.getState().setActiveCustomer(CUSTOMER_ACCOUNTS[0].id);
+    useProductFinder.getState().setActiveCustomer(null);
+    expect(useProductFinder.getState().activeCustomerId).toBeNull();
+  });
+
+  it("setActiveCustomer persists to localStorage under pf_active_customer", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    const id = CUSTOMER_ACCOUNTS[0].id;
+    useProductFinder.getState().setActiveCustomer(id);
+    expect(mockStorage["pf_active_customer"]).toBe(id);
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("setActiveCustomer(null) removes pf_active_customer from localStorage", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().setActiveCustomer(CUSTOMER_ACCOUNTS[0].id);
+    useProductFinder.getState().setActiveCustomer(null);
+    expect(mockStorage["pf_active_customer"]).toBeUndefined();
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("resetStore resets activeCustomerId to null", () => {
+    useProductFinder.getState().setActiveCustomer(CUSTOMER_ACCOUNTS[0].id);
+    resetStore();
+    expect(useProductFinder.getState().activeCustomerId).toBeNull();
+  });
+});
+
+// ─── selectActiveCustomer ─────────────────────────────────────────────────────
+
+describe("selectActiveCustomer", () => {
+  beforeEach(resetStore);
+
+  it("returns null when activeCustomerId is null", () => {
+    const state = useProductFinder.getState();
+    expect(selectActiveCustomer(state)).toBeNull();
+  });
+
+  it("returns the matching CustomerAccount when activeCustomerId is set", () => {
+    const target = CUSTOMER_ACCOUNTS[0];
+    useProductFinder.getState().setActiveCustomer(target.id);
+    const state = useProductFinder.getState();
+    const result = selectActiveCustomer(state);
+    expect(result).toBeDefined();
+    expect(result?.id).toBe(target.id);
+    expect(result?.name).toBe(target.name);
+  });
+
+  it("returns null for an id not found in customers list", () => {
+    useProductFinder.setState({ activeCustomerId: "GHOST-ID" });
+    const state = useProductFinder.getState();
+    expect(selectActiveCustomer(state)).toBeNull();
+  });
+});
+
+// ─── hydrateSavedState loads activeCustomerId ─────────────────────────────────
+
+describe("hydrateSavedState – activeCustomerId", () => {
+  beforeEach(resetStore);
+
+  it("loads a valid activeCustomerId from localStorage", () => {
+    const id = CUSTOMER_ACCOUNTS[0].id;
+    const mockStorage: Record<string, string> = {
+      pf_active_customer: id,
+    };
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    expect(useProductFinder.getState().activeCustomerId).toBe(id);
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("ignores an id that no longer exists in the customer list", () => {
+    const mockStorage: Record<string, string> = {
+      pf_active_customer: "STALE-CUST-999",
+    };
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    expect(useProductFinder.getState().activeCustomerId).toBeNull();
+
+    (globalThis as Record<string, unknown>).localStorage = original;
+  });
+
+  it("defaults to null when pf_active_customer key is absent", () => {
+    const mockStorage: Record<string, string> = {};
+    const original = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    expect(useProductFinder.getState().activeCustomerId).toBeNull();
+
+    (globalThis as Record<string, unknown>).localStorage = original;
   });
 });

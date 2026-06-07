@@ -17,6 +17,9 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const logout = useProductFinder((s) => s.logout);
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
   const cartCount = useProductFinder(selectCartCount);
+  const customers = useProductFinder((s) => s.customers);
+  const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
+  const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-[#F8FAFB] print:block print:h-auto print:overflow-visible">
@@ -48,8 +51,34 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
           </div>
         </div>
 
-        {/* Right: user info + cart */}
+        {/* Right: customer selector + user info + cart */}
         <div className="flex items-center gap-3">
+          {/* Customer selector */}
+          <div className="hidden flex-col gap-0.5 sm:flex">
+            <label
+              htmlFor="customer-selector"
+              className="text-[9px] font-semibold uppercase tracking-widest text-[#B7C9D3]"
+            >
+              Quoting for:
+            </label>
+            <select
+              id="customer-selector"
+              value={activeCustomerId ?? ""}
+              onChange={(e) => setActiveCustomer(e.target.value || null)}
+              className="rounded border border-[#4F758B] bg-[#1D252D] px-2 py-0.5 text-xs font-medium text-white focus:outline-none focus:ring-1 focus:ring-[#00AA13]"
+            >
+              <option value="">— Select customer —</option>
+              {customers.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Vertical divider */}
+          {user && <div className="hidden h-8 w-px bg-[#4F758B] sm:block" aria-hidden="true" />}
+
           {user && (
             <div className="hidden flex-col items-end sm:flex">
               <span className="text-sm font-bold text-white">{user.name}</span>

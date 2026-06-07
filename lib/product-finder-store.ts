@@ -1,5 +1,7 @@
 import { create } from "zustand";
 import type { FilterState, ParsedFilter, SortKey, ViewMode, CatalogProduct, BomLine, AuthUser, ProductCategory, SearchResponse } from "@/features/product-finder/types";
+import type { CustomerAccount } from "@/lib/integration/types";
+import { getCustomerProvider } from "@/lib/integration/index";
 
 // ─── SavedBasket type ─────────────────────────────────────────────────────────
 export type SavedBasket = {
@@ -68,6 +70,11 @@ export interface ProductFinderState {
   authError: string | null;
   login: (email: string, password: string) => boolean;
   logout: () => void;
+
+  // Customer accounts
+  customers: CustomerAccount[];
+  activeCustomerId: string | null;
+  setActiveCustomer: (id: string | null) => void;
 
   // Search
   query: string;
@@ -222,6 +229,21 @@ function applyParsedFilter(filters: FilterState, f: ParsedFilter, on: boolean): 
 }
 
 export const useProductFinder = create<ProductFinderState>((set, get) => ({
+  // ── Customer accounts ─────────────────────────────────────
+  customers: getCustomerProvider().list(),
+  activeCustomerId: null,
+
+  setActiveCustomer(id) {
+    set({ activeCustomerId: id });
+    if (typeof localStorage !== "undefined") {
+      if (id === null) {
+        localStorage.removeItem("pf_active_customer");
+      } else {
+        localStorage.setItem("pf_active_customer", id);
+      }
+    }
+  },
+
   // ── Auth ──────────────────────────────────────────────────
   user: null,
   authError: null,
@@ -758,6 +780,14 @@ export function hydrateSavedState() {
     try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as Order[]) : []; }
     catch { localStorage.removeItem("pf_orders"); return []; }
   };
+  const readActiveCustomer = (): string | null => {
+    const raw = localStorage.getItem("pf_active_customer");
+    if (!raw) return null;
+    // Validate that the id still exists in the current customer list
+    const exists = getCustomerProvider().list().some((c) => c.id === raw);
+    return exists ? raw : null;
+  };
+
   useProductFinder.setState({
     favorites: readArr("pf_favorites"),
     recentlyViewed: readArr("pf_recent"),
@@ -767,6 +797,7 @@ export function hydrateSavedState() {
     savedBaskets: readBaskets("pf_saved_baskets"),
     watches: readArr("pf_watches"),
     orders: readOrders(),
+    activeCustomerId: readActiveCustomer(),
   });
 }
 
@@ -826,4 +857,9 @@ export function selectCartTotal(state: ProductFinderState) {
   return Object.values(state.cart).reduce(
     (s, i) => s + tierUnitPrice(i.product, i.qty) * i.qty, 0
   );
+}
+
+export function selectActiveCustomer(state: ProductFinderState): CustomerAccount | null {
+  if (!state.activeCustomerId) return null;
+  return state.customers.find((c) => c.id === state.activeCustomerId) ?? null;
 }
