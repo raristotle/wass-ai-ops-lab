@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders } from "@/lib/product-finder-store";
+import { useEffect, useMemo, useState, useRef } from "react";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer } from "@/lib/product-finder-store";
 import { priceTiers } from "@/lib/product-finder-pricing";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { getPricingProvider } from "@/lib/integration/index";
@@ -26,7 +26,15 @@ export function CartDrawer() {
   const loadBasket = useProductFinder((s) => s.loadBasket);
   const deleteBasket = useProductFinder((s) => s.deleteBasket);
 
-  const visibleOrders = useProductFinder(selectVisibleOrders);
+  const orders = useProductFinder((s) => s.orders);
+  const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
+  const visibleOrders = useMemo(
+    () =>
+      activeCustomerId === null
+        ? orders.filter((o) => o.customerId === null)
+        : orders.filter((o) => o.customerId === activeCustomerId),
+    [orders, activeCustomerId]
+  );
   const placeOrder = useProductFinder((s) => s.placeOrder);
   const reorder = useProductFinder((s) => s.reorder);
   const deleteOrder = useProductFinder((s) => s.deleteOrder);
