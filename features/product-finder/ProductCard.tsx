@@ -10,6 +10,7 @@ import { useProductFinder, selectActiveCustomer } from "@/lib/product-finder-sto
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 import { RecommendationExplanation } from "@/features/product-finder/RecommendationExplanation";
+import { ProductImage } from "@/features/product-finder/ProductImage";
 import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
 import { getPricingProvider } from "@/lib/integration/index";
 
@@ -117,8 +118,8 @@ export function ProductCard({
       </button>
       {/* ── Header ──────────────────────────────────────────────── */}
       <div className="p-4 flex gap-3">
-        <div className="text-3xl flex-shrink-0 w-10 h-10 flex items-center justify-center">
-          {product.imageIcon}
+        <div className="flex-shrink-0 w-10 h-10 rounded overflow-hidden">
+          <ProductImage product={product} className="w-10 h-10 object-cover rounded" />
         </div>
 
         <div className="flex-1 min-w-0">

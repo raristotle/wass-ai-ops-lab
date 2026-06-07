@@ -6,7 +6,7 @@ import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-produc
 import { externalSearchLinks } from "@/lib/product-finder-links";
 import { priceTiers } from "@/lib/product-finder-pricing";
 import { apiGoesWith } from "@/lib/product-finder-api";
-import { ProductArt } from "@/features/product-finder/ProductArt";
+import { ProductImage } from "@/features/product-finder/ProductImage";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -203,7 +203,7 @@ export function ProductDetailModal() {
         <div className="print:hidden flex flex-col sm:flex-row gap-6 px-6 py-5 border-b border-[#B7C9D3]/40">
           {/* Left: product art */}
           <div className="w-full sm:w-56 flex-shrink-0">
-            <ProductArt product={product} className="rounded-lg overflow-hidden" />
+            <ProductImage product={product} className="rounded-lg overflow-hidden" />
           </div>
 
           {/* Right: price, stock, actions */}
