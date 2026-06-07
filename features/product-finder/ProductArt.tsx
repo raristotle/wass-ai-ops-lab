@@ -1,4 +1,6 @@
 import type { CatalogProduct, ProductCategory } from "@/features/product-finder/types";
+import { glyphIdFor } from "@/lib/product-finder-glyph-map";
+import { GLYPH_ART } from "@/features/product-finder/glyphs";
 
 // ─── Category palette ─────────────────────────────────────────────────────────
 
@@ -18,11 +20,16 @@ interface ProductArtProps {
 
 /**
  * Deterministic SVG product plate. Same product → identical output (no randomness).
- * Uses a category-tinted background band + a soft inner plate with the product emoji,
- * brand name, and SKU. Meridian tertiary palette per category.
+ * Uses a category-tinted background band + a soft inner plate with a subcategory
+ * line-art glyph, subcategory label, brand name, and SKU. Meridian palette per category.
  */
 export function ProductArt({ product, className }: ProductArtProps) {
   const colors = CATEGORY_COLORS[product.category] ?? CATEGORY_COLORS.electrical;
+  const glyph = GLYPH_ART[glyphIdFor(product.subcategory, product.category)];
+
+  const displaySubcat = product.subcategory.length > 30
+    ? product.subcategory.slice(0, 30) + "…"
+    : product.subcategory;
 
   // Truncate brand/sku for display — deterministic, no randomness
   const displayBrand = product.brand.length > 22 ? product.brand.slice(0, 22) + "…" : product.brand;
@@ -48,22 +55,40 @@ export function ProductArt({ product, className }: ProductArtProps) {
       <rect x="24" y="64" width="272" height="148" rx="8" fill="#FFFFFF" opacity="0.85"
         stroke={colors.band} strokeWidth="1.5" />
 
-      {/* ── Category emoji icon ──────────────────────────────── */}
+      {/* ── Subcategory line-art glyph on category-tinted disc ── */}
+      <circle cx="160" cy="100" r="33" fill={colors.plate} />
+      <svg x="132" y="72" width="56" height="56" viewBox="0 0 48 48">
+        <g
+          fill="none"
+          stroke="#1D252D"
+          strokeOpacity="0.82"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          {glyph}
+        </g>
+      </svg>
+
+      {/* ── Subcategory label ────────────────────────────────── */}
       <text
         x="160"
-        y="128"
+        y="146"
         textAnchor="middle"
         dominantBaseline="middle"
-        fontSize="54"
-        fontFamily="'Segoe UI Emoji', 'Apple Color Emoji', sans-serif"
+        fontSize="11"
+        fontWeight="600"
+        fontFamily="'Source Sans Pro', Arial, sans-serif"
+        fill="#4F758B"
+        letterSpacing="0.4"
       >
-        {product.imageIcon}
+        {displaySubcat}
       </text>
 
       {/* ── Brand name label ─────────────────────────────────── */}
       <text
         x="160"
-        y="168"
+        y="166"
         textAnchor="middle"
         dominantBaseline="middle"
         fontSize="13"
@@ -78,7 +103,7 @@ export function ProductArt({ product, className }: ProductArtProps) {
       {/* ── SKU label ────────────────────────────────────────── */}
       <text
         x="160"
-        y="188"
+        y="186"
         textAnchor="middle"
         dominantBaseline="middle"
         fontSize="10"
