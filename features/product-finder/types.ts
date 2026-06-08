@@ -187,6 +187,8 @@ export interface SearchResponse {
   page: number;
   pageSize: number;
   facets: Facet[];
+  /** Best in-stock substitute per out-of-stock item id (attached by the search route). */
+  substitutes?: Record<string, CatalogProduct>;
 }
 
 export interface SuggestItem {

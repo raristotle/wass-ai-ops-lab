@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
 import { useProductFinder } from "@/lib/product-finder-store";
+import { searchResultsCsv, downloadCsv } from "@/lib/product-finder-csv";
 import type { CatalogProduct, SortKey } from "@/features/product-finder/types";
 
 interface ProductGridProps {
@@ -35,9 +36,14 @@ export function ProductGrid({
   const compareIds = useProductFinder((s) => s.compareIds);
   const clearCompare = useProductFinder((s) => s.clearCompare);
   const setCompareModalOpen = useProductFinder((s) => s.setCompareModalOpen);
+  const substitutes = useProductFinder((s) => s.substitutes);
 
   function handleSortChange(e: React.ChangeEvent<HTMLSelectElement>) {
     setSortKey(e.target.value as SortKey);
+  }
+
+  function handleExportCsv() {
+    downloadCsv("product-results.csv", searchResultsCsv(products));
   }
 
   return (
@@ -77,6 +83,18 @@ export function ProductGrid({
         </span>
 
         <div className="flex items-center gap-2 ml-auto">
+          {/* Export CSV */}
+          {products.length > 0 && (
+            <button
+              type="button"
+              onClick={handleExportCsv}
+              className="text-xs border border-[#B7C9D3] rounded-md px-2 py-1.5 text-[#4F758B] bg-white hover:border-[#1D252D] hover:text-[#1D252D] transition-colors"
+              aria-label="Export visible results to CSV"
+            >
+              ⬇ Export CSV
+            </button>
+          )}
+
           {/* Sort select */}
           <select
             value={sortKey}
@@ -154,6 +172,7 @@ export function ProductGrid({
               key={product.id}
               product={product}
               referenceProduct={referenceProduct ?? undefined}
+              substitute={substitutes[product.id]}
             />
           ))}
         </div>

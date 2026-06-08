@@ -18,6 +18,8 @@ interface ProductCardProps {
   product: CatalogProduct;
   isAlternative?: boolean;
   referenceProduct?: CatalogProduct;
+  /** Best in-stock substitute, shown when this product is out of stock. */
+  substitute?: CatalogProduct;
 }
 
 function SpecRow({
@@ -50,6 +52,7 @@ export function ProductCard({
   product,
   isAlternative = false,
   referenceProduct,
+  substitute,
 }: ProductCardProps) {
   const [specsOpen, setSpecsOpen] = useState(false);
   const [externalOpen, setExternalOpen] = useState(false);
@@ -272,6 +275,35 @@ export function ProductCard({
               ))}
             </ul>
           )}
+        </div>
+      )}
+
+      {/* ── OOS: in-stock substitute suggestion ───────────────────── */}
+      {!productInStock && substitute && (
+        <div className="mx-4 mb-2 rounded border border-[#EAAA00]/50 bg-[#EAAA00]/10 px-3 py-2">
+          <p className="text-xs text-[#1D252D]">
+            <span className="font-semibold">Out of stock</span> — in-stock substitute:{" "}
+            <span className="font-semibold">{substitute.name}</span>
+            <span className="text-[#4F758B]"> · {substitute.brand} · ${substitute.unitPrice.toFixed(2)}/{substitute.uom}</span>
+          </p>
+          <div className="mt-1.5 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => addToCart(substitute, qty)}
+              className="rounded bg-[#00AA13] px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-[#009911]"
+              aria-label={`Add substitute ${substitute.name} to basket`}
+            >
+              Add Substitute
+            </button>
+            <button
+              type="button"
+              onClick={() => setDetailModalProduct(substitute)}
+              className="rounded border border-[#4F758B] px-2 py-1 text-[10px] font-medium text-[#4F758B] transition-colors hover:border-[#1D252D] hover:text-[#1D252D]"
+              aria-label={`View substitute ${substitute.name}`}
+            >
+              View
+            </button>
+          </div>
         </div>
       )}
 

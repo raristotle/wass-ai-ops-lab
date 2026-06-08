@@ -7,6 +7,7 @@ import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { getPricingProvider } from "@/lib/integration/index";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { encodeCart } from "@/lib/product-finder-share";
+import { basketCsv, downloadCsv } from "@/lib/product-finder-csv";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -397,15 +398,27 @@ export function CartDrawer() {
                     key={order.id}
                     className="flex items-center gap-2 rounded border border-[#B7C9D3] bg-white px-3 py-2"
                   >
-                    {/* Date + meta */}
+                    {/* Date + meta + expandable line detail */}
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-semibold text-[#1D252D]">
                         {dateLabel}
                       </p>
-                      <p className="text-[10px] text-[#4F758B]">
-                        {itemCount} {itemCount === 1 ? "item" : "items"} ·{" "}
-                        <span className="font-semibold">${order.total.toFixed(2)}</span>
-                      </p>
+                      <details className="group">
+                        <summary className="cursor-pointer list-none text-[10px] text-[#4F758B] hover:text-[#1D252D]">
+                          {itemCount} {itemCount === 1 ? "item" : "items"} ·{" "}
+                          <span className="font-semibold">${order.total.toFixed(2)}</span>
+                          <span className="ml-1 inline-block transition-transform group-open:rotate-180">▾</span>
+                        </summary>
+                        <ul className="mt-1 space-y-0.5">
+                          {order.lines.map((line) => (
+                            <li key={line.product.id} className="truncate text-[10px] text-[#4F758B]">
+                              <span className="font-semibold text-[#1D252D]">{line.qty}×</span>{" "}
+                              {line.product.name}{" "}
+                              <span className="text-[#B7C9D3]">({line.product.sku})</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
                     </div>
 
                     {/* Reorder button */}
@@ -485,10 +498,16 @@ export function CartDrawer() {
               variant="outline"
               className="w-full border-[#4F758B] text-[#4F758B] hover:bg-[#EEF4F7]"
               onClick={() => {
-                // Export BOM — no-op in demo
+                const provider = getPricingProvider();
+                const lines = items.map(({ product, qty }) => ({
+                  product,
+                  qty,
+                  effectiveUnitPrice: provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
+                }));
+                downloadCsv("basket.csv", basketCsv(lines));
               }}
             >
-              Export BOM
+              Export CSV
             </Button>
 
             {/* Clear cart */}

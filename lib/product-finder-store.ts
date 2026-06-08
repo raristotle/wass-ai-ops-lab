@@ -169,6 +169,8 @@ export interface ProductFinderState {
 
   // Derived / Results
   results: CatalogProduct[];
+  /** In-stock substitutes keyed by out-of-stock result id (from the search route). */
+  substitutes: Record<string, CatalogProduct>;
   facets: SearchResponse["facets"];
   loading: boolean;
   error: string | null;
@@ -702,6 +704,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   // ── Results / search engine ───────────────────────────────
   results: [],
+  substitutes: {},
   facets: [],
   loading: false,
   error: null,
@@ -713,7 +716,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     set({ loading: true, error: null, page: 0 });
     try {
       const res = await apiSearch(get().filters, 0, get().pageSize);
-      set({ results: res.items, total: res.total, page: 0, loading: false, facets: res.facets ?? [] });
+      set({ results: res.items, substitutes: res.substitutes ?? {}, total: res.total, page: 0, loading: false, facets: res.facets ?? [] });
     } catch (e) {
       set({ loading: false, error: e instanceof Error ? e.message : "Search failed", results: [], total: 0 });
     }
@@ -725,7 +728,13 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     try {
       const res = await apiSearch(get().filters, next, get().pageSize);
       // Keep the first page's facets stable — don't clobber on loadMore
-      set((s) => ({ results: [...s.results, ...res.items], total: res.total, page: next, loading: false }));
+      set((s) => ({
+        results: [...s.results, ...res.items],
+        substitutes: { ...s.substitutes, ...(res.substitutes ?? {}) },
+        total: res.total,
+        page: next,
+        loading: false,
+      }));
     } catch (e) {
       set({ loading: false, error: e instanceof Error ? e.message : "Load more failed" });
     }
