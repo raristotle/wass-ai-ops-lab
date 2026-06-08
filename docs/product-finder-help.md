@@ -16,7 +16,7 @@ checks stock, compares options, and builds a basket.
 
 ## 1. Getting started
 
-- **Open:** <https://web-xi-virid-59.vercel.app/product-finder>
+- **Open:** <https://app.raristotle.com/product-finder>
 - **Sign in** with a demo account:
 
   | Email | Password | Signs in as |
@@ -27,6 +27,8 @@ checks stock, compares options, and builds a basket.
 
 - Your **name and branch** show top-right. **Sign out** is next to the cart.
 - You stay signed in if you come back later.
+- **Stuck?** Click the **?** button in the header — an interactive **Help panel**
+  with searchable topics and one-click "Try it" example searches.
 
 > The branch you log in as matters: it decides what counts as **"in stock at your
 > branch,"** which affects the match scores.
@@ -65,9 +67,6 @@ Search runs **server-side over all 60,000 products**.
 - The **✕ in the search box** clears the search *and* all chips.
 - Results are paged — click **Load more** at the bottom of the grid to fetch the
   next page.
-
-> **BOM / List import** was part of an earlier version and is temporarily
-> unavailable while it's rebuilt for the larger catalog.
 
 ### Filters (left sidebar)
 Narrow the results by **Category** (all six), **Subcategory** (nearly 80 — from
@@ -131,6 +130,22 @@ show an estimated **lead time** and a **"Notify when available"** button. Click 
 add the product to your watch list (remembered in your browser); click again to stop
 watching. *(Demo: no email is actually sent.)*
 
+### Out-of-stock substitutes
+When a product is out of stock **everywhere**, its card automatically offers the
+**best in-stock substitute** — picked by the same scoring engine as Find
+Alternatives (spec match → stock → price), resolved server-side with the search:
+- **Add Substitute** drops it straight into your basket at your chosen quantity.
+- **View** opens the substitute's full detail.
+*(Try it: search the SKU `CB-EAT-329` — an out-of-stock Eaton breaker with an
+in-stock GE substitute.)*
+
+### Export to CSV
+Two one-click spreadsheet exports (open directly in Excel / Google Sheets):
+- **Results bar → Export CSV** — the visible search results with SKU, name, brand,
+  category, list price, branch/DC stock totals, and Preferred flag.
+- **Cart → Export CSV** — basket lines with quantities, list vs. **effective
+  (contract/volume) unit pricing**, line totals, and a grand total row.
+
 ### Volume / tiered pricing
 Larger quantities get better pricing — breaks at **1, 10, 50, and 100+**. The
 detail view shows the full tier table, and the **cart applies the right tier per
@@ -155,10 +170,11 @@ Click **Import List / BOM** by the search box to bulk-add products:
   (with price, quantity, and lead time) so you still have an answer.
 
 ### Product images
-Each product card and the detail view show a **category image**. *(Demo: images come
-from a keyless third-party photo service mapped by subcategory, so they're
-representative rather than exact-SKU; if a photo fails to load, a branded product
-graphic shows instead. Swappable for a curated/real image source later.)*
+Each product card and the detail view show a **branded product plate**: a
+category-colored band, a **subcategory line-art glyph** (circuit breaker, RJ45
+connector, hard hat, …), the **brand**, and the **SKU** — deterministic per
+product, with no third-party image dependency. *(Swappable for curated/real
+product photography later via the same `ProductImage` seam.)*
 
 ### Analytics dashboard (managers & admins only)
 Signed in as a **manager** or **admin**, an **Insights** link appears in the header →
@@ -198,9 +214,11 @@ applied), or clear it.
   Print or save as PDF.
 - **Share** — copies a link that encodes the basket (and customer/project); anyone
   who opens it (signed in) gets the same basket rebuilt automatically.
+- **Export CSV** — downloads the basket as a spreadsheet (see *Export to CSV* above).
 - **Add to Order** — records the basket as a placed **order** and clears the cart.
-- **Order History** — your past orders (date, item count, total), each with a
-  one-click **Reorder** that loads it straight back into the basket.
+- **Order History** — your past orders (date, item count, total). Click an order's
+  item count to **expand its line items** (qty, product, SKU) and verify contents,
+  then one-click **Reorder** to load it straight back into the basket.
 
 ### Saved, history & recently viewed
 Above the grid (when browsing without a search or filters) the panel shows three
@@ -219,7 +237,9 @@ All three persist **even after you close the browser**.
 
 ## 4. A 5-minute demo script
 
-A clean walkthrough that shows off the best parts, in order:
+> A longer, presenter-ready walkthrough with talking points and exact SKUs lives in
+> **[product-finder-demo-script.md](product-finder-demo-script.md)**. The condensed
+> version:
 
 1. **Sign in** as `sales@meridiansupply.com` / `meridian2024`. Point out the **rep
    name + branch** (Houston Downtown) at the top right and the grid already browsing
@@ -237,6 +257,8 @@ A clean walkthrough that shows off the best parts, in order:
    pricing return, then back to Gulf Coast.
 6. Type plain English — **`20A breaker in stock under $50`** — and show the **filter
    chips** (`In stock`, `Under $50`); remove one with **✕** to update instantly.
+   Then search **`CB-EAT-329`** (an out-of-stock breaker) — the card offers an
+   **in-stock substitute** with one-click **Add Substitute**.
 7. Click **"Find Alternatives"** → **scored alternatives**; click **"Why
    recommended?"** for the **point breakdown** (specs, stock, preferred, price).
    *Headline moment.*
@@ -258,6 +280,8 @@ A clean walkthrough that shows off the best parts, in order:
     - **Save** the basket as a named job; show **Order History for Gulf Coast
       Industrial** with seeded past orders + one-click **Reorder**; **Add to Order**.
     - **Share** — copies a link that rebuilds this exact basket for whoever opens it.
+    - **Export CSV** — the basket as a spreadsheet with effective pricing; also show
+      **Export CSV** in the results bar for search results.
 13. Click **Import List / BOM** and paste:
     ```
     12x gfci receptacle

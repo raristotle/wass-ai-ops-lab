@@ -9,18 +9,23 @@ wiring devices: receptacles, switches, wall plates, plugs, combination devices �
 across 6 categories and 79 subcategories), with server-side search/suggest/detail
 APIs, scored "find alternatives" recommendations, spec-level facet filters,
 volume/tiered pricing, goes-with cross-sell, BOM/list import, named saved baskets,
-order history with reorder, shareable cart links, out-of-stock lead times with
-notify-me, printable spec sheets / comparisons / quotes (PDF), value + numeric
-**range** facets, category product images, a **manager analytics dashboard**
-(Recharts), and demo auth.
+order history with reorder + expandable line detail, shareable cart links,
+out-of-stock lead times with notify-me, **automatic in-stock substitutes for
+out-of-stock products**, **CSV export** (search results + basket), printable spec
+sheets / comparisons / quotes (PDF), value + numeric **range** facets,
+deterministic branded product-plate images, a **manager analytics dashboard**
+(Recharts), an **interactive in-app help panel**, and demo auth. Live at
+<https://app.raristotle.com/product-finder>.
 It also includes a **simulated enterprise-integration layer** (`lib/integration/`)
 behind swap-in adapter interfaces — customer accounts, contract/customer pricing,
 live inventory/ATP, PIM catalog provenance, and competitor/legacy part
 cross-reference (all on synthetic data, ready to point at real ERP/PIM/CRM/pricing
-systems). See [docs/product-finder-help.md](docs/product-finder-help.md) for the
-end-user guide + demo script, and
-[docs/wesco-it-integration-guide.md](docs/wesco-it-integration-guide.md) for how to
-connect the adapter layer to live ERP/PIM/CRM/pricing systems.
+systems). Documentation:
+[user guide](docs/product-finder-help.md) ·
+[feature listing](docs/product-finder-features.md) ·
+[API guide](docs/product-finder-api.md) ·
+[demo script](docs/product-finder-demo-script.md) ·
+[integration guide](docs/wesco-it-integration-guide.md).
 
 ## Stack
 

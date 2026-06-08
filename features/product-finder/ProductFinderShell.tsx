@@ -7,6 +7,7 @@ import { CartDrawer } from "@/features/product-finder/CartDrawer";
 import { SpecCompareModal } from "@/features/product-finder/SpecCompareModal";
 import { ProductDetailModal } from "@/features/product-finder/ProductDetailModal";
 import { BomImportModal } from "@/features/product-finder/BomImportModal";
+import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { cn } from "@/lib/utils";
 
 interface ProductFinderShellProps {
@@ -17,6 +18,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const user = useProductFinder((s) => s.user);
   const logout = useProductFinder((s) => s.logout);
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
+  const setHelpOpen = useProductFinder((s) => s.setHelpOpen);
   const cartCount = useProductFinder(selectCartCount);
   const customers = useProductFinder((s) => s.customers);
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
@@ -98,6 +100,17 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
             </Link>
           )}
 
+          {/* Help */}
+          <button
+            type="button"
+            onClick={() => setHelpOpen(true)}
+            aria-label="Open help panel"
+            title="Help & tips"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#4F758B] text-sm font-bold text-[#B7C9D3] transition-colors hover:border-[#64CCC9] hover:text-[#64CCC9]"
+          >
+            ?
+          </button>
+
           {/* Cart FAB */}
           <button
             type="button"
@@ -149,6 +162,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <SpecCompareModal />
       <ProductDetailModal />
       <BomImportModal />
+      <HelpPanel />
     </div>
   );
 }

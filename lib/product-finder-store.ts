@@ -137,6 +137,8 @@ export interface ProductFinderState {
   clearCart: () => void;
   cartOpen: boolean;
   setCartOpen: (v: boolean) => void;
+  helpOpen: boolean;
+  setHelpOpen: (v: boolean) => void;
 
   // Saved baskets
   savedBaskets: SavedBasket[];
@@ -553,6 +555,9 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   clearCart() { set({ cart: {} }); },
   setCartOpen(v) { set({ cartOpen: v }); },
+
+  helpOpen: false,
+  setHelpOpen(v) { set({ helpOpen: v }); },
 
   // ── Saved baskets ─────────────────────────────────────────
   savedBaskets: [],
