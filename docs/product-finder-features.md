@@ -57,6 +57,9 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Basket | Quantity steppers, per-line volume/contract pricing, running total |
 | Saved baskets | Name, save, reload, delete baskets — persistent per browser |
 | Quote PDF | Branded quote: auto number, 30-day validity, rep & branch, priced line table |
+| **Saved quotes + status** | Save a quote and track it Draft → Sent → Won / Lost; reload its lines into the basket; scoped per customer |
+| **Job templates / kits** | Save a basket as a reusable kit; "Add to Basket" merges it into the current cart |
+| **Delivery ETA** | "Ships complete by" date in the cart — slowest line across branch/transfer/DC/lead-time tiers |
 | Share basket | URL that rebuilds the exact basket (incl. customer/project) for any signed-in user |
 | **CSV export** | One-click exports of search results (results bar) and the basket (with effective pricing + total), Excel-safe escaping |
 | Orders & reorder | Place orders per customer; history with **expandable line detail** and one-click Reorder |

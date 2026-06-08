@@ -214,6 +214,17 @@ applied), or clear it.
   Print or save as PDF.
 - **Share** — copies a link that encodes the basket (and customer/project); anyone
   who opens it (signed in) gets the same basket rebuilt automatically.
+- **Save Quote** — saves the basket as a **quote** (number, customer, project) you
+  can track through a status workflow. The **Saved Quotes** list shows each quote
+  with a **Draft → Sent → Won / Lost** status dropdown, a **Load** button (reopens
+  its lines into the basket), and delete. Quotes are scoped to the active customer.
+- **Job Templates** — save the current basket as a reusable **kit** (e.g. "Standard
+  office buildout"). **Add to Basket** *merges* a template into your current cart
+  (it adds, rather than replacing), so kits combine. Templates persist across sessions.
+- **Ships complete by** — the cart shows an estimated **whole-order delivery date**:
+  in-stock-at-your-branch lines ship fastest, branch-transfer/DC lines take a few
+  days, and out-of-stock lines extend the date to their lead time. The date reflects
+  the **slowest line** — the realistic "everything arrives" promise.
 - **Export CSV** — downloads the basket as a spreadsheet (see *Export to CSV* above).
 - **Add to Order** — records the basket as a placed **order** and clears the cart.
 - **Order History** — your past orders (date, item count, total). Click an order's

@@ -109,6 +109,38 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "quotes",
+    title: "Saved quotes & status tracking",
+    body: [
+      "Below the quote sheet, Save Quote stores the basket as a quote with its number, customer, and project.",
+      "Saved Quotes (in the cart) tracks each one through a status workflow:",
+      "• Draft → Sent → Won / Lost — set the status from the dropdown.",
+      "• Load reopens a quote's items into your basket.",
+      "Quotes are scoped to the customer you're quoting for, so follow-ups stay organized.",
+    ],
+  },
+  {
+    id: "templates",
+    title: "Job templates / recurring kits",
+    body: [
+      "Turn a basket into a reusable kit — e.g. “Standard office buildout” or a panel change-out.",
+      "• Build a basket, then Save under Job Templates.",
+      "• Add to Basket merges a template into your current cart (it adds, it doesn't replace) so you can combine kits.",
+      "Templates persist across sessions — stop rebuilding the same lists.",
+    ],
+  },
+  {
+    id: "delivery-eta",
+    title: "Delivery ETA in the basket",
+    body: [
+      "The cart shows a “Ships complete by” date — when the whole order can be fulfilled:",
+      "• In stock at your branch ships fastest.",
+      "• Branch transfer or DC stock takes a few days.",
+      "• Out-of-stock lines extend the date to their lead time.",
+      "The date reflects the slowest line, so it's the realistic “everything arrives” promise.",
+    ],
+  },
+  {
     id: "orders",
     title: "Orders & one-click reorder",
     body: [

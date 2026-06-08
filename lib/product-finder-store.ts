@@ -11,6 +11,16 @@ export type SavedBasket = {
   savedAt: number;
 };
 
+// ─── JobTemplate type ─────────────────────────────────────────────────────────
+// A reusable kit of products (e.g. "Standard office buildout"). Applied by
+// MERGING into the cart, not replacing it — unlike a SavedBasket.
+export type JobTemplate = {
+  id: string;
+  name: string;
+  lines: { product: CatalogProduct; qty: number }[];
+  savedAt: number;
+};
+
 // ─── Order type ───────────────────────────────────────────────────────────────
 export type Order = {
   id: string;
@@ -23,6 +33,7 @@ export type Order = {
 };
 import { parseQuery } from "@/lib/product-finder-nl-search";
 import { getPricingProvider } from "@/lib/integration/index";
+import type { SavedQuote, QuoteStatus } from "@/lib/product-finder-quotes";
 import {
   searchProducts,
   getAlternatives,
@@ -152,6 +163,19 @@ export interface ProductFinderState {
   placeOrder: (now: number, id?: string) => void;
   reorder: (id: string) => void;
   deleteOrder: (id: string) => void;
+
+  // Job templates (reusable BOM kits — applied by merging into the cart)
+  jobTemplates: JobTemplate[];
+  saveTemplate: (name: string, now?: number) => void;
+  applyTemplate: (id: string) => void;
+  deleteTemplate: (id: string) => void;
+
+  // Saved quotes (with status workflow)
+  quotes: SavedQuote[];
+  saveQuote: (input: { number: string; customer: string; project: string; now?: number }) => void;
+  setQuoteStatus: (id: string, status: QuoteStatus) => void;
+  loadQuoteToCart: (id: string) => void;
+  deleteQuote: (id: string) => void;
 
   // Watches (notify-when-available)
   watches: string[];
@@ -693,6 +717,127 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     });
   },
 
+  // ── Job templates (reusable BOM kits) ─────────────────────
+  jobTemplates: [],
+
+  saveTemplate(name, now) {
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    const cartValues = Object.values(get().cart);
+    if (cartValues.length === 0) return;
+
+    const lines = cartValues.map((entry) => ({ product: entry.product, qty: entry.qty }));
+    const ts = now ?? Date.now();
+
+    set((s) => {
+      const lowerName = trimmed.toLowerCase();
+      const existingIdx = s.jobTemplates.findIndex((t) => t.name.toLowerCase() === lowerName);
+      let next: JobTemplate[];
+      if (existingIdx !== -1) {
+        next = s.jobTemplates.map((t, i) => (i === existingIdx ? { ...t, lines, savedAt: ts } : t));
+      } else {
+        next = [{ id: `tmpl-${ts}`, name: trimmed, lines, savedAt: ts }, ...s.jobTemplates];
+      }
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_job_templates", JSON.stringify(next));
+      }
+      return { jobTemplates: next };
+    });
+  },
+
+  applyTemplate(id) {
+    const template = get().jobTemplates.find((t) => t.id === id);
+    if (!template) return;
+    // MERGE into the cart (add quantities), so kits combine rather than replace.
+    set((s) => {
+      const cart = { ...s.cart };
+      for (const line of template.lines) {
+        const existing = cart[line.product.id];
+        cart[line.product.id] = {
+          product: line.product,
+          qty: existing ? existing.qty + line.qty : line.qty,
+        };
+      }
+      return { cart };
+    });
+  },
+
+  deleteTemplate(id) {
+    set((s) => {
+      const next = s.jobTemplates.filter((t) => t.id !== id);
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_job_templates", JSON.stringify(next));
+      }
+      return { jobTemplates: next };
+    });
+  },
+
+  // ── Saved quotes (status workflow) ────────────────────────
+  quotes: [],
+
+  saveQuote({ number, customer, project, now }) {
+    const cartValues = Object.values(get().cart);
+    if (cartValues.length === 0) return;
+
+    const activeCustomer = selectActiveCustomer(get());
+    const provider = getPricingProvider();
+    const lines = cartValues.map((entry) => ({ product: entry.product, qty: entry.qty }));
+    const total = lines.reduce(
+      (sum, l) => sum + provider.getPricing(l.product, { customer: activeCustomer, qty: l.qty }).effectiveUnitPrice * l.qty,
+      0,
+    );
+    const ts = now ?? Date.now();
+    const newQuote: SavedQuote = {
+      id: `quote-${ts}`,
+      number,
+      customer: customer.trim(),
+      project: project.trim(),
+      lines,
+      total,
+      status: "draft",
+      createdAt: ts,
+      customerId: activeCustomer?.id ?? null,
+    };
+
+    set((s) => {
+      const quotes = [newQuote, ...s.quotes];
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_quotes", JSON.stringify(quotes));
+      }
+      return { quotes };
+    });
+  },
+
+  setQuoteStatus(id, status) {
+    set((s) => {
+      const quotes = s.quotes.map((q) => (q.id === id ? { ...q, status } : q));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_quotes", JSON.stringify(quotes));
+      }
+      return { quotes };
+    });
+  },
+
+  loadQuoteToCart(id) {
+    const quote = get().quotes.find((q) => q.id === id);
+    if (!quote) return;
+    const newCart: Record<string, { product: CatalogProduct; qty: number }> = {};
+    for (const line of quote.lines) {
+      newCart[line.product.id] = { product: line.product, qty: line.qty };
+    }
+    set({ cart: newCart });
+  },
+
+  deleteQuote(id) {
+    set((s) => {
+      const quotes = s.quotes.filter((q) => q.id !== id);
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_quotes", JSON.stringify(quotes));
+      }
+      return { quotes };
+    });
+  },
+
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
 
@@ -816,6 +961,18 @@ export function hydrateSavedState() {
     try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as SavedBasket[]) : []; }
     catch { localStorage.removeItem(k); return []; }
   };
+  const readTemplates = (): JobTemplate[] => {
+    const raw = localStorage.getItem("pf_job_templates");
+    if (!raw) return [];
+    try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as JobTemplate[]) : []; }
+    catch { localStorage.removeItem("pf_job_templates"); return []; }
+  };
+  const readQuotes = (): SavedQuote[] => {
+    const raw = localStorage.getItem("pf_quotes");
+    if (!raw) return [];
+    try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as SavedQuote[]) : []; }
+    catch { localStorage.removeItem("pf_quotes"); return []; }
+  };
   const readOrders = (): Order[] => {
     const raw = localStorage.getItem("pf_orders");
     // null means ABSENT (never been set) → seed demo orders
@@ -842,6 +999,8 @@ export function hydrateSavedState() {
     recentSnapshots: readMap("pf_recent_snap"),
     searchHistory: readArr("pf_search_history"),
     savedBaskets: readBaskets("pf_saved_baskets"),
+    jobTemplates: readTemplates(),
+    quotes: readQuotes(),
     watches: readArr("pf_watches"),
     orders: readOrders(),
     activeCustomerId: readActiveCustomer(),

@@ -8,6 +8,10 @@ import { getPricingProvider } from "@/lib/integration/index";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { encodeCart } from "@/lib/product-finder-share";
 import { basketCsv, downloadCsv } from "@/lib/product-finder-csv";
+import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
+import {
+  QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR, type SavedQuote, type QuoteStatus,
+} from "@/lib/product-finder-quotes";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +31,17 @@ export function CartDrawer() {
   const loadBasket = useProductFinder((s) => s.loadBasket);
   const deleteBasket = useProductFinder((s) => s.deleteBasket);
 
+  const jobTemplates = useProductFinder((s) => s.jobTemplates);
+  const saveTemplate = useProductFinder((s) => s.saveTemplate);
+  const applyTemplate = useProductFinder((s) => s.applyTemplate);
+  const deleteTemplate = useProductFinder((s) => s.deleteTemplate);
+
+  const quotes = useProductFinder((s) => s.quotes);
+  const saveQuote = useProductFinder((s) => s.saveQuote);
+  const setQuoteStatus = useProductFinder((s) => s.setQuoteStatus);
+  const loadQuoteToCart = useProductFinder((s) => s.loadQuoteToCart);
+  const deleteQuote = useProductFinder((s) => s.deleteQuote);
+
   const orders = useProductFinder((s) => s.orders);
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
   const visibleOrders = useMemo(
@@ -44,16 +59,34 @@ export function CartDrawer() {
   const items = Object.values(cart);
   const hasContractCustomer = activeCustomer !== null && activeCustomer.tier === "contract";
 
-  // ── Saved baskets state ────────────────────────────────────────────────────
+  // ── Saved baskets / templates state ────────────────────────────────────────
   const [basketName, setBasketName] = useState("");
+  const [templateName, setTemplateName] = useState("");
+
+  // Quotes saved this session start in the "won/lost" workflow; visible filter
+  const quotesForCustomer = useMemo(
+    () =>
+      activeCustomerId === null
+        ? quotes
+        : quotes.filter((q) => q.customerId === activeCustomerId || q.customerId === null),
+    [quotes, activeCustomerId]
+  );
+
+  // Whole-order delivery ETA ("ships complete by")
+  const orderEta = useMemo(() => {
+    if (items.length === 0) return null;
+    const days = orderEtaDays(items, user?.branchId);
+    return { days, date: addDays(new Date(), days) };
+  }, [items, user?.branchId]);
 
   // ── Quote state ────────────────────────────────────────────────────────────
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [customer, setCustomer] = useState("");
   const [project, setProject] = useState("");
 
-  // ── Share state ────────────────────────────────────────────────────────────
+  // ── Share / quote-save state ───────────────────────────────────────────────
   const [shareCopied, setShareCopied] = useState(false);
+  const [quoteSaved, setQuoteSaved] = useState(false);
 
   const handleShare = () => {
     const lines = Object.values(cart).map(({ product, qty }) => ({
@@ -370,6 +403,145 @@ export function CartDrawer() {
           )}
         </div>
 
+        {/* ── Job Templates section — hidden during print ───────────────────── */}
+        <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
+          <div className="mb-1 flex items-baseline justify-between gap-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
+              Job Templates
+            </p>
+            <span className="text-[10px] italic text-[#4F758B]">reusable kits — add to basket</span>
+          </div>
+
+          {/* Save current basket as a template */}
+          <div className="mb-3 flex gap-2">
+            <input
+              type="text"
+              value={templateName}
+              onChange={(e) => setTemplateName(e.target.value)}
+              placeholder="Template name (e.g. Office buildout)…"
+              className="min-w-0 flex-1 rounded border border-[#B7C9D3] px-2 py-1.5 text-sm text-[#1D252D] placeholder-[#B7C9D3] focus:border-[#4F758B] focus:outline-none"
+              aria-label="Job template name"
+            />
+            <button
+              type="button"
+              disabled={items.length === 0 || templateName.trim() === ""}
+              onClick={() => {
+                const trimmed = templateName.trim();
+                if (!trimmed || items.length === 0) return;
+                saveTemplate(trimmed, Date.now());
+                setTemplateName("");
+              }}
+              className="rounded bg-[#1D252D] px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[#2d3a47] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Save
+            </button>
+          </div>
+
+          {jobTemplates.length === 0 ? (
+            <p className="text-xs text-[#B7C9D3]">No templates yet. Build a basket, then save it as a reusable kit.</p>
+          ) : (
+            <ul className="max-h-48 space-y-1.5 overflow-y-auto">
+              {jobTemplates.map((tmpl) => (
+                <li key={tmpl.id} className="flex items-center gap-2 rounded border border-[#B7C9D3] bg-white px-3 py-2">
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-semibold text-[#1D252D]">{tmpl.name}</p>
+                    <p className="text-[10px] text-[#4F758B]">
+                      {tmpl.lines.length} {tmpl.lines.length === 1 ? "item" : "items"} · {formatSavedAt(tmpl.savedAt)}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => applyTemplate(tmpl.id)}
+                    className="shrink-0 rounded bg-[#00AA13] px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-[#009911]"
+                    aria-label={`Add template ${tmpl.name} to basket`}
+                  >
+                    Add to Basket
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => deleteTemplate(tmpl.id)}
+                    className="shrink-0 text-[#B7C9D3] transition-colors hover:text-red-600"
+                    aria-label={`Delete template ${tmpl.name}`}
+                  >
+                    ✕
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {/* ── Saved Quotes section — hidden during print ────────────────────── */}
+        <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
+          <div className="mb-3 flex items-baseline justify-between gap-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
+              Saved Quotes
+            </p>
+            <span className="text-[10px] italic text-[#4F758B] truncate">
+              {activeCustomer ? activeCustomer.name : "All"}
+            </span>
+          </div>
+
+          {quotesForCustomer.length === 0 ? (
+            <p className="text-xs text-[#B7C9D3]">No saved quotes yet. Use “Save Quote” below the quote sheet.</p>
+          ) : (
+            <ul className="max-h-56 space-y-1.5 overflow-y-auto">
+              {quotesForCustomer.map((q: SavedQuote) => {
+                const c = QUOTE_STATUS_COLOR[q.status];
+                return (
+                  <li key={q.id} className="rounded border border-[#B7C9D3] bg-white px-3 py-2">
+                    <div className="flex items-center gap-2">
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-semibold text-[#1D252D]">{q.number}</p>
+                        <p className="truncate text-[10px] text-[#4F758B]">
+                          {q.customer || "—"}
+                          {q.project ? ` · ${q.project}` : ""} ·{" "}
+                          <span className="font-semibold">${q.total.toFixed(2)}</span>
+                        </p>
+                      </div>
+                      <span
+                        className="shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide"
+                        style={{ backgroundColor: c.bg, color: c.text }}
+                      >
+                        {QUOTE_STATUS_LABEL[q.status]}
+                      </span>
+                    </div>
+                    <div className="mt-1.5 flex items-center gap-2">
+                      <label className="sr-only" htmlFor={`status-${q.id}`}>Quote status</label>
+                      <select
+                        id={`status-${q.id}`}
+                        value={q.status}
+                        onChange={(e) => setQuoteStatus(q.id, e.target.value as QuoteStatus)}
+                        className="rounded border border-[#B7C9D3] bg-white px-1.5 py-0.5 text-[10px] text-[#1D252D] focus:outline-none"
+                      >
+                        {QUOTE_STATUSES.map((s) => (
+                          <option key={s} value={s}>{QUOTE_STATUS_LABEL[s]}</option>
+                        ))}
+                      </select>
+                      <button
+                        type="button"
+                        onClick={() => loadQuoteToCart(q.id)}
+                        className="rounded border border-[#4F758B] px-2 py-0.5 text-[10px] font-medium text-[#4F758B] transition-colors hover:border-[#1D252D] hover:text-[#1D252D]"
+                        aria-label={`Load quote ${q.number} into basket`}
+                      >
+                        Load
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => deleteQuote(q.id)}
+                        className="ml-auto shrink-0 text-[#B7C9D3] transition-colors hover:text-red-600"
+                        aria-label={`Delete quote ${q.number}`}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+
         {/* ── Order History section — hidden during print ───────────────────── */}
         <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
           <div className="mb-3 flex items-baseline justify-between gap-2">
@@ -458,6 +630,20 @@ export function CartDrawer() {
               </span>
             </div>
 
+            {/* Estimated delivery — whole order ships complete by */}
+            {orderEta && (
+              <div className="flex items-center justify-between rounded border border-[#64CCC9]/50 bg-[#64CCC9]/10 px-3 py-2 text-xs">
+                <span className="flex items-center gap-1.5 text-[#1D252D]">
+                  <span aria-hidden="true">🚚</span>
+                  Ships complete by
+                </span>
+                <span className="font-semibold text-[#1D252D]">
+                  {formatDisplayDate(orderEta.date)}{" "}
+                  <span className="font-normal text-[#4F758B]">({etaLabel(orderEta.days)})</span>
+                </span>
+              </div>
+            )}
+
             {/* Generate Quote CTA */}
             <Button
               className="w-full bg-[#1D252D] text-white hover:bg-[#2d3a47]"
@@ -480,10 +666,16 @@ export function CartDrawer() {
             <Button
               className="w-full bg-[#00AA13] text-white hover:bg-[#009911]"
               onClick={() => {
-                // Add to Quote — no-op in demo
+                saveQuote({
+                  number: quoteNumber(new Date()),
+                  customer: customer || (activeCustomer?.name ?? ""),
+                  project,
+                });
+                setQuoteSaved(true);
+                setTimeout(() => setQuoteSaved(false), 2500);
               }}
             >
-              Add to Quote
+              {quoteSaved ? "Quote saved ✓" : "Save Quote"}
             </Button>
             <Button
               variant="outline"
