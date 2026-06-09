@@ -12,6 +12,8 @@ import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import {
   QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR, type SavedQuote, type QuoteStatus,
 } from "@/lib/product-finder-quotes";
+import { completeTheJob } from "@/lib/product-finder-complete-job";
+import { isValidEmail, guessRecipient } from "@/lib/product-finder-email";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +24,7 @@ export function CartDrawer() {
   const removeFromCart = useProductFinder((s) => s.removeFromCart);
   const updateCartQty = useProductFinder((s) => s.updateCartQty);
   const clearCart = useProductFinder((s) => s.clearCart);
+  const addToCart = useProductFinder((s) => s.addToCart);
   const cartCount = useProductFinder(selectCartCount);
   const cartTotal = useProductFinder(selectCartTotal);
   const user = useProductFinder((s) => s.user);
@@ -78,6 +81,14 @@ export function CartDrawer() {
     const days = orderEtaDays(items, user?.branchId);
     return { days, date: addDays(new Date(), days) };
   }, [items, user?.branchId]);
+
+  // "Complete this job" — complementary products the basket is missing
+  const completions = useMemo(() => (items.length === 0 ? [] : completeTheJob(items, 4)), [items]);
+
+  // ── Email-quote state ──────────────────────────────────────────────────────
+  const [emailOpen, setEmailOpen] = useState(false);
+  const [emailTo, setEmailTo] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
 
   // ── Quote state ────────────────────────────────────────────────────────────
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -325,6 +336,41 @@ export function CartDrawer() {
             </>
           )}
         </div>
+
+        {/* ── Complete this job — basket cross-sell ─────────────────────────── */}
+        {completions.length > 0 && (
+          <div className="shrink-0 border-t border-[#B7C9D3] bg-[#00573F]/5 px-5 py-4 print:hidden">
+            <div className="mb-2 flex items-baseline justify-between gap-2">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#00573F]">
+                Complete this job
+              </p>
+              <span className="text-[10px] italic text-[#4F758B]">commonly added with your items</span>
+            </div>
+            <ul className="space-y-1.5">
+              {completions.map(({ product, reason }) => (
+                <li
+                  key={product.id}
+                  className="flex items-center gap-2 rounded border border-[#00573F]/20 bg-white px-3 py-2"
+                >
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-semibold text-[#1D252D]">{product.name}</p>
+                    <p className="truncate text-[10px] text-[#4F758B]">
+                      {product.subcategory} · ${product.unitPrice.toFixed(2)}/{product.uom} · {reason}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => addToCart(product, 1)}
+                    className="shrink-0 rounded bg-[#00AA13] px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-[#009911]"
+                    aria-label={`Add ${product.name} to basket`}
+                  >
+                    + Add
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* ── Saved Baskets section — hidden during print ───────────────────── */}
         <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
@@ -677,6 +723,56 @@ export function CartDrawer() {
             >
               {quoteSaved ? "Quote saved ✓" : "Save Quote"}
             </Button>
+
+            {/* Email quote (simulated) */}
+            <Button
+              variant="outline"
+              className="w-full border-[#004986] text-[#004986] hover:bg-[#EEF4F7]"
+              onClick={() => {
+                setEmailOpen((v) => !v);
+                if (!emailTo) setEmailTo(guessRecipient(customer || activeCustomer?.name || ""));
+              }}
+              disabled={items.length === 0}
+            >
+              {emailOpen ? "Hide Email" : "Email Quote"}
+            </Button>
+
+            {emailOpen && (
+              <div className="rounded-lg border border-[#004986]/30 bg-[#004986]/5 p-3 space-y-2">
+                <label className="block text-[10px] font-semibold uppercase tracking-wide text-[#4F758B]">
+                  Send quote to
+                </label>
+                <input
+                  type="email"
+                  value={emailTo}
+                  onChange={(e) => { setEmailTo(e.target.value); setEmailSent(false); }}
+                  placeholder="customer@company.com"
+                  className="w-full rounded border border-[#B7C9D3] px-2 py-1.5 text-sm text-[#1D252D] placeholder-[#B7C9D3] focus:border-[#4F758B] focus:outline-none"
+                  aria-label="Recipient email"
+                />
+                <button
+                  type="button"
+                  disabled={!isValidEmail(emailTo)}
+                  onClick={() => {
+                    // Simulated send: save the quote as "sent" and confirm.
+                    saveQuote({
+                      number: quoteNumber(new Date()),
+                      customer: customer || (activeCustomer?.name ?? ""),
+                      project,
+                      status: "sent",
+                    });
+                    setEmailSent(true);
+                  }}
+                  className="w-full rounded bg-[#004986] px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[#003a6d] disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  {emailSent ? `Sent to ${emailTo} ✓` : "Send Quote"}
+                </button>
+                <p className="text-[9px] italic text-[#4F758B]">
+                  Simulated — no email is actually sent. The quote is saved with status “Sent.”
+                </p>
+              </div>
+            )}
+
             <Button
               variant="outline"
               className="w-full border-[#1D252D] text-[#1D252D] hover:bg-[#F8FAFB]"

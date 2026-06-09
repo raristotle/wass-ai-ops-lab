@@ -172,7 +172,7 @@ export interface ProductFinderState {
 
   // Saved quotes (with status workflow)
   quotes: SavedQuote[];
-  saveQuote: (input: { number: string; customer: string; project: string; now?: number }) => void;
+  saveQuote: (input: { number: string; customer: string; project: string; status?: QuoteStatus; now?: number }) => void;
   setQuoteStatus: (id: string, status: QuoteStatus) => void;
   loadQuoteToCart: (id: string) => void;
   deleteQuote: (id: string) => void;
@@ -775,7 +775,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Saved quotes (status workflow) ────────────────────────
   quotes: [],
 
-  saveQuote({ number, customer, project, now }) {
+  saveQuote({ number, customer, project, status, now }) {
     const cartValues = Object.values(get().cart);
     if (cartValues.length === 0) return;
 
@@ -794,7 +794,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       project: project.trim(),
       lines,
       total,
-      status: "draft",
+      status: status ?? "draft",
       createdAt: ts,
       customerId: activeCustomer?.id ?? null,
     };

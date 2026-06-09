@@ -120,6 +120,38 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "complete-job",
+    title: "Complete this job (cross-sell)",
+    body: [
+      "When your basket has items, the cart shows a “Complete this job” panel with commonly-paired products you're missing.",
+      "• It only suggests categories your basket doesn't already cover — genuine gaps, not noise.",
+      "• Example: conduit in the basket → it suggests fittings and boxes; a receptacle → a wall plate.",
+      "• + Add drops a suggestion straight into the basket.",
+      "Fewer callbacks and return trips for the missing piece.",
+    ],
+  },
+  {
+    id: "email-quote",
+    title: "Email a quote",
+    body: [
+      "In the cart, Email Quote opens an inline form pre-filled with a recipient address.",
+      "• Send Quote saves the quote with status “Sent” and confirms — so it's tracked for follow-up.",
+      "• Pair it with Saved Quotes to move it to Won or Lost later.",
+      "(Demo: no email is actually transmitted; the quote is recorded as Sent.)",
+    ],
+  },
+  {
+    id: "pipeline",
+    title: "Quote pipeline (managers)",
+    body: [
+      "The Insights dashboard includes a Quote Pipeline view:",
+      "• Value and count by status — Draft, Sent, Won, Lost.",
+      "• Open value (draft + sent), won/lost totals, and win rate.",
+      "• A follow-up alert lists Sent quotes older than 14 days.",
+      "Saved/emailed quotes flow straight into this view.",
+    ],
+  },
+  {
     id: "templates",
     title: "Job templates / recurring kits",
     body: [

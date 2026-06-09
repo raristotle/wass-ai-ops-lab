@@ -40,6 +40,8 @@ import {
   customerMix,
   contractSavings,
 } from "@/lib/analytics";
+import { quotePipeline } from "@/lib/product-finder-quote-pipeline";
+import { QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR } from "@/lib/product-finder-quotes";
 
 // ─── Brand tertiary palette for chart series ──────────────────────────────────
 const SERIES_COLORS = ["#EAAA00", "#64CCC9", "#DB6B30", "#004986", "#00573F"] as const;
@@ -84,6 +86,7 @@ function DashboardContent() {
   // Stable selectors — these return the same reference unless the store value
   // actually changes (Zustand shallow-compares primitives and array identity).
   const orders = useProductFinder((s) => s.orders);
+  const quotes = useProductFinder((s) => s.quotes);
   const user = useProductFinder((s) => s.user);
 
   // Compute all analytics once per `orders` change — never on re-render.
@@ -96,6 +99,7 @@ function DashboardContent() {
   const overTime = useMemo(() => ordersOverTime(orders, now, 6), [orders, now]);
   const mix = useMemo(() => customerMix(orders), [orders]);
   const savings = useMemo(() => contractSavings(orders), [orders]);
+  const pipeline = useMemo(() => quotePipeline(quotes, now), [quotes, now]);
 
   return (
     <div className="p-4 space-y-6">
@@ -172,6 +176,84 @@ function DashboardContent() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* ── Quote pipeline ────────────────────────────────────────────────────── */}
+      <section
+        aria-label="Quote pipeline"
+        className="rounded-xl border border-[#004986]/30 bg-[#004986]/5 p-4"
+      >
+        <div className="mb-3 flex items-baseline justify-between gap-2">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-[#004986]">
+            Quote Pipeline
+          </h2>
+          <span className="text-xs text-[#4F758B]">
+            {pipeline.totalCount} quote{pipeline.totalCount !== 1 ? "s" : ""} ·{" "}
+            win rate <span className="font-semibold text-[#1D252D]">{(pipeline.winRate * 100).toFixed(0)}%</span>
+          </span>
+        </div>
+
+        {pipeline.totalCount === 0 ? (
+          <p className="py-4 text-center text-xs text-[#4F758B]">
+            No saved quotes yet. Quotes saved from the cart appear here.
+          </p>
+        ) : (
+          <>
+            {/* Status breakdown */}
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+              {pipeline.byStatus.map((s) => {
+                const c = QUOTE_STATUS_COLOR[s.status];
+                return (
+                  <div key={s.status} className="rounded-lg border border-[#B7C9D3]/40 bg-white p-3">
+                    <div className="flex items-center gap-1.5">
+                      <span
+                        className="rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide"
+                        style={{ backgroundColor: c.bg, color: c.text }}
+                      >
+                        {QUOTE_STATUS_LABEL[s.status]}
+                      </span>
+                      <span className="text-xs text-[#4F758B]">×{s.count}</span>
+                    </div>
+                    <p className="mt-1 text-lg font-bold text-[#1D252D]">{fmt$(s.value)}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Open vs won summary */}
+            <div className="mt-3 flex flex-wrap gap-6">
+              <div>
+                <p className="text-xs text-[#4F758B]">Open (draft + sent)</p>
+                <p className="text-lg font-bold text-[#004986]">{fmt$(pipeline.openValue)}</p>
+              </div>
+              <div>
+                <p className="text-xs text-[#4F758B]">Won</p>
+                <p className="text-lg font-bold text-[#00AA13]">{fmt$(pipeline.wonValue)}</p>
+              </div>
+              <div>
+                <p className="text-xs text-[#4F758B]">Lost</p>
+                <p className="text-lg font-bold text-[#DB6B30]">{fmt$(pipeline.lostValue)}</p>
+              </div>
+            </div>
+
+            {/* Stale / needs-follow-up */}
+            {pipeline.stale.length > 0 && (
+              <div className="mt-3 rounded-lg border border-[#EAAA00]/50 bg-[#EAAA00]/10 px-3 py-2">
+                <p className="text-xs font-semibold text-[#1D252D]">
+                  ⚠ {pipeline.stale.length} sent quote{pipeline.stale.length !== 1 ? "s" : ""} need
+                  {pipeline.stale.length === 1 ? "s" : ""} follow-up (sent &gt; 14 days ago)
+                </p>
+                <ul className="mt-1 space-y-0.5">
+                  {pipeline.stale.slice(0, 5).map((q) => (
+                    <li key={q.id} className="truncate text-[11px] text-[#4F758B]">
+                      {q.number} · {q.customer || "—"} · {fmt$(q.total)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
+        )}
       </section>
 
       {/* ── Charts row: Top categories + Orders over time ──────────────────────── */}

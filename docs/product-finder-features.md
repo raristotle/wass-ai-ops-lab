@@ -36,6 +36,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Explainable scoring | "Why recommended?" point-by-point breakdown — specs, stock, preferred, price, type |
 | **Out-of-stock substitutes** | OOS cards automatically offer the best in-stock substitute with Add / View actions (server-resolved) |
 | Goes-well-with | Complementary cross-sell on the detail view (breaker → load center, …) |
+| **Complete this job** | Basket-level cross-sell — surfaces complementary products the basket is missing (gaps only), one-tap add |
 | Competitor cross-reference | Paste a competitor/legacy part number → Meridian equivalent; "Replaces" list per product |
 | Spec compare | Side-by-side comparison of up to 4 products, differences + cheapest highlighted, PDF export |
 
@@ -58,6 +59,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Saved baskets | Name, save, reload, delete baskets — persistent per browser |
 | Quote PDF | Branded quote: auto number, 30-day validity, rep & branch, priced line table |
 | **Saved quotes + status** | Save a quote and track it Draft → Sent → Won / Lost; reload its lines into the basket; scoped per customer |
+| **Email quote** (simulated) | Inline send form; records the quote as "Sent" for follow-up tracking |
 | **Job templates / kits** | Save a basket as a reusable kit; "Add to Basket" merges it into the current cart |
 | **Delivery ETA** | "Ships complete by" date in the cart — slowest line across branch/transfer/DC/lead-time tiers |
 | Share basket | URL that rebuilds the exact basket (incl. customer/project) for any signed-in user |
@@ -81,6 +83,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 |---|---|
 | Demo auth & roles | sales / manager / admin accounts; branch drives stock scoring |
 | Manager analytics | Role-gated Insights dashboard: KPIs, contract savings, top categories/products, orders over time, customer mix |
+| **Quote pipeline** | Dashboard view: value/count by status, open vs. won/lost, win rate, and a stale-quote follow-up alert (>14 days) |
 | **Interactive help** | "?" header button → searchable help topics with one-click "Try it" example searches |
 | Favorites & recently viewed | Starred products and view history, persistent |
 | Print support | Quote, spec sheet, and comparison print as clean documents |

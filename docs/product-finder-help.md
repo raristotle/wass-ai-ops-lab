@@ -179,9 +179,10 @@ product photography later via the same `ProductImage` seam.)*
 ### Analytics dashboard (managers & admins only)
 Signed in as a **manager** or **admin**, an **Insights** link appears in the header →
 an **Analytics Dashboard**: KPI cards (orders, total/avg value, active customers),
-**contract savings delivered**, **top categories** and **orders over time** charts,
-top products, and customer mix. Sales reps don't see it. *(Demo analytics derived
-from seeded sample orders.)*
+**contract savings delivered**, a **Quote Pipeline** (value & count by status, open
+vs. won/lost, **win rate**, and a **follow-up alert** for Sent quotes older than 14
+days), **top categories** and **orders over time** charts, top products, and customer
+mix. Sales reps don't see it. *(Demo analytics derived from seeded sample data.)*
 
 ### Enterprise integration (simulated)
 A set of "system of record" capabilities, built behind clean adapter interfaces so
@@ -214,10 +215,17 @@ applied), or clear it.
   Print or save as PDF.
 - **Share** — copies a link that encodes the basket (and customer/project); anyone
   who opens it (signed in) gets the same basket rebuilt automatically.
+- **Complete this job** — when the basket has items, a panel suggests **commonly
+  paired products you're missing** (only categories your basket doesn't already
+  cover — e.g. conduit → fittings & boxes, receptacle → wall plate). **+ Add** drops
+  one into the basket. Cuts down on callbacks for the forgotten piece.
 - **Save Quote** — saves the basket as a **quote** (number, customer, project) you
   can track through a status workflow. The **Saved Quotes** list shows each quote
   with a **Draft → Sent → Won / Lost** status dropdown, a **Load** button (reopens
   its lines into the basket), and delete. Quotes are scoped to the active customer.
+- **Email Quote** — opens an inline form (recipient pre-filled). **Send Quote**
+  records the quote with status **Sent** and confirms. *(Demo: no email is actually
+  sent — the quote is tracked as Sent for follow-up.)*
 - **Job Templates** — save the current basket as a reusable **kit** (e.g. "Standard
   office buildout"). **Add to Basket** *merges* a template into your current cart
   (it adds, rather than replacing), so kits combine. Templates persist across sessions.

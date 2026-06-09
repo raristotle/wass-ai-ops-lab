@@ -8,12 +8,14 @@ toward common commercial/residential construction products — including 10,000+
 wiring devices: receptacles, switches, wall plates, plugs, combination devices —
 across 6 categories and 79 subcategories), with server-side search/suggest/detail
 APIs, scored "find alternatives" recommendations, spec-level facet filters,
-volume/tiered pricing, goes-with cross-sell, BOM/list import, named saved baskets,
-**reusable job templates / kits**, order history with reorder + expandable line
-detail, **saved quotes with a Draft→Sent→Won/Lost status workflow**, **whole-order
-delivery ETA** ("ships complete by"), shareable cart links, out-of-stock lead times
-with notify-me, **automatic in-stock substitutes for out-of-stock products**,
-**CSV export** (search results + basket), printable spec
+volume/tiered pricing, goes-with cross-sell + **basket-level "complete this job"
+cross-sell**, BOM/list import, named saved baskets, **reusable job templates /
+kits**, order history with reorder + expandable line detail, **saved quotes with a
+Draft→Sent→Won/Lost status workflow**, **simulated email-quote send**, a **manager
+quote-pipeline view** (open/won/lost value, win rate, stale-quote alerts),
+**whole-order delivery ETA** ("ships complete by"), shareable cart links,
+out-of-stock lead times with notify-me, **automatic in-stock substitutes for
+out-of-stock products**, **CSV export** (search results + basket), printable spec
 sheets / comparisons / quotes (PDF), value + numeric **range** facets,
 deterministic branded product-plate images, a **manager analytics dashboard**
 (Recharts), an **interactive in-app help panel**, and demo auth. Live at
