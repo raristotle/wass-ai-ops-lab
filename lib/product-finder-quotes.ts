@@ -8,6 +8,28 @@ import type { CatalogProduct } from "@/features/product-finder/types";
 export const QUOTE_STATUSES = ["draft", "sent", "won", "lost"] as const;
 export type QuoteStatus = (typeof QUOTE_STATUSES)[number];
 
+/** Quotes whose blended margin falls below this floor need manager sign-off. */
+export const MARGIN_FLOOR = 0.2;
+
+export type ApprovalStatus = "pending" | "approved" | "rejected";
+
+/** A margin fraction below the floor requires approval. */
+export function needsApproval(marginPct: number): boolean {
+  return marginPct < MARGIN_FLOOR;
+}
+
+export const APPROVAL_LABEL: Record<ApprovalStatus, string> = {
+  pending: "Approval pending",
+  approved: "Approved",
+  rejected: "Rejected",
+};
+
+export const APPROVAL_COLOR: Record<ApprovalStatus, { bg: string; text: string }> = {
+  pending: { bg: "#EAAA00", text: "#1D252D" },
+  approved: { bg: "#00AA13", text: "#FFFFFF" },
+  rejected: { bg: "#DB6B30", text: "#FFFFFF" },
+};
+
 export const QUOTE_STATUS_LABEL: Record<QuoteStatus, string> = {
   draft: "Draft",
   sent: "Sent",
@@ -35,6 +57,10 @@ export interface SavedQuote {
   createdAt: number;
   /** The customer account this quote was built for (null = walk-in). */
   customerId: string | null;
+  /** Blended gross margin captured at save time (0..1). */
+  marginPct?: number;
+  /** Present only when the quote's margin is below the floor. */
+  approvalStatus?: ApprovalStatus;
   /** Set when the quote has been converted into a placed order. */
   convertedOrderId?: string;
   convertedAt?: number;

@@ -65,6 +65,19 @@ describe("quotePipeline", () => {
     expect(empty.conversionRate).toBe(0);
   });
 
+  it("collects below-margin quotes awaiting approval, highest value first", () => {
+    const withApprovals = quotePipeline(
+      [
+        { ...q("a", "draft", 300), approvalStatus: "pending" },
+        { ...q("b", "sent", 900), approvalStatus: "pending" },
+        { ...q("c", "draft", 100), approvalStatus: "approved" },
+        q("d", "draft", 500),
+      ],
+      NOW,
+    );
+    expect(withApprovals.needsApproval.map((x) => x.id)).toEqual(["b", "a"]);
+  });
+
   it("tracks conversion of won quotes into orders", () => {
     const conv = quotePipeline(
       [

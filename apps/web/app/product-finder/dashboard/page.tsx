@@ -248,6 +248,23 @@ function DashboardContent() {
               </div>
             </div>
 
+            {/* Below-margin quotes awaiting approval */}
+            {pipeline.needsApproval.length > 0 && (
+              <div className="mt-3 rounded-lg border border-[#DB6B30]/50 bg-[#DB6B30]/10 px-3 py-2">
+                <p className="text-xs font-semibold text-[#1D252D]">
+                  🔏 {pipeline.needsApproval.length} below-margin quote{pipeline.needsApproval.length !== 1 ? "s" : ""} awaiting approval
+                </p>
+                <ul className="mt-1 space-y-0.5">
+                  {pipeline.needsApproval.slice(0, 5).map((q) => (
+                    <li key={q.id} className="truncate text-[11px] text-[#4F758B]">
+                      {q.number} · {q.customer || "—"} · {fmt$(q.total)}
+                      {q.marginPct !== undefined && ` · margin ${(q.marginPct * 100).toFixed(0)}%`}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Stale / needs-follow-up */}
             {pipeline.stale.length > 0 && (
               <div className="mt-3 rounded-lg border border-[#EAAA00]/50 bg-[#EAAA00]/10 px-3 py-2">

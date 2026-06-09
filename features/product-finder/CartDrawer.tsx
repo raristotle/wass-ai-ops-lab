@@ -10,8 +10,10 @@ import { encodeCart } from "@/lib/product-finder-share";
 import { basketCsv, downloadCsv } from "@/lib/product-finder-csv";
 import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import {
-  QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR, type SavedQuote, type QuoteStatus,
+  QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR,
+  APPROVAL_LABEL, APPROVAL_COLOR, type SavedQuote, type QuoteStatus,
 } from "@/lib/product-finder-quotes";
+import { SubmittalPackage } from "@/features/product-finder/SubmittalPackage";
 import { completeTheJob } from "@/lib/product-finder-complete-job";
 import { isValidEmail, guessRecipient } from "@/lib/product-finder-email";
 import {
@@ -46,9 +48,13 @@ export function CartDrawer() {
   const quotes = useProductFinder((s) => s.quotes);
   const saveQuote = useProductFinder((s) => s.saveQuote);
   const setQuoteStatus = useProductFinder((s) => s.setQuoteStatus);
+  const setQuoteApproval = useProductFinder((s) => s.setQuoteApproval);
   const loadQuoteToCart = useProductFinder((s) => s.loadQuoteToCart);
   const deleteQuote = useProductFinder((s) => s.deleteQuote);
   const convertQuoteToOrder = useProductFinder((s) => s.convertQuoteToOrder);
+  const submittalOpen = useProductFinder((s) => s.submittalOpen);
+  const setSubmittalOpen = useProductFinder((s) => s.setSubmittalOpen);
+  const isManager = user?.role === "manager" || user?.role === "admin";
 
   const orders = useProductFinder((s) => s.orders);
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
@@ -588,6 +594,9 @@ export function CartDrawer() {
                           {q.customer || "—"}
                           {q.project ? ` · ${q.project}` : ""} ·{" "}
                           <span className="font-semibold">${q.total.toFixed(2)}</span>
+                          {q.marginPct !== undefined && (
+                            <> · margin <span className="font-semibold">{(q.marginPct * 100).toFixed(0)}%</span></>
+                          )}
                         </p>
                       </div>
                       <div className="flex shrink-0 flex-col items-end gap-0.5">
@@ -597,6 +606,14 @@ export function CartDrawer() {
                         >
                           {QUOTE_STATUS_LABEL[q.status]}
                         </span>
+                        {q.approvalStatus && (
+                          <span
+                            className="rounded px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide"
+                            style={{ backgroundColor: APPROVAL_COLOR[q.approvalStatus].bg, color: APPROVAL_COLOR[q.approvalStatus].text }}
+                          >
+                            {APPROVAL_LABEL[q.approvalStatus]}
+                          </span>
+                        )}
                         {q.convertedOrderId && (
                           <span className="text-[8px] font-semibold uppercase tracking-wide text-[#00573F]">
                             ✓ ordered
@@ -604,6 +621,27 @@ export function CartDrawer() {
                         )}
                       </div>
                     </div>
+
+                    {/* Manager approval controls for below-margin quotes */}
+                    {q.approvalStatus === "pending" && isManager && (
+                      <div className="mt-1.5 flex items-center gap-2 rounded bg-[#EAAA00]/10 px-2 py-1">
+                        <span className="text-[10px] text-[#1D252D]">Below-margin — sign off?</span>
+                        <button
+                          type="button"
+                          onClick={() => setQuoteApproval(q.id, "approved")}
+                          className="ml-auto rounded bg-[#00AA13] px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-[#009911]"
+                        >
+                          Approve
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setQuoteApproval(q.id, "rejected")}
+                          className="rounded border border-[#DB6B30] px-2 py-0.5 text-[10px] font-semibold text-[#DB6B30] hover:bg-[#DB6B30]/10"
+                        >
+                          Reject
+                        </button>
+                      </div>
+                    )}
                     <div className="mt-1.5 flex items-center gap-2">
                       <label className="sr-only" htmlFor={`status-${q.id}`}>Quote status</label>
                       <select
@@ -627,8 +665,10 @@ export function CartDrawer() {
                       {!q.convertedOrderId && (
                         <button
                           type="button"
+                          disabled={q.approvalStatus === "pending"}
                           onClick={() => convertQuoteToOrder(q.id, Date.now())}
-                          className="rounded bg-[#00573F] px-2 py-0.5 text-[10px] font-semibold text-white transition-colors hover:bg-[#00452f]"
+                          className="rounded bg-[#00573F] px-2 py-0.5 text-[10px] font-semibold text-white transition-colors hover:bg-[#00452f] disabled:cursor-not-allowed disabled:opacity-40"
+                          title={q.approvalStatus === "pending" ? "Needs manager approval first" : undefined}
                           aria-label={`Convert quote ${q.number} to an order`}
                         >
                           Convert to Order
@@ -771,10 +811,20 @@ export function CartDrawer() {
             {/* Generate Quote CTA */}
             <Button
               className="w-full bg-[#1D252D] text-white hover:bg-[#2d3a47]"
-              onClick={() => setQuoteOpen((v) => !v)}
+              onClick={() => { setQuoteOpen((v) => !v); setSubmittalOpen(false); }}
               disabled={items.length === 0}
             >
               {quoteOpen ? "Hide Quote" : "Generate Quote (PDF)"}
+            </Button>
+
+            {/* Submittal package */}
+            <Button
+              variant="outline"
+              className="w-full border-[#1D252D] text-[#1D252D] hover:bg-[#F8FAFB]"
+              onClick={() => { setSubmittalOpen(!submittalOpen); setQuoteOpen(false); }}
+              disabled={items.length === 0}
+            >
+              {submittalOpen ? "Hide Submittal" : "Submittal Package (PDF)"}
             </Button>
 
             {/* Share basket via URL */}
@@ -885,6 +935,32 @@ export function CartDrawer() {
               Clear basket
             </button>
           </div>
+        )}
+
+        {/* ── Submittal Package ────────────────────────────────────────────────
+            Same print isolation as the quote sheet: panel is the print surface,
+            this section fills it, everything else is print:hidden.
+        ── */}
+        {submittalOpen && items.length > 0 && (
+          <section
+            id="submittal-package"
+            className="border-t border-[#B7C9D3] bg-white px-6 py-6 overflow-y-auto print:border-0 print:px-8 print:py-8 print:overflow-visible"
+          >
+            <div className="mb-4 flex items-center justify-between gap-2 print:hidden">
+              <p className="text-sm font-semibold text-[#1D252D]">Submittal Package preview</p>
+              <Button size="sm" onClick={handlePrint} className="bg-[#1D252D] text-white hover:bg-[#2d3a47]">
+                Print / Save PDF
+              </Button>
+            </div>
+            <SubmittalPackage
+              items={items.map(({ product, qty }) => ({ product, qty }))}
+              customer={customer || (activeCustomer?.name ?? "")}
+              project={project}
+              packageNumber={quoteNum.replace(/^Q-/, "SUB-")}
+              dateLabel={formatDisplayDate(quoteDate)}
+              preparedBy={user ? `${user.name} · ${user.branch}` : undefined}
+            />
+          </section>
         )}
 
         {/* ── Quote Sheet ──────────────────────────────────────────────────────

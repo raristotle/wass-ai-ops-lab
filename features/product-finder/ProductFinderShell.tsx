@@ -7,6 +7,7 @@ import { CartDrawer } from "@/features/product-finder/CartDrawer";
 import { SpecCompareModal } from "@/features/product-finder/SpecCompareModal";
 import { ProductDetailModal } from "@/features/product-finder/ProductDetailModal";
 import { BomImportModal } from "@/features/product-finder/BomImportModal";
+import { BulkQuoteModal } from "@/features/product-finder/BulkQuoteModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { cn } from "@/lib/utils";
 
@@ -162,6 +163,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <SpecCompareModal />
       <ProductDetailModal />
       <BomImportModal />
+      <BulkQuoteModal />
       <HelpPanel />
     </div>
   );

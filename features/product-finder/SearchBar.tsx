@@ -241,6 +241,7 @@ interface SingleSearchPanelProps {
   onRemoveFilter: (id: string) => void;
   onOpenBom: () => void;
   onOpenCrossRef: () => void;
+  onOpenBulk: () => void;
 }
 
 function SingleSearchPanel({
@@ -259,6 +260,7 @@ function SingleSearchPanel({
   onRemoveFilter,
   onOpenBom,
   onOpenCrossRef,
+  onOpenBulk,
 }: SingleSearchPanelProps) {
   return (
     <div className="space-y-3">
@@ -390,6 +392,21 @@ function SingleSearchPanel({
           <CrossRefIcon />
           Cross-reference
         </button>
+
+        {/* Bulk price & availability — paste many SKUs */}
+        <button
+          type="button"
+          onClick={onOpenBulk}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#4F758B]/50 px-3 py-1 text-xs font-medium text-[#4F758B]",
+            "hover:border-[#1D252D] hover:bg-[#1D252D]/5 hover:text-[#1D252D]",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1D252D]"
+          )}
+          aria-label="Bulk price and availability"
+        >
+          <ListImportIcon />
+          Bulk Price Check
+        </button>
       </div>
 
       {/* Applied natural-language filter chips */}
@@ -424,6 +441,7 @@ export function SearchBar() {
     removeNlFilter,
     appliedNlFilters,
     setBomModalOpen,
+    setBulkModalOpen,
   } = useProductFinder();
 
   // Suggestion dropdown state
@@ -537,6 +555,7 @@ export function SearchBar() {
             onRemoveFilter={removeNlFilter}
             onOpenBom={() => setBomModalOpen(true)}
             onOpenCrossRef={() => setCrossRefOpen(true)}
+            onOpenBulk={() => setBulkModalOpen(true)}
           />
         </div>
       </div>

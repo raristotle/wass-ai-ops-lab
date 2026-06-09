@@ -157,6 +157,14 @@ Click **Compare** on up to **4** products, then open the **comparison view** to 
 them **side-by-side**, with differences and the **cheapest option** highlighted.
 **Download Comparison (PDF)** prints the side-by-side as a clean sheet.
 
+### Bulk price & availability
+Click **Bulk Price Check** by the search box for an instant **RFQ response**: paste
+or upload a list of SKUs, competitor/legacy part numbers, or descriptions (one per
+line, quantities like `12x …` work). Each line resolves by **exact SKU →
+cross-reference → search** (tagged so you see how it matched) and the table shows
+**effective price, line total, and stock** per row. **Export CSV** or **add all
+matched to the basket**.
+
 ### Import a list / BOM
 Click **Import List / BOM** by the search box to bulk-add products:
 - **Paste** a parts list (one per line) or **upload** a `.csv` / `.txt` file;
@@ -226,12 +234,20 @@ applied), or clear it.
   basket, or customer CSV. *(Cost is estimated from list price in this demo.)*
 - **Quantity stock warnings** — if a line's quantity exceeds available stock, the
   cart flags it: *"Ordering 50 · 30 in stock · 20 on backorder ~1–2 weeks."*
+- **Submittal Package (PDF)** — builds an approval-ready document for the whole
+  basket: a cover page (package number, customer, project, date, item index) plus
+  **one full spec sheet per item** (specifications with Required flags). Print or
+  save as PDF for the customer/GC.
 - **Save Quote** — saves the basket as a **quote** (number, customer, project) you
   can track through a status workflow. The **Saved Quotes** list shows each quote
-  with a **Draft → Sent → Won / Lost** status dropdown, a **Load** button (reopens
-  its lines into the basket), **Convert to Order** (turns the quote into a placed
-  order in one click — marks it Won and **✓ ordered**, leaving your basket
-  untouched), and delete. Quotes are scoped to the active customer.
+  with a **Draft → Sent → Won / Lost** status dropdown, the captured **margin %**, a
+  **Load** button (reopens its lines into the basket), **Convert to Order** (turns
+  the quote into a placed order in one click — marks it Won and **✓ ordered**,
+  leaving your basket untouched), and delete. Quotes are scoped to the active customer.
+  - **Below-margin approval:** if a quote's blended margin is under **20%**, it's
+    flagged **Approval pending** and can't be converted until a **manager** clicks
+    **Approve** (managers see Approve/Reject; the pipeline lists everything awaiting
+    sign-off).
 - **Email Quote** — opens an inline form (recipient pre-filled). **Send Quote**
   records the quote with status **Sent** and confirms. *(Demo: no email is actually
   sent — the quote is tracked as Sent for follow-up.)*

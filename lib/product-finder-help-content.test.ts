@@ -23,7 +23,7 @@ describe("HELP_TOPICS", () => {
 
   it("covers the core feature areas", () => {
     const ids = new Set(HELP_TOPICS.map((t) => t.id));
-    for (const required of ["getting-started", "search", "substitutes", "csv-export", "orders", "basket", "quotes", "templates", "delivery-eta", "complete-job", "email-quote", "pipeline", "margin", "quote-to-order", "stock-warning"]) {
+    for (const required of ["getting-started", "search", "substitutes", "csv-export", "orders", "basket", "quotes", "templates", "delivery-eta", "complete-job", "email-quote", "pipeline", "margin", "quote-to-order", "stock-warning", "bulk-check", "submittal", "approval"]) {
       expect(ids.has(required), required).toBe(true);
     }
   });

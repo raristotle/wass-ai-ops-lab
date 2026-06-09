@@ -33,6 +33,8 @@ export interface QuotePipeline {
   convertedValue: number;
   /** converted / won, 0..1 — how many won quotes became orders. */
   conversionRate: number;
+  /** Below-margin quotes awaiting manager sign-off, highest value first. */
+  needsApproval: SavedQuote[];
 }
 
 /** A sent quote older than STALE_DAYS relative to `now`. */
@@ -54,6 +56,10 @@ export function quotePipeline(quotes: SavedQuote[], now: number): QuotePipeline 
   const converted = quotes.filter((q) => q.convertedOrderId !== undefined);
   const wonCount = quotes.filter((q) => q.status === "won").length;
 
+  const awaitingApproval = quotes
+    .filter((q) => q.approvalStatus === "pending")
+    .sort((a, b) => b.total - a.total);
+
   return {
     byStatus,
     openValue: pipelineValue(quotes, "draft") + pipelineValue(quotes, "sent"),
@@ -65,5 +71,6 @@ export function quotePipeline(quotes: SavedQuote[], now: number): QuotePipeline 
     convertedCount: converted.length,
     convertedValue: converted.reduce((sum, q) => sum + q.total, 0),
     conversionRate: wonCount === 0 ? 0 : converted.length / wonCount,
+    needsApproval: awaitingApproval,
   };
 }

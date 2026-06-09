@@ -120,6 +120,37 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "bulk-check",
+    title: "Bulk price & availability",
+    body: [
+      "Bulk Price Check (by the search box) turns a pasted list into a priced, in-stock table — an instant RFQ response.",
+      "• Paste or upload SKUs, competitor/legacy part numbers, or descriptions — one per line (quantities like “12x …” work).",
+      "• Each line resolves by exact SKU → cross-reference → search, tagged so you can see how it matched.",
+      "• Get effective pricing, line totals, and stock per row; Export CSV or add all matched to the basket.",
+    ],
+  },
+  {
+    id: "submittal",
+    title: "Submittal package (PDF)",
+    body: [
+      "In the cart, Submittal Package (PDF) builds an approval-ready document for the whole basket:",
+      "• A cover page (package number, customer, project, date, item index).",
+      "• One spec sheet per item — full specifications with Required flags.",
+      "• Print / Save PDF to hand to the customer or GC for submittal.",
+      "Built on the same accurate spec data as the cross-reference engine.",
+    ],
+  },
+  {
+    id: "approval",
+    title: "Below-margin quote approval",
+    body: [
+      "Quotes whose blended margin falls below 20% are automatically flagged “Approval pending”.",
+      "• They can't be converted to an order until a manager signs off.",
+      "• Managers see Approve / Reject controls on the quote; the pipeline lists everything awaiting approval.",
+      "Turns the internal margin view into real discount governance.",
+    ],
+  },
+  {
     id: "complete-job",
     title: "Complete this job (cross-sell)",
     body: [

@@ -62,9 +62,13 @@ Every SKU below is deterministic — it exists with the same data in every envir
     in-stock lines ship in days, the slowest line sets the promise. No more guessing
     on the phone."*
 13. **Click Generate Quote (PDF).** *"Branded quote — auto number, 30-day validity,
-    my name and branch, contract-priced lines."* Then **Save Quote** — *"now it's
-    tracked."* In **Saved Quotes**, **set the status to Sent.** *"Draft → Sent → Won
-    or Lost — my follow-up list lives here."*
+    my name and branch, contract-priced lines."* Then **Submittal Package (PDF)** —
+    *"and one click bundles a full spec sheet for every line into an approval-ready
+    submittal package — exactly what a GC needs, with our accurate cross-reference
+    specs."* Then **Save Quote** — *"now it's tracked."* In **Saved Quotes**, **set
+    the status to Sent.** *"Draft → Sent → Won or Lost. And if I'd discounted below
+    our 20% margin floor, this quote would say 'Approval pending' and I couldn't
+    convert it until a manager signs off — discount governance built in."*
 14. **Click Email Quote**, show the pre-filled recipient, **Send Quote.** *"Off to
     the customer — and it's logged as Sent automatically."* (Simulated send.) Then
     in **Saved Quotes**, **Convert to Order** on a quote — *"customer says yes; one
@@ -77,6 +81,10 @@ Every SKU below is deterministic — it exists with the same data in every envir
 17. **Click Add to Order**, then expand **Order History**: *"every past order for
     Gulf Coast — click one open to see its lines — and Reorder puts it all back.
     Repeat business in two clicks."* **Click Reorder.**
+18a. **Click Bulk Price Check** and paste a mix of SKUs and a competitor part
+    number (e.g. `QO115`, `CB-EAT-CH115`, `12x 20A breaker`). **Get Prices & Stock** →
+    *"an instant RFQ response — every line priced, in stock, and cross-referenced.
+    Export CSV back to procurement, or add it all to the basket."*
 18. **Click Import List / BOM** and paste:
     ```
     12x gfci receptacle

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR,
-  isQuoteStatus, pipelineValue, winRate, type SavedQuote,
+  isQuoteStatus, pipelineValue, winRate, needsApproval, MARGIN_FLOOR, type SavedQuote,
 } from "@/lib/product-finder-quotes";
 
 function quote(id: string, status: SavedQuote["status"], total: number): SavedQuote {
@@ -37,6 +37,17 @@ describe("pipelineValue", () => {
     expect(pipelineValue(quotes, "sent")).toBe(150);
     expect(pipelineValue(quotes, "won")).toBe(200);
     expect(pipelineValue(quotes, "lost")).toBe(0);
+  });
+});
+
+describe("needsApproval", () => {
+  it("flags margins below the floor", () => {
+    expect(needsApproval(MARGIN_FLOOR - 0.01)).toBe(true);
+    expect(needsApproval(0.05)).toBe(true);
+  });
+  it("passes margins at or above the floor", () => {
+    expect(needsApproval(MARGIN_FLOOR)).toBe(false);
+    expect(needsApproval(0.4)).toBe(false);
   });
 });
 

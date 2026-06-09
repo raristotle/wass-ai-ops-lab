@@ -59,6 +59,8 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Basket | Quantity steppers, per-line volume/contract pricing, running total |
 | Saved baskets | Name, save, reload, delete baskets — persistent per browser |
 | Quote PDF | Branded quote: auto number, 30-day validity, rep & branch, priced line table |
+| **Submittal package (PDF)** | Approval-ready document for the whole basket: cover page + index + one full spec sheet per item |
+| **Below-margin approval** | Quotes under a 20% margin floor auto-flag "Approval pending"; managers Approve/Reject; conversion blocked until signed off |
 | **Saved quotes + status** | Save a quote and track it Draft → Sent → Won / Lost; reload its lines into the basket; scoped per customer |
 | **Email quote** (simulated) | Inline send form; records the quote as "Sent" for follow-up tracking |
 | **Convert quote → order** | One-click conversion of a quote into a placed order; marks the quote Won + "✓ ordered" without touching the cart |
@@ -70,6 +72,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | **CSV export** | One-click exports of search results (results bar) and the basket (with effective pricing + total), Excel-safe escaping |
 | Orders & reorder | Place orders per customer; history with **expandable line detail** and one-click Reorder |
 | BOM / list import | Paste or upload a parts list with quantities → matched lines added to the basket |
+| **Bulk price & availability** | Paste/upload many SKUs/part numbers → priced, in-stock, cross-referenced table (RFQ response); CSV export + add-to-basket |
 
 ## Customers & pricing (simulated integration layer)
 
@@ -87,7 +90,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 |---|---|
 | Demo auth & roles | sales / manager / admin accounts; branch drives stock scoring |
 | Manager analytics | Role-gated Insights dashboard: KPIs, contract savings, top categories/products, orders over time, customer mix |
-| **Quote pipeline** | Dashboard view: value/count by status, open vs. won/lost, win rate, conversion rate (won→ordered), and a stale-quote follow-up alert (>14 days) |
+| **Quote pipeline** | Dashboard view: value/count by status, open vs. won/lost, win rate, conversion rate (won→ordered), an approval-needed alert (below-margin), and a stale-quote follow-up alert (>14 days) |
 | **Interactive help** | "?" header button → searchable help topics with one-click "Try it" example searches |
 | Favorites & recently viewed | Starred products and view history, persistent |
 | Print support | Quote, spec sheet, and comparison print as clean documents |

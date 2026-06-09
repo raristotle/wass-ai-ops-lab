@@ -12,7 +12,9 @@ APIs, scored "find alternatives" recommendations, spec-level facet filters,
 interchangeability, quality-gated: top-1 = 1.0, precision@8 ≥ 0.98, with a
 ✓ CROSS-REF vs SIMILAR badge), volume/tiered pricing, goes-with cross-sell +
 **basket-level "complete this job" cross-sell**, BOM/list import, named saved
-baskets, **reusable job templates /
+**submittal-package PDF generator**, **bulk price & availability (RFQ) check** with
+cross-reference resolution, **below-margin quote approval workflow**, baskets,
+**reusable job templates /
 kits**, order history with reorder + expandable line detail, **saved quotes with a
 Draft→Sent→Won/Lost status workflow**, **one-click quote→order conversion**,
 **simulated email-quote send**, **internal rep-margin visibility**, **quantity-aware

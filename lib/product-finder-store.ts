@@ -33,7 +33,9 @@ export type Order = {
 };
 import { parseQuery } from "@/lib/product-finder-nl-search";
 import { getPricingProvider } from "@/lib/integration/index";
-import type { SavedQuote, QuoteStatus } from "@/lib/product-finder-quotes";
+import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-finder-quotes";
+import { needsApproval } from "@/lib/product-finder-quotes";
+import { basketMargin } from "@/lib/product-finder-margin";
 import {
   searchProducts,
   getAlternatives,
@@ -139,6 +141,10 @@ export interface ProductFinderState {
   // BOM import modal
   bomModalOpen: boolean;
   setBomModalOpen: (v: boolean) => void;
+  bulkModalOpen: boolean;
+  setBulkModalOpen: (v: boolean) => void;
+  submittalOpen: boolean;
+  setSubmittalOpen: (v: boolean) => void;
 
   // Cart (basket)
   cart: Record<string, { product: CatalogProduct; qty: number }>;
@@ -174,6 +180,7 @@ export interface ProductFinderState {
   quotes: SavedQuote[];
   saveQuote: (input: { number: string; customer: string; project: string; status?: QuoteStatus; now?: number }) => void;
   setQuoteStatus: (id: string, status: QuoteStatus) => void;
+  setQuoteApproval: (id: string, status: ApprovalStatus) => void;
   loadQuoteToCart: (id: string) => void;
   deleteQuote: (id: string) => void;
   convertQuoteToOrder: (id: string, now?: number) => void;
@@ -532,6 +539,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── BOM import modal ──────────────────────────────────────
   bomModalOpen: false,
   setBomModalOpen(v) { set({ bomModalOpen: v }); },
+  bulkModalOpen: false,
+  setBulkModalOpen(v) { set({ bulkModalOpen: v }); },
+  submittalOpen: false,
+  setSubmittalOpen(v) { set({ submittalOpen: v }); },
 
   toggleCompare(id) {
     set((s) => {
@@ -783,10 +794,13 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     const activeCustomer = selectActiveCustomer(get());
     const provider = getPricingProvider();
     const lines = cartValues.map((entry) => ({ product: entry.product, qty: entry.qty }));
-    const total = lines.reduce(
-      (sum, l) => sum + provider.getPricing(l.product, { customer: activeCustomer, qty: l.qty }).effectiveUnitPrice * l.qty,
-      0,
-    );
+    const marginLines = lines.map((l) => ({
+      product: l.product,
+      qty: l.qty,
+      effectiveUnitPrice: provider.getPricing(l.product, { customer: activeCustomer, qty: l.qty }).effectiveUnitPrice,
+    }));
+    const total = marginLines.reduce((sum, l) => sum + l.effectiveUnitPrice * l.qty, 0);
+    const margin = basketMargin(marginLines);
     const ts = now ?? Date.now();
     const newQuote: SavedQuote = {
       id: `quote-${ts}`,
@@ -798,6 +812,9 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       status: status ?? "draft",
       createdAt: ts,
       customerId: activeCustomer?.id ?? null,
+      marginPct: margin.marginPct,
+      // Below-margin quotes start pending manager sign-off.
+      ...(needsApproval(margin.marginPct) ? { approvalStatus: "pending" as const } : {}),
     };
 
     set((s) => {
@@ -812,6 +829,16 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setQuoteStatus(id, status) {
     set((s) => {
       const quotes = s.quotes.map((q) => (q.id === id ? { ...q, status } : q));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_quotes", JSON.stringify(quotes));
+      }
+      return { quotes };
+    });
+  },
+
+  setQuoteApproval(id, status) {
+    set((s) => {
+      const quotes = s.quotes.map((q) => (q.id === id ? { ...q, approvalStatus: status } : q));
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_quotes", JSON.stringify(quotes));
       }
@@ -842,6 +869,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   convertQuoteToOrder(id, now) {
     const quote = get().quotes.find((q) => q.id === id);
     if (!quote || quote.convertedOrderId) return; // already converted / missing
+    if (quote.approvalStatus === "pending") return; // blocked until a manager signs off
 
     const ts = now ?? Date.now();
     const orderId = `order-${ts}`;

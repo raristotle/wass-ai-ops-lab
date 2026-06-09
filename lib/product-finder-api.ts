@@ -85,3 +85,15 @@ export async function apiGoesWith(id: string): Promise<import("@/features/produc
   if (!res.ok) return [];
   return (await res.json()).items as import("@/features/product-finder/types").CatalogProduct[];
 }
+
+export async function apiResolve(
+  q: string,
+): Promise<import("@/lib/product-finder-bulk-quote").BulkResolution> {
+  try {
+    const res = await fetch(`/api/products/resolve?q=${encodeURIComponent(q)}`);
+    if (!res.ok) return { product: null, matchedVia: null };
+    return await res.json();
+  } catch {
+    return { product: null, matchedVia: null };
+  }
+}
