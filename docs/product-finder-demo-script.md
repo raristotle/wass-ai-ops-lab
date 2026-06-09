@@ -1,6 +1,6 @@
 # Product Finder — Demonstration Script
 
-A presenter-ready, ~10-minute walkthrough of <https://app.raristotle.com/product-finder>.
+A presenter-ready, ~12-minute walkthrough of <https://app.raristotle.com/product-finder>.
 Every SKU below is deterministic — it exists with the same data in every environment.
 **Bold** = what you do. *Italic* = what you say.
 
@@ -45,21 +45,31 @@ Every SKU below is deterministic — it exists with the same data in every envir
    adapters ready for real systems"*), the printable Spec Sheet, and
    **Goes well with** cross-sell.
 
-## Act 4 — From basket to deliverables (3 min)
+## Act 4 — From basket to deliverables (4 min)
 
 10. **Open the Cart.** The GE substitute is there. **Set its quantity to 50** —
     *"volume tier kicks in automatically."*
-11. **Click Generate Quote (PDF).** *"Branded quote — auto number, 30-day
-    validity, my name and branch, contract-priced lines. Print or save."*
-12. **Click Export CSV.** *"The same basket as a spreadsheet — list versus
-    effective price per line, totals — for the customer's procurement system."*
-    (Also point out **Export CSV** in the results bar for search results.)
-13. **Click Share Basket.** *"This link rebuilds the exact basket for a teammate
-    or the customer."*
-14. **Click Add to Order**, then expand **Order History**: *"every past order for
-    Gulf Coast — click one open to see its lines — and Reorder puts the whole
-    thing back in the basket. Repeat business in two clicks."* **Click Reorder.**
-15. **Click Import List / BOM** and paste:
+11. **Point at "Complete this job."** *"The basket knows what's missing — I added
+    conduit, so it's offering the fittings and boxes I'd forget. One tap each."*
+    **Click + Add** on a suggestion.
+12. **Point at "Ships complete by."** *"The whole order's realistic delivery date —
+    in-stock lines ship in days, the slowest line sets the promise. No more guessing
+    on the phone."*
+13. **Click Generate Quote (PDF).** *"Branded quote — auto number, 30-day validity,
+    my name and branch, contract-priced lines."* Then **Save Quote** — *"now it's
+    tracked."* In **Saved Quotes**, **set the status to Sent.** *"Draft → Sent → Won
+    or Lost — my follow-up list lives here."*
+14. **Click Email Quote**, show the pre-filled recipient, **Send Quote.** *"Off to
+    the customer — and it's logged as Sent automatically."* (Simulated send.)
+15. **Click Export CSV.** *"Same basket as a spreadsheet — list vs. effective price,
+    totals — for procurement."* Then **Share Basket** — *"a link that rebuilds this
+    exact basket for a teammate or the customer."*
+16. **Save the basket as a Job Template** ("Office buildout"). *"A reusable kit — next
+    job, Add to Basket merges it in instead of rebuilding."*
+17. **Click Add to Order**, then expand **Order History**: *"every past order for
+    Gulf Coast — click one open to see its lines — and Reorder puts it all back.
+    Repeat business in two clicks."* **Click Reorder.**
+18. **Click Import List / BOM** and paste:
     ```
     12x gfci receptacle
     5 led troffer
@@ -68,19 +78,24 @@ Every SKU below is deterministic — it exists with the same data in every envir
     ```
     **Match → Add matched to cart.** *"A whole bill of materials in seconds."*
 
-## Act 5 — The manager view (1 min)
+## Act 5 — The manager view (1.5 min)
 
-16. **Sign out, sign in** as `manager@meridiansupply.com` / `meridian2024`.
+19. **Sign out, sign in** as `manager@meridiansupply.com` / `meridian2024`.
     **Click Insights.**
     *"Managers get the rollup — orders, value, contract savings delivered, top
     categories, customer mix. Reps don't see this."*
+20. **Scroll to Quote Pipeline.** *"And now the quotes the reps are saving and
+    emailing roll up here — open value in Draft and Sent, Won vs. Lost, win rate,
+    and a flag on any quote sent over two weeks ago that needs a follow-up. The
+    rep's quoting activity becomes the manager's pipeline, automatically."*
 
 ## Wrap-up
 
 *"One screen takes a rep from a rough request to a customer-priced, quoted,
-shareable order — with explainable recommendations, automatic substitutes for
-out-of-stock items, live stock, cross-references, CSV/PDF deliverables, and a
-whole BOM imported in seconds."*
+emailed, tracked order — with explainable recommendations, automatic substitutes
+for out-of-stock items, basket-level 'what's missing' cross-sell, delivery dates,
+live stock, cross-references, CSV/PDF deliverables, reusable kits, a quote pipeline
+for managers, and a whole BOM imported in seconds."*
 
 > **Demo honesty note:** customer accounts, contract pricing, inventory/ATP, PIM
 > provenance, and cross-references run on **synthetic data behind swap-in
