@@ -55,13 +55,13 @@ export const HELP_TOPICS: HelpTopic[] = [
   },
   {
     id: "recommendations",
-    title: "Find Alternatives — scored recommendations",
+    title: "Find Alternatives — scored cross-references",
     body: [
-      "Click Find Alternatives on any card to see scored alternatives — no black box:",
-      "• A match ring with a percentage: Excellent / Good / Partial.",
-      "• Reason chips (“✓ All 5 specs”, “✓ In stock · your branch”).",
-      "• “Why recommended?” opens the full point breakdown.",
-      "Products score higher for matching key specs, branch stock, Preferred lines, lower price, and same product type.",
+      "Click Find Alternatives on any card to see ranked alternatives — true cross-references first:",
+      "• ✓ CROSS-REF (green) = a genuine functional equivalent: same subcategory and identical key specs (amperage, voltage, poles, gauge…) — interchangeable, just a different brand/price/stock.",
+      "• SIMILAR = a close match shown only to round out the list when few exact equivalents exist.",
+      "• A match ring (Excellent / Good / Partial), reason chips, and “Why recommended?” explain the ranking.",
+      "The #1 alternative is always a true interchangeable part when one exists.",
     ],
   },
   {

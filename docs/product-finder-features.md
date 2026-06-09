@@ -32,7 +32,8 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 
 | Feature | Summary |
 |---|---|
-| Find Alternatives | Scored alternatives (0–100) with Excellent / Good / Partial tiers |
+| Find Alternatives | True functional **cross-references first** (✓ CROSS-REF = interchangeable on every canonical key spec), then closest SIMILAR matches; scored 0–100 with Excellent / Good / Partial tiers |
+| Cross-reference precision | Quality-gated metric: **top-1 = 1.0** (#1 alternative is always a true equivalent when one exists), **precision@8 ≥ 0.98**; enforced by `lib/catalog/equivalence-metrics` test |
 | Explainable scoring | "Why recommended?" point-by-point breakdown — specs, stock, preferred, price, type |
 | **Out-of-stock substitutes** | OOS cards automatically offer the best in-stock substitute with Add / View actions (server-resolved) |
 | Goes-well-with | Complementary cross-sell on the detail view (breaker → load center, …) |

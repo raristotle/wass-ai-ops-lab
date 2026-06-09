@@ -13,6 +13,7 @@ import { RecommendationExplanation } from "@/features/product-finder/Recommendat
 import { ProductImage } from "@/features/product-finder/ProductImage";
 import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
 import { getPricingProvider } from "@/lib/integration/index";
+import { isFunctionalEquivalent } from "@/lib/catalog/equivalence";
 
 interface ProductCardProps {
   product: CatalogProduct;
@@ -138,14 +139,27 @@ export function ProductCard({
                 PREFERRED
               </Badge>
             )}
-            {isAlternative && (
-              <Badge
-                variant="outline"
-                className="text-[10px] px-1.5 py-0 h-4 flex-shrink-0 text-[#4F758B] border-[#B7C9D3]"
-              >
-                ALTERNATIVE
-              </Badge>
-            )}
+            {(() => {
+              const inAltContext = isAlternative || (referenceProduct != null && referenceProduct.id !== product.id);
+              if (!inAltContext) return null;
+              const interchangeable = referenceProduct != null && isFunctionalEquivalent(referenceProduct, product);
+              return interchangeable ? (
+                <Badge
+                  variant="outline"
+                  className="text-[10px] px-1.5 py-0 h-4 flex-shrink-0 text-[#00573F] border-[#00573F]"
+                  title="Interchangeable — matches every key spec of your reference"
+                >
+                  ✓ CROSS-REF
+                </Badge>
+              ) : (
+                <Badge
+                  variant="outline"
+                  className="text-[10px] px-1.5 py-0 h-4 flex-shrink-0 text-[#4F758B] border-[#B7C9D3]"
+                >
+                  SIMILAR
+                </Badge>
+              );
+            })()}
           </div>
 
           <p className="text-xs text-[#4F758B] mb-1">

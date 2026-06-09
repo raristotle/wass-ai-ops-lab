@@ -33,9 +33,11 @@ Every SKU below is deterministic — it exists with the same data in every envir
 ## Act 3 — The intelligence (3 min)
 
 7. **Search `QO115`** → the Square D QO115 breaker. **Click Find Alternatives.**
-   *"Scored alternatives — not a black box."* **Click "Why recommended?"** on one:
-   *"specs matched, in stock at my branch, preferred line, cheaper — every point
-   explained."*
+   *"These aren't just 'similar' — the green ✓ CROSS-REF tags are true functional
+   equivalents: same 15A / 120-240V / 1-Pole, interchangeable, just Eaton, GE, ABB
+   instead of Square D. That's the cross-reference a customer actually asks for."*
+   **Click "Why recommended?"** on one: *"specs matched, in stock at my branch,
+   preferred line, cheaper — every point explained."*
 8. **Search `CB-EAT-329`.** *"Customer wants this Eaton breaker — it's out of
    stock everywhere. Old answer: 'I'll call you back.' New answer:"* — point at
    the amber panel — *"the system already found the best in-stock substitute, a

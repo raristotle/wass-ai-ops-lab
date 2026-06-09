@@ -8,8 +8,11 @@ toward common commercial/residential construction products — including 10,000+
 wiring devices: receptacles, switches, wall plates, plugs, combination devices —
 across 6 categories and 79 subcategories), with server-side search/suggest/detail
 APIs, scored "find alternatives" recommendations, spec-level facet filters,
-volume/tiered pricing, goes-with cross-sell + **basket-level "complete this job"
-cross-sell**, BOM/list import, named saved baskets, **reusable job templates /
+**functional-equivalent "Find Alternatives" cross-references** (canonical-spec
+interchangeability, quality-gated: top-1 = 1.0, precision@8 ≥ 0.98, with a
+✓ CROSS-REF vs SIMILAR badge), volume/tiered pricing, goes-with cross-sell +
+**basket-level "complete this job" cross-sell**, BOM/list import, named saved
+baskets, **reusable job templates /
 kits**, order history with reorder + expandable line detail, **saved quotes with a
 Draft→Sent→Won/Lost status workflow**, **one-click quote→order conversion**,
 **simulated email-quote send**, **internal rep-margin visibility**, **quantity-aware
