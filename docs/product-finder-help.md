@@ -180,9 +180,10 @@ product photography later via the same `ProductImage` seam.)*
 Signed in as a **manager** or **admin**, an **Insights** link appears in the header →
 an **Analytics Dashboard**: KPI cards (orders, total/avg value, active customers),
 **contract savings delivered**, a **Quote Pipeline** (value & count by status, open
-vs. won/lost, **win rate**, and a **follow-up alert** for Sent quotes older than 14
-days), **top categories** and **orders over time** charts, top products, and customer
-mix. Sales reps don't see it. *(Demo analytics derived from seeded sample data.)*
+vs. won/lost, **win rate**, **conversion rate** for won quotes turned into orders,
+and a **follow-up alert** for Sent quotes older than 14 days), **top categories** and
+**orders over time** charts, top products, and customer mix. Sales reps don't see it.
+*(Demo analytics derived from seeded sample data.)*
 
 ### Enterprise integration (simulated)
 A set of "system of record" capabilities, built behind clean adapter interfaces so
@@ -219,10 +220,18 @@ applied), or clear it.
   paired products you're missing** (only categories your basket doesn't already
   cover — e.g. conduit → fittings & boxes, receptacle → wall plate). **+ Add** drops
   one into the basket. Cuts down on callbacks for the forgotten piece.
+- **Rep margin (internal)** — each cart line and the basket total show your **gross
+  margin %**, color-coded (red <15%, amber 15–30%, green 30%+), so you know your
+  discount room. Marked **internal** — it never appears on the printed quote, shared
+  basket, or customer CSV. *(Cost is estimated from list price in this demo.)*
+- **Quantity stock warnings** — if a line's quantity exceeds available stock, the
+  cart flags it: *"Ordering 50 · 30 in stock · 20 on backorder ~1–2 weeks."*
 - **Save Quote** — saves the basket as a **quote** (number, customer, project) you
   can track through a status workflow. The **Saved Quotes** list shows each quote
   with a **Draft → Sent → Won / Lost** status dropdown, a **Load** button (reopens
-  its lines into the basket), and delete. Quotes are scoped to the active customer.
+  its lines into the basket), **Convert to Order** (turns the quote into a placed
+  order in one click — marks it Won and **✓ ordered**, leaving your basket
+  untouched), and delete. Quotes are scoped to the active customer.
 - **Email Quote** — opens an inline form (recipient pre-filled). **Send Quote**
   records the quote with status **Sent** and confirms. *(Demo: no email is actually
   sent — the quote is tracked as Sent for follow-up.)*

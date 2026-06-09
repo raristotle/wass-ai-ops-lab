@@ -162,6 +162,36 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "margin",
+    title: "Rep margin (internal)",
+    body: [
+      "The cart shows your gross margin — per line and a basket total — so you know how much room you have to discount.",
+      "• Color-coded: red under 15%, amber 15–30%, green 30%+.",
+      "• Marked “internal” — margin never appears on the printed quote, shared basket, or customer CSV.",
+      "(Cost is estimated from list price in this demo; wire a real cost feed via the pricing adapter.)",
+    ],
+  },
+  {
+    id: "quote-to-order",
+    title: "Convert a quote to an order",
+    body: [
+      "In Saved Quotes, Convert to Order turns a quote into a placed order in one click — without disturbing your current basket.",
+      "• The quote is marked Won and tagged “✓ ordered”.",
+      "• The order appears in Order History with the quote's lines and total.",
+      "Conversion feeds the manager pipeline's conversion rate.",
+    ],
+  },
+  {
+    id: "stock-warning",
+    title: "Quantity stock warnings",
+    body: [
+      "If you order more than is available, the cart line flags it:",
+      "• “Ordering 50 · 30 in stock · 20 on backorder ~1–2 weeks.”",
+      "• Availability counts your branch + DC stock; the shortfall gets a realistic backorder window.",
+      "No more promising a quantity the shelf can't cover.",
+    ],
+  },
+  {
     id: "delivery-eta",
     title: "Delivery ETA in the basket",
     body: [

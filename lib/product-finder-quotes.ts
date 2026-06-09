@@ -35,6 +35,9 @@ export interface SavedQuote {
   createdAt: number;
   /** The customer account this quote was built for (null = walk-in). */
   customerId: string | null;
+  /** Set when the quote has been converted into a placed order. */
+  convertedOrderId?: string;
+  convertedAt?: number;
 }
 
 export function isQuoteStatus(value: unknown): value is QuoteStatus {

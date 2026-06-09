@@ -5,10 +5,10 @@ import type { SavedQuote, QuoteStatus } from "@/lib/product-finder-quotes";
 const DAY = 86_400_000;
 const NOW = 1_000_000_000_000;
 
-function q(id: string, status: QuoteStatus, total: number, ageDays = 0): SavedQuote {
+function q(id: string, status: QuoteStatus, total: number, ageDays = 0, convertedOrderId?: string): SavedQuote {
   return {
     id, number: `Q-${id}`, customer: "Acme", project: "", lines: [],
-    total, status, createdAt: NOW - ageDays * DAY, customerId: null,
+    total, status, createdAt: NOW - ageDays * DAY, customerId: null, convertedOrderId,
   };
 }
 
@@ -61,5 +61,21 @@ describe("quotePipeline", () => {
     expect(empty.openValue).toBe(0);
     expect(empty.winRate).toBe(0);
     expect(empty.stale).toEqual([]);
+    expect(empty.convertedCount).toBe(0);
+    expect(empty.conversionRate).toBe(0);
+  });
+
+  it("tracks conversion of won quotes into orders", () => {
+    const conv = quotePipeline(
+      [
+        q("a", "won", 1000, 0, "order-1"),
+        q("b", "won", 500), // won but not converted
+        q("c", "lost", 200),
+      ],
+      NOW,
+    );
+    expect(conv.convertedCount).toBe(1);
+    expect(conv.convertedValue).toBe(1000);
+    expect(conv.conversionRate).toBeCloseTo(1 / 2); // 1 of 2 won quotes converted
   });
 });

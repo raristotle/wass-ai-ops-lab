@@ -48,7 +48,11 @@ Every SKU below is deterministic — it exists with the same data in every envir
 ## Act 4 — From basket to deliverables (4 min)
 
 10. **Open the Cart.** The GE substitute is there. **Set its quantity to 50** —
-    *"volume tier kicks in automatically."*
+    *"volume tier kicks in automatically."* Point at the **margin** on the line and
+    the **basket margin** at the bottom — *"I can see my margin as I discount;
+    that's internal, it never prints on the customer's quote."* If the 50 exceeds
+    stock, point at the **⚠ backorder warning** — *"and it tells me honestly that
+    part of this quantity is on backorder."*
 11. **Point at "Complete this job."** *"The basket knows what's missing — I added
     conduit, so it's offering the fittings and boxes I'd forget. One tap each."*
     **Click + Add** on a suggestion.
@@ -60,7 +64,9 @@ Every SKU below is deterministic — it exists with the same data in every envir
     tracked."* In **Saved Quotes**, **set the status to Sent.** *"Draft → Sent → Won
     or Lost — my follow-up list lives here."*
 14. **Click Email Quote**, show the pre-filled recipient, **Send Quote.** *"Off to
-    the customer — and it's logged as Sent automatically."* (Simulated send.)
+    the customer — and it's logged as Sent automatically."* (Simulated send.) Then
+    in **Saved Quotes**, **Convert to Order** on a quote — *"customer says yes; one
+    click turns the quote into a placed order and marks it ✓ ordered."*
 15. **Click Export CSV.** *"Same basket as a spreadsheet — list vs. effective price,
     totals — for procurement."* Then **Share Basket** — *"a link that rebuilds this
     exact basket for a teammate or the customer."*
@@ -86,8 +92,9 @@ Every SKU below is deterministic — it exists with the same data in every envir
     categories, customer mix. Reps don't see this."*
 20. **Scroll to Quote Pipeline.** *"And now the quotes the reps are saving and
     emailing roll up here — open value in Draft and Sent, Won vs. Lost, win rate,
-    and a flag on any quote sent over two weeks ago that needs a follow-up. The
-    rep's quoting activity becomes the manager's pipeline, automatically."*
+    how many won quotes actually **converted to orders**, and a flag on any quote
+    sent over two weeks ago that needs a follow-up. The rep's quoting activity
+    becomes the manager's pipeline, automatically."*
 
 ## Wrap-up
 

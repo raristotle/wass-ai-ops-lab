@@ -234,6 +234,18 @@ function DashboardContent() {
                 <p className="text-xs text-[#4F758B]">Lost</p>
                 <p className="text-lg font-bold text-[#DB6B30]">{fmt$(pipeline.lostValue)}</p>
               </div>
+              <div>
+                <p className="text-xs text-[#4F758B]">
+                  Converted to orders
+                  <span className="ml-1 text-[#B7C9D3]">
+                    ({(pipeline.conversionRate * 100).toFixed(0)}% of won)
+                  </span>
+                </p>
+                <p className="text-lg font-bold text-[#00573F]">
+                  {fmt$(pipeline.convertedValue)}{" "}
+                  <span className="text-xs font-normal text-[#4F758B]">×{pipeline.convertedCount}</span>
+                </p>
+              </div>
             </div>
 
             {/* Stale / needs-follow-up */}

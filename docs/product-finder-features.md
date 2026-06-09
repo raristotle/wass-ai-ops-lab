@@ -60,6 +60,9 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Quote PDF | Branded quote: auto number, 30-day validity, rep & branch, priced line table |
 | **Saved quotes + status** | Save a quote and track it Draft → Sent → Won / Lost; reload its lines into the basket; scoped per customer |
 | **Email quote** (simulated) | Inline send form; records the quote as "Sent" for follow-up tracking |
+| **Convert quote → order** | One-click conversion of a quote into a placed order; marks the quote Won + "✓ ordered" without touching the cart |
+| **Rep margin** (internal) | Per-line and basket gross-margin %, color-coded; excluded from all customer-facing outputs |
+| **Quantity stock warnings** | Flags cart lines where ordered qty exceeds available stock, with shortfall + backorder ETA |
 | **Job templates / kits** | Save a basket as a reusable kit; "Add to Basket" merges it into the current cart |
 | **Delivery ETA** | "Ships complete by" date in the cart — slowest line across branch/transfer/DC/lead-time tiers |
 | Share basket | URL that rebuilds the exact basket (incl. customer/project) for any signed-in user |
@@ -83,7 +86,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 |---|---|
 | Demo auth & roles | sales / manager / admin accounts; branch drives stock scoring |
 | Manager analytics | Role-gated Insights dashboard: KPIs, contract savings, top categories/products, orders over time, customer mix |
-| **Quote pipeline** | Dashboard view: value/count by status, open vs. won/lost, win rate, and a stale-quote follow-up alert (>14 days) |
+| **Quote pipeline** | Dashboard view: value/count by status, open vs. won/lost, win rate, conversion rate (won→ordered), and a stale-quote follow-up alert (>14 days) |
 | **Interactive help** | "?" header button → searchable help topics with one-click "Try it" example searches |
 | Favorites & recently viewed | Starred products and view history, persistent |
 | Print support | Quote, spec sheet, and comparison print as clean documents |

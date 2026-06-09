@@ -11,9 +11,11 @@ APIs, scored "find alternatives" recommendations, spec-level facet filters,
 volume/tiered pricing, goes-with cross-sell + **basket-level "complete this job"
 cross-sell**, BOM/list import, named saved baskets, **reusable job templates /
 kits**, order history with reorder + expandable line detail, **saved quotes with a
-Draft→Sent→Won/Lost status workflow**, **simulated email-quote send**, a **manager
-quote-pipeline view** (open/won/lost value, win rate, stale-quote alerts),
-**whole-order delivery ETA** ("ships complete by"), shareable cart links,
+Draft→Sent→Won/Lost status workflow**, **one-click quote→order conversion**,
+**simulated email-quote send**, **internal rep-margin visibility**, **quantity-aware
+stock/backorder warnings**, a **manager quote-pipeline view** (open/won/lost value,
+win rate, conversion rate, stale-quote alerts), **whole-order delivery ETA**
+("ships complete by"), shareable cart links,
 out-of-stock lead times with notify-me, **automatic in-stock substitutes for
 out-of-stock products**, **CSV export** (search results + basket), printable spec
 sheets / comparisons / quotes (PDF), value + numeric **range** facets,

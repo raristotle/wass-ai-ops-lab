@@ -14,6 +14,10 @@ import {
 } from "@/lib/product-finder-quotes";
 import { completeTheJob } from "@/lib/product-finder-complete-job";
 import { isValidEmail, guessRecipient } from "@/lib/product-finder-email";
+import {
+  estimatedUnitCost, marginPct, marginTier, MARGIN_TIER_COLOR, basketMargin,
+} from "@/lib/product-finder-margin";
+import { stockWarning } from "@/lib/product-finder-stock-warning";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -44,6 +48,7 @@ export function CartDrawer() {
   const setQuoteStatus = useProductFinder((s) => s.setQuoteStatus);
   const loadQuoteToCart = useProductFinder((s) => s.loadQuoteToCart);
   const deleteQuote = useProductFinder((s) => s.deleteQuote);
+  const convertQuoteToOrder = useProductFinder((s) => s.convertQuoteToOrder);
 
   const orders = useProductFinder((s) => s.orders);
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
@@ -84,6 +89,18 @@ export function CartDrawer() {
 
   // "Complete this job" — complementary products the basket is missing
   const completions = useMemo(() => (items.length === 0 ? [] : completeTheJob(items, 4)), [items]);
+
+  // Internal margin across the basket (effective price vs estimated cost)
+  const margin = useMemo(() => {
+    if (items.length === 0) return null;
+    const provider = getPricingProvider();
+    const lines = items.map(({ product, qty }) => ({
+      product,
+      qty,
+      effectiveUnitPrice: provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
+    }));
+    return basketMargin(lines);
+  }, [items, activeCustomer]);
 
   // ── Email-quote state ──────────────────────────────────────────────────────
   const [emailOpen, setEmailOpen] = useState(false);
@@ -294,6 +311,34 @@ export function CartDrawer() {
                             vol. price ({activeTier.minQty}+)
                           </p>
                         )}
+
+                        {/* Internal margin (per line) — never shown to customers */}
+                        {(() => {
+                          const pct = marginPct(effectiveUnitPrice, estimatedUnitCost(product));
+                          return (
+                            <p className="mt-0.5 flex items-center gap-1 text-[10px]">
+                              <span className="text-[#4F758B]">margin</span>
+                              <span className="font-semibold" style={{ color: MARGIN_TIER_COLOR[marginTier(pct)] }}>
+                                {(pct * 100).toFixed(0)}%
+                              </span>
+                              <span className="rounded bg-[#B7C9D3]/40 px-1 text-[8px] font-semibold uppercase tracking-wide text-[#4F758B]">
+                                internal
+                              </span>
+                            </p>
+                          );
+                        })()}
+
+                        {/* Quantity-aware stock warning */}
+                        {(() => {
+                          const w = stockWarning(product, qty, user?.branchId);
+                          if (!w) return null;
+                          return (
+                            <p className="mt-1 rounded border border-[#EAAA00]/50 bg-[#EAAA00]/10 px-1.5 py-1 text-[10px] text-[#1D252D]">
+                              ⚠ Ordering {w.ordered} · {w.available} in stock ·{" "}
+                              <span className="font-semibold">{w.shortfall} on backorder</span> ~{w.backorderEtaLabel}
+                            </p>
+                          );
+                        })()}
 
                         {/* Qty stepper */}
                         <div className="mt-2 flex items-center gap-1">
@@ -545,12 +590,19 @@ export function CartDrawer() {
                           <span className="font-semibold">${q.total.toFixed(2)}</span>
                         </p>
                       </div>
-                      <span
-                        className="shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide"
-                        style={{ backgroundColor: c.bg, color: c.text }}
-                      >
-                        {QUOTE_STATUS_LABEL[q.status]}
-                      </span>
+                      <div className="flex shrink-0 flex-col items-end gap-0.5">
+                        <span
+                          className="rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide"
+                          style={{ backgroundColor: c.bg, color: c.text }}
+                        >
+                          {QUOTE_STATUS_LABEL[q.status]}
+                        </span>
+                        {q.convertedOrderId && (
+                          <span className="text-[8px] font-semibold uppercase tracking-wide text-[#00573F]">
+                            ✓ ordered
+                          </span>
+                        )}
+                      </div>
                     </div>
                     <div className="mt-1.5 flex items-center gap-2">
                       <label className="sr-only" htmlFor={`status-${q.id}`}>Quote status</label>
@@ -572,6 +624,16 @@ export function CartDrawer() {
                       >
                         Load
                       </button>
+                      {!q.convertedOrderId && (
+                        <button
+                          type="button"
+                          onClick={() => convertQuoteToOrder(q.id, Date.now())}
+                          className="rounded bg-[#00573F] px-2 py-0.5 text-[10px] font-semibold text-white transition-colors hover:bg-[#00452f]"
+                          aria-label={`Convert quote ${q.number} to an order`}
+                        >
+                          Convert to Order
+                        </button>
+                      )}
                       <button
                         type="button"
                         onClick={() => deleteQuote(q.id)}
@@ -675,6 +737,22 @@ export function CartDrawer() {
                 ${cartTotal.toFixed(2)}
               </span>
             </div>
+
+            {/* Internal basket margin — never shown to customers */}
+            {margin && (
+              <div className="flex items-center justify-between rounded border border-[#B7C9D3] bg-[#F8FAFB] px-3 py-2 text-xs">
+                <span className="flex items-center gap-1.5 text-[#4F758B]">
+                  Margin
+                  <span className="rounded bg-[#B7C9D3]/50 px-1 text-[8px] font-semibold uppercase tracking-wide text-[#4F758B]">
+                    internal
+                  </span>
+                </span>
+                <span className="font-semibold" style={{ color: MARGIN_TIER_COLOR[marginTier(margin.marginPct)] }}>
+                  ${margin.marginDollars.toFixed(2)}{" "}
+                  <span className="font-normal text-[#4F758B]">({(margin.marginPct * 100).toFixed(0)}%)</span>
+                </span>
+              </div>
+            )}
 
             {/* Estimated delivery — whole order ships complete by */}
             {orderEta && (

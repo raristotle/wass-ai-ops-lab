@@ -28,6 +28,11 @@ export interface QuotePipeline {
   totalCount: number;
   /** Sent quotes past STALE_DAYS, oldest first — these need a follow-up. */
   stale: SavedQuote[];
+  /** Quotes converted into placed orders. */
+  convertedCount: number;
+  convertedValue: number;
+  /** converted / won, 0..1 — how many won quotes became orders. */
+  conversionRate: number;
 }
 
 /** A sent quote older than STALE_DAYS relative to `now`. */
@@ -46,6 +51,9 @@ export function quotePipeline(quotes: SavedQuote[], now: number): QuotePipeline 
     .filter((q) => isStale(q, now))
     .sort((a, b) => a.createdAt - b.createdAt);
 
+  const converted = quotes.filter((q) => q.convertedOrderId !== undefined);
+  const wonCount = quotes.filter((q) => q.status === "won").length;
+
   return {
     byStatus,
     openValue: pipelineValue(quotes, "draft") + pipelineValue(quotes, "sent"),
@@ -54,5 +62,8 @@ export function quotePipeline(quotes: SavedQuote[], now: number): QuotePipeline 
     winRate: winRate(quotes),
     totalCount: quotes.length,
     stale,
+    convertedCount: converted.length,
+    convertedValue: converted.reduce((sum, q) => sum + q.total, 0),
+    conversionRate: wonCount === 0 ? 0 : converted.length / wonCount,
   };
 }

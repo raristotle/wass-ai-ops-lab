@@ -176,6 +176,7 @@ export interface ProductFinderState {
   setQuoteStatus: (id: string, status: QuoteStatus) => void;
   loadQuoteToCart: (id: string) => void;
   deleteQuote: (id: string) => void;
+  convertQuoteToOrder: (id: string, now?: number) => void;
 
   // Watches (notify-when-available)
   watches: string[];
@@ -835,6 +836,36 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
         localStorage.setItem("pf_quotes", JSON.stringify(quotes));
       }
       return { quotes };
+    });
+  },
+
+  convertQuoteToOrder(id, now) {
+    const quote = get().quotes.find((q) => q.id === id);
+    if (!quote || quote.convertedOrderId) return; // already converted / missing
+
+    const ts = now ?? Date.now();
+    const orderId = `order-${ts}`;
+    // Build the order from the QUOTE's lines (not the current cart) so the rep's
+    // working basket is untouched.
+    const newOrder: Order = {
+      id: orderId,
+      placedAt: ts,
+      lines: quote.lines.map((l) => ({ product: l.product, qty: l.qty })),
+      total: quote.total,
+      customerId: quote.customerId,
+      customerName: quote.customer || null,
+    };
+
+    set((s) => {
+      const orders = [newOrder, ...s.orders];
+      const quotes = s.quotes.map((q) =>
+        q.id === id ? { ...q, status: "won" as QuoteStatus, convertedOrderId: orderId, convertedAt: ts } : q,
+      );
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_orders", JSON.stringify(orders));
+        localStorage.setItem("pf_quotes", JSON.stringify(quotes));
+      }
+      return { orders, quotes };
     });
   },
 
