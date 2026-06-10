@@ -1,0 +1,161 @@
+{
+  "category": "electrical",
+  "subcategory": "Strut & Channel",
+  "uom": "FT",
+  "products": [
+    {
+      "mpn": "P1000-10PG",
+      "brand": "Unistrut",
+      "name": "Unistrut P1000-10PG Solid Strut Channel",
+      "description": "Original Unistrut 1-5/8 in. x 1-5/8 in. 12 ga solid steel framing channel, 10 ft, pre-galvanized zinc; UL listed strut-type channel raceway.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 1-5/8 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Pre-galvanized zinc (PG)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Solid (no holes)", "isNonNeg": false },
+        { "name": "Gauge", "value": "12 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Low carbon steel", "isNonNeg": false }
+      ],
+      "estListPrice": 42.5,
+      "priceSource": "unistrut.biz",
+      "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p1000"
+    },
+    {
+      "mpn": "P1000T-10PG",
+      "brand": "Unistrut",
+      "name": "Unistrut P1000T-10PG Slotted Strut Channel",
+      "description": "Unistrut P1000T 1-5/8 in. x 1-5/8 in. 12 ga steel channel with 9/16 in. x 1-1/8 in. elongated slots, 10 ft, pre-galvanized zinc finish.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 1-5/8 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Pre-galvanized zinc (PG)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Slotted, 9/16 in. x 1-1/8 in. elongated slots", "isNonNeg": false },
+        { "name": "Gauge", "value": "12 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Low carbon steel", "isNonNeg": false }
+      ],
+      "estListPrice": 47.5,
+      "priceSource": "unistrut.biz",
+      "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p1000t"
+    },
+    {
+      "mpn": "P1001-10PG",
+      "brand": "Unistrut",
+      "name": "Unistrut P1001-10PG Back-to-Back Channel",
+      "description": "Unistrut P1001 back-to-back welded combination channel, 1-5/8 in. x 3-1/4 in., 12 ga solid steel, 10 ft, pre-galvanized zinc finish.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 3-1/4 in. back-to-back", "isNonNeg": true },
+        { "name": "Finish", "value": "Pre-galvanized zinc (PG)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Solid (no holes)", "isNonNeg": false },
+        { "name": "Gauge", "value": "12 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Low carbon steel", "isNonNeg": false }
+      ],
+      "estListPrice": 115.2,
+      "priceSource": "unistrut.biz",
+      "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p1001"
+    },
+    {
+      "mpn": "P4100-10PG",
+      "brand": "Unistrut",
+      "name": "Unistrut P4100-10PG Shallow Strut Channel",
+      "description": "Unistrut P4100 shallow solid channel, 1-5/8 in. x 13/16 in., 14 ga steel, 10 ft, pre-galvanized zinc finish for light-duty framing.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 13/16 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Pre-galvanized zinc (PG)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Solid (no holes)", "isNonNeg": false },
+        { "name": "Gauge", "value": "14 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Low carbon steel", "isNonNeg": false }
+      ],
+      "estListPrice": 27.5,
+      "priceSource": "unistrut.biz",
+      "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p4100"
+    },
+    {
+      "mpn": "ZA12HS10EG",
+      "brand": "Superstrut",
+      "name": "Superstrut ZA12HS10EG Half-Slot Channel",
+      "description": "Superstrut A-series 1-5/8 in. x 1-5/8 in. 12 ga steel framing channel, half-slotted (9/16 x 1-1/8 in. slots), 10 ft, electro-galvanized.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 1-5/8 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Electro-galvanized (silver)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Half-slotted, 9/16 in. x 1-1/8 in. slots on 2 in. centers", "isNonNeg": false },
+        { "name": "Gauge", "value": "12 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Steel", "isNonNeg": false }
+      ],
+      "estListPrice": 37.35,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZA12HS10EG"
+    },
+    {
+      "mpn": "ZB1400HS 10",
+      "brand": "Superstrut",
+      "name": "Superstrut ZB1400HS 10 Half-Slot Channel",
+      "description": "Superstrut B-series shallow channel, 1-5/8 in. x 13/16 in., 14 ga steel, half-slotted, 10 ft, gold pre-galvanized (Goldgalv) finish.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 13/16 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Gold pre-galvanized (Goldgalv)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Half-slotted", "isNonNeg": false },
+        { "name": "Gauge", "value": "14 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Steel", "isNonNeg": false }
+      ],
+      "estListPrice": 31.82,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZB1400HS%2010"
+    },
+    {
+      "mpn": "B22-120GLV",
+      "brand": "Eaton B-Line",
+      "name": "Eaton B-Line B22-120GLV Strut Channel",
+      "description": "B-Line series B22 metal framing channel, 1-5/8 in. x 1-5/8 in., 12 ga steel, solid (no holes), 120 in. length, pre-galvanized finish.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 1-5/8 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Pre-galvanized (GLV)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Solid (no hole pattern)", "isNonNeg": false },
+        { "name": "Gauge", "value": "12 ga", "isNonNeg": false },
+        { "name": "Length", "value": "120 in (10 ft)", "isNonNeg": false },
+        { "name": "Material", "value": "Steel", "isNonNeg": false }
+      ],
+      "estListPrice": 55.9,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.B22-120GLV.html",
+      "upc": "781011211301"
+    },
+    {
+      "mpn": "PS-200-10-PG",
+      "brand": "Power-Strut",
+      "name": "Power-Strut PS-200-10-PG Solid Channel",
+      "description": "Power-Strut PS 200 deep solid channel, 1-5/8 in. x 1-5/8 in., 12 ga low carbon steel, 10 ft, pre-galvanized zinc finish.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 1-5/8 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Pre-galvanized zinc (PG)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Solid (no holes)", "isNonNeg": false },
+        { "name": "Gauge", "value": "12 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Low carbon steel", "isNonNeg": false }
+      ],
+      "estListPrice": 35.59,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.power-strut.com/product-details/ps-200"
+    },
+    {
+      "mpn": "PS-200-EH-10-PG",
+      "brand": "Power-Strut",
+      "name": "Power-Strut PS-200-EH-10-PG Slotted Channel",
+      "description": "Power-Strut PS 200 EH channel with 9/16 in. x 1-1/8 in. elongated holes, 1-5/8 in. x 1-5/8 in., 12 ga steel, 10 ft, pre-galvanized.",
+      "specs": [
+        { "name": "Profile", "value": "1-5/8 in. x 1-5/8 in.", "isNonNeg": true },
+        { "name": "Finish", "value": "Pre-galvanized zinc (PG)", "isNonNeg": true },
+        { "name": "Slot Style", "value": "Elongated holes, 9/16 in. x 1-1/8 in.", "isNonNeg": false },
+        { "name": "Gauge", "value": "12 ga", "isNonNeg": false },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Low carbon steel", "isNonNeg": false }
+      ],
+      "estListPrice": 29.47,
+      "priceSource": "qedelectric.com",
+      "specSheetUrl": "https://powerstrut.com/ps200eh-html/"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "category": "electrical",
+  "subcategory": "Lamps & Tubes",
+  "uom": "PK",
+  "products": [
+    {
+      "mpn": "16T8/LED/48-840/IF18/G 25/1",
+      "brand": "Philips",
+      "name": "Philips 16T8/LED/48-840/IF18/G LED T8 Tube",
+      "description": "Contractor-grade InstantFit UL Type-A 4 ft glass LED T8, 16W, 1800 lm, 4000K, G13, runs on instant-start ballasts; sold 25 per case.",
+      "specs": [
+        { "name": "Type", "value": "LED T8 tube (UL Type A, ballast compatible)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "16W", "isNonNeg": false },
+        { "name": "Lumens", "value": "1800 lm", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V / 347V", "isNonNeg": false }
+      ],
+      "estListPrice": 9.34,
+      "priceSource": "lightingsupplyguy.com",
+      "specSheetUrl": "https://www.genlyte.com/en-us/products/led-lamps-and-tubes/led-tubes/contractor-grade-instantfit-ul-type-a-t8/929001960604_NA/product",
+      "upc": "046677542085"
+    },
+    {
+      "mpn": "F32T8/ADV841/ALTO",
+      "brand": "Philips",
+      "name": "Philips F32T8/ADV841/ALTO T8 Fluorescent",
+      "description": "Advantage ALTO 4 ft T8 linear fluorescent, 32W, 4100K, 3100 initial lumens, 85 CRI, G13 base, low-mercury; sold in 30-packs.",
+      "specs": [
+        { "name": "Type", "value": "Linear fluorescent T8 (high-lumen Advantage)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "4100K", "isNonNeg": false },
+        { "name": "Wattage", "value": "32W", "isNonNeg": false },
+        { "name": "Initial Lumens", "value": "3100 lm", "isNonNeg": false },
+        { "name": "CRI", "value": "85", "isNonNeg": false }
+      ],
+      "estListPrice": 7.27,
+      "priceSource": "adlsupply.com",
+      "specSheetUrl": "https://www.usa.lighting.philips.com/prof/conventional-lamps-and-tubes/fluorescent-lamps-and-starters/t8/advantage-t8/927869784203_NA/product",
+      "upc": "046677280857"
+    },
+    {
+      "mpn": "LED13T8/L48/FP/DIM/841/SUB/G8",
+      "brand": "Sylvania",
+      "name": "Sylvania LED13T8/L48/FP/DIM/841/SUB/G8 SubstiTUBE",
+      "description": "SubstiTUBE IPS 4 ft frosted LED T8 (item 40593), 13W, 4100K, 82 CRI, G13, dimmable, plug-and-play on instant-start ballasts.",
+      "specs": [
+        { "name": "Type", "value": "LED T8 tube (Type A plug-and-play, IPS)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "4100K", "isNonNeg": false },
+        { "name": "Wattage", "value": "13W", "isNonNeg": false },
+        { "name": "CRI", "value": "82", "isNonNeg": false },
+        { "name": "Rated Life", "value": "50,000 hr", "isNonNeg": false }
+      ],
+      "estListPrice": 9.65,
+      "priceSource": "lightingsupplyguy.com",
+      "specSheetUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13110389"
+    },
+    {
+      "mpn": "FO32/841/ECO",
+      "brand": "Sylvania",
+      "name": "Sylvania FO32/841/ECO Octron T8 Fluorescent",
+      "description": "OCTRON 800 ECOLOGIC 4 ft T8 fluorescent (item 21781), 32W, 4100K, 2925 initial lumens, 85 CRI, G13 base, TCLP-compliant.",
+      "specs": [
+        { "name": "Type", "value": "Linear fluorescent T8 (ECOLOGIC)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "4100K", "isNonNeg": false },
+        { "name": "Wattage", "value": "32W", "isNonNeg": false },
+        { "name": "Initial Lumens", "value": "2925 lm", "isNonNeg": false },
+        { "name": "CRI", "value": "85", "isNonNeg": false }
+      ],
+      "estListPrice": 4.27,
+      "priceSource": "bulbsdepot.com",
+      "specSheetUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13120116"
+    },
+    {
+      "mpn": "ECOLED18T8L48FG850TYPEB",
+      "brand": "Sylvania",
+      "name": "Sylvania ECOLED18T8L48FG850TYPEB ECO LED T8",
+      "description": "ECO LED T8 Type B ballast-free 4 ft frosted glass tube (item 40971), 18W, 2200 lm, 5000K, G13, double-end direct wire 120-277V.",
+      "specs": [
+        { "name": "Type", "value": "LED T8 tube (UL Type B, ballast bypass)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "5000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "18W", "isNonNeg": false },
+        { "name": "Lumens", "value": "2200 lm", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V (direct wire)", "isNonNeg": false }
+      ],
+      "estListPrice": 7.45,
+      "priceSource": "beeslighting.com",
+      "specSheetUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13107339"
+    },
+    {
+      "mpn": "LED12ET8/G/4/840",
+      "brand": "GE",
+      "name": "GE LED12ET8/G/4/840 LED T8 Tube",
+      "description": "GE (Current) integrated 4 ft glass LED T8, 12W, 1650 lm, 4000K, G13, UL Type A plug-and-play on electronic ballasts, 50,000 hr.",
+      "specs": [
+        { "name": "Type", "value": "LED T8 tube (UL Type A, ballast compatible)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "12W", "isNonNeg": false },
+        { "name": "Lumens", "value": "1650 lm", "isNonNeg": false },
+        { "name": "Rated Life", "value": "50,000 hr", "isNonNeg": false }
+      ],
+      "estListPrice": 7.88,
+      "priceSource": "lighting-spot.com",
+      "specSheetUrl": "https://cdn.currentlighting.com/site/specsheet/GEL191-LED-Tubes-Type-A-Spec-Sheet.pdf"
+    },
+    {
+      "mpn": "LPT815B241K",
+      "brand": "TCP",
+      "name": "TCP LPT815B241K LiberaT8 Bypass Tube",
+      "description": "LiberaT8 4 ft PET-coated LED T8, 15W, 2200 lm, 4100K, double-ended Type B ballast bypass, 120-277V, 50,000 hr; sold 25 per case.",
+      "specs": [
+        { "name": "Type", "value": "LED T8 tube (Type B, double-ended bypass)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "4100K", "isNonNeg": false },
+        { "name": "Wattage", "value": "15W", "isNonNeg": false },
+        { "name": "Lumens", "value": "2200 lm", "isNonNeg": false },
+        { "name": "Case Quantity", "value": "25", "isNonNeg": false }
+      ],
+      "estListPrice": 241.95,
+      "priceSource": "ledt8bulb.com",
+      "specSheetUrl": "https://www.tcpi.com/product/lpt815b241k-led-15w-4ft-t8-by-2e-41k-sc/"
+    },
+    {
+      "mpn": "L12T8BY5050K",
+      "brand": "TCP",
+      "name": "TCP L12T8BY5050K LiberaT8 3ft Bypass Tube",
+      "description": "LiberaT8 3 ft PET-coated LED T8, 12W, 5000K, double-ended Type B ballast bypass, 120-277V, F25T8 replacement; sold 25 per case.",
+      "specs": [
+        { "name": "Type", "value": "LED T8 tube (Type B, double-ended bypass)", "isNonNeg": true },
+        { "name": "Base", "value": "G13 medium bi-pin", "isNonNeg": true },
+        { "name": "CCT", "value": "5000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "12W", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V (direct wire)", "isNonNeg": false },
+        { "name": "Case Quantity", "value": "25", "isNonNeg": false }
+      ],
+      "estListPrice": 242.95,
+      "priceSource": "ledt8bulb.com",
+      "specSheetUrl": "https://www.tcpi.com/product/led-liberat8-double-ended-bypass-tube-pet-coated-3-12w-50k/"
+    }
+  ]
+}

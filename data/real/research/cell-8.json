@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "Combination Devices",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "5225-W",
+      "brand": "Leviton",
+      "name": "Leviton 5225-W Switch/Receptacle Combo",
+      "description": "15A 120V duplex-style single-pole switch and 5-15R receptacle combination, commercial grade, grounding, side wired.",
+      "specs": [
+        { "name": "Combination", "value": "Single-Pole Switch / 5-15R Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false },
+        { "name": "Grade", "value": "Commercial", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 15.24,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/5225-w",
+      "upc": "078477965849"
+    },
+    {
+      "mpn": "T5225-W",
+      "brand": "Leviton",
+      "name": "Leviton T5225-W TR Switch/Outlet Combo",
+      "description": "Combination 15A 120V single-pole toggle switch and 15A 125V 5-15R tamper-resistant receptacle, grounding, white.",
+      "specs": [
+        { "name": "Combination", "value": "Single-Pole Switch / 5-15R Tamper-Resistant Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V switch / 125V receptacle", "isNonNeg": false },
+        { "name": "Tamper Resistant", "value": "Yes", "isNonNeg": false }
+      ],
+      "estListPrice": 19.23,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/products/t5225-w"
+    },
+    {
+      "mpn": "5224-2W",
+      "brand": "Leviton",
+      "name": "Leviton 5224-2W Dual Toggle Switch",
+      "description": "15A 120/277V duplex-style combination of two single-pole AC toggle switches, commercial grade, grounding, side wired.",
+      "specs": [
+        { "name": "Combination", "value": "Two Single-Pole Toggle Switches", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277V", "isNonNeg": false },
+        { "name": "Grade", "value": "Commercial", "isNonNeg": false }
+      ],
+      "estListPrice": 14.85,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/5224-2w",
+      "upc": "078477226483"
+    },
+    {
+      "mpn": "5634-W",
+      "brand": "Leviton",
+      "name": "Leviton 5634-W Decora Dual Rocker",
+      "description": "15A 120/277V Decora combination of two single-pole rocker switches in one gang, commercial grade, grounding.",
+      "specs": [
+        { "name": "Combination", "value": "Two Single-Pole Decora Rocker Switches", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277V", "isNonNeg": false },
+        { "name": "Grade", "value": "Commercial", "isNonNeg": false }
+      ],
+      "estListPrice": 24.69,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/5634-w",
+      "upc": "078477516386"
+    },
+    {
+      "mpn": "TR274W",
+      "brand": "Eaton",
+      "name": "Eaton TR274W TR Switch/Receptacle Combo",
+      "description": "Commercial grade combination single-pole toggle switch and 15A 125V 5-15R tamper-resistant receptacle, white.",
+      "specs": [
+        { "name": "Combination", "value": "Single-Pole Switch / 5-15R Tamper-Resistant Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V switch / 125V receptacle", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false },
+        { "name": "Grade", "value": "Commercial", "isNonNeg": false }
+      ],
+      "estListPrice": 15.01,
+      "priceSource": "homelectrical.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.TR274W.html",
+      "upc": "032664750267"
+    },
+    {
+      "mpn": "275W",
+      "brand": "Eaton",
+      "name": "Eaton 275W SP/3-Way Switch Combo",
+      "description": "Commercial grade combination single-pole and three-way toggle switches, 15A 120/277V, back and side wired, white.",
+      "specs": [
+        { "name": "Combination", "value": "Single-Pole Switch / Three-Way Switch", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277V", "isNonNeg": false },
+        { "name": "Grade", "value": "Commercial", "isNonNeg": false }
+      ],
+      "estListPrice": 14.79,
+      "priceSource": "homelectrical.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.275W-BOX.html",
+      "upc": "032664750205"
+    },
+    {
+      "mpn": "691-W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour 691-W Switch/Receptacle",
+      "description": "15A 120/125V combination single-pole toggle switch and single 5-15R receptacle, grounding, residential grade, white.",
+      "specs": [
+        { "name": "Combination", "value": "Single-Pole Switch / Single 5-15R Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/125V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false }
+      ],
+      "estListPrice": 40.81,
+      "priceSource": "hein.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/light-switches-and-dimmers/residential-switches/15a-120v-125v-combination-single-pole-toggle-switch-and-single-receptacle-white/p/691w"
+    },
+    {
+      "mpn": "RC108W",
+      "brand": "Hubbell",
+      "name": "Hubbell RC108W Switch/Receptacle Combo",
+      "description": "tradeSELECT residential grade combination single-pole toggle switch and single 5-15R receptacle, 15A, self-grounding, white.",
+      "specs": [
+        { "name": "Combination", "value": "Single-Pole Toggle Switch / Single 5-15R Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V switch / 125V receptacle", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 14.33,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/combination-devices-residential-grade-1-single-pole-toggle-1-single-receptacle-15a-120v-ac-self-grounding-side-wired/p/174740",
+      "upc": "883778109737"
+    }
+  ]
+}

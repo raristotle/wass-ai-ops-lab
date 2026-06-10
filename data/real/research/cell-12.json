@@ -1,0 +1,128 @@
+{
+  "category": "electrical",
+  "subcategory": "Dry-Type Transformers",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "EXN75T3H",
+      "brand": "Square D",
+      "name": "Square D EXN75T3H 75 kVA Dry-Type Transformer",
+      "description": "Dry-type distribution transformer, DOE 2016, 75 kVA, 3-phase, 480V delta primary, 208Y/120V secondary, 150C rise, aluminum windings.",
+      "specs": [
+        { "name": "kVA", "value": "75", "isNonNeg": true },
+        { "name": "Primary Voltage", "value": "480V Delta", "isNonNeg": true },
+        { "name": "Secondary Voltage", "value": "208Y/120V", "isNonNeg": true },
+        { "name": "Temperature Rise", "value": "150°C", "isNonNeg": false },
+        { "name": "Efficiency", "value": "DOE 2016 compliant", "isNonNeg": false },
+        { "name": "Phase", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 4744,
+      "priceSource": "se.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=EXN75T3H_DATASHEET_US_en-US.pdf&p_Doc_Ref=EXN75T3H_DATASHEET"
+    },
+    {
+      "mpn": "EXN45T3H",
+      "brand": "Square D",
+      "name": "Square D EXN45T3H 45 kVA Dry-Type Transformer",
+      "description": "Dry-type distribution transformer, DOE 2016, 45 kVA, 3-phase, 480V delta primary, 208Y/120V secondary, 150C rise, aluminum windings.",
+      "specs": [
+        { "name": "kVA", "value": "45", "isNonNeg": true },
+        { "name": "Primary Voltage", "value": "480V Delta", "isNonNeg": true },
+        { "name": "Secondary Voltage", "value": "208Y/120V", "isNonNeg": true },
+        { "name": "Temperature Rise", "value": "150°C", "isNonNeg": false },
+        { "name": "Efficiency", "value": "DOE 2016 compliant", "isNonNeg": false },
+        { "name": "Phase", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 3782.79,
+      "priceSource": "unitedelectric.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=EXN45T3H_DATASHEET_US_en-US.pdf&p_Doc_Ref=EXN45T3H_DATASHEET"
+    },
+    {
+      "mpn": "EXN30T3H",
+      "brand": "Square D",
+      "name": "Square D EXN30T3H 30 kVA Dry-Type Transformer",
+      "description": "Dry-type distribution transformer, DOE 2016, 30 kVA, 3-phase, 480V delta primary, 208Y/120V secondary, 150C rise, aluminum windings.",
+      "specs": [
+        { "name": "kVA", "value": "30", "isNonNeg": true },
+        { "name": "Primary Voltage", "value": "480V Delta", "isNonNeg": true },
+        { "name": "Secondary Voltage", "value": "208Y/120V", "isNonNeg": true },
+        { "name": "Temperature Rise", "value": "150°C", "isNonNeg": false },
+        { "name": "Efficiency", "value": "DOE 2016 compliant", "isNonNeg": false },
+        { "name": "Phase", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 2850.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=EXN30T3H_DATASHEET_US_en-US.pdf&p_Doc_Ref=EXN30T3H_DATASHEET"
+    },
+    {
+      "mpn": "SG3A0045KB",
+      "brand": "Hammond Power Solutions",
+      "name": "HPS SG3A0045KB Sentinel G 45 kVA Transformer",
+      "description": "HPS Sentinel G energy-efficient ventilated transformer, 45 kVA 3-phase, 480V delta to 208Y/120V, 150C rise, Type 3R enclosure.",
+      "specs": [
+        { "name": "kVA", "value": "45", "isNonNeg": true },
+        { "name": "Primary Voltage", "value": "480V Delta", "isNonNeg": true },
+        { "name": "Secondary Voltage", "value": "208Y/120V", "isNonNeg": true },
+        { "name": "Temperature Rise", "value": "150°C (220°C insulation system)", "isNonNeg": false },
+        { "name": "Efficiency", "value": "DOE 2016 / NRCan 2019 compliant", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false }
+      ],
+      "estListPrice": 2981.71,
+      "priceSource": "homelectrical.com",
+      "specSheetUrl": "https://documents.hammondpowersolutions.com/documents/Literature/Catalog_and_HPS_Info/HPS-Sentinel-Energy-Efficient-Low-Voltage-Distribution-Selection-Guide.pdf",
+      "upc": "803423123536"
+    },
+    {
+      "mpn": "SG3A0075KB",
+      "brand": "Hammond Power Solutions",
+      "name": "HPS SG3A0075KB Sentinel G 75 kVA Transformer",
+      "description": "HPS Sentinel G energy-efficient ventilated transformer, 75 kVA 3-phase, 480V delta to 208Y/120V, 150C rise, Type 3R enclosure.",
+      "specs": [
+        { "name": "kVA", "value": "75", "isNonNeg": true },
+        { "name": "Primary Voltage", "value": "480V Delta", "isNonNeg": true },
+        { "name": "Secondary Voltage", "value": "208Y/120V", "isNonNeg": true },
+        { "name": "Temperature Rise", "value": "150°C (220°C insulation system)", "isNonNeg": false },
+        { "name": "Efficiency", "value": "DOE 2016 / NRCan 2019 compliant", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false }
+      ],
+      "estListPrice": 4154.99,
+      "priceSource": "homelectrical.com",
+      "specSheetUrl": "https://documents.hammondpowersolutions.com/documents/Literature/Catalog_and_HPS_Info/HPS-Sentinel-Energy-Efficient-Low-Voltage-Distribution-Selection-Guide.pdf"
+    },
+    {
+      "mpn": "C1F005LES",
+      "brand": "Hammond Power Solutions",
+      "name": "HPS C1F005LES Fortress 5 kVA Transformer",
+      "description": "HPS Fortress encapsulated transformer, 5 kVA single-phase, 240x480V primary, 120/240V secondary, electrostatic shield, Type 3R.",
+      "specs": [
+        { "name": "kVA", "value": "5", "isNonNeg": true },
+        { "name": "Primary Voltage", "value": "240x480V", "isNonNeg": true },
+        { "name": "Secondary Voltage", "value": "120/240V", "isNonNeg": true },
+        { "name": "Phase", "value": "1", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R (encapsulated, wall mount)", "isNonNeg": false },
+        { "name": "Electrostatic Shield", "value": "Yes", "isNonNeg": false }
+      ],
+      "estListPrice": 740,
+      "priceSource": "automationdirect.com",
+      "specSheetUrl": "https://documents.hammondpowersolutions.com/documents/Literature/Low_Voltage_Distribution_(Encapsulated_and_Ventilated)_Brochures/HPS-Fortress-Encapsulated-Transformers-for-Commercial-Applications-Brochure.pdf",
+      "upc": "803423091354"
+    },
+    {
+      "mpn": "T253010S",
+      "brand": "Acme Electric",
+      "name": "Acme Electric T253010S 1 kVA Transformer",
+      "description": "Acme low-voltage distribution transformer, single-phase, 1 kVA, 240x480V primary, 120/240V secondary, encapsulated, wall mount.",
+      "specs": [
+        { "name": "kVA", "value": "1", "isNonNeg": true },
+        { "name": "Primary Voltage", "value": "240x480V", "isNonNeg": true },
+        { "name": "Secondary Voltage", "value": "120/240V", "isNonNeg": true },
+        { "name": "Temperature Rise", "value": "115°C", "isNonNeg": false },
+        { "name": "Phase", "value": "1", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R (encapsulated, wall mount)", "isNonNeg": false }
+      ],
+      "estListPrice": 277.34,
+      "priceSource": "us.rs-online.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/ACME_CA-T253010S-SPEC-EN.pdf"
+    }
+  ]
+}

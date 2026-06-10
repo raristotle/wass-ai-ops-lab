@@ -1,0 +1,143 @@
+{
+  "category": "oem-electrical",
+  "subcategory": "Push Buttons",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "800T-A1D1",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 800T-A1D1 Momentary Push Button",
+      "description": "800T 30.5 mm momentary push button, green flush head, 1 NO contact block, NEMA Type 4/13 rated.",
+      "specs": [
+        { "name": "Type", "value": "Momentary, flush head", "isNonNeg": true },
+        { "name": "Color", "value": "Green", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "30.5 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NO", "isNonNeg": false },
+        { "name": "Enclosure Rating", "value": "NEMA 4/13", "isNonNeg": false }
+      ],
+      "estListPrice": 79.27,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.800T-A1D1.html",
+      "upc": "781180602153"
+    },
+    {
+      "mpn": "800FM-F3MX10",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 800FM-F3MX10 Momentary Push Button",
+      "description": "800F 22 mm momentary push button, green flush, metal bezel and metal latch, 1 NO contact block, IP66 rated.",
+      "specs": [
+        { "name": "Type", "value": "Momentary, flush", "isNonNeg": true },
+        { "name": "Color", "value": "Green", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "22 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NO", "isNonNeg": false },
+        { "name": "Bezel Material", "value": "Metal", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 45.90,
+      "priceSource": "cbtcompany.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.800FM-F3MX10.html",
+      "upc": "662468120869"
+    },
+    {
+      "mpn": "800T-FX6D4",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 800T-FX6D4 Push-Pull Button",
+      "description": "800T 30.5 mm push-pull operator, red 2-position maintained mushroom head, 1 NC late-break contact, NEMA 4/13.",
+      "specs": [
+        { "name": "Type", "value": "Push-pull, 2-position maintained, mushroom head", "isNonNeg": true },
+        { "name": "Color", "value": "Red", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "30.5 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NC late break", "isNonNeg": false },
+        { "name": "Enclosure Rating", "value": "NEMA 4/13", "isNonNeg": false }
+      ],
+      "estListPrice": 148.58,
+      "priceSource": "mostelectric.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.800T-FX6D4.html"
+    },
+    {
+      "mpn": "XB4BA31",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric XB4BA31 Push Button",
+      "description": "Harmony XB4 22 mm push button, green flush, spring return, 1 NO contact, chrome-plated metal bezel.",
+      "specs": [
+        { "name": "Type", "value": "Momentary (spring return), flush", "isNonNeg": true },
+        { "name": "Color", "value": "Green", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "22 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NO", "isNonNeg": false },
+        { "name": "Bezel Material", "value": "Metal", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 28.30,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/XB4BA31/"
+    },
+    {
+      "mpn": "XB4BA42",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric XB4BA42 Push Button",
+      "description": "Harmony XB4 22 mm push button, red flush, spring return, 1 NC contact, chrome-plated metal bezel.",
+      "specs": [
+        { "name": "Type", "value": "Momentary (spring return), flush", "isNonNeg": true },
+        { "name": "Color", "value": "Red", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "22 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NC", "isNonNeg": false },
+        { "name": "Bezel Material", "value": "Metal", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 28.30,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/XB4BA42/"
+    },
+    {
+      "mpn": "XB4BA21",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric XB4BA21 Push Button",
+      "description": "Harmony XB4 22 mm push button, black flush, spring return, 1 NO contact, chrome-plated metal bezel.",
+      "specs": [
+        { "name": "Type", "value": "Momentary (spring return), flush", "isNonNeg": true },
+        { "name": "Color", "value": "Black", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "22 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NO", "isNonNeg": false },
+        { "name": "Bezel Material", "value": "Metal", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 28.30,
+      "priceSource": "bk-electric.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/XB4BA21/"
+    },
+    {
+      "mpn": "XB4BS8442",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric XB4BS8442 Emergency Stop",
+      "description": "Harmony XB4 emergency stop push button, 40 mm red mushroom head, trigger latching turn-to-release, 1 NC, 22 mm mount.",
+      "specs": [
+        { "name": "Type", "value": "Emergency stop, latching turn-to-release", "isNonNeg": true },
+        { "name": "Color", "value": "Red", "isNonNeg": false },
+        { "name": "Head", "value": "40 mm mushroom", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "22 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NC", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 91.51,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/XB4BS8442/"
+    },
+    {
+      "mpn": "XB5AA31",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric XB5AA31 Push Button",
+      "description": "Harmony XB5 22 mm plastic push button, green flush, spring return, 1 NO contact, IP66 rated.",
+      "specs": [
+        { "name": "Type", "value": "Momentary (spring return), flush", "isNonNeg": true },
+        { "name": "Color", "value": "Green", "isNonNeg": false },
+        { "name": "Mounting Size", "value": "22 mm", "isNonNeg": false },
+        { "name": "Contacts", "value": "1 NO", "isNonNeg": false },
+        { "name": "Bezel Material", "value": "Plastic", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 30.70,
+      "priceSource": "rs-online.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/XB5AA31/"
+    }
+  ]
+}

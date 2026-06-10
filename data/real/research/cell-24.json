@@ -1,0 +1,161 @@
+{
+  "category": "electrical",
+  "subcategory": "Grounding & Bonding",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "615880",
+      "brand": "nVent ERICO",
+      "name": "nVent ERICO 615880 Copper-Bonded Ground Rod",
+      "description": "Pointed copper-bonded steel ground rod, 5/8 in dia x 8 ft, 10 mil copper plating, UL 467 listed.",
+      "specs": [
+        { "name": "Product Type", "value": "Ground Rod", "isNonNeg": true },
+        { "name": "Material", "value": "Copper-bonded steel", "isNonNeg": true },
+        { "name": "Diameter", "value": "5/8 in", "isNonNeg": false },
+        { "name": "Length", "value": "8 ft", "isNonNeg": false },
+        { "name": "Copper Plating", "value": "10 mil", "isNonNeg": false }
+      ],
+      "estListPrice": 24.84,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.nvent.com/en-us/erico/products/efs615880"
+    },
+    {
+      "mpn": "GRC58",
+      "brand": "Burndy",
+      "name": "Burndy GRC58 Ground Rod Clamp",
+      "description": "High-strength cast copper alloy mechanical ground rod clamp for 5/8 in rod; 10 AWG sol to 1 AWG str conductors.",
+      "specs": [
+        { "name": "Product Type", "value": "Ground Rod Clamp", "isNonNeg": true },
+        { "name": "Material", "value": "Copper alloy", "isNonNeg": true },
+        { "name": "Conductor Range", "value": "10 AWG sol - 1 AWG str", "isNonNeg": false },
+        { "name": "Rod Size", "value": "5/8 in", "isNonNeg": false }
+      ],
+      "estListPrice": 13.05,
+      "priceSource": "hubbell.com",
+      "specSheetUrl": "https://www.hubbell.com/burndy/en/products/grc58-mechanical-ground-rod-clamp-cable-to-rod/p/482933"
+    },
+    {
+      "mpn": "G5",
+      "brand": "Thomas & Betts",
+      "name": "Thomas & Betts G5 Ground Rod Clamp",
+      "description": "Blackburn type-G high-strength bronze ground rod clamp for 1/2 in and 5/8 in rods; #10 sol-#2 str; UL direct burial.",
+      "specs": [
+        { "name": "Product Type", "value": "Ground Rod Clamp", "isNonNeg": true },
+        { "name": "Material", "value": "Bronze (copper alloy)", "isNonNeg": true },
+        { "name": "Conductor Range", "value": "#10 sol - #2 str", "isNonNeg": false },
+        { "name": "Rod Size", "value": "1/2 in and 5/8 in", "isNonNeg": false }
+      ],
+      "estListPrice": 5.48,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/G5"
+    },
+    {
+      "mpn": "CGRC-58",
+      "brand": "Ilsco",
+      "name": "Ilsco CGRC-58 Ground Rod Clamp",
+      "description": "Bronze acorn-style ground rod clamp for 5/8 in rod, 10 AWG to 2 AWG conductors, direct burial rated.",
+      "specs": [
+        { "name": "Product Type", "value": "Ground Rod Clamp", "isNonNeg": true },
+        { "name": "Material", "value": "Bronze", "isNonNeg": true },
+        { "name": "Conductor Range", "value": "10 AWG - 2 AWG", "isNonNeg": false },
+        { "name": "Rod Size", "value": "5/8 in", "isNonNeg": false }
+      ],
+      "estListPrice": 5.82,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.ilsco.com/Ilsco/ccrz__ProductDetails?sku=CGRC-58-ILSM-ILS&cclcl=en_US"
+    },
+    {
+      "mpn": "588",
+      "brand": "Harger",
+      "name": "Harger 588 Copper-Bonded Ground Rod",
+      "description": "Copper-bonded (copper-clad) steel ground rod, 5/8 in dia x 8 ft, 10 mil copper bonding.",
+      "specs": [
+        { "name": "Product Type", "value": "Ground Rod", "isNonNeg": true },
+        { "name": "Material", "value": "Copper-bonded steel", "isNonNeg": true },
+        { "name": "Diameter", "value": "5/8 in", "isNonNeg": false },
+        { "name": "Length", "value": "8 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 27.99,
+      "priceSource": "farmandfleet.com",
+      "specSheetUrl": "https://www.harger.com/product/copper-bonded-steel-1"
+    },
+    {
+      "mpn": "CWP1J",
+      "brand": "nVent ERICO",
+      "name": "nVent ERICO CWP1J Water Pipe Ground Clamp",
+      "description": "Silicon bronze water/gas pipe ground clamp for 1/2 in-1 in pipe; #10 solid to #2 stranded copper conductors.",
+      "specs": [
+        { "name": "Product Type", "value": "Water Pipe Ground Clamp", "isNonNeg": true },
+        { "name": "Material", "value": "Silicon bronze", "isNonNeg": true },
+        { "name": "Conductor Range", "value": "#10 sol - #2 str", "isNonNeg": false },
+        { "name": "Pipe Range", "value": "1/2 in - 1 in", "isNonNeg": false }
+      ],
+      "estListPrice": 6.93,
+      "priceSource": "cesco.com",
+      "specSheetUrl": "https://www.nvent.com/en-us/erico/products/efscwp1j"
+    },
+    {
+      "mpn": "GB5",
+      "brand": "Arlington",
+      "name": "Arlington GB5 Intersystem Grounding Bridge",
+      "description": "Zinc intersystem grounding bridge with paintable UV-rated cover; 4 terminations #14-#4; lay-in lug for #6-#2 GEC.",
+      "specs": [
+        { "name": "Product Type", "value": "Intersystem Grounding Bridge", "isNonNeg": true },
+        { "name": "Material", "value": "Zinc with plastic cover", "isNonNeg": true },
+        { "name": "Conductor Range", "value": "#14 - #4 terminations; #6 - #2 lay-in", "isNonNeg": false },
+        { "name": "Termination Points", "value": "4", "isNonNeg": false }
+      ],
+      "estListPrice": 10.67,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://www.aifittings.com/catalog/grounding/intersystem-grounding-bridges/GB5"
+    },
+    {
+      "mpn": "90PLUSF20",
+      "brand": "nVent ERICO",
+      "name": "nVent ERICO 90PLUSF20 Cadweld Plus Weld Metal",
+      "description": "Cadweld Plus #90 exothermic weld metal cup for grounding/bonding connections; F20 crucible size; gray color code.",
+      "specs": [
+        { "name": "Product Type", "value": "Exothermic Weld Metal", "isNonNeg": true },
+        { "name": "Material", "value": "Aluminum/copper oxide", "isNonNeg": true },
+        { "name": "Weld Metal Size", "value": "#90", "isNonNeg": false },
+        { "name": "Crucible Size", "value": "F20", "isNonNeg": false },
+        { "name": "Color Code", "value": "Gray", "isNonNeg": false }
+      ],
+      "estListPrice": 16.0,
+      "priceSource": "sitepro1.com",
+      "specSheetUrl": "https://www.nvent.com/en-us/erico/products/efs90plusf20"
+    },
+    {
+      "mpn": "GBL-4DB",
+      "brand": "Ilsco",
+      "name": "Ilsco GBL-4DB Lay-In Ground Lug",
+      "description": "PermaGround copper lay-in ground lug, 14-4 AWG, #10 slotted-head bolt, direct burial in earth or concrete; UL 467.",
+      "specs": [
+        { "name": "Product Type", "value": "Lay-In Ground Lug", "isNonNeg": true },
+        { "name": "Material", "value": "Copper", "isNonNeg": true },
+        { "name": "Conductor Range", "value": "14 AWG - 4 AWG", "isNonNeg": false },
+        { "name": "Mounting Bolt", "value": "#10 slotted", "isNonNeg": false },
+        { "name": "Direct Burial", "value": "Yes", "isNonNeg": false }
+      ],
+      "estListPrice": 13.02,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.ilsco.com/Ilsco/ccrz__ProductDetails?sku=GBL-4DB-ILSM-ILS&cclcl=en_US"
+    },
+    {
+      "mpn": "PK15GTA",
+      "brand": "Square D",
+      "name": "Square D PK15GTA Ground Bar Kit",
+      "description": "QO/Homeline load center ground bar kit, 15 terminals, 14-4 AWG conductors, 225 A max; UL 67 listed.",
+      "specs": [
+        { "name": "Product Type", "value": "Ground Bar Kit", "isNonNeg": true },
+        { "name": "Material", "value": "Aluminum", "isNonNeg": true },
+        { "name": "Conductor Range", "value": "14 AWG - 4 AWG", "isNonNeg": false },
+        { "name": "Terminals", "value": "15", "isNonNeg": false },
+        { "name": "Max Rating", "value": "225 A", "isNonNeg": false }
+      ],
+      "estListPrice": 13.83,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/PK15GTA/load-center-accessory-qo-homeline-ground-bar-kit-15-terminals/"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "category": "av",
+  "subcategory": "Video Conferencing",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "960-001308",
+      "brand": "Logitech",
+      "name": "Logitech 960-001308 Rally Bar Video Bar",
+      "description": "All-in-one video bar for medium to large rooms with 4K camera and beamforming mics; runs in USB or appliance mode.",
+      "specs": [
+        { "name": "Room Size", "value": "Medium to Large", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "4K Ultra HD", "isNonNeg": true },
+        { "name": "Platform", "value": "Microsoft Teams, Zoom (appliance) or USB/BYOD", "isNonNeg": false },
+        { "name": "Operating Mode", "value": "USB peripheral or appliance", "isNonNeg": false },
+        { "name": "Color", "value": "Graphite", "isNonNeg": false }
+      ],
+      "estListPrice": 4174,
+      "priceSource": "smartboards.com",
+      "specSheetUrl": "https://www.logitech.com/content/dam/logitech/en_us/video-collaboration/pdf/rallybar.pdf"
+    },
+    {
+      "mpn": "960-001336",
+      "brand": "Logitech",
+      "name": "Logitech 960-001336 Rally Bar Mini",
+      "description": "All-in-one video bar for small to medium rooms with 4K UHD camera, 120-degree FOV, and six beamforming microphones.",
+      "specs": [
+        { "name": "Room Size", "value": "Small to Medium", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "4K Ultra HD", "isNonNeg": true },
+        { "name": "Platform", "value": "Microsoft Teams, Zoom (appliance) or USB/BYOD", "isNonNeg": false },
+        { "name": "Field of View", "value": "120 degrees", "isNonNeg": false },
+        { "name": "Microphones", "value": "6 beamforming mics", "isNonNeg": false },
+        { "name": "Color", "value": "Graphite", "isNonNeg": false }
+      ],
+      "estListPrice": 3399,
+      "priceSource": "smartboards.com",
+      "specSheetUrl": "https://www.logitech.com/content/dam/logitech/en_us/video-collaboration/pdf/rallybarmini.pdf"
+    },
+    {
+      "mpn": "960-001691",
+      "brand": "Logitech",
+      "name": "Logitech 960-001691 MeetUp 2 ConferenceCam",
+      "description": "All-in-one USB conference camera for huddle and small rooms with 4K sensor, 120-degree dFOV, six MEMS mics, and AI audio.",
+      "specs": [
+        { "name": "Room Size", "value": "Huddle to Small", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "4K", "isNonNeg": true },
+        { "name": "Platform", "value": "Microsoft Teams, Zoom, Google Meet (USB)", "isNonNeg": false },
+        { "name": "Field of View", "value": "120 degrees diagonal", "isNonNeg": false },
+        { "name": "Microphones", "value": "6 MEMS mics", "isNonNeg": false },
+        { "name": "Zoom", "value": "4x HD zoom", "isNonNeg": false }
+      ],
+      "estListPrice": 899,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://www.logitech.com/content/dam/logitech/en/video-collaboration/pdf/meetup2-datasheet.pdf"
+    },
+    {
+      "mpn": "8D8K2AA#ABA",
+      "brand": "Poly",
+      "name": "Poly 8D8K2AA#ABA Studio X52 Video Bar",
+      "description": "All-in-one video bar for medium rooms with 20MP 4K camera, 95-degree FOV, certified for Zoom and Microsoft Teams.",
+      "specs": [
+        { "name": "Room Size", "value": "Medium", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "4K Ultra HD (20MP sensor)", "isNonNeg": true },
+        { "name": "Platform", "value": "Microsoft Teams, Zoom certified; Google Meet via native apps", "isNonNeg": false },
+        { "name": "Field of View", "value": "95 degrees", "isNonNeg": false },
+        { "name": "Microphone Pickup", "value": "20 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 3351.79,
+      "priceSource": "headsetsdirect.com",
+      "specSheetUrl": "https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c08705009"
+    },
+    {
+      "mpn": "A09D4AA#ABA",
+      "brand": "Poly",
+      "name": "Poly A09D4AA#ABA Studio V52 USB Video Bar",
+      "description": "Plug-and-play USB video bar for medium rooms with 20MP 4K camera, quad-mic array, NoiseBlockAI and Acoustic Fence.",
+      "specs": [
+        { "name": "Room Size", "value": "Medium", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "4K UHD (20MP sensor)", "isNonNeg": true },
+        { "name": "Platform", "value": "USB/BYOD for Teams, Zoom, Google Meet", "isNonNeg": false },
+        { "name": "Microphones", "value": "Quad-mic array, 20 ft pickup", "isNonNeg": false },
+        { "name": "Frame Rate", "value": "Up to 60 fps", "isNonNeg": false }
+      ],
+      "estListPrice": 3166.99,
+      "priceSource": "videoconferencingsupply.com",
+      "specSheetUrl": "https://h20195.www2.hp.com/v2/GetPDF.aspx/c08997980"
+    },
+    {
+      "mpn": "A40-010",
+      "brand": "Yealink",
+      "name": "Yealink A40-010 MeetingBar A40 Kit",
+      "description": "All-in-one Android video bar with dual 48MP cameras, 120-degree FOV, 8-MEMS mic array; includes VCR11 remote.",
+      "specs": [
+        { "name": "Room Size", "value": "Small to Medium", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "4K UHD (dual 48MP lenses)", "isNonNeg": true },
+        { "name": "Platform", "value": "Native Microsoft Teams, Zoom; BYOD mode", "isNonNeg": false },
+        { "name": "Field of View", "value": "120 degrees", "isNonNeg": false },
+        { "name": "Microphones", "value": "8-MEMS microphone array", "isNonNeg": false }
+      ],
+      "estListPrice": 1575.94,
+      "priceSource": "compsource.com",
+      "specSheetUrl": "https://support.yealink.com/document-detail/8927004415374b449765c2a965d3ea69"
+    },
+    {
+      "mpn": "NEATBAR2-SE",
+      "brand": "Neat",
+      "name": "Neat NEATBAR2-SE Neat Bar 2",
+      "description": "Compact all-in-one meeting bar with 50MP camera system and five-mic array; native Microsoft Teams or Zoom Rooms.",
+      "specs": [
+        { "name": "Room Size", "value": "Small to Medium", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "50MP sensor", "isNonNeg": true },
+        { "name": "Platform", "value": "Microsoft Teams Rooms, Zoom Rooms; BYOD via USB", "isNonNeg": false },
+        { "name": "Field of View", "value": "113 degrees", "isNonNeg": false },
+        { "name": "Microphones", "value": "5-microphone array", "isNonNeg": false },
+        { "name": "Displays", "value": "Supports dual displays (HDMI)", "isNonNeg": false }
+      ],
+      "estListPrice": 4389,
+      "priceSource": "smartboards.com",
+      "specSheetUrl": "https://cdn-stories.neat.no/1/2024/09/Neat_Bar_Gen_2_Device_Sheet.pdf"
+    },
+    {
+      "mpn": "CS-BAR-T-K9",
+      "brand": "Cisco",
+      "name": "Cisco CS-BAR-T-K9 Room Bar Kit",
+      "description": "Compact video bar for huddle and small rooms with 12MP camera and integrated audio; includes Room Navigator controller.",
+      "specs": [
+        { "name": "Room Size", "value": "Huddle to Small", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "1080p Full HD calls (12MP sensor), 4K content sharing", "isNonNeg": true },
+        { "name": "Platform", "value": "Webex (RoomOS), Microsoft Teams Rooms", "isNonNeg": false },
+        { "name": "Controller", "value": "Cisco Room Navigator (table stand) included", "isNonNeg": false },
+        { "name": "Color", "value": "First Light", "isNonNeg": false }
+      ],
+      "estListPrice": 3468.99,
+      "priceSource": "ipphone-warehouse.com",
+      "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/webex-room-bar-ds.html"
+    },
+    {
+      "mpn": "UC-B70-A-T",
+      "brand": "Crestron",
+      "name": "Crestron UC-B70-A-T Flex Videobar 70",
+      "description": "Crestron Flex large-room Teams Rooms solution with Videobar 70 quad-camera 4K video, 24-mic array, and 10 in. touch screen.",
+      "specs": [
+        { "name": "Room Size", "value": "Medium to Large", "isNonNeg": true },
+        { "name": "Camera Resolution", "value": "4K output (20MP main camera plus three sub-cameras)", "isNonNeg": true },
+        { "name": "Platform", "value": "Microsoft Teams Rooms", "isNonNeg": false },
+        { "name": "Microphones", "value": "24-mic linear array with adaptive beamforming", "isNonNeg": false },
+        { "name": "Speakers", "value": "Dual 10W speakers", "isNonNeg": false },
+        { "name": "Controller", "value": "10 in. tabletop touch screen included", "isNonNeg": false }
+      ],
+      "estListPrice": 9450,
+      "priceSource": "creationnetworks.net",
+      "specSheetUrl": "https://www.crestron.com/Products/Catalog/Unified-Communications/Flex-Conferencing/Room-Kits/UC-B70-A-T"
+    }
+  ]
+}

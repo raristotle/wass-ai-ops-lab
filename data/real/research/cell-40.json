@@ -1,0 +1,155 @@
+{
+  "category": "electrical",
+  "subcategory": "Exit & Emergency Lighting",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "LQM S W 3 R 120/277 EL N M6",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting LQM S W 3 R 120/277 EL N M6 LED Exit Sign",
+      "description": "Quantum thermoplastic LED exit sign, white housing, red stencil letters, 120/277V with NiCad battery for 90-minute emergency egress.",
+      "specs": [
+        { "name": "Type", "value": "LED exit sign w/ battery backup", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277V", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Letter Color", "value": "Red", "isNonNeg": false },
+        { "name": "Battery", "value": "Nickel-cadmium", "isNonNeg": false }
+      ],
+      "estListPrice": 80.35,
+      "priceSource": "gellerlighting.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/999297/contractor-select-lqm.pdf"
+    },
+    {
+      "mpn": "EXR LED EL M6",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting EXR LED EL M6 LED Exit Sign",
+      "description": "Contractor Select thermoplastic LED exit sign with red letters and nickel-cadmium battery backup; 120/277VAC input, UL 924 listed.",
+      "specs": [
+        { "name": "Type", "value": "LED exit sign w/ battery backup", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277VAC", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Letter Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 26.95,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.acuitybrands.com/products/detail/844552/lithonia-lighting/exg-and-exr-led-exit-sign/lithonia-lightingr-led-thermoplastic-exit-sign-red-and-green"
+    },
+    {
+      "mpn": "ELM2L M12",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting ELM2L M12 LED Emergency Light",
+      "description": "Quantum thermoplastic emergency unit with two adjustable 1.2W LED heads, 220 lumens total, 120/277V input, 90-minute NiCad battery.",
+      "specs": [
+        { "name": "Type", "value": "Two-head emergency light", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277V", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Light Output", "value": "220 lumens", "isNonNeg": false }
+      ],
+      "estListPrice": 87.8,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/804183/elm2l_elm2lf.pdf"
+    },
+    {
+      "mpn": "EU2C M6",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting EU2C M6 LED Emergency Light",
+      "description": "Basics thermoplastic dual-head LED emergency unit; 120-277V input, maintenance-free NiCad battery delivers 90 minutes of egress light.",
+      "specs": [
+        { "name": "Type", "value": "Two-head emergency light", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Battery", "value": "Nickel-cadmium", "isNonNeg": false }
+      ],
+      "estListPrice": 27.69,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/999375/contractor-select-eu2c.pdf"
+    },
+    {
+      "mpn": "LHQM LED R M6",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting LHQM LED R M6 Exit/Emergency Combo",
+      "description": "Quantum LED exit/emergency combo with red letters and two LED lamp heads; 120/277V, NiCad battery for 90-minute emergency operation.",
+      "specs": [
+        { "name": "Type", "value": "Exit/emergency combo", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277V", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Letter Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 151.28,
+      "priceSource": "lbclightingpro.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/999379/contractor-select-lhqm-led.pdf"
+    },
+    {
+      "mpn": "APX7R",
+      "brand": "Sure-Lites",
+      "name": "Sure-Lites APX7R All-Pro LED Exit Sign",
+      "description": "All-Pro self-powered LED exit sign, white thermoplastic housing with red letters; 120/277VAC with sealed NiCad battery, UL 924.",
+      "specs": [
+        { "name": "Type", "value": "LED exit sign w/ battery backup", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277VAC", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Letter Color", "value": "Red", "isNonNeg": false },
+        { "name": "Battery", "value": "Nickel-cadmium", "isNonNeg": false }
+      ],
+      "estListPrice": 25.35,
+      "priceSource": "lbclightingpro.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/da549130ac8c484c97bcad3f014ce876/Sure-Lites-All-Pro-Sell-Sheet.pdf",
+      "upc": "080083566532"
+    },
+    {
+      "mpn": "APC7R",
+      "brand": "Sure-Lites",
+      "name": "Sure-Lites APC7R LED Exit/Emergency Combo",
+      "description": "All-Pro combination LED exit sign and two-head emergency light; universal face, red letters, NiCad battery, 120/277VAC, UL 924.",
+      "specs": [
+        { "name": "Type", "value": "Exit/emergency combo", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277VAC", "isNonNeg": false },
+        { "name": "Housing", "value": "White polycarbonate", "isNonNeg": false },
+        { "name": "Letter Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 54.47,
+      "priceSource": "crawfordelectricsupply.com",
+      "specSheetUrl": "https://www.cooperlighting.com/global/brands/sure-lites/135644/apc-apch-series"
+    },
+    {
+      "mpn": "EVEURWE",
+      "brand": "Dual-Lite",
+      "name": "Dual-Lite EVEURWE LED Exit Sign",
+      "description": "EVE Series architectural LED exit sign; universal face, red letters, white housing, 120/277VAC with NiMH battery for 90-minute backup.",
+      "specs": [
+        { "name": "Type", "value": "LED exit sign w/ battery backup", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277VAC", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Letter Color", "value": "Red", "isNonNeg": false },
+        { "name": "Battery", "value": "Nickel metal hydride", "isNonNeg": false }
+      ],
+      "estListPrice": 85.0,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/dl_eve_spec.pdf"
+    },
+    {
+      "mpn": "CU2",
+      "brand": "Compass",
+      "name": "Compass CU2 LED Emergency Light",
+      "description": "Compact dual-head LED emergency light; fully adjustable glare-free heads, 120/277VAC input, NiCad battery, 90-minute runtime, UL 924.",
+      "specs": [
+        { "name": "Type", "value": "Two-head emergency light", "isNonNeg": true },
+        { "name": "Battery Runtime", "value": "90 minutes", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/277VAC", "isNonNeg": false },
+        { "name": "Housing", "value": "White thermoplastic", "isNonNeg": false },
+        { "name": "Battery", "value": "Nickel-cadmium", "isNonNeg": false }
+      ],
+      "estListPrice": 46.36,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/COM_CU2_SPEC.pdf"
+    }
+  ]
+}

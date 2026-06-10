@@ -1,0 +1,162 @@
+{
+  "category": "electrical",
+  "subcategory": "Receptacles & Outlets",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "5325-W",
+      "brand": "Leviton",
+      "name": "Leviton 5325-W Duplex Receptacle",
+      "description": "15 Amp 125 Volt NEMA 5-15R Decora duplex receptacle, residential grade, grounding, Quickwire push-in and side wired, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 2.82,
+      "priceSource": "emisupply.com",
+      "specSheetUrl": "https://leviton.com/products/5325-w"
+    },
+    {
+      "mpn": "T5325-W",
+      "brand": "Leviton",
+      "name": "Leviton T5325-W Tamper-Resistant Duplex",
+      "description": "15 Amp 125 Volt tamper-resistant Decora duplex receptacle, NEMA 5-15R, residential grade, grounding, Quickwire push-in, white.",
+      "specs": [
+        { "name": "Type", "value": "Tamper-Resistant Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 2.58,
+      "priceSource": "galesburgelectric.com",
+      "specSheetUrl": "https://leviton.com/products/t5325-w"
+    },
+    {
+      "mpn": "5262-W",
+      "brand": "Leviton",
+      "name": "Leviton 5262-W Industrial Duplex Receptacle",
+      "description": "15 Amp 125 Volt NEMA 5-15R extra heavy-duty industrial spec grade duplex receptacle, back or side wired, self-grounding, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Industrial Specification", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 11.02,
+      "priceSource": "emisupply.com",
+      "specSheetUrl": "https://leviton.com/products/5262-w"
+    },
+    {
+      "mpn": "GFNT1-W",
+      "brand": "Leviton",
+      "name": "Leviton GFNT1-W SmartlockPro GFCI",
+      "description": "Self-test SmartlockPro Slim GFCI receptacle, 15 Amp 125 Volt with 20 Amp feed-through, LED status indicator, white.",
+      "specs": [
+        { "name": "Type", "value": "GFCI Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Residential/Commercial", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 27.95,
+      "priceSource": "homecontrols.com",
+      "specSheetUrl": "https://leviton.com/products/gfnt1-w"
+    },
+    {
+      "mpn": "GFNT2-W",
+      "brand": "Leviton",
+      "name": "Leviton GFNT2-W 20A GFCI Receptacle",
+      "description": "Self-test SmartlockPro Slim GFCI receptacle, 20 Amp 125 Volt, NEMA 5-20R, LED status indicator, back and side wired, white.",
+      "specs": [
+        { "name": "Type", "value": "GFCI Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Residential/Commercial", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-20R", "isNonNeg": false }
+      ],
+      "estListPrice": 22.48,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://leviton.com/products/gfnt2-w"
+    },
+    {
+      "mpn": "HBL5262",
+      "brand": "Hubbell",
+      "name": "Hubbell HBL5262 Industrial Duplex Receptacle",
+      "description": "HBL extra heavy duty industrial grade duplex receptacle, 2-pole 3-wire grounding, 15A 125V, NEMA 5-15R, nylon face, brown.",
+      "specs": [
+        { "name": "Type", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false },
+        { "name": "Color", "value": "Brown", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 38.90,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL5262_spec.pdf",
+      "upc": "783585435107"
+    },
+    {
+      "mpn": "HBL5362W",
+      "brand": "Hubbell",
+      "name": "Hubbell HBL5362W 20A Industrial Duplex",
+      "description": "HBL extra heavy duty industrial grade duplex receptacle, 2-pole 3-wire grounding, 20A 125V, NEMA 5-20R, nylon face, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-20R", "isNonNeg": false }
+      ],
+      "estListPrice": 26.02,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL5362W_spec.pdf",
+      "upc": "783585435329"
+    },
+    {
+      "mpn": "3232W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour 3232W TradeMaster Duplex",
+      "description": "TradeMaster residential grade duplex receptacle, 15A 125V, NEMA 5-15R, impact-resistant thermoplastic, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 0.90,
+      "priceSource": "elliottelectric.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/outlets-and-receptacles/residential-receptacles/trademaster-15a-125v-duplex-receptacle-white/p/3232w"
+    },
+    {
+      "mpn": "CR20W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour CR20W Commercial Duplex",
+      "description": "Commercial spec grade duplex receptacle, side wire, 20A 125V, NEMA 5-20R, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+        { "name": "Grade", "value": "Commercial Specification", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-20R", "isNonNeg": false }
+      ],
+      "estListPrice": 2.37,
+      "priceSource": "worldelectricsupply.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/outlets-and-receptacles/commercial-receptacles/20a-125v-commercial-spec-grade-duplex-receptacle-side-wire-white/p/cr20w"
+    }
+  ]
+}

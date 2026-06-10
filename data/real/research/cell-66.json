@@ -1,0 +1,134 @@
+{
+  "category": "security",
+  "subcategory": "NVRs",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "02765-004",
+      "brand": "Axis",
+      "name": "Axis 02765-004 S3008 Mk II Recorder",
+      "description": "AXIS S3008 Mk II compact 8-channel recorder with integrated PoE switch, 4 TB surveillance HDD, up to 160 Mb/s recording rate.",
+      "specs": [
+        { "name": "Channels", "value": "8", "isNonNeg": true },
+        { "name": "Storage", "value": "4 TB HDD", "isNonNeg": true },
+        { "name": "PoE Ports", "value": "8 (PoE Class 3)", "isNonNeg": false },
+        { "name": "Max Recording Rate", "value": "160 Mb/s", "isNonNeg": false },
+        { "name": "Warranty", "value": "5 years", "isNonNeg": false }
+      ],
+      "estListPrice": 929,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://www.axis.com/products/axis-s3008-mk-ii"
+    },
+    {
+      "mpn": "02527-004",
+      "brand": "Axis",
+      "name": "Axis 02527-004 S3016 Recorder",
+      "description": "AXIS S3016 16-channel 1U rack recorder with integrated 16-port PoE switch, 8 TB storage and 2.5 GbE uplink; TAA compliant.",
+      "specs": [
+        { "name": "Channels", "value": "16", "isNonNeg": true },
+        { "name": "Storage", "value": "8 TB HDD", "isNonNeg": true },
+        { "name": "PoE Ports", "value": "16", "isNonNeg": false },
+        { "name": "Uplink", "value": "2.5 GbE", "isNonNeg": false },
+        { "name": "Form Factor", "value": "1U rackmount", "isNonNeg": false }
+      ],
+      "estListPrice": 2499,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://www.axis.com/products/axis-s3016"
+    },
+    {
+      "mpn": "XRN-820S-4TB",
+      "brand": "Hanwha Vision",
+      "name": "Hanwha Vision XRN-820S-4TB 8-Channel NVR",
+      "description": "Wisenet X 8-channel 8K NVR with 8 PoE/PoE+ ports (100 W budget), 4 TB HDD, 100 Mbps recording, H.265/H.264/MJPEG.",
+      "specs": [
+        { "name": "Channels", "value": "8", "isNonNeg": true },
+        { "name": "Storage", "value": "4 TB HDD (2 SATA bays, max 6 TB each)", "isNonNeg": true },
+        { "name": "Max Camera Resolution", "value": "32 MP", "isNonNeg": false },
+        { "name": "Recording Bandwidth", "value": "100 Mbps", "isNonNeg": false },
+        { "name": "PoE Budget", "value": "100 W", "isNonNeg": false }
+      ],
+      "estListPrice": 1506.5,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://hanwhavisionamerica.com/product/xrn-820s/"
+    },
+    {
+      "mpn": "QRN-830S-2TB",
+      "brand": "Hanwha Vision",
+      "name": "Hanwha Vision QRN-830S-2TB PoE NVR",
+      "description": "Wisenet Q 8-channel PoE+ NVR for cameras up to 8 MP, 2 TB HDD, 80 Mbps recording, plug-and-play with 8 PoE ports (65 W).",
+      "specs": [
+        { "name": "Channels", "value": "8", "isNonNeg": true },
+        { "name": "Storage", "value": "2 TB HDD (1 SATA bay, max 6 TB)", "isNonNeg": true },
+        { "name": "Max Camera Resolution", "value": "8 MP", "isNonNeg": false },
+        { "name": "Recording Bandwidth", "value": "80 Mbps", "isNonNeg": false },
+        { "name": "PoE Budget", "value": "65 W", "isNonNeg": false }
+      ],
+      "estListPrice": 800,
+      "priceSource": "networkcamerastore.com",
+      "specSheetUrl": "https://hanwhavisionamerica.com/product/qrn-830s/"
+    },
+    {
+      "mpn": "XRN-1620SB1",
+      "brand": "Hanwha Vision",
+      "name": "Hanwha Vision XRN-1620SB1 16-Channel NVR",
+      "description": "Wisenet X 16-channel 4K NVR with 16 PoE+ ports, AI search, 140 Mbps recording, cameras up to 32 MP; HDD not included.",
+      "specs": [
+        { "name": "Channels", "value": "16", "isNonNeg": true },
+        { "name": "Storage", "value": "No HDD included (factory configs from 2 TB to 24 TB)", "isNonNeg": true },
+        { "name": "Max Camera Resolution", "value": "32 MP", "isNonNeg": false },
+        { "name": "Recording Bandwidth", "value": "140 Mbps", "isNonNeg": false },
+        { "name": "PoE Ports", "value": "16 PoE/PoE+", "isNonNeg": false }
+      ],
+      "estListPrice": 1399.48,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://hanwhavisionamerica.com/product/xrn-1620sb1/"
+    },
+    {
+      "mpn": "DIP-4420IG-00N",
+      "brand": "Bosch",
+      "name": "Bosch DIP-4420IG-00N DIVAR IP 4000",
+      "description": "DIVAR IP all-in-one 4000 recording/viewing/management appliance for up to 32 channels (8 camera licenses included); no HDD.",
+      "specs": [
+        { "name": "Channels", "value": "32 (8 camera licenses included)", "isNonNeg": true },
+        { "name": "Storage", "value": "No HDD included (supports up to 2 x 18 TB)", "isNonNeg": true },
+        { "name": "VMS", "value": "BVMS-based, pre-installed", "isNonNeg": false },
+        { "name": "Included Licenses", "value": "8 cameras, 2 workstations, 1 DVR", "isNonNeg": false }
+      ],
+      "estListPrice": 2735.77,
+      "priceSource": "surveillance-video.com",
+      "specSheetUrl": "https://resources.keenfinity.tech/public/documents/DIVAR_IP_all_in_one__Data_sheet_enUS_101032548747.pdf"
+    },
+    {
+      "mpn": "HE150D-12TB",
+      "brand": "Milestone",
+      "name": "Milestone HE150D-12TB Husky IVO 150D",
+      "description": "Husky IVO 150D desktop NVR appliance with XProtect VMS preloaded; up to 20 cameras at 150 Mbit/s, 12 TB HDD, NDAA compliant.",
+      "specs": [
+        { "name": "Channels", "value": "Up to 20 cameras", "isNonNeg": true },
+        { "name": "Storage", "value": "12 TB HDD", "isNonNeg": true },
+        { "name": "Throughput", "value": "150 Mbit/s", "isNonNeg": false },
+        { "name": "Form Factor", "value": "Desktop (SFF)", "isNonNeg": false },
+        { "name": "Warranty", "value": "5-year onsite NBD", "isNonNeg": false }
+      ],
+      "estListPrice": 2650,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://www.milestonesys.com/products/hardware/HuskyIVO-series/Husky-IVO-150D/"
+    },
+    {
+      "mpn": "QRN-430S",
+      "brand": "Hanwha Vision",
+      "name": "Hanwha Vision QRN-430S 4-Channel NVR",
+      "description": "Wisenet Q 4-channel 4K PoE NVR with 4 PoE/PoE+ ports (35 W budget), 40 Mbps recording, cameras up to 8 MP; HDD not included.",
+      "specs": [
+        { "name": "Channels", "value": "4", "isNonNeg": true },
+        { "name": "Storage", "value": "No HDD included (1 SATA bay, max 6 TB)", "isNonNeg": true },
+        { "name": "Max Camera Resolution", "value": "8 MP", "isNonNeg": false },
+        { "name": "Recording Bandwidth", "value": "40 Mbps", "isNonNeg": false },
+        { "name": "PoE Budget", "value": "35 W", "isNonNeg": false }
+      ],
+      "estListPrice": 381.29,
+      "priceSource": "networkcamerastore.com",
+      "specSheetUrl": "https://hanwhavisionamerica.com/product/qrn-430s/"
+    }
+  ]
+}

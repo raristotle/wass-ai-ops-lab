@@ -1,0 +1,163 @@
+{
+  "category": "security",
+  "subcategory": "Intrusion Sensors",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "IS335",
+      "brand": "Honeywell Home",
+      "name": "Honeywell Home IS335 PIR Motion Detector",
+      "description": "Wired PIR motion detector, 40 ft x 56 ft coverage, selectable 80 lb pet immunity, 2,000 lux white light immunity, 12 VDC.",
+      "specs": [
+        { "name": "Type", "value": "PIR motion detector (wired)", "isNonNeg": true },
+        { "name": "Range", "value": "40 ft x 56 ft", "isNonNeg": false },
+        { "name": "Pet Immunity", "value": "Selectable, up to 80 lb", "isNonNeg": false },
+        { "name": "Power", "value": "12 VDC", "isNonNeg": false },
+        { "name": "White Light Immunity", "value": "2,000 lux", "isNonNeg": false }
+      ],
+      "estListPrice": 22.95,
+      "priceSource": "alarmsystemstore.com",
+      "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/wired-sensors/motion-sensors/is335-pet-immune-pir-detector-40-ft-x-56-ft-is335/"
+    },
+    {
+      "mpn": "DT8035V",
+      "brand": "Honeywell Home",
+      "name": "Honeywell Home DT8035V DUAL TEC Motion Detector",
+      "description": "Wired dual-technology (PIR + microwave) motion sensor, 40 ft x 56 ft coverage, 100 lb pet immunity, 6,500 lux light immunity.",
+      "specs": [
+        { "name": "Type", "value": "Dual-technology motion detector (PIR + microwave, wired)", "isNonNeg": true },
+        { "name": "Range", "value": "40 ft x 56 ft", "isNonNeg": false },
+        { "name": "Pet Immunity", "value": "Up to 100 lb (selectable)", "isNonNeg": false },
+        { "name": "White Light Immunity", "value": "6,500 lux", "isNonNeg": false },
+        { "name": "Mounting Height", "value": "6 ft 9 in - 8 ft 9 in", "isNonNeg": false }
+      ],
+      "estListPrice": 76.28,
+      "priceSource": "alarmclub.com",
+      "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/wired-sensors/motion-sensors/dt8035v-wired-dual-technology-motion-sensor-35-ft-dt8035v/"
+    },
+    {
+      "mpn": "5816WMWH",
+      "brand": "Honeywell Home",
+      "name": "Honeywell Home 5816WMWH Door/Window Transmitter",
+      "description": "5800-series wireless door/window transmitter with magnet; reed switch plus wired contact input loop, white case.",
+      "specs": [
+        { "name": "Type", "value": "Wireless door/window magnetic contact", "isNonNeg": true },
+        { "name": "RF Series", "value": "Honeywell 5800 (345 MHz)", "isNonNeg": false },
+        { "name": "Battery", "value": "3V CR123A lithium", "isNonNeg": false },
+        { "name": "Mount", "value": "Surface mount, with magnet", "isNonNeg": false }
+      ],
+      "estListPrice": 53,
+      "priceSource": "alarmliquidators.com",
+      "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/wireless-sensors/magnetic-contacts/5816-door-and-window-transmitter-white-5816/"
+    },
+    {
+      "mpn": "PROSIXPIR",
+      "brand": "Honeywell Home",
+      "name": "Honeywell Home PROSIXPIR Wireless Motion Detector",
+      "description": "ProSeries SiX two-way wireless PIR motion detector, 40 ft x 56 ft coverage, pet immune, 128-bit AES encrypted.",
+      "specs": [
+        { "name": "Type", "value": "Wireless PIR motion detector", "isNonNeg": true },
+        { "name": "Range", "value": "40 ft x 56 ft", "isNonNeg": false },
+        { "name": "Pet Immunity", "value": "Up to 80 lb", "isNonNeg": false },
+        { "name": "Encryption", "value": "128-bit AES (SiX two-way RF)", "isNonNeg": false }
+      ],
+      "estListPrice": 60.19,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.security.honeywellhome.com/product-repository/prosixpir"
+    },
+    {
+      "mpn": "FG1625",
+      "brand": "Honeywell Home",
+      "name": "Honeywell Home FG1625 FlexGuard Glassbreak Detector",
+      "description": "FlexGuard acoustic glassbreak detector, 25 ft omnidirectional adjustable range, all glass types, wall or ceiling mount.",
+      "specs": [
+        { "name": "Type", "value": "Acoustic glassbreak detector (wired)", "isNonNeg": true },
+        { "name": "Range", "value": "25 ft max, omnidirectional, adjustable", "isNonNeg": false },
+        { "name": "Power", "value": "6-18 VDC, 12 mA typical at 12 VDC", "isNonNeg": false },
+        { "name": "Mount", "value": "Wall or ceiling, surface", "isNonNeg": false }
+      ],
+      "estListPrice": 52,
+      "priceSource": "alarmsystemstore.com",
+      "specSheetUrl": "https://buildings.honeywell.com/us/en/products/by-category/sensors/noise-sensors/fg1625-flexguard-glassbreak-detector"
+    },
+    {
+      "mpn": "ISC-BPR2-W12",
+      "brand": "Bosch",
+      "name": "Bosch ISC-BPR2-W12 Blue Line Gen2 PIR",
+      "description": "Blue Line Gen2 PIR motion detector, 40 ft x 40 ft (12 m x 12 m) wall-to-wall coverage, 77-zone 7-layer pattern.",
+      "specs": [
+        { "name": "Type", "value": "PIR motion detector (wired)", "isNonNeg": true },
+        { "name": "Range", "value": "40 ft x 40 ft (12 m x 12 m)", "isNonNeg": false },
+        { "name": "Detection Pattern", "value": "77 zones, 7 layers, with lookdown", "isNonNeg": false },
+        { "name": "Mounting Height", "value": "7.5 ft to 9 ft, no adjustment needed", "isNonNeg": false },
+        { "name": "Warranty", "value": "3 years", "isNonNeg": false }
+      ],
+      "estListPrice": 25.39,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://commerce.boschsecurity.com/us/en/Blue-Line-Gen2-PIR-Motion-Detectors/p/F.01U.364.870/"
+    },
+    {
+      "mpn": "ISC-BDL2-WP12G",
+      "brand": "Bosch",
+      "name": "Bosch ISC-BDL2-WP12G TriTech Motion Detector",
+      "description": "Blue Line Gen2 pet-friendly TriTech detector combining PIR and 10.525 GHz microwave, 40 ft x 40 ft coverage, 100 lb pet immunity.",
+      "specs": [
+        { "name": "Type", "value": "Dual-technology motion detector (PIR + microwave, wired)", "isNonNeg": true },
+        { "name": "Range", "value": "40 ft x 40 ft (12 m x 12 m)", "isNonNeg": false },
+        { "name": "Microwave Frequency", "value": "10.525 GHz", "isNonNeg": false },
+        { "name": "Pet Immunity", "value": "Up to 100 lb (45 kg)", "isNonNeg": false },
+        { "name": "Mounting Height", "value": "7.5 ft to 9 ft, no adjustment needed", "isNonNeg": false }
+      ],
+      "estListPrice": 53.29,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://commerce.boschsecurity.com/us/en/Blue-Line-Gen2-TriTech-Motion-Detectors/p/F.01U.364.820/"
+    },
+    {
+      "mpn": "LC-100-PI",
+      "brand": "DSC",
+      "name": "DSC LC-100-PI PIR Motion Detector",
+      "description": "Digital PIR motion detector with quad linear imaging, adjustable coverage up to 40 ft x 55 ft, 55 lb pet immunity.",
+      "specs": [
+        { "name": "Type", "value": "PIR motion detector (wired)", "isNonNeg": true },
+        { "name": "Range", "value": "Adjustable, up to 40 ft x 55 ft", "isNonNeg": false },
+        { "name": "Pet Immunity", "value": "Up to 55 lb (25 kg)", "isNonNeg": false },
+        { "name": "Power", "value": "8.2-16 VDC", "isNonNeg": false },
+        { "name": "Current Draw", "value": "8 mA standby, 10 mA alarm", "isNonNeg": false }
+      ],
+      "estListPrice": 18.95,
+      "priceSource": "alarmsystemstore.com",
+      "specSheetUrl": "https://www.dsc.com/alarm-security-products/LC-100-PI%20-%20PIR%20Detector%20with%20Pet%20Immunity/93"
+    },
+    {
+      "mpn": "PG9914",
+      "brand": "DSC",
+      "name": "DSC PG9914 PowerG Wireless Motion Detector",
+      "description": "PowerG 915 MHz wireless digital pet-immune PIR motion detector, 39 ft coverage, 85 lb pet immunity, 128-bit AES encryption.",
+      "specs": [
+        { "name": "Type", "value": "Wireless PIR motion detector (PowerG)", "isNonNeg": true },
+        { "name": "Range", "value": "Up to 39 ft (12 m) coverage", "isNonNeg": false },
+        { "name": "Pet Immunity", "value": "Up to 85 lb", "isNonNeg": false },
+        { "name": "Battery", "value": "3V CR123A lithium, 6-8 year typical life", "isNonNeg": false },
+        { "name": "Encryption", "value": "128-bit AES", "isNonNeg": false }
+      ],
+      "estListPrice": 98.95,
+      "priceSource": "alarmsystemstore.com",
+      "specSheetUrl": "https://www.dsc.com/alarm-security-products/PG9914%20-%20Wireless%20PowerG%20Digital%20Pet-Immune%20PIR%20Motion%20Detector/2629"
+    },
+    {
+      "mpn": "PG9303",
+      "brand": "DSC",
+      "name": "DSC PG9303 PowerG Door/Window Contact",
+      "description": "PowerG wireless vanishing door/window magnetic contact, slim white design, CR2450 battery with 6-8 year life, AES encrypted.",
+      "specs": [
+        { "name": "Type", "value": "Wireless door/window magnetic contact (PowerG)", "isNonNeg": true },
+        { "name": "Battery", "value": "3V CR2450 lithium, 6-8 year typical life", "isNonNeg": false },
+        { "name": "Encryption", "value": "128-bit AES", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false }
+      ],
+      "estListPrice": 47,
+      "priceSource": "shopsecurity.com",
+      "specSheetUrl": "https://www.dsc.com/alarm-security-products/PG9303%20-%20PowerG%20Wireless%20Door/Window%20Magnetic%20Contact/2663"
+    }
+  ]
+}

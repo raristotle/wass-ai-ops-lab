@@ -1,0 +1,165 @@
+{
+  "category": "security",
+  "subcategory": "Access Control",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "20NKS-00-000000",
+      "brand": "HID",
+      "name": "HID 20NKS-00-000000 Signo 20 Reader",
+      "description": "HID Signo 20 slim mullion reader; 13.56 MHz and 125 kHz credentials plus HID Mobile Access via BLE/NFC; OSDP and Wiegand.",
+      "specs": [
+        { "name": "Type", "value": "Mullion-mount access control reader", "isNonNeg": true },
+        { "name": "Credential", "value": "Seos, iCLASS SE, MIFARE, 125 kHz HID Prox, HID Mobile Access (BLE/NFC)", "isNonNeg": true },
+        { "name": "Interface", "value": "OSDP, Wiegand", "isNonNeg": false },
+        { "name": "Connection", "value": "Pigtail", "isNonNeg": false },
+        { "name": "Color", "value": "Black with silver trim", "isNonNeg": false }
+      ],
+      "estListPrice": 229.99,
+      "priceSource": "id-enhancements.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/20"
+    },
+    {
+      "mpn": "40NKS-00-000000",
+      "brand": "HID",
+      "name": "HID 40NKS-00-000000 Signo 40 Reader",
+      "description": "HID Signo 40 wall-switch reader; dual-frequency 13.56 MHz/125 kHz, mobile-ready (BLE/NFC), OSDP out of the box, IP65.",
+      "specs": [
+        { "name": "Type", "value": "Wall-switch (single-gang) access control reader", "isNonNeg": true },
+        { "name": "Credential", "value": "Seos, iCLASS SE, MIFARE, 125 kHz HID Prox, HID Mobile Access (BLE/NFC)", "isNonNeg": true },
+        { "name": "Interface", "value": "OSDP, Wiegand", "isNonNeg": false },
+        { "name": "Ingress Rating", "value": "IP65", "isNonNeg": false },
+        { "name": "Power", "value": "12 VDC", "isNonNeg": false }
+      ],
+      "estListPrice": 284,
+      "priceSource": "id-enhancements.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/40"
+    },
+    {
+      "mpn": "900NTNNEK00000",
+      "brand": "HID",
+      "name": "HID 900NTNNEK00000 iCLASS SE R10",
+      "description": "HID iCLASS SE R10 mullion smart card reader, 13.56 MHz contactless, Wiegand pigtail, black.",
+      "specs": [
+        { "name": "Type", "value": "Mullion-mount smart card reader", "isNonNeg": true },
+        { "name": "Credential", "value": "13.56 MHz iCLASS Seos, iCLASS SE, iCLASS, MIFARE", "isNonNeg": true },
+        { "name": "Interface", "value": "Wiegand", "isNonNeg": false },
+        { "name": "Connection", "value": "Pigtail", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 178.22,
+      "priceSource": "idcardprintersavings.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/r10"
+    },
+    {
+      "mpn": "920PTNNEK00000",
+      "brand": "HID",
+      "name": "HID 920PTNNEK00000 multiCLASS SE RP40",
+      "description": "HID multiCLASS SE RP40 multi-technology wall reader; reads 125 kHz Prox plus 13.56 MHz iCLASS/Seos/MIFARE; Wiegand pigtail.",
+      "specs": [
+        { "name": "Type", "value": "Multi-technology wall-switch reader", "isNonNeg": true },
+        { "name": "Credential", "value": "125 kHz HID Prox + 13.56 MHz Seos, iCLASS SE, MIFARE", "isNonNeg": true },
+        { "name": "Interface", "value": "Wiegand", "isNonNeg": false },
+        { "name": "Connection", "value": "Pigtail", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 235.81,
+      "priceSource": "compsource.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/rp40"
+    },
+    {
+      "mpn": "6005BGB00",
+      "brand": "HID",
+      "name": "HID 6005BGB00 ProxPoint Plus Reader",
+      "description": "HID ProxPoint Plus 6005 125 kHz proximity reader, Wiegand, 18 in pigtail, beeper and multicolor LED, indoor/outdoor, gray.",
+      "specs": [
+        { "name": "Type", "value": "Proximity card reader", "isNonNeg": true },
+        { "name": "Credential", "value": "125 kHz HID Prox (formats up to 85 bits)", "isNonNeg": true },
+        { "name": "Interface", "value": "Wiegand", "isNonNeg": false },
+        { "name": "Connection", "value": "18 in pigtail", "isNonNeg": false },
+        { "name": "Color", "value": "Classic charcoal gray", "isNonNeg": false }
+      ],
+      "estListPrice": 129.95,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/6005"
+    },
+    {
+      "mpn": "1326LSSMV",
+      "brand": "HID",
+      "name": "HID 1326LSSMV ProxCard II Card",
+      "description": "HID ProxCard II 1326 clamshell proximity card, 125 kHz, programmed, matching inkjetted numbering, vertical slot punch.",
+      "specs": [
+        { "name": "Type", "value": "Clamshell proximity card credential", "isNonNeg": true },
+        { "name": "Credential", "value": "125 kHz HID Prox", "isNonNeg": true },
+        { "name": "Numbering", "value": "Sequential matching internal/external (inkjetted)", "isNonNeg": false },
+        { "name": "Slot Punch", "value": "Vertical", "isNonNeg": false }
+      ],
+      "estListPrice": 4.29,
+      "priceSource": "uhs-hardware.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/1326"
+    },
+    {
+      "mpn": "1346LNSMN",
+      "brand": "HID",
+      "name": "HID 1346LNSMN ProxKey III Fob",
+      "description": "HID ProxKey III 1346 keyfob proximity credential, 125 kHz, durable molded fob for keyring carry, programmed to format.",
+      "specs": [
+        { "name": "Type", "value": "Key fob proximity credential", "isNonNeg": true },
+        { "name": "Credential", "value": "125 kHz HID Prox", "isNonNeg": true },
+        { "name": "Numbering", "value": "Matching number inkjetted", "isNonNeg": false },
+        { "name": "Form Factor", "value": "Keyring fob", "isNonNeg": false }
+      ],
+      "estListPrice": 6.85,
+      "priceSource": "uhs-hardware.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/1346"
+    },
+    {
+      "mpn": "5006PGGMN",
+      "brand": "HID",
+      "name": "HID 5006PGGMN iCLASS Seos 8K Card",
+      "description": "HID iCLASS Seos 8K composite contactless smart card, SIO programmed, glossy front/back, sold in 100-card packs.",
+      "specs": [
+        { "name": "Type", "value": "Contactless smart card credential", "isNonNeg": true },
+        { "name": "Credential", "value": "13.56 MHz iCLASS Seos", "isNonNeg": true },
+        { "name": "Memory", "value": "8KB", "isNonNeg": false },
+        { "name": "Card Body", "value": "Composite PET/PVC", "isNonNeg": false },
+        { "name": "Numbering", "value": "Sequential matching encoded/printed (inkjetted)", "isNonNeg": false }
+      ],
+      "estListPrice": 3.89,
+      "priceSource": "easybadges.com",
+      "specSheetUrl": "https://www.hidglobal.com/products/seos-card"
+    },
+    {
+      "mpn": "OP40HONS",
+      "brand": "Honeywell",
+      "name": "Honeywell OP40HONS OmniProx Reader",
+      "description": "Honeywell OmniProx OP40 125 kHz HID-compatible single-gang switch plate proximity reader; includes black, gray and ivory bezels.",
+      "specs": [
+        { "name": "Type", "value": "Single-gang switch plate proximity reader", "isNonNeg": true },
+        { "name": "Credential", "value": "125 kHz HID-compatible proximity", "isNonNeg": true },
+        { "name": "Interface", "value": "Wiegand (SIA 26-bit)", "isNonNeg": false },
+        { "name": "Installation", "value": "Indoor/outdoor, potted polycarbonate", "isNonNeg": false },
+        { "name": "Bezels", "value": "Black, charcoal gray, ivory included", "isNonNeg": false }
+      ],
+      "estListPrice": 258.12,
+      "priceSource": "id-enhancements.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/hon-ba-l-omniprxd-d.pdf"
+    },
+    {
+      "mpn": "9600-12/24D-630",
+      "brand": "HES",
+      "name": "HES 9600-12/24D-630 Electric Strike",
+      "description": "HES 9600 series surface-mounted electric strike for rim exit devices with 3/4 in throw; windstorm rated, satin stainless steel.",
+      "specs": [
+        { "name": "Type", "value": "Surface-mounted electric strike", "isNonNeg": true },
+        { "name": "Voltage", "value": "12/24 VDC field selectable", "isNonNeg": false },
+        { "name": "Operation", "value": "Field selectable fail safe / fail secure", "isNonNeg": false },
+        { "name": "Compatibility", "value": "Rim exit devices with 3/4 in throw latch", "isNonNeg": false },
+        { "name": "Finish", "value": "630 satin stainless steel", "isNonNeg": false }
+      ],
+      "estListPrice": 515.35,
+      "priceSource": "maglocks.com",
+      "specSheetUrl": "https://www.hesinnovations.com/adobe/assets/urn:aaid:aem:0ca5481b-06e6-4c32-a0d2-112a619cc51b/original/as/AADSS1203093.pdf"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "category": "electrical",
+  "subcategory": "Wall Plates & Covers",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "88001",
+      "brand": "Leviton",
+      "name": "Leviton 88001 Toggle Wallplate",
+      "description": "1-Gang toggle switch wallplate, standard size, thermoset plastic, device mount, white; smooth easy-to-clean finish, UL/CSA listed.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Toggle", "isNonNeg": true },
+        { "name": "Material", "value": "Thermoset Plastic", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Size", "value": "Standard (4.5 in x 2.75 in)", "isNonNeg": false },
+        { "name": "Mount", "value": "Device", "isNonNeg": false }
+      ],
+      "estListPrice": 0.75,
+      "priceSource": "codale.com",
+      "specSheetUrl": "https://leviton.com/products/88001",
+      "upc": "078477086926"
+    },
+    {
+      "mpn": "88003",
+      "brand": "Leviton",
+      "name": "Leviton 88003 Duplex Wallplate",
+      "description": "1-Gang duplex outlet/receptacle wallplate, standard size, thermoset plastic, device mount, white; resists fading, oil and solvents.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Material", "value": "Thermoset Plastic", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Size", "value": "Standard (4.5 in x 2.75 in)", "isNonNeg": false },
+        { "name": "Mount", "value": "Device", "isNonNeg": false }
+      ],
+      "estListPrice": 0.58,
+      "priceSource": "codale.com",
+      "specSheetUrl": "https://leviton.com/products/88003",
+      "upc": "078477086933"
+    },
+    {
+      "mpn": "80401-W",
+      "brand": "Leviton",
+      "name": "Leviton 80401-W Decora Wallplate",
+      "description": "1-Gang Decora/GFCI device wallplate, standard size, thermoset plastic, device mount, white; high dielectric strength, UL/CSA listed.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Decora/GFCI", "isNonNeg": true },
+        { "name": "Material", "value": "Thermoset Plastic", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Size", "value": "Standard (4.5 in x 2.75 in)", "isNonNeg": false },
+        { "name": "Mount", "value": "Device", "isNonNeg": false }
+      ],
+      "estListPrice": 0.88,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://leviton.com/products/80401-w"
+    },
+    {
+      "mpn": "88014",
+      "brand": "Leviton",
+      "name": "Leviton 88014 Blank Wallplate",
+      "description": "1-Gang blank no-device wallplate, standard size, thermoset plastic, box mount, white; non-combustible with high arc resistance.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Blank", "isNonNeg": true },
+        { "name": "Material", "value": "Thermoset Plastic", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Size", "value": "Standard (4.5 in x 2.75 in)", "isNonNeg": false },
+        { "name": "Mount", "value": "Box", "isNonNeg": false }
+      ],
+      "estListPrice": 0.41,
+      "priceSource": "sonicelectric.com",
+      "specSheetUrl": "https://leviton.com/products/88014",
+      "upc": "078477772997"
+    },
+    {
+      "mpn": "84003-40",
+      "brand": "Leviton",
+      "name": "Leviton 84003-40 Stainless Duplex Wallplate",
+      "description": "1-Gang duplex receptacle wallplate, standard size, brushed 302 stainless steel, device mount; corrosion-resistant for commercial use.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Material", "value": "302 Stainless Steel", "isNonNeg": false },
+        { "name": "Color", "value": "Stainless Steel (Brushed)", "isNonNeg": false },
+        { "name": "Size", "value": "Standard (4.5 in x 2.75 in)", "isNonNeg": false },
+        { "name": "Mount", "value": "Device", "isNonNeg": false }
+      ],
+      "estListPrice": 3.21,
+      "priceSource": "lightingsupply.com",
+      "specSheetUrl": "https://leviton.com/products/84003-40"
+    },
+    {
+      "mpn": "TP1W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour TP1W Toggle Wall Plate",
+      "description": "TradeMaster 1-gang nylon wall plate, one toggle switch opening, white; practically unbreakable self-extinguishing nylon.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Toggle", "isNonNeg": true },
+        { "name": "Material", "value": "Nylon", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Size", "value": "TP Series (Standard +3/16 in)", "isNonNeg": false }
+      ],
+      "estListPrice": 1.16,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/wall-plates/trademaster-1-gang-nylon-wall-plate-1-toggle-switch-opening-white/p/tp1w",
+      "upc": "785007274066"
+    },
+    {
+      "mpn": "TP8W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour TP8W Duplex Wall Plate",
+      "description": "TradeMaster 1-gang nylon wall plate, duplex receptacle opening, white; self-extinguishing nylon for high-abuse applications.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Material", "value": "Nylon", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Size", "value": "TP Series (Standard +3/16 in)", "isNonNeg": false }
+      ],
+      "estListPrice": 0.59,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/wall-plates/trademaster-1-gang-nylon-wall-plate-duplex-receptacle-openings-white/p/tp8w",
+      "upc": "785007274554"
+    },
+    {
+      "mpn": "TP26W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour TP26W Decorator Wall Plate",
+      "description": "TradeMaster 1-gang nylon wall plate, one decorator/rocker opening, white; rugged self-extinguishing nylon, matte finish.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Decorator", "isNonNeg": true },
+        { "name": "Material", "value": "Nylon", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Size", "value": "TP Series (Standard +3/16 in)", "isNonNeg": false }
+      ],
+      "estListPrice": 2.39,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/wall-plates/trademaster-1-gang-nylon-wall-plate-1-decorator-opening-white/p/tp26w",
+      "upc": "785007275117"
+    },
+    {
+      "mpn": "97101",
+      "brand": "Mulberry",
+      "name": "Mulberry 97101 Stainless Duplex Wallplate",
+      "description": "1-Gang satin 430 stainless steel wallplate, one duplex receptacle opening, 2.75 x 4.5 in, 0.035 in thick; conforms to UL 883.",
+      "specs": [
+        { "name": "Gang", "value": "1", "isNonNeg": true },
+        { "name": "Opening", "value": "Duplex Receptacle", "isNonNeg": true },
+        { "name": "Material", "value": "430 Stainless Steel", "isNonNeg": false },
+        { "name": "Color", "value": "Satin Stainless", "isNonNeg": false },
+        { "name": "Size", "value": "Standard (4.5 in x 2.75 in)", "isNonNeg": false },
+        { "name": "Thickness", "value": "0.035 in", "isNonNeg": false }
+      ],
+      "estListPrice": 1.72,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://mulberrymetal.com/wp-content/uploads/2025/02/mulberry_general_catalog_2021.pdf",
+      "upc": "095327971010"
+    }
+  ]
+}

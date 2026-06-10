@@ -1,0 +1,136 @@
+{
+  "category": "av",
+  "subcategory": "Display & Projector Mounts",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "LTM1U",
+      "brand": "Chief",
+      "name": "Chief LTM1U Large Fusion Tilt Mount",
+      "description": "Large Fusion micro-adjustable tilt wall mount for 42-86 in displays up to 200 lb with ControlZone leveling.",
+      "specs": [
+        { "name": "Mount Type", "value": "Tilt wall mount (micro-adjustable)", "isNonNeg": true },
+        { "name": "Max Load", "value": "200 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "100x100 to 878x500 mm", "isNonNeg": false },
+        { "name": "Screen Size", "value": "42-86 in", "isNonNeg": false }
+      ],
+      "estListPrice": 307.2,
+      "priceSource": "proavwarehouse.com",
+      "specSheetUrl": "https://www.legrandav.com/products/mounts/display-tv-mounts/fusion-wall-tilt/ltm1u"
+    },
+    {
+      "mpn": "RPAU",
+      "brand": "Chief",
+      "name": "Chief RPAU Universal Projector Mount",
+      "description": "Universal RPA inverted ceiling projector mount with SLBU bracket; independent roll, pitch and yaw adjustment.",
+      "specs": [
+        { "name": "Mount Type", "value": "Universal ceiling projector mount", "isNonNeg": true },
+        { "name": "Max Load", "value": "50 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "N/A (universal SLBU projector interface)", "isNonNeg": false },
+        { "name": "Adjustment", "value": "4-degree roll, 25-degree pitch, 360-degree yaw", "isNonNeg": false },
+        { "name": "Installation", "value": "Flush ceiling, threaded rod, or 1.5 in NPT column", "isNonNeg": false }
+      ],
+      "estListPrice": 236.55,
+      "priceSource": "bestbuy.com",
+      "specSheetUrl": "https://www.legrandav.com/products/mounts/projector-mounts/rpa-ceiling-projector-mounts/rpau"
+    },
+    {
+      "mpn": "ST650",
+      "brand": "Peerless-AV",
+      "name": "Peerless-AV ST650 Universal Tilt Mount",
+      "description": "SmartMount universal tilt wall mount for 39-75 in displays up to 175 lb with IncreLok tilt and Hook-and-Hang install.",
+      "specs": [
+        { "name": "Mount Type", "value": "Tilt wall mount", "isNonNeg": true },
+        { "name": "Max Load", "value": "175 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "Up to 742 x 405 mm", "isNonNeg": false },
+        { "name": "Screen Size", "value": "39-75 in", "isNonNeg": false },
+        { "name": "Tilt Range", "value": "+15 / -5 degrees", "isNonNeg": false }
+      ],
+      "estListPrice": 139,
+      "priceSource": "bestbuy.com",
+      "specSheetUrl": "https://docs.peerless-av.com/SELL%20SHEET-LIT0594-1-7-1.PDF"
+    },
+    {
+      "mpn": "PRG-UNV",
+      "brand": "Peerless-AV",
+      "name": "Peerless-AV PRG-UNV Projector Mount",
+      "description": "PRG Precision Gear ceiling projector mount with Spider universal adapter plate for projectors up to 50 lb.",
+      "specs": [
+        { "name": "Mount Type", "value": "Precision gear ceiling projector mount", "isNonNeg": true },
+        { "name": "Max Load", "value": "50 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "N/A (Spider universal adapter plate)", "isNonNeg": false },
+        { "name": "Adapter Extension", "value": "Up to 17.63 in (448 mm)", "isNonNeg": false },
+        { "name": "Warranty", "value": "5-year limited", "isNonNeg": false }
+      ],
+      "estListPrice": 219,
+      "priceSource": "connection.com",
+      "specSheetUrl": "https://peerless-av.com/products/prg-unv"
+    },
+    {
+      "mpn": "VMPL50A-B1",
+      "brand": "Sanus",
+      "name": "Sanus VMPL50A-B1 Tilting Wall Mount",
+      "description": "VisionMount tilting wall mount for 32-85 in flat panels up to 150 lb; universal VESA 100x100-600x400 compatibility.",
+      "specs": [
+        { "name": "Mount Type", "value": "Tilt wall mount", "isNonNeg": true },
+        { "name": "Max Load", "value": "150 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "100x100 to 600x400 mm", "isNonNeg": false },
+        { "name": "Screen Size", "value": "32-85 in", "isNonNeg": false },
+        { "name": "Tilt Range", "value": "+9 / -10 degrees", "isNonNeg": false }
+      ],
+      "estListPrice": 189.99,
+      "priceSource": "sanus.com",
+      "specSheetUrl": "https://pro.sanus.com/en_us/products/tv-mounts/vmpl50a/",
+      "upc": "793795521965"
+    },
+    {
+      "mpn": "VLF728-B2",
+      "brand": "Sanus",
+      "name": "Sanus VLF728-B2 Full-Motion Mount",
+      "description": "Advanced Full-Motion premium articulating mount for 42-90 in TVs up to 125 lb; extends 28 in from the wall.",
+      "specs": [
+        { "name": "Mount Type", "value": "Full-motion articulating wall mount", "isNonNeg": true },
+        { "name": "Max Load", "value": "125 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "200x200 to 600x400 mm", "isNonNeg": false },
+        { "name": "Screen Size", "value": "42-90 in", "isNonNeg": false },
+        { "name": "Extension", "value": "28 in", "isNonNeg": false },
+        { "name": "Tilt Range", "value": "+5 / -15 degrees", "isNonNeg": false }
+      ],
+      "estListPrice": 429.99,
+      "priceSource": "sanus.com",
+      "specSheetUrl": "https://www.sanus.com/sanus/pdfs/promo/VLF728-SellSheet.pdf"
+    },
+    {
+      "mpn": "PBC-UMS",
+      "brand": "Premier Mounts",
+      "name": "Premier Mounts PBC-UMS Projector Mount",
+      "description": "Universal projector ceiling mount with four dual-joint support arms and quick-release connector; 25 lb capacity.",
+      "specs": [
+        { "name": "Mount Type", "value": "Universal projector ceiling mount", "isNonNeg": true },
+        { "name": "Max Load", "value": "25 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "N/A (universal dual-joint arm interface)", "isNonNeg": false },
+        { "name": "Installation", "value": "Flat or angled ceiling, integrated cable routing", "isNonNeg": false }
+      ],
+      "estListPrice": 185.96,
+      "priceSource": "buy.bluum.com",
+      "specSheetUrl": "https://www.premiermounts.com/products/pbc-series-universal-projector-mount"
+    },
+    {
+      "mpn": "T63",
+      "brand": "Crimson AV",
+      "name": "Crimson AV T63 Universal Tilt Mount",
+      "description": "Universal tilting wall mount for 37-90 in screens up to 200 lb with +15/-5 degree tilt and open wall plate design.",
+      "specs": [
+        { "name": "Mount Type", "value": "Tilt wall mount", "isNonNeg": true },
+        { "name": "Max Load", "value": "200 lb", "isNonNeg": true },
+        { "name": "VESA Pattern", "value": "75x75 to 800x400 mm (max pattern 838x502 mm)", "isNonNeg": false },
+        { "name": "Screen Size", "value": "37-90 in", "isNonNeg": false },
+        { "name": "Tilt Range", "value": "+15 / -5 degrees", "isNonNeg": false },
+        { "name": "Depth From Wall", "value": "2.2 in (55.8 mm)", "isNonNeg": false }
+      ],
+      "estListPrice": 144.99,
+      "priceSource": "crimsonav.com",
+      "specSheetUrl": "https://crimsonav.com/product/t63/"
+    }
+  ]
+}

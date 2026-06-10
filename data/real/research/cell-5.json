@@ -1,0 +1,142 @@
+{
+  "category": "electrical",
+  "subcategory": "Switches",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "1451-2W",
+      "brand": "Leviton",
+      "name": "Leviton 1451-2W Single-Pole Toggle Switch",
+      "description": "15 Amp 120 Volt toggle framed single-pole AC quiet switch, residential grade, grounding, Quickwire push-in and side wired, white.",
+      "specs": [
+        { "name": "Type", "value": "Single-Pole", "isNonNeg": true },
+        { "name": "Style", "value": "Toggle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false }
+      ],
+      "estListPrice": 1.67,
+      "priceSource": "acandb.com",
+      "specSheetUrl": "https://leviton.com/products/1451-2w"
+    },
+    {
+      "mpn": "1453-2W",
+      "brand": "Leviton",
+      "name": "Leviton 1453-2W 3-Way Toggle Switch",
+      "description": "15 Amp 120 Volt toggle framed 3-way AC quiet switch, residential grade, grounding, Quickwire push-in and side wired, white.",
+      "specs": [
+        { "name": "Type", "value": "3-Way", "isNonNeg": true },
+        { "name": "Style", "value": "Toggle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false }
+      ],
+      "estListPrice": 2.03,
+      "priceSource": "govolition.com",
+      "specSheetUrl": "https://leviton.com/products/1453-2w"
+    },
+    {
+      "mpn": "1221-2W",
+      "brand": "Leviton",
+      "name": "Leviton 1221-2W Industrial Toggle Switch",
+      "description": "20 Amp 120/277 Volt toggle single-pole AC quiet switch, extra heavy duty industrial spec grade, self-grounding, white.",
+      "specs": [
+        { "name": "Type", "value": "Single-Pole", "isNonNeg": true },
+        { "name": "Style", "value": "Toggle", "isNonNeg": true },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial Specification", "isNonNeg": false }
+      ],
+      "estListPrice": 4.31,
+      "priceSource": "galesburgelectric.com",
+      "specSheetUrl": "https://leviton.com/products/1221-2w"
+    },
+    {
+      "mpn": "5601-2W",
+      "brand": "Leviton",
+      "name": "Leviton 5601-2W Decora Rocker Switch",
+      "description": "15 Amp 120/277 Volt Decora rocker single-pole AC quiet switch, residential grade, grounding, Quickwire push-in and side wired, white.",
+      "specs": [
+        { "name": "Type", "value": "Single-Pole", "isNonNeg": true },
+        { "name": "Style", "value": "Rocker", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false }
+      ],
+      "estListPrice": 5.02,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://leviton.com/products/5601-2w"
+    },
+    {
+      "mpn": "CA-1PS-WH",
+      "brand": "Lutron",
+      "name": "Lutron CA-1PS-WH Claro Paddle Switch",
+      "description": "Claro 15 Amp single-pole general purpose paddle switch, 120/277 VAC, gloss finish, white.",
+      "specs": [
+        { "name": "Type", "value": "Single-Pole", "isNonNeg": true },
+        { "name": "Style", "value": "Paddle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false }
+      ],
+      "estListPrice": 8.44,
+      "priceSource": "prolighting.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/0301637.pdf"
+    },
+    {
+      "mpn": "PS20AC1-I",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour PS20AC1-I Industrial Toggle",
+      "description": "Industrial extra heavy duty specification grade toggle switch, single-pole, 20A 120/277VAC, back and side wire, ivory.",
+      "specs": [
+        { "name": "Type", "value": "Single-Pole", "isNonNeg": true },
+        { "name": "Style", "value": "Toggle", "isNonNeg": true },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Color", "value": "Ivory", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial Specification", "isNonNeg": false }
+      ],
+      "estListPrice": 6.44,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/light-switches-and-dimmers/nafta-compliant/industrial-extra-heavy-duty-specification-grade-switch-ivory/p/ps20ac1i"
+    },
+    {
+      "mpn": "HBL1221W",
+      "brand": "Hubbell",
+      "name": "Hubbell HBL1221W Industrial Toggle Switch",
+      "description": "HBL extra heavy duty industrial grade toggle switch, single-pole, 20A 120/277V AC, back and side wired, white toggle.",
+      "specs": [
+        { "name": "Type", "value": "Single-Pole", "isNonNeg": true },
+        { "name": "Style", "value": "Toggle", "isNonNeg": true },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 6.20,
+      "priceSource": "codale.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL1221W_spec.pdf"
+    },
+    {
+      "mpn": "CS120W",
+      "brand": "Hubbell",
+      "name": "Hubbell CS120W Commercial Toggle Switch",
+      "description": "Commercial grade toggle switch, single-pole, 20A 120/277V AC, side wired, white toggle.",
+      "specs": [
+        { "name": "Type", "value": "Single-Pole", "isNonNeg": true },
+        { "name": "Style", "value": "Toggle", "isNonNeg": true },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Commercial", "isNonNeg": false }
+      ],
+      "estListPrice": 5.06,
+      "priceSource": "worldelectricsupply.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_CS120W_spec.pdf"
+    }
+  ]
+}

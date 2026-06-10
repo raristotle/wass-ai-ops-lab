@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "EV Charging Stations",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "CPH50-NEMA6-50-L23",
+      "brand": "ChargePoint",
+      "name": "ChargePoint CPH50-NEMA6-50-L23 Home Flex Level 2",
+      "description": "Home Flex Level 2 EVSE, up to 50A/12 kW output, NEMA 6-50 plug, 23 ft J1772 cable, Wi-Fi connected, ENERGY STAR certified.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "50A max (adjustable 16-50A)", "isNonNeg": true },
+        { "name": "Connector", "value": "SAE J1772", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "Wi-Fi, Bluetooth", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 579,
+      "priceSource": "bulbs.com",
+      "specSheetUrl": "https://docs.chargepoint.com/ref-docs-sec/content/pdfs/1-home/flex/flex-ds.pdf"
+    },
+    {
+      "mpn": "PUP1-U-1-5-N-002-A",
+      "brand": "Wallbox",
+      "name": "Wallbox PUP1-U-1-5-N-002-A Pulsar Plus 40A",
+      "description": "Pulsar Plus Level 2 smart charger, 9.6 kW/40A, NEMA 14-50 plug, 25 ft J1772 cable, Wi-Fi/Bluetooth via myWallbox app.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "40A max (adjustable 6-40A)", "isNonNeg": true },
+        { "name": "Connector", "value": "SAE J1772", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, NEMA Type 4, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "Wi-Fi, Bluetooth", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "208/240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 649,
+      "priceSource": "srpmarketplace.com",
+      "specSheetUrl": "https://support.wallbox.com/wp-content/uploads/ht_kb/2021/02/Pulsar_Plus_Datasheet.pdf"
+    },
+    {
+      "mpn": "EV48W",
+      "brand": "Leviton",
+      "name": "Leviton EV48W EV Series Smart Charger",
+      "description": "EV Series Level 2 smart charging station, 48A/11.6 kW, hardwired, 18 ft J1772 cable, Wi-Fi via My Leviton app, NEMA Type 3R.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "48A", "isNonNeg": true },
+        { "name": "Connector", "value": "SAE J1772", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, hardwired, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "Wi-Fi (My Leviton app)", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "208/240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 1079.63,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/ev48w",
+      "upc": "078477877593"
+    },
+    {
+      "mpn": "1734411-02-E",
+      "brand": "Tesla",
+      "name": "Tesla 1734411-02-E Universal Wall Connector",
+      "description": "Level 2 wall connector with NACS connector and integrated J1772 adapter, up to 48A/11.5 kW, 24 ft cable, Wi-Fi enabled.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "48A max (configurable 12-48A)", "isNonNeg": true },
+        { "name": "Connector", "value": "NACS with integrated J1772 adapter", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "Wi-Fi", "isNonNeg": false },
+        { "name": "Cable Length", "value": "24 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 549,
+      "priceSource": "smartchargeamerica.com",
+      "specSheetUrl": "https://energylibrary.tesla.com/docs/Public/More/Powershare/InstallManual/HomeBackup/en-us/GUID-36D8D1B7-7863-44B3-B487-78573D7E7DA6.html"
+    },
+    {
+      "mpn": "GR1-14-24-PB",
+      "brand": "Grizzl-E",
+      "name": "Grizzl-E GR1-14-24-PB Classic 40A",
+      "description": "Classic Level 2 charger, adjustable 16/24/32/40A output, NEMA 14-50 plug, 24 ft J1772 cable, NEMA 4 aluminum enclosure, UL listed.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "40A max (adjustable 16/24/32/40A)", "isNonNeg": true },
+        { "name": "Connector", "value": "SAE J1772", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, NEMA 4 cast aluminum, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "None (non-networked)", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 349.99,
+      "priceSource": "apevchargers.com",
+      "specSheetUrl": "https://grizzl-e.com/products-specs/grizzl-e-classic"
+    },
+    {
+      "mpn": "EMEVSE1UL",
+      "brand": "Emporia",
+      "name": "Emporia EMEVSE1UL Level 2 Smart Charger",
+      "description": "Smart Level 2 EV charger, up to 48A/11.5 kW hardwired or 40A via NEMA 14-50, 24 ft J1772 cable, NEMA Type 4, Wi-Fi app control.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "48A hardwired / 40A plug-in", "isNonNeg": true },
+        { "name": "Connector", "value": "SAE J1772", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, NEMA Type 4, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "Wi-Fi (Emporia app)", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "208/240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 429,
+      "priceSource": "smartchargeamerica.com",
+      "specSheetUrl": "https://emporiaenergy.com/EV%20Charger%20Technical%20Specs.pdf"
+    },
+    {
+      "mpn": "HCS-40",
+      "brand": "Enphase",
+      "name": "Enphase HCS-40 ClipperCreek EVSE",
+      "description": "ClipperCreek HCS-40 Level 2 EVSE, 32A/7.7 kW, hardwired on 40A circuit, 25 ft J1772 cable, NEMA 4 enclosure, non-networked.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "32A", "isNonNeg": true },
+        { "name": "Connector", "value": "SAE J1772", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, NEMA 4, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "None (non-networked)", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 622,
+      "priceSource": "enphase.com",
+      "specSheetUrl": "https://enphase.com/download/clippercreek-hcs-40-data-sheet"
+    },
+    {
+      "mpn": "Maxi US AC LW12",
+      "brand": "Autel",
+      "name": "Autel Maxi US AC LW12 MaxiCharger AC Lite",
+      "description": "MaxiCharger AC Lite Home Level 2 charger, up to 50A/12 kW, 25 ft cable, NEMA 4X enclosure, Wi-Fi/Bluetooth/Ethernet connectivity.",
+      "specs": [
+        { "name": "Level", "value": "Level 2", "isNonNeg": true },
+        { "name": "Output Current", "value": "50A max (adjustable 6-50A)", "isNonNeg": true },
+        { "name": "Connector", "value": "SAE J1772 (NACS option available)", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall mount, NEMA 4X, indoor/outdoor", "isNonNeg": false },
+        { "name": "Connectivity", "value": "Wi-Fi, Bluetooth, Ethernet", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 469,
+      "priceSource": "store.autelenergy.com",
+      "specSheetUrl": "https://store.autelenergy.com/products/ac-lite-home-50a-ev-charger"
+    }
+  ]
+}

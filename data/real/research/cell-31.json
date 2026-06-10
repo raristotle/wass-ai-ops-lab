@@ -1,0 +1,177 @@
+{
+  "category": "electrical",
+  "subcategory": "Dimmers & Lighting Controls",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "DVCL-153P-WH",
+      "brand": "Lutron",
+      "name": "Lutron DVCL-153P-WH Diva LED+ Dimmer",
+      "description": "Diva LED+ paddle dimmer with slide, 150 W dimmable LED/CFL or 600 W incandescent/halogen, single-pole/3-way, no neutral, 120 V.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable LED/CFL, Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "150 W LED/CFL; 600 W incandescent/halogen", "isNonNeg": true },
+        { "name": "Control Style", "value": "Paddle switch with captive slide", "isNonNeg": false },
+        { "name": "Color", "value": "White (gloss)", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / 3-Way", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 28.97,
+      "priceSource": "prolighting.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369682.pdf"
+    },
+    {
+      "mpn": "MACL-153M-WH",
+      "brand": "Lutron",
+      "name": "Lutron MACL-153M-WH Maestro LED+ Dimmer",
+      "description": "Maestro LED+ digital fade dimmer, 150 W dimmable LED/CFL or 600 W incandescent/halogen, single-pole/multi-location, 120 V.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable LED/CFL, Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "150 W LED/CFL; 600 W incandescent/halogen", "isNonNeg": true },
+        { "name": "Control Style", "value": "Tap switch with rocker, digital fade", "isNonNeg": false },
+        { "name": "Color", "value": "White (gloss)", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / Multi-Location", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 35.76,
+      "priceSource": "prolighting.com",
+      "specSheetUrl": "https://www.lutron.com/TechnicalDocumentLibrary/369613a.pdf"
+    },
+    {
+      "mpn": "TGCL-153PH-WH",
+      "brand": "Lutron",
+      "name": "Lutron TGCL-153PH-WH Toggler LED+ Dimmer",
+      "description": "Toggler LED+ toggle dimmer with slide, 150 W dimmable LED/CFL or 600 W incandescent/halogen, single-pole/3-way, 120 V.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable LED/CFL, Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "150 W LED/CFL; 600 W incandescent/halogen", "isNonNeg": true },
+        { "name": "Control Style", "value": "Toggle with slide", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / 3-Way", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 31.99,
+      "priceSource": "acehardware.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369686.pdf"
+    },
+    {
+      "mpn": "CTCL-153PDH-WH",
+      "brand": "Lutron",
+      "name": "Lutron CTCL-153PDH-WH Skylark Contour LED+ Dimmer",
+      "description": "Skylark Contour LED+ slide dimmer, 150 W dimmable LED/CFL or 600 W incandescent/halogen, single-pole/3-way, 120 V.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable LED/CFL, Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "150 W LED/CFL; 600 W incandescent/halogen", "isNonNeg": true },
+        { "name": "Control Style", "value": "Linear slide with on/off", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / 3-Way", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 24.97,
+      "priceSource": "lbclightingpro.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369683.pdf"
+    },
+    {
+      "mpn": "DV-600P-WH",
+      "brand": "Lutron",
+      "name": "Lutron DV-600P-WH Diva 600W Dimmer",
+      "description": "Diva paddle dimmer with captive linear slide, 600 W incandescent/halogen, single-pole, 120 V, power-failure memory.",
+      "specs": [
+        { "name": "Load Type", "value": "Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "600 W", "isNonNeg": true },
+        { "name": "Control Style", "value": "Paddle switch with captive slide", "isNonNeg": false },
+        { "name": "Color", "value": "White (gloss)", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 28.42,
+      "priceSource": "worldelectricsupply.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/divasatincolors.pdf"
+    },
+    {
+      "mpn": "PD-6WCL-WH",
+      "brand": "Lutron",
+      "name": "Lutron PD-6WCL-WH Caseta Smart Dimmer",
+      "description": "Caseta Wireless in-wall smart dimmer, 150 W dimmable LED/CFL or 600 W incandescent/halogen, single-pole/multi-location, no neutral.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable LED/CFL, Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "150 W LED/CFL; 600 W incandescent/halogen", "isNonNeg": true },
+        { "name": "Control Style", "value": "Smart wireless (Clear Connect RF), tap buttons", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / Multi-Location (with Pico remote)", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 64.95,
+      "priceSource": "bulbs.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369987_eng.pdf"
+    },
+    {
+      "mpn": "6674-P0W",
+      "brand": "Leviton",
+      "name": "Leviton 6674-P0W SureSlide Universal Dimmer",
+      "description": "Decora SureSlide universal dimmer, 150 W dimmable LED/CFL or 600 W incandescent/halogen, single-pole/3-way, 120 V.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable LED/CFL, Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "150 W LED/CFL; 600 W incandescent/halogen", "isNonNeg": true },
+        { "name": "Control Style", "value": "Preset slide", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / 3-Way", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 18.49,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://leviton.com/products/6674-p0w"
+    },
+    {
+      "mpn": "DSL06-1LZ",
+      "brand": "Leviton",
+      "name": "Leviton DSL06-1LZ Decora Rocker Slide Dimmer",
+      "description": "Decora rocker slide universal dimmer, 300 W dimmable LED/CFL or 600 W incandescent/halogen, single-pole/3-way, neutral optional.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable LED/CFL, Incandescent, Halogen", "isNonNeg": true },
+        { "name": "Wattage", "value": "300 W LED/CFL; 600 W incandescent/halogen", "isNonNeg": true },
+        { "name": "Control Style", "value": "Rocker with slide, separate on/off", "isNonNeg": false },
+        { "name": "Color", "value": "White (ivory and light almond faceplates included)", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / 3-Way", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC, 60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 27.01,
+      "priceSource": "electricalparts.com",
+      "specSheetUrl": "https://leviton.com/products/dsl06-1lz"
+    },
+    {
+      "mpn": "RHCL453PW",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour RHCL453PW radiant CFL/LED Dimmer",
+      "description": "radiant single-pole/3-way preset dimmer for dimmable CFL/LED, 450 W, 120 V, rocker with slide, white.",
+      "specs": [
+        { "name": "Load Type", "value": "Dimmable CFL/LED", "isNonNeg": true },
+        { "name": "Wattage", "value": "450 W", "isNonNeg": true },
+        { "name": "Control Style", "value": "Rocker with slide", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / 3-Way", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 39.60,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://www.legrand.us/p/print/RHCL453PW.pdf"
+    },
+    {
+      "mpn": "RH703PTUW",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour RH703PTUW radiant Tru-Universal Dimmer",
+      "description": "radiant Tru-Universal paddle dimmer, 700 W incandescent/halogen/ELV, 450 W MLV, dimmable LED/CFL, single-pole/3-way, white.",
+      "specs": [
+        { "name": "Load Type", "value": "Universal: LED, CFL, incandescent, halogen, ELV, MLV", "isNonNeg": true },
+        { "name": "Wattage", "value": "700 W incandescent/halogen/ELV; 450 W MLV", "isNonNeg": true },
+        { "name": "Control Style", "value": "Paddle with slide, locator light", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-Pole / 3-Way", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 72.38,
+      "priceSource": "lightbulbsetc.com",
+      "specSheetUrl": "https://www.legrand.us/p/print/RH703PTUW.pdf"
+    }
+  ]
+}

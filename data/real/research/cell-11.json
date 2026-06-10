@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "Panelboards",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "NQ442L2C",
+      "brand": "Square D",
+      "name": "Square D NQ442L2C 225A NQ Panelboard Interior",
+      "description": "NQ panelboard interior, main lugs, 225A, Cu bus, 42 pole spaces, 3-phase 4-wire, 240 VAC/48 VDC; accepts QOB/QHB bolt-on breakers.",
+      "specs": [
+        { "name": "Amperage", "value": "225 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240 VAC / 48 VDC max", "isNonNeg": true },
+        { "name": "Type", "value": "Main lug interior, convertible", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Copper", "isNonNeg": false },
+        { "name": "Pole Spaces", "value": "42", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 647.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://iportal.se.com/Contents/docs/SQD-NQ442L2C_DATASHEET.PDF"
+    },
+    {
+      "mpn": "NQ430L2C",
+      "brand": "Square D",
+      "name": "Square D NQ430L2C 225A NQ Panelboard Interior",
+      "description": "NQ panelboard interior, main lugs, 225A, Cu bus, 30 pole spaces, 3-phase 4-wire, 240 VAC/48 VDC; field convertible top/bottom feed.",
+      "specs": [
+        { "name": "Amperage", "value": "225 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240 VAC / 48 VDC max", "isNonNeg": true },
+        { "name": "Type", "value": "Main lug interior, convertible", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Copper", "isNonNeg": false },
+        { "name": "Pole Spaces", "value": "30", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 534.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://iportal.se.com/Contents/docs/SQD-NQ430L2C_DATASHEET.PDF"
+    },
+    {
+      "mpn": "NQ442L2",
+      "brand": "Square D",
+      "name": "Square D NQ442L2 225A NQ Panelboard Interior",
+      "description": "NQ panelboard interior, main lugs, 225A, Al bus, 42 pole spaces, 3-phase 4-wire, 240 VAC/48 VDC max.",
+      "specs": [
+        { "name": "Amperage", "value": "225 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240 VAC / 48 VDC max", "isNonNeg": true },
+        { "name": "Type", "value": "Main lug interior", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Aluminum", "isNonNeg": false },
+        { "name": "Pole Spaces", "value": "42", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 1116.03,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/NQ442L2/panelboard-interior-nq-main-lugs-225a-al-bus-42-pole-spaces-3-phase-4-wire-240vac-48vdc/"
+    },
+    {
+      "mpn": "NQ430L1C",
+      "brand": "Square D",
+      "name": "Square D NQ430L1C 100A NQ Panelboard Interior",
+      "description": "NQ panelboard interior, main lugs, 100A, Cu bus, 30 pole spaces, 3-phase 4-wire, 240 VAC/48 VDC; accepts QOB/QOB-VH/QHB breakers.",
+      "specs": [
+        { "name": "Amperage", "value": "100 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240 VAC / 48 VDC max", "isNonNeg": true },
+        { "name": "Type", "value": "Main lug interior", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Copper", "isNonNeg": false },
+        { "name": "Pole Spaces", "value": "30", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 543.18,
+      "priceSource": "superbreakers.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/NQ430L1C/panelboard-interior-nq-main-lugs-100a-cu-bus-30-pole-spaces-3-phase-4-wire-240vac-48vdc/"
+    },
+    {
+      "mpn": "NF442L2",
+      "brand": "Square D",
+      "name": "Square D NF442L2 250A NF Panelboard Interior",
+      "description": "NF panelboard interior, main lugs, 250A, Al bus, 42 pole spaces, 3-phase 4-wire, 600Y/347 VAC max; accepts bolt-on EDB/EGB/EJB breakers.",
+      "specs": [
+        { "name": "Amperage", "value": "250 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "600Y/347 VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Main lug interior", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Aluminum", "isNonNeg": false },
+        { "name": "Pole Spaces", "value": "42", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 1000.35,
+      "priceSource": "blackhawksupply.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/NF442L2/panelboard-interior-nf-main-lugs-250a-al-bus-42-pole-spaces-3-phase-4-wire-600y-347vac-max/"
+    },
+    {
+      "mpn": "NF442L2C",
+      "brand": "Square D",
+      "name": "Square D NF442L2C 250A NF Panelboard Interior",
+      "description": "NF panelboard interior, main lugs, 250A, Cu bus with Al neutral assembly, 42 pole spaces, 3-phase 4-wire, 600Y/347 VAC max.",
+      "specs": [
+        { "name": "Amperage", "value": "250 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "600Y/347 VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Main lug interior", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Copper", "isNonNeg": false },
+        { "name": "Pole Spaces", "value": "42", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 1202.73,
+      "priceSource": "blackhawksupply.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/NF442L2C/panelboard-interior-nf-main-lugs-250a-cu-bus-al-neutral-assembly-42-pole-spaces-3-phase-4-wire-600y-347vac-max/"
+    },
+    {
+      "mpn": "P1X42MC250CT",
+      "brand": "Siemens",
+      "name": "Siemens P1X42MC250CT 250A P1 Panelboard Interior",
+      "description": "Type P1 panelboard interior, 250A, 208Y/120 VAC, 3-phase 4-wire, 42 circuits, copper bus; convertible main lug to main breaker.",
+      "specs": [
+        { "name": "Amperage", "value": "250 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "208Y/120 VAC", "isNonNeg": true },
+        { "name": "Type", "value": "Convertible main lug / main breaker interior", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Copper", "isNonNeg": false },
+        { "name": "Circuits", "value": "42", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 469.69,
+      "priceSource": "standardelectricsupply.com",
+      "specSheetUrl": "https://cache.industry.siemens.com/dl/files/956/109799956/att_1147894/v1/SIE_CS_P1.pdf"
+    },
+    {
+      "mpn": "AQU3422RCXAXT1B4",
+      "brand": "GE",
+      "name": "GE AQU3422RCXAXT1B4 225A A-Series Panelboard",
+      "description": "A-Series Pro-Stock lighting panelboard interior, 225A, 208Y/120 VAC, 3-phase 4-wire, 42 circuits, copper bus, feed-through lugs.",
+      "specs": [
+        { "name": "Amperage", "value": "225 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "208Y/120 VAC", "isNonNeg": true },
+        { "name": "Type", "value": "Main lug interior with feed-through lugs", "isNonNeg": true },
+        { "name": "Bus Material", "value": "Copper", "isNonNeg": false },
+        { "name": "Circuits", "value": "42", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase, 4-wire", "isNonNeg": false }
+      ],
+      "estListPrice": 797.55,
+      "priceSource": "northcoast.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/AQU3422RCXAXT1B4",
+      "upc": "783175408641"
+    }
+  ]
+}

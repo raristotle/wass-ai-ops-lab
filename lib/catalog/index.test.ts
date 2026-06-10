@@ -5,11 +5,11 @@ describe("getCatalog", () => {
   it("returns a cached singleton (same reference)", () => {
     expect(getCatalog()).toBe(getCatalog());
   });
-  it("indexes 60000 products by id with a haystack", () => {
+  it("indexes 200000 products by id with a haystack", () => {
     const c = getCatalog();
-    expect(c.products).toHaveLength(60000);
+    expect(c.products).toHaveLength(200000);
     expect(c.byId.get(c.products[0].id)).toBe(c.products[0]);
-    expect(c.haystack).toHaveLength(60000);
+    expect(c.haystack).toHaveLength(200000);
     expect(c.haystack[0]).toBe(c.haystack[0].toLowerCase());
   });
 });

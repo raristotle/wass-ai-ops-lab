@@ -1,0 +1,159 @@
+{
+  "category": "electrical",
+  "subcategory": "Occupancy & Vacancy Sensors",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "MS-OPS2-WH",
+      "brand": "Lutron",
+      "name": "Lutron MS-OPS2-WH Maestro Occupancy Sensor Switch",
+      "description": "Maestro PIR occupancy/vacancy sensor switch, 2 A, 120 V, single-pole, no neutral required, 180-degree field of view.",
+      "specs": [
+        { "name": "Technology", "value": "Passive Infrared (PIR) with XCT", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall Switch", "isNonNeg": true },
+        { "name": "Coverage", "value": "900 sq ft major / 400 sq ft minor, 180 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Auto-On/Auto-Off or Manual-On (selectable)", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": false },
+        { "name": "Amperage", "value": "2 A", "isNonNeg": false }
+      ],
+      "estListPrice": 22.88,
+      "priceSource": "prolighting.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369666.pdf"
+    },
+    {
+      "mpn": "MS-OPS5M-WH",
+      "brand": "Lutron",
+      "name": "Lutron MS-OPS5M-WH Maestro Occupancy Sensor Switch",
+      "description": "Maestro 5 A PIR occupancy/vacancy sensor switch, 600 W incandescent / 3 A fan, single-pole/multi-location, no neutral required.",
+      "specs": [
+        { "name": "Technology", "value": "Passive Infrared (PIR) with XCT", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall Switch", "isNonNeg": true },
+        { "name": "Coverage", "value": "900 sq ft major / 400 sq ft minor, 180 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Occupancy or vacancy (selectable)", "isNonNeg": false },
+        { "name": "Max Load", "value": "600 W incandescent, 360 W CFL/LED, 3 A fan", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 31.06,
+      "priceSource": "electricsuppliesonline.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369666.pdf"
+    },
+    {
+      "mpn": "MS-VPS5M-WH",
+      "brand": "Lutron",
+      "name": "Lutron MS-VPS5M-WH Maestro Vacancy Sensor Switch",
+      "description": "Maestro PIR vacancy-only sensor switch, manual-ON/auto-OFF, 5 A light / 3 A fan, single-pole/multi-location, 120 V.",
+      "specs": [
+        { "name": "Technology", "value": "Passive Infrared (PIR) with XCT", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall Switch", "isNonNeg": true },
+        { "name": "Coverage", "value": "900 sq ft major / 400 sq ft minor, 180 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Vacancy (Manual-On/Auto-Off)", "isNonNeg": false },
+        { "name": "Amperage", "value": "5 A light / 3 A fan", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 30.89,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369666.pdf"
+    },
+    {
+      "mpn": "ODS10-IDW",
+      "brand": "Leviton",
+      "name": "Leviton ODS10-IDW Decora Wall Switch Occupancy Sensor",
+      "description": "Decora PIR wall switch occupancy sensor, 180-deg / 2100 sq ft coverage, 800 W @ 120 V, 120/277 V, no neutral required.",
+      "specs": [
+        { "name": "Technology", "value": "Passive Infrared (PIR)", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall Switch", "isNonNeg": true },
+        { "name": "Coverage", "value": "2100 sq ft, 180 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Auto-On/Auto-Off or Manual-On (selectable)", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 VAC", "isNonNeg": false },
+        { "name": "Max Load", "value": "800 W incandescent @ 120 V; 1200 VA @ 120 V / 2700 VA @ 277 V ballast", "isNonNeg": false }
+      ],
+      "estListPrice": 56.09,
+      "priceSource": "standardelectricsupply.com",
+      "specSheetUrl": "https://leviton.com/content/dam/leviton/lighting-controls/controls/product_documents/product_specification/Passive-Infrared-Wall-Switch-Occupancy-Sensor-ODS10-ID-English-Data-Sheet.pdf"
+    },
+    {
+      "mpn": "IPS02-1LW",
+      "brand": "Leviton",
+      "name": "Leviton IPS02-1LW Decora Motion Sensor Switch",
+      "description": "Decora PIR in-wall motion sensor switch, auto-ON/auto-OFF, 2.5 A, single-pole, 900 sq ft 180-deg coverage, no neutral required.",
+      "specs": [
+        { "name": "Technology", "value": "Passive Infrared (PIR)", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall Switch", "isNonNeg": true },
+        { "name": "Coverage", "value": "900 sq ft, 180 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Auto-On/Auto-Off", "isNonNeg": false },
+        { "name": "Max Load", "value": "150 W LED/CFL, 300 W incandescent/halogen", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 9.99,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/products/ips02-1lw"
+    },
+    {
+      "mpn": "OSC10-M0W",
+      "brand": "Leviton",
+      "name": "Leviton OSC10-M0W Multi-Tech Ceiling Occupancy Sensor",
+      "description": "Multi-technology (PIR + ultrasonic) ceiling-mount occupancy sensor, 360 deg, 1000 sq ft coverage, 24 VDC, used with power packs.",
+      "specs": [
+        { "name": "Technology", "value": "Multi-Technology (PIR + Ultrasonic)", "isNonNeg": true },
+        { "name": "Mounting", "value": "Ceiling", "isNonNeg": true },
+        { "name": "Coverage", "value": "1000 sq ft, 360 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Occupancy (Auto-On/Auto-Off)", "isNonNeg": false },
+        { "name": "Voltage", "value": "24 VDC, 35 mA", "isNonNeg": false },
+        { "name": "Time Delay", "value": "30 sec - 30 min adjustable", "isNonNeg": false }
+      ],
+      "estListPrice": 237.44,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://leviton.com/content/dam/leviton/lighting-controls/controls/product_documents/product_specification/Multi-Technology-Ceiling-Mount-Occupancy-Sensor-OSCxx-MxW-English-Data-Sheet.pdf"
+    },
+    {
+      "mpn": "PW-100-W",
+      "brand": "Wattstopper",
+      "name": "Wattstopper PW-100-W PIR Wall Switch Occupancy Sensor",
+      "description": "PIR wall switch occupancy sensor, 120/277 VAC, 800 W @ 120 V / 1200 W @ 277 V, no neutral required, vandal-resistant lens.",
+      "specs": [
+        { "name": "Technology", "value": "Passive Infrared (PIR)", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall Switch", "isNonNeg": true },
+        { "name": "Coverage", "value": "35 ft x 30 ft major motion, 180 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Auto-On or Manual-On (selectable)", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 VAC", "isNonNeg": false },
+        { "name": "Time Delay", "value": "5-30 min selectable", "isNonNeg": false }
+      ],
+      "estListPrice": 123.42,
+      "priceSource": "readyelectricsupply.com",
+      "specSheetUrl": "https://www.legrand.us/p/print/PW-100-W.pdf"
+    },
+    {
+      "mpn": "DT-355",
+      "brand": "Wattstopper",
+      "name": "Wattstopper DT-355 Dual Technology Ceiling Sensor",
+      "description": "Dual-technology (PIR + ultrasonic) line-voltage ceiling occupancy sensor, 360 deg, 1000 sq ft, 120-347 VAC, light-level sensor.",
+      "specs": [
+        { "name": "Technology", "value": "Dual Technology (PIR + Ultrasonic)", "isNonNeg": true },
+        { "name": "Mounting", "value": "Ceiling", "isNonNeg": true },
+        { "name": "Coverage", "value": "1000 sq ft, 360 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Auto-On/Auto-Off with walk-through mode", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/230/277/347 VAC, 50/60 Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 178.53,
+      "priceSource": "electricalparts.com",
+      "specSheetUrl": "https://www.legrand.us/p/print/DT-355-U.pdf"
+    },
+    {
+      "mpn": "WSX PDT WH",
+      "brand": "Sensor Switch",
+      "name": "Sensor Switch WSX PDT WH Dual Technology Wall Switch Sensor",
+      "description": "Passive dual technology (PIR + Microphonics) wall switch occupancy sensor, 120/277 VAC, works with or without a neutral.",
+      "specs": [
+        { "name": "Technology", "value": "Passive Dual Technology (PIR + Microphonics)", "isNonNeg": true },
+        { "name": "Mounting", "value": "Wall Switch", "isNonNeg": true },
+        { "name": "Coverage", "value": "Small motion detection up to 20 ft, 180 deg", "isNonNeg": false },
+        { "name": "Mode", "value": "Auto-On/Auto-Off", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 VAC", "isNonNeg": false },
+        { "name": "Max Load", "value": "800 W @ 120 V / 1200 W @ 277 V", "isNonNeg": false }
+      ],
+      "estListPrice": 146.70,
+      "priceSource": "superiorlighting.com",
+      "specSheetUrl": "https://pdmassets.azureedge.net/library/SS/documents/specsheets/WSX%20Family.pdf"
+    }
+  ]
+}

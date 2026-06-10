@@ -1,0 +1,161 @@
+{
+  "category": "electrical",
+  "subcategory": "Load Centers",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "QO130M200PC",
+      "brand": "Square D",
+      "name": "Square D QO130M200PC 200A Main Breaker Load Center",
+      "description": "QO load center, 1 phase, 30 spaces/30 circuits, 200A convertible main breaker, plug-on neutral, NEMA 1, combo cover.",
+      "specs": [
+        { "name": "Main Rating", "value": "200 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "30", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker, convertible (plug-on neutral)", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 311.63,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/QO130M200PC/load-center-qo-1-phase-30-spaces-30-circuits-200a-convertible-main-breaker-pon-nema1-combo-cover/"
+    },
+    {
+      "mpn": "QO142M200PC",
+      "brand": "Square D",
+      "name": "Square D QO142M200PC 200A 42-Space Load Center",
+      "description": "QO load center, 1 phase, 42 spaces/52 circuits, 200A convertible main breaker, plug-on neutral, NEMA 1, combination cover.",
+      "specs": [
+        { "name": "Main Rating", "value": "200 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "42", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker, convertible (plug-on neutral)", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Max Circuits", "value": "52", "isNonNeg": false }
+      ],
+      "estListPrice": 379.99,
+      "priceSource": "acehardware.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/QO142M200PC/qo-loadcenter,-main-breaker,-200a,-1ph-3w,-42sp,-nema-1,-comb.cv,-pon/"
+    },
+    {
+      "mpn": "QO342L225G",
+      "brand": "Square D",
+      "name": "Square D QO342L225G 225A 3-Phase Main Lug Load Center",
+      "description": "QO load center, 3 phase, 42 spaces/42 circuits, 225A fixed main lugs, NEMA 1, factory-installed ground bar.",
+      "specs": [
+        { "name": "Main Rating", "value": "225 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "42", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main lug only (fixed)", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "3-phase", "isNonNeg": false },
+        { "name": "Voltage", "value": "240 VAC max", "isNonNeg": false }
+      ],
+      "estListPrice": 511.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/QO342L225G/load-center-qo-3-phase-42-spaces-42-circuits-225a-fixed-main-lugs-nema1-gnd-bar/"
+    },
+    {
+      "mpn": "HOM2040M100PCVP",
+      "brand": "Square D",
+      "name": "Square D HOM2040M100PCVP 100A Homeline Value Pack",
+      "description": "Homeline load center, 1 phase, 20 spaces/40 circuits, 100A convertible main breaker, plug-on neutral, NEMA 1, value pack.",
+      "specs": [
+        { "name": "Main Rating", "value": "100 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "20", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker, convertible (plug-on neutral)", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Max Circuits", "value": "40", "isNonNeg": false }
+      ],
+      "estListPrice": 136.32,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/HOM2040M100PCVP/load-center-homeline-1-phase-20-spaces-40-circuits-100a-convertible-main-breaker-pon-nema1-value-pack/"
+    },
+    {
+      "mpn": "HOM3060M200PCVP",
+      "brand": "Square D",
+      "name": "Square D HOM3060M200PCVP 200A Homeline Value Pack",
+      "description": "Homeline load center, 1 phase, 30 spaces/60 circuits, 200A convertible main breaker, plug-on neutral, NEMA 1, value pack.",
+      "specs": [
+        { "name": "Main Rating", "value": "200 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "30", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker, convertible (plug-on neutral)", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Max Circuits", "value": "60", "isNonNeg": false }
+      ],
+      "estListPrice": 239.99,
+      "priceSource": "higginbothams.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/HOM3060M200PCVP/load-center-homeline-1-phase-30-spaces-60-circuits-200a-convertible-main-breaker-pon-nema1-value-pack/"
+    },
+    {
+      "mpn": "SN3048B1200",
+      "brand": "Siemens",
+      "name": "Siemens SN3048B1200 200A SN Series Load Center",
+      "description": "SN Series main breaker load center, 30 spaces/48 circuits, 1-phase 3-wire 120/240 VAC, 200A, plug-on neutral, aluminum bus, NEMA 1.",
+      "specs": [
+        { "name": "Main Rating", "value": "200 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "30", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker (plug-on neutral)", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Int. Rating", "value": "22 kA", "isNonNeg": false }
+      ],
+      "estListPrice": 241.12,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://cache.industry.siemens.com/dl/files/287/109983287/att_1316088/v1/SF-17-Sect-01-ALL-web.pdf"
+    },
+    {
+      "mpn": "P4040B1200CU",
+      "brand": "Siemens",
+      "name": "Siemens P4040B1200CU 200A PL Series Load Center",
+      "description": "PL Series main breaker load center, 40 spaces/40 circuits, 1-phase 3-wire 120/240 VAC, 200A, copper bus, indoor NEMA 1.",
+      "specs": [
+        { "name": "Main Rating", "value": "200 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "40", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker, convertible", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Bus Material", "value": "Copper", "isNonNeg": false }
+      ],
+      "estListPrice": 344.18,
+      "priceSource": "shopwirenco.com",
+      "specSheetUrl": "https://cache.industry.siemens.com/dl/files/343/109792343/att_1051430/v1/SIE_SA_ESPL_Sel_App_Guide.pdf"
+    },
+    {
+      "mpn": "TM3220CCU",
+      "brand": "GE",
+      "name": "GE TM3220CCU 200A PowerMark Gold Load Center",
+      "description": "PowerMark Gold 200A main breaker load center, 32 spaces, 120/240 VAC 1-phase 3-wire, 22 kA, tin-plated copper bus, NEMA 1 indoor.",
+      "specs": [
+        { "name": "Main Rating", "value": "200 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "32", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Int. Rating", "value": "22 kA", "isNonNeg": false }
+      ],
+      "estListPrice": 276.06,
+      "priceSource": "shopwirenco.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/TM3220CCU",
+      "upc": "783164112757"
+    },
+    {
+      "mpn": "LP320-BPD",
+      "brand": "Leviton",
+      "name": "Leviton LP320-BPD 200A Indoor Load Center",
+      "description": "30-space/30-circuit indoor load center with 200A main circuit breaker, tin-plated copper bus, NEMA 1; door sold separately.",
+      "specs": [
+        { "name": "Main Rating", "value": "200 A", "isNonNeg": true },
+        { "name": "Spaces", "value": "30", "isNonNeg": true },
+        { "name": "Main Type", "value": "Main breaker", "isNonNeg": true },
+        { "name": "Enclosure", "value": "NEMA 1 indoor", "isNonNeg": false },
+        { "name": "Phase", "value": "1-phase, 3-wire", "isNonNeg": false },
+        { "name": "Bus Material", "value": "Tin-plated copper", "isNonNeg": false }
+      ],
+      "estListPrice": 204.75,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://store.leviton.com/products/200-amp-30-space-30-circuit-indoor-load-center-enclosure-with-main-circuit-breaker-lp320-mb"
+    }
+  ]
+}

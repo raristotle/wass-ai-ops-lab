@@ -1,0 +1,169 @@
+{
+  "category": "electrical",
+  "subcategory": "Conduit Fittings",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "2602",
+      "brand": "RACO",
+      "name": "RACO 2602 EMT Set-Screw Connector",
+      "description": "1/2 in. EMT set-screw connector, uninsulated die-cast zinc; concrete-tight when taped; UL listed.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Set-Screw Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Die-Cast Zinc", "isNonNeg": false },
+        { "name": "Insulation", "value": "Non-Insulated", "isNonNeg": false }
+      ],
+      "estListPrice": 0.68,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-2602-SPEC-EN.pdf",
+      "upc": "050169026021"
+    },
+    {
+      "mpn": "2902",
+      "brand": "RACO",
+      "name": "RACO 2902 EMT Compression Connector",
+      "description": "1/2 in. EMT compression connector, uninsulated steel, zinc-electroplated; concrete-tight; UL 514B listed.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Compression Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, Zinc Electroplated", "isNonNeg": false },
+        { "name": "Insulation", "value": "Non-Insulated", "isNonNeg": false }
+      ],
+      "estListPrice": 0.43,
+      "priceSource": "worldelectricsupply.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-2902-SPEC-EN.pdf"
+    },
+    {
+      "mpn": "2622",
+      "brand": "RACO",
+      "name": "RACO 2622 EMT Set-Screw Coupling",
+      "description": "1/2 in. EMT set-screw coupling, die-cast zinc; couples two conduit ends; concrete-tight when taped.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Set-Screw Coupling", "isNonNeg": true },
+        { "name": "Material", "value": "Die-Cast Zinc", "isNonNeg": false },
+        { "name": "Insulation", "value": "Non-Insulated", "isNonNeg": false }
+      ],
+      "estListPrice": 0.55,
+      "priceSource": "lightingdirect.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-2622-SPEC-EN.pdf",
+      "upc": "050169026229"
+    },
+    {
+      "mpn": "250-DC2",
+      "brand": "Bridgeport",
+      "name": "Bridgeport 250-DC2 EMT Compression Connector",
+      "description": "1/2 in. screw-on EMT compression connector, die-cast zinc, ball-burnished; UL Listed concrete-tight.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Compression Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Die-Cast Zinc", "isNonNeg": false },
+        { "name": "Finish", "value": "Ball Burnished", "isNonNeg": false }
+      ],
+      "estListPrice": 0.63,
+      "priceSource": "galesburgelectric.com",
+      "specSheetUrl": "https://nsiindustries.com/product/screw-on-emt-compression-connector-1-2-die-cast-zinc/"
+    },
+    {
+      "mpn": "251-DC2",
+      "brand": "Bridgeport",
+      "name": "Bridgeport 251-DC2 EMT Compression Connector",
+      "description": "3/4 in. screw-on EMT compression connector, die-cast zinc; joins steel EMT to box or enclosure; concrete-tight.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Compression Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Die-Cast Zinc", "isNonNeg": false },
+        { "name": "Finish", "value": "Ball Burnished", "isNonNeg": false }
+      ],
+      "estListPrice": 1.1,
+      "priceSource": "galesburgelectric.com",
+      "specSheetUrl": "https://nsiindustries.com/product/screw-on-emt-compression-connector-3-4-die-cast-zinc/"
+    },
+    {
+      "mpn": "ST-50",
+      "brand": "Appleton",
+      "name": "Appleton ST-50 Liquidtight Connector",
+      "description": "1/2 in. straight liquidtight connector, plain throat, zinc-electroplated steel; seals out oil, water and dust; NEMA FB-1.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "Liquidtight Flexible Metal Conduit", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Straight Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, Zinc Electroplated", "isNonNeg": false },
+        { "name": "Throat", "value": "Plain", "isNonNeg": false }
+      ],
+      "estListPrice": 9.57,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.appleton.emerson.com/catalog/en-us/shop/appleton/appleton-sku-st50?locale=en-us",
+      "upc": "781381679107"
+    },
+    {
+      "mpn": "NM94",
+      "brand": "Arlington",
+      "name": "Arlington NM94 Black Button NM Cable Connector",
+      "description": "3/8 in. Black Button push-in NM cable connector for 1/2 in. knockouts; snap-in plastic; holds single or multiple cables.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/8 in (1/2 in KO)", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "NM-B Cable", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Push-In Cable Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Plastic", "isNonNeg": false },
+        { "name": "Cable Range", "value": "(1) 14/2 to (2) 12/3 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 0.24,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "http://www.aimedia.co/media/spec-sheets/NM94.pdf"
+    },
+    {
+      "mpn": "631",
+      "brand": "Topaz",
+      "name": "Topaz 631 EMT Set Screw Connector",
+      "description": "1/2 in. EMT set screw connector, die-cast zinc; concrete-tight when taped; UL listed.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Set Screw Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Die-Cast Zinc", "isNonNeg": false }
+      ],
+      "estListPrice": 0.58,
+      "priceSource": "kellyhayes.com",
+      "specSheetUrl": "https://www.topaz-usa.com/631"
+    },
+    {
+      "mpn": "632",
+      "brand": "Topaz",
+      "name": "Topaz 632 EMT Set Screw Connector",
+      "description": "3/4 in. EMT set screw connector, die-cast zinc; concrete-tight when taped; UL listed.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Set Screw Connector", "isNonNeg": true },
+        { "name": "Material", "value": "Die-Cast Zinc", "isNonNeg": false }
+      ],
+      "estListPrice": 0.53,
+      "priceSource": "emisupply.com",
+      "specSheetUrl": "https://www.topaz-usa.com/632"
+    },
+    {
+      "mpn": "E943E",
+      "brand": "Carlon",
+      "name": "Carlon E943E PVC Male Terminal Adapter",
+      "description": "3/4 in. PVC male terminal adapter for Schedule 40/80 rigid nonmetallic conduit; gray; socket to threaded male end.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Conduit Type", "value": "Rigid PVC (Sch 40/80)", "isNonNeg": true },
+        { "name": "Fitting Type", "value": "Male Terminal Adapter", "isNonNeg": true },
+        { "name": "Material", "value": "PVC", "isNonNeg": false },
+        { "name": "Color", "value": "Gray", "isNonNeg": false }
+      ],
+      "estListPrice": 0.34,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://carlonsales.com/techinfo/brochures/conduit/Conduit_Fittings_Schedule_40_and_80.pdf",
+      "upc": "034481062028"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "category": "electrical",
+  "subcategory": "Timers & Time Switches",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "T101",
+      "brand": "Intermatic",
+      "name": "Intermatic T101 24-Hour Mechanical Time Switch",
+      "description": "24-hour mechanical time switch, 40 A, 120 VAC, SPST, NEMA 1 indoor steel enclosure; up to 12 ON/OFF operations per day.",
+      "specs": [
+        { "name": "Type", "value": "24-Hour Mechanical", "isNonNeg": true },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "SPST", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1 indoor metal", "isNonNeg": false },
+        { "name": "Amperage", "value": "40 A per pole", "isNonNeg": false }
+      ],
+      "estListPrice": 70.25,
+      "priceSource": "electricsuppliesonline.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/T101"
+    },
+    {
+      "mpn": "T103",
+      "brand": "Intermatic",
+      "name": "Intermatic T103 24-Hour Mechanical Time Switch",
+      "description": "24-hour mechanical time switch, 40 A, 120 VAC, DPST, NEMA 1 indoor steel enclosure with manual override.",
+      "specs": [
+        { "name": "Type", "value": "24-Hour Mechanical", "isNonNeg": true },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "DPST", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1 indoor metal", "isNonNeg": false },
+        { "name": "Amperage", "value": "40 A per pole", "isNonNeg": false }
+      ],
+      "estListPrice": 74.88,
+      "priceSource": "electricsuppliesonline.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/T103"
+    },
+    {
+      "mpn": "T104",
+      "brand": "Intermatic",
+      "name": "Intermatic T104 24-Hour Mechanical Time Switch",
+      "description": "24-hour mechanical time switch, 40 A, 208-277 VAC, DPST, NEMA 1 indoor steel enclosure; 1-hour minimum ON/OFF interval.",
+      "specs": [
+        { "name": "Type", "value": "24-Hour Mechanical", "isNonNeg": true },
+        { "name": "Voltage", "value": "208-277 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "DPST", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1 indoor metal", "isNonNeg": false },
+        { "name": "Amperage", "value": "40 A per pole", "isNonNeg": false }
+      ],
+      "estListPrice": 128.84,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/T104"
+    },
+    {
+      "mpn": "T104R",
+      "brand": "Intermatic",
+      "name": "Intermatic T104R Outdoor 24-Hour Time Switch",
+      "description": "24-hour mechanical time switch, 40 A, 208-277 VAC, DPST, in raintight NEMA 3R steel enclosure for outdoor use.",
+      "specs": [
+        { "name": "Type", "value": "24-Hour Mechanical", "isNonNeg": true },
+        { "name": "Voltage", "value": "208-277 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "DPST", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R outdoor steel", "isNonNeg": false },
+        { "name": "Amperage", "value": "40 A per pole", "isNonNeg": false }
+      ],
+      "estListPrice": 144.30,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/T104R"
+    },
+    {
+      "mpn": "ST01",
+      "brand": "Intermatic",
+      "name": "Intermatic ST01 7-Day Digital In-Wall Timer",
+      "description": "7-day heavy-duty digital in-wall timer with astronomic self-adjust, 120-277 VAC, 15 A, single-pole or 3-way; no neutral required.",
+      "specs": [
+        { "name": "Type", "value": "7-Day Digital In-Wall (Astronomic)", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "Single-pole / 3-way", "isNonNeg": false },
+        { "name": "Enclosure", "value": "In-wall, single-gang", "isNonNeg": false },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Events", "value": "Up to 40 per week", "isNonNeg": false }
+      ],
+      "estListPrice": 115.51,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/ST01"
+    },
+    {
+      "mpn": "FF15MC",
+      "brand": "Intermatic",
+      "name": "Intermatic FF15MC 15-Minute Spring Wound Timer",
+      "description": "15-minute spring-wound auto-off countdown timer, 125-277 VAC, SPST, no hold; brushed metal wall plate, fits single-gang box.",
+      "specs": [
+        { "name": "Type", "value": "Spring-Wound Countdown", "isNonNeg": true },
+        { "name": "Voltage", "value": "125-277 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "SPST", "isNonNeg": false },
+        { "name": "Enclosure", "value": "In-wall, single-gang, brushed metal plate", "isNonNeg": false },
+        { "name": "Max Duration", "value": "15 minutes", "isNonNeg": false }
+      ],
+      "estListPrice": 35.64,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/FF15MC",
+      "upc": "078275005297"
+    },
+    {
+      "mpn": "EJ500",
+      "brand": "Intermatic",
+      "name": "Intermatic EJ500 7-Day Astronomic Wall Timer",
+      "description": "7-day electronic in-wall switch timer with astronomic feature, 120 VAC, 4 A; up to 14 ON/OFF events per week, battery backup.",
+      "specs": [
+        { "name": "Type", "value": "7-Day Digital In-Wall (Astronomic)", "isNonNeg": true },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "Single-pole", "isNonNeg": false },
+        { "name": "Enclosure", "value": "In-wall, single-gang", "isNonNeg": false },
+        { "name": "Amperage", "value": "4 A", "isNonNeg": false }
+      ],
+      "estListPrice": 59.81,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/EJ500"
+    },
+    {
+      "mpn": "1101B",
+      "brand": "Tork",
+      "name": "Tork 1101B 24-Hour Mechanical Time Switch",
+      "description": "24-hour electromechanical time switch, 40 A, 120 VAC, SPST, NEMA 1 indoor metal enclosure; one ON/OFF tripper pair included.",
+      "specs": [
+        { "name": "Type", "value": "24-Hour Mechanical", "isNonNeg": true },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "SPST", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1 indoor metal", "isNonNeg": false },
+        { "name": "Amperage", "value": "40 A", "isNonNeg": false }
+      ],
+      "estListPrice": 172.11,
+      "priceSource": "qedelectric.com",
+      "specSheetUrl": "https://nsiindustries.com/product/tork-1101b-24-hour-indoor-mechanical-time-switch-40a-120v-spst-outputs/",
+      "upc": "786261100641"
+    },
+    {
+      "mpn": "1104B",
+      "brand": "Tork",
+      "name": "Tork 1104B 24-Hour Mechanical Time Switch",
+      "description": "24-hour electromechanical time switch, 40 A, 208-277 VAC, DPST, NEMA 1 indoor metal enclosure.",
+      "specs": [
+        { "name": "Type", "value": "24-Hour Mechanical", "isNonNeg": true },
+        { "name": "Voltage", "value": "208-277 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "DPST", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1 indoor metal", "isNonNeg": false },
+        { "name": "Amperage", "value": "40 A", "isNonNeg": false }
+      ],
+      "estListPrice": 170.66,
+      "priceSource": "lightingsupply.com",
+      "specSheetUrl": "https://nsiindustries.com/product/tork-1104b-24-hour-indoor-mechanical-time-switch-40a-208-277v-dpst-outputs/"
+    },
+    {
+      "mpn": "LTB30-1LZ",
+      "brand": "Leviton",
+      "name": "Leviton LTB30-1LZ Decora Countdown Timer",
+      "description": "Decora preset 5/10/15/30-minute countdown timer switch, 120 VAC, 1800 W incandescent/20 A resistive, single-pole or 3-way.",
+      "specs": [
+        { "name": "Type", "value": "Preset Countdown Timer", "isNonNeg": true },
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "Single-pole / 3-way", "isNonNeg": false },
+        { "name": "Enclosure", "value": "In-wall, Decora single-gang", "isNonNeg": false },
+        { "name": "Load Rating", "value": "1800 W incandescent / 20 A resistive-inductive / 1 HP", "isNonNeg": false }
+      ],
+      "estListPrice": 34.04,
+      "priceSource": "electricsuppliesonline.com",
+      "specSheetUrl": "https://leviton.com/products/ltb30-1lz",
+      "upc": "078477459225"
+    }
+  ]
+}

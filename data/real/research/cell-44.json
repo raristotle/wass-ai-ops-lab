@@ -1,0 +1,149 @@
+{
+  "category": "datacom",
+  "subcategory": "Network Switches",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "CBS350-24T-4G-NA",
+      "brand": "Cisco",
+      "name": "Cisco CBS350-24T-4G-NA 24-Port Managed Switch",
+      "description": "Cisco Business 350 managed switch with 24 GE ports and 4x 1G SFP uplinks; Layer 3 static routing, 1U rack-mount.",
+      "specs": [
+        { "name": "Ports", "value": "24x GE + 4x 1G SFP", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Managed (L2/L3 static routing)", "isNonNeg": false },
+        { "name": "Switching Capacity", "value": "56 Gbps", "isNonNeg": false },
+        { "name": "Form Factor", "value": "1U rack-mount", "isNonNeg": false }
+      ],
+      "estListPrice": 482.99,
+      "priceSource": "newegg.com",
+      "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/business-350-series-managed-switches/datasheet-c78-744156.html"
+    },
+    {
+      "mpn": "C1300-24T-4G",
+      "brand": "Cisco",
+      "name": "Cisco C1300-24T-4G 24-Port Managed Switch",
+      "description": "Catalyst 1300 enterprise-class managed Layer 3 switch with 24x GE downlinks, 4x 1G SFP uplinks and fanless design.",
+      "specs": [
+        { "name": "Ports", "value": "24x GE + 4x 1G SFP", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Managed (Layer 3)", "isNonNeg": false },
+        { "name": "Switching Capacity", "value": "56 Gbps", "isNonNeg": false },
+        { "name": "Forwarding Rate", "value": "41.66 Mpps", "isNonNeg": false }
+      ],
+      "estListPrice": 508.77,
+      "priceSource": "secureitstore.com",
+      "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-1300-series-switches/nb-06-cat1300-ser-data-sheet-cte-en.html"
+    },
+    {
+      "mpn": "CBS110-24T-NA",
+      "brand": "Cisco",
+      "name": "Cisco CBS110-24T-NA 24-Port Unmanaged Switch",
+      "description": "Cisco Business 110 unmanaged switch with 24 GE ports and 2x 1G SFP shared uplinks; plug-and-play, rack-mountable.",
+      "specs": [
+        { "name": "Ports", "value": "24x GE (2x 1G SFP shared)", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Unmanaged", "isNonNeg": false },
+        { "name": "Form Factor", "value": "1U rack-mountable", "isNonNeg": false }
+      ],
+      "estListPrice": 201.49,
+      "priceSource": "connection.com",
+      "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/business-110-series-unmanaged-switches/datasheet-c78-744158.html"
+    },
+    {
+      "mpn": "GS308-300PAS",
+      "brand": "Netgear",
+      "name": "Netgear GS308-300PAS 8-Port Unmanaged Switch",
+      "description": "NETGEAR GS308 8-port Gigabit Ethernet unmanaged switch; plug-and-play, silent fanless operation, desktop or wall mount.",
+      "specs": [
+        { "name": "Ports", "value": "8x RJ-45", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Unmanaged", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "16 Gbps non-blocking", "isNonNeg": false },
+        { "name": "Mounting", "value": "Desktop or wall-mount", "isNonNeg": false }
+      ],
+      "estListPrice": 27.99,
+      "priceSource": "staples.com",
+      "specSheetUrl": "https://www.netgear.com/images/datasheet/switches/gs305_gs308_gs305p_gs308p.pdf"
+    },
+    {
+      "mpn": "GS108-400NAS",
+      "brand": "Netgear",
+      "name": "Netgear GS108-400NAS 8-Port Gigabit Switch",
+      "description": "NETGEAR GS108v4 8-port Gigabit unmanaged switch in a metal desktop case; supports IEEE 802.3az Energy Efficient Ethernet.",
+      "specs": [
+        { "name": "Ports", "value": "8x RJ-45", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Unmanaged", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Metal, desktop or wall-mount", "isNonNeg": false }
+      ],
+      "estListPrice": 49.99,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://www.netgear.com/images/datasheet/switches/GS105v5_GS108v4_DS.pdf"
+    },
+    {
+      "mpn": "GS324-200NAS",
+      "brand": "Netgear",
+      "name": "Netgear GS324-200NAS 24-Port Unmanaged Switch",
+      "description": "NETGEAR GS324v2 24-port Gigabit Ethernet unmanaged switch; silent operation, desktop, wall-mount or rackmount.",
+      "specs": [
+        { "name": "Ports", "value": "24x RJ-45", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Unmanaged", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "48 Gbps non-blocking", "isNonNeg": false },
+        { "name": "Mounting", "value": "Desktop, wall or rackmount", "isNonNeg": false }
+      ],
+      "estListPrice": 109.99,
+      "priceSource": "netgear.com",
+      "specSheetUrl": "https://www.netgear.com/images/datasheet/switches/gs316_gs324_gs348.pdf"
+    },
+    {
+      "mpn": "GS724T-400NAS",
+      "brand": "Netgear",
+      "name": "Netgear GS724T-400NAS 24-Port Smart Switch",
+      "description": "NETGEAR GS724Tv4 24-port Gigabit smart managed switch with 2 dedicated SFP ports; fanless 1U design.",
+      "specs": [
+        { "name": "Ports", "value": "24x GE + 2x SFP", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Smart managed", "isNonNeg": false },
+        { "name": "Form Factor", "value": "1U rack-mount", "isNonNeg": false },
+        { "name": "Cooling", "value": "Fanless", "isNonNeg": false }
+      ],
+      "estListPrice": 249.95,
+      "priceSource": "altex.com",
+      "specSheetUrl": "https://www.downloads.netgear.com/files/GDC/datasheet/en/GS716Tv3-GS724Tv4-GS748Tv5.pdf"
+    },
+    {
+      "mpn": "TL-SG108",
+      "brand": "TP-Link",
+      "name": "TP-Link TL-SG108 8-Port Desktop Switch",
+      "description": "8-port Gigabit desktop switch with shielded ports in a fanless metal case; plug-and-play unmanaged operation.",
+      "specs": [
+        { "name": "Ports", "value": "8x RJ-45", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Unmanaged", "isNonNeg": false },
+        { "name": "Forwarding Rate", "value": "11.9 Mpps", "isNonNeg": false },
+        { "name": "Mounting", "value": "Desktop or wall-mount", "isNonNeg": false }
+      ],
+      "estListPrice": 24.59,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.tp-link.com/us/business-networking/soho-switch-unmanaged/tl-sg108/"
+    },
+    {
+      "mpn": "USW-Lite-8-PoE",
+      "brand": "Ubiquiti",
+      "name": "Ubiquiti USW-Lite-8-PoE UniFi Switch",
+      "description": "UniFi Switch Lite 8 PoE: 8-port Gigabit Layer 2 managed switch with 4 PoE+ 802.3at ports and 52 W PoE budget; fanless.",
+      "specs": [
+        { "name": "Ports", "value": "8x GE (4x PoE+)", "isNonNeg": true },
+        { "name": "Speed", "value": "10/100/1000 Mbps", "isNonNeg": true },
+        { "name": "Mgmt", "value": "Managed (UniFi, Layer 2)", "isNonNeg": false },
+        { "name": "PoE Budget", "value": "52 W (802.3at)", "isNonNeg": false },
+        { "name": "Switching Capacity", "value": "16 Gbps", "isNonNeg": false }
+      ],
+      "estListPrice": 109.00,
+      "priceSource": "store.ui.com",
+      "specSheetUrl": "https://dl.ubnt.com/ds/usw-lite-8-poe.pdf"
+    }
+  ]
+}

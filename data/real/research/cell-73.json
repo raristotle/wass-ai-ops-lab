@@ -1,0 +1,149 @@
+{
+  "category": "safety",
+  "subcategory": "Gloves",
+  "uom": "PR",
+  "products": [
+    {
+      "mpn": "MG-05-010",
+      "brand": "Mechanix",
+      "name": "Mechanix MG-05-010 Original Glove Large",
+      "description": "The Original work glove with 0.8 mm touchscreen-capable synthetic leather palm, breathable mesh back and TPR hook-and-loop closure.",
+      "specs": [
+        { "name": "Material", "value": "0.8 mm synthetic leather palm, CoolPlus woven-mesh back", "isNonNeg": true },
+        { "name": "Cut Level", "value": "EN 388 2121X (cut level 1; not ANSI cut rated)", "isNonNeg": true },
+        { "name": "Size", "value": "Large (10)", "isNonNeg": false },
+        { "name": "Closure", "value": "TPR hook-and-loop wrist closure", "isNonNeg": false },
+        { "name": "Touchscreen", "value": "Touchscreen capable", "isNonNeg": false }
+      ],
+      "estListPrice": 21.99,
+      "priceSource": "mechanix.com",
+      "specSheetUrl": "https://www.mechanix.com/us-en/all-work-gloves/MG-05-010.html"
+    },
+    {
+      "mpn": "MPT-58-010",
+      "brand": "Mechanix",
+      "name": "Mechanix MPT-58-010 M-Pact Glove Large",
+      "description": "Impact glove with TPR knuckle guard, D3O palm padding and 0.8 mm synthetic leather palm; EN 388 2121XP rated; machine washable.",
+      "specs": [
+        { "name": "Material", "value": "0.8 mm synthetic leather palm, abrasion-resistant Ripstop back", "isNonNeg": true },
+        { "name": "Cut Level", "value": "EN 388 2121XP (cut level 1; not ANSI cut rated)", "isNonNeg": true },
+        { "name": "Impact Protection", "value": "TPR knuckle guard with 2 mm D3O palm padding", "isNonNeg": false },
+        { "name": "Size", "value": "Large (10)", "isNonNeg": false },
+        { "name": "Touchscreen", "value": "Touchscreen capable", "isNonNeg": false }
+      ],
+      "estListPrice": 28.99,
+      "priceSource": "mechanix.com",
+      "specSheetUrl": "https://www.mechanix.com/us-en/all-work-gloves/MPT-58-010.html"
+    },
+    {
+      "mpn": "N9690",
+      "brand": "MCR Safety",
+      "name": "MCR Safety N9690 Ninja Ice Insulated",
+      "description": "Insulated winter glove: 15-gauge nylon shell, acrylic terry interior, HPT-coated palm and fingertips for wet or dry grip in cold.",
+      "specs": [
+        { "name": "Material", "value": "15-gauge nylon shell with acrylic terry interior, HPT palm/fingertip coating", "isNonNeg": true },
+        { "name": "Cut Level", "value": "ANSI A3", "isNonNeg": true },
+        { "name": "Coating", "value": "HPT (Hydropellent Technology) palm and fingertips", "isNonNeg": false },
+        { "name": "Insulation", "value": "Acrylic terry liner for cold protection", "isNonNeg": false },
+        { "name": "Treatment", "value": "Actifresh treated to inhibit odor-causing bacteria", "isNonNeg": false }
+      ],
+      "estListPrice": 13.00,
+      "priceSource": "shop.mcrsafety.com",
+      "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/gloves/n9690"
+    },
+    {
+      "mpn": "9670",
+      "brand": "MCR Safety",
+      "name": "MCR Safety 9670 Red Hare Knit",
+      "description": "Red Hare 10-gauge 100% cotton string knit glove with red nitrile dipped palm for grip and durability in abrasive applications.",
+      "specs": [
+        { "name": "Material", "value": "10-gauge 100% natural cotton string knit shell, nitrile dipped palm", "isNonNeg": true },
+        { "name": "Cut Level", "value": "Not ANSI cut rated (general purpose)", "isNonNeg": true },
+        { "name": "Coating", "value": "Red nitrile palm dip", "isNonNeg": false },
+        { "name": "Cuff", "value": "Knit wrist", "isNonNeg": false },
+        { "name": "Sizes", "value": "S, M, L", "isNonNeg": false }
+      ],
+      "estListPrice": 8.36,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/gloves/9670"
+    },
+    {
+      "mpn": "92738PU",
+      "brand": "MCR Safety",
+      "name": "MCR Safety 92738PU Cut Pro HyperMax",
+      "description": "Cut Pro 18-gauge HyperMax HPPE shell with PU-coated palm and fingertips; ANSI A5 cut protection with high dexterity; touchscreen.",
+      "specs": [
+        { "name": "Material", "value": "18-gauge HyperMax HPPE shell, polyurethane coated palm and fingertips", "isNonNeg": true },
+        { "name": "Cut Level", "value": "ANSI A5", "isNonNeg": true },
+        { "name": "Coating", "value": "Black polyurethane (PU) palm and fingertips", "isNonNeg": false },
+        { "name": "Cuff", "value": "Knit wrist", "isNonNeg": false },
+        { "name": "Touchscreen", "value": "Touchscreen capable", "isNonNeg": false }
+      ],
+      "estListPrice": 14.00,
+      "priceSource": "shop.mcrsafety.com",
+      "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/gloves/92738pu"
+    },
+    {
+      "mpn": "370B",
+      "brand": "Showa",
+      "name": "Showa 370B Nitrile Palm Glove",
+      "description": "General purpose glove with seamless nylon knit liner and nitrile palm coating; breathable back and elastic knit wrist cuff.",
+      "specs": [
+        { "name": "Material", "value": "Seamless nylon knit liner with nitrile palm coating", "isNonNeg": true },
+        { "name": "Cut Level", "value": "EN 388:2016+A1:2018 4121X (not ANSI cut rated)", "isNonNeg": true },
+        { "name": "Coating", "value": "Nitrile palm dip", "isNonNeg": false },
+        { "name": "Cuff", "value": "Elastic knit wrist", "isNonNeg": false },
+        { "name": "Color", "value": "Black on grey", "isNonNeg": false }
+      ],
+      "estListPrice": 3.20,
+      "priceSource": "nationalsafetyinc.com",
+      "specSheetUrl": "https://www.showagroup.com/us-en/shop/370b/"
+    },
+    {
+      "mpn": "300",
+      "brand": "Showa",
+      "name": "Showa ATLAS 300 Latex Palm Glove",
+      "description": "Atlas 300 general purpose glove with breathable seamless knit liner and rough crinkle natural rubber latex palm for wet/dry grip.",
+      "specs": [
+        { "name": "Material", "value": "Seamless polyester/cotton knit liner with natural rubber latex palm coating", "isNonNeg": true },
+        { "name": "Cut Level", "value": "Not ANSI cut rated (EN 388:2016+A1:2018 general purpose)", "isNonNeg": true },
+        { "name": "Coating", "value": "Rough crinkle natural rubber latex palm", "isNonNeg": false },
+        { "name": "Cuff", "value": "Elastic knit wrist", "isNonNeg": false },
+        { "name": "Back", "value": "Breathable open-back design", "isNonNeg": false }
+      ],
+      "estListPrice": 2.92,
+      "priceSource": "harmonycr.com",
+      "specSheetUrl": "https://www.showagroup.com/us-en/shop/atlas-300/"
+    },
+    {
+      "mpn": "S-TEX 581",
+      "brand": "Showa",
+      "name": "Showa S-TEX 581 Cut Resistant Glove",
+      "description": "Cut-resistant glove with Hagane Coil stainless steel/polyester/Kevlar liner and foam nitrile palm dip; ANSI/ISEA 105 cut level A5.",
+      "specs": [
+        { "name": "Material", "value": "Hagane Coil liner (stainless steel/polyester/Kevlar) with foam nitrile palm dip", "isNonNeg": true },
+        { "name": "Cut Level", "value": "ANSI/ISEA 105-2016 cut level A5", "isNonNeg": true },
+        { "name": "Coating", "value": "Foam nitrile palm dip", "isNonNeg": false },
+        { "name": "Standard", "value": "EN 388:2016+A1:2018", "isNonNeg": false }
+      ],
+      "estListPrice": 16.21,
+      "priceSource": "pksafety.com",
+      "specSheetUrl": "https://www.showagroup.com/us-en/shop/s-tex-581/"
+    },
+    {
+      "mpn": "377",
+      "brand": "Showa",
+      "name": "Showa 377 Foam Nitrile Grip Glove",
+      "description": "Fully nitrile-coated liquid-resistant glove with foam nitrile grip palm over seamless polyester/nylon liner for oily work.",
+      "specs": [
+        { "name": "Material", "value": "Seamless polyester/nylon knit liner, fully nitrile dipped with foam nitrile palm", "isNonNeg": true },
+        { "name": "Cut Level", "value": "Not ANSI cut rated (EN 388:2016+A1:2018 general purpose)", "isNonNeg": true },
+        { "name": "Coating", "value": "Full nitrile dip with extra foam nitrile grip on palm", "isNonNeg": false },
+        { "name": "Liquid Resistance", "value": "Fully coated, liquid resistant", "isNonNeg": false }
+      ],
+      "estListPrice": 6.87,
+      "priceSource": "pksafety.com",
+      "specSheetUrl": "https://www.showagroup.com/us-en/shop/377/"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "category": "electrical",
+  "subcategory": "Surge Protective Devices",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "HEPD80",
+      "brand": "Square D",
+      "name": "Square D HEPD80 Whole-Home Surge Protector",
+      "description": "Surge protection device, HEPD, 80kA, 120/240V, 1-phase, 3-wire, SPD Type 1; NEMA 4X housing mounts beside any residential load center.",
+      "specs": [
+        { "name": "Type", "value": "Type 1", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240VAC, 1-phase, 3-wire", "isNonNeg": true },
+        { "name": "Surge Current", "value": "80kA per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "Surface mount, NEMA 4X enclosure", "isNonNeg": false },
+        { "name": "Short Circuit Rating", "value": "25kA", "isNonNeg": false }
+      ],
+      "estListPrice": 149.57,
+      "priceSource": "crawfordelectricsupply.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/HEPD80/surge-protection-device-hepd-80ka-120-240v-1-phase-3-wire-spd-type-1/"
+    },
+    {
+      "mpn": "SDSB80111",
+      "brand": "Square D",
+      "name": "Square D SDSB80111 SurgeBreaker Plus SPD",
+      "description": "SurgeBreaker Plus whole-house SPD, 80kA, 120/240VAC, 1-phase, 3-wire, with cable, telephone and ethernet line protection.",
+      "specs": [
+        { "name": "Type", "value": "Type 1", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240VAC, 1-phase, 3-wire", "isNonNeg": true },
+        { "name": "Surge Current", "value": "80kA per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "Surface mount, NEMA 1 metal enclosure", "isNonNeg": false },
+        { "name": "Auxiliary Protection", "value": "Coax / telephone / ethernet", "isNonNeg": false }
+      ],
+      "estListPrice": 281.61,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/SDSB80111/surge-protection-device-surgebreaker-plus-80ka-120-240vac-1-phase-3-wire-whole-house/"
+    },
+    {
+      "mpn": "QO2175SB",
+      "brand": "Square D",
+      "name": "Square D QO2175SB SurgeBreaker Plug-On SPD",
+      "description": "QO SurgeBreaker plug-on surge protective device, 22.5kA, 120/240V, 1-phase, 3-wire, for QO load centers and CSEDs.",
+      "specs": [
+        { "name": "Type", "value": "Plug-on SPD for QO load centers", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240VAC, 1-phase, 3-wire", "isNonNeg": true },
+        { "name": "Surge Current", "value": "22.5kA per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "Plug-on, occupies 2 QO breaker spaces", "isNonNeg": false },
+        { "name": "MCOV", "value": "150VAC line-to-ground", "isNonNeg": false }
+      ],
+      "estListPrice": 93.99,
+      "priceSource": "simplybreakers.com",
+      "specSheetUrl": "https://www.se.com/us/en/product-range/63126-qo2175sb-surgebreaker-surge-protective-device-spd/"
+    },
+    {
+      "mpn": "FS100",
+      "brand": "Siemens",
+      "name": "Siemens FS100 FirstSurge Plus Surge Protector",
+      "description": "FirstSurge Plus Type 2 whole-house SPD, 100kA surge capacity, 120/240V split-phase, NEMA 4X enclosure, 3-stage notification.",
+      "specs": [
+        { "name": "Type", "value": "Type 2", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240V split-phase", "isNonNeg": true },
+        { "name": "Surge Current", "value": "100kA per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "Indoor/outdoor, NEMA 4X enclosure", "isNonNeg": false },
+        { "name": "Response Time", "value": "<1 nanosecond", "isNonNeg": false }
+      ],
+      "estListPrice": 193.19,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:3eb4a3de-a6e1-4664-b525-d690178d6e20/firstsurge-datasheet-lp-1408-2.pdf"
+    },
+    {
+      "mpn": "FSPD140",
+      "brand": "Siemens",
+      "name": "Siemens FSPD140 BoltShield Surge Protector",
+      "description": "BoltShield FSPD Type 2 external SPD, 140kA per phase, 120/240V 1-phase 3-wire, NEMA 4X with LED status and audible alarm.",
+      "specs": [
+        { "name": "Type", "value": "Type 2", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240V, 1-phase, 3-wire", "isNonNeg": true },
+        { "name": "Surge Current", "value": "140kA per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "External, NEMA 4X, 3/4 in side nipple", "isNonNeg": false },
+        { "name": "Indicators", "value": "LED status + audible alarm", "isNonNeg": false }
+      ],
+      "estListPrice": 265.0,
+      "priceSource": "buyriteelectric.com",
+      "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:501b541f-5ed1-4b75-a6af-161d5de25d6d/boltshield-qr-brochure.pdf"
+    },
+    {
+      "mpn": "QSPD2A065P",
+      "brand": "Siemens",
+      "name": "Siemens QSPD2A065P BoltShield Plug-In SPD",
+      "description": "BoltShield QSPD Type 1 plug-in SPD, 65kA, 2-pole, 120/240V 1-phase 3-wire; plugs onto the load center bus, LED status indicators.",
+      "specs": [
+        { "name": "Type", "value": "Type 1 (plug-in)", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240V, 1-phase, 3-wire", "isNonNeg": true },
+        { "name": "Surge Current", "value": "65kA", "isNonNeg": true },
+        { "name": "Mount", "value": "Plug-on, Siemens load center bus, 2-pole", "isNonNeg": false },
+        { "name": "Indicators", "value": "LED status + audible alarm", "isNonNeg": false }
+      ],
+      "estListPrice": 154.69,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:b5e13ffe-4a75-4f74-a593-bae873f12b51/s09-surge-protection-devices.pdf"
+    },
+    {
+      "mpn": "51120-1",
+      "brand": "Leviton",
+      "name": "Leviton 51120-1 Panel Mount Surge Protector",
+      "description": "120/240V single-phase panel protector, 4-mode protection, 50kA max surge current, UL 1449 Type 2, NEMA 1 enclosure.",
+      "specs": [
+        { "name": "Type", "value": "Type 2 (UL 1449)", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240V, 1-phase", "isNonNeg": true },
+        { "name": "Surge Current", "value": "50kA max per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "Surface mount, NEMA 1 J-box enclosure", "isNonNeg": false },
+        { "name": "Protection Modes", "value": "4-mode", "isNonNeg": false }
+      ],
+      "estListPrice": 319.96,
+      "priceSource": "mrsupply.com",
+      "specSheetUrl": "https://leviton.com/products/51120-1",
+      "upc": "078477827642"
+    },
+    {
+      "mpn": "IG2240-IMSK",
+      "brand": "Intermatic",
+      "name": "Intermatic IG2240-IMSK Smart Guard SPD",
+      "description": "Smart Guard whole-home SPD, Type 1/Type 2, 6-mode, 120/240VAC 1-phase, 50kA per phase, with replaceable TPMOV modules.",
+      "specs": [
+        { "name": "Type", "value": "Type 1 or Type 2", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240VAC, 1-phase", "isNonNeg": true },
+        { "name": "Surge Current", "value": "50kA per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "Indoor metal enclosure, flush-mount kit included", "isNonNeg": false },
+        { "name": "Protection Modes", "value": "6 (L1-N, L2-N, L1-G, L2-G, N-G, L1-L2)", "isNonNeg": false },
+        { "name": "Modules", "value": "Replaceable consumable IModules with LED indicators", "isNonNeg": false }
+      ],
+      "estListPrice": 299.66,
+      "priceSource": "bigfrogsupply.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/IG2240-IMSK"
+    },
+    {
+      "mpn": "IG1240RC3",
+      "brand": "Intermatic",
+      "name": "Intermatic IG1240RC3 Whole-Home Surge Protector",
+      "description": "Type 1/Type 2 outdoor surge protective device, 6-mode, 120/240VAC single-phase, 50kA, for service entrance or load-side install.",
+      "specs": [
+        { "name": "Type", "value": "Type 1 or Type 2", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240VAC, 1-phase", "isNonNeg": true },
+        { "name": "Surge Current", "value": "50kA per phase", "isNonNeg": true },
+        { "name": "Mount", "value": "Outdoor-rated, surface mount", "isNonNeg": false },
+        { "name": "Protection Modes", "value": "6-mode", "isNonNeg": false }
+      ],
+      "estListPrice": 166.86,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/IG1240RC3"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "category": "oem-electrical",
+  "subcategory": "PLCs & I/O Modules",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "2080-LC50-24QBB",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 2080-LC50-24QBB Micro850 Controller",
+      "description": "Micro850 24-point programmable controller, 24V DC, 14 digital inputs, 10 digital outputs, embedded EtherNet/IP and serial port.",
+      "specs": [
+        { "name": "Type", "value": "Micro PLC controller", "isNonNeg": true },
+        { "name": "Voltage", "value": "24V DC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "24 (14 in / 10 out)", "isNonNeg": false },
+        { "name": "Protocol", "value": "EtherNet/IP", "isNonNeg": false },
+        { "name": "Output Type", "value": "24V DC transistor", "isNonNeg": false }
+      ],
+      "estListPrice": 802.45,
+      "priceSource": "codale.com",
+      "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/2080-td001_-en-p.pdf"
+    },
+    {
+      "mpn": "1766-L32BWA",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 1766-L32BWA MicroLogix 1400 Controller",
+      "description": "MicroLogix 1400 controller, 120/240V AC power, 20 digital inputs, 12 relay outputs, embedded Ethernet port and LCD display.",
+      "specs": [
+        { "name": "Type", "value": "Micro PLC controller", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240V AC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "32 (20 in / 12 out)", "isNonNeg": false },
+        { "name": "Protocol", "value": "EtherNet/IP", "isNonNeg": false },
+        { "name": "Output Type", "value": "Relay", "isNonNeg": false }
+      ],
+      "estListPrice": 1471.51,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.1766-L32BWA.html"
+    },
+    {
+      "mpn": "1769-L33ER",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 1769-L33ER CompactLogix 5370 Controller",
+      "description": "CompactLogix 5370 L3 controller, 2 MB memory, dual EtherNet/IP ports with DLR, supports up to 16 local 1769 I/O modules.",
+      "specs": [
+        { "name": "Type", "value": "CompactLogix 5370 L3 controller", "isNonNeg": true },
+        { "name": "I/O Points", "value": "Up to 16 local 1769 I/O modules", "isNonNeg": false },
+        { "name": "Protocol", "value": "EtherNet/IP (dual port, DLR)", "isNonNeg": false },
+        { "name": "Memory", "value": "2 MB", "isNonNeg": false },
+        { "name": "EtherNet/IP Nodes", "value": "32", "isNonNeg": false }
+      ],
+      "estListPrice": 1899.0,
+      "priceSource": "plchardware.com",
+      "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/1769-td005_-en-p.pdf"
+    },
+    {
+      "mpn": "1734-IB8",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 1734-IB8 POINT I/O Input Module",
+      "description": "POINT I/O 8-point digital input module, 24V DC sinking inputs, open style, for use with POINT I/O communication adapters.",
+      "specs": [
+        { "name": "Type", "value": "Digital input module", "isNonNeg": true },
+        { "name": "Voltage", "value": "24V DC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "8 inputs", "isNonNeg": false },
+        { "name": "Protocol", "value": "POINTBus backplane", "isNonNeg": false },
+        { "name": "Input Type", "value": "Sinking", "isNonNeg": false }
+      ],
+      "estListPrice": 192.71,
+      "priceSource": "codale.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.1734-IB8.html"
+    },
+    {
+      "mpn": "1756-IB16",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 1756-IB16 ControlLogix Input Module",
+      "description": "ControlLogix 16-point digital DC input module, 12/24V DC sinking inputs, interfaces 24V DC field devices to the 1756 chassis.",
+      "specs": [
+        { "name": "Type", "value": "Digital input module", "isNonNeg": true },
+        { "name": "Voltage", "value": "12/24V DC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "16 inputs", "isNonNeg": false },
+        { "name": "Protocol", "value": "ControlLogix backplane", "isNonNeg": false },
+        { "name": "Input Type", "value": "Sinking", "isNonNeg": false }
+      ],
+      "estListPrice": 620.53,
+      "priceSource": "codale.com",
+      "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/1756-td002_-en-e.pdf"
+    },
+    {
+      "mpn": "6ES7214-1AG40-0XB0",
+      "brand": "Siemens",
+      "name": "Siemens 6ES7214-1AG40-0XB0 S7-1200 CPU 1214C",
+      "description": "SIMATIC S7-1200 CPU 1214C DC/DC/DC compact CPU, 14 DI 24V DC, 10 DO 24V DC, 2 AI, integrated PROFINET port.",
+      "specs": [
+        { "name": "Type", "value": "Compact PLC CPU", "isNonNeg": true },
+        { "name": "Voltage", "value": "24V DC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "26 onboard (14 DI, 10 DO, 2 AI)", "isNonNeg": false },
+        { "name": "Protocol", "value": "PROFINET", "isNonNeg": false },
+        { "name": "Output Type", "value": "24V DC transistor", "isNonNeg": false }
+      ],
+      "estListPrice": 792.89,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://www.industry-mobile-support.siemens-info.com/en/article/6ES7214-1AG40-0XB0/man"
+    },
+    {
+      "mpn": "6ES7223-1BH32-0XB0",
+      "brand": "Siemens",
+      "name": "Siemens 6ES7223-1BH32-0XB0 SM 1223 I/O Module",
+      "description": "SIMATIC S7-1200 SM 1223 digital I/O module, 8 DI 24V DC sink/source, 8 DO transistor 0.5 A, for S7-1200 expansion.",
+      "specs": [
+        { "name": "Type", "value": "Digital I/O module", "isNonNeg": true },
+        { "name": "Voltage", "value": "24V DC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "16 (8 DI / 8 DO)", "isNonNeg": false },
+        { "name": "Output Type", "value": "Transistor, 0.5 A", "isNonNeg": false }
+      ],
+      "estListPrice": 386.12,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://www.industry-mobile-support.siemens-info.com/en/article/6ES7223-1BH32-0XB0/man"
+    },
+    {
+      "mpn": "TM221CE16R",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric TM221CE16R Modicon M221 Controller",
+      "description": "Modicon M221 logic controller, 16 I/O (9 DI, 7 relay DO), 2 analog inputs, Ethernet and serial ports, 100-240V AC supply.",
+      "specs": [
+        { "name": "Type", "value": "Logic controller", "isNonNeg": true },
+        { "name": "Voltage", "value": "100-240V AC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "16 (9 DI / 7 DO)", "isNonNeg": false },
+        { "name": "Protocol", "value": "Ethernet (Modbus TCP), Modbus serial", "isNonNeg": false },
+        { "name": "Output Type", "value": "Relay, 2 A", "isNonNeg": false }
+      ],
+      "estListPrice": 514.15,
+      "priceSource": "rspsupply.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/TM221CE16R/"
+    },
+    {
+      "mpn": "CP2E-E40DR-A",
+      "brand": "Omron",
+      "name": "Omron CP2E-E40DR-A CP2E Micro PLC",
+      "description": "CP2E Essential-type micro PLC CPU, 40 I/O (24 DI, 16 relay DO), 100-240V AC supply, USB programming port, 4K steps program.",
+      "specs": [
+        { "name": "Type", "value": "Micro PLC CPU", "isNonNeg": true },
+        { "name": "Voltage", "value": "100-240V AC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "40 (24 in / 16 out)", "isNonNeg": false },
+        { "name": "Protocol", "value": "USB (programming)", "isNonNeg": false },
+        { "name": "Output Type", "value": "Relay", "isNonNeg": false }
+      ],
+      "estListPrice": 1015.03,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://files.omron.eu/downloads/latest/datasheet/en/p145_cp2e_datasheet_en.pdf"
+    },
+    {
+      "mpn": "FX5U-32MR/ES",
+      "brand": "Mitsubishi Electric",
+      "name": "Mitsubishi Electric FX5U-32MR/ES iQ-F CPU Module",
+      "description": "MELSEC iQ-F FX5U CPU module, 32 I/O (16 DI, 16 relay DO), 100-240V AC supply, built-in Ethernet, RS-485 and analog I/O.",
+      "specs": [
+        { "name": "Type", "value": "PLC CPU module", "isNonNeg": true },
+        { "name": "Voltage", "value": "100-240V AC", "isNonNeg": true },
+        { "name": "I/O Points", "value": "32 (16 in / 16 out)", "isNonNeg": false },
+        { "name": "Protocol", "value": "Ethernet, RS-485", "isNonNeg": false },
+        { "name": "Output Type", "value": "Relay", "isNonNeg": false }
+      ],
+      "estListPrice": 1098.57,
+      "priceSource": "us.misumi-ec.com",
+      "specSheetUrl": "https://emea.mitsubishielectric.com/fa/products/cnt/plc/plcf/cpu-module/fx5u-32mr-es.html"
+    }
+  ]
+}

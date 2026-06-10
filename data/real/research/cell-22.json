@@ -1,0 +1,156 @@
+{
+  "category": "electrical",
+  "subcategory": "Cable Tray",
+  "uom": "FT",
+  "products": [
+    {
+      "mpn": "CF54/100EZ",
+      "brand": "Legrand Cablofil",
+      "name": "Legrand Cablofil CF54/100EZ Wire Mesh Tray",
+      "description": "Cablofil EZ steel wire mesh cable tray straight section, 2 in. deep x 4 in. wide x 10 ft, electro-zinc finish with Safe-T-Edge wire ends.",
+      "specs": [
+        { "name": "Width", "value": "4 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire mesh (welded wire basket)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, electro-zinc plated (EZ)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "2 in", "isNonNeg": false },
+        { "name": "Length", "value": "120 in (10 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 108.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-2d4w120l-71/p/71"
+    },
+    {
+      "mpn": "CF54/150EZ",
+      "brand": "Legrand Cablofil",
+      "name": "Legrand Cablofil CF54/150EZ Wire Mesh Tray",
+      "description": "Cablofil EZ steel wire mesh cable tray straight section, 2 in. deep x 6 in. wide x 10 ft, electro-zinc finish with Safe-T-Edge wire ends.",
+      "specs": [
+        { "name": "Width", "value": "6 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire mesh (welded wire basket)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, electro-zinc plated (EZ)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "2 in", "isNonNeg": false },
+        { "name": "Length", "value": "120 in (10 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 120.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-2d6w120l-81/p/81"
+    },
+    {
+      "mpn": "CF54/300EZ",
+      "brand": "Legrand Cablofil",
+      "name": "Legrand Cablofil CF54/300EZ Wire Mesh Tray",
+      "description": "Cablofil EZ steel wire mesh cable tray straight section, 2 in. deep x 12 in. wide x 10 ft, electro-zinc finish, 47 lb load capacity class.",
+      "specs": [
+        { "name": "Width", "value": "12 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire mesh (welded wire basket)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, electro-zinc plated (EZ)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "2 in", "isNonNeg": false },
+        { "name": "Length", "value": "120 in (10 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 146.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-2d12w120l-101/p/sap01-101"
+    },
+    {
+      "mpn": "CF105/300EZ",
+      "brand": "Legrand Cablofil",
+      "name": "Legrand Cablofil CF105/300EZ Wire Mesh Tray",
+      "description": "Cablofil EZ steel wire mesh cable tray straight section, 4 in. deep x 12 in. wide x 10 ft, electro-zinc finish with Safe-T-Edge wire ends.",
+      "specs": [
+        { "name": "Width", "value": "12 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire mesh (welded wire basket)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, electro-zinc plated (EZ)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "4 in", "isNonNeg": false },
+        { "name": "Length", "value": "120 in (10 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 167.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-4d12w120l-921/p/921"
+    },
+    {
+      "mpn": "CF105/450EZ",
+      "brand": "Legrand Cablofil",
+      "name": "Legrand Cablofil CF105/450EZ Wire Mesh Tray",
+      "description": "Cablofil EZ steel wire mesh cable tray straight section, 4 in. deep x 18 in. wide x 10 ft, electro-zinc finish with Safe-T-Edge wire ends.",
+      "specs": [
+        { "name": "Width", "value": "18 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire mesh (welded wire basket)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, electro-zinc plated (EZ)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "4 in", "isNonNeg": false },
+        { "name": "Length", "value": "120 in (10 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 281.17,
+      "priceSource": "raptorsupplies.com",
+      "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-4d18w120l-1931/p/1931"
+    },
+    {
+      "mpn": "FT2X4X10 HD",
+      "brand": "Eaton B-Line",
+      "name": "Eaton B-Line FT2X4X10 HD Flextray Wire Basket",
+      "description": "B-Line series Flextray welded steel wire basket tray straight section, 2 in. deep x 4 in. wide x 10 ft, hot-dip galvanized finish.",
+      "specs": [
+        { "name": "Width", "value": "4 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire basket (Flextray)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, hot-dip galvanized (HD)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "2 in", "isNonNeg": false },
+        { "name": "Wire Diameter", "value": "0.196 in", "isNonNeg": false },
+        { "name": "Length", "value": "118.3 in (9.85 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 252.93,
+      "priceSource": "energyavenue.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT2X4X10%20HD.html"
+    },
+    {
+      "mpn": "FT2X6X10 HD",
+      "brand": "Eaton B-Line",
+      "name": "Eaton B-Line FT2X6X10 HD Flextray Wire Basket",
+      "description": "B-Line series Flextray welded steel wire basket tray straight section, 2 in. deep x 6 in. wide x 10 ft, hot-dip galvanized finish.",
+      "specs": [
+        { "name": "Width", "value": "6 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire basket (Flextray)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, hot-dip galvanized (HD)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "2 in", "isNonNeg": false },
+        { "name": "Wire Diameter", "value": "0.196 in", "isNonNeg": false },
+        { "name": "Length", "value": "118.3 in (9.85 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 218.26,
+      "priceSource": "houseofelectrical.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT2X6X10%20HD.html"
+    },
+    {
+      "mpn": "FT2X12X10 HD",
+      "brand": "Eaton B-Line",
+      "name": "Eaton B-Line FT2X12X10 HD Flextray Wire Basket",
+      "description": "B-Line series Flextray welded steel wire basket tray straight section, 2 in. deep x 12 in. wide x 10 ft, hot-dip galvanized finish.",
+      "specs": [
+        { "name": "Width", "value": "12 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire basket (Flextray)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, hot-dip galvanized (HD)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "2 in", "isNonNeg": false },
+        { "name": "Wire Diameter", "value": "0.196 in", "isNonNeg": false },
+        { "name": "Length", "value": "118.3 in (9.85 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 230.37,
+      "priceSource": "houseofelectrical.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT2X12X10%20HD.html",
+      "upc": "662516301936"
+    },
+    {
+      "mpn": "FT4X12X10 ELG",
+      "brand": "Eaton B-Line",
+      "name": "Eaton B-Line FT4X12X10 ELG Flextray Wire Basket",
+      "description": "B-Line series Flextray welded steel wire basket tray straight section, 4 in. deep x 12 in. wide x 10 ft, electroplated zinc galvanized.",
+      "specs": [
+        { "name": "Width", "value": "12 in", "isNonNeg": true },
+        { "name": "Tray Type", "value": "Wire basket (Flextray)", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, electroplated zinc galvanized (ELG)", "isNonNeg": true },
+        { "name": "Load Depth", "value": "4 in", "isNonNeg": false },
+        { "name": "Wire Diameter", "value": "0.196 in", "isNonNeg": false },
+        { "name": "Length", "value": "118.3 in (9.85 ft)", "isNonNeg": false }
+      ],
+      "estListPrice": 126.68,
+      "priceSource": "energyavenue.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT4X12X10%20ELG.html"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "category": "datacom",
+  "subcategory": "Connectivity",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "61110-RW6",
+      "brand": "Leviton",
+      "name": "Leviton 61110-RW6 Cat 6 QuickPort Jack",
+      "description": "eXtreme Cat 6 component-rated UTP QuickPort jack, white, rear 110-style termination, T568A/B wiring.",
+      "specs": [
+        { "name": "Type", "value": "Keystone jack (QuickPort)", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Termination", "value": "110 punchdown", "isNonNeg": false },
+        { "name": "Wiring", "value": "T568A/T568B", "isNonNeg": false }
+      ],
+      "estListPrice": 11.66,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/content/dam/leviton/network-solutions/product_documents/product_specification/Leviton-Spec-61110-EXTREME-Cat-6-UTP-Jacks.pdf"
+    },
+    {
+      "mpn": "5G108-RW5",
+      "brand": "Leviton",
+      "name": "Leviton 5G108-RW5 Cat 5e QuickPort Jack",
+      "description": "GigaMax Cat 5e UTP QuickPort jack, white, one-piece lead-frame design, supports PoE per IEEE 802.3bt.",
+      "specs": [
+        { "name": "Type", "value": "Keystone jack (QuickPort)", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 5e", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Termination", "value": "110 punchdown", "isNonNeg": false },
+        { "name": "Wiring", "value": "T568A/T568B", "isNonNeg": false }
+      ],
+      "estListPrice": 6.34,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/products/5g108-rw5"
+    },
+    {
+      "mpn": "41080-1WP",
+      "brand": "Leviton",
+      "name": "Leviton 41080-1WP QuickPort Wallplate",
+      "description": "Single-gang QuickPort wallplate, 1-port, white high-impact plastic, flush mount, color-matched screws included.",
+      "specs": [
+        { "name": "Type", "value": "Wallplate, 1-port single-gang", "isNonNeg": true },
+        { "name": "Category", "value": "N/A (accepts QuickPort modules)", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Material", "value": "High-impact plastic, UL 94 V-0", "isNonNeg": false }
+      ],
+      "estListPrice": 2.3,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/41080-1wp",
+      "upc": "078477835555"
+    },
+    {
+      "mpn": "CJ688TGBU",
+      "brand": "Panduit",
+      "name": "Panduit CJ688TGBU Mini-Com Cat 6 Jack",
+      "description": "Mini-Com TX6 PLUS Cat 6 UTP RJ45 jack module, blue, tool-less TG termination for 22-26 AWG twisted pair cable.",
+      "specs": [
+        { "name": "Type", "value": "Jack module (Mini-Com)", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Color", "value": "Blue", "isNonNeg": false },
+        { "name": "Termination", "value": "TG style, tool-less", "isNonNeg": false },
+        { "name": "Standards", "value": "ANSI/TIA-568-C.2 Cat 6, ISO 11801 Class E", "isNonNeg": false }
+      ],
+      "estListPrice": 11.69,
+      "priceSource": "datacomtools.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/connectors/jack-modules/cj688tgbu.html"
+    },
+    {
+      "mpn": "CJ5E88TGBU",
+      "brand": "Panduit",
+      "name": "Panduit CJ5E88TGBU Mini-Com Cat 5e Jack",
+      "description": "Mini-Com TX5e Cat 5e UTP RJ45 TG jack module, blue, terminates 4-pair 22-26 AWG; meets IEEE 802.3af/at PoE.",
+      "specs": [
+        { "name": "Type", "value": "Jack module (Mini-Com)", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 5e", "isNonNeg": true },
+        { "name": "Color", "value": "Blue", "isNonNeg": false },
+        { "name": "Termination", "value": "TG style, tool-less", "isNonNeg": false },
+        { "name": "Standards", "value": "ANSI/TIA-568-C.2 Cat 5e, ISO 11801 Class D", "isNonNeg": false }
+      ],
+      "estListPrice": 10.0,
+      "priceSource": "falcontech.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/connectors/jack-modules/cj5e88tgbu.html"
+    },
+    {
+      "mpn": "UTPSP5BUY",
+      "brand": "Panduit",
+      "name": "Panduit UTPSP5BUY Cat 6 Patch Cord 5ft",
+      "description": "TX6 PLUS Cat 6 UTP patch cord, 24 AWG stranded CM cable, modular plugs with tangle-free latch, 5 ft, blue.",
+      "specs": [
+        { "name": "Type", "value": "Patch cord", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Color", "value": "Blue", "isNonNeg": false },
+        { "name": "Length", "value": "5 ft", "isNonNeg": false },
+        { "name": "Conductor", "value": "24 AWG stranded U/UTP", "isNonNeg": false }
+      ],
+      "estListPrice": 14.39,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/patch-cords-accessories/patch-cords/utpsp5buy.html"
+    },
+    {
+      "mpn": "HXJ6W",
+      "brand": "Hubbell",
+      "name": "Hubbell HXJ6W Xcelerator Cat 6 Jack",
+      "description": "Xcelerator Cat 6 universal RJ45 jack, white, exclusive 1-Punch termination, rated to 5GBASE-T and 802.3bt PoE.",
+      "specs": [
+        { "name": "Type", "value": "Keystone jack", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Termination", "value": "1-Punch / 110-style", "isNonNeg": false },
+        { "name": "Standards", "value": "ANSI/TIA-568-C.2, ISO 11801", "isNonNeg": false }
+      ],
+      "estListPrice": 14.99,
+      "priceSource": "voomisupply.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/PREM_MX-HXJ6W-SPEC-EN.pdf"
+    },
+    {
+      "mpn": "MGS400-318",
+      "brand": "CommScope",
+      "name": "CommScope MGS400-318 GigaSPEED XL Outlet",
+      "description": "SYSTIMAX GigaSPEED XL MGS400 Cat 6 U/UTP information outlet, blue; mounts straight or 45-degree in M-series faceplates.",
+      "specs": [
+        { "name": "Type", "value": "Information outlet (M-series jack)", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Color", "value": "Blue", "isNonNeg": false },
+        { "name": "Shielding", "value": "U/UTP unshielded", "isNonNeg": false },
+        { "name": "Standards", "value": "ANSI/TIA-568.2-D Cat 6, ISO/IEC 11801 Class E", "isNonNeg": false }
+      ],
+      "estListPrice": 24.0,
+      "priceSource": "solidsignal.com",
+      "specSheetUrl": "https://www.commscope.com/product-type/connectors/rj45-jacks-accessories/category-6-jacks/mgs400/"
+    },
+    {
+      "mpn": "Z6-02",
+      "brand": "Siemon",
+      "name": "Siemon Z6-02 Z-MAX 6 UTP Outlet",
+      "description": "Z-MAX 6 UTP outlet, white, hybrid flat/angled keystone design, exceeds TIA Category 6 component performance.",
+      "specs": [
+        { "name": "Type", "value": "Keystone outlet (Z-MAX)", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Mounting", "value": "Hybrid flat/angled", "isNonNeg": false },
+        { "name": "Wire Range", "value": "22-26 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 9.0,
+      "priceSource": "datacomtools.com",
+      "specSheetUrl": "https://files.siemon.com/en/specsheet/siemon-z-max-6-6a-utp-outlets_spec-sheet.pdf"
+    },
+    {
+      "mpn": "KS6A-36",
+      "brand": "Legrand",
+      "name": "Legrand KS6A-36 TechChoice Cat 6 Jack",
+      "description": "Ortronics TechChoice 6 keystone jack, blue, 8-position 180-degree exit, T568A/B universal wiring, 110 punchdown.",
+      "specs": [
+        { "name": "Type", "value": "Keystone jack", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Color", "value": "Blue", "isNonNeg": false },
+        { "name": "Termination", "value": "110 punchdown", "isNonNeg": false },
+        { "name": "Wiring", "value": "T568A/T568B", "isNonNeg": false }
+      ],
+      "estListPrice": 6.34,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.legrand.us/network-infrastructure/copper/jacks-and-modules/techchoice-6-keystone-jack-blue/p/ks6a-36"
+    }
+  ]
+}

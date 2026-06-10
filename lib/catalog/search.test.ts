@@ -5,7 +5,7 @@ import type { RangeFacet } from "@/features/product-finder/types";
 describe("searchCatalog", () => {
   it("paginates: total reflects all matches, items is one page", () => {
     const r = searchCatalog({ pageSize: 24, page: 0 });
-    expect(r.total).toBe(60000);
+    expect(r.total).toBe(200000);
     expect(r.items).toHaveLength(24);
     expect(r.page).toBe(0);
   });

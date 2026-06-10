@@ -1,0 +1,134 @@
+{
+  "category": "electrical",
+  "subcategory": "Drivers & Ballasts",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "ICN-2P32-N",
+      "brand": "Philips Advance",
+      "name": "Philips Advance ICN-2P32-N Centium Ballast",
+      "description": "Centium electronic fluorescent ballast, instant start, parallel wiring, operates (1-2) F32T8/F25T8/F17T8 lamps, 120-277V input.",
+      "specs": [
+        { "name": "Type", "value": "Electronic fluorescent ballast, instant start", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Output", "value": "(1-2) F32T8 lamps, parallel connection", "isNonNeg": false },
+        { "name": "Dimming", "value": "Non-dimming", "isNonNeg": false },
+        { "name": "Lamp Compatibility", "value": "F32T8, F25T8, F17T8, (1) F40T8", "isNonNeg": false }
+      ],
+      "estListPrice": 20.97,
+      "priceSource": "electricalparts.com",
+      "specSheetUrl": "https://www.na.mytechnology.portal.signify.com/dam/jcr:8e915ac2-d62f-48a2-b9f1-c32272260876/ICN-2P32-N",
+      "upc": "781087069127"
+    },
+    {
+      "mpn": "ICN-4P32-N",
+      "brand": "Philips Advance",
+      "name": "Philips Advance ICN-4P32-N Centium Ballast",
+      "description": "Centium electronic fluorescent ballast, instant start, parallel wiring, operates (3-4) F32T8/F25T8/F17T8 lamps, 120-277V input.",
+      "specs": [
+        { "name": "Type", "value": "Electronic fluorescent ballast, instant start", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Output", "value": "(3-4) F32T8 lamps, parallel connection", "isNonNeg": false },
+        { "name": "Dimming", "value": "Non-dimming", "isNonNeg": false },
+        { "name": "Lamp Compatibility", "value": "F17T8, F25T8, F32T8, F32T8/ES, F40T8", "isNonNeg": false }
+      ],
+      "estListPrice": 20.19,
+      "priceSource": "lightbulbsurplus.com",
+      "specSheetUrl": "https://www.na.mytechnology.portal.signify.com/dam/jcr:8185bcc9-cd8a-417d-abb1-e4b68cb8675b/ICN-4P32-N+ELE+BALLAST+(4)+F32T8+120-277V+.pdf"
+    },
+    {
+      "mpn": "ICF-2S26-H1-LD",
+      "brand": "Philips Advance",
+      "name": "Philips Advance ICF-2S26-H1-LD SmartMate Ballast",
+      "description": "SmartMate electronic CFL ballast, programmed start, operates (1-2) 26W 4-pin compact fluorescent lamps, 120-277V, 1.0 ballast factor.",
+      "specs": [
+        { "name": "Type", "value": "Electronic CFL ballast, programmed start", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Output", "value": "(1-2) 26W 4-pin CFL", "isNonNeg": false },
+        { "name": "Dimming", "value": "Non-dimming", "isNonNeg": false },
+        { "name": "Ballast Factor", "value": "1.0", "isNonNeg": false }
+      ],
+      "estListPrice": 24.87,
+      "priceSource": "adlsupply.com",
+      "specSheetUrl": "https://www.na.mytechnology.portal.signify.com/dam/jcr:0040c2c3-db6f-4d26-9b9c-340f49f2069e/ICF-2S26-H1-LD+ELE+BALLAST+(2)+26W+CFL+(4-PIN)+120-277V.pdf"
+    },
+    {
+      "mpn": "XI040C110V054BST1",
+      "brand": "Philips Advance",
+      "name": "Philips Advance XI040C110V054BST1 Xitanium Driver",
+      "description": "Xitanium 40W programmable constant-current LED driver, 0.1-1.1A (1.1A default), 22-54V output, 120-277V input, 0-10V dimming.",
+      "specs": [
+        { "name": "Type", "value": "Constant-current LED driver, programmable (SimpleSet)", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Output", "value": "40W max, 0.1-1.1A, 22-54VDC", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 22.95,
+      "priceSource": "ballastshop.com",
+      "specSheetUrl": "https://www.assets.signify.com/is/content/PhilipsConsumer/PDFDownloads/Colombia/technical-sheets/ODLI20180306_001-UPD-es_CO-Xitanium_40W_0_1to1_1A_XI040C110V054BST1_PAd-1609DS.pdf"
+    },
+    {
+      "mpn": "WH5-120-L",
+      "brand": "Fulham",
+      "name": "Fulham WH5-120-L WorkHorse 5 Ballast",
+      "description": "WorkHorse 5 adaptable instant-start electronic ballast, 120V input, long case, operates 1-4 lamps in many T8/T5HO/T12 combinations.",
+      "specs": [
+        { "name": "Type", "value": "Electronic fluorescent ballast, instant start (adaptable)", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120V", "isNonNeg": true },
+        { "name": "Output", "value": "1-4 lamps (F32T8, F54T5HO, F96T12HO and more)", "isNonNeg": false },
+        { "name": "Dimming", "value": "Non-dimming", "isNonNeg": false },
+        { "name": "Power Factor", "value": ">0.90", "isNonNeg": false }
+      ],
+      "estListPrice": 29.95,
+      "priceSource": "ballastshop.com",
+      "specSheetUrl": "https://www.fulham.com/PDFs/SpecSheets/WH5-120-L-2006-26SP.pdf"
+    },
+    {
+      "mpn": "WH2-120-C",
+      "brand": "Fulham",
+      "name": "Fulham WH2-120-C WorkHorse 2 Ballast",
+      "description": "WorkHorse 2 versatile instant-start electronic ballast, 120V input, compact case, operates 1-2 linear or CFL lamps up to 35W total.",
+      "specs": [
+        { "name": "Type", "value": "Electronic fluorescent ballast, instant start (adaptable)", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120V", "isNonNeg": true },
+        { "name": "Output", "value": "1-2 lamps, 35W max (T5/T6/T8/T9 linear and CFL)", "isNonNeg": false },
+        { "name": "Dimming", "value": "Non-dimming", "isNonNeg": false },
+        { "name": "Power Factor", "value": ">0.9", "isNonNeg": false }
+      ],
+      "estListPrice": 24.38,
+      "priceSource": "mrosupply.com",
+      "specSheetUrl": "https://www.fulham.com/PDFs/SpecSheets/WH2-120-C-2006-43SP.pdf"
+    },
+    {
+      "mpn": "KTEB-232-UV-IS-N-P",
+      "brand": "Keystone",
+      "name": "Keystone KTEB-232-UV-IS-N-P T8 Ballast",
+      "description": "Electronic T8 fluorescent ballast, instant start, parallel wiring, operates (1-2) F32T8/F25T8/F17T8, 120-277V, standard output.",
+      "specs": [
+        { "name": "Type", "value": "Electronic fluorescent ballast, instant start", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Output", "value": "(1-2) F32T8 lamps, parallel connection", "isNonNeg": false },
+        { "name": "Dimming", "value": "Non-dimming", "isNonNeg": false },
+        { "name": "Lamp Compatibility", "value": "F32T8, F25T8, F17T8, F15T8, (1) F40T8", "isNonNeg": false }
+      ],
+      "estListPrice": 14.95,
+      "priceSource": "ballastshop.com",
+      "specSheetUrl": "https://www.keystonetech.com/wp-content/themes/keystoneTech/img/spec_sheets/fluorescent_ballasts/KTEB-232-UV-IS-N-P.pdf"
+    },
+    {
+      "mpn": "LC40-1050Z-UNV-W",
+      "brand": "Hatch",
+      "name": "Hatch LC40-1050Z-UNV-W LED Driver",
+      "description": "L-Series 40W constant-current LED driver, 1050mA output, 12-36VDC range, 120-277V input, 0-10V dimming, 87% efficiency, 5-yr warranty.",
+      "specs": [
+        { "name": "Type", "value": "Constant-current LED driver", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Output", "value": "40W max, 1050mA, 12-36VDC", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 45.95,
+      "priceSource": "ballastshop.com",
+      "specSheetUrl": "https://www.hatchlighting.com/product-feed/lc40-1050z-unv-w/"
+    }
+  ]
+}

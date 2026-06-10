@@ -1,0 +1,173 @@
+{
+  "category": "safety",
+  "subcategory": "Fall Protection",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "1102000",
+      "brand": "3M DBI-SALA",
+      "name": "3M DBI-SALA 1102000 Delta Vest-Style Harness",
+      "description": "Delta vest-style full body harness with back D-ring, pass-through chest and tongue buckle legs; universal size.",
+      "specs": [
+        { "name": "Type", "value": "Full body harness (vest-style)", "isNonNeg": true },
+        { "name": "Capacity", "value": "420 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "OSHA, ANSI Z359.11", "isNonNeg": false },
+        { "name": "D-Ring", "value": "Back", "isNonNeg": false },
+        { "name": "Leg Buckle", "value": "Tongue buckle", "isNonNeg": false },
+        { "name": "Size", "value": "Universal", "isNonNeg": false }
+      ],
+      "estListPrice": 152.01,
+      "priceSource": "indianasafety.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1719522O/3m-datasheet-fall-dbi-sala-delta-full-body-harnesses.pdf"
+    },
+    {
+      "mpn": "3100520",
+      "brand": "3M DBI-SALA",
+      "name": "3M DBI-SALA 3100520 Nano-Lok SRL",
+      "description": "Nano-Lok 6 ft single-leg web self-retracting lifeline with steel carabiner anchor connector and steel snap hook.",
+      "specs": [
+        { "name": "Type", "value": "Self-retracting lifeline (single-leg, web)", "isNonNeg": true },
+        { "name": "Capacity", "value": "420 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "ANSI Z359.14, OSHA", "isNonNeg": false },
+        { "name": "Length", "value": "6 ft", "isNonNeg": false },
+        { "name": "Connectors", "value": "Steel carabiner; steel snap hook", "isNonNeg": false }
+      ],
+      "estListPrice": 194.99,
+      "priceSource": "harnessland.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1719538O/3m-datasheet-fall-dbi-sala-nano-lok-self-retracting-lifelines.pdf"
+    },
+    {
+      "mpn": "3590500",
+      "brand": "3M Protecta",
+      "name": "3M Protecta 3590500 Rebel 33 ft SRL",
+      "description": "Rebel SRL with 33 ft of 3/16 in. galvanized steel cable, thermoplastic housing, swiveling snap hook and anchorage carabiner.",
+      "specs": [
+        { "name": "Type", "value": "Self-retracting lifeline (cable)", "isNonNeg": true },
+        { "name": "Capacity", "value": "420 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "OSHA, ANSI Z359.14", "isNonNeg": false },
+        { "name": "Length", "value": "33 ft", "isNonNeg": false },
+        { "name": "Lifeline", "value": "3/16 in. galvanized steel wire rope", "isNonNeg": false }
+      ],
+      "estListPrice": 551.84,
+      "priceSource": "indianasafety.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1719545O/3m-datasheet-fall-pro-rebel-sr-lifelines.pdf"
+    },
+    {
+      "mpn": "1341001",
+      "brand": "3M Protecta",
+      "name": "3M Protecta 1341001 PRO Pack Lanyard",
+      "description": "PRO Pack 6 ft single-leg shock absorbing lanyard with plated alloy steel snap hooks; economical fall arrest compliance.",
+      "specs": [
+        { "name": "Type", "value": "Shock absorbing lanyard (single-leg)", "isNonNeg": true },
+        { "name": "Capacity", "value": "310 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "ANSI Z359.13, OSHA", "isNonNeg": false },
+        { "name": "Length", "value": "6 ft", "isNonNeg": false },
+        { "name": "Hardware", "value": "Plated alloy steel snap hooks", "isNonNeg": false }
+      ],
+      "estListPrice": 50.61,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1337999O/3m-protecta-full-line-catalog.pdf"
+    },
+    {
+      "mpn": "E650/UGN",
+      "brand": "Honeywell Miller",
+      "name": "Honeywell Miller E650/UGN DuraFlex Harness",
+      "description": "DuraFlex stretchable harness with specially formulated elastomer webbing, back D-ring and tongue buckle legs; universal L/XL.",
+      "specs": [
+        { "name": "Type", "value": "Full body harness (stretchable)", "isNonNeg": true },
+        { "name": "Capacity", "value": "400 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "OSHA, ANSI Z359.1, ANSI A10.32", "isNonNeg": false },
+        { "name": "Webbing", "value": "DuraFlex elastomer", "isNonNeg": false },
+        { "name": "Size", "value": "Universal (L/XL)", "isNonNeg": false }
+      ],
+      "estListPrice": 268.19,
+      "priceSource": "pendergastsafety.com",
+      "specSheetUrl": "https://automation.honeywell.com/us/en/products/personal-protective-equipment/fall-protection/harnesses/miller-duraflex-stretchable-harnesses"
+    },
+    {
+      "mpn": "T4500/UAK",
+      "brand": "Honeywell Miller",
+      "name": "Honeywell Miller T4500/UAK Titan II Harness",
+      "description": "Titan II non-stretch full body harness with sliding back D-ring, tongue buckle legs and sub-pelvic strap; universal L/XL.",
+      "specs": [
+        { "name": "Type", "value": "Full body harness (non-stretch)", "isNonNeg": true },
+        { "name": "Capacity", "value": "400 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "OSHA, ANSI A10.32", "isNonNeg": false },
+        { "name": "D-Ring", "value": "Sliding back", "isNonNeg": false },
+        { "name": "Leg Buckle", "value": "Tongue buckle", "isNonNeg": false },
+        { "name": "Size", "value": "Universal (L/XL)", "isNonNeg": false }
+      ],
+      "estListPrice": 58.97,
+      "priceSource": "mastermans.com",
+      "specSheetUrl": "https://automation.honeywell.com/us/en/products/personal-protective-equipment/fall-protection/harnesses/miller-titan-ii-harness"
+    },
+    {
+      "mpn": "10196642",
+      "brand": "MSA",
+      "name": "MSA 10196642 V-FORM Harness",
+      "description": "V-FORM full body harness with RaceFORM buckle, athletic cut, back D-ring and Qwik-Fit leg straps; standard size.",
+      "specs": [
+        { "name": "Type", "value": "Full body harness", "isNonNeg": true },
+        { "name": "Capacity", "value": "400 lb (OSHA max)", "isNonNeg": true },
+        { "name": "Standard", "value": "ANSI Z359.11, CSA Z259.10", "isNonNeg": false },
+        { "name": "Leg Straps", "value": "Qwik-Fit", "isNonNeg": false },
+        { "name": "D-Ring", "value": "Back", "isNonNeg": false },
+        { "name": "Size", "value": "Standard", "isNonNeg": false }
+      ],
+      "estListPrice": 72.14,
+      "priceSource": "hantover.com",
+      "specSheetUrl": "https://us.msasafety.com/pn/10196642"
+    },
+    {
+      "mpn": "01703",
+      "brand": "Guardian Fall Protection",
+      "name": "Guardian 01703 Velocity Harness",
+      "description": "Velocity economy full body harness with pass-thru chest, tongue buckle legs, dual lanyard keepers and wear-indicator webbing; S-L.",
+      "specs": [
+        { "name": "Type", "value": "Full body harness", "isNonNeg": true },
+        { "name": "Capacity", "value": "130-420 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "OSHA, ANSI Z359.11", "isNonNeg": false },
+        { "name": "Chest Buckle", "value": "Pass-thru", "isNonNeg": false },
+        { "name": "Leg Buckle", "value": "Tongue buckle", "isNonNeg": false },
+        { "name": "Size", "value": "S-L", "isNonNeg": false }
+      ],
+      "estListPrice": 42.2,
+      "priceSource": "norkan.com",
+      "specSheetUrl": "https://guardianfall.com/product/01703"
+    },
+    {
+      "mpn": "7016B",
+      "brand": "FallTech",
+      "name": "FallTech 7016B Contractor+ Harness",
+      "description": "Contractor+ 1D standard non-belted full body harness with padded air-mesh shoulder yoke, dorsal D-ring and tongue buckle legs.",
+      "specs": [
+        { "name": "Type", "value": "Full body harness (non-belted)", "isNonNeg": true },
+        { "name": "Capacity", "value": "130-425 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "ANSI Z359.11-2021; OSHA 1926.502, 1910.140", "isNonNeg": false },
+        { "name": "D-Ring", "value": "Dorsal", "isNonNeg": false },
+        { "name": "Leg Buckle", "value": "Tongue buckle", "isNonNeg": false },
+        { "name": "Hardware", "value": "Plated alloy steel, 5,000 lb min static", "isNonNeg": false }
+      ],
+      "estListPrice": 79,
+      "priceSource": "falltech.com",
+      "specSheetUrl": "https://www.falltech.com/Product/7016b/"
+    },
+    {
+      "mpn": "8259",
+      "brand": "FallTech",
+      "name": "FallTech 8259 Energy Absorbing Lanyard",
+      "description": "6 ft single-leg internal energy absorbing lanyard, tubular polyester web with alloy steel snap hooks and visual fall indicator.",
+      "specs": [
+        { "name": "Type", "value": "Energy absorbing lanyard (single-leg)", "isNonNeg": true },
+        { "name": "Capacity", "value": "130-310 lb", "isNonNeg": true },
+        { "name": "Standard", "value": "ANSI Z359.13-2013; OSHA 1926.502, 1910.66", "isNonNeg": false },
+        { "name": "Length", "value": "6 ft", "isNonNeg": false },
+        { "name": "Webbing", "value": "Polyester, 5,000 lb min static strength", "isNonNeg": false },
+        { "name": "Hooks", "value": "Alloy steel snap hooks", "isNonNeg": false }
+      ],
+      "estListPrice": 47.35,
+      "priceSource": "industrialsafetyproducts.com",
+      "specSheetUrl": "https://www.falltech.com/Product/8259/"
+    }
+  ]
+}

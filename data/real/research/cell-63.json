@@ -1,0 +1,137 @@
+{
+  "category": "av",
+  "subcategory": "Amplifiers & DSP",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "XLS1002",
+      "brand": "Crown",
+      "name": "Crown XLS1002 Power Amplifier",
+      "description": "Two-channel DriveCore 2 Class-D power amp, 350W/ch at 4 ohms, with onboard DSP crossovers and Peakx limiters.",
+      "specs": [
+        { "name": "Type", "value": "Power Amplifier (Class D)", "isNonNeg": true },
+        { "name": "Output", "value": "350W per channel at 4 ohms", "isNonNeg": true },
+        { "name": "Channels", "value": "2", "isNonNeg": false },
+        { "name": "Power per Channel", "value": "215W @ 8 ohms / 350W @ 4 ohms", "isNonNeg": false },
+        { "name": "Bridged Output", "value": "1100W @ 4 ohms", "isNonNeg": false },
+        { "name": "Inputs", "value": "XLR, 1/4 in., RCA", "isNonNeg": false }
+      ],
+      "estListPrice": 439,
+      "priceSource": "soundpro.com",
+      "specSheetUrl": "https://www.crownaudio.com/en-US/products/xls-1002"
+    },
+    {
+      "mpn": "XLS1502",
+      "brand": "Crown",
+      "name": "Crown XLS1502 Power Amplifier",
+      "description": "Two-channel DriveCore 2 Class-D power amp, 525W/ch at 4 ohms, with onboard DSP and lightweight chassis.",
+      "specs": [
+        { "name": "Type", "value": "Power Amplifier (Class D)", "isNonNeg": true },
+        { "name": "Output", "value": "525W per channel at 4 ohms", "isNonNeg": true },
+        { "name": "Channels", "value": "2", "isNonNeg": false },
+        { "name": "Power per Channel", "value": "300W @ 8 ohms / 525W @ 4 ohms", "isNonNeg": false },
+        { "name": "Inputs", "value": "XLR, 1/4 in., RCA", "isNonNeg": false }
+      ],
+      "estListPrice": 650,
+      "priceSource": "soundpro.com",
+      "specSheetUrl": "https://www.crownaudio.com/en-US/products/xls-1502"
+    },
+    {
+      "mpn": "XLi 800",
+      "brand": "Crown",
+      "name": "Crown XLi 800 Power Amplifier",
+      "description": "Two-channel power amplifier, 300W/ch at 4 ohms, with XLR/RCA inputs, Speakon and binding post outputs.",
+      "specs": [
+        { "name": "Type", "value": "Power Amplifier (2-channel)", "isNonNeg": true },
+        { "name": "Output", "value": "300W per channel at 4 ohms", "isNonNeg": true },
+        { "name": "Channels", "value": "2", "isNonNeg": false },
+        { "name": "Power per Channel", "value": "200W @ 8 ohms / 300W @ 4 ohms", "isNonNeg": false },
+        { "name": "Bridged Output", "value": "600W @ 8 ohms (bridge-mono)", "isNonNeg": false },
+        { "name": "Inputs", "value": "XLR, RCA", "isNonNeg": false }
+      ],
+      "estListPrice": 419,
+      "priceSource": "frontendaudio.com",
+      "specSheetUrl": "https://www.crownaudio.com/en-US/products/xli-800"
+    },
+    {
+      "mpn": "CDi 4|300",
+      "brand": "Crown",
+      "name": "Crown CDi 4|300 Install Amplifier",
+      "description": "Four-channel DriveCore install amplifier, 300W/ch into 4/8 ohms or 70V/100V, with onboard DSP and front-panel interface.",
+      "specs": [
+        { "name": "Type", "value": "Installed Power Amplifier (70V/100V capable)", "isNonNeg": true },
+        { "name": "Output", "value": "300W per channel (4 ohm, 8 ohm, 70V, 100V)", "isNonNeg": true },
+        { "name": "Channels", "value": "4", "isNonNeg": false },
+        { "name": "Power per Channel", "value": "300W", "isNonNeg": false },
+        { "name": "DSP", "value": "Onboard DSP with front-panel interface", "isNonNeg": false }
+      ],
+      "estListPrice": 3070,
+      "priceSource": "soundpro.com",
+      "specSheetUrl": "https://www.crownaudio.com/en-US/products/cdi-4-300"
+    },
+    {
+      "mpn": "SPA2-60",
+      "brand": "QSC",
+      "name": "QSC SPA2-60 Compact Amplifier",
+      "description": "Two-channel ENERGY STAR Class-D install amplifier, 60W/ch into 4/8 ohms, bridgeable to 70V/100V, half-rack 1RU.",
+      "specs": [
+        { "name": "Type", "value": "Installed Power Amplifier (Class D, ENERGY STAR)", "isNonNeg": true },
+        { "name": "Output", "value": "60W per channel into 4/8 ohms; up to 250W bridged into 70V/100V", "isNonNeg": true },
+        { "name": "Channels", "value": "2", "isNonNeg": false },
+        { "name": "Power per Channel", "value": "60W", "isNonNeg": false },
+        { "name": "Form Factor", "value": "1RU half-rack, convection cooled", "isNonNeg": false }
+      ],
+      "estListPrice": 795,
+      "priceSource": "markertek.com",
+      "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/amp/spa/q_amp_spa_specs_final.pdf"
+    },
+    {
+      "mpn": "Core 110f v2",
+      "brand": "QSC",
+      "name": "QSC Core 110f v2 Q-SYS Processor",
+      "description": "Q-SYS unified core DSP with 24 local audio I/O, 128x128 network channels, USB AV bridging, VoIP and POTS telephony.",
+      "specs": [
+        { "name": "Type", "value": "DSP (Unified Core Processor)", "isNonNeg": true },
+        { "name": "Output", "value": "24 local analog I/O; 128x128 network audio channels", "isNonNeg": true },
+        { "name": "Channels", "value": "24 local I/O including 8 Flex channels", "isNonNeg": false },
+        { "name": "Telephony", "value": "VoIP (up to 4 instances) and POTS", "isNonNeg": false },
+        { "name": "USB", "value": "Built-in USB AV bridging", "isNonNeg": false }
+      ],
+      "estListPrice": 4740,
+      "priceSource": "hdtvsupply.com",
+      "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/dn/dsp_cores/core_110f/q_dn_core_110f_specs.pdf"
+    },
+    {
+      "mpn": "911.0396.900",
+      "brand": "Biamp",
+      "name": "Biamp 911.0396.900 TesiraFORTE AVB AI",
+      "description": "Fixed I/O conferencing DSP with 12 analog inputs, 8 outputs, up to 8 channels of USB audio, and AVB networking.",
+      "specs": [
+        { "name": "Type", "value": "Fixed I/O DSP", "isNonNeg": true },
+        { "name": "Output", "value": "8 balanced analog outputs; 128x128 AVB network channels", "isNonNeg": true },
+        { "name": "Channels", "value": "12 analog in / 8 analog out", "isNonNeg": false },
+        { "name": "USB", "value": "Up to 8 channels configurable USB audio", "isNonNeg": false },
+        { "name": "Form Factor", "value": "1RU rack mountable", "isNonNeg": false }
+      ],
+      "estListPrice": 3850,
+      "priceSource": "creationnetworks.net",
+      "specSheetUrl": "https://downloads.biamp.com/assets/docs/default-source/data-sheets/biamp_data_sheet_tesiraforte_avb_ai_oct20.pdf?sfvrsn=613d4f2f_12"
+    },
+    {
+      "mpn": "IZA 2120-LZ",
+      "brand": "Bose Professional",
+      "name": "Bose Professional IZA 2120-LZ Zone Amplifier",
+      "description": "FreeSpace integrated zone mixer-amplifier, 2x120W Class-D at 4 ohms, with loudspeaker EQ, Opti-voice paging, Dynamic EQ.",
+      "specs": [
+        { "name": "Type", "value": "Integrated Zone Amplifier (mixer-amp)", "isNonNeg": true },
+        { "name": "Output", "value": "2 x 120W at 4 ohms (low impedance)", "isNonNeg": true },
+        { "name": "Channels", "value": "2", "isNonNeg": false },
+        { "name": "Power per Channel", "value": "120W", "isNonNeg": false },
+        { "name": "Features", "value": "Loudspeaker EQ, Opti-voice paging, Dynamic EQ", "isNonNeg": false }
+      ],
+      "estListPrice": 849,
+      "priceSource": "avendor.com",
+      "specSheetUrl": "https://boseprofessional.com/products/power-amplifiers/mixer-amps/iza/freespace-iza-2120-lz-integrated-zone-amplifier"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "category": "av",
+  "subcategory": "Speakers",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "Control 25-1",
+      "brand": "JBL",
+      "name": "JBL Control 25-1 Surface-Mount Speaker",
+      "description": "Compact 5.25\" two-way indoor/outdoor surface-mount speaker with 70V/100V transformer taps and InvisiBall mounting.",
+      "specs": [
+        { "name": "Type", "value": "Surface-mount, 2-way indoor/outdoor", "isNonNeg": true },
+        { "name": "Power", "value": "100 W cont. (200 W program) at 8 ohms; 30 W 70V/100V taps", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "5.25 in woven-fiberglass cone", "isNonNeg": false },
+        { "name": "Sensitivity", "value": "90 dB (1W/1m)", "isNonNeg": false },
+        { "name": "Max SPL", "value": "110 dB continuous (116 dB peak)", "isNonNeg": false },
+        { "name": "Transformer Taps", "value": "70V: 30/15/7.5/3.7 W; 100V: 30/15/7.5 W", "isNonNeg": false }
+      ],
+      "estListPrice": 228.21,
+      "priceSource": "jbl.com",
+      "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8441c078/pdfs/JBL_Control_C25-1_Spec_Sheet_022616_lowres.pdf"
+    },
+    {
+      "mpn": "Control 28-1",
+      "brand": "JBL",
+      "name": "JBL Control 28-1 Surface-Mount Speaker",
+      "description": "High-output 8\" two-way indoor/outdoor surface-mount speaker with built-in 60 W 70V/100V multi-tap transformer.",
+      "specs": [
+        { "name": "Type", "value": "Surface-mount, 2-way indoor/outdoor", "isNonNeg": true },
+        { "name": "Power", "value": "120 W cont. (240 W program) at 8 ohms; 60 W 70V/100V taps", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "8 in woven-fiberglass cone", "isNonNeg": false },
+        { "name": "Frequency Range", "value": "45 Hz - 20 kHz (-10 dB)", "isNonNeg": false },
+        { "name": "Coverage Angle", "value": "100 deg x 100 deg", "isNonNeg": false },
+        { "name": "Max SPL", "value": "112 dB continuous (118 dB peak)", "isNonNeg": false }
+      ],
+      "estListPrice": 381,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw66c7f336/pdfs/JBL_Control_C28-1_Spec_Sheet_022616_lowres.pdf"
+    },
+    {
+      "mpn": "Control 26CT",
+      "brand": "JBL",
+      "name": "JBL Control 26CT Ceiling Speaker",
+      "description": "6.5\" coaxial ceiling loudspeaker with 60 W multi-tap 70V/100V transformer and front-panel tap selector; sold in pairs.",
+      "specs": [
+        { "name": "Type", "value": "In-ceiling, 2-way coaxial", "isNonNeg": true },
+        { "name": "Power", "value": "60 W multitap at 70V/100V (taps 60/30/15/7.5 W @ 70V)", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "6.5 in (165 mm)", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "75 Hz - 20 kHz", "isNonNeg": false },
+        { "name": "Coverage Angle", "value": "110 deg conical", "isNonNeg": false },
+        { "name": "Max SPL", "value": "107 dB at 1 m", "isNonNeg": false }
+      ],
+      "estListPrice": 225,
+      "priceSource": "conferenceroomav.com",
+      "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwd91cc59c/pdfs/JBL_Ctrl26C_CTv1_SpecSheet.pdf"
+    },
+    {
+      "mpn": "Control 16C/T",
+      "brand": "JBL",
+      "name": "JBL Control 16C/T Ceiling Speaker",
+      "description": "Two-way 6.5\" coaxial in-ceiling loudspeaker with metal back-can; 70V/100V multitap or 8-ohm direct operation.",
+      "specs": [
+        { "name": "Type", "value": "In-ceiling, 2-way coaxial", "isNonNeg": true },
+        { "name": "Power", "value": "50 W at 8 ohms; 30 W multitap at 70V/100V", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "6.5 in (165 mm)", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "62 Hz - 20 kHz", "isNonNeg": false },
+        { "name": "Coverage Angle", "value": "110 deg conical", "isNonNeg": false }
+      ],
+      "estListPrice": 180,
+      "priceSource": "ccisolutions.com",
+      "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw91d75a79/pdfs/JBL_Ctrl16C_Tv1_Spec_Sheet.pdf"
+    },
+    {
+      "mpn": "FS2C",
+      "brand": "Bose",
+      "name": "Bose FreeSpace FS2C Ceiling Speaker",
+      "description": "2.25\" full-range commercial in-ceiling loudspeaker, 16-ohm or 70/100V operation, plenum rated; sold in pairs.",
+      "specs": [
+        { "name": "Type", "value": "In-ceiling, full-range", "isNonNeg": true },
+        { "name": "Power", "value": "20 W long-term; 70/100V taps 1/2/4/8/16 W + 16-ohm bypass", "isNonNeg": true },
+        { "name": "Transducer", "value": "2.25 in full-range driver", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "83 Hz - 19 kHz (-10 dB)", "isNonNeg": false },
+        { "name": "Coverage Angle", "value": "160 deg conical (1-4 kHz)", "isNonNeg": false },
+        { "name": "Safety Rating", "value": "UL 1480A, UL 2043 plenum rated", "isNonNeg": false }
+      ],
+      "estListPrice": 114.98,
+      "priceSource": "emiaudio.com",
+      "specSheetUrl": "https://assets.boseprofessional.com/m/2e5cca68f250f74b/original/TDS_FreeSpace_FS2C_A4_enUS.pdf"
+    },
+    {
+      "mpn": "DM2C-LP",
+      "brand": "Bose",
+      "name": "Bose DesignMax DM2C-LP Ceiling Speaker",
+      "description": "20 W low-profile 2.25\" in-ceiling loudspeaker with QuickHold mounting and UL 2043 plenum rating; sold in pairs.",
+      "specs": [
+        { "name": "Type", "value": "In-ceiling, full-range low-profile", "isNonNeg": true },
+        { "name": "Power", "value": "20 W", "isNonNeg": true },
+        { "name": "Transducer", "value": "2.25 in full-range driver", "isNonNeg": false },
+        { "name": "Frequency Range", "value": "85 Hz - 19 kHz", "isNonNeg": false },
+        { "name": "Connector", "value": "Euroblock 6-pin with loop-through", "isNonNeg": false },
+        { "name": "Safety Rating", "value": "UL 1480A, UL 2043 plenum rated", "isNonNeg": false }
+      ],
+      "estListPrice": 139.5,
+      "priceSource": "conferenceroomav.com",
+      "specSheetUrl": "https://boseprofessional.com/products/loudspeakers/ceiling-mount/designmax/designmax-dm2c-lp-1-pair"
+    },
+    {
+      "mpn": "AD-C6T",
+      "brand": "QSC",
+      "name": "QSC AD-C6T Ceiling Speaker",
+      "description": "AcousticDesign 6.5\" two-way ceiling speaker with 135-degree conical DMT coverage and 60 W 70/100V transformer.",
+      "specs": [
+        { "name": "Type", "value": "In-ceiling, 2-way", "isNonNeg": true },
+        { "name": "Power", "value": "60 W transformer taps at 70/100V; 16-ohm bypass", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "6.5 in weather-treated paper cone", "isNonNeg": false },
+        { "name": "Coverage Angle", "value": "135 deg conical DMT", "isNonNeg": false },
+        { "name": "Tweeter", "value": "0.75 in aluminum dome on DMT waveguide", "isNonNeg": false },
+        { "name": "Grille", "value": "Snap-fit magnetic", "isNonNeg": false }
+      ],
+      "estListPrice": 250,
+      "priceSource": "prodj.com",
+      "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/spk/ad/ad-c6t/q_spk_adc_6t_specsheet.pdf"
+    },
+    {
+      "mpn": "AD-S6T",
+      "brand": "QSC",
+      "name": "QSC AD-S6T Surface-Mount Speaker",
+      "description": "AcousticDesign 6.5\" two-way surface-mount speaker, 70/100V with 8-ohm bypass, IP-54 rated with X-Mount bracket.",
+      "specs": [
+        { "name": "Type", "value": "Surface-mount, 2-way", "isNonNeg": true },
+        { "name": "Power", "value": "150 W RMS; 70/100V transformer taps with 8-ohm bypass", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "6.5 in weather-treated paper cone", "isNonNeg": false },
+        { "name": "Frequency Range", "value": "60 Hz - 20 kHz (-10 dB)", "isNonNeg": false },
+        { "name": "Coverage Angle", "value": "105 deg conical DMT", "isNonNeg": false },
+        { "name": "Environmental Rating", "value": "IP-54 dust/splash resistant", "isNonNeg": false }
+      ],
+      "estListPrice": 510,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/spk/ad/ad-s6t/q_spk_ads_6t_specs.pdf"
+    },
+    {
+      "mpn": "SD72W",
+      "brand": "Atlas Sound",
+      "name": "AtlasIED SD72W Ceiling Speaker",
+      "description": "8\" dual-cone in-ceiling loudspeaker with factory-installed 25V/70V 5 W transformer and 62-8 white baffle.",
+      "specs": [
+        { "name": "Type", "value": "In-ceiling, dual-cone", "isNonNeg": true },
+        { "name": "Power", "value": "25 W speaker; 25/70.7V transformer taps 0.25-5 W", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "8 in curvilinear treated paper cone", "isNonNeg": false },
+        { "name": "Sensitivity", "value": "97 dB", "isNonNeg": false },
+        { "name": "Dispersion", "value": "105 deg", "isNonNeg": false },
+        { "name": "Magnet", "value": "10 oz ceramic", "isNonNeg": false }
+      ],
+      "estListPrice": 42.99,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://www.atlasied.com/sd72w"
+    },
+    {
+      "mpn": "FAP62T",
+      "brand": "Atlas Sound",
+      "name": "AtlasIED FAP62T Ceiling Speaker System",
+      "description": "Strategy Series 6\" coaxial in-ceiling speaker system with 32 W 70.7V/100V transformer and ported steel enclosure.",
+      "specs": [
+        { "name": "Type", "value": "In-ceiling, coaxial speaker system", "isNonNeg": true },
+        { "name": "Power", "value": "32 W transformer at 70.7/100V with 8-ohm bypass", "isNonNeg": true },
+        { "name": "Woofer Size", "value": "6 in polypropylene cone, butyl rubber surround", "isNonNeg": false },
+        { "name": "Tweeter", "value": "19 mm coaxially mounted PEI", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Ported deep-drawn galvanized steel back can", "isNonNeg": false },
+        { "name": "Tap Selector", "value": "Front-mounted rotary switch with bypass", "isNonNeg": false }
+      ],
+      "estListPrice": 323.98,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://www.atlasied.com/fap62t"
+    }
+  ]
+}

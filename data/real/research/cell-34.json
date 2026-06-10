@@ -1,0 +1,142 @@
+{
+  "category": "electrical",
+  "subcategory": "LED Troffers & Panels",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "CPX 2X4 4000LM 40K M2",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting CPX 2X4 4000LM 40K M2 LED Flat Panel",
+      "description": "Contractor Select CPX 2'x4' LED flat panel, 4000 nominal lumens, 4000K, 80 CRI, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4000 lm (nominal)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 88.99,
+      "priceSource": "bulbs.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/855690/contractor-select-cpx-led.pdf",
+      "upc": "00191848338506"
+    },
+    {
+      "mpn": "CPANL 2X4 ALO6 SWW7 M2",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting CPANL 2X4 ALO6 SWW7 M2 Switchable Flat Panel",
+      "description": "Contractor Select CPANL 2'x4' LED flat panel with selectable 4000/5000/6000 lumens and 3500/4000/5000K CCT, 120-277V.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4000/5000/6000 lm selectable", "isNonNeg": true },
+        { "name": "CCT", "value": "3500K/4000K/5000K switchable", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 149.5,
+      "priceSource": "lbclightingpro.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/831393/contractor-select-cpanl.pdf"
+    },
+    {
+      "mpn": "2BLT4 40L ADP EZ1 LP840",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting 2BLT4 40L ADP EZ1 LP840 LED Basket Troffer",
+      "description": "BLT series 2'x4' low-profile recessed LED troffer, curved linear prismatic lens, 4000 nominal lumens, 4000K, eldoLED 1% dimming.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4000 lm (nominal)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V (MVOLT)", "isNonNeg": true },
+        { "name": "Dimming", "value": "eldoLED 0-10V, dims to 1%", "isNonNeg": false },
+        { "name": "CRI", "value": "80+", "isNonNeg": false }
+      ],
+      "estListPrice": 263.7,
+      "priceSource": "superiorlighting.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/456337/blt-500x1200-600x1200.pdf"
+    },
+    {
+      "mpn": "24CZ2-40-UNV-L840-CD1-U",
+      "brand": "Metalux",
+      "name": "Metalux 24CZ2-40-UNV-L840-CD1-U Cruze ST Troffer",
+      "description": "Cruze ST 2'x4' specification-grade LED troffer, 4000 lumens, 4000K, 80 CRI, 120-277V, 0-10V dimming driver.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4000 lm", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V (UNV)", "isNonNeg": true },
+        { "name": "Dimming", "value": "0-10V (1%-100%)", "isNonNeg": false }
+      ],
+      "estListPrice": 154.03,
+      "priceSource": "crawfordelectricsupply.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/94d65bb9c8f249bdac31ad410085263f/Metalux-2-x-4-Recessed-Cruze-ST-LED-Spec-Sheet.pdf"
+    },
+    {
+      "mpn": "24FP3840HE",
+      "brand": "Metalux",
+      "name": "Metalux 24FP3840HE LED Flat Panel",
+      "description": "FP Series 2'x4' recessed LED flat panel, 3780 lumens, 4000K, 80 CRI, 28.9W high efficacy, 120-277V.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "3780 lm", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V (UNV)", "isNonNeg": true },
+        { "name": "Wattage", "value": "28.9 W", "isNonNeg": false },
+        { "name": "CRI", "value": "80", "isNonNeg": false }
+      ],
+      "estListPrice": 198.18,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/8761b17b2ff0435486bead4100849db0/metalux-24fp-2x4-led-panel-specsheet.PDF"
+    },
+    {
+      "mpn": "2FGXG48L840-4-RS-UNV-DIM",
+      "brand": "Philips Day-Brite",
+      "name": "Philips Day-Brite 2FGXG48L840-4-RS-UNV-DIM FluxGrid Troffer",
+      "description": "FluxGrid gen 2 2'x4' recessed LED troffer, 4800 lumens, 4000K, 80 CRI, round smooth lens, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4800 lm", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V (UNV)", "isNonNeg": true },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false },
+        { "name": "Wattage", "value": "36 W", "isNonNeg": false }
+      ],
+      "estListPrice": 136.01,
+      "priceSource": "prolighting.com",
+      "specSheetUrl": "https://www.assets.signify.com/is/content/Signify/Assets/day-brite/US/20210520-fluxgrid-gen-2-2x4.pdf"
+    },
+    {
+      "mpn": "LCAT24-40MLG-EDU",
+      "brand": "Columbia Lighting",
+      "name": "Columbia Lighting LCAT24-40MLG-EDU Architectural Troffer",
+      "description": "LCAT 2'x4' LED contemporary architectural troffer, medium lumen package, 4000K, 80 CRI, grid lay-in, 0-10V dimming.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4400-5150 lm nominal (ML package)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false },
+        { "name": "Wattage", "value": "40 W (nominal)", "isNonNeg": false }
+      ],
+      "estListPrice": 156.75,
+      "priceSource": "nationalsupplynetwork.com",
+      "specSheetUrl": "https://cdn.currentlighting.com/site/specsheet/COL_LCAT24_spec.pdf",
+      "upc": "078531125899"
+    },
+    {
+      "mpn": "CPX 2X2 3200LM 40K M4",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting CPX 2X2 3200LM 40K M4 LED Flat Panel",
+      "description": "Contractor Select CPX 2'x2' LED flat panel, 3200 nominal lumens, 4000K, 80 CRI, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Size", "value": "2 ft x 2 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "3200 lm (nominal)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 69.99,
+      "priceSource": "bulbs.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/855690/contractor-select-cpx-led.pdf",
+      "upc": "00191848338650"
+    }
+  ]
+}

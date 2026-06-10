@@ -1,0 +1,135 @@
+{
+  "category": "oem-electrical",
+  "subcategory": "Sensors & Proximity Switches",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "QS18VN6D",
+      "brand": "Banner Engineering",
+      "name": "Banner Engineering QS18VN6D Diffuse Photoelectric Sensor",
+      "description": "WORLD-BEAM QS18 diffuse-mode photoelectric sensor, 450 mm range, complementary NPN outputs, 10-30V DC, 2 m cable, IP67.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Diffuse photoelectric", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "450 mm", "isNonNeg": true },
+        { "name": "Output", "value": "Complementary solid-state NPN", "isNonNeg": false },
+        { "name": "Body Size", "value": "QS18 rectangular housing", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "10-30V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 99.0,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://info.bannerengineering.com/cs/groups/public/documents/literature/197052.pdf"
+    },
+    {
+      "mpn": "Q4XTBLAF300-Q8",
+      "brand": "Banner Engineering",
+      "name": "Banner Engineering Q4XTBLAF300-Q8 Laser Distance Sensor",
+      "description": "Q4X rugged stainless steel laser distance sensor, 25-300 mm range, adjustable-field background suppression, bipolar NPN/PNP.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Laser distance (background suppression)", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "25-300 mm", "isNonNeg": true },
+        { "name": "Output", "value": "Bipolar: 1 NPN, 1 PNP", "isNonNeg": false },
+        { "name": "Body Size", "value": "Rectangular 316L stainless steel, threaded mount", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "10-30V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 460.0,
+      "priceSource": "lesman.com",
+      "specSheetUrl": "https://info.bannerengineering.com/cs/groups/public/documents/literature/181483.pdf"
+    },
+    {
+      "mpn": "NBB5-18GM50-E2-V1",
+      "brand": "Pepperl+Fuchs",
+      "name": "Pepperl+Fuchs NBB5-18GM50-E2-V1 Inductive Proximity Sensor",
+      "description": "Inductive proximity sensor, M18 x 1 nickel-plated brass barrel, 5 mm flush sensing range, PNP NO, M12 V1 connector.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Inductive", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "5 mm (flush)", "isNonNeg": true },
+        { "name": "Output", "value": "PNP, NO", "isNonNeg": false },
+        { "name": "Body Size", "value": "M18 x 1 threaded barrel", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "5-36V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 89.0,
+      "priceSource": "pepperl-fuchs.com",
+      "specSheetUrl": "https://files.pepperl-fuchs.com/webcat/navi/productInfo/pds/326161-0104_eng.pdf?v=20230430161158"
+    },
+    {
+      "mpn": "NBN8-18GM50-E2-V1",
+      "brand": "Pepperl+Fuchs",
+      "name": "Pepperl+Fuchs NBN8-18GM50-E2-V1 Inductive Proximity Sensor",
+      "description": "Inductive proximity sensor, M18 x 1 nickel-plated brass barrel, 8 mm non-flush sensing range, PNP NO, M12 V1 connector, IP67.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Inductive", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "8 mm (non-flush)", "isNonNeg": true },
+        { "name": "Output", "value": "PNP, NO", "isNonNeg": false },
+        { "name": "Body Size", "value": "M18 x 1 threaded barrel", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "10-30V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 96.87,
+      "priceSource": "standardelectricsupply.com",
+      "specSheetUrl": "https://files.pepperl-fuchs.com/webcat/navi/productInfo/pds/084197_eng.pdf?v=20190111000150"
+    },
+    {
+      "mpn": "IME12-04BPSZC0S",
+      "brand": "SICK",
+      "name": "SICK IME12-04BPSZC0S Inductive Proximity Sensor",
+      "description": "IME inductive proximity sensor, M12 x 1 barrel, 4 mm flush sensing range, PNP NO, M12 4-pin connector, IP67.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Inductive", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "4 mm (flush)", "isNonNeg": true },
+        { "name": "Output", "value": "PNP, NO", "isNonNeg": false },
+        { "name": "Body Size", "value": "M12 x 1 threaded barrel", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "10-30V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 40.63,
+      "priceSource": "lesman.com",
+      "specSheetUrl": "https://www.sick.com/media/pdf/1/81/481/dataSheet_IME12-04BPSZC0S_1040764_en.pdf"
+    },
+    {
+      "mpn": "BI2-M12-AP6X-H1141",
+      "brand": "Turck",
+      "name": "Turck BI2-M12-AP6X-H1141 Inductive Proximity Sensor",
+      "description": "Inductive proximity sensor, M12 x 1 chrome-plated brass barrel, 2 mm flush range, PNP NO 3-wire, M12 eurofast connector, IP67.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Inductive", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "2 mm (flush)", "isNonNeg": true },
+        { "name": "Output", "value": "PNP, NO, 3-wire", "isNonNeg": false },
+        { "name": "Body Size", "value": "M12 x 1 threaded barrel", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "10-30V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 142.0,
+      "priceSource": "radwell.com",
+      "specSheetUrl": "https://www.turck.us/datasheet/_us/edb_46065_eng_us.pdf"
+    },
+    {
+      "mpn": "IFS204",
+      "brand": "ifm efector",
+      "name": "ifm efector IFS204 Inductive Sensor",
+      "description": "Inductive sensor, M12 x 1 metal thread, 4 mm flush sensing range, PNP NO, M12 connector, IP67 rated.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Inductive", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "4 mm (flush)", "isNonNeg": true },
+        { "name": "Output", "value": "PNP, NO", "isNonNeg": false },
+        { "name": "Body Size", "value": "M12 x 1 threaded barrel", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "10-36V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 51.5,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://www.ifm.com/us/en/product/IFS204"
+    },
+    {
+      "mpn": "E3Z-D62",
+      "brand": "Omron",
+      "name": "Omron E3Z-D62 Photoelectric Sensor",
+      "description": "E3Z compact photoelectric sensor with built-in amplifier, diffuse-reflective, 1 m sensing distance, NPN output, 2 m cable.",
+      "specs": [
+        { "name": "Sensing Type", "value": "Diffuse-reflective photoelectric", "isNonNeg": true },
+        { "name": "Sensing Range", "value": "1 m", "isNonNeg": true },
+        { "name": "Output", "value": "NPN open collector", "isNonNeg": false },
+        { "name": "Body Size", "value": "Compact rectangular (E3Z)", "isNonNeg": false },
+        { "name": "Supply Voltage", "value": "12-24V DC", "isNonNeg": false }
+      ],
+      "estListPrice": 156.2,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://assets.omron.eu/downloads/latest/datasheet/en/e3z_compact_photoelectric_sensor_with_built-in_amplifier_datasheet_en.pdf"
+    }
+  ]
+}

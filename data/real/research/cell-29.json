@@ -1,0 +1,138 @@
+{
+  "category": "electrical",
+  "subcategory": "Photo Controls",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "K4121C",
+      "brand": "Intermatic",
+      "name": "Intermatic K4121C Stem Mount Photocontrol",
+      "description": "Stem mount thermal photocontrol, 120 VAC, SPST, 1800 W tungsten; CdS sensor with delay to prevent false OFF switching.",
+      "specs": [
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "1/2 in-14 NPSM threaded stem", "isNonNeg": true },
+        { "name": "Load Rating", "value": "1800 W tungsten", "isNonNeg": false },
+        { "name": "Switch Type", "value": "SPST", "isNonNeg": false },
+        { "name": "Sensor", "value": "Thermal bimetal with CdS photocell", "isNonNeg": false }
+      ],
+      "estListPrice": 14.44,
+      "priceSource": "beverlyhillslighting.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/K4121C"
+    },
+    {
+      "mpn": "K4221C",
+      "brand": "Intermatic",
+      "name": "Intermatic K4221C Stem & Swivel Photocontrol",
+      "description": "Stem and swivel mount thermal photocontrol, 120 VAC, SPST, 1800 W tungsten; UV-resistant housing with light-level adjustment.",
+      "specs": [
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "1/2 in-14 threaded stem with 180-degree swivel", "isNonNeg": true },
+        { "name": "Load Rating", "value": "1800 W tungsten", "isNonNeg": false },
+        { "name": "Switch Type", "value": "SPST", "isNonNeg": false },
+        { "name": "Sensor", "value": "Thermal bimetal with CdS photocell", "isNonNeg": false }
+      ],
+      "estListPrice": 26.18,
+      "priceSource": "intermatic.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/K4221C"
+    },
+    {
+      "mpn": "K4223C",
+      "brand": "Intermatic",
+      "name": "Intermatic K4223C 277V Swivel Photocontrol",
+      "description": "Stem and swivel mount thermal photocontrol, 208-277 VAC, SPST, 3100-4150 W tungsten, 1700-2300 VA ballast.",
+      "specs": [
+        { "name": "Voltage", "value": "208-277 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "1/2 in-14 NPSM threaded swivel stem", "isNonNeg": true },
+        { "name": "Load Rating", "value": "3100-4150 W tungsten / 1700-2300 VA ballast", "isNonNeg": false },
+        { "name": "Switch Type", "value": "SPST", "isNonNeg": false },
+        { "name": "Sensor", "value": "Thermal bimetal with CdS photocell", "isNonNeg": false }
+      ],
+      "estListPrice": 52.11,
+      "priceSource": "zensupply.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/K4223C"
+    },
+    {
+      "mpn": "EK4036S",
+      "brand": "Intermatic",
+      "name": "Intermatic EK4036S Button Electronic Photocontrol",
+      "description": "NightFox select-grade button electronic photocontrol, 120-277 VAC; silicon sensor with IR filter, 15-year design life, fail-ON.",
+      "specs": [
+        { "name": "Voltage", "value": "120-277 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "Fixed button mount, 5/8 in aperture", "isNonNeg": true },
+        { "name": "Load Rating", "value": "Up to 1650 W HID/LED at 277 VAC", "isNonNeg": false },
+        { "name": "Sensor", "value": "Silicon photodiode with IR filter", "isNonNeg": false },
+        { "name": "Fail Mode", "value": "Fail ON", "isNonNeg": false }
+      ],
+      "estListPrice": 26.38,
+      "priceSource": "citylightsusa.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/EK4036S"
+    },
+    {
+      "mpn": "EK4536",
+      "brand": "Intermatic",
+      "name": "Intermatic EK4536 Twist-Lock Electronic Photocontrol",
+      "description": "NightFox select-grade locking-type electronic photocontrol, 105-305 VAC, 1000 W tungsten/1800 VA ballast, fail-ON, LED compatible.",
+      "specs": [
+        { "name": "Voltage", "value": "105-305 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "Twist-lock (ANSI C136.10 receptacle)", "isNonNeg": true },
+        { "name": "Load Rating", "value": "1000 W tungsten / 1800 VA ballast / 6 A electronic ballast", "isNonNeg": false },
+        { "name": "Sensor", "value": "Silicon photodiode with IR filter", "isNonNeg": false },
+        { "name": "Fail Mode", "value": "Fail ON", "isNonNeg": false }
+      ],
+      "estListPrice": 23.15,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.intermatic.com/Product/EK4536",
+      "upc": "078275130173"
+    },
+    {
+      "mpn": "2001",
+      "brand": "Tork",
+      "name": "Tork 2001 Stem & Swivel Photocontrol",
+      "description": "Stem and swivel conduit-mount photocontrol, 120 VAC, SPST, 2000 W tungsten/1800 VA ballast/600 VA LED; Lexan housing.",
+      "specs": [
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "1/2 in stem with 180-degree swivel", "isNonNeg": true },
+        { "name": "Load Rating", "value": "2000 W tungsten / 1800 VA ballast / 600 VA LED", "isNonNeg": false },
+        { "name": "Switch Type", "value": "SPST", "isNonNeg": false },
+        { "name": "Turn-On Level", "value": "1-5 fc ON / 3-15 fc OFF", "isNonNeg": false }
+      ],
+      "estListPrice": 36.39,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://nsiindustries.com/product/tork-2001-1-2-stem-conduit-mount-photocontrol-light-sensor-180-degree-swivel/",
+      "upc": "786261600158"
+    },
+    {
+      "mpn": "5237-UL",
+      "brand": "Tork",
+      "name": "Tork 5237-UL Turn-Lock Electronic Photocontrol",
+      "description": "Utility-grade electronic turn-lock photocontrol, 105-305 VAC, 1000 W tungsten/1800 VA ballast/1000 W LED, instant response.",
+      "specs": [
+        { "name": "Voltage", "value": "105-305 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "Turn-lock (ANSI C136.10 receptacle)", "isNonNeg": true },
+        { "name": "Load Rating", "value": "1000 W tungsten / 1800 VA ballast / 1000 W LED", "isNonNeg": false },
+        { "name": "Sensor", "value": "Silicon photosensor, side-facing", "isNonNeg": false },
+        { "name": "Surge Protection", "value": "360 J MOV", "isNonNeg": false }
+      ],
+      "estListPrice": 20.00,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://nsiindustries.com/product/tork-5237-ul-electronic-instant-response-turn-lock-led-photocontrol-longer-life/",
+      "upc": "786261788955"
+    },
+    {
+      "mpn": "T-15",
+      "brand": "Precision Multiple Controls",
+      "name": "Precision Multiple Controls T-15 Lumatrol Photocontrol",
+      "description": "Lumatrol wire-in stem-mount photocontrol, 120 VAC, SPST, 1800 VA; weatherproof Lexan housing, field-adjustable light level.",
+      "specs": [
+        { "name": "Voltage", "value": "120 VAC", "isNonNeg": true },
+        { "name": "Mounting", "value": "1/2 in threaded stem", "isNonNeg": true },
+        { "name": "Load Rating", "value": "1800 VA", "isNonNeg": false },
+        { "name": "Switch Type", "value": "SPST", "isNonNeg": false },
+        { "name": "Adjustment", "value": "3-10 fc external light-level slide", "isNonNeg": false }
+      ],
+      "estListPrice": 24.42,
+      "priceSource": "elliottelectric.com",
+      "specSheetUrl": "https://www.pmcontrols.com/products/lumatrol-t-et-and-st-series-wire-in-photocontrols"
+    }
+  ]
+}

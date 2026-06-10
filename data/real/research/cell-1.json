@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "Wire & Cable",
+  "uom": "FT",
+  "products": [
+    {
+      "mpn": "28827455",
+      "brand": "Southwire",
+      "name": "Southwire 28827455 Romex 14/2 NM-B",
+      "description": "Romex Brand SIMpull 14/2 CU NM-B with ground, solid copper, 600 V, white jacket, 250 ft coil for interior dry locations.",
+      "specs": [
+        { "name": "Gauge", "value": "14 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Solid copper, 2 + bare ground", "isNonNeg": true },
+        { "name": "Insulation", "value": "NM-B (PVC, nylon-jacketed conductors)", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Jacket Color", "value": "White", "isNonNeg": false },
+        { "name": "Put-Up", "value": "250 ft coil", "isNonNeg": false }
+      ],
+      "estListPrice": 106.79,
+      "priceSource": "hdsupplysolutions.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/28827455"
+    },
+    {
+      "mpn": "28828255",
+      "brand": "Southwire",
+      "name": "Southwire 28828255 Romex 12/2 NM-B",
+      "description": "Romex Brand SIMpull 12/2 CU NM-B with ground, solid copper, 600 V, yellow jacket, 250 ft coil for interior dry locations.",
+      "specs": [
+        { "name": "Gauge", "value": "12 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Solid copper, 2 + bare ground", "isNonNeg": true },
+        { "name": "Insulation", "value": "NM-B (PVC, nylon-jacketed conductors)", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Jacket Color", "value": "Yellow", "isNonNeg": false },
+        { "name": "Put-Up", "value": "250 ft coil", "isNonNeg": false }
+      ],
+      "estListPrice": 164.0,
+      "priceSource": "hdsupplysolutions.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/28828255",
+      "upc": "032886163050"
+    },
+    {
+      "mpn": "28829055",
+      "brand": "Southwire",
+      "name": "Southwire 28829055 Romex 10/2 NM-B",
+      "description": "Romex Brand SIMpull 10/2 CU NM-B with ground, solid copper, 600 V, orange jacket, 250 ft coil for interior dry locations.",
+      "specs": [
+        { "name": "Gauge", "value": "10 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Solid copper, 2 + bare ground", "isNonNeg": true },
+        { "name": "Insulation", "value": "NM-B (PVC, nylon-jacketed conductors)", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Jacket Color", "value": "Orange", "isNonNeg": false },
+        { "name": "Put-Up", "value": "250 ft coil", "isNonNeg": false }
+      ],
+      "estListPrice": 279.0,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/28829055",
+      "upc": "032886163104"
+    },
+    {
+      "mpn": "63950002",
+      "brand": "Southwire",
+      "name": "Southwire 63950002 Romex 6/3 NM-B",
+      "description": "Romex Brand SIMpull 6/3 CU NM-B with ground, stranded copper, 600 V, black jacket, 125 ft coil for ranges and subpanels.",
+      "specs": [
+        { "name": "Gauge", "value": "6 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Stranded copper, 3 + ground", "isNonNeg": true },
+        { "name": "Insulation", "value": "NM-B (PVC, nylon-jacketed conductors)", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Jacket Color", "value": "Black", "isNonNeg": false },
+        { "name": "Put-Up", "value": "125 ft coil", "isNonNeg": false }
+      ],
+      "estListPrice": 538.79,
+      "priceSource": "hdsupplysolutions.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/63950002"
+    },
+    {
+      "mpn": "22964158",
+      "brand": "Southwire",
+      "name": "Southwire 22964158 THHN 12 AWG Stranded",
+      "description": "SIMpull THHN/THWN-2 12 AWG stranded copper building wire, black, 600 V, 90C, 500 ft spool for conduit feeders and branch circuits.",
+      "specs": [
+        { "name": "Gauge", "value": "12 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Stranded copper", "isNonNeg": true },
+        { "name": "Insulation", "value": "THHN/THWN-2 (PVC with nylon jacket)", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false },
+        { "name": "Put-Up", "value": "500 ft spool", "isNonNeg": false }
+      ],
+      "estListPrice": 129.99,
+      "priceSource": "doitbest.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/thhn-thwn-copper-silicone-free/p/22964158"
+    },
+    {
+      "mpn": "13055955",
+      "brand": "Southwire",
+      "name": "Southwire 13055955 UF-B 12/2 Cable",
+      "description": "Type UF-B 12/2 underground feeder and branch-circuit cable with ground, solid copper, 600 V, gray, direct burial, 250 ft.",
+      "specs": [
+        { "name": "Gauge", "value": "12 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Solid copper, 2 + bare ground", "isNonNeg": true },
+        { "name": "Insulation", "value": "UF-B (solid PVC jacket, direct burial)", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Put-Up", "value": "250 ft coil", "isNonNeg": false }
+      ],
+      "estListPrice": 297.76,
+      "priceSource": "simsupply.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/uf-b-copper-cable/p/13055955"
+    },
+    {
+      "mpn": "13102915",
+      "brand": "Southwire",
+      "name": "Southwire 13102915 SER 2-2-2-4 Aluminum",
+      "description": "Type SER 2-2-2-4 stranded aluminum service entrance cable, 600 V, gray PVC jacket, 500 ft reel; meter base to panel feeders.",
+      "specs": [
+        { "name": "Gauge", "value": "2-2-2-4 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Stranded AA-8000 series aluminum alloy", "isNonNeg": true },
+        { "name": "Insulation", "value": "XHHW-2 conductors, gray PVC jacket", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Put-Up", "value": "500 ft reel", "isNonNeg": false }
+      ],
+      "estListPrice": 1999.0,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/ser-aluminum-service-entrance/p/13102915"
+    },
+    {
+      "mpn": "147-1672G",
+      "brand": "Cerro Wire",
+      "name": "Cerrowire 147-1672G CerroMax 12/2 NM-B",
+      "description": "CerroMax SLiPWire 12/2 CU NM-B with ground, solid copper, 600 V, yellow low-friction jacket, 250 ft coil, UL listed.",
+      "specs": [
+        { "name": "Gauge", "value": "12 AWG", "isNonNeg": true },
+        { "name": "Conductor", "value": "Solid copper, 2 + bare ground", "isNonNeg": true },
+        { "name": "Insulation", "value": "NM-B (PVC, SLiPWire low-friction jacket)", "isNonNeg": false },
+        { "name": "Voltage Rating", "value": "600 V", "isNonNeg": false },
+        { "name": "Jacket Color", "value": "Yellow", "isNonNeg": false },
+        { "name": "Put-Up", "value": "250 ft coil", "isNonNeg": false }
+      ],
+      "estListPrice": 179.0,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.cerrowire.com/product/cerromax-nm-b/"
+    }
+  ]
+}

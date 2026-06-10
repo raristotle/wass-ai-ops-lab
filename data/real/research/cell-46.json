@@ -1,0 +1,135 @@
+{
+  "category": "datacom",
+  "subcategory": "Fiber Optic Cable",
+  "uom": "FT",
+  "products": [
+    {
+      "mpn": "012E88-33131-29",
+      "brand": "Corning",
+      "name": "Corning 012E88-33131-29 MIC Plenum Cable",
+      "description": "MIC tight-buffered indoor plenum cable, 12 single-mode (OS2) fibers, 900 um buffers, all-dielectric, OFNP/FT-6 listed.",
+      "specs": [
+        { "name": "Mode", "value": "Single-mode (OS2)", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "12", "isNonNeg": true },
+        { "name": "Jacket", "value": "Flame-retardant plenum (OFNP)", "isNonNeg": false },
+        { "name": "Cable Construction", "value": "Tight-buffered distribution, 900 um", "isNonNeg": false },
+        { "name": "Environment", "value": "Indoor plenum/riser", "isNonNeg": false }
+      ],
+      "estListPrice": 0.91,
+      "priceSource": "nassaunationalcable.com",
+      "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Indoor/Indoor-Plenum-Cables/MIC%C2%AE-Tight-Buffered-Cable,-Plenum/p/012E88-33131-29"
+    },
+    {
+      "mpn": "024E88-33131-29",
+      "brand": "Corning",
+      "name": "Corning 024E88-33131-29 MIC Plenum Cable",
+      "description": "MIC tight-buffered indoor plenum cable, 24 single-mode (OS2) fibers, 900 um buffers, all-dielectric, OFNP/FT-6 listed.",
+      "specs": [
+        { "name": "Mode", "value": "Single-mode (OS2)", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "24", "isNonNeg": true },
+        { "name": "Jacket", "value": "Yellow, plenum (OFNP)", "isNonNeg": false },
+        { "name": "Cable Construction", "value": "Tight-buffered distribution, 900 um", "isNonNeg": false },
+        { "name": "Environment", "value": "Indoor plenum/riser", "isNonNeg": false }
+      ],
+      "estListPrice": 2.25,
+      "priceSource": "discount-low-voltage.com",
+      "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Indoor/Indoor-Plenum-Cables/MIC%C2%AE-Tight-Buffered-Cable,-Plenum/p/024E88-33131-29"
+    },
+    {
+      "mpn": "012T88-33190-29",
+      "brand": "Corning",
+      "name": "Corning 012T88-33190-29 MIC OM4 Plenum",
+      "description": "MIC tight-buffered indoor plenum cable, 12 multimode 50 um (OM4) fibers, 900 um buffers, OFNP/FT-6 listed, all-dielectric.",
+      "specs": [
+        { "name": "Mode", "value": "Multimode 50/125 (OM4)", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "12", "isNonNeg": true },
+        { "name": "Jacket", "value": "Flame-retardant plenum (OFNP)", "isNonNeg": false },
+        { "name": "Cable Construction", "value": "Tight-buffered distribution, 900 um", "isNonNeg": false },
+        { "name": "Min Bend Radius (Install)", "value": "92 mm", "isNonNeg": false }
+      ],
+      "estListPrice": 3.06,
+      "priceSource": "wireandcableyourway.com",
+      "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Indoor/Indoor-Plenum-Cables/MIC%C2%AE-Tight-Buffered-Cable,-Plenum/p/012T88-33190-29"
+    },
+    {
+      "mpn": "012EUC-T4101D20",
+      "brand": "Corning",
+      "name": "Corning 012EUC-T4101D20 ALTOS Armored Cable",
+      "description": "ALTOS Lite gel-free loose tube OSP cable, 12 single-mode (OS2) fibers, single-jacket single-armored for duct or direct burial.",
+      "specs": [
+        { "name": "Mode", "value": "Single-mode (OS2)", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "12", "isNonNeg": true },
+        { "name": "Jacket", "value": "Black polyethylene", "isNonNeg": false },
+        { "name": "Armor", "value": "Single steel-tape armor", "isNonNeg": false },
+        { "name": "Environment", "value": "Outdoor OSP / direct buried", "isNonNeg": false }
+      ],
+      "estListPrice": 0.61,
+      "priceSource": "eaccu-tech.com",
+      "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Outdoor/Outdoor-Direct-Buried-Cables/ALTOS%C2%AE-Lite-Loose-Tube,-Gel-Free,-Single-Jacket,-Single-Armored-Cable/p/012EUC-T4101D20"
+    },
+    {
+      "mpn": "P-012-DS-8W-FSUYL",
+      "brand": "CommScope",
+      "name": "CommScope P-012-DS-8W-FSUYL TeraSPEED Plenum",
+      "description": "TeraSPEED plenum distribution cable (material ID 760004358), 12 single-unit OS2 fibers, G.652.D/G.657.A1, OFNP, yellow jacket.",
+      "specs": [
+        { "name": "Mode", "value": "Single-mode (OS2), G.652.D/G.657.A1", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "12", "isNonNeg": true },
+        { "name": "Jacket", "value": "Yellow, plenum (OFNP)", "isNonNeg": false },
+        { "name": "Cable Construction", "value": "Tight-buffered, gel-free", "isNonNeg": false },
+        { "name": "Standards", "value": "ANSI/ICEA S-83-596, Telcordia GR-409", "isNonNeg": false }
+      ],
+      "estListPrice": 1.06,
+      "priceSource": "wireandcableyourway.com",
+      "specSheetUrl": "https://www.commscope.com/product-type/cables/fiber-cables/indoor-cables/item760004358/"
+    },
+    {
+      "mpn": "FODPZ12Y",
+      "brand": "Panduit",
+      "name": "Panduit FODPZ12Y Opti-Core Distribution Cable",
+      "description": "Opti-Core indoor distribution cable, 12 OM4 50/125 um fibers, 900 um buffered, OFNP plenum rated, aqua PVC jacket.",
+      "specs": [
+        { "name": "Mode", "value": "Multimode 50/125 (OM4)", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "12", "isNonNeg": true },
+        { "name": "Jacket", "value": "Aqua PVC, plenum (OFNP)", "isNonNeg": false },
+        { "name": "Outer Diameter", "value": "0.23 in", "isNonNeg": false },
+        { "name": "Operating Temperature", "value": "-4 F to 158 F", "isNonNeg": false }
+      ],
+      "estListPrice": 4.48,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/fiber-optic-systems/bulk-fiber-optic-cable/indoor-fiber-optic-cable/fodpz12y.html",
+      "upc": "074983206339"
+    },
+    {
+      "mpn": "FI4D012P9",
+      "brand": "Belden",
+      "name": "Belden FI4D012P9 FX Indoor Distribution",
+      "description": "FiberExpress indoor distribution tight-buffer cable, 12 OM4 50/125 fibers, OFNP plenum, Erika Violet PVC jacket.",
+      "specs": [
+        { "name": "Mode", "value": "Multimode 50/125 (OM4)", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "12", "isNonNeg": true },
+        { "name": "Jacket", "value": "Erika Violet PVC, plenum (OFNP)", "isNonNeg": false },
+        { "name": "Cable Construction", "value": "Distribution tight buffer, non-unitized", "isNonNeg": false }
+      ],
+      "estListPrice": 2.33,
+      "priceSource": "us.rs-online.com",
+      "specSheetUrl": "https://catalog.belden.com/techdata/EN/FI4D012P9_techdata.pdf"
+    },
+    {
+      "mpn": "LV0129C5101N1D",
+      "brand": "AFL",
+      "name": "AFL LV0129C5101N1D Indoor/Outdoor Loose Tube",
+      "description": "LV-Series gel-free riser-rated indoor/outdoor loose tube cable, 12 single-mode fibers in one tube, OFNR, black jacket.",
+      "specs": [
+        { "name": "Mode", "value": "Single-mode", "isNonNeg": true },
+        { "name": "Fiber Count", "value": "12", "isNonNeg": true },
+        { "name": "Jacket", "value": "Black, riser (OFNR)", "isNonNeg": false },
+        { "name": "Cable Construction", "value": "Gel-free single loose tube", "isNonNeg": false },
+        { "name": "Operating Temperature", "value": "-40 C to +70 C", "isNonNeg": false }
+      ],
+      "estListPrice": 0.6,
+      "priceSource": "tselectronic.com",
+      "specSheetUrl": "https://www.aflglobal.com/en/emea/products/fiber-optic-cable/structured-cabling/indoor-outdoor/gelfree-riser-nonarmored-loose-tube-lv-series-gelfree-sj"
+    }
+  ]
+}

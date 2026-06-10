@@ -1,0 +1,142 @@
+{
+  "category": "datacom",
+  "subcategory": "Wireless Access Points",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "C9120AXI-B",
+      "brand": "Cisco",
+      "name": "Cisco C9120AXI-B Catalyst Access Point",
+      "description": "Catalyst 9120AX indoor Wi-Fi 6 access point, 4x4:4 MIMO, internal antennas, CleanAir RF ASIC, embedded BLE/Zigbee IoT radio.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 6 (802.11ax)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor", "isNonNeg": true },
+        { "name": "PoE Input", "value": "802.3at (PoE+)", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Dual-band 2.4/5 GHz + IoT radio", "isNonNeg": false },
+        { "name": "MIMO", "value": "4x4:4", "isNonNeg": false },
+        { "name": "Uplink", "value": "1x 100M/1G/2.5G mGig", "isNonNeg": false }
+      ],
+      "estListPrice": 1105,
+      "priceSource": "ormsystems.com",
+      "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/wireless/catalyst-9120ax-series-access-points/datasheet-c78-742115.html"
+    },
+    {
+      "mpn": "CW9166I-B",
+      "brand": "Cisco",
+      "name": "Cisco CW9166I-B Wi-Fi 6E Access Point",
+      "description": "Catalyst 9166I tri-band Wi-Fi 6E indoor access point, 4x4:4 MIMO, internal antennas, cloud- or controller-managed.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 6E (802.11ax)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor", "isNonNeg": true },
+        { "name": "PoE Input", "value": "802.3at/802.3bt", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Tri-band 2.4/5/6 GHz", "isNonNeg": false },
+        { "name": "MIMO", "value": "4x4:4", "isNonNeg": false }
+      ],
+      "estListPrice": 889,
+      "priceSource": "tritondatacom.com",
+      "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/wireless/catalyst-9166-series-access-points/catalyst-9166-series-access-points-ds.html"
+    },
+    {
+      "mpn": "MR36-HW",
+      "brand": "Cisco Meraki",
+      "name": "Cisco Meraki MR36-HW Cloud-Managed AP",
+      "description": "Cloud-managed Wi-Fi 6 indoor access point, 2x2:2 MU-MIMO/OFDMA, 1.7 Gbps aggregate, dedicated security and BLE radios.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 6 (802.11ax)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor", "isNonNeg": true },
+        { "name": "PoE Input", "value": "802.3af", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Dual-band 2.4/5 GHz + WIDS/WIPS + BLE", "isNonNeg": false },
+        { "name": "MIMO", "value": "2x2:2", "isNonNeg": false },
+        { "name": "Max Aggregate Rate", "value": "1.7 Gbps", "isNonNeg": false }
+      ],
+      "estListPrice": 399,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://documentation.meraki.com/MR/MR_Overview_and_Specifications/MR36_Datasheet"
+    },
+    {
+      "mpn": "901-R350-US02",
+      "brand": "Ruckus",
+      "name": "Ruckus 901-R350-US02 R350 Indoor AP",
+      "description": "R350 entry-level indoor Wi-Fi 6 access point, 2x2:2 dual-band, BeamFlex+ adaptive antennas, up to 256 clients, dual 1 GbE.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 6 (802.11ax)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor", "isNonNeg": true },
+        { "name": "PoE Input", "value": "802.3af", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Dual-band 2.4/5 GHz", "isNonNeg": false },
+        { "name": "MIMO", "value": "2x2:2", "isNonNeg": false },
+        { "name": "Max PHY Rate", "value": "1200 Mbps (5 GHz) / 574 Mbps (2.4 GHz)", "isNonNeg": false }
+      ],
+      "estListPrice": 695,
+      "priceSource": "netwifistore.com",
+      "specSheetUrl": "https://webresources.ruckuswireless.com/datasheets/r350/ds-ruckus-r350.pdf"
+    },
+    {
+      "mpn": "901-R650-US00",
+      "brand": "Ruckus",
+      "name": "Ruckus 901-R650-US00 R650 Indoor AP",
+      "description": "R650 mid-range indoor Wi-Fi 6 access point, 4x4:4 (5 GHz) + 2x2:2 (2.4 GHz), 2.5 GbE backhaul, BeamFlex+, up to 512 clients.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 6 (802.11ax)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor", "isNonNeg": true },
+        { "name": "PoE Input", "value": "802.3at (PoE+)", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Dual-band 2.4/5 GHz + BLE/Zigbee IoT", "isNonNeg": false },
+        { "name": "MIMO", "value": "4x4:4 (5 GHz), 2x2:2 (2.4 GHz)", "isNonNeg": false },
+        { "name": "Uplink", "value": "1x 2.5 GbE + 1x 1 GbE", "isNonNeg": false }
+      ],
+      "estListPrice": 1305,
+      "priceSource": "corporatearmor.com",
+      "specSheetUrl": "https://webresources.ruckuswireless.com/datasheets/r650/ds-ruckus-r650.pdf"
+    },
+    {
+      "mpn": "U6-Pro",
+      "brand": "Ubiquiti",
+      "name": "Ubiquiti U6-Pro UniFi 6 Professional",
+      "description": "UniFi ceiling-mount Wi-Fi 6 AP, 4x4 MIMO 5 GHz + 2x2 2.4 GHz, 5.3 Gbps aggregate, IP54, supports 300+ clients.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 6 (802.11ax)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor (IP54 rated)", "isNonNeg": true },
+        { "name": "PoE Input", "value": "PoE+ (802.3at)", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Dual-band 2.4/5 GHz", "isNonNeg": false },
+        { "name": "MIMO", "value": "4x4 (5 GHz), 2x2 (2.4 GHz)", "isNonNeg": false },
+        { "name": "Uplink", "value": "1x 1 GbE", "isNonNeg": false }
+      ],
+      "estListPrice": 159,
+      "priceSource": "store.ui.com",
+      "specSheetUrl": "https://techspecs.ui.com/unifi/wifi/u6-pro"
+    },
+    {
+      "mpn": "U7-Pro",
+      "brand": "Ubiquiti",
+      "name": "Ubiquiti U7-Pro UniFi 7 Professional",
+      "description": "UniFi ceiling-mount Wi-Fi 7 AP with 6 GHz support, 6 spatial streams, 2.5 GbE uplink, PoE+ powered.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 7 (802.11be)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor", "isNonNeg": true },
+        { "name": "PoE Input", "value": "PoE+ (802.3at)", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Tri-band 2.4/5/6 GHz", "isNonNeg": false },
+        { "name": "Spatial Streams", "value": "6", "isNonNeg": false },
+        { "name": "Uplink", "value": "1x 2.5 GbE", "isNonNeg": false }
+      ],
+      "estListPrice": 209,
+      "priceSource": "bestbuy.com",
+      "specSheetUrl": "https://techspecs.ui.com/unifi/wifi/u7-pro"
+    },
+    {
+      "mpn": "AP305C-FCC",
+      "brand": "Extreme Networks",
+      "name": "Extreme Networks AP305C-FCC Universal AP",
+      "description": "AP305C indoor universal Wi-Fi 6 access point, 2x2:2 dual radio up to 2.4 Gbps, internal antennas, BLE IoT, plenum rated.",
+      "specs": [
+        { "name": "Wi-Fi Standard", "value": "Wi-Fi 6 (802.11ax)", "isNonNeg": true },
+        { "name": "Environment", "value": "Indoor (plenum rated, UL2043)", "isNonNeg": true },
+        { "name": "PoE Input", "value": "802.3af", "isNonNeg": false },
+        { "name": "Radio Bands", "value": "Dual-band 2.4/5 GHz (dual 5 GHz capable)", "isNonNeg": false },
+        { "name": "MIMO", "value": "2x2:2", "isNonNeg": false },
+        { "name": "Uplink", "value": "1x 10/100/1000BASE-T", "isNonNeg": false }
+      ],
+      "estListPrice": 709,
+      "priceSource": "netsolutionstore.com",
+      "specSheetUrl": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap305c-and-ap305cx"
+    }
+  ]
+}

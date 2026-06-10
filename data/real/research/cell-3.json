@@ -1,0 +1,156 @@
+{
+  "category": "electrical",
+  "subcategory": "Wiring Devices",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "5320-W",
+      "brand": "Leviton",
+      "name": "Leviton 5320-W Duplex Receptacle",
+      "description": "15 Amp 125 Volt residential grade grounding duplex receptacle, NEMA 5-15R, QuickWire push-in and side wired, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 1.39,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/products/5320-w"
+    },
+    {
+      "mpn": "T5320-W",
+      "brand": "Leviton",
+      "name": "Leviton T5320-W Tamper-Resistant Duplex Receptacle",
+      "description": "15 Amp 125 Volt tamper-resistant residential grade duplex receptacle, NEMA 5-15R, grounding, impact-resistant thermoplastic, white.",
+      "specs": [
+        { "name": "Type", "value": "Tamper-resistant duplex receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 2.27,
+      "priceSource": "readyelectricsupply.com",
+      "specSheetUrl": "https://leviton.com/products/t5320-w"
+    },
+    {
+      "mpn": "GFNT1-W",
+      "brand": "Leviton",
+      "name": "Leviton GFNT1-W Self-Test GFCI Receptacle",
+      "description": "15 Amp 125 Volt SmartlockPro Slim self-test GFCI receptacle with LED status indicator and 20 Amp feed-through, white.",
+      "specs": [
+        { "name": "Type", "value": "GFCI receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Feed-Through Rating", "value": "20 A", "isNonNeg": false },
+        { "name": "Wire Range", "value": "14-10 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 18.98,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://leviton.com/products/gfnt1-w"
+    },
+    {
+      "mpn": "1451-2W",
+      "brand": "Leviton",
+      "name": "Leviton 1451-2W Single-Pole Toggle Switch",
+      "description": "15 Amp 120 Volt toggle framed single-pole AC quiet switch, residential grade, grounding, QuickWire push-in and side wired, white.",
+      "specs": [
+        { "name": "Type", "value": "Single-pole toggle switch", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false }
+      ],
+      "estListPrice": 1.67,
+      "priceSource": "acandb.com",
+      "specSheetUrl": "https://leviton.com/products/1451-2w"
+    },
+    {
+      "mpn": "5601-2W",
+      "brand": "Leviton",
+      "name": "Leviton 5601-2W Decora Rocker Switch",
+      "description": "15 Amp 120/277 Volt Decora rocker single-pole AC quiet switch, residential grade, grounding, white.",
+      "specs": [
+        { "name": "Type", "value": "Single-pole rocker switch", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false },
+        { "name": "Style", "value": "Decora", "isNonNeg": false }
+      ],
+      "estListPrice": 4.95,
+      "priceSource": "kyleswitchplates.com",
+      "specSheetUrl": "https://leviton.com/products/5601-2w"
+    },
+    {
+      "mpn": "5262-W",
+      "brand": "Leviton",
+      "name": "Leviton 5262-W Industrial Duplex Receptacle",
+      "description": "15 Amp 125 Volt extra heavy-duty industrial specification grade duplex receptacle, NEMA 5-15R, self-grounding, brass strap, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Extra heavy-duty industrial spec grade", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 11.02,
+      "priceSource": "emisupply.com",
+      "specSheetUrl": "https://leviton.com/products/5262-w"
+    },
+    {
+      "mpn": "3232-W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour 3232-W TradeMaster Duplex Receptacle",
+      "description": "TradeMaster 15 Amp 125 Volt grounding duplex receptacle, NEMA 5-15R, 2-pole 3-wire, screw terminals, white.",
+      "specs": [
+        { "name": "Type", "value": "Duplex receptacle", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 1.05,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/outlets-and-receptacles/residential-receptacles/trademaster-15a-125v-duplex-receptacle-white/p/3232w"
+    },
+    {
+      "mpn": "TM870-W",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour TM870-W Decorator Rocker Switch",
+      "description": "radiant 15 Amp 120/277 Volt single-pole decorator rocker switch, back and side wire #14-#10 AWG, thermoplastic, white.",
+      "specs": [
+        { "name": "Type", "value": "Single-pole decorator switch", "isNonNeg": true },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/277 V", "isNonNeg": false },
+        { "name": "Wire Range", "value": "14-10 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 2.63,
+      "priceSource": "crawfordelectricsupply.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/designer-switches-and-outlets/radiant-15a-single-pole-switch-white/p/tm870w"
+    },
+    {
+      "mpn": "DVCL-153P-WH",
+      "brand": "Lutron",
+      "name": "Lutron DVCL-153P-WH Diva LED+ Dimmer",
+      "description": "Diva LED+ CL dimmer for dimmable LED/CFL (150W) and incandescent/halogen (600W), single-pole or 3-way, no neutral required, white.",
+      "specs": [
+        { "name": "Type", "value": "Dimmer switch", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Load Rating", "value": "150 W LED/CFL, 600 W incandescent/halogen", "isNonNeg": false },
+        { "name": "Voltage", "value": "120 V", "isNonNeg": false },
+        { "name": "Switching", "value": "Single-pole or 3-way", "isNonNeg": false }
+      ],
+      "estListPrice": 28.97,
+      "priceSource": "environmentallights.com",
+      "specSheetUrl": "https://assets.lutron.com/a/documents/369682.pdf"
+    }
+  ]
+}

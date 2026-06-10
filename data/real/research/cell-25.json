@@ -1,0 +1,149 @@
+{
+  "category": "electrical",
+  "subcategory": "Lugs & Wire Connectors",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "30-451",
+      "brand": "Ideal",
+      "name": "Ideal 30-451 Wing-Nut 451 Wire Connector",
+      "description": "Wing-Nut 451 yellow twist-on wire connector, 18-10 AWG copper, 600 V max; high-leverage wings; box of 100.",
+      "specs": [
+        { "name": "Wire Range", "value": "18 AWG - 10 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "Twist-on (Wing-Nut)", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper, 600 V", "isNonNeg": true },
+        { "name": "Color", "value": "Yellow", "isNonNeg": false },
+        { "name": "Package Qty", "value": "100/box", "isNonNeg": false }
+      ],
+      "estListPrice": 15.98,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.idealind.com/us/en/category/product.html/Wing_Nut_Model_451.html"
+    },
+    {
+      "mpn": "30-074",
+      "brand": "Ideal",
+      "name": "Ideal 30-074 Wire-Nut 74B Wire Connector",
+      "description": "Wire-Nut 74B yellow twist-on connector, 18-12 AWG copper, 600 V, UL94V-2 flame-retardant shell; box of 100.",
+      "specs": [
+        { "name": "Wire Range", "value": "18 AWG - 12 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "Twist-on (Wire-Nut)", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper, 600 V", "isNonNeg": true },
+        { "name": "Color", "value": "Yellow", "isNonNeg": false },
+        { "name": "Package Qty", "value": "100/box", "isNonNeg": false }
+      ],
+      "estListPrice": 16.66,
+      "priceSource": "testequipmentdepot.com",
+      "specSheetUrl": "https://www.idealind.com/us/en/category/product.html/Wire_Nut_Model_74B.html"
+    },
+    {
+      "mpn": "221-413",
+      "brand": "WAGO",
+      "name": "WAGO 221-413 Compact Splicing Connector",
+      "description": "3-conductor lever-operated splicing connector, 24-12 AWG solid/stranded/fine-stranded copper; UL 486C 600 V/20 A.",
+      "specs": [
+        { "name": "Wire Range", "value": "24 AWG - 12 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "Lever splicing connector, 3-port", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper, 600 V / 20 A (UL)", "isNonNeg": true },
+        { "name": "Package Qty", "value": "10/pack", "isNonNeg": false }
+      ],
+      "estListPrice": 6.99,
+      "priceSource": "acehardware.com",
+      "specSheetUrl": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-413"
+    },
+    {
+      "mpn": "221-412",
+      "brand": "WAGO",
+      "name": "WAGO 221-412 Compact Splicing Connector",
+      "description": "2-conductor lever-operated splicing connector, 24-12 AWG solid/stranded/fine-stranded copper; transparent housing.",
+      "specs": [
+        { "name": "Wire Range", "value": "24 AWG - 12 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "Lever splicing connector, 2-port", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper, 600 V / 20 A (UL)", "isNonNeg": true },
+        { "name": "Package Qty", "value": "100/pack", "isNonNeg": false }
+      ],
+      "estListPrice": 29.99,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-412"
+    },
+    {
+      "mpn": "YA28",
+      "brand": "Burndy",
+      "name": "Burndy YA28 Hylug Compression Lug",
+      "description": "Hylug 1-hole long-barrel tin-plated copper compression lug, 4/0 AWG, 1/2 in stud, die code 15, purple color code.",
+      "specs": [
+        { "name": "Wire Range", "value": "4/0 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "1-hole compression lug, long barrel", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper, 90 C, up to 35 kV", "isNonNeg": true },
+        { "name": "Stud Size", "value": "1/2 in", "isNonNeg": false },
+        { "name": "Die Code", "value": "15", "isNonNeg": false }
+      ],
+      "estListPrice": 38.73,
+      "priceSource": "hubbell.com",
+      "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ya28-comp-term-cu-1-hole-long-barrel/p/523561"
+    },
+    {
+      "mpn": "KS25",
+      "brand": "Burndy",
+      "name": "Burndy KS25 Servit Split Bolt",
+      "description": "Servit copper alloy split-bolt connector, run/tap #4 AWG-1/0 AWG stranded; UL 467 listed for direct burial.",
+      "specs": [
+        { "name": "Wire Range", "value": "#4 AWG - 1/0 AWG str", "isNonNeg": true },
+        { "name": "Connector Type", "value": "Split bolt", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper", "isNonNeg": true },
+        { "name": "Direct Burial", "value": "Yes (UL 467)", "isNonNeg": false },
+        { "name": "Installation Torque", "value": "385 in-lb", "isNonNeg": false }
+      ],
+      "estListPrice": 14.98,
+      "priceSource": "us.rs-online.com",
+      "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ks25-split-bolt-connector-runtap-4-awg-10-awg-str/p/503120"
+    },
+    {
+      "mpn": "SLU-70",
+      "brand": "Ilsco",
+      "name": "Ilsco SLU-70 Mechanical Lug",
+      "description": "Copper mechanical lug with offset tongue, 8-2 AWG, 1 port, 1 hole, 1/4 in bolt size; UL 486A/B listed.",
+      "specs": [
+        { "name": "Wire Range", "value": "8 AWG - 2 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "Mechanical lug, offset", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper", "isNonNeg": true },
+        { "name": "Bolt Size", "value": "1/4 in", "isNonNeg": false },
+        { "name": "Ports", "value": "1", "isNonNeg": false }
+      ],
+      "estListPrice": 3.59,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.ilsco.com/Ilsco/ccrz__ProductDetails?sku=SLU-70-ILSM-ILS&cclcl=en_US"
+    },
+    {
+      "mpn": "LCA2-14-Q",
+      "brand": "Panduit",
+      "name": "Panduit LCA2-14-Q Compression Lug",
+      "description": "Pan-Lug 1-hole tin-plated copper compression lug, 2 AWG conductor, 1/4 in stud, die code P33.",
+      "specs": [
+        { "name": "Wire Range", "value": "2 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "1-hole compression lug", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Copper", "isNonNeg": true },
+        { "name": "Stud Size", "value": "1/4 in", "isNonNeg": false },
+        { "name": "Die Code", "value": "P33", "isNonNeg": false }
+      ],
+      "estListPrice": 10.77,
+      "priceSource": "houseofelectrical.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/lugs-splices-split-bolts-accessories/mechanical-compression-lugs-splices/lca2-14-q.html"
+    },
+    {
+      "mpn": "UY2",
+      "brand": "3M",
+      "name": "3M Scotchlok UY2 IDC Butt Connector",
+      "description": "Moisture-resistant IDC butt splice for two 19-26 AWG solid copper conductors; sealant-filled, no stripping; box of 100.",
+      "specs": [
+        { "name": "Wire Range", "value": "26 AWG - 19 AWG", "isNonNeg": true },
+        { "name": "Connector Type", "value": "IDC butt splice", "isNonNeg": true },
+        { "name": "Conductor Rating", "value": "Solid copper", "isNonNeg": true },
+        { "name": "Sealant", "value": "Moisture-resistant gel filled", "isNonNeg": false },
+        { "name": "Package Qty", "value": "100/box", "isNonNeg": false }
+      ],
+      "estListPrice": 26.27,
+      "priceSource": "homeessentialsdirect.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/68690O/3m-scotchlok-insulation-displacement-connectors-br.pdf"
+    }
+  ]
+}

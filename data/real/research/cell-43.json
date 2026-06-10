@@ -1,0 +1,152 @@
+{
+  "category": "datacom",
+  "subcategory": "Patch Panels",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "69586-U24",
+      "brand": "Leviton",
+      "name": "Leviton 69586-U24 Cat6 Patch Panel",
+      "description": "eXtreme 6+ Cat 6 universal patch panel, 24-port, 1RU, universal T568A/B wiring, cable management bar included.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1RU", "isNonNeg": false },
+        { "name": "Wiring", "value": "Universal T568A/T568B", "isNonNeg": false },
+        { "name": "Termination", "value": "110-style IDC", "isNonNeg": false }
+      ],
+      "estListPrice": 219.95,
+      "priceSource": "altex.com",
+      "specSheetUrl": "https://leviton.com/products/69586-u24"
+    },
+    {
+      "mpn": "5G596-U24",
+      "brand": "Leviton",
+      "name": "Leviton 5G596-U24 Cat5e Patch Panel",
+      "description": "GigaMax Cat 5e universal patch panel, 24-port, 1RU, universal T568A/B wiring, includes cable management bar.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 5e", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1RU", "isNonNeg": false },
+        { "name": "Wiring", "value": "Universal T568A/T568B", "isNonNeg": false },
+        { "name": "Termination", "value": "110-style IDC", "isNonNeg": false }
+      ],
+      "estListPrice": 219.25,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/products/5g596-u24"
+    },
+    {
+      "mpn": "69586-U48",
+      "brand": "Leviton",
+      "name": "Leviton 69586-U48 Cat6 Patch Panel",
+      "description": "eXtreme 6+ Cat 6 universal patch panel, 48-port, 2RU, universal T568A/B wiring, cable management bar included.",
+      "specs": [
+        { "name": "Ports", "value": "48", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Rack Units", "value": "2RU", "isNonNeg": false },
+        { "name": "Wiring", "value": "Universal T568A/T568B", "isNonNeg": false },
+        { "name": "Termination", "value": "110-style IDC", "isNonNeg": false }
+      ],
+      "estListPrice": 408.49,
+      "priceSource": "electricalparts.com",
+      "specSheetUrl": "https://leviton.com/products/69586-u48"
+    },
+    {
+      "mpn": "DP24688TGY",
+      "brand": "Panduit",
+      "name": "Panduit DP24688TGY DP6 PLUS Patch Panel",
+      "description": "Data-Patch DP6 PLUS flat punchdown patch panel, Cat 6, 24-port, 1RU, black, mounts in standard 19 in racks.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1RU", "isNonNeg": false },
+        { "name": "Style", "value": "Flat punchdown", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 258.39,
+      "priceSource": "us.rs-online.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/patch-panels-accessories/populated-patch-panels/dp24688tgy.html"
+    },
+    {
+      "mpn": "HP624",
+      "brand": "Hubbell",
+      "name": "Hubbell HP624 NEXTSPEED Cat6 Patch Panel",
+      "description": "NEXTSPEED Cat 6 patch panel, 24-port, 1RU rack mount, universal wiring (T568A/B), black.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1RU", "isNonNeg": false },
+        { "name": "Wiring", "value": "Universal T568A/T568B", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 378.49,
+      "priceSource": "beachaudio.com",
+      "specSheetUrl": "https://www.hubbell.com/hubbellpremisewiring/en/products/patch-panels-cat6-24-port-universalwiring/p/2377737"
+    },
+    {
+      "mpn": "UNP610-24P",
+      "brand": "CommScope",
+      "name": "CommScope UNP610-24P Uniprise Patch Panel",
+      "description": "Uniprise Universal Cat 6 patch panel, 24-port, 1RU, integrated label holders and rear cable management bar.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1RU", "isNonNeg": false },
+        { "name": "Wiring", "value": "Universal T568A/T568B", "isNonNeg": false },
+        { "name": "Mounting", "value": "19 in rack", "isNonNeg": false }
+      ],
+      "estListPrice": 221.75,
+      "priceSource": "eaccu-tech.com",
+      "specSheetUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/copper-panels/item760180042/"
+    },
+    {
+      "mpn": "N252-024",
+      "brand": "Tripp Lite",
+      "name": "Tripp Lite N252-024 Cat6 Patch Panel",
+      "description": "24-port 1U rack-mount Cat6/Cat5 110-punchdown patch panel, 568B wiring, RJ45, TAA-compliant.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6 / Cat 5", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1U", "isNonNeg": false },
+        { "name": "Termination", "value": "110 punchdown", "isNonNeg": false },
+        { "name": "Wiring", "value": "T568B", "isNonNeg": false }
+      ],
+      "estListPrice": 76.02,
+      "priceSource": "staples.com",
+      "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/n252024.pdf"
+    },
+    {
+      "mpn": "TC-P24C6",
+      "brand": "TRENDnet",
+      "name": "TRENDnet TC-P24C6 Cat6 Patch Panel",
+      "description": "24-port Cat6 unshielded patch panel, 1U wall- or rack-mountable, compatible with Cat3/4/5/5e/6 cabling.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6 (unshielded)", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1U", "isNonNeg": false },
+        { "name": "Mounting", "value": "Wallmount or rackmount", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 45.95,
+      "priceSource": "compsource.com",
+      "specSheetUrl": "https://www.trendnet.com/products/patch-panel/24-port-Cat6-Unshielded-Patch-Panel-TC-P24C6-v2"
+    },
+    {
+      "mpn": "ICMPP02460",
+      "brand": "ICC",
+      "name": "ICC ICMPP02460 Cat6 Patch Panel",
+      "description": "Cat 6 patch panel, 24-port, 1 RMS, rear 110 IDC termination, 16-gauge steel, PoE++ rated up to 100W, UL listed.",
+      "specs": [
+        { "name": "Ports", "value": "24", "isNonNeg": true },
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Rack Units", "value": "1 RMS (1U)", "isNonNeg": false },
+        { "name": "Termination", "value": "Rear 110 IDC", "isNonNeg": false },
+        { "name": "PoE Rating", "value": "PoE++ up to 100W", "isNonNeg": false }
+      ],
+      "estListPrice": 111.85,
+      "priceSource": "cablingplus.com",
+      "specSheetUrl": "https://icc.com/product/cat6-patch-panel-24-ports-1-rms/",
+      "upc": "633758011297"
+    }
+  ]
+}

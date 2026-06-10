@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "Safety Switches & Disconnects",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "DU221RB",
+      "brand": "Square D",
+      "name": "Square D DU221RB 30A General Duty Disconnect",
+      "description": "Safety switch, general duty, non-fusible, single throw, 2-pole 2-wire, 240VAC, 30A, Type 3R enclosure with bolt-on hub provision.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240VAC", "isNonNeg": true },
+        { "name": "Duty", "value": "General Duty", "isNonNeg": true },
+        { "name": "Fusing", "value": "Non-Fusible", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false },
+        { "name": "Poles", "value": "2", "isNonNeg": false }
+      ],
+      "estListPrice": 99.99,
+      "priceSource": "solaris-shop.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=DU221RB_DATASHEET_US_en-US.pdf&p_Doc_Ref=DU221RB_DATASHEET"
+    },
+    {
+      "mpn": "DU222RB",
+      "brand": "Square D",
+      "name": "Square D DU222RB 60A General Duty Disconnect",
+      "description": "Safety switch, general duty, non-fusible, single throw, 2-pole 2-wire, 240VAC, 60A, Type 3R enclosure with bolt-on hub provision.",
+      "specs": [
+        { "name": "Amperage", "value": "60A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240VAC", "isNonNeg": true },
+        { "name": "Duty", "value": "General Duty", "isNonNeg": true },
+        { "name": "Fusing", "value": "Non-Fusible", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false },
+        { "name": "Poles", "value": "2", "isNonNeg": false }
+      ],
+      "estListPrice": 264.75,
+      "priceSource": "breakerbroker.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=DU222RB_DATASHEET_US_en-US.pdf&p_Doc_Ref=DU222RB_DATASHEET"
+    },
+    {
+      "mpn": "HU361",
+      "brand": "Square D",
+      "name": "Square D HU361 30A Heavy Duty Safety Switch",
+      "description": "Heavy duty safety switch, non-fusible, 30A, 3-pole 3-wire, 600VAC/250VDC, NEMA Type 1 indoor enclosure.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC/DC", "isNonNeg": true },
+        { "name": "Duty", "value": "Heavy Duty", "isNonNeg": true },
+        { "name": "Fusing", "value": "Non-Fusible", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1", "isNonNeg": false },
+        { "name": "Poles", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 1600,
+      "priceSource": "breakeroutlet.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=HU361_DATASHEET_US_en-US.pdf&p_Doc_Ref=HU361_DATASHEET"
+    },
+    {
+      "mpn": "H361",
+      "brand": "Square D",
+      "name": "Square D H361 30A Heavy Duty Fusible Switch",
+      "description": "Heavy duty safety switch, fusible, 30A, 3-pole 3-wire, 20 hp, 600VAC/DC, NEMA Type 1 indoor enclosure.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC/DC", "isNonNeg": true },
+        { "name": "Duty", "value": "Heavy Duty", "isNonNeg": true },
+        { "name": "Fusing", "value": "Fusible", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1", "isNonNeg": false },
+        { "name": "Poles", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 381.2,
+      "priceSource": "superbreakers.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=H361_DATASHEET_US_en-US.pdf&p_Doc_Ref=H361_DATASHEET"
+    },
+    {
+      "mpn": "WN2060U",
+      "brand": "Siemens",
+      "name": "Siemens WN2060U 60A Pull-Out AC Disconnect",
+      "description": "Non-fused pull-out AC disconnect, 60A, 120/240V single phase, 10 hp, NEMA Type 3R outdoor enclosure.",
+      "specs": [
+        { "name": "Amperage", "value": "60A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240VAC", "isNonNeg": true },
+        { "name": "Duty", "value": "AC Disconnect", "isNonNeg": true },
+        { "name": "Fusing", "value": "Non-Fusible", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false },
+        { "name": "Poles", "value": "2", "isNonNeg": false }
+      ],
+      "estListPrice": 32.33,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://www.compas.siemens-info.com/CatalogProduct/WN2060U.pdf"
+    },
+    {
+      "mpn": "GF222NR",
+      "brand": "Siemens",
+      "name": "Siemens GF222NR 60A General Duty Fusible Switch",
+      "description": "General duty fusible safety switch with solid neutral, 60A, 2-pole 3-wire, 240VAC, cartridge fuse type, NEMA 3R outdoor.",
+      "specs": [
+        { "name": "Amperage", "value": "60A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240VAC", "isNonNeg": true },
+        { "name": "Duty", "value": "General Duty", "isNonNeg": true },
+        { "name": "Fusing", "value": "Fusible with Neutral", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false },
+        { "name": "Poles", "value": "2", "isNonNeg": false }
+      ],
+      "estListPrice": 170.66,
+      "priceSource": "breakeroutlet.com",
+      "specSheetUrl": "https://www.compas.siemens-info.com/CatalogProduct/GF222NR.pdf",
+      "upc": "783643149212"
+    },
+    {
+      "mpn": "HF361",
+      "brand": "Siemens",
+      "name": "Siemens HF361 30A Heavy Duty Fusible Switch",
+      "description": "Heavy duty fusible safety switch, 30A, 3-pole 3-wire, 600VAC/250VDC, NEMA Type 1 indoor enclosure.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC", "isNonNeg": true },
+        { "name": "Duty", "value": "Heavy Duty", "isNonNeg": true },
+        { "name": "Fusing", "value": "Fusible", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1", "isNonNeg": false },
+        { "name": "Poles", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 140.69,
+      "priceSource": "breakeroutlet.com",
+      "specSheetUrl": "https://www.compas.siemens-info.com/CatalogProduct/HF361.pdf"
+    },
+    {
+      "mpn": "TGN3322R",
+      "brand": "ABB",
+      "name": "ABB TGN3322R 60A General Duty Safety Switch",
+      "description": "General duty Spec-Setter safety switch (GE legacy line), non-fusible, 60A, 3-pole 3-wire, 240VAC, NEMA 3R rainproof.",
+      "specs": [
+        { "name": "Amperage", "value": "60A", "isNonNeg": true },
+        { "name": "Voltage", "value": "240VAC", "isNonNeg": true },
+        { "name": "Duty", "value": "General Duty", "isNonNeg": true },
+        { "name": "Fusing", "value": "Non-Fusible", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false },
+        { "name": "Poles", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 198.43,
+      "priceSource": "worldelectricsupply.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/TGN3322R"
+    }
+  ]
+}

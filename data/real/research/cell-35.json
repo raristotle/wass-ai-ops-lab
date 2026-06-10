@@ -1,0 +1,146 @@
+{
+  "category": "electrical",
+  "subcategory": "High Bay Fixtures",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "CPHB 12LM MVOLT 40K",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting CPHB 12LM MVOLT 40K Compact Pro High Bay",
+      "description": "Compact Pro 14-in round industrial LED high bay, 12,261 delivered lumens, 4000K, 80 CRI, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Lumens", "value": "12,261 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (MVOLT)", "isNonNeg": true },
+        { "name": "Form", "value": "Round (UFO)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "88 W", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 123.7,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1306953/contractor-select-cphb.pdf",
+      "upc": "00194994608325"
+    },
+    {
+      "mpn": "CPHB 18LM MVOLT 50K",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting CPHB 18LM MVOLT 50K Compact Pro High Bay",
+      "description": "Compact Pro 14-in round industrial LED high bay, 18,485 delivered lumens, 5000K, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Lumens", "value": "18,485 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (MVOLT)", "isNonNeg": true },
+        { "name": "Form", "value": "Round (UFO)", "isNonNeg": true },
+        { "name": "CCT", "value": "5000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "134 W", "isNonNeg": false }
+      ],
+      "estListPrice": 190.24,
+      "priceSource": "superiorlighting.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1306953/contractor-select-cphb.pdf",
+      "upc": "00194994429630"
+    },
+    {
+      "mpn": "IBE 12LM MVOLT 40K",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting IBE 12LM MVOLT 40K I-BEAM High Bay",
+      "description": "Contractor Select I-BEAM IBE 2-ft linear LED high bay, 11,306 lumens, 4000K, 80 CRI, 83W, 120-277V.",
+      "specs": [
+        { "name": "Lumens", "value": "11,306 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (MVOLT)", "isNonNeg": true },
+        { "name": "Form", "value": "Linear", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "83 W", "isNonNeg": false },
+        { "name": "CRI", "value": "80", "isNonNeg": false }
+      ],
+      "estListPrice": 185.81,
+      "priceSource": "superiorlighting.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/831397/contractor-select-ibe.pdf",
+      "upc": "00191848491010"
+    },
+    {
+      "mpn": "UHB-18-UNV-L840-CD-U",
+      "brand": "Metalux",
+      "name": "Metalux UHB-18-UNV-L840-CD-U Round High Bay",
+      "description": "UHB LED round high bay, 18,000 lumens, 4000K, 120-277V, 0-10V dimming, 6-ft cord with hook and 1/2-in threaded hub mounting.",
+      "specs": [
+        { "name": "Lumens", "value": "18,000 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (UNV)", "isNonNeg": true },
+        { "name": "Form", "value": "Round (UFO)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 196.95,
+      "priceSource": "lbclightingpro.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/49b518154c3c46f08bfead4100870a8c/Metalux-UHB-LED-Round-High-Bay-spec-sheet.pdf",
+      "upc": "080083885909"
+    },
+    {
+      "mpn": "VHB-18-W-UNV-L840-CD-U",
+      "brand": "Metalux",
+      "name": "Metalux VHB-18-W-UNV-L840-CD-U Linear High Bay",
+      "description": "VHB dual-lens linear LED high bay, 18,000 lumens, wide distribution, 4000K, 80 CRI, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Lumens", "value": "18,000 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (UNV)", "isNonNeg": true },
+        { "name": "Form", "value": "Linear", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "133.8 W", "isNonNeg": false },
+        { "name": "Distribution", "value": "Wide", "isNonNeg": false }
+      ],
+      "estListPrice": 147.63,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/cd0c14f212cf46ee9939ad4100870ee5/Metalux-VHB-LED-specification-sheet.pdf",
+      "upc": "080083785919"
+    },
+    {
+      "mpn": "HAYBAY100N/D10",
+      "brand": "RAB Lighting",
+      "name": "RAB Lighting HAYBAY100N/D10 LED High Bay",
+      "description": "HAYBAY 100W UFO LED high bay, 15,785 delivered lumens, 4000K neutral, 72 CRI, 120-277V, 0-10V dimming, hook and cord mount.",
+      "specs": [
+        { "name": "Lumens", "value": "15,785 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Form", "value": "Round (UFO)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "100 W", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 291.78,
+      "priceSource": "mrosupply.com",
+      "specSheetUrl": "https://www.rablighting.com/specs/HAYBAY100N/D10"
+    },
+    {
+      "mpn": "HAYBAY150N/D10",
+      "brand": "RAB Lighting",
+      "name": "RAB Lighting HAYBAY150N/D10 LED High Bay",
+      "description": "HAYBAY 150W UFO LED high bay, 18,429 delivered lumens, 4000K neutral, 73 CRI, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Lumens", "value": "18,429 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Form", "value": "Round (UFO)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "150 W", "isNonNeg": false },
+        { "name": "CRI", "value": "73", "isNonNeg": false }
+      ],
+      "estListPrice": 395.0,
+      "priceSource": "prolighting.com",
+      "specSheetUrl": "https://www.rablighting.com/specs/HAYBAY150N/D10"
+    },
+    {
+      "mpn": "KBL-B-UV-30L-40K-8-UL-10V",
+      "brand": "Cree Lighting",
+      "name": "Cree Lighting KBL-B-UV-30L-40K-8-UL-10V KBL High Bay",
+      "description": "KBL Series industrial round LED high bay, 27,400 lumens, 4000K, 80 CRI, 190W, 120-277V, 0-10V dimming.",
+      "specs": [
+        { "name": "Lumens", "value": "27,400 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Form", "value": "Round (UFO)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "190 W", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 489.95,
+      "priceSource": "litestoreusa.com",
+      "specSheetUrl": "https://www.creelighting.com/products/indoor/high-bay-low-bay/kbl-series/"
+    }
+  ]
+}

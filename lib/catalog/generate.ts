@@ -2,8 +2,9 @@ import type { CatalogProduct, ProductCategory, ProductSpec, BranchStock, DCStock
 import { CATEGORIES, TAXONOMY, type SubcategoryTemplate } from "@/lib/catalog/taxonomy";
 import { makeRng, pick, randInt, round2 } from "@/lib/catalog/prng";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
+import { REAL_PRODUCTS } from "@/lib/catalog/real";
 
-export const CATALOG_SIZE = 60000;
+export const CATALOG_SIZE = 200000;
 const FIXED_SEED = 1337;
 
 const BRANCHES: Omit<BranchStock, "quantity">[] = [
@@ -33,16 +34,28 @@ function makeStock(rng: () => number): { branchStock: BranchStock[]; dcStock: DC
   return { branchStock, dcStock };
 }
 
-function makeExternal(rng: () => number, price: number): ExternalSource[] {
+// Real distributor search URLs (the destinations exist; for simulated SKUs the
+// search simply returns no results — no fake example.com links in the data).
+const DISTRIBUTOR_SEARCH: Record<(typeof EXTERNAL)[number], (q: string) => string> = {
+  "Grainger": (q) => `https://www.grainger.com/search?searchQuery=${encodeURIComponent(q)}`,
+  "Graybar": (q) => `https://www.graybar.com/search/?text=${encodeURIComponent(q)}`,
+  "Platt Electric Supply": (q) => `https://www.platt.com/search?text=${encodeURIComponent(q)}`,
+  "Rexel USA": (q) => `https://www.rexelusa.com/s?q=${encodeURIComponent(q)}`,
+};
+
+function makeExternal(rng: () => number, price: number, sku: string): ExternalSource[] {
   const n = randInt(rng, 1, 3);
-  return Array.from({ length: n }, (_, i) => ({
-    distributor: EXTERNAL[i % EXTERNAL.length],
-    url: `https://example.com/p/${randInt(rng, 1000, 9999)}`,
-    price: round2(price * (1.05 + rng() * 0.25)),
-    quantity: randInt(rng, 1, 50),
-    status: "in-stock" as const,
-    leadTime: pick(rng, ["1-2 days", "3-5 days", "1 week"]),
-  }));
+  return Array.from({ length: n }, (_, i) => {
+    const distributor = EXTERNAL[i % EXTERNAL.length];
+    return {
+      distributor,
+      url: DISTRIBUTOR_SEARCH[distributor](sku),
+      price: round2(price * (1.05 + rng() * 0.25)),
+      quantity: randInt(rng, 1, 50),
+      status: "in-stock" as const,
+      leadTime: pick(rng, ["1-2 days", "3-5 days", "1 week"]),
+    };
+  });
 }
 
 function genOne(
@@ -72,8 +85,9 @@ function genOne(
     unitPrice: price, uom: sub.uom,
     specs, preferred: rng() < 0.2,
     branchStock, dcStock,
-    externalSources: inStock ? [] : makeExternal(rng, price),
+    externalSources: inStock ? [] : makeExternal(rng, price, sku),
     imageIcon: sub.icon,
+    dataSource: "simulated",
   };
 }
 
@@ -89,7 +103,26 @@ export function generateCatalog(size: number = CATALOG_SIZE): CatalogProduct[] {
       );
     }
   }
-  const featured = CATALOG_PRODUCTS.slice(0, Math.min(CATALOG_PRODUCTS.length, size));
+  // Curated demo entries (real part numbers, unverified) + web-researched
+  // verified real products fold in ahead of the synthetic remainder. When a
+  // researched product shares a part number with a curated entry, the curated
+  // entry is UPGRADED in place (verified spec link + provenance) rather than
+  // duplicated — curated ids are referenced by alternative/cross-sell links.
+  const normSku = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const curated = CATALOG_PRODUCTS.map((p) => ({ ...p, dataSource: p.dataSource ?? ("curated" as const) }));
+  const curatedBySku = new Map(curated.map((p) => [normSku(p.sku), p]));
+  const realUnique: CatalogProduct[] = [];
+  for (const rp of REAL_PRODUCTS) {
+    const existing = curatedBySku.get(normSku(rp.sku));
+    if (existing) {
+      existing.dataSource = "verified";
+      existing.specSheetUrl = rp.specSheetUrl;
+      existing.priceNote = rp.priceNote;
+    } else {
+      realUnique.push(rp);
+    }
+  }
+  const featured = [...curated, ...realUnique].slice(0, Math.min(curated.length + realUnique.length, size));
   const out: CatalogProduct[] = [...featured];
   const usedIds = new Set(out.map((p) => p.id));
   const remaining = size - out.length;

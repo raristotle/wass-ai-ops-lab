@@ -1,0 +1,185 @@
+{
+  "category": "electrical",
+  "subcategory": "Cord Plugs & Connectors",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "515PV",
+      "brand": "Leviton",
+      "name": "Leviton 515PV Straight Blade Plug",
+      "description": "15A 125V NEMA 5-15P 2-pole 3-wire grounding plug, straight blade, residential grade, yellow; moisture and chemical resistant.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA 5-15P", "isNonNeg": true },
+        { "name": "Type", "value": "Straight Blade Plug", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-12 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false }
+      ],
+      "estListPrice": 4.47,
+      "priceSource": "acandb.com",
+      "specSheetUrl": "https://leviton.com/products/515pv"
+    },
+    {
+      "mpn": "515CV",
+      "brand": "Leviton",
+      "name": "Leviton 515CV Straight Blade Connector",
+      "description": "15A 125V NEMA 5-15R 2-pole 3-wire grounding connector, straight blade, PVC body, yellow; moisture, chemical and abuse resistant.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA 5-15R", "isNonNeg": true },
+        { "name": "Type", "value": "Straight Blade Connector", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-12 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Residential", "isNonNeg": false }
+      ],
+      "estListPrice": 10.35,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/515cv",
+      "upc": "078477841334"
+    },
+    {
+      "mpn": "5266-C",
+      "brand": "Leviton",
+      "name": "Leviton 5266-C Industrial Plug",
+      "description": "15A 125V NEMA 5-15P industrial grade straight blade plug, impact-modified nylon, black/white; cord clamp fits 0.230-0.685 in.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA 5-15P", "isNonNeg": true },
+        { "name": "Type", "value": "Straight Blade Plug", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-10 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 10.03,
+      "priceSource": "emisupply.com",
+      "specSheetUrl": "https://leviton.com/products/5266-c",
+      "upc": "078477795200"
+    },
+    {
+      "mpn": "5269-C",
+      "brand": "Leviton",
+      "name": "Leviton 5269-C Industrial Connector",
+      "description": "15A 125V NEMA 5-15R industrial grade straight blade connector, impact-modified nylon, black/white; wide-range cord clamp.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA 5-15R", "isNonNeg": true },
+        { "name": "Type", "value": "Straight Blade Connector", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-10 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 15.48,
+      "priceSource": "energyavenue.com",
+      "specSheetUrl": "https://leviton.com/products/5269-c",
+      "upc": "078477795316"
+    },
+    {
+      "mpn": "5366-C",
+      "brand": "Leviton",
+      "name": "Leviton 5366-C Industrial Plug",
+      "description": "20A 125V NEMA 5-20P industrial grade straight blade plug, nylon, black/white; cord clamp 0.245-0.700 in, ideal for A/C and generators.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA 5-20P", "isNonNeg": true },
+        { "name": "Type", "value": "Straight Blade Plug", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-10 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 20.92,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/5366-c",
+      "upc": "078477795873"
+    },
+    {
+      "mpn": "2311",
+      "brand": "Leviton",
+      "name": "Leviton 2311 Locking Plug",
+      "description": "20A 125V NEMA L5-20P 2P 3W locking plug, extra-heavy duty industrial grade, impact-modified nylon, black/white, brass blades.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA L5-20P", "isNonNeg": true },
+        { "name": "Type", "value": "Locking Plug", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-10 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Extra-Heavy Duty Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 17.9,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://leviton.com/products/2311",
+      "upc": "078477800942"
+    },
+    {
+      "mpn": "2313",
+      "brand": "Leviton",
+      "name": "Leviton 2313 Locking Connector",
+      "description": "20A 125V NEMA L5-20R 2P 3W locking connector, industrial grade nylon, black/white; cord clamp accepts 0.385-0.720 in.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA L5-20R", "isNonNeg": true },
+        { "name": "Type", "value": "Locking Connector", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-10 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 32.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://leviton.com/products/2313",
+      "upc": "078477800973"
+    },
+    {
+      "mpn": "2611",
+      "brand": "Leviton",
+      "name": "Leviton 2611 Locking Plug",
+      "description": "30A 125V NEMA L5-30P 2P 3W locking plug, industrial grade, impact-modified nylon body, solid brass blades, black/white.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA L5-30P", "isNonNeg": true },
+        { "name": "Type", "value": "Locking Plug", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-10 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "30 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 18.76,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://leviton.com/products/2611",
+      "upc": "078477807989"
+    },
+    {
+      "mpn": "PS5266X",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour PS5266X Spec-Grade Plug",
+      "description": "15A 125V NEMA 5-15P extra-hard-use spec grade straight blade plug, 2-pole 3-wire grounding, black with white face.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA 5-15P", "isNonNeg": true },
+        { "name": "Type", "value": "Straight Blade Plug", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals, 18-10 AWG", "isNonNeg": false },
+        { "name": "Amperage", "value": "15 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Extra-Hard Use Spec Grade", "isNonNeg": false }
+      ],
+      "estListPrice": 20.19,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://www.legrand.us/p/print/PS5266X.pdf",
+      "upc": "785007236903"
+    },
+    {
+      "mpn": "L520P",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour L520P Turnlok Plug",
+      "description": "Turnlok 20A 125V NEMA L5-20P 2P 3W industrial spec grade locking plug, nylon, black back/white front; double dovetail cord grip.",
+      "specs": [
+        { "name": "Configuration", "value": "NEMA L5-20P", "isNonNeg": true },
+        { "name": "Type", "value": "Locking Plug", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw Terminals", "isNonNeg": false },
+        { "name": "Amperage", "value": "20 A", "isNonNeg": false },
+        { "name": "Voltage", "value": "125 V", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial Spec Grade", "isNonNeg": false }
+      ],
+      "estListPrice": 11.12,
+      "priceSource": "crawfordelectricsupply.com",
+      "specSheetUrl": "https://www.legrand.us/p/print/L520P.pdf"
+    }
+  ]
+}

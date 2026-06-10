@@ -1,0 +1,135 @@
+{
+  "category": "oem-electrical",
+  "subcategory": "Power Supplies",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "LRS-350-24",
+      "brand": "Mean Well",
+      "name": "Mean Well LRS-350-24 Enclosed Power Supply",
+      "description": "350.4 W enclosed switching power supply, 24 VDC at 14.6 A, 115/230 VAC switch-selectable input, built-in cooling fan.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 14.6 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "350.4 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "90-132 / 180-264 VAC, switch selectable", "isNonNeg": false },
+        { "name": "Mounting", "value": "Enclosed, chassis mount", "isNonNeg": false },
+        { "name": "Efficiency", "value": "89% typical", "isNonNeg": false }
+      ],
+      "estListPrice": 23.36,
+      "priceSource": "powersupplymall.com",
+      "specSheetUrl": "https://www.meanwell.com/Upload/PDF/LRS-350/LRS-350-SPEC.PDF"
+    },
+    {
+      "mpn": "NDR-240-24",
+      "brand": "Mean Well",
+      "name": "Mean Well NDR-240-24 DIN Rail Power Supply",
+      "description": "240 W single-output industrial DIN-rail power supply, 24 VDC at 10 A, universal 90-264 VAC input.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 10 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "240 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "90-264 VAC", "isNonNeg": false },
+        { "name": "Mounting", "value": "DIN rail (TS-35)", "isNonNeg": false }
+      ],
+      "estListPrice": 54.20,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://www.meanwell.com/Upload/PDF/NDR-240/NDR-240-SPEC.PDF"
+    },
+    {
+      "mpn": "HDR-30-24",
+      "brand": "Mean Well",
+      "name": "Mean Well HDR-30-24 Slim DIN Rail Power Supply",
+      "description": "Ultra-slim step-shape DIN-rail power supply, 24 VDC at 1.5 A (36 W rated), 85-264 VAC input, 89% efficiency.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 1.5 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "36 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "85-264 VAC", "isNonNeg": false },
+        { "name": "Mounting", "value": "DIN rail (TS-35)", "isNonNeg": false },
+        { "name": "Efficiency", "value": "89% typical", "isNonNeg": false }
+      ],
+      "estListPrice": 14.80,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://www.meanwell.com/Upload/PDF/HDR-30/HDR-30-SPEC.PDF"
+    },
+    {
+      "mpn": "EDR-120-24",
+      "brand": "Mean Well",
+      "name": "Mean Well EDR-120-24 DIN Rail Power Supply",
+      "description": "120 W single-output industrial DIN-rail power supply, 24 VDC at 5 A, 90-264 VAC input, adjustable output.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 5 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "120 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "90-264 VAC", "isNonNeg": false },
+        { "name": "Mounting", "value": "DIN rail (TS-35)", "isNonNeg": false },
+        { "name": "Efficiency", "value": "87.5% typical", "isNonNeg": false }
+      ],
+      "estListPrice": 26.80,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://www.meanwell.com/Upload/PDF/EDR-120/EDR-120-SPEC.PDF"
+    },
+    {
+      "mpn": "SDR-240-24",
+      "brand": "Mean Well",
+      "name": "Mean Well SDR-240-24 DIN Rail Power Supply",
+      "description": "240 W slim DIN-rail power supply with built-in active PFC, 24 VDC at 10 A, 88-264 VAC input, 94% efficiency.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 10 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "240 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "88-264 VAC", "isNonNeg": false },
+        { "name": "Mounting", "value": "DIN rail (TS-35)", "isNonNeg": false },
+        { "name": "PFC", "value": "Built-in active PFC", "isNonNeg": false },
+        { "name": "Efficiency", "value": "94% typical", "isNonNeg": false }
+      ],
+      "estListPrice": 94.20,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://www.meanwell.com/Upload/PDF/SDR-240/SDR-240-SPEC.PDF"
+    },
+    {
+      "mpn": "S8VK-G24024",
+      "brand": "Omron",
+      "name": "Omron S8VK-G24024 DIN Rail Power Supply",
+      "description": "S8VK-G 240 W switch-mode DIN-rail power supply, 24 VDC at 10 A, 100-240 VAC input, UL 508 listed.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 10 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "240 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "100-240 VAC (90-350 VDC)", "isNonNeg": false },
+        { "name": "Mounting", "value": "DIN rail", "isNonNeg": false },
+        { "name": "Operating Temperature", "value": "-40 to +70 C (with derating)", "isNonNeg": false }
+      ],
+      "estListPrice": 235.05,
+      "priceSource": "kempstoncontrols.com",
+      "specSheetUrl": "https://files.omron.eu/downloads/latest/datasheet/en/t056_s8vk-g_switch_mode_power_supply_datasheet_en.pdf"
+    },
+    {
+      "mpn": "S8VK-G06024",
+      "brand": "Omron",
+      "name": "Omron S8VK-G06024 DIN Rail Power Supply",
+      "description": "S8VK-G 60 W switch-mode DIN-rail power supply, 24 VDC at 2.5 A, 100-240 VAC universal input, UL 508 listed.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 2.5 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "60 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "100-240 VAC (90-350 VDC)", "isNonNeg": false },
+        { "name": "Mounting", "value": "DIN rail", "isNonNeg": false },
+        { "name": "Operating Temperature", "value": "-40 to +70 C (with derating)", "isNonNeg": false }
+      ],
+      "estListPrice": 118.53,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://files.omron.eu/downloads/latest/datasheet/en/t056_s8vk-g_switch_mode_power_supply_datasheet_en.pdf"
+    },
+    {
+      "mpn": "SDN5-24-100C",
+      "brand": "SolaHD",
+      "name": "SolaHD SDN5-24-100C DIN Rail Power Supply",
+      "description": "SDN-C 120 W performance DIN-rail power supply, 24 VDC at 5 A, 85-264 VAC universal input, diagnostic LEDs.",
+      "specs": [
+        { "name": "Output", "value": "24 VDC, 5 A", "isNonNeg": true },
+        { "name": "Wattage", "value": "120 W", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "85-264 VAC (90-375 VDC)", "isNonNeg": false },
+        { "name": "Mounting", "value": "DIN rail", "isNonNeg": false },
+        { "name": "Operating Temperature", "value": "-40 to +60 C full power", "isNonNeg": false }
+      ],
+      "estListPrice": 449.18,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://discreteautomation.emerson.com/product/solahd-sku-sdn524100c"
+    }
+  ]
+}

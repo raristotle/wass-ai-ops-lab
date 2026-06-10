@@ -1,0 +1,165 @@
+{
+  "category": "oem-electrical",
+  "subcategory": "Relays",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "LY2N-AC110/120",
+      "brand": "Omron",
+      "name": "Omron LY2N-AC110/120 General Purpose Relay",
+      "description": "Bi-power general-purpose plug-in relay, DPDT, 10 A contacts, 110/120 VAC coil, with operation indicator.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "110/120 VAC", "isNonNeg": true },
+        { "name": "Contacts", "value": "DPDT (2 Form C)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "10 A at 110 VAC resistive", "isNonNeg": false },
+        { "name": "Termination", "value": "8-pin plug-in", "isNonNeg": false },
+        { "name": "Indicator", "value": "Operation indicator", "isNonNeg": false }
+      ],
+      "estListPrice": 20.36,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://assets.omron.com/m/3e54678f7feeb2fc/original/LY-Series-Bi-power-Relays-Datasheet.pdf"
+    },
+    {
+      "mpn": "MY4N AC110/120 (S)",
+      "brand": "Omron",
+      "name": "Omron MY4N AC110/120 (S) Miniature Relay",
+      "description": "Miniature power plug-in relay, 4PDT, 5 A contacts, 110/120 VAC coil, LED indicator, 14-pin socket mount.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "110/120 VAC", "isNonNeg": true },
+        { "name": "Contacts", "value": "4PDT (4 Form C)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "5 A at 250 VAC resistive", "isNonNeg": false },
+        { "name": "Termination", "value": "14-pin plug-in", "isNonNeg": false },
+        { "name": "Indicator", "value": "LED", "isNonNeg": false }
+      ],
+      "estListPrice": 12.41,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://assets.omron.eu/downloads/latest/datasheet/en/j199_my(s)_miniature_power_relays_datasheet_en.pdf"
+    },
+    {
+      "mpn": "G2R-1-S DC24(S)",
+      "brand": "Omron",
+      "name": "Omron G2R-1-S DC24(S) Plug-In Relay",
+      "description": "Slim space-saving power plug-in relay, SPDT, 10 A contacts, 24 VDC coil, for socket connection.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "24 VDC", "isNonNeg": true },
+        { "name": "Contacts", "value": "SPDT (1 Form C)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "10 A at 250 VAC resistive", "isNonNeg": false },
+        { "name": "Termination", "value": "Plug-in for socket", "isNonNeg": false }
+      ],
+      "estListPrice": 9.89,
+      "priceSource": "digikey.com",
+      "specSheetUrl": "https://assets.omron.eu/downloads/latest/datasheet/en/j226_g2r-_-s_(s)_general-purpose_relay_datasheet_en.pdf"
+    },
+    {
+      "mpn": "700-HA32A1",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 700-HA32A1 Tube Base Relay",
+      "description": "General purpose tube base relay, DPDT, 10 A AgNi contacts, 120 VAC 50/60 Hz coil, 8-pin octal plug-in.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "120 VAC 50/60 Hz", "isNonNeg": true },
+        { "name": "Contacts", "value": "DPDT (2 Form C)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "10 A", "isNonNeg": false },
+        { "name": "Termination", "value": "8-pin octal plug-in", "isNonNeg": false },
+        { "name": "Contact Material", "value": "Silver nickel (AgNi)", "isNonNeg": false }
+      ],
+      "estListPrice": 36.25,
+      "priceSource": "superbreakers.com",
+      "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/700-td552_-en-p.pdf",
+      "upc": "781180310829"
+    },
+    {
+      "mpn": "700-HC24A1-4",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 700-HC24A1-4 Miniature Ice Cube Relay",
+      "description": "Miniature ice cube relay, 14-blade, 4PDT, 7 A silver contacts, 120 VAC 50/60 Hz coil, socket mounting.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "120 VAC 50/60 Hz", "isNonNeg": true },
+        { "name": "Contacts", "value": "4PDT (4 Form C)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "7 A", "isNonNeg": false },
+        { "name": "Termination", "value": "14-blade plug-in", "isNonNeg": false }
+      ],
+      "estListPrice": 35.75,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.700-HC24A1-4.html"
+    },
+    {
+      "mpn": "2966171",
+      "brand": "Phoenix Contact",
+      "name": "Phoenix Contact 2966171 PLC-RSC- 24DC/21 Relay Module",
+      "description": "PLC-RSC- 24DC/21 relay module: screw-connection base with plug-in miniature relay, 1 changeover contact, 24 VDC input, DIN rail mount.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "24 VDC", "isNonNeg": true },
+        { "name": "Contacts", "value": "1 changeover (SPDT)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "6 A", "isNonNeg": false },
+        { "name": "Mounting", "value": "35 mm DIN rail", "isNonNeg": false },
+        { "name": "Connection", "value": "Screw", "isNonNeg": false }
+      ],
+      "estListPrice": 15.65,
+      "priceSource": "rspsupply.com",
+      "specSheetUrl": "https://docs.rs-online.com/f5af/0900766b816e490e.pdf"
+    },
+    {
+      "mpn": "RXM2AB2BD",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric RXM2AB2BD Miniature Relay",
+      "description": "Harmony RXM miniature plug-in relay, 2 C/O contacts, 12 A, 24 VDC coil, LED indicator and lockable test button.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "24 VDC", "isNonNeg": true },
+        { "name": "Contacts", "value": "2 C/O (DPDT)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "12 A", "isNonNeg": false },
+        { "name": "Indicator", "value": "LED", "isNonNeg": false },
+        { "name": "Termination", "value": "8-pin plug-in", "isNonNeg": false }
+      ],
+      "estListPrice": 12.56,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/RXM2AB2BD/"
+    },
+    {
+      "mpn": "RXM4AB2BD",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric RXM4AB2BD Miniature Relay",
+      "description": "Harmony RXM miniature plug-in relay, 4 C/O contacts, 6 A, 24 VDC coil, LED indicator and lockable test button.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "24 VDC", "isNonNeg": true },
+        { "name": "Contacts", "value": "4 C/O (4PDT)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "6 A", "isNonNeg": false },
+        { "name": "Indicator", "value": "LED", "isNonNeg": false },
+        { "name": "Termination", "value": "14-pin plug-in", "isNonNeg": false }
+      ],
+      "estListPrice": 13.22,
+      "priceSource": "supplyapp.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/RXM4AB2BD/"
+    },
+    {
+      "mpn": "8501KP12V20",
+      "brand": "Square D",
+      "name": "Square D 8501KP12V20 Type K Plug-In Relay",
+      "description": "Type K plug-in relay, 8-pin octal base, 2-pole DPDT, 10 A contacts, 120 VAC 50/60 Hz coil.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "120 VAC 50/60 Hz", "isNonNeg": true },
+        { "name": "Contacts", "value": "DPDT (2 Form C)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "10 A", "isNonNeg": false },
+        { "name": "Termination", "value": "8-pin octal plug-in", "isNonNeg": false }
+      ],
+      "estListPrice": 63.86,
+      "priceSource": "radwell.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/8501KP12V20/"
+    },
+    {
+      "mpn": "RH2B-ULAC110-120V",
+      "brand": "IDEC",
+      "name": "IDEC RH2B-ULAC110-120V Power Relay",
+      "description": "RH series compact power relay, DPDT, 10 A blade-terminal contacts, 110-120 VAC coil with indicator.",
+      "specs": [
+        { "name": "Coil Voltage", "value": "110-120 VAC", "isNonNeg": true },
+        { "name": "Contacts", "value": "DPDT (2 Form C)", "isNonNeg": true },
+        { "name": "Contact Rating", "value": "10 A", "isNonNeg": false },
+        { "name": "Termination", "value": "Blade terminal plug-in", "isNonNeg": false },
+        { "name": "Indicator", "value": "Indicator light", "isNonNeg": false }
+      ],
+      "estListPrice": 14.29,
+      "priceSource": "lectrocomponents.com",
+      "specSheetUrl": "https://www.idec.com/en-us/industrial-components/relays-timers/relays/rh-power-relay/rh2b-ulac110-120v"
+    }
+  ]
+}

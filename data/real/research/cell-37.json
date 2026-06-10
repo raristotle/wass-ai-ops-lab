@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "LED Downlights",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "HLB6099FS1EMWR",
+      "brand": "Halo",
+      "name": "Halo HLB6099FS1EMWR 6 in. Canless Downlight",
+      "description": "6 in. ultra-thin canless LED downlight, 900 lumens, 90 CRI, field-selectable 2700K-5000K, 120V phase-cut dimming, wet rated.",
+      "specs": [
+        { "name": "Aperture", "value": "6 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "900", "isNonNeg": true },
+        { "name": "CCT", "value": "2700K-5000K (field selectable)", "isNonNeg": false },
+        { "name": "Trim", "value": "Matte White", "isNonNeg": false },
+        { "name": "CRI", "value": "90", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false }
+      ],
+      "estListPrice": 26.97,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/3c2d17327ab346528e24ad41007dd610/HALO-HLB6-Series-spec-sheet.pdf",
+      "upc": "080083848164"
+    },
+    {
+      "mpn": "HLB4069FS1EMWR",
+      "brand": "Halo",
+      "name": "Halo HLB4069FS1EMWR 4 in. Canless Downlight",
+      "description": "4 in. ultra-thin canless LED downlight, 600 lumens, 90 CRI, selectable 2700K-5000K, 120V, IC rated, wet location listed.",
+      "specs": [
+        { "name": "Aperture", "value": "4 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "600", "isNonNeg": true },
+        { "name": "CCT", "value": "2700K-5000K (field selectable)", "isNonNeg": false },
+        { "name": "Trim", "value": "Matte White", "isNonNeg": false },
+        { "name": "CRI", "value": "90", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false }
+      ],
+      "estListPrice": 24.98,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/74b9683f3a7a4c8494b0ad41007dce8b/HALO-HLB4-Series-spec-sheet.PDF"
+    },
+    {
+      "mpn": "RL56069S1EWHR",
+      "brand": "Halo",
+      "name": "Halo RL56069S1EWHR 5/6 in. Retrofit Module",
+      "description": "5/6 in. all-purpose LED retrofit module, 600 lumens, 90 CRI, SeleCCTable 2700K-5000K, 120V, matte white baffle.",
+      "specs": [
+        { "name": "Aperture", "value": "5 in / 6 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "600", "isNonNeg": true },
+        { "name": "CCT", "value": "2700K-5000K (field selectable)", "isNonNeg": false },
+        { "name": "Trim", "value": "Matte White Baffle", "isNonNeg": false },
+        { "name": "CRI", "value": "90", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false }
+      ],
+      "estListPrice": 19.98,
+      "priceSource": "lowes.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/7c30c237df874e3087b2ad41007f519e/HALO-RL56-SeleCCTable-specification-sheet.pdf"
+    },
+    {
+      "mpn": "LT560WH6930R",
+      "brand": "Halo",
+      "name": "Halo LT560WH6930R 5/6 in. Baffle Trim",
+      "description": "5/6 in. LED retrofit baffle trim, 600-lumen series, 3000K, 90 CRI, 9W, 120V; for new construction, remodel and retrofit.",
+      "specs": [
+        { "name": "Aperture", "value": "5 in / 6 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "600 (nominal series)", "isNonNeg": true },
+        { "name": "CCT", "value": "3000K", "isNonNeg": false },
+        { "name": "Trim", "value": "Matte White Baffle", "isNonNeg": false },
+        { "name": "Wattage", "value": "9W", "isNonNeg": false },
+        { "name": "CRI", "value": "90", "isNonNeg": false }
+      ],
+      "estListPrice": 10.35,
+      "priceSource": "lbclightingpro.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/20bfda12d99442b5a0a7ad41007e6bd2/HALO-LT56-5-6-LED-retrofit-trim-spec-sheet.pdf"
+    },
+    {
+      "mpn": "WF6 SWW5 90CRI MW M6",
+      "brand": "Juno",
+      "name": "Juno WF6 SWW5 90CRI MW M6 Wafer Downlight",
+      "description": "6 in. Wafer ultra-thin canless LED downlight, 970 lumens, 13W, switchable 2700K-5000K, 90 CRI, 120V, wet rated.",
+      "specs": [
+        { "name": "Aperture", "value": "6 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "970", "isNonNeg": true },
+        { "name": "CCT", "value": "2700K/3000K/3500K/4000K/5000K (switchable)", "isNonNeg": false },
+        { "name": "Trim", "value": "Matte White", "isNonNeg": false },
+        { "name": "Wattage", "value": "13W", "isNonNeg": false },
+        { "name": "CRI", "value": "90", "isNonNeg": false }
+      ],
+      "estListPrice": 23.41,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1708834/contractor-select-wf4_wf6-sww5.pdf"
+    },
+    {
+      "mpn": "WF4 SWW5 90CRI MW M6",
+      "brand": "Juno",
+      "name": "Juno WF4 SWW5 90CRI MW M6 Wafer Downlight",
+      "description": "4 in. Wafer ultra-thin canless LED downlight, approx. 700 lumens, 9W, switchable 2700K-5000K, 90 CRI, 120V.",
+      "specs": [
+        { "name": "Aperture", "value": "4 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "700 (nominal)", "isNonNeg": true },
+        { "name": "CCT", "value": "2700K/3000K/3500K/4000K/5000K (switchable)", "isNonNeg": false },
+        { "name": "Trim", "value": "Matte White", "isNonNeg": false },
+        { "name": "Wattage", "value": "9W", "isNonNeg": false },
+        { "name": "CRI", "value": "90", "isNonNeg": false }
+      ],
+      "estListPrice": 20.48,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1708834/contractor-select-wf4_wf6-sww5.pdf"
+    },
+    {
+      "mpn": "WF6 LED 30K40K50K 90CRI MW M6",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting WF6 LED 30K40K50K Wafer Downlight",
+      "description": "6 in. housing-free Wafer LED downlight, switchable 3000K/4000K/5000K, 90 CRI, approx. 1000 lumens, matte white, 120V.",
+      "specs": [
+        { "name": "Aperture", "value": "6 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "930-1080 (by CCT)", "isNonNeg": true },
+        { "name": "CCT", "value": "3000K/4000K/5000K (switchable)", "isNonNeg": false },
+        { "name": "Trim", "value": "Matte White", "isNonNeg": false },
+        { "name": "CRI", "value": "90", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false }
+      ],
+      "estListPrice": 26.99,
+      "priceSource": "emergencylights.net",
+      "specSheetUrl": "https://www.acuitybrands.com/products/detail/980498/lithonia-lighting/contractor-select-wf6-downlight-with-switchable-white/most-popular-wf6-downlight-configurations-for-your-everyday-lighting-needs"
+    },
+    {
+      "mpn": "NCSC-R6W2TWMPW",
+      "brand": "Nora Lighting",
+      "name": "Nora Lighting NCSC-R6W2TWMPW Canless Downlight",
+      "description": "6 in. Contractor Series can-less LED wafer downlight, 1050 lm, 13.5W, selectable 2700K-5000K, regressed baffle; sold in 12-pack.",
+      "specs": [
+        { "name": "Aperture", "value": "6 in", "isNonNeg": true },
+        { "name": "Lumens", "value": "1050", "isNonNeg": true },
+        { "name": "CCT", "value": "2700K/3000K/3500K/4000K/5000K (selectable)", "isNonNeg": false },
+        { "name": "Trim", "value": "Regressed Baffle, Matte Powder White", "isNonNeg": false },
+        { "name": "Wattage", "value": "13.5W", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false }
+      ],
+      "estListPrice": 179.91,
+      "priceSource": "prolighting.com",
+      "specSheetUrl": "https://noralighting.com/product/ncsc-r6w2tw/"
+    }
+  ]
+}

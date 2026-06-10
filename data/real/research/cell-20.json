@@ -1,0 +1,150 @@
+{
+  "category": "electrical",
+  "subcategory": "Enclosures",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "ASE12X12X6",
+      "brand": "Hoffman",
+      "name": "Hoffman ASE12X12X6 Screw-Cover Pull Box",
+      "description": "NEMA Type 1 screw-cover pull box with knockouts, 16-gauge steel, ANSI 61 gray polyester powder finish.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 1", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "12 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "16-ga mild steel, ANSI 61 gray", "isNonNeg": false },
+        { "name": "Door", "value": "Flat screw cover with keyhole slots", "isNonNeg": false },
+        { "name": "Knockouts", "value": "Removable, all sides", "isNonNeg": false }
+      ],
+      "estListPrice": 85.28,
+      "priceSource": "kele.com",
+      "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/encase12x12x6"
+    },
+    {
+      "mpn": "A1212CHNF",
+      "brand": "Hoffman",
+      "name": "Hoffman A1212CHNF Hinged Junction Box",
+      "description": "Type 4 continuous-hinge junction box with stainless steel clamps, 14-ga steel, gray polyester powder finish, IP66.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 4", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "12 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "14-ga steel, gray polyester powder", "isNonNeg": false },
+        { "name": "Door", "value": "Continuous hinge with stainless steel clamps", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 250.60,
+      "priceSource": "electricalparts.com",
+      "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/enca1212chnf"
+    },
+    {
+      "mpn": "CSD16126",
+      "brand": "Hoffman",
+      "name": "Hoffman CSD16126 CONCEPT Wall-Mount Enclosure",
+      "description": "CONCEPT series single-door wall-mount enclosure, NEMA Type 4/12, steel, ANSI 61 gray, 16 x 12 x 6 in.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 4/12", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "16 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "Mild steel, ANSI 61 gray", "isNonNeg": false },
+        { "name": "Door", "value": "Single solid door", "isNonNeg": false },
+        { "name": "Mounting", "value": "Wall-mount", "isNonNeg": false }
+      ],
+      "estListPrice": 379.88,
+      "priceSource": "electricalparts.com",
+      "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/enccsd16126"
+    },
+    {
+      "mpn": "A10106CH",
+      "brand": "Hoffman",
+      "name": "Hoffman A10106CH Hinged-Cover Junction Box",
+      "description": "Type 12 continuous-hinge JIC-style junction box with screw-down clamps, steel, ANSI 61 gray, 10 x 10 x 6 in.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 12", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "10 x 10 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "Steel, ANSI 61 gray", "isNonNeg": false },
+        { "name": "Door", "value": "Continuous-hinge cover with screw clamps", "isNonNeg": false }
+      ],
+      "estListPrice": 202.19,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/enca10106ch"
+    },
+    {
+      "mpn": "SC121206",
+      "brand": "Wiegmann",
+      "name": "Wiegmann SC121206 Screw-Cover Pull Box",
+      "description": "NEMA 1 screw-cover wallmount pull box with concentric knockouts, 16-ga carbon steel, gray powder coat.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 1", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "12 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "16-ga carbon steel, gray", "isNonNeg": false },
+        { "name": "Door", "value": "Removable flat screw cover", "isNonNeg": false },
+        { "name": "Knockouts", "value": "Concentric, all four sides", "isNonNeg": false }
+      ],
+      "estListPrice": 42.39,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.hubbell.com/wiegmann/en/products/n1-screw-cover-12x12x6-carbon-steel-gray/p/271831"
+    },
+    {
+      "mpn": "B121206CH",
+      "brand": "Wiegmann",
+      "name": "Wiegmann B121206CH JIC Hinged Enclosure",
+      "description": "NEMA 12/13 JIC continuous-hinge enclosure with external clamps, 14-ga body/16-ga door carbon steel, gray.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 12/13", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "12 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "Carbon steel (14-ga body, 16-ga door), ANSI 61 gray", "isNonNeg": false },
+        { "name": "Door", "value": "Continuous hinge with external screw clamps", "isNonNeg": false },
+        { "name": "Gasket", "value": "Closed-cell oil-resistant neoprene", "isNonNeg": false }
+      ],
+      "estListPrice": 160.00,
+      "priceSource": "automationdirect.com",
+      "specSheetUrl": "https://www.hubbell.com/wiegmann/en/products/n12-jic-continuous-hinge-12x12x6-carbon-steel-gray/p/272200"
+    },
+    {
+      "mpn": "EJ12126",
+      "brand": "Hammond",
+      "name": "Hammond EJ12126 Eclipse Junior Enclosure",
+      "description": "Eclipse Junior NEMA 4/12 junction enclosure with inner panel, 16-ga steel, continuous hinge, quarter-turn latch.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 4/12", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "12 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "16-ga mild steel, ANSI 61 gray", "isNonNeg": false },
+        { "name": "Door", "value": "Continuous hinge, quarter-turn latch", "isNonNeg": false },
+        { "name": "Includes", "value": "Inner panel", "isNonNeg": false }
+      ],
+      "estListPrice": 134.28,
+      "priceSource": "mcaps-inc.com",
+      "specSheetUrl": "https://www.hammfg.com/part/EJ12126"
+    },
+    {
+      "mpn": "EN4SD16126GY",
+      "brand": "Hammond",
+      "name": "Hammond EN4SD16126GY Eclipse Wallmount Enclosure",
+      "description": "Eclipse Series NEMA 4/12 single-door wallmount enclosure, mild steel, gray, 16 x 12 x 6 in.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 4/12", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "16 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "Mild steel, gray", "isNonNeg": false },
+        { "name": "Door", "value": "Single solid door, quarter-turn slots", "isNonNeg": false },
+        { "name": "Mounting", "value": "Wall-mount", "isNonNeg": false }
+      ],
+      "estListPrice": 239.73,
+      "priceSource": "solutionsdirectonline.com",
+      "specSheetUrl": "https://www.hammfg.com/part/EN4SD16126GY"
+    },
+    {
+      "mpn": "SCE-1212CHNF",
+      "brand": "Saginaw",
+      "name": "Saginaw SCE-1212CHNF Hinged Enclosure",
+      "description": "Continuous-hinge enclosure with external screw clamps, NEMA 3R/4/12/13, 0.063 in carbon steel, ANSI 61 gray, IP66.",
+      "specs": [
+        { "name": "NEMA Rating", "value": "Type 3R/4/12/13", "isNonNeg": true },
+        { "name": "Size (HxWxD)", "value": "12.13 x 12 x 6 in", "isNonNeg": true },
+        { "name": "Material", "value": "0.063 in carbon steel, ANSI 61 gray", "isNonNeg": false },
+        { "name": "Door", "value": "Continuous hinge with external screw clamps", "isNonNeg": false },
+        { "name": "Ingress Protection", "value": "IP66", "isNonNeg": false }
+      ],
+      "estListPrice": 139.52,
+      "priceSource": "rspsupply.com",
+      "specSheetUrl": "https://www.saginawcontrol.com/partnumber_info/?n=SCE-1212CHNF"
+    }
+  ]
+}

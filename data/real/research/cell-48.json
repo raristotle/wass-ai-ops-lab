@@ -1,0 +1,139 @@
+{
+  "category": "datacom",
+  "subcategory": "UPS & Power Protection",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "BE600M1",
+      "brand": "APC",
+      "name": "APC BE600M1 Back-UPS 600VA",
+      "description": "Back-UPS 600VA/330W standby UPS, 120V, 7 NEMA 5-15R outlets (5 battery backup), 1.5A USB charging port.",
+      "specs": [
+        { "name": "Capacity", "value": "600VA / 330W", "isNonNeg": true },
+        { "name": "Topology", "value": "Standby", "isNonNeg": true },
+        { "name": "Form Factor", "value": "Mini-tower", "isNonNeg": false },
+        { "name": "Output Voltage", "value": "120V", "isNonNeg": false },
+        { "name": "Outlets", "value": "7x NEMA 5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 79.99,
+      "priceSource": "amazon.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/BE600M1/apc-backups-600va-120v-1-usb-charging-port-7-nema-outlets-2-surge/"
+    },
+    {
+      "mpn": "BR1500MS2",
+      "brand": "APC",
+      "name": "APC BR1500MS2 Back-UPS Pro Sinewave",
+      "description": "Back-UPS Pro 1500VA/900W line-interactive sine wave UPS with AVR, LCD, 10 NEMA 5-15R outlets, USB-A/USB-C charging.",
+      "specs": [
+        { "name": "Capacity", "value": "1500VA / 900W", "isNonNeg": true },
+        { "name": "Topology", "value": "Line-interactive", "isNonNeg": true },
+        { "name": "Form Factor", "value": "Tower", "isNonNeg": false },
+        { "name": "Output Voltage", "value": "120V", "isNonNeg": false },
+        { "name": "Outlets", "value": "10x NEMA 5-15R", "isNonNeg": false },
+        { "name": "Waveform", "value": "Sine wave", "isNonNeg": false }
+      ],
+      "estListPrice": 339.99,
+      "priceSource": "apcguard.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/BR1500MS2/apc-backups-pro-1500va-900w-tower-120v-10x-nema-515r-outlets-avr-usb-type-a-+-c-ports-lcd-user-replaceable-battery/"
+    },
+    {
+      "mpn": "SMT1500C",
+      "brand": "APC",
+      "name": "APC SMT1500C Smart-UPS 1500VA LCD",
+      "description": "Smart-UPS 1500VA/1000W line-interactive tower UPS, 120V, 8 NEMA 5-15R outlets, AVR, LCD, SmartConnect cloud monitoring.",
+      "specs": [
+        { "name": "Capacity", "value": "1500VA / 1000W", "isNonNeg": true },
+        { "name": "Topology", "value": "Line-interactive", "isNonNeg": true },
+        { "name": "Form Factor", "value": "Tower", "isNonNeg": false },
+        { "name": "Output Voltage", "value": "120V", "isNonNeg": false },
+        { "name": "Outlets", "value": "8x NEMA 5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 789.0,
+      "priceSource": "apcguard.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/SMT1500C/apc-smartups-line-interactive-1500va-tower-120v-8x-nema-515r-outlets-smartconnect-port+smartslot-avr-lcd/"
+    },
+    {
+      "mpn": "SMT1500RM2UC",
+      "brand": "APC",
+      "name": "APC SMT1500RM2UC Smart-UPS Rackmount",
+      "description": "Smart-UPS 1500VA/1000W line-interactive 2U rackmount UPS, 120V, 6 NEMA 5-15R outlets, AVR, LCD, SmartConnect port.",
+      "specs": [
+        { "name": "Capacity", "value": "1500VA / 1000W", "isNonNeg": true },
+        { "name": "Topology", "value": "Line-interactive", "isNonNeg": true },
+        { "name": "Form Factor", "value": "2U rackmount", "isNonNeg": false },
+        { "name": "Output Voltage", "value": "120V", "isNonNeg": false },
+        { "name": "Outlets", "value": "6x NEMA 5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 1004.58,
+      "priceSource": "matrixsolutionsinc.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/SMT1500RM2UC/apc-smartups-line-interactive-1500va-rackmount-2u-120v-6x-nema-515r-outlets-smartconnect-port+smartslot-avr-lcd/"
+    },
+    {
+      "mpn": "CP1500PFCLCD",
+      "brand": "CyberPower",
+      "name": "CyberPower CP1500PFCLCD PFC Sinewave UPS",
+      "description": "PFC Sinewave 1500VA/1000W line-interactive mini-tower UPS, 12 NEMA 5-15R outlets, AVR, color LCD, ENERGY STAR certified.",
+      "specs": [
+        { "name": "Capacity", "value": "1500VA / 1000W", "isNonNeg": true },
+        { "name": "Topology", "value": "Line-interactive", "isNonNeg": true },
+        { "name": "Form Factor", "value": "Mini-tower", "isNonNeg": false },
+        { "name": "Outlets", "value": "12x NEMA 5-15R", "isNonNeg": false },
+        { "name": "Waveform", "value": "Sine wave", "isNonNeg": false },
+        { "name": "Warranty", "value": "3 years", "isNonNeg": false }
+      ],
+      "estListPrice": 274.95,
+      "priceSource": "cyberpowersystems.com",
+      "specSheetUrl": "https://www.cyberpowersystems.com/product/ups/pfc-sinewave/cp1500pfclcd/"
+    },
+    {
+      "mpn": "CP1500AVRLCD3",
+      "brand": "CyberPower",
+      "name": "CyberPower CP1500AVRLCD3 Intelligent LCD UPS",
+      "description": "Intelligent LCD 1500VA/900W line-interactive mini-tower UPS, 12 outlets, AVR, color LCD, USB-A and USB-C charge ports.",
+      "specs": [
+        { "name": "Capacity", "value": "1500VA / 900W", "isNonNeg": true },
+        { "name": "Topology", "value": "Line-interactive", "isNonNeg": true },
+        { "name": "Form Factor", "value": "Mini-tower", "isNonNeg": false },
+        { "name": "Outlets", "value": "12x NEMA 5-15R", "isNonNeg": false },
+        { "name": "Waveform", "value": "Simulated sine wave", "isNonNeg": false },
+        { "name": "Warranty", "value": "3 years", "isNonNeg": false }
+      ],
+      "estListPrice": 219.95,
+      "priceSource": "cyberpowersystems.com",
+      "specSheetUrl": "https://www.cyberpowersystems.com/product/ups/intelligent-lcd/cp1500avrlcd3/"
+    },
+    {
+      "mpn": "SMART1500LCDT",
+      "brand": "Tripp Lite",
+      "name": "Tripp Lite SMART1500LCDT SmartPro UPS",
+      "description": "SmartPro LCD 120V 1500VA/900W line-interactive tower UPS with AVR, USB port, and 10 NEMA 5-15R outlets.",
+      "specs": [
+        { "name": "Capacity", "value": "1500VA / 900W", "isNonNeg": true },
+        { "name": "Topology", "value": "Line-interactive", "isNonNeg": true },
+        { "name": "Form Factor", "value": "Tower", "isNonNeg": false },
+        { "name": "Output Voltage", "value": "120V", "isNonNeg": false },
+        { "name": "Outlets", "value": "10x NEMA 5-15R", "isNonNeg": false }
+      ],
+      "estListPrice": 389.23,
+      "priceSource": "fullcompass.com",
+      "specSheetUrl": "https://tripplite.eaton.com/smartpro-lcd-120v-1500va-900w-line-interactive-ups-avr-tower-lcd-usb-10-outlets~SMART1500LCDT"
+    },
+    {
+      "mpn": "GXT5-1500LVRT2UXL",
+      "brand": "Vertiv",
+      "name": "Vertiv GXT5-1500LVRT2UXL Liebert GXT5 UPS",
+      "description": "Liebert GXT5 1500VA/1350W online double-conversion UPS, 120V, 2U rack/tower, 6 NEMA 5-15R outlets, color LCD.",
+      "specs": [
+        { "name": "Capacity", "value": "1500VA / 1350W", "isNonNeg": true },
+        { "name": "Topology", "value": "Online double-conversion", "isNonNeg": true },
+        { "name": "Form Factor", "value": "2U rack/tower", "isNonNeg": false },
+        { "name": "Output Voltage", "value": "110/115/120/125V configurable", "isNonNeg": false },
+        { "name": "Outlets", "value": "6x NEMA 5-15R", "isNonNeg": false },
+        { "name": "Certification", "value": "ENERGY STAR 2.0", "isNonNeg": false }
+      ],
+      "estListPrice": 1913.52,
+      "priceSource": "dell.com",
+      "specSheetUrl": "https://www.vertiv.com/en-us/products-catalog/critical-power/uninterruptible-power-supplies-ups/gxt5-1500lvrt2uxl-vertiv-liebert-gxt5-1500va1350w-120v-online-double-conversion-ups-/"
+    }
+  ]
+}

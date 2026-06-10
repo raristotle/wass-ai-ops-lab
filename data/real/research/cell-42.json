@@ -1,0 +1,143 @@
+{
+  "category": "datacom",
+  "subcategory": "Ethernet Cable",
+  "uom": "FT",
+  "products": [
+    {
+      "mpn": "1583A",
+      "brand": "Belden",
+      "name": "Belden 1583A Cat5e UTP Cable",
+      "description": "Category 5e premise horizontal cable, 4-pair 24 AWG solid bare copper, U/UTP, riser-rated CMR PVC jacket; 1000 ft reel.",
+      "specs": [
+        { "name": "Category", "value": "Cat 5e", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "PVC, CMR (riser)", "isNonNeg": false },
+        { "name": "Gauge", "value": "24 AWG", "isNonNeg": false },
+        { "name": "Pairs", "value": "4", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft reel", "isNonNeg": false }
+      ],
+      "estListPrice": 350,
+      "priceSource": "prowireandcable.com",
+      "specSheetUrl": "https://catalog.belden.com/techdata/EN/1583A_techdata.pdf"
+    },
+    {
+      "mpn": "2412",
+      "brand": "Belden",
+      "name": "Belden 2412 Cat6+ Riser Cable",
+      "description": "Category 6+ enhanced premise cable, 350 MHz, 4-pair 23 AWG solid bare copper, U/UTP, riser CMR PVC jacket; 1000 ft reel.",
+      "specs": [
+        { "name": "Category", "value": "Cat 6+ (enhanced Cat 6)", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "PVC, CMR (riser)", "isNonNeg": false },
+        { "name": "Gauge", "value": "23 AWG", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "350 MHz", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft reel", "isNonNeg": false }
+      ],
+      "estListPrice": 576.15,
+      "priceSource": "codale.com",
+      "specSheetUrl": "https://catalog.belden.com/techdata/EN/2412_techdata.pdf"
+    },
+    {
+      "mpn": "2413",
+      "brand": "Belden",
+      "name": "Belden 2413 Cat6+ Plenum Cable",
+      "description": "Category 6+ enhanced premise cable, 350 MHz, 4-pair 23 AWG solid bare copper, U/UTP, plenum CMP low-smoke PVC jacket; 1000 ft.",
+      "specs": [
+        { "name": "Category", "value": "Cat 6+ (enhanced Cat 6)", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "Flamarrest LS-PVC, CMP (plenum)", "isNonNeg": false },
+        { "name": "Gauge", "value": "23 AWG", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "350 MHz", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 1080,
+      "priceSource": "showmecables.com",
+      "specSheetUrl": "https://catalog.belden.com/techdata/EN/2413_techdata.pdf"
+    },
+    {
+      "mpn": "10GXS12",
+      "brand": "Belden",
+      "name": "Belden 10GXS12 Cat6A Cable",
+      "description": "10GXS Category 6A enhanced cable, 625 MHz, 4-pair 23 AWG solid bare copper, U/UTP, riser CMR jacket; 1000 ft put-up.",
+      "specs": [
+        { "name": "Category", "value": "Cat 6A", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "PVC, CMR (riser)", "isNonNeg": false },
+        { "name": "Gauge", "value": "23 AWG", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "625 MHz", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 736,
+      "priceSource": "wireandcableyourway.com",
+      "specSheetUrl": "https://catalog.belden.com/techdata/EN/10GXS12_techdata.pdf"
+    },
+    {
+      "mpn": "PUP6004BU-UY",
+      "brand": "Panduit",
+      "name": "Panduit PUP6004BU-UY TX6000 Cat6 Plenum",
+      "description": "TX6000 enhanced Category 6 U/UTP copper cable, 4-pair 23 AWG bare copper, plenum CMP rated, blue jacket, 1000 ft reel.",
+      "specs": [
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "CMP (plenum), blue", "isNonNeg": false },
+        { "name": "Gauge", "value": "23 AWG", "isNonNeg": false },
+        { "name": "Pairs", "value": "4", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft reel", "isNonNeg": false }
+      ],
+      "estListPrice": 868.47,
+      "priceSource": "twacomm.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/bulk-copper-cable/enterprise-data-center-copper-cable/pup6004bu-uy.html"
+    },
+    {
+      "mpn": "700211956",
+      "brand": "CommScope",
+      "name": "CommScope 700211956 GigaSPEED XL 1071E",
+      "description": "SYSTIMAX GigaSPEED XL 1071E Category 6 U/UTP cable, 4-pair 23 AWG, non-plenum jacket, light blue, 1000 ft box.",
+      "specs": [
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "Non-plenum PVC, light blue", "isNonNeg": false },
+        { "name": "Gauge", "value": "23 AWG", "isNonNeg": false },
+        { "name": "Pairs", "value": "4", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft box", "isNonNeg": false }
+      ],
+      "estListPrice": 470.63,
+      "priceSource": "pacrad.com",
+      "specSheetUrl": "https://www.commscope.com/product-type/cables/twisted-pair-cables/category-6-cables/item700211956/"
+    },
+    {
+      "mpn": "10136226",
+      "brand": "Berk-Tek",
+      "name": "Berk-Tek 10136226 LANmark-6 Plenum",
+      "description": "LANmark-6 Category 6 UTP plenum cable, 4-pair 24 AWG bare copper, CMP, reduced-diameter spline-free design, blue, 1000 ft TEKPAK.",
+      "specs": [
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "CMP (plenum), blue", "isNonNeg": false },
+        { "name": "Gauge", "value": "24 AWG", "isNonNeg": false },
+        { "name": "Pairs", "value": "4", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft TEKPAK box", "isNonNeg": false }
+      ],
+      "estListPrice": 288.22,
+      "priceSource": "discountedcables.com",
+      "specSheetUrl": "https://leviton.com/content/dam/leviton/network-solutions/product_documents/product_specification/Leviton-Spec-LANMARK-6-Plenum-Rated-Cable.pdf"
+    },
+    {
+      "mpn": "700208101",
+      "brand": "CommScope",
+      "name": "CommScope 700208101 SYSTIMAX 2071E Plenum",
+      "description": "SYSTIMAX GigaSPEED XL 2071E Category 6 U/UTP plenum cable, 4-pair 23 AWG solid copper, CMP, white, 1000 ft box.",
+      "specs": [
+        { "name": "Category", "value": "Cat 6", "isNonNeg": true },
+        { "name": "Shielding", "value": "U/UTP (unshielded)", "isNonNeg": true },
+        { "name": "Jacket", "value": "CMP (plenum), white", "isNonNeg": false },
+        { "name": "Gauge", "value": "23 AWG", "isNonNeg": false },
+        { "name": "Pairs", "value": "4", "isNonNeg": false },
+        { "name": "Put-Up", "value": "1000 ft box", "isNonNeg": false }
+      ],
+      "estListPrice": 257.99,
+      "priceSource": "discountedcables.com",
+      "specSheetUrl": "https://www.commscope.com/product-type/cables/twisted-pair-cables/category-6-cables/item700208101/"
+    }
+  ]
+}

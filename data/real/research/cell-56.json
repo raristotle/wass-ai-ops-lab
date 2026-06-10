@@ -1,0 +1,152 @@
+{
+  "category": "av",
+  "subcategory": "Displays",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "LH55QMCEBGCXGO",
+      "brand": "Samsung",
+      "name": "Samsung QM55C 4K Signage Display",
+      "description": "55\" QMC-series Crystal UHD 4K signage display, 500-nit ultra-slim design with Tizen 7.0 and MagicINFO, rated for 24/7 operation.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "500 nit", "isNonNeg": false },
+        { "name": "Operation", "value": "24/7", "isNonNeg": false },
+        { "name": "Operating System", "value": "Tizen 7.0", "isNonNeg": false }
+      ],
+      "estListPrice": 1260,
+      "priceSource": "samsung.com",
+      "specSheetUrl": "https://image-us.samsung.com/SamsungUS/samsung/us/tvs/decrypted/QMC-Crystal-UHD-Series-Leaflet.pdf"
+    },
+    {
+      "mpn": "LH55QBCEBGCXGO",
+      "brand": "Samsung",
+      "name": "Samsung QB55C 4K Signage Display",
+      "description": "55\" QBC-series Crystal UHD 4K signage display, 350-nit with 28.5 mm ultra-slim depth, Quantum Processor Lite 4K and MagicINFO.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "350 nit", "isNonNeg": false },
+        { "name": "Contrast Ratio", "value": "4000:1", "isNonNeg": false },
+        { "name": "Depth", "value": "28.5 mm", "isNonNeg": false }
+      ],
+      "estListPrice": 1330,
+      "priceSource": "digitaldisplaystore.com",
+      "specSheetUrl": "https://image-us.samsung.com/SamsungUS/samsungbusiness/displays/4k-uhd/qb-series/qbc-series-4k-uhd-display/QBC_Data_Sheet.pdf"
+    },
+    {
+      "mpn": "LH55BECHLGFXGO",
+      "brand": "Samsung",
+      "name": "Samsung BE55C-H 4K Pro TV",
+      "description": "55\" BEC-H series Crystal UHD 4K Pro TV for business, 250-nit with HDR10+, Crystal Processor 4K and dual 10 W speakers.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "250 nit", "isNonNeg": false },
+        { "name": "Contrast Ratio", "value": "4700:1", "isNonNeg": false },
+        { "name": "Speakers", "value": "2 x 10 W", "isNonNeg": false }
+      ],
+      "estListPrice": 539,
+      "priceSource": "officewonderland.com",
+      "specSheetUrl": "https://image-us.samsung.com/SamsungUS/samsungbusiness/pdf/spec-sheets/Samsung_Pro_TV_BEC-H_Series_Leaflet.pdf"
+    },
+    {
+      "mpn": "55UR340C9UD",
+      "brand": "LG",
+      "name": "LG 55UR340C UHD Commercial TV",
+      "description": "55\" UR340C series UHD commercial TV, 400-nit with HDR10, content scheduler, USB cloning and certified Crestron Connected.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "400 nit", "isNonNeg": false },
+        { "name": "Operation", "value": "16/7", "isNonNeg": false },
+        { "name": "HDR", "value": "HDR10", "isNonNeg": false }
+      ],
+      "estListPrice": 1045,
+      "priceSource": "odpbusiness.com",
+      "specSheetUrl": "https://solutions.lg.com/us/digital-signage/lg-55ur340c9ud"
+    },
+    {
+      "mpn": "55UH5N-E",
+      "brand": "LG",
+      "name": "LG 55UH5N-E UHD Signage Display",
+      "description": "55\" UH5N-E series 500-nit UHD signage with webOS 6.0, built-in Wi-Fi and speakers, and conformal coating for dust and humidity.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "500 nit", "isNonNeg": false },
+        { "name": "Operating System", "value": "webOS 6.0", "isNonNeg": false },
+        { "name": "Haze", "value": "28%", "isNonNeg": false }
+      ],
+      "estListPrice": 1495,
+      "priceSource": "officewonderland.com",
+      "specSheetUrl": "https://solutions.lg.com/us/digital-signage/lg-55uh5n-e"
+    },
+    {
+      "mpn": "FW-55BZ30L",
+      "brand": "Sony",
+      "name": "Sony FW-55BZ30L BRAVIA Pro Display",
+      "description": "55\" BRAVIA BZ30L 4K HDR professional display, 440-nit with X1 processor, Android-based Pro Mode, portrait/tilt and 24/7 operation.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "440 cd/m2", "isNonNeg": false },
+        { "name": "Operation", "value": "24/7", "isNonNeg": false },
+        { "name": "HDMI Inputs", "value": "4", "isNonNeg": false }
+      ],
+      "estListPrice": 1055,
+      "priceSource": "officewonderland.com",
+      "specSheetUrl": "https://cdn-docs.av-iq.com/dataSheet/FW55BZ30L.pdf"
+    },
+    {
+      "mpn": "FW-65BZ30L",
+      "brand": "Sony",
+      "name": "Sony FW-65BZ30L BRAVIA Pro Display",
+      "description": "65\" BRAVIA BZ30L 4K HDR professional display, 440-nit with TRILUMINOS Pro, AirPlay/Chromecast and 24/7 operation.",
+      "specs": [
+        { "name": "Size", "value": "65 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "440 cd/m2", "isNonNeg": false },
+        { "name": "Operation", "value": "24/7", "isNonNeg": false },
+        { "name": "HDMI Inputs", "value": "4", "isNonNeg": false }
+      ],
+      "estListPrice": 1455,
+      "priceSource": "avendor.com",
+      "specSheetUrl": "https://cdn-docs.av-iq.com/dataSheet/FW65BZ30L.pdf"
+    },
+    {
+      "mpn": "M551",
+      "brand": "NEC",
+      "name": "Sharp NEC M551 4K Pro Display",
+      "description": "NEC MultiSync M551 55\" 4K UHD professional IPS display, 500 cd/m2 with HDR10/HLG, rated for 24/7 operation.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "500 cd/m2", "isNonNeg": false },
+        { "name": "Panel Type", "value": "IPS", "isNonNeg": false },
+        { "name": "Contrast Ratio", "value": "8000:1", "isNonNeg": false },
+        { "name": "Operation", "value": "24/7", "isNonNeg": false }
+      ],
+      "estListPrice": 1522.5,
+      "priceSource": "monitorlounge.com",
+      "specSheetUrl": "https://www.sharpnecdisplays.us/products/displays/m551"
+    },
+    {
+      "mpn": "E558",
+      "brand": "NEC",
+      "name": "Sharp NEC E558 4K Essential Display",
+      "description": "NEC MultiSync E558 55\" 4K UHD essential large-format display, 350 cd/m2 with integrated USB media player and HDR support.",
+      "specs": [
+        { "name": "Size", "value": "55 in", "isNonNeg": true },
+        { "name": "Resolution", "value": "3840 x 2160 (4K UHD)", "isNonNeg": true },
+        { "name": "Brightness", "value": "350 cd/m2", "isNonNeg": false },
+        { "name": "Contrast Ratio", "value": "8000:1", "isNonNeg": false },
+        { "name": "Inputs", "value": "3 x HDMI, VGA", "isNonNeg": false }
+      ],
+      "estListPrice": 860,
+      "priceSource": "monitorlounge.com",
+      "specSheetUrl": "https://www.sharpnecdisplays.us/products/displays/e558"
+    }
+  ]
+}

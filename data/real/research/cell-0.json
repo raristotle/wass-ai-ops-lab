@@ -1,0 +1,143 @@
+{
+  "category": "electrical",
+  "subcategory": "Circuit Breakers",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "QO120",
+      "brand": "Square D",
+      "name": "Square D QO120 1-Pole 20A Breaker",
+      "description": "QO miniature circuit breaker, 20 A, 1 pole, 120/240 VAC, 10 kA, plug-in mount with Visi-Trip trip indicator.",
+      "specs": [
+        { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "1", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false },
+        { "name": "Trip Type", "value": "Thermal-magnetic", "isNonNeg": false }
+      ],
+      "estListPrice": 16.98,
+      "priceSource": "lowes.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=0730CT9801"
+    },
+    {
+      "mpn": "QO115",
+      "brand": "Square D",
+      "name": "Square D QO115 1-Pole 15A Breaker",
+      "description": "QO miniature circuit breaker, 15 A, 1 pole, 120/240 VAC, 10 kA, plug-in mount with Visi-Trip trip indicator.",
+      "specs": [
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "1", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false },
+        { "name": "Trip Type", "value": "Thermal-magnetic", "isNonNeg": false }
+      ],
+      "estListPrice": 16.98,
+      "priceSource": "lowes.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=0730CT9801"
+    },
+    {
+      "mpn": "QO230",
+      "brand": "Square D",
+      "name": "Square D QO230 2-Pole 30A Breaker",
+      "description": "QO miniature circuit breaker, 30 A, 2 pole, 120/240 VAC, 10 kA, common trip, plug-in mount with Visi-Trip indicator.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "2", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false },
+        { "name": "Trip Type", "value": "Thermal-magnetic, common trip", "isNonNeg": false }
+      ],
+      "estListPrice": 42.07,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=0730CT9801"
+    },
+    {
+      "mpn": "HOM120CP",
+      "brand": "Square D",
+      "name": "Square D HOM120CP Homeline 20A Breaker",
+      "description": "Homeline miniature circuit breaker, 20 A, 1 pole, 120/240 VAC, 10 kA AIR, standard type, plug-in mount, UL Listed.",
+      "specs": [
+        { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "1", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false },
+        { "name": "Trip Type", "value": "Thermal-magnetic", "isNonNeg": false }
+      ],
+      "estListPrice": 9.99,
+      "priceSource": "acehardware.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=1170BR1801"
+    },
+    {
+      "mpn": "HOM230CP",
+      "brand": "Square D",
+      "name": "Square D HOM230CP Homeline 30A 2-Pole",
+      "description": "Homeline miniature circuit breaker, 30 A, 2 pole, 120/240 VAC, 10 kA AIR, standard type, plug-in mount, UL Listed.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "2", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false },
+        { "name": "Trip Type", "value": "Thermal-magnetic, common trip", "isNonNeg": false }
+      ],
+      "estListPrice": 18.99,
+      "priceSource": "shoptruevalue.com",
+      "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=1170BR1801",
+      "upc": "047569062773"
+    },
+    {
+      "mpn": "THQL1120",
+      "brand": "GE (ABB)",
+      "name": "GE THQL1120 Q-Line 20A Breaker",
+      "description": "Q-Line THQL plug-in circuit breaker, 20 A, 1 pole, 120/240 VAC, 10 kAIC, thermal-magnetic, 1 in. wide per pole.",
+      "specs": [
+        { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "1", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false },
+        { "name": "Wire Size", "value": "#12-8 AWG Cu/Al", "isNonNeg": false }
+      ],
+      "estListPrice": 15.95,
+      "priceSource": "litestoreusa.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL1120",
+      "upc": "783164012866"
+    },
+    {
+      "mpn": "THQL1115",
+      "brand": "GE (ABB)",
+      "name": "GE THQL1115 Q-Line 15A Breaker",
+      "description": "Q-Line THQL plug-in circuit breaker, 15 A, 1 pole, 120/240 VAC, 10 kAIC, thermal-magnetic, 1 in. wide per pole.",
+      "specs": [
+        { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "1", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false }
+      ],
+      "estListPrice": 9.95,
+      "priceSource": "litestoreusa.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL1115"
+    },
+    {
+      "mpn": "THQL2130",
+      "brand": "GE (ABB)",
+      "name": "GE THQL2130 Q-Line 30A 2-Pole",
+      "description": "Q-Line THQL plug-in circuit breaker, 30 A, 2 pole, 120/240 VAC, 10 kAIC, thermal-magnetic, common trip.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": true },
+        { "name": "Poles", "value": "2", "isNonNeg": true },
+        { "name": "Int. Rating", "value": "10 kA", "isNonNeg": false },
+        { "name": "Mounting", "value": "Plug-in", "isNonNeg": false }
+      ],
+      "estListPrice": 28.95,
+      "priceSource": "litestoreusa.com",
+      "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL2130"
+    }
+  ]
+}

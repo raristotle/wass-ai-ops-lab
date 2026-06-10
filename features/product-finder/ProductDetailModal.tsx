@@ -7,6 +7,7 @@ import { externalSearchLinks } from "@/lib/product-finder-links";
 import { priceTiers } from "@/lib/product-finder-pricing";
 import { apiGoesWith } from "@/lib/product-finder-api";
 import { ProductImage } from "@/features/product-finder/ProductImage";
+import { LiveDistributorPanel } from "@/features/product-finder/LiveDistributorPanel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -180,11 +181,37 @@ export function ProductDetailModal() {
             <p className="text-[#B7C9D3] text-xs">
               {product.brand} · SKU: {product.sku}
             </p>
-            {product.preferred && (
-              <Badge className="w-fit text-xs bg-[#00AA13] text-white border-0 mt-0.5">
-                Preferred
-              </Badge>
-            )}
+            <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+              {product.preferred && (
+                <Badge className="w-fit text-xs bg-[#00AA13] text-white border-0">
+                  Preferred
+                </Badge>
+              )}
+              {product.dataSource === "verified" && (
+                <Badge
+                  className="w-fit text-xs bg-transparent text-[#00AA13] border border-[#00AA13]"
+                  title="Real manufacturer part number — specs and spec-sheet link verified against public manufacturer sources"
+                >
+                  ✓ Verified real product
+                </Badge>
+              )}
+              {product.dataSource === "curated" && (
+                <Badge
+                  className="w-fit text-xs bg-transparent text-[#B7C9D3] border border-[#B7C9D3]"
+                  title="Built around a real part number; demo pricing and inventory"
+                >
+                  Real part № · demo data
+                </Badge>
+              )}
+              {product.dataSource === "simulated" && (
+                <Badge
+                  className="w-fit text-xs bg-transparent text-[#B7C9D3] border border-[#B7C9D3]/60"
+                  title="Generated demo item — SKU, price, and inventory are simulated"
+                >
+                  Simulated demo item
+                </Badge>
+              )}
+            </div>
           </div>
           <button
             ref={closeRef}
@@ -245,6 +272,9 @@ export function ProductDetailModal() {
                 </div>
               );
             })()}
+            {product.priceNote && (
+              <p className="text-[10px] text-[#4F758B] italic -mt-2">{product.priceNote}</p>
+            )}
 
             {/* Volume pricing table */}
             <div>
@@ -411,6 +441,10 @@ export function ProductDetailModal() {
           </div>
         </div>
 
+        {/* ── Live distributor data (real, on-demand; renders only when the
+               Mouser/Digi-Key seam is configured and the SKU is real) ── */}
+        <LiveDistributorPanel product={product} />
+
         {/* ── Spec Sheet section ──────────────────────────────── */}
         {/*
           Print scope: this block stays visible; everything else above/below is
@@ -439,18 +473,33 @@ export function ProductDetailModal() {
           </div>
 
           {/* Spec sheet heading + download button */}
-          <div className="flex items-center justify-between mb-3 print:hidden">
+          <div className="flex items-center justify-between gap-2 flex-wrap mb-3 print:hidden">
             <h3 className="text-sm font-semibold text-[#1D252D] uppercase tracking-wide">
               Spec Sheet
             </h3>
-            <Button
-              size="sm"
-              variant="outline"
-              className="text-xs border-[#B7C9D3] text-[#1D252D]"
-              onClick={handlePrint}
-            >
-              Download Spec Sheet (PDF)
-            </Button>
+            <div className="flex items-center gap-2">
+              {product.specSheetUrl && (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="text-xs border-[#00AA13] text-[#00AA13]"
+                  asChild
+                >
+                  <a href={product.specSheetUrl} target="_blank" rel="noreferrer">
+                    Manufacturer Spec Sheet
+                    <ExternalLinkIcon />
+                  </a>
+                </Button>
+              )}
+              <Button
+                size="sm"
+                variant="outline"
+                className="text-xs border-[#B7C9D3] text-[#1D252D]"
+                onClick={handlePrint}
+              >
+                Download Spec Sheet (PDF)
+              </Button>
+            </div>
           </div>
 
           {/* Spec table */}

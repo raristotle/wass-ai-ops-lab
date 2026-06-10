@@ -1,0 +1,175 @@
+{
+  "category": "electrical",
+  "subcategory": "Boxes & Covers",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "B120A-UPC",
+      "brand": "Carlon",
+      "name": "Carlon B120A-UPC 1-Gang New Work Box",
+      "description": "1-gang 20 cu in Zip Box Blue PVC new-work outlet box with captive nails and leveling guides; NEC Art. 314 listed for NM cable.",
+      "specs": [
+        { "name": "Box Type", "value": "New Work Outlet/Switch Box", "isNonNeg": true },
+        { "name": "Material", "value": "PVC", "isNonNeg": true },
+        { "name": "Gang", "value": "1", "isNonNeg": false },
+        { "name": "Depth", "value": "3-1/4 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "20 cu in", "isNonNeg": false },
+        { "name": "Mounting", "value": "Captive Nails", "isNonNeg": false }
+      ],
+      "estListPrice": 0.89,
+      "priceSource": "supplyhouse.com",
+      "specSheetUrl": "https://new.abb.com/products/7TAA040010R0002/b120a-upc"
+    },
+    {
+      "mpn": "B114R-UPC",
+      "brand": "Carlon",
+      "name": "Carlon B114R-UPC 1-Gang Old Work Box",
+      "description": "1-gang 14 cu in PVC old-work outlet box with mounting ears and swing clamps; listed for NM cable per NEC Article 314.",
+      "specs": [
+        { "name": "Box Type", "value": "Old Work Outlet Box", "isNonNeg": true },
+        { "name": "Material", "value": "PVC", "isNonNeg": true },
+        { "name": "Gang", "value": "1", "isNonNeg": false },
+        { "name": "Depth", "value": "2-3/4 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "14 cu in", "isNonNeg": false }
+      ],
+      "estListPrice": 7.16,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://new.abb.com/products/7TAA040050R0001/b114r-upc",
+      "upc": "034481100157"
+    },
+    {
+      "mpn": "B232A-UPC",
+      "brand": "Carlon",
+      "name": "Carlon B232A-UPC 2-Gang New Work Box",
+      "description": "2-gang 32 cu in PVC new-work switch/outlet box with captive nails and eight integral clamps; meets NEMA OS-2, UL listed.",
+      "specs": [
+        { "name": "Box Type", "value": "New Work Switch/Outlet Box", "isNonNeg": true },
+        { "name": "Material", "value": "PVC", "isNonNeg": true },
+        { "name": "Gang", "value": "2", "isNonNeg": false },
+        { "name": "Depth", "value": "3 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "32 cu in", "isNonNeg": false }
+      ],
+      "estListPrice": 4.45,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://new.abb.com/products/7TAA040060R0000/b232a-upc"
+    },
+    {
+      "mpn": "125",
+      "brand": "RACO",
+      "name": "RACO 125 4 in Octagon Box",
+      "description": "4 in. drawn steel octagon box, 1-1/2 in. deep, nine 1/2 in. knockouts, 15.5 cu in; 50 lb max static load; UL listed.",
+      "specs": [
+        { "name": "Box Type", "value": "Octagon Box", "isNonNeg": true },
+        { "name": "Material", "value": "Drawn Steel", "isNonNeg": true },
+        { "name": "Depth", "value": "1-1/2 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "15.5 cu in", "isNonNeg": false },
+        { "name": "Knockouts", "value": "(9) 1/2 in", "isNonNeg": false }
+      ],
+      "estListPrice": 3.05,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-125-SPEC-EN.pdf",
+      "upc": "050169901250"
+    },
+    {
+      "mpn": "232",
+      "brand": "RACO",
+      "name": "RACO 232 4 in Square Box",
+      "description": "4 in. welded steel square box, 2-1/8 in. deep, ten 1/2 in. KOs and six TKOs, raised ground, 30.3 cu in; UL listed.",
+      "specs": [
+        { "name": "Box Type", "value": "Square Box (4 in)", "isNonNeg": true },
+        { "name": "Material", "value": "Pre-Galvanized Steel, Welded", "isNonNeg": true },
+        { "name": "Depth", "value": "2-1/8 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "30.3 cu in", "isNonNeg": false },
+        { "name": "Knockouts", "value": "1/2 in & 3/4 in", "isNonNeg": false }
+      ],
+      "estListPrice": 2.89,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-232-SPEC-EN.pdf",
+      "upc": "050169902325"
+    },
+    {
+      "mpn": "660",
+      "brand": "RACO",
+      "name": "RACO 660 Handy Box",
+      "description": "4 x 2 in. drawn steel handy/utility box, 1-7/8 in. deep, ten 1/2 in. knockouts, raised ground, 13 cu in; for surface wiring.",
+      "specs": [
+        { "name": "Box Type", "value": "Handy/Utility Box", "isNonNeg": true },
+        { "name": "Material", "value": "Drawn Steel", "isNonNeg": true },
+        { "name": "Gang", "value": "1", "isNonNeg": false },
+        { "name": "Depth", "value": "1-7/8 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "13 cu in", "isNonNeg": false }
+      ],
+      "estListPrice": 2.19,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-660-SPEC-EN.pdf",
+      "upc": "050169906606"
+    },
+    {
+      "mpn": "752",
+      "brand": "RACO",
+      "name": "RACO 752 4 in Square Cover, Flat Blank",
+      "description": "4 in. square flat blank cover, pre-galvanized steel; angled mounting slots compensate up to 12 degrees; UL 514-A listed.",
+      "specs": [
+        { "name": "Box Type", "value": "Square Box Cover (Flat Blank)", "isNonNeg": true },
+        { "name": "Material", "value": "Pre-Galvanized Steel", "isNonNeg": true },
+        { "name": "Gang", "value": "Blank (no device)", "isNonNeg": false },
+        { "name": "Depth", "value": "Flat (no raise)", "isNonNeg": false }
+      ],
+      "estListPrice": 3.29,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-752-SPEC-EN.pdf",
+      "upc": "050169907528"
+    },
+    {
+      "mpn": "774",
+      "brand": "RACO",
+      "name": "RACO 774 4 in Square Cover, 1-Device",
+      "description": "4 in. square 1-device mud-ring cover, 1 in. raised, drawn steel; angled slots compensate up to 12 degrees for misalignment.",
+      "specs": [
+        { "name": "Box Type", "value": "Square Cover / Mud Ring (1-Device)", "isNonNeg": true },
+        { "name": "Material", "value": "Drawn Steel", "isNonNeg": true },
+        { "name": "Gang", "value": "1", "isNonNeg": false },
+        { "name": "Depth", "value": "1 in raised", "isNonNeg": false }
+      ],
+      "estListPrice": 2.9,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-774-SPEC-EN.pdf",
+      "upc": "050169007747"
+    },
+    {
+      "mpn": "52151-1/2-3/4",
+      "brand": "Steel City",
+      "name": "Steel City 52151-1/2-3/4 4 in Square Box",
+      "description": "4 in. drawn pre-galvanized steel square box, 1-1/2 in. deep, 21 cu in, with 1/2 in. and 3/4 in. knockouts.",
+      "specs": [
+        { "name": "Box Type", "value": "Square Box (4 in)", "isNonNeg": true },
+        { "name": "Material", "value": "Pre-Galvanized Steel, Drawn", "isNonNeg": true },
+        { "name": "Depth", "value": "1-1/2 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "21 cu in", "isNonNeg": false },
+        { "name": "Knockouts", "value": "1/2 in & 3/4 in", "isNonNeg": false }
+      ],
+      "estListPrice": 7.15,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://library.e.abb.com/public/44a156b0edd34d739673cdd5617a1c41/9AKK107045A7611_en_B_Steel%20City%20Metallic%20boxes%20and%20covers%20catalogue_ENG_ME_9AKK107045A7611.pdf?x-sign=xBYll1oIEZg3s9NZzblh5ytPIn6ASaQygwlJhdIhMTvmtRkbdXhVWhrWITIqRgol",
+      "upc": "785991164305"
+    },
+    {
+      "mpn": "5320-0",
+      "brand": "Bell",
+      "name": "Bell 5320-0 1-Gang Weatherproof Box",
+      "description": "1-gang die-cast aluminum weatherproof box, three 1/2 in. threaded outlets, 18.3 cu in, NEMA 3R, gray powder coat; wet locations.",
+      "specs": [
+        { "name": "Box Type", "value": "Weatherproof Outlet Box", "isNonNeg": true },
+        { "name": "Material", "value": "Die-Cast Aluminum", "isNonNeg": true },
+        { "name": "Gang", "value": "1", "isNonNeg": false },
+        { "name": "Depth", "value": "2 in", "isNonNeg": false },
+        { "name": "Capacity", "value": "18.3 cu in", "isNonNeg": false },
+        { "name": "Outlets", "value": "(3) 1/2 in threaded", "isNonNeg": false }
+      ],
+      "estListPrice": 4.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.bell-electrical.com/ASSETS/DOCUMENTS/ITEMS/EN/BELL_5320_0_Catalog.pdf",
+      "upc": "050169532003"
+    }
+  ]
+}

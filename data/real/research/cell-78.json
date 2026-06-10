@@ -1,0 +1,186 @@
+{
+  "category": "safety",
+  "subcategory": "Lockout/Tagout",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "410RED",
+      "brand": "Master Lock",
+      "name": "Master Lock 410RED Zenex Safety Padlock",
+      "description": "Zenex thermoplastic safety padlock, 1-1/2 in body, 1-1/2 in steel shackle, keyed different, key-retaining cylinder for lockout/tagout.",
+      "specs": [
+        { "name": "Type", "value": "Safety Lockout Padlock", "isNonNeg": true },
+        { "name": "Keying", "value": "Keyed Different", "isNonNeg": false },
+        { "name": "Body Material", "value": "Zenex thermoplastic", "isNonNeg": false },
+        { "name": "Shackle", "value": "1/4 in dia x 1-1/2 in hardened steel", "isNonNeg": false },
+        { "name": "Body Width", "value": "1-1/2 in", "isNonNeg": false },
+        { "name": "Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 9.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/410RED"
+    },
+    {
+      "mpn": "406RED",
+      "brand": "Master Lock",
+      "name": "Master Lock 406RED Compact Dielectric Padlock",
+      "description": "Compact Zenex thermoplastic safety padlock with nonconductive 1/4 in x 1-1/2 in nylon shackle, keyed different, non-sparking components.",
+      "specs": [
+        { "name": "Type", "value": "Safety Lockout Padlock", "isNonNeg": true },
+        { "name": "Keying", "value": "Keyed Different", "isNonNeg": false },
+        { "name": "Body Material", "value": "Zenex thermoplastic", "isNonNeg": false },
+        { "name": "Shackle", "value": "1/4 in dia x 1-1/2 in nylon (non-conductive)", "isNonNeg": false },
+        { "name": "Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 10.85,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/406RED"
+    },
+    {
+      "mpn": "420",
+      "brand": "Master Lock",
+      "name": "Master Lock 420 Steel Lockout Hasp",
+      "description": "Steel lockout hasp with vinyl-coated handle, 1 in jaw clearance, holds up to 6 padlocks for group lockout.",
+      "specs": [
+        { "name": "Type", "value": "Lockout Hasp", "isNonNeg": true },
+        { "name": "Body Material", "value": "Steel, vinyl-coated handle", "isNonNeg": false },
+        { "name": "Jaw Clearance", "value": "1 in", "isNonNeg": false },
+        { "name": "Padlock Capacity", "value": "6", "isNonNeg": false },
+        { "name": "Max Padlock Shackle Dia", "value": "9/32 in", "isNonNeg": false }
+      ],
+      "estListPrice": 5.29,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/420"
+    },
+    {
+      "mpn": "491B",
+      "brand": "Master Lock",
+      "name": "Master Lock 491B Grip Tight Breaker Lockout",
+      "description": "Grip Tight circuit breaker lockout for tall or wide breaker toggles on high-voltage/high-amperage breakers; thumb-turn clamping design.",
+      "specs": [
+        { "name": "Type", "value": "Circuit Breaker Lockout", "isNonNeg": true },
+        { "name": "Body Material", "value": "Powder-coated steel and reinforced polymer", "isNonNeg": false },
+        { "name": "Breaker Compatibility", "value": "Tall and wide toggles", "isNonNeg": false },
+        { "name": "Padlock Capacity", "value": "1", "isNonNeg": false },
+        { "name": "Max Padlock Shackle Dia", "value": "9/32 in", "isNonNeg": false }
+      ],
+      "estListPrice": 10.79,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/491B"
+    },
+    {
+      "mpn": "493B",
+      "brand": "Master Lock",
+      "name": "Master Lock 493B Grip Tight Breaker Lockout",
+      "description": "Grip Tight circuit breaker lockout for standard single and tie-bar double toggles found on 120 and 240 volt breakers.",
+      "specs": [
+        { "name": "Type", "value": "Circuit Breaker Lockout", "isNonNeg": true },
+        { "name": "Body Material", "value": "Steel", "isNonNeg": false },
+        { "name": "Breaker Compatibility", "value": "Standard single and double toggles (120/240V)", "isNonNeg": false },
+        { "name": "Padlock Capacity", "value": "1", "isNonNeg": false },
+        { "name": "Max Padlock Shackle Dia", "value": "9/32 in", "isNonNeg": false }
+      ],
+      "estListPrice": 8.39,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/493B"
+    },
+    {
+      "mpn": "S806",
+      "brand": "Master Lock",
+      "name": "Master Lock S806 Adjustable Cable Lockout",
+      "description": "Adjustable cable lockout with 6 ft x 5/32 in pull-tight sheathed cable and tough, lightweight Zenex thermoplastic body.",
+      "specs": [
+        { "name": "Type", "value": "Cable Lockout", "isNonNeg": true },
+        { "name": "Body Material", "value": "Zenex thermoplastic", "isNonNeg": false },
+        { "name": "Cable Length", "value": "6 ft", "isNonNeg": false },
+        { "name": "Cable Diameter", "value": "5/32 in", "isNonNeg": false },
+        { "name": "Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 34.22,
+      "priceSource": "graybar.com",
+      "specSheetUrl": "https://cdn.masterlock.com/masterlock/resources/documents/pdf/sell-sheets/7000-0267_S806_SELL_SHEET.pdf"
+    },
+    {
+      "mpn": "496B",
+      "brand": "Master Lock",
+      "name": "Master Lock 496B Wall Switch Lockout",
+      "description": "Universal wall switch lockout covers toggle and Decora switches; locks switch on or off and hinges open for normal operation.",
+      "specs": [
+        { "name": "Type", "value": "Wall Switch Lockout", "isNonNeg": true },
+        { "name": "Body Material", "value": "Plastic", "isNonNeg": false },
+        { "name": "Switch Compatibility", "value": "Toggle and Decora switches", "isNonNeg": false },
+        { "name": "Dimensions", "value": "4-3/4 in H x 1-3/4 in W x 1 in D", "isNonNeg": false },
+        { "name": "Max Padlock Shackle Dia", "value": "5/16 in", "isNonNeg": false }
+      ],
+      "estListPrice": 7.39,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/496B"
+    },
+    {
+      "mpn": "487",
+      "brand": "Master Lock",
+      "name": "Master Lock 487 Rotating Plug Lockout",
+      "description": "Rotating electrical plug lockout for 110/220V plugs up to 2-1/4 in dia x 3-1/4 in; Zenex body accepts cords to 3/4 in dia.",
+      "specs": [
+        { "name": "Type", "value": "Electrical Plug Lockout", "isNonNeg": true },
+        { "name": "Body Material", "value": "Zenex thermoplastic", "isNonNeg": false },
+        { "name": "Plug Compatibility", "value": "110/220V plugs up to 2-1/4 in dia x 3-1/4 in", "isNonNeg": false },
+        { "name": "Max Cord Diameter", "value": "3/4 in", "isNonNeg": false },
+        { "name": "Max Padlock Shackle Dia", "value": "9/16 in", "isNonNeg": false }
+      ],
+      "estListPrice": 15.88,
+      "priceSource": "affordablelocksmiths.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/487"
+    },
+    {
+      "mpn": "497A",
+      "brand": "Master Lock",
+      "name": "Master Lock 497A Do Not Operate Tags",
+      "description": "Heavy-duty laminated \"Do Not Operate\" lockout tags with nylon ties, 5-3/4 in x 3 in, English, 12 tags per bag, OSHA compliant.",
+      "specs": [
+        { "name": "Type", "value": "Lockout Tag", "isNonNeg": true },
+        { "name": "Body Material", "value": "Laminated tag stock", "isNonNeg": false },
+        { "name": "Size", "value": "5-3/4 in x 3 in", "isNonNeg": false },
+        { "name": "Legend", "value": "Do Not Operate", "isNonNeg": false },
+        { "name": "Package Quantity", "value": "12 tags with ties per bag", "isNonNeg": false }
+      ],
+      "estListPrice": 23.08,
+      "priceSource": "supremesafetyinc.com",
+      "specSheetUrl": "https://www.masterlock.com/products/product/497A"
+    },
+    {
+      "mpn": "72/40 KD RED",
+      "brand": "ABUS",
+      "name": "ABUS 72/40 KD RED Aluminum Safety Padlock",
+      "description": "Safety lockout padlock with TITALIUM aluminum body and 1/4 in hardened steel shackle with NANO PROTECT plating; keyed different, 2 keys.",
+      "specs": [
+        { "name": "Type", "value": "Safety Lockout Padlock", "isNonNeg": true },
+        { "name": "Keying", "value": "Keyed Different", "isNonNeg": false },
+        { "name": "Body Material", "value": "TITALIUM aluminum alloy", "isNonNeg": false },
+        { "name": "Shackle", "value": "1/4 in dia x 1 in hardened steel, NANO PROTECT plated", "isNonNeg": false },
+        { "name": "Body Width", "value": "1-1/2 in (40 mm)", "isNonNeg": false },
+        { "name": "Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 18.42,
+      "priceSource": "thelocksource.com",
+      "specSheetUrl": "https://www.abususa.com/products/insulated-72-40"
+    },
+    {
+      "mpn": "PSL-CBNT",
+      "brand": "Panduit",
+      "name": "Panduit PSL-CBNT Universal Breaker Lockout",
+      "description": "No-tool universal circuit breaker lockout fits single, double and triple handles 0.30-0.60 in tall and 0.16-0.35 in thick.",
+      "specs": [
+        { "name": "Type", "value": "Circuit Breaker Lockout", "isNonNeg": true },
+        { "name": "Body Material", "value": "Nylon with stainless steel", "isNonNeg": false },
+        { "name": "Breaker Compatibility", "value": "Single, double and triple handle breakers", "isNonNeg": false },
+        { "name": "Handle Size Range", "value": "0.30-0.60 in tall, 0.16-0.35 in thick", "isNonNeg": false },
+        { "name": "Operating Temperature", "value": "-40 to 121 C", "isNonNeg": false },
+        { "name": "Color", "value": "Red", "isNonNeg": false }
+      ],
+      "estListPrice": 37.69,
+      "priceSource": "houseofelectrical.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/safety-security/lockout-tagout/lockout-tagout-devices/pslcbnt.html"
+    }
+  ]
+}

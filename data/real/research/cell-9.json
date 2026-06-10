@@ -1,0 +1,138 @@
+{
+  "category": "electrical",
+  "subcategory": "Lighting Accessories",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "49875",
+      "brand": "Leviton",
+      "name": "Leviton 49875 Porcelain Keyless Lampholder",
+      "description": "Medium base one-piece glazed porcelain outlet box mount keyless incandescent lampholder with case lip, 660W 250V, white.",
+      "specs": [
+        { "name": "Type", "value": "Keyless Lampholder", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W, 250V", "isNonNeg": false },
+        { "name": "Material", "value": "Glazed Porcelain", "isNonNeg": false },
+        { "name": "Mounting", "value": "Outlet Box", "isNonNeg": false }
+      ],
+      "estListPrice": 5.23,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/products/49875"
+    },
+    {
+      "mpn": "9726-C",
+      "brand": "Leviton",
+      "name": "Leviton 9726-C Pull-Chain Lampholder",
+      "description": "One-piece glazed porcelain outlet box mount pull-chain incandescent lampholder with 15A 125V grounding outlet, top wired.",
+      "specs": [
+        { "name": "Type", "value": "Pull-Chain Lampholder with Outlet", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W, 250V; 15A 125V outlet", "isNonNeg": false },
+        { "name": "Material", "value": "Glazed Porcelain", "isNonNeg": false },
+        { "name": "Mounting", "value": "Outlet Box", "isNonNeg": false }
+      ],
+      "estListPrice": 15.76,
+      "priceSource": "store.leviton.com",
+      "specSheetUrl": "https://leviton.com/products/9726-c"
+    },
+    {
+      "mpn": "9874",
+      "brand": "Leviton",
+      "name": "Leviton 9874 Keyless Lampholder",
+      "description": "660W medium base one-piece glazed porcelain ceiling mount keyless incandescent lampholder, single circuit, top wired.",
+      "specs": [
+        { "name": "Type", "value": "Keyless Lampholder", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W, 250V", "isNonNeg": false },
+        { "name": "Material", "value": "Glazed Porcelain", "isNonNeg": false }
+      ],
+      "estListPrice": 18.85,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/9874",
+      "upc": "078477294505"
+    },
+    {
+      "mpn": "8829-CW4",
+      "brand": "Leviton",
+      "name": "Leviton 8829-CW4 Keyless Lampholder",
+      "description": "Single-circuit medium base one-piece white urea keyless incandescent lampholder, 660W 600V, 4 terminal screws, top wired.",
+      "specs": [
+        { "name": "Type", "value": "Keyless Lampholder", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W, 600V", "isNonNeg": false },
+        { "name": "Material", "value": "Urea (thermoset plastic)", "isNonNeg": false },
+        { "name": "Termination", "value": "4 Terminal Screws", "isNonNeg": false }
+      ],
+      "estListPrice": 4.33,
+      "priceSource": "acandb.com",
+      "specSheetUrl": "https://leviton.com/products/8829-cw4"
+    },
+    {
+      "mpn": "1403-I",
+      "brand": "Leviton",
+      "name": "Leviton 1403-I Socket Adapter 2-Outlet",
+      "description": "Keyless lampholder adapter converting a medium base socket to a lampholder plus two 15A 125V outlets, 660W max, ivory.",
+      "specs": [
+        { "name": "Type", "value": "Lampholder-to-Outlet Adapter", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W; 15A 125V", "isNonNeg": false },
+        { "name": "Color", "value": "Ivory", "isNonNeg": false },
+        { "name": "Outlets", "value": "2", "isNonNeg": false }
+      ],
+      "estListPrice": 7.52,
+      "priceSource": "platt.com",
+      "specSheetUrl": "https://leviton.com/products/1403-i",
+      "upc": "078477171301"
+    },
+    {
+      "mpn": "90/445",
+      "brand": "Satco",
+      "name": "Satco 90/445 Porcelain Keyless Lampholder",
+      "description": "Medium base glazed porcelain ceiling receptacle with screw terminals, 4-3/8 in. diameter, 660W 250V, white finish.",
+      "specs": [
+        { "name": "Type", "value": "Keyless Ceiling Lampholder", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W, 250V", "isNonNeg": false },
+        { "name": "Material", "value": "Glazed Porcelain", "isNonNeg": false },
+        { "name": "Diameter", "value": "4-3/8 in.", "isNonNeg": false }
+      ],
+      "estListPrice": 4.19,
+      "priceSource": "lighting2lightbulbs.com",
+      "specSheetUrl": "https://www.satco.com/products/90-445",
+      "upc": "045923904455"
+    },
+    {
+      "mpn": "604-SP",
+      "brand": "Eaton",
+      "name": "Eaton 604-SP Keyless Lampholder",
+      "description": "660W 250V medium base keyless ceiling lampholder, high-strength porcelain, screw terminals, mounts to 4 in. outlet boxes.",
+      "specs": [
+        { "name": "Type", "value": "Keyless Lampholder", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W, 250V", "isNonNeg": false },
+        { "name": "Material", "value": "Porcelain", "isNonNeg": false },
+        { "name": "Wire Range", "value": "#14-10 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 5.30,
+      "priceSource": "elliottelectric.com",
+      "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.604-SP.html",
+      "upc": "032664750625"
+    },
+    {
+      "mpn": "7042500",
+      "brand": "Westinghouse",
+      "name": "Westinghouse 7042500 Porcelain Fixture Socket",
+      "description": "2 in. medium base porcelain fixture socket with 10 in. 18 AWG wire leads and 1/8 IP hickey, 660W 250V, UL listed.",
+      "specs": [
+        { "name": "Type", "value": "Fixture Socket", "isNonNeg": true },
+        { "name": "Base", "value": "Medium (E26)", "isNonNeg": false },
+        { "name": "Rating", "value": "660W, 250V", "isNonNeg": false },
+        { "name": "Material", "value": "Porcelain", "isNonNeg": false },
+        { "name": "Leads", "value": "10 in., 18 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 4.95,
+      "priceSource": "ilighting.com",
+      "specSheetUrl": "https://www.westinghouselighting.com/lighting-accessories/light-fixture-accessories/lamp-accessories-and-hardware/2-porcelain-fixture-socket-7042500.aspx"
+    }
+  ]
+}

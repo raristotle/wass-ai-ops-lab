@@ -1,0 +1,178 @@
+{
+  "category": "safety",
+  "subcategory": "Hearing Protection",
+  "uom": "PK",
+  "products": [
+    {
+      "mpn": "312-1201",
+      "brand": "3M",
+      "name": "3M 312-1201 E-A-R Classic Earplugs",
+      "description": "3M E-A-R Classic uncorded foam earplugs, NRR 29 dB, slow-recovery foam, poly bag, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "29 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Slow-recovery PVC foam", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 38.68,
+      "priceSource": "industrialstop.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/2237238O/3m-anz-2022-tech-data-sheet-3m-e-a-r-classic-earplugs.pdf"
+    },
+    {
+      "mpn": "312-1250",
+      "brand": "3M",
+      "name": "3M 312-1250 E-A-Rsoft Yellow Neons",
+      "description": "3M E-A-Rsoft Yellow Neons uncorded polyurethane foam earplugs, NRR 33 dB, poly bag, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "33 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Slow-recovery polyurethane foam", "isNonNeg": false },
+        { "name": "Color", "value": "Neon yellow", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 28.70,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/2237247O/3m-anz-2022-tech-data-sheet-3m-earsoft-yellow-neon-earplugs.pdf"
+    },
+    {
+      "mpn": "311-1250",
+      "brand": "3M",
+      "name": "3M 311-1250 E-A-Rsoft Yellow Neons Corded",
+      "description": "3M E-A-Rsoft Yellow Neons corded polyurethane foam earplugs, NRR 33 dB, poly bag, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "33 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Corded", "isNonNeg": false },
+        { "name": "Material", "value": "Slow-recovery polyurethane foam", "isNonNeg": false },
+        { "name": "Color", "value": "Neon yellow", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 58.16,
+      "priceSource": "mastermans.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/2237247O/3m-anz-2022-tech-data-sheet-3m-earsoft-yellow-neon-earplugs.pdf"
+    },
+    {
+      "mpn": "1100",
+      "brand": "3M",
+      "name": "3M 1100 Foam Earplugs",
+      "description": "3M 1100 uncorded disposable foam earplugs, NRR 29 dB, tapered hypoallergenic polyurethane foam, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "29 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Hypoallergenic polyurethane foam", "isNonNeg": false },
+        { "name": "Shape", "value": "Tapered", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 21.71,
+      "priceSource": "nelsonjameson.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/836362O/3m-1100-tds-pdf.pdf"
+    },
+    {
+      "mpn": "MAX-1",
+      "brand": "Honeywell Howard Leight",
+      "name": "Howard Leight MAX-1 Foam Earplugs",
+      "description": "Howard Leight MAX uncorded single-use polyurethane foam earplugs, bell shape, NRR 33 dB, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "33 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Polyurethane foam", "isNonNeg": false },
+        { "name": "Shape", "value": "Bell", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 35.60,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-gb/localized/mei/sps-ppe-max-single-use-earplug-datasheet.pdf",
+      "upc": "033552000037"
+    },
+    {
+      "mpn": "MAX-30",
+      "brand": "Honeywell Howard Leight",
+      "name": "Howard Leight MAX-30 Corded Earplugs",
+      "description": "Howard Leight MAX corded single-use polyurethane foam earplugs, bell shape, NRR 33 dB, 100 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "33 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Corded", "isNonNeg": false },
+        { "name": "Material", "value": "Polyurethane foam", "isNonNeg": false },
+        { "name": "Shape", "value": "Bell", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "100", "isNonNeg": false }
+      ],
+      "estListPrice": 64.95,
+      "priceSource": "penntoolco.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-gb/localized/mei/sps-ppe-max-single-use-earplug-datasheet.pdf"
+    },
+    {
+      "mpn": "LL-1",
+      "brand": "Honeywell Howard Leight",
+      "name": "Howard Leight LL-1 Laser Lite Earplugs",
+      "description": "Howard Leight Laser Lite uncorded single-use earplugs, contoured T-shape, high-visibility magenta/yellow, NRR 32 dB, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "32 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Self-adjusting polyurethane foam", "isNonNeg": false },
+        { "name": "Shape", "value": "Contoured T-shape", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 38.57,
+      "priceSource": "mastermans.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/it-it/products/hearing-protection/documents/HL_laser_lite_single-use_earplug_laser-lite-single-use-earplug.pdf"
+    },
+    {
+      "mpn": "6800",
+      "brand": "Moldex",
+      "name": "Moldex 6800 Pura-Fit Earplugs",
+      "description": "Moldex Pura-Fit uncorded disposable foam earplugs, tapered bright green foam with smooth outer skin, NRR 33 dB, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "33 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Polyurethane foam", "isNonNeg": false },
+        { "name": "Color", "value": "Bright green", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 49.61,
+      "priceSource": "nelsonjameson.com",
+      "specSheetUrl": "https://www.moldex.com/product/pura-fit/"
+    },
+    {
+      "mpn": "6604",
+      "brand": "Moldex",
+      "name": "Moldex 6604 SparkPlugs Earplugs",
+      "description": "Moldex SparkPlugs uncorded disposable foam earplugs, soft swirl-color foam, NRR 33 dB, 200 pairs per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "33 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Polyurethane foam", "isNonNeg": false },
+        { "name": "Color", "value": "Assorted swirl", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 41.99,
+      "priceSource": "harmonycr.com",
+      "specSheetUrl": "https://www.moldex.com/product/hearing-protection/disposable-earplugs/sparkplugs/6604/"
+    },
+    {
+      "mpn": "FP70",
+      "brand": "Radians",
+      "name": "Radians FP70 Resistor 32 Earplugs",
+      "description": "Radians Resistor 32 uncorded disposable bullet-style foam earplugs, orange, NRR 32 dB, 200 pairs per box, made in USA.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Foam Earplug", "isNonNeg": true },
+        { "name": "NRR", "value": "32 dB", "isNonNeg": true },
+        { "name": "Style", "value": "Uncorded", "isNonNeg": false },
+        { "name": "Material", "value": "Polyurethane foam", "isNonNeg": false },
+        { "name": "Color", "value": "Orange", "isNonNeg": false },
+        { "name": "Pairs Per Box", "value": "200", "isNonNeg": false }
+      ],
+      "estListPrice": 20.49,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://www.radians.com/products/composite-radians-resistor-32-disposable-foam-earplug-products",
+      "upc": "674326219240"
+    }
+  ]
+}

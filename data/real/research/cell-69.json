@@ -1,0 +1,153 @@
+{
+  "category": "security",
+  "subcategory": "Intercom & Entry Systems",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "LEF-3",
+      "brand": "Aiphone",
+      "name": "Aiphone LEF-3 Master Intercom Station",
+      "description": "Selective-call open voice master intercom station for up to 3 master or sub stations; desk or surface wall mount, hardwired.",
+      "specs": [
+        { "name": "Type", "value": "3-call audio master intercom station", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Hardwired analog (shielded multi-conductor)", "isNonNeg": true },
+        { "name": "Mount", "value": "Desk or surface wall mount", "isNonNeg": false },
+        { "name": "Capacity", "value": "Up to 4 total stations (calls up to 3)", "isNonNeg": false },
+        { "name": "Output", "value": "800 mW at 20 ohms", "isNonNeg": false }
+      ],
+      "estListPrice": 196.74,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://www.aiphone.com/products/lef-3/"
+    },
+    {
+      "mpn": "JOS-1VW",
+      "brand": "Aiphone",
+      "name": "Aiphone JOS-1VW Video Intercom Box Set",
+      "description": "Mobile-ready video intercom set: JO-1MDW 7-inch touchscreen Wi-Fi master, JO-DV vandal-resistant surface-mount door station, PS-1820UL.",
+      "specs": [
+        { "name": "Type", "value": "Single-door video intercom box set", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired analog station wiring; built-in Wi-Fi for mobile app", "isNonNeg": true },
+        { "name": "Mount", "value": "Surface-mount door station", "isNonNeg": false },
+        { "name": "Display", "value": "7-inch touchscreen master station", "isNonNeg": false },
+        { "name": "Door Station Rating", "value": "IP54, IK08 (zinc die cast)", "isNonNeg": false }
+      ],
+      "estListPrice": 987.00,
+      "priceSource": "parkavenuelocks.com",
+      "specSheetUrl": "https://www.aiphone.com/products/jos-1vw-boxed-set/"
+    },
+    {
+      "mpn": "IX-DV",
+      "brand": "Aiphone",
+      "name": "Aiphone IX-DV IP Video Door Station",
+      "description": "Surface-mount vandal- and weather-resistant IP video door station with 1.23 MP color camera; SIP and ONVIF Profile S compliant.",
+      "specs": [
+        { "name": "Type", "value": "IP video door station", "isNonNeg": true },
+        { "name": "Connectivity", "value": "PoE (IEEE 802.3af); SIP 2.0; ONVIF Profile S; RTSP", "isNonNeg": true },
+        { "name": "Mount", "value": "Surface mount", "isNonNeg": false },
+        { "name": "Camera", "value": "1.23 MP fixed color camera with white LED illumination", "isNonNeg": false },
+        { "name": "Outputs", "value": "2 contact outputs (door release, external signaling)", "isNonNeg": false }
+      ],
+      "estListPrice": 1650.00,
+      "priceSource": "backstreet-surveillance.com",
+      "specSheetUrl": "https://www.aiphone.com/products/ix-dv/"
+    },
+    {
+      "mpn": "IX-EA",
+      "brand": "Aiphone",
+      "name": "Aiphone IX-EA IP Video Door Station",
+      "description": "1-gang surface-mount weather-resistant IP video door station with 1.23 MP camera; SIP 2.0 and ONVIF Profile S compliant, PoE powered.",
+      "specs": [
+        { "name": "Type", "value": "IP video door station", "isNonNeg": true },
+        { "name": "Connectivity", "value": "PoE (IEEE 802.3af); SIP 2.0; ONVIF Profile S", "isNonNeg": true },
+        { "name": "Mount", "value": "1-gang surface mount", "isNonNeg": false },
+        { "name": "Camera", "value": "1.23 MP fixed color camera, 5 lux minimum illumination", "isNonNeg": false },
+        { "name": "Operating Temp", "value": "-40 to 140 F (-40 to 60 C)", "isNonNeg": false }
+      ],
+      "estListPrice": 855.81,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://www.aiphone.com/products/ix-ea/"
+    },
+    {
+      "mpn": "02907-001",
+      "brand": "2N",
+      "name": "2N 02907-001 IP Verso 2.0 Main Unit",
+      "description": "Modular IP intercom main unit with 1080p Full HD camera (138 deg HFOV) and one call button; nickel finish, SIP 2.0 compliant.",
+      "specs": [
+        { "name": "Type", "value": "Modular IP video door intercom main unit", "isNonNeg": true },
+        { "name": "Connectivity", "value": "LAN RJ-45 with PoE; SIP 2.0", "isNonNeg": true },
+        { "name": "Mount", "value": "Modular flush or surface mount (mounting frames separate)", "isNonNeg": false },
+        { "name": "Camera", "value": "1080p Full HD at 30 fps, 138 deg horizontal FOV", "isNonNeg": false },
+        { "name": "Finish", "value": "Nickel, 1 backlit call button", "isNonNeg": false }
+      ],
+      "estListPrice": 1729.99,
+      "priceSource": "ipphone-warehouse.com",
+      "specSheetUrl": "https://cdn.adiglobaldistribution.us/pim/Original/10492/5E-02907001_Product-Data-Sheet.pdf"
+    },
+    {
+      "mpn": "D1101V",
+      "brand": "DoorBird",
+      "name": "DoorBird D1101V IP Video Door Station",
+      "description": "Surface-mount IP video door station, Compact Edition with 1 call button; 1080p camera, night vision and smart home integration.",
+      "specs": [
+        { "name": "Type", "value": "IP video door station", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Ethernet LAN with PoE or Wi-Fi", "isNonNeg": true },
+        { "name": "Mount", "value": "Surface mount", "isNonNeg": false },
+        { "name": "Camera", "value": "HDTV 1080p with ultra wide-angle lens and IR night vision", "isNonNeg": false },
+        { "name": "Material", "value": "Stainless steel V2A, brushed", "isNonNeg": false },
+        { "name": "Relay", "value": "1 freely configurable bistable switching relay", "isNonNeg": false }
+      ],
+      "estListPrice": 924.04,
+      "priceSource": "maglocks.com",
+      "specSheetUrl": "https://www.doorbird.com/downloads/datasheet/datasheet_d1101v_surface_en.pdf",
+      "upc": "4260423866744"
+    },
+    {
+      "mpn": "E-1600A-EWP",
+      "brand": "Viking Electronics",
+      "name": "Viking E-1600A-EWP Red Emergency Phone",
+      "description": "ADA-compliant handsfree red emergency phone with built-in dialer and voice announcer; enhanced weather protection for outdoor use.",
+      "specs": [
+        { "name": "Type", "value": "ADA-compliant handsfree emergency phone", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Analog phone line or analog station port (line powered)", "isNonNeg": true },
+        { "name": "Dialing", "value": "5 programmable emergency numbers plus 2 central station numbers", "isNonNeg": false },
+        { "name": "Announcer", "value": "Non-volatile digital voice announcer, 16 seconds", "isNonNeg": false },
+        { "name": "Protection", "value": "Enhanced Weather Protection (EWP)", "isNonNeg": false }
+      ],
+      "estListPrice": 406.84,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://vikingelectronics.com/products/e-1600a-ewp/"
+    },
+    {
+      "mpn": "E-40-SS",
+      "brand": "Viking Electronics",
+      "name": "Viking E-40-SS Entry Phone",
+      "description": "Compact weather- and vandal-resistant handsfree entry phone, telephone line powered, with brushed stainless steel faceplate.",
+      "specs": [
+        { "name": "Type", "value": "Handsfree door/gate entry phone", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Analog phone line or analog station port (line powered)", "isNonNeg": true },
+        { "name": "Mount", "value": "Flush mounts in single-gang electrical box; surface mount with VE-3x5", "isNonNeg": false },
+        { "name": "Faceplate", "value": "Brushed stainless steel", "isNonNeg": false },
+        { "name": "Indicator", "value": "Blue LED call/status locator", "isNonNeg": false }
+      ],
+      "estListPrice": 205.95,
+      "priceSource": "vikingtelecomsolutions.com",
+      "specSheetUrl": "https://vikingelectronics.com/products/e-40-ss/"
+    },
+    {
+      "mpn": "HFX-7000M",
+      "brand": "Comelit",
+      "name": "Comelit HFX-7000M Video Entry Kit",
+      "description": "Single-family 2-wire video entry kit with Quadra entrance panel, Mini 4.3-inch hands-free monitor and power supply (Simplebus).",
+      "specs": [
+        { "name": "Type", "value": "Single-family video door entry kit", "isNonNeg": true },
+        { "name": "Connectivity", "value": "2-wire Simplebus system", "isNonNeg": true },
+        { "name": "Mount", "value": "Surface-mount Quadra door station", "isNonNeg": false },
+        { "name": "Monitor", "value": "Mini hands-free monitor with 4.3-inch display", "isNonNeg": false },
+        { "name": "Expandable", "value": "Supports additional monitors and door stations", "isNonNeg": false }
+      ],
+      "estListPrice": 384.49,
+      "priceSource": "surveillance-video.com",
+      "specSheetUrl": "https://staticpro.comelitgroup.com/en-us/datasheets/15961-hfx-7000m.pdf"
+    }
+  ]
+}

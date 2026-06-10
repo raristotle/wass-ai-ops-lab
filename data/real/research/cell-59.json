@@ -1,0 +1,142 @@
+{
+  "category": "av",
+  "subcategory": "Signal Extenders",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "60-1491-12",
+      "brand": "Extron",
+      "name": "Extron DTP T HD2 4K 230 Transmitter",
+      "description": "DTP transmitter sends HDMI with embedded audio plus bidirectional RS-232 and IR up to 230 ft over shielded CATx; HDMI loop-out.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI + bidirectional RS-232/IR over shielded CATx (DTP)", "isNonNeg": true },
+        { "name": "Range", "value": "Up to 230 ft (70 m)", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K (4096x2160)", "isNonNeg": false },
+        { "name": "Data Rate", "value": "Up to 10.2 Gbps", "isNonNeg": false },
+        { "name": "Interoperability", "value": "HDBaseT-enabled device compatible", "isNonNeg": false },
+        { "name": "Power Consumption", "value": "7.5 W incl. power supply", "isNonNeg": false }
+      ],
+      "estListPrice": 499.77,
+      "priceSource": "lpav.com",
+      "specSheetUrl": "https://media.extron.com/public/download/files/brochure/dtp_t_hd2_4k_230_A2.pdf"
+    },
+    {
+      "mpn": "60-1271-13",
+      "brand": "Extron",
+      "name": "Extron DTP HDMI 4K 230 Rx Receiver",
+      "description": "DTP receiver converts shielded CATx back to HDMI with audio plus bidirectional RS-232 and IR; extends signals up to 230 ft.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI + bidirectional RS-232/IR over shielded CATx (DTP)", "isNonNeg": true },
+        { "name": "Range", "value": "Up to 230 ft (70 m) at 1080p/2K; 4K/30 up to 130 ft", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K (4096x2160)", "isNonNeg": false },
+        { "name": "Data Rate", "value": "Up to 10.2 Gbps, Deep Color up to 12-bit", "isNonNeg": false },
+        { "name": "CEC", "value": "CEC pass-through supported", "isNonNeg": false }
+      ],
+      "estListPrice": 144.98,
+      "priceSource": "lpav.com",
+      "specSheetUrl": "https://media.extron.com/public/download/files/brochure/dtp_hdmi_4k_230_A10.pdf"
+    },
+    {
+      "mpn": "HD-TXC-4KZ-101",
+      "brand": "Crestron",
+      "name": "Crestron HD-TXC-4KZ-101 DM Lite Transmitter",
+      "description": "DM Lite 4K60 4:4:4 transmitter extends HDMI, RS-232, and IR over CATx cable; supports HDR10+ and Dolby Vision.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI + RS-232 + IR over CATx (DM Lite)", "isNonNeg": true },
+        { "name": "Range", "value": "230 ft (70 m) at 1080p; 130 ft (40 m) at 4K", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K60 4:4:4", "isNonNeg": false },
+        { "name": "HDR Support", "value": "HDR10, HDR10+, Dolby Vision", "isNonNeg": false },
+        { "name": "Cable Type", "value": "CAT5e or higher twisted pair", "isNonNeg": false },
+        { "name": "Power", "value": "Local power pack or powered by remote DM Lite receiver", "isNonNeg": false }
+      ],
+      "estListPrice": 295.99,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://www.crestron.com/Products/Catalog/Audio-Video-and-USB/DM-Essentials-Point-to-Point/Transmitter/HD-TXC-4KZ-101"
+    },
+    {
+      "mpn": "HD-RXC-4KZ-101",
+      "brand": "Crestron",
+      "name": "Crestron HD-RXC-4KZ-101 DM Lite Receiver",
+      "description": "DM Lite 4K60 4:4:4 receiver for HDMI, RS-232, and IR signal extension over CATx; pairs with DM Lite transmitters.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI + RS-232 + IR over CATx (DM Lite)", "isNonNeg": true },
+        { "name": "Range", "value": "230 ft (70 m) at 1080p; 130 ft (40 m) at 4K", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K60 4:4:4", "isNonNeg": false },
+        { "name": "HDR Support", "value": "HDR10, HDR10+, Dolby Vision", "isNonNeg": false },
+        { "name": "Cable Type", "value": "CAT5e or higher twisted pair", "isNonNeg": false },
+        { "name": "Mounting", "value": "Compact, surface mountable", "isNonNeg": false }
+      ],
+      "estListPrice": 300.99,
+      "priceSource": "bhphotovideo.com",
+      "specSheetUrl": "https://www.crestron.com/Products/Catalog/Audio-Video-and-USB/DM-Essentials-Point-to-Point/Receiver/HD-RXC-4KZ-101"
+    },
+    {
+      "mpn": "AT-HDR-EX-70-2PS",
+      "brand": "Atlona",
+      "name": "Atlona AT-HDR-EX-70-2PS Extender Kit",
+      "description": "4K HDR HDMI over HDBaseT TX/RX kit, HDCP 2.2 compliant, up to 18 Gbps with visually lossless compression.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI over HDBaseT (TX/RX kit)", "isNonNeg": true },
+        { "name": "Range", "value": "230 ft (70 m) at 1080p; 130 ft (40 m) at 4K HDR", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K/UHD 60 Hz 4:4:4", "isNonNeg": false },
+        { "name": "HDR Support", "value": "HDR10, Dolby Vision", "isNonNeg": false },
+        { "name": "HDCP", "value": "HDCP 2.2 compliant", "isNonNeg": false },
+        { "name": "Data Rate", "value": "Up to 18 Gbps", "isNonNeg": false }
+      ],
+      "estListPrice": 430,
+      "priceSource": "conferenceroomav.com",
+      "specSheetUrl": "https://atlona.com/pdf/data_sheet/AT-HDR-EX-70-2PS_Spec.pdf"
+    },
+    {
+      "mpn": "AT-OME-EX-KIT-LT",
+      "brand": "Atlona",
+      "name": "Atlona AT-OME-EX-KIT-LT Extender Kit",
+      "description": "Omega 4K/UHD HDMI over HDBaseT lite TX/RX kit with USB 2.0, control, and PoE remote powering of transmitter.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI + USB 2.0 + IR/RS-232 over HDBaseT (TX/RX kit)", "isNonNeg": true },
+        { "name": "Range", "value": "230 ft (70 m) at 1080p; 130 ft (40 m) at 4K/UHD", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K/UHD 60 Hz 4:2:0 (up to 4096x2160)", "isNonNeg": false },
+        { "name": "USB Extension", "value": "USB 2.0 up to 230 ft, max 120 Mbps", "isNonNeg": false },
+        { "name": "Power", "value": "Transmitter powered remotely over HDBaseT (PoE)", "isNonNeg": false },
+        { "name": "HDCP", "value": "HDCP 2.2 compliant", "isNonNeg": false }
+      ],
+      "estListPrice": 830,
+      "priceSource": "markertek.com",
+      "specSheetUrl": "https://atlona.com/pdf/data_sheet/AT-OME-EX-KIT-LT_Spec.pdf"
+    },
+    {
+      "mpn": "TP-580T",
+      "brand": "Kramer",
+      "name": "Kramer TP-580T HDBaseT Transmitter",
+      "description": "4K60 4:2:0 HDMI HDCP 2.2 transmitter with RS-232 and IR over long-reach HDBaseT twisted pair.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI + bidirectional RS-232 + IR over HDBaseT", "isNonNeg": true },
+        { "name": "Range", "value": "130 ft (40 m) at 4K; 230 ft (70 m) at 2K/1080p", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K@60 Hz (4:2:0) 24bpp", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "10.2 Gbps (3.4 Gbps per graphic channel)", "isNonNeg": false },
+        { "name": "HDCP", "value": "HDCP 2.2 compliant", "isNonNeg": false },
+        { "name": "Power", "value": "12V DC, 275 mA", "isNonNeg": false }
+      ],
+      "estListPrice": 236,
+      "priceSource": "conferenceroomav.com",
+      "specSheetUrl": "https://www1.kramerav.com/product/tp-580t"
+    },
+    {
+      "mpn": "TP-580R",
+      "brand": "Kramer",
+      "name": "Kramer TP-580R HDBaseT Receiver",
+      "description": "4K60 4:2:0 HDMI HDCP 2.2 receiver with RS-232 and IR over long-reach HDBaseT; converts twisted pair back to HDMI.",
+      "specs": [
+        { "name": "Signal", "value": "HDMI + bidirectional RS-232 + IR over HDBaseT", "isNonNeg": true },
+        { "name": "Range", "value": "130 ft (40 m) at 4K; 230 ft (70 m) at 2K/1080p", "isNonNeg": true },
+        { "name": "Max Resolution", "value": "4K@60 Hz (4:2:0)", "isNonNeg": false },
+        { "name": "Bandwidth", "value": "10.2 Gbps (3.4 Gbps per graphic channel)", "isNonNeg": false },
+        { "name": "Outputs", "value": "1 HDMI; ports: IR 3.5mm, RS-232 9-pin D-sub", "isNonNeg": false },
+        { "name": "Power", "value": "12V DC, 430 mA", "isNonNeg": false }
+      ],
+      "estListPrice": 202.81,
+      "priceSource": "avalive.com",
+      "specSheetUrl": "https://www1.kramerav.com/product/TP-580R"
+    }
+  ]
+}

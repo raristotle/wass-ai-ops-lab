@@ -1,0 +1,146 @@
+{
+  "category": "electrical",
+  "subcategory": "Strip & Wrap Fixtures",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "FMLWL 48 840",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting FMLWL 48 840 4 ft LED Wraparound",
+      "description": "4 ft low-profile LED wraparound, 2900 lumens, 4000K, 120V; surface-mount ambient light for kitchens, laundry and utility areas.",
+      "specs": [
+        { "name": "Length", "value": "4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "2900", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Style", "value": "Wraparound", "isNonNeg": false },
+        { "name": "Wattage", "value": "40W", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false }
+      ],
+      "estListPrice": 54.99,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/831379/contractor-select-fmlwl-led-wrap-.pdf",
+      "upc": "888791197969"
+    },
+    {
+      "mpn": "FMLWL 24 840",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting FMLWL 24 840 2 ft LED Wraparound",
+      "description": "2 ft low-profile LED wraparound, 1400 lumens, 4000K, 120V; flush-mount fixture for closets, hallways and utility spaces.",
+      "specs": [
+        { "name": "Length", "value": "2 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "1400", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Style", "value": "Wraparound", "isNonNeg": false },
+        { "name": "Wattage", "value": "20W", "isNonNeg": false },
+        { "name": "Voltage", "value": "120V", "isNonNeg": false }
+      ],
+      "estListPrice": 52.48,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/831379/contractor-select-fmlwl-led-wrap-.pdf",
+      "upc": "888791197921"
+    },
+    {
+      "mpn": "CSS L48 ALO3 MVOLT SWW3 80CRI",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting CSS L48 ALO3 MVOLT SWW3 80CRI Switchable LED Strip",
+      "description": "4 ft Contractor Select LED strip light with switchable lumens (3000/4000/5000 lm) and CCT (3500K/4000K/5000K), 80 CRI, 120-277V.",
+      "specs": [
+        { "name": "Length", "value": "4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "3000/4000/5000 (selectable)", "isNonNeg": true },
+        { "name": "CCT", "value": "3500K/4000K/5000K (selectable)", "isNonNeg": false },
+        { "name": "Style", "value": "Strip", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": false },
+        { "name": "CRI", "value": "80", "isNonNeg": false }
+      ],
+      "estListPrice": 123.5,
+      "priceSource": "crescentelectric.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1021226/lithonia-css-led-strip-contractor-select.pdf"
+    },
+    {
+      "mpn": "ZL1N L48 5000LM FST MVOLT 40K 80CRI WH",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting ZL1N L48 5000LM 4 ft LED Strip Light",
+      "description": "4 ft Z Series LED strip light, 5000 lumens, 4000K, 80 CRI, frosted lens, 120-277V, white finish.",
+      "specs": [
+        { "name": "Length", "value": "4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "5000", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Style", "value": "Strip", "isNonNeg": false },
+        { "name": "Lens", "value": "Frosted", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": false }
+      ],
+      "estListPrice": 159.69,
+      "priceSource": "superiorlighting.com",
+      "specSheetUrl": "https://www.acuitybrands.com/products/detail/396354/lithonia-lighting/zl1n/zl-series-led-strip-light-with-narrow-lens"
+    },
+    {
+      "mpn": "LBL4 LP840",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting LBL4 LP840 4 ft Curved-Basket Wraparound",
+      "description": "4 ft curved-basket LED wraparound, 4253 lumens, 4000K, 32W, 120-277V; LED replacement for 2-lamp fluorescent wraps.",
+      "specs": [
+        { "name": "Length", "value": "4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4253", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Style", "value": "Wraparound (curved basket)", "isNonNeg": false },
+        { "name": "Wattage", "value": "32W", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": false }
+      ],
+      "estListPrice": 119.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/997948/contractor-select-lb-led-curved-basket-wraparound.pdf"
+    },
+    {
+      "mpn": "4SNLED-LD5-41SL-LW-UNV-L840-CD1-U",
+      "brand": "Metalux",
+      "name": "Metalux 4SNLED-LD5-41SL-LW-UNV-L840-CD1-U LED Strip Light",
+      "description": "4 ft Metalux SNLED lensed LED strip light, 4100 lumens, 4000K, 0-10V dimming driver, 120-277V.",
+      "specs": [
+        { "name": "Length", "value": "4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4100", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Style", "value": "Strip (lensed)", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 136.95,
+      "priceSource": "ltgnow.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/42e495a81e0445a8b6d0ad4100865021/metalux-snled-striplight-lensed-specsheet_snled-lens-ln-4ft-u.pdf"
+    },
+    {
+      "mpn": "4WNLED-LD4-40SL-F-UNV-L840-CD1-U",
+      "brand": "Metalux",
+      "name": "Metalux 4WNLED-LD4-40SL-F-UNV-L840-CD1-U LED Wraparound",
+      "description": "4 ft Metalux WNLED utility LED wraparound, 4000 lumens, 4000K, frosted lens, 0-10V dimming, 120-277V.",
+      "specs": [
+        { "name": "Length", "value": "4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "4000", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Style", "value": "Wraparound", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": false },
+        { "name": "Dimming", "value": "0-10V", "isNonNeg": false }
+      ],
+      "estListPrice": 126.77,
+      "priceSource": "crawfordelectricsupply.com",
+      "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/7bcf5f42edfe40e9b6d1ad410087235d/Metalux-WNLED-Utility-LED-Wraparound-spec-sheet.pdf"
+    },
+    {
+      "mpn": "LCL4-40ML-EDU",
+      "brand": "Columbia Lighting",
+      "name": "Columbia Lighting LCL4-40ML-EDU Lensed Striplight",
+      "description": "4 ft lensed LED striplight, medium lumen package, 4000K, frosted prismatic acrylic lens, 0-10V dimming, 120-277V, white finish.",
+      "specs": [
+        { "name": "Length", "value": "4 ft", "isNonNeg": true },
+        { "name": "Lumens", "value": "5000 (medium lumen package)", "isNonNeg": true },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Style", "value": "Strip (lensed)", "isNonNeg": false },
+        { "name": "Wattage", "value": "48W", "isNonNeg": false },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": false }
+      ],
+      "estListPrice": 298.37,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://cdn.currentlighting.com/site/specsheet/COL_LCL_spec.pdf",
+      "upc": "078531124663"
+    }
+  ]
+}

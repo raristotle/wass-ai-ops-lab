@@ -1,0 +1,169 @@
+{
+  "category": "safety",
+  "subcategory": "Respiratory Protection",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "8210",
+      "brand": "3M",
+      "name": "3M 8210 N95 Particulate Respirator",
+      "description": "3M 8210 NIOSH-approved N95 disposable particulate respirator with adjustable nose clip and welded headbands, 20 per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Particulate Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "N95", "isNonNeg": true },
+        { "name": "Size", "value": "Standard", "isNonNeg": false },
+        { "name": "Exhalation Valve", "value": "No", "isNonNeg": false },
+        { "name": "Quantity Per Box", "value": "20", "isNonNeg": false }
+      ],
+      "estListPrice": 18.99,
+      "priceSource": "business.walmart.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1425070O/3m-particulate-respirator-8210-n95-technical-specifications.pdf"
+    },
+    {
+      "mpn": "8511",
+      "brand": "3M",
+      "name": "3M 8511 N95 Valved Respirator",
+      "description": "3M 8511 NIOSH-approved N95 disposable particulate respirator with Cool Flow exhalation valve and braided headbands, 10 per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Particulate Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "N95", "isNonNeg": true },
+        { "name": "Size", "value": "Standard", "isNonNeg": false },
+        { "name": "Exhalation Valve", "value": "Cool Flow valve", "isNonNeg": false },
+        { "name": "Quantity Per Box", "value": "10", "isNonNeg": false }
+      ],
+      "estListPrice": 27.98,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1425060O/3m-particulate-respirator-8511-n95-technical-specifications.pdf"
+    },
+    {
+      "mpn": "2300N95",
+      "brand": "Moldex",
+      "name": "Moldex 2300N95 Valved Respirator",
+      "description": "Moldex 2300 NIOSH-approved N95 disposable respirator with exhalation valve and Dura-Mesh shell, medium/large, 10 per box.",
+      "specs": [
+        { "name": "Type", "value": "Disposable Particulate Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "N95", "isNonNeg": true },
+        { "name": "Size", "value": "Medium/Large", "isNonNeg": false },
+        { "name": "Exhalation Valve", "value": "Yes", "isNonNeg": false },
+        { "name": "Quantity Per Box", "value": "10", "isNonNeg": false }
+      ],
+      "estListPrice": 28.99,
+      "priceSource": "stauffersafety.com",
+      "specSheetUrl": "https://www.moldex.com/product/2300-n95-series-respirator-exhale-valve/"
+    },
+    {
+      "mpn": "6200",
+      "brand": "3M",
+      "name": "3M 6200 Half Facepiece Respirator",
+      "description": "3M 6000 Series reusable half facepiece, medium, lightweight elastomeric body with bayonet connection for 3M cartridges and filters.",
+      "specs": [
+        { "name": "Type", "value": "Reusable Half Facepiece Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "Accepts 3M bayonet cartridges/filters (sold separately)", "isNonNeg": true },
+        { "name": "Size", "value": "Medium", "isNonNeg": false },
+        { "name": "Facepiece Material", "value": "Thermoplastic elastomer", "isNonNeg": false },
+        { "name": "Connection Type", "value": "3M bayonet", "isNonNeg": false }
+      ],
+      "estListPrice": 16.39,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1730559O/3m-6000-series-reusable-half-mask-data-sheet.pdf"
+    },
+    {
+      "mpn": "7502",
+      "brand": "3M",
+      "name": "3M 7502 Half Facepiece Respirator",
+      "description": "3M 7500 Series reusable half facepiece, medium, soft silicone faceseal with Cool Flow exhalation valve and bayonet connection.",
+      "specs": [
+        { "name": "Type", "value": "Reusable Half Facepiece Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "Accepts 3M bayonet cartridges/filters (sold separately)", "isNonNeg": true },
+        { "name": "Size", "value": "Medium", "isNonNeg": false },
+        { "name": "Facepiece Material", "value": "Silicone", "isNonNeg": false },
+        { "name": "Exhalation Valve", "value": "Cool Flow valve", "isNonNeg": false },
+        { "name": "Connection Type", "value": "3M bayonet", "isNonNeg": false }
+      ],
+      "estListPrice": 32.99,
+      "priceSource": "webstaurantstore.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1731320O/3m-7500-series-reusable-half-mask-data-sheet.pdf"
+    },
+    {
+      "mpn": "6800",
+      "brand": "3M",
+      "name": "3M 6800 Full Facepiece Respirator",
+      "description": "3M 6000 Series reusable full facepiece, medium, large polycarbonate lens, silicone faceseal and Cool Flow exhalation valve.",
+      "specs": [
+        { "name": "Type", "value": "Reusable Full Facepiece Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "Accepts 3M bayonet cartridges/filters (sold separately)", "isNonNeg": true },
+        { "name": "Size", "value": "Medium", "isNonNeg": false },
+        { "name": "Lens Material", "value": "Polycarbonate", "isNonNeg": false },
+        { "name": "Exhalation Valve", "value": "Cool Flow valve", "isNonNeg": false },
+        { "name": "Connection Type", "value": "3M bayonet", "isNonNeg": false }
+      ],
+      "estListPrice": 141.38,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/2602924O/3m-6000-full-facepiece-reusable-respirator.pdf"
+    },
+    {
+      "mpn": "2091",
+      "brand": "3M",
+      "name": "3M 2091 P100 Particulate Filter",
+      "description": "3M 2091 P100 particulate filter pair, 99.97% filtration efficiency, bayonet mount for 3M 6000/7500/FF-400 series facepieces.",
+      "specs": [
+        { "name": "Type", "value": "Particulate Filter", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "P100", "isNonNeg": true },
+        { "name": "Filtration Efficiency", "value": "99.97% minimum", "isNonNeg": false },
+        { "name": "Connection Type", "value": "3M bayonet", "isNonNeg": false },
+        { "name": "Package Quantity", "value": "1 pair (2 filters)", "isNonNeg": false }
+      ],
+      "estListPrice": 9.76,
+      "priceSource": "nationalsafetyinc.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/5189O/3m-particulate-filter-2091-p100.pdf"
+    },
+    {
+      "mpn": "6001",
+      "brand": "3M",
+      "name": "3M 6001 Organic Vapor Cartridge",
+      "description": "3M 6001 NIOSH-approved organic vapor cartridge, bayonet mount for 3M 6000, 7000 and FF-400 series facepieces, sold by the pair.",
+      "specs": [
+        { "name": "Type", "value": "Chemical Cartridge", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "Organic Vapor (OV)", "isNonNeg": true },
+        { "name": "Connection Type", "value": "3M bayonet", "isNonNeg": false },
+        { "name": "Package Quantity", "value": "1 pair (2 cartridges)", "isNonNeg": false },
+        { "name": "Approval", "value": "NIOSH", "isNonNeg": false }
+      ],
+      "estListPrice": 14.98,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/879255O/3m-cartridge-6001-user-instructions.pdf"
+    },
+    {
+      "mpn": "770030M",
+      "brand": "Honeywell North",
+      "name": "Honeywell North 770030M Half Mask",
+      "description": "North 7700 Series reusable half mask facepiece, medium, 100% medical-grade silicone, latex free, 4.48 oz without cartridges.",
+      "specs": [
+        { "name": "Type", "value": "Reusable Half Facepiece Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "Accepts North cartridges/filters (sold separately)", "isNonNeg": true },
+        { "name": "Size", "value": "Medium", "isNonNeg": false },
+        { "name": "Facepiece Material", "value": "100% medical-grade silicone", "isNonNeg": false },
+        { "name": "Weight", "value": "4.48 oz (130 g)", "isNonNeg": false }
+      ],
+      "estListPrice": 28.99,
+      "priceSource": "industrialsafety.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-us/products/respiratory-protection/documents/7700%20Series%20Half%20Mask%20Data%20Sheet.pdf"
+    },
+    {
+      "mpn": "10102183",
+      "brand": "MSA",
+      "name": "MSA 10102183 Advantage 420 Half Mask",
+      "description": "MSA Advantage 420 reusable twin-port half mask respirator, medium, with 4-point harness and bayonet cartridge connection.",
+      "specs": [
+        { "name": "Type", "value": "Reusable Half Facepiece Respirator", "isNonNeg": true },
+        { "name": "Filter Rating", "value": "Accepts MSA Advantage cartridges/filters (sold separately)", "isNonNeg": true },
+        { "name": "Size", "value": "Medium", "isNonNeg": false },
+        { "name": "Connection Type", "value": "Bayonet", "isNonNeg": false },
+        { "name": "Head Harness", "value": "4-point suspension", "isNonNeg": false }
+      ],
+      "estListPrice": 55.64,
+      "priceSource": "fastoolnow.com",
+      "specSheetUrl": "https://us.msasafety.com/pn/10102183"
+    }
+  ]
+}

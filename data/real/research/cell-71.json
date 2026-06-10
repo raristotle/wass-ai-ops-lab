@@ -1,0 +1,142 @@
+{
+  "category": "safety",
+  "subcategory": "Hard Hats",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "475358",
+      "brand": "MSA",
+      "name": "MSA 475358 V-Gard Cap Hard Hat",
+      "description": "V-Gard slotted cap, white, polyethylene shell with Fas-Trac III 4-point ratchet suspension; ANSI/ISEA Z89.1 Type I, Class E and G.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "E and G", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Suspension", "value": "Fas-Trac III 4-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "Polyethylene", "isNonNeg": false },
+        { "name": "Style", "value": "Slotted cap", "isNonNeg": false }
+      ],
+      "estListPrice": 26.99,
+      "priceSource": "wayneworkwear.com",
+      "specSheetUrl": "https://us.msasafety.com/pn/475358"
+    },
+    {
+      "mpn": "475369",
+      "brand": "MSA",
+      "name": "MSA 475369 V-Gard Full Brim Hard Hat",
+      "description": "V-Gard slotted full-brim hat, white, polyethylene shell with Fas-Trac III ratchet suspension; ANSI/ISEA Z89.1 Type I, Class E and G.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "E and G", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Suspension", "value": "Fas-Trac III 4-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "Polyethylene", "isNonNeg": false },
+        { "name": "Style", "value": "Slotted full brim", "isNonNeg": false }
+      ],
+      "estListPrice": 23.35,
+      "priceSource": "glovestock.com",
+      "specSheetUrl": "https://us.msasafety.com/pn/475369"
+    },
+    {
+      "mpn": "475407",
+      "brand": "MSA",
+      "name": "MSA 475407 Skullgard Full Brim Hard Hat",
+      "description": "Skullgard protective hat, natural tan phenolic shell tested to radiant heat up to 350F; Fas-Trac III ratchet; ANSI Type I, Class G.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "G", "isNonNeg": true },
+        { "name": "Color", "value": "Natural Tan", "isNonNeg": false },
+        { "name": "Suspension", "value": "Fas-Trac III 4-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "Phenolic", "isNonNeg": false },
+        { "name": "Heat Rating", "value": "Radiant heat up to 350F", "isNonNeg": false }
+      ],
+      "estListPrice": 165.19,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://us.msasafety.com/pn/475407",
+      "upc": "641817003381"
+    },
+    {
+      "mpn": "H-701R",
+      "brand": "3M",
+      "name": "3M H-701R Hard Hat",
+      "description": "H-700 series short-brim hard hat, white HDPE shell, 4-point ratchet suspension; ANSI/ISEA Z89.1-2014 Type I, Class G and E.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "G and E", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Suspension", "value": "4-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "High-density polyethylene", "isNonNeg": false }
+      ],
+      "estListPrice": 12.88,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://multimedia.3m.com/mws/media/1759070O/3m-hard-hats-h700-series-technical-datasheet-english-online-version.pdf"
+    },
+    {
+      "mpn": "E2RW01A000",
+      "brand": "Honeywell",
+      "name": "Honeywell E2RW01A000 Fibre-Metal E-2 Cap",
+      "description": "Fibre-Metal E-2 cap, white thermoplastic smooth crown with SuperEight 8-point ratchet suspension; ANSI Z89.1 Type I, Class E, G and C.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "E, G and C", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Suspension", "value": "SuperEight 8-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "Thermoplastic", "isNonNeg": false },
+        { "name": "Style", "value": "Cap", "isNonNeg": false }
+      ],
+      "estListPrice": 29.99,
+      "priceSource": "gmesupply.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/es-mx/products/head-eye-face-protection/documents/head/sps-his-Honeywell-Fibre-Metal-Safety-Helmet-DataSheet-NA-ENG.pdf"
+    },
+    {
+      "mpn": "HP14110",
+      "brand": "Pyramex",
+      "name": "Pyramex HP14110 SL Series Cap Hard Hat",
+      "description": "SL Series low-profile cap, white HDPE shell, 4-point nylon ratchet suspension; meets ANSI Z89.1 Type I, Class C, G and E.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "C, G and E", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Suspension", "value": "4-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "High-density polyethylene", "isNonNeg": false }
+      ],
+      "estListPrice": 9.19,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://www.pyramex.com/products/sl-series-cap-style",
+      "upc": "814992006335"
+    },
+    {
+      "mpn": "HP44110",
+      "brand": "Pyramex",
+      "name": "Pyramex HP44110 Ridgeline Cap Hard Hat",
+      "description": "Ridgeline low-profile cap, white ABS shell, 4-point ratchet suspension, swinging hinge points; ANSI Z89.1 Type I, Class C, G and E.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "C, G and E", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Suspension", "value": "4-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "ABS", "isNonNeg": false }
+      ],
+      "estListPrice": 12.89,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://www.pyramex.com/products/ridgeline%C2%AE-cap-style"
+    },
+    {
+      "mpn": "HP54110",
+      "brand": "Pyramex",
+      "name": "Pyramex HP54110 Ridgeline Full Brim Hard Hat",
+      "description": "Ridgeline full brim hard hat, white ABS shell, 4-point ratchet suspension, replaceable brow pad; ANSI Z89.1 Type I, Class C, G and E.",
+      "specs": [
+        { "name": "Type", "value": "Type I", "isNonNeg": true },
+        { "name": "Class", "value": "C, G and E", "isNonNeg": true },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Suspension", "value": "4-point ratchet", "isNonNeg": false },
+        { "name": "Shell Material", "value": "ABS", "isNonNeg": false },
+        { "name": "Style", "value": "Full brim", "isNonNeg": false }
+      ],
+      "estListPrice": 12.29,
+      "priceSource": "ohiopowertool.com",
+      "specSheetUrl": "https://www.pyramex.com/products/ridgeline%C2%AE-full-brim"
+    }
+  ]
+}

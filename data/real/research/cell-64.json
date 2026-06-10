@@ -1,0 +1,143 @@
+{
+  "category": "security",
+  "subcategory": "IP Cameras",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "02373-001",
+      "brand": "Axis",
+      "name": "Axis 02373-001 M3085-V Mini Dome",
+      "description": "AXIS M3085-V ultra-compact 2 MP indoor mini dome with deep learning processing unit, Lightfinder, WDR and IK08 vandal-resistant casing.",
+      "specs": [
+        { "name": "Resolution", "value": "2 MP (1920 x 1080)", "isNonNeg": true },
+        { "name": "Form", "value": "Indoor fixed mini dome", "isNonNeg": true },
+        { "name": "IR", "value": "No built-in IR illumination", "isNonNeg": false },
+        { "name": "Lens", "value": "3.1 mm fixed, 102 deg horizontal FoV", "isNonNeg": false },
+        { "name": "Power", "value": "Power over Ethernet (PoE)", "isNonNeg": false },
+        { "name": "Vandal Rating", "value": "IK08", "isNonNeg": false }
+      ],
+      "estListPrice": 313,
+      "priceSource": "ipphone-warehouse.com",
+      "specSheetUrl": "https://www.axis.com/products/axis-m3085-v"
+    },
+    {
+      "mpn": "02328-001",
+      "brand": "Axis",
+      "name": "Axis 02328-001 P3265-LVE Outdoor Dome",
+      "description": "AXIS P3265-LVE outdoor 2 MP dome with deep learning, Lightfinder 2.0, Forensic WDR and OptimizedIR; IP66, IK10, NEMA 4X rated.",
+      "specs": [
+        { "name": "Resolution", "value": "2 MP (1920 x 1080), up to 60 fps", "isNonNeg": true },
+        { "name": "Form", "value": "Outdoor fixed dome", "isNonNeg": true },
+        { "name": "IR", "value": "OptimizedIR LEDs, up to 40 m (131 ft)", "isNonNeg": false },
+        { "name": "Lens", "value": "3.4-8.9 mm varifocal", "isNonNeg": false },
+        { "name": "Environmental Rating", "value": "IP66, IK10, NEMA 4X", "isNonNeg": false },
+        { "name": "Power", "value": "Power over Ethernet (PoE)", "isNonNeg": false }
+      ],
+      "estListPrice": 782.99,
+      "priceSource": "ipphone-warehouse.com",
+      "specSheetUrl": "https://www.axis.com/dam/public/ac/8e/70/datasheet-axis-p3265-lve-dome-camera-en-US-437931.pdf"
+    },
+    {
+      "mpn": "02339-001",
+      "brand": "Axis",
+      "name": "Axis 02339-001 P1465-LE Bullet",
+      "description": "AXIS P1465-LE all-around 2 MP outdoor bullet with deep learning, Lightfinder 2.0, Forensic WDR and OptimizedIR; IP66/IP67, IK10.",
+      "specs": [
+        { "name": "Resolution", "value": "2 MP (1920 x 1080), up to 60 fps", "isNonNeg": true },
+        { "name": "Form", "value": "Outdoor fixed bullet", "isNonNeg": true },
+        { "name": "IR", "value": "OptimizedIR LEDs, up to 40 m (131 ft)", "isNonNeg": false },
+        { "name": "Environmental Rating", "value": "IP66, IP67, IK10, NEMA 4X", "isNonNeg": false },
+        { "name": "Analytics", "value": "AXIS Object Analytics (deep learning)", "isNonNeg": false },
+        { "name": "Power", "value": "Power over Ethernet (PoE)", "isNonNeg": false }
+      ],
+      "estListPrice": 772.99,
+      "priceSource": "ipphone-warehouse.com",
+      "specSheetUrl": "https://www.axis.com/dam/public/26/c9/db/datasheet-axis-p1465-le-bullet-camera-en-US-388270.pdf"
+    },
+    {
+      "mpn": "QNV-C8083R",
+      "brand": "Hanwha Vision",
+      "name": "Hanwha QNV-C8083R 5MP Vandal Dome",
+      "description": "Wisenet Q series 5 MP AI IR outdoor vandal dome with 3.2-10.2 mm motorized varifocal lens, WDR 120 dB, IP66/IK10.",
+      "specs": [
+        { "name": "Resolution", "value": "5 MP @ 30 fps", "isNonNeg": true },
+        { "name": "Form", "value": "Outdoor vandal dome", "isNonNeg": true },
+        { "name": "IR", "value": "IR LEDs, up to 30 m (98 ft)", "isNonNeg": false },
+        { "name": "Lens", "value": "3.2-10.2 mm motorized varifocal", "isNonNeg": false },
+        { "name": "WDR", "value": "120 dB", "isNonNeg": false },
+        { "name": "Environmental Rating", "value": "IP66, IK10", "isNonNeg": false }
+      ],
+      "estListPrice": 641.63,
+      "priceSource": "networkcamerastore.com",
+      "specSheetUrl": "https://hanwhavisionamerica.com/product/qnv-c8083r/"
+    },
+    {
+      "mpn": "QNO-C8083R",
+      "brand": "Hanwha Vision",
+      "name": "Hanwha QNO-C8083R 5MP IR Bullet",
+      "description": "Wisenet Q series 5 MP AI IR outdoor bullet with 3.2-10.2 mm motorized varifocal lens and AI object detection.",
+      "specs": [
+        { "name": "Resolution", "value": "5 MP @ 30 fps", "isNonNeg": true },
+        { "name": "Form", "value": "Outdoor bullet", "isNonNeg": true },
+        { "name": "IR", "value": "Built-in IR LEDs", "isNonNeg": false },
+        { "name": "Lens", "value": "3.2-10.2 mm motorized varifocal", "isNonNeg": false },
+        { "name": "Analytics", "value": "AI object detection (person/vehicle)", "isNonNeg": false },
+        { "name": "Power", "value": "Power over Ethernet (PoE)", "isNonNeg": false }
+      ],
+      "estListPrice": 604.95,
+      "priceSource": "veotron.com",
+      "specSheetUrl": "https://hanwhavisionamerica.com/product/qno-c8083r/"
+    },
+    {
+      "mpn": "XNV-6083R",
+      "brand": "Hanwha Vision",
+      "name": "Hanwha XNV-6083R 2MP AI Dome",
+      "description": "Wisenet X series 2 MP IR outdoor vandal dome AI camera, 2.8-12 mm motorized varifocal, extreme WDR 150 dB, IP66/IP67/IK10+.",
+      "specs": [
+        { "name": "Resolution", "value": "2 MP (1920 x 1080)", "isNonNeg": true },
+        { "name": "Form", "value": "Outdoor vandal dome", "isNonNeg": true },
+        { "name": "IR", "value": "WiseIR LEDs, up to 50 m", "isNonNeg": false },
+        { "name": "Lens", "value": "2.8-12 mm (4.3x) motorized varifocal", "isNonNeg": false },
+        { "name": "WDR", "value": "150 dB", "isNonNeg": false },
+        { "name": "Environmental Rating", "value": "IP66, IP67, NEMA 4X, IK10+", "isNonNeg": false }
+      ],
+      "estListPrice": 1032.50,
+      "priceSource": "networkcamerastore.com",
+      "specSheetUrl": "https://hanwhavisionamerica.com/product/xnv-6083r/"
+    },
+    {
+      "mpn": "DS-2CD2143G2-IU",
+      "brand": "Hikvision",
+      "name": "Hikvision DS-2CD2143G2-IU AcuSense Dome",
+      "description": "4 MP AcuSense fixed vandal dome with deep-learning human/vehicle classification, built-in mic, H.265+, IP67/IK10.",
+      "specs": [
+        { "name": "Resolution", "value": "4 MP (2688 x 1520)", "isNonNeg": true },
+        { "name": "Form", "value": "Fixed vandal dome", "isNonNeg": true },
+        { "name": "IR", "value": "IR LEDs, up to 30 m", "isNonNeg": false },
+        { "name": "Lens", "value": "2.8 mm fixed", "isNonNeg": false },
+        { "name": "Audio", "value": "Built-in microphone", "isNonNeg": false },
+        { "name": "Environmental Rating", "value": "IP67, IK10", "isNonNeg": false }
+      ],
+      "estListPrice": 134.90,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://www.hikvision.com/content/dam/hikvision/usa/data-sheet/DS-2CD2143G2-IU-DataSheet.pdf"
+    },
+    {
+      "mpn": "DS-2CD2043G2-IU",
+      "brand": "Hikvision",
+      "name": "Hikvision DS-2CD2043G2-IU AcuSense Bullet",
+      "description": "4 MP AcuSense fixed bullet with deep-learning human/vehicle classification, 120 dB WDR, H.265+, built-in mic, IP67.",
+      "specs": [
+        { "name": "Resolution", "value": "4 MP (2688 x 1520)", "isNonNeg": true },
+        { "name": "Form", "value": "Fixed bullet", "isNonNeg": true },
+        { "name": "IR", "value": "EXIR IR LEDs, up to 40 m", "isNonNeg": false },
+        { "name": "Lens", "value": "2.8 mm fixed", "isNonNeg": false },
+        { "name": "WDR", "value": "120 dB", "isNonNeg": false },
+        { "name": "Environmental Rating", "value": "IP67", "isNonNeg": false }
+      ],
+      "estListPrice": 193,
+      "priceSource": "networkcamerastore.com",
+      "specSheetUrl": "https://www.hikvision.com/content/dam/hikvision/usa/data-sheet/acusense-series/Datasheet-for-DS-2CD2043G2-IU.pdf"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "category": "electrical",
+  "subcategory": "Contactors",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "LC1D09G7",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric LC1D09G7 TeSys Deca Contactor",
+      "description": "TeSys Deca IEC contactor, nonreversing, 9A AC-3, 5 HP at 480VAC, 3-pole (3 NO), 120VAC 50/60Hz coil, open style.",
+      "specs": [
+        { "name": "Amperage", "value": "9A AC-3", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "120VAC 50/60Hz", "isNonNeg": true },
+        { "name": "Poles", "value": "3", "isNonNeg": true },
+        { "name": "Style", "value": "IEC (TeSys Deca), open", "isNonNeg": false },
+        { "name": "HP Rating", "value": "5 HP @ 480V (3-phase)", "isNonNeg": false },
+        { "name": "Aux Contacts", "value": "1 NO + 1 NC", "isNonNeg": false }
+      ],
+      "estListPrice": 74.25,
+      "priceSource": "directpivotparts.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/LC1D09G7/"
+    },
+    {
+      "mpn": "LC1D18G7",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric LC1D18G7 TeSys Deca Contactor",
+      "description": "TeSys Deca IEC contactor, nonreversing, 18A AC-3, 10 HP at 480VAC, 3-pole (3 NO), 120VAC 50/60Hz coil, open style.",
+      "specs": [
+        { "name": "Amperage", "value": "18A AC-3", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "120VAC 50/60Hz", "isNonNeg": true },
+        { "name": "Poles", "value": "3", "isNonNeg": true },
+        { "name": "Style", "value": "IEC (TeSys Deca), open", "isNonNeg": false },
+        { "name": "HP Rating", "value": "10 HP @ 480V (3-phase)", "isNonNeg": false },
+        { "name": "Aux Contacts", "value": "1 NO + 1 NC", "isNonNeg": false }
+      ],
+      "estListPrice": 130.56,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/LC1D18G7/"
+    },
+    {
+      "mpn": "LC1D32G7",
+      "brand": "Schneider Electric",
+      "name": "Schneider Electric LC1D32G7 TeSys Deca Contactor",
+      "description": "TeSys Deca IEC contactor, nonreversing, 32A AC-3, 20 HP at 480VAC, 3-pole (3 NO), 120VAC 50/60Hz coil, open style.",
+      "specs": [
+        { "name": "Amperage", "value": "32A AC-3", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "120VAC 50/60Hz", "isNonNeg": true },
+        { "name": "Poles", "value": "3", "isNonNeg": true },
+        { "name": "Style", "value": "IEC (TeSys Deca), open", "isNonNeg": false },
+        { "name": "HP Rating", "value": "20 HP @ 480V (3-phase)", "isNonNeg": false },
+        { "name": "Aux Contacts", "value": "1 NO + 1 NC", "isNonNeg": false }
+      ],
+      "estListPrice": 100.99,
+      "priceSource": "simplybreakers.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/LC1D32G7/"
+    },
+    {
+      "mpn": "8910DPA32V02",
+      "brand": "Square D",
+      "name": "Square D 8910DPA32V02 Definite Purpose Contactor",
+      "description": "Type DPA definite purpose contactor, 30A full-load, 2-pole, 110/120VAC coil, open type with quick-connect terminals.",
+      "specs": [
+        { "name": "Amperage", "value": "30A FLA / 40A resistive", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "110/120VAC 50/60Hz", "isNonNeg": true },
+        { "name": "Poles", "value": "2", "isNonNeg": true },
+        { "name": "Style", "value": "Definite purpose, open", "isNonNeg": false },
+        { "name": "HP Rating", "value": "5 HP @ 230VAC (1-phase)", "isNonNeg": false },
+        { "name": "Terminals", "value": "Quick connect", "isNonNeg": false }
+      ],
+      "estListPrice": 64.41,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/8910DPA32V02/"
+    },
+    {
+      "mpn": "3RT2026-1AK60",
+      "brand": "Siemens",
+      "name": "Siemens 3RT2026-1AK60 SIRIUS Power Contactor",
+      "description": "SIRIUS 3RT2 power contactor, size S0, 25A AC-3, 11 kW at 400V, 3-pole, 1 NO + 1 NC aux, 120VAC 60Hz coil, screw terminals.",
+      "specs": [
+        { "name": "Amperage", "value": "25A AC-3", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "120VAC 60Hz / 110VAC 50Hz", "isNonNeg": true },
+        { "name": "Poles", "value": "3", "isNonNeg": true },
+        { "name": "Style", "value": "IEC (SIRIUS S0), screw terminals", "isNonNeg": false },
+        { "name": "Power Rating", "value": "11 kW @ 400V (AC-3)", "isNonNeg": false },
+        { "name": "Aux Contacts", "value": "1 NO + 1 NC", "isNonNeg": false }
+      ],
+      "estListPrice": 143.84,
+      "priceSource": "blackhawksupply.com",
+      "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:2e16eb01-4de6-4ddd-9bbd-834cbc5978f4/chapter-2-contactors.pdf"
+    },
+    {
+      "mpn": "AF09-30-10-13",
+      "brand": "ABB",
+      "name": "ABB AF09-30-10-13 AF Contactor",
+      "description": "AF09 IEC contactor, 9A AC-3 (4 kW at 400V), 25A AC-1, 3-pole with 1 NO aux, 100-250V AC/DC electronic coil.",
+      "specs": [
+        { "name": "Amperage", "value": "9A AC-3 / 25A AC-1", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "100-250V AC/DC", "isNonNeg": true },
+        { "name": "Poles", "value": "3", "isNonNeg": true },
+        { "name": "Style", "value": "IEC (AF range), DIN rail", "isNonNeg": false },
+        { "name": "HP Rating", "value": "5 HP @ 480V (UL)", "isNonNeg": false },
+        { "name": "Aux Contacts", "value": "1 NO", "isNonNeg": false }
+      ],
+      "estListPrice": 94.19,
+      "priceSource": "us.rs-online.com",
+      "specSheetUrl": "https://library.e.abb.com/public/0463564beceb4a4da7db31b64217c3aa/1SBC100222M0201_A_PEI_AF09-96_NFcontactors.pdf"
+    },
+    {
+      "mpn": "100-C09D10",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 100-C09D10 IEC Contactor",
+      "description": "Bulletin 100-C IEC contactor, 9A AC-3, 5 HP at 460V, 3-pole with 1 NO auxiliary, 110/120VAC coil, screw terminals.",
+      "specs": [
+        { "name": "Amperage", "value": "9A AC-3 / 32A AC-1", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "110V 50Hz / 120V 60Hz", "isNonNeg": true },
+        { "name": "Poles", "value": "3", "isNonNeg": true },
+        { "name": "Style", "value": "IEC (Bulletin 100-C)", "isNonNeg": false },
+        { "name": "HP Rating", "value": "5 HP @ 460V (3-phase)", "isNonNeg": false },
+        { "name": "Aux Contacts", "value": "1 NO", "isNonNeg": false }
+      ],
+      "estListPrice": 85.19,
+      "priceSource": "kentstore.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.100-C09D10.html",
+      "upc": "662072608203"
+    },
+    {
+      "mpn": "100-C23D10",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 100-C23D10 IEC Contactor",
+      "description": "Bulletin 100-C IEC contactor, 23A AC-3, 15 HP at 460V, 3-pole with 1 NO auxiliary, 110/120VAC coil, screw terminals.",
+      "specs": [
+        { "name": "Amperage", "value": "23A AC-3 / 32A AC-1", "isNonNeg": true },
+        { "name": "Coil Voltage", "value": "110V 50Hz / 120V 60Hz", "isNonNeg": true },
+        { "name": "Poles", "value": "3", "isNonNeg": true },
+        { "name": "Style", "value": "IEC (Bulletin 100-C)", "isNonNeg": false },
+        { "name": "HP Rating", "value": "15 HP @ 460V (3-phase)", "isNonNeg": false },
+        { "name": "Aux Contacts", "value": "1 NO", "isNonNeg": false }
+      ],
+      "estListPrice": 122.26,
+      "priceSource": "kentstore.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.100-C23D10.html",
+      "upc": "662072596036"
+    }
+  ]
+}

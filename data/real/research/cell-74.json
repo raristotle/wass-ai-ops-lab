@@ -1,0 +1,138 @@
+{
+  "category": "safety",
+  "subcategory": "Hi-Vis Apparel",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "1085",
+      "brand": "ML Kishigo",
+      "name": "ML Kishigo 1085 Class 2 Mesh Vest",
+      "description": "Ultra-Cool 100% polyester mesh Class 2 vest with zipper front, 3 pockets, mic tab and 2 in. reflective material.",
+      "specs": [
+        { "name": "Class", "value": "2", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Material", "value": "Ultra-Cool 100% polyester mesh", "isNonNeg": false },
+        { "name": "Closure", "value": "Zipper front", "isNonNeg": false },
+        { "name": "Color", "value": "Hi-Vis Lime", "isNonNeg": false },
+        { "name": "Standard", "value": "ANSI/ISEA 107", "isNonNeg": false }
+      ],
+      "estListPrice": 12.84,
+      "priceSource": "blankstyle.com",
+      "specSheetUrl": "https://catalogs.kishigo.com/class-2-vests/full-view.html"
+    },
+    {
+      "mpn": "1163",
+      "brand": "ML Kishigo",
+      "name": "ML Kishigo 1163 Solid-Front Mesh-Back Vest",
+      "description": "Ultra-Cool solid front vest with polyester mesh back, zipper closure and 2 in. reflective with contrasting color; ANSI 107 Class 2.",
+      "specs": [
+        { "name": "Class", "value": "2", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Material", "value": "Solid polyester front, Ultra-Cool mesh back", "isNonNeg": false },
+        { "name": "Closure", "value": "Zipper front", "isNonNeg": false },
+        { "name": "Color", "value": "Hi-Vis Lime", "isNonNeg": false },
+        { "name": "Pockets", "value": "2 outside patch with flaps, dual pencil", "isNonNeg": false }
+      ],
+      "estListPrice": 16.55,
+      "priceSource": "hivissupply.com",
+      "specSheetUrl": "https://catalogs.kishigo.com/class-2-vests/full-view.html"
+    },
+    {
+      "mpn": "1550",
+      "brand": "ML Kishigo",
+      "name": "ML Kishigo 1550 Class 3 Heavy-Duty Vest",
+      "description": "Premium Brilliant Series heavy-duty Class 3 vest in Ultra-Cool polyester mesh with solid pockets and reflective Brilliant Trim edging.",
+      "specs": [
+        { "name": "Class", "value": "3", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Material", "value": "Ultra-Cool polyester mesh with solid pockets", "isNonNeg": false },
+        { "name": "Color", "value": "Hi-Vis Lime", "isNonNeg": false },
+        { "name": "Trim", "value": "Brilliant Trim reflective edging", "isNonNeg": false }
+      ],
+      "estListPrice": 22.75,
+      "priceSource": "glovestock.com",
+      "specSheetUrl": "https://catalogs.kishigo.com/brilliant-series/full-view.html"
+    },
+    {
+      "mpn": "8205Z",
+      "brand": "Ergodyne",
+      "name": "Ergodyne GloWear 8205Z Econo Mesh Vest",
+      "description": "Type R Class 2 super econo vest in 3.3 oz polyester mesh with zipper closure and 2 in. reflective tape; machine washable.",
+      "specs": [
+        { "name": "Class", "value": "2", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Material", "value": "3.3 oz polyester mesh", "isNonNeg": false },
+        { "name": "Closure", "value": "Zipper", "isNonNeg": false },
+        { "name": "Standard", "value": "ANSI/ISEA 107-2020", "isNonNeg": false }
+      ],
+      "estListPrice": 8.95,
+      "priceSource": "ergodyne.com",
+      "specSheetUrl": "https://www.ergodyne.com/glowear-8205z-class-2-super-econo-vest.html"
+    },
+    {
+      "mpn": "8220Z",
+      "brand": "Ergodyne",
+      "name": "Ergodyne GloWear 8220Z Standard Vest",
+      "description": "Type R Class 2 standard mesh vest with zipper closure, hi-vis fabric and 2 in. solid reflective tape.",
+      "specs": [
+        { "name": "Class", "value": "2", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Material", "value": "3.3 oz polyester mesh", "isNonNeg": false },
+        { "name": "Closure", "value": "Zipper", "isNonNeg": false },
+        { "name": "Standard", "value": "ANSI/ISEA 107-2020", "isNonNeg": false }
+      ],
+      "estListPrice": 11.05,
+      "priceSource": "ergodyne.com",
+      "specSheetUrl": "https://www.ergodyne.com/glowear-8220z-class-2-standard-vest.html"
+    },
+    {
+      "mpn": "8289",
+      "brand": "Ergodyne",
+      "name": "Ergodyne GloWear 8289 Hi-Vis T-Shirt",
+      "description": "Type R Class 2 hi-vis short sleeve t-shirt in breathable polyester with reflective tape.",
+      "specs": [
+        { "name": "Class", "value": "2", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Material", "value": "Polyester", "isNonNeg": false },
+        { "name": "Sleeve", "value": "Short sleeve", "isNonNeg": false },
+        { "name": "Standard", "value": "ANSI/ISEA 107-2020", "isNonNeg": false }
+      ],
+      "estListPrice": 17.85,
+      "priceSource": "ergodyne.com",
+      "specSheetUrl": "https://www.ergodyne.com/glowear-8289-class-2-t-shirt.html"
+    },
+    {
+      "mpn": "SV2ZGM",
+      "brand": "Radians",
+      "name": "Radians SV2ZGM Economy Mesh Vest",
+      "description": "Economy Type R Class 2 polyester mesh vest with zipper front and 2 in. silver reflective tape over shoulders and waist; hi-vis green.",
+      "specs": [
+        { "name": "Class", "value": "2", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Material", "value": "Polyester mesh", "isNonNeg": false },
+        { "name": "Closure", "value": "Zipper", "isNonNeg": false },
+        { "name": "Color", "value": "Hi-Vis Green", "isNonNeg": false },
+        { "name": "Reflective Tape", "value": "2 in. silver", "isNonNeg": false }
+      ],
+      "estListPrice": 6.99,
+      "priceSource": "waysource.com",
+      "specSheetUrl": "https://www.radians.com/products/radians-sv2z-economy-type-r-class-2-mesh-safety-vest-with-zipper"
+    },
+    {
+      "mpn": "SV59",
+      "brand": "Radians",
+      "name": "Radians SV59 Heavy-Duty Surveyor Vest",
+      "description": "Heavy duty Type R Class 2 surveyor safety vest with multiple pockets and 2 in. silver reflective tape.",
+      "specs": [
+        { "name": "Class", "value": "2", "isNonNeg": true },
+        { "name": "Type", "value": "R", "isNonNeg": true },
+        { "name": "Style", "value": "Heavy duty surveyor", "isNonNeg": false },
+        { "name": "Closure", "value": "Snap front", "isNonNeg": false },
+        { "name": "Reflective Tape", "value": "2 in. silver", "isNonNeg": false }
+      ],
+      "estListPrice": 21.99,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://www.radians.com/products/radians-sv59-type-r-class-2-heavy-duty-surveyor-safety-vest"
+    }
+  ]
+}

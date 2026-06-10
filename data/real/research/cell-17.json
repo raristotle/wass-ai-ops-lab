@@ -1,0 +1,170 @@
+{
+  "category": "electrical",
+  "subcategory": "Generators & Transfer Switches",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "7043",
+      "brand": "Generac",
+      "name": "Generac 7043 Guardian 22kW Generator",
+      "description": "Guardian Series 22kW air-cooled home standby generator, Wi-Fi enabled, with 200A service-entrance-rated automatic transfer switch.",
+      "specs": [
+        { "name": "Type", "value": "Air-cooled standby w/ 200A SE-rated ATS", "isNonNeg": true },
+        { "name": "Power Rating", "value": "22kW LP / 19.5kW NG", "isNonNeg": true },
+        { "name": "Fuel", "value": "Natural gas / liquid propane", "isNonNeg": false },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "Sound Level", "value": "67 dB(A)", "isNonNeg": false }
+      ],
+      "estListPrice": 6839.0,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.generac.com/globalassets/products/residential/standby-generators/spec-sheets/20kw-22kw-24kw_guardian-series_aircooled-gasengine_specsheet.pdf"
+    },
+    {
+      "mpn": "7210",
+      "brand": "Generac",
+      "name": "Generac 7210 Guardian 24kW Generator",
+      "description": "Guardian Series 24kW air-cooled home standby generator, Wi-Fi/Mobile Link, with 200A SE-rated NEMA 3R transfer switch.",
+      "specs": [
+        { "name": "Type", "value": "Air-cooled standby w/ 200A SE-rated ATS", "isNonNeg": true },
+        { "name": "Power Rating", "value": "24kW LP / 21kW NG", "isNonNeg": true },
+        { "name": "Fuel", "value": "Natural gas / liquid propane", "isNonNeg": false },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "THD", "value": "<5% total harmonic distortion", "isNonNeg": false }
+      ],
+      "estListPrice": 7259.0,
+      "priceSource": "zillerelectric.com",
+      "specSheetUrl": "https://www.generac.com/residential-products/standby-generators/gaseous/24kw-standby-generator-with-whole-house-switch-wifi-enabled-7210/"
+    },
+    {
+      "mpn": "7172",
+      "brand": "Generac",
+      "name": "Generac 7172 Guardian 10kW Generator",
+      "description": "Guardian Series 10kW air-cooled home standby generator, Wi-Fi enabled, with 100A 16-circuit automatic transfer switch.",
+      "specs": [
+        { "name": "Type", "value": "Air-cooled standby w/ 100A 16-circuit ATS", "isNonNeg": true },
+        { "name": "Power Rating", "value": "10kW LP / 9kW NG", "isNonNeg": true },
+        { "name": "Fuel", "value": "Natural gas / liquid propane", "isNonNeg": false },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false }
+      ],
+      "estListPrice": 4189.0,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.generac.com/residential-products/standby-generators/gaseous/10kw-standby-generator-with-16-circuit-switch-wifi-enabled-7172/"
+    },
+    {
+      "mpn": "RXSW200A3",
+      "brand": "Generac",
+      "name": "Generac RXSW200A3 200A Transfer Switch",
+      "description": "200A service-entrance-rated automatic smart transfer switch, 120/240V single-phase, NEMA 3R aluminum, integrated load management.",
+      "specs": [
+        { "name": "Type", "value": "Automatic transfer switch, service-entrance rated", "isNonNeg": true },
+        { "name": "Power Rating", "value": "200A", "isNonNeg": true },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R aluminum, indoor/outdoor", "isNonNeg": false },
+        { "name": "Withstand Rating", "value": "22,000A", "isNonNeg": false }
+      ],
+      "estListPrice": 869.0,
+      "priceSource": "norwall.com",
+      "specSheetUrl": "https://www.generac.com/globalassets/products/residential/standby-generator-transfer-switches/automatic-transfer-switches/spec-sheets/rxsc100a3-200a3_rxsw100a3-150a3-200a3_specsheet.pdf"
+    },
+    {
+      "mpn": "7683",
+      "brand": "Generac",
+      "name": "Generac 7683 GP6500 Portable Generator",
+      "description": "GP6500 COsense portable generator, 6,500W running / 8,125W starting, gasoline, PowerRush technology, CO shutdown, CARB compliant.",
+      "specs": [
+        { "name": "Type", "value": "Portable generator (manual start)", "isNonNeg": true },
+        { "name": "Power Rating", "value": "6,500W running / 8,125W starting", "isNonNeg": true },
+        { "name": "Fuel", "value": "Gasoline", "isNonNeg": false },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "Run Time", "value": "Up to 10.5 h at 50% load", "isNonNeg": false },
+        { "name": "CO Safety", "value": "COsense automatic shutdown", "isNonNeg": false }
+      ],
+      "estListPrice": 949.99,
+      "priceSource": "thepowertoolstore.com",
+      "specSheetUrl": "https://www.generac.com/globalassets/products/residential/portable-generators/spec-sheets/gp6500-cosense-49st-50st-specsheet.pdf"
+    },
+    {
+      "mpn": "20RCAL-200SELS",
+      "brand": "Kohler",
+      "name": "Kohler 20RCAL-200SELS 20kW Generator Package",
+      "description": "RCA Series 20kW air-cooled home standby generator with RXT 200A service-entrance-rated automatic transfer switch, 10-second restore.",
+      "specs": [
+        { "name": "Type", "value": "Air-cooled standby w/ RXT 200A SE-rated ATS", "isNonNeg": true },
+        { "name": "Power Rating", "value": "20kW LP / 18kW NG", "isNonNeg": true },
+        { "name": "Fuel", "value": "Natural gas / liquid propane", "isNonNeg": false },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "Engine", "value": "Kohler Command PRO CH1000 999cc V-twin", "isNonNeg": false }
+      ],
+      "estListPrice": 6649.0,
+      "priceSource": "norwall.com",
+      "specSheetUrl": "https://kohlerpower.com/en/residential/generators/product/20rcal"
+    },
+    {
+      "mpn": "RS20A",
+      "brand": "Cummins",
+      "name": "Cummins RS20A QuietConnect 20kW Generator",
+      "description": "QuietConnect Series 20kW air-cooled home standby generator, 120/240V single-phase, 65 dB(A) quiet operation; ATS sold separately.",
+      "specs": [
+        { "name": "Type", "value": "Air-cooled standby (ATS sold separately)", "isNonNeg": true },
+        { "name": "Power Rating", "value": "20kW", "isNonNeg": true },
+        { "name": "Fuel", "value": "Natural gas / liquid propane", "isNonNeg": false },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "Sound Level", "value": "65 dB(A) at 23 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 5747.5,
+      "priceSource": "apelectric.com",
+      "specSheetUrl": "https://www.cummins.com/generators/rs20a"
+    },
+    {
+      "mpn": "040658",
+      "brand": "Briggs & Stratton",
+      "name": "Briggs & Stratton 040658 PowerProtect 26kW Generator",
+      "description": "PowerProtect 26kW air-cooled home standby generator, 26kW LP / 24kW NG, Vanguard commercial engine, 41 kVA motor starting.",
+      "specs": [
+        { "name": "Type", "value": "Air-cooled standby (ATS sold separately)", "isNonNeg": true },
+        { "name": "Power Rating", "value": "26kW LP / 24kW NG", "isNonNeg": true },
+        { "name": "Fuel", "value": "Natural gas / liquid propane", "isNonNeg": false },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "Engine", "value": "Vanguard commercial-grade V-twin", "isNonNeg": false }
+      ],
+      "estListPrice": 6510.0,
+      "priceSource": "invertersrus.com",
+      "specSheetUrl": "https://energy.briggsandstratton.com/en-us/products/powerprotect-26kw-standby-generator"
+    },
+    {
+      "mpn": "D00185A20200F40M",
+      "brand": "ASCO",
+      "name": "ASCO D00185A20200F40M Series 185 Transfer Switch",
+      "description": "Series 185 automatic transfer switch, 200A, 120/240V single-phase 3-wire, 2-pole, NEMA 3R aluminum, 2-wire start, UL 1008 listed.",
+      "specs": [
+        { "name": "Type", "value": "Automatic transfer switch", "isNonNeg": true },
+        { "name": "Power Rating", "value": "200A", "isNonNeg": true },
+        { "name": "Phase", "value": "Single-phase, 120/240V, 3-wire", "isNonNeg": false },
+        { "name": "Poles", "value": "2", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R aluminum", "isNonNeg": false },
+        { "name": "Control", "value": "2-wire start, weekly exercise circuit", "isNonNeg": false }
+      ],
+      "estListPrice": 1922.11,
+      "priceSource": "toboaenergy.com",
+      "specSheetUrl": "https://www.se.com/us/en/product-range/66110-asco-series-185-power-transfer-switch/"
+    },
+    {
+      "mpn": "31410CRK",
+      "brand": "Reliance Controls",
+      "name": "Reliance Controls 31410CRK Manual Transfer Switch Kit",
+      "description": "Pro/Tran 30A 10-circuit manual transfer switch kit with PB30 power inlet box, 10 ft PC3010 cord; for generators up to 7,500W.",
+      "specs": [
+        { "name": "Type", "value": "Manual transfer switch kit", "isNonNeg": true },
+        { "name": "Power Rating", "value": "30A, 125/250V (generators up to 7,500W)", "isNonNeg": true },
+        { "name": "Phase", "value": "Single-phase, 120/240V", "isNonNeg": false },
+        { "name": "Circuits", "value": "10 (or 6x120V + 4x240V)", "isNonNeg": false },
+        { "name": "Inlet", "value": "NEMA L14-30, PB30 outdoor inlet box + 10 ft cord", "isNonNeg": false },
+        { "name": "Metering", "value": "Dual watt meters for load balancing", "isNonNeg": false }
+      ],
+      "estListPrice": 399.0,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "http://www.reliancecontrols.com/ProductDetail.aspx?31410CRK=",
+      "upc": "785399000731"
+    }
+  ]
+}

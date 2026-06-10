@@ -1,0 +1,169 @@
+{
+  "category": "security",
+  "subcategory": "Alarm Panels",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "VISTA-20P",
+      "brand": "Honeywell Home",
+      "name": "Honeywell Home VISTA-20P Hybrid Control Panel",
+      "description": "High-capacity hybrid burglary control panel with 8 onboard hardwired zones, expandable up to 48 zones, with two partitions.",
+      "specs": [
+        { "name": "Zones", "value": "8 onboard hardwired (15 with zone doubling), expandable up to 48", "isNonNeg": true },
+        { "name": "Communication", "value": "Built-in PSTN dialer; optional AlarmNet IP/LTE communicator", "isNonNeg": true },
+        { "name": "Keypad", "value": "Not included; supports alphanumeric and touchscreen keypads", "isNonNeg": false },
+        { "name": "Partitions", "value": "2", "isNonNeg": false },
+        { "name": "User Codes", "value": "48", "isNonNeg": false },
+        { "name": "Aux Power", "value": "12 VDC, 600 mA max", "isNonNeg": false }
+      ],
+      "estListPrice": 150.99,
+      "priceSource": "alarmgrid.com",
+      "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/intrusion-panels-systems/hybrid-systems/vista-20p-vistar-control-panel-vista-20p/"
+    },
+    {
+      "mpn": "VISTA-15P",
+      "brand": "Honeywell Home",
+      "name": "Honeywell Home VISTA-15P Residential Control Panel",
+      "description": "Residential hardwired control panel with 6 onboard zones, expandable up to 32 zones using hardwired or 345 MHz wireless expansion.",
+      "specs": [
+        { "name": "Zones", "value": "6 onboard hardwired, expandable up to 32", "isNonNeg": true },
+        { "name": "Communication", "value": "Built-in PSTN dialer; optional AlarmNet IP/LTE communicator", "isNonNeg": true },
+        { "name": "Keypad", "value": "Not included; supports alphanumeric keypads", "isNonNeg": false },
+        { "name": "User Codes", "value": "32", "isNonNeg": false }
+      ],
+      "estListPrice": 121.99,
+      "priceSource": "alarmgrid.com",
+      "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/intrusion-panels-systems/hybrid-systems/vista-15p-vistar-control-panel-vista-15p/"
+    },
+    {
+      "mpn": "PROA7PLUS",
+      "brand": "Resideo",
+      "name": "Resideo PROA7PLUS ProSeries All-In-One Panel",
+      "description": "ProSeries 7-inch all-in-one wireless security panel with touchscreen, speaker, microphone and 85 dB sounder; supports ProSIX sensors.",
+      "specs": [
+        { "name": "Zones", "value": "Up to 250 wireless zones (ProSIX/SiX series)", "isNonNeg": true },
+        { "name": "Communication", "value": "Built-in Wi-Fi; optional LTE cellular module", "isNonNeg": true },
+        { "name": "Keypad", "value": "Integrated 7-inch color touchscreen", "isNonNeg": false },
+        { "name": "Partitions", "value": "4", "isNonNeg": false },
+        { "name": "Automation", "value": "Z-Wave Plus built in (up to 78 devices)", "isNonNeg": false }
+      ],
+      "estListPrice": 246.99,
+      "priceSource": "alarmgrid.com",
+      "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/proseries/control-panels/proa7plus-proseries-7-inch-all-in-one-panel-proa7plus/"
+    },
+    {
+      "mpn": "HS2032NK",
+      "brand": "DSC",
+      "name": "DSC HS2032NK PowerSeries Neo Control Panel",
+      "description": "PowerSeries Neo hybrid control panel with 8 onboard zones expandable to 32 wireless or hardwired zones; 4 partitions, 72 user codes.",
+      "specs": [
+        { "name": "Zones", "value": "8 onboard, expandable to 32 wireless and hardwired", "isNonNeg": true },
+        { "name": "Communication", "value": "Optional PSTN/Ethernet/cellular alarm communicators", "isNonNeg": true },
+        { "name": "Keypad", "value": "Not included; supports up to 8 supervised keypads", "isNonNeg": false },
+        { "name": "Partitions", "value": "4", "isNonNeg": false },
+        { "name": "User Codes", "value": "72", "isNonNeg": false },
+        { "name": "Event Buffer", "value": "500 events", "isNonNeg": false }
+      ],
+      "estListPrice": 117.99,
+      "priceSource": "alarmgrid.com",
+      "specSheetUrl": "https://www.dsc.com/alarm-security-products/HS2032%20-%20PowerSeries%20Neo%20Control%20Panels/2442"
+    },
+    {
+      "mpn": "HS2064NK",
+      "brand": "DSC",
+      "name": "DSC HS2064NK PowerSeries Neo Control Panel",
+      "description": "PowerSeries Neo hybrid control panel with 8 onboard zones expandable to 64 wireless and hardwired zones; 8 partitions.",
+      "specs": [
+        { "name": "Zones", "value": "8 onboard, expandable to 64 wireless and hardwired", "isNonNeg": true },
+        { "name": "Communication", "value": "Optional PSTN/Ethernet/cellular alarm communicators", "isNonNeg": true },
+        { "name": "Keypad", "value": "Not included; supports up to 8 supervised keypads", "isNonNeg": false },
+        { "name": "Partitions", "value": "8", "isNonNeg": false },
+        { "name": "PGM Outputs", "value": "4 onboard, expandable to 80", "isNonNeg": false }
+      ],
+      "estListPrice": 134.99,
+      "priceSource": "alarmgrid.com",
+      "specSheetUrl": "https://www.dsc.com/alarm-security-products/HS2064%20-%20PowerSeries%20Neo%20Control%20Panels/2443"
+    },
+    {
+      "mpn": "IQP4001",
+      "brand": "Qolsys",
+      "name": "Qolsys IQP4001 IQ Panel 4 (Verizon)",
+      "description": "All-in-one 7-inch touchscreen security panel with built-in Verizon LTE (Alarm.com), Wi-Fi, PowerG and legacy 319.5 MHz sensor support.",
+      "specs": [
+        { "name": "Zones", "value": "Up to 128 wireless zones", "isNonNeg": true },
+        { "name": "Communication", "value": "Built-in Verizon LTE (Alarm.com) plus dual-band Wi-Fi", "isNonNeg": true },
+        { "name": "Keypad", "value": "Integrated 7-inch capacitive touchscreen", "isNonNeg": false },
+        { "name": "Sensor RF", "value": "PowerG 915 MHz + legacy 319.5 MHz", "isNonNeg": false },
+        { "name": "Camera", "value": "8 MP wide-angle front camera", "isNonNeg": false },
+        { "name": "Automation", "value": "Z-Wave Plus 700-series, Bluetooth", "isNonNeg": false }
+      ],
+      "estListPrice": 488.85,
+      "priceSource": "geoarm.com",
+      "specSheetUrl": "https://qolsys.com/iq-panel-4/"
+    },
+    {
+      "mpn": "IQPH058",
+      "brand": "Qolsys",
+      "name": "Qolsys IQPH058 IQ4 Hub (AT&T)",
+      "description": "All-in-one 7-inch touchscreen alarm panel with built-in AT&T LTE, dual-band Wi-Fi and PowerG 915 MHz wireless sensor support.",
+      "specs": [
+        { "name": "Zones", "value": "Up to 128 wireless zones", "isNonNeg": true },
+        { "name": "Communication", "value": "Built-in AT&T LTE (Alarm.com) plus dual-band Wi-Fi", "isNonNeg": true },
+        { "name": "Keypad", "value": "Integrated 7-inch touchscreen", "isNonNeg": false },
+        { "name": "Sensor RF", "value": "PowerG 915 MHz", "isNonNeg": false },
+        { "name": "Automation", "value": "Z-Wave Plus 800-series, Bluetooth", "isNonNeg": false }
+      ],
+      "estListPrice": 328.99,
+      "priceSource": "alarmgrid.com",
+      "specSheetUrl": "https://qolsys.com/iq4-hub/"
+    },
+    {
+      "mpn": "B4512",
+      "brand": "Bosch",
+      "name": "Bosch B4512 IP Control Panel",
+      "description": "B Series IP control panel for intrusion and residential fire; up to 28 individually identified points split into 2 areas.",
+      "specs": [
+        { "name": "Zones", "value": "Up to 28 points (hardwired or wireless)", "isNonNeg": true },
+        { "name": "Communication", "value": "On-board Ethernet (Conettix IP); optional PSTN/cellular plug-in modules", "isNonNeg": true },
+        { "name": "Keypad", "value": "Not included; supports B Series keypads", "isNonNeg": false },
+        { "name": "Areas", "value": "2", "isNonNeg": false },
+        { "name": "Users", "value": "32", "isNonNeg": false }
+      ],
+      "estListPrice": 177.42,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://commerce.boschsecurity.com/us/en/B4512-Control-Panels/p/F.01U.323.782/"
+    },
+    {
+      "mpn": "B5512",
+      "brand": "Bosch",
+      "name": "Bosch B5512 IP Control Panel",
+      "description": "B Series IP control panel for intrusion and residential fire; up to 48 individually identified points split into 4 areas.",
+      "specs": [
+        { "name": "Zones", "value": "Up to 48 points (8 onboard, up to 40 off-board)", "isNonNeg": true },
+        { "name": "Communication", "value": "On-board Ethernet (Conettix IP); optional PSTN/cellular plug-in modules", "isNonNeg": true },
+        { "name": "Keypad", "value": "Not included; supports B Series keypads", "isNonNeg": false },
+        { "name": "Areas", "value": "4", "isNonNeg": false },
+        { "name": "Outputs", "value": "3 onboard, expandable to 43", "isNonNeg": false }
+      ],
+      "estListPrice": 229.41,
+      "priceSource": "a1securitycameras.com",
+      "specSheetUrl": "https://commerce.boschsecurity.com/us/en/B5512-Control-Panels/p/F.01U.323.781/"
+    },
+    {
+      "mpn": "GEM-P1632",
+      "brand": "Napco",
+      "name": "Napco GEM-P1632 Gemini Control Panel",
+      "description": "Gemini hardwire/wireless control panel expandable to 32 zones with zone doubling; for residential and light commercial use.",
+      "specs": [
+        { "name": "Zones", "value": "8 onboard hardwired, expandable up to 32 (zone doubling and expansion modules)", "isNonNeg": true },
+        { "name": "Communication", "value": "Built-in digital dialer (PSTN); StarLink cellular compatible", "isNonNeg": true },
+        { "name": "Keypad", "value": "Not included; supports up to 7 Gemini keypads", "isNonNeg": false },
+        { "name": "User Codes", "value": "32", "isNonNeg": false },
+        { "name": "Event Log", "value": "400 events", "isNonNeg": false }
+      ],
+      "estListPrice": 151.95,
+      "priceSource": "homecontrols.com",
+      "specSheetUrl": "https://napcosecurity.com/media/pdfs/a392b_p1632spec.pdf"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "category": "electrical",
+  "subcategory": "Flexible Conduit & Liquidtight",
+  "uom": "FT",
+  "products": [
+    {
+      "mpn": "55094201",
+      "brand": "Southwire",
+      "name": "Southwire 55094201 Ultratite NM LFNC",
+      "description": "Ultratite Type NM liquidtight flexible nonmetallic conduit (LFNC-B), 1/2 in trade size, gray, 100 ft coil.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "LFNC-B (Ultratite Type NM)", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Material", "value": "Flexible PVC with rigid PVC reinforcement", "isNonNeg": false },
+        { "name": "Coil Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 0.91,
+      "priceSource": "friedmanshome.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/flexible-conduit/ultratite-sup-sup-type-nm/p/55094201"
+    },
+    {
+      "mpn": "55082103",
+      "brand": "Southwire",
+      "name": "Southwire 55082103 Alflex RWA FMC",
+      "description": "Alflex Type RWA reduced wall aluminum flexible metal conduit, 1/2 in trade size, 100 ft coil, UL listed.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "FMC, reduced wall (Type RWA)", "isNonNeg": true },
+        { "name": "Material", "value": "Aluminum", "isNonNeg": false },
+        { "name": "Coil Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 0.80,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.southwire.com/wire-cable/flexible-conduit/alflex-type-rwa-reduced-wall-aluminum-flexible-metal-conduit/p/55082103"
+    },
+    {
+      "mpn": "5502-30-00",
+      "brand": "AFC Cable Systems",
+      "name": "AFC 5502-30-00 Reduced Wall Steel Flex",
+      "description": "Type RW FSC 5500 Series reduced wall flexible steel conduit, hot-dipped galvanized, 1/2 in, 100 ft coil.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "FMC, reduced wall (Type RW FSC)", "isNonNeg": true },
+        { "name": "Material", "value": "Hot-dipped galvanized steel", "isNonNeg": false },
+        { "name": "Coil Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 0.51,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://www.atkore.com/product/5502-30-00"
+    },
+    {
+      "mpn": "6202-30-00",
+      "brand": "AFC Cable Systems",
+      "name": "AFC 6202-30-00 Liquid-Tuff LFMC",
+      "description": "UL LIQUID-TUFF 6200 Series liquidtight flexible metal conduit, galvanized steel core, gray PVC jacket, 1/2 in x 100 ft.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "LFMC (UL Liquid-Tuff 6200 Series)", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Material", "value": "Hot-dipped galvanized steel core, flame-retardant PVC jacket", "isNonNeg": false },
+        { "name": "Coil Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 1.60,
+      "priceSource": "amazon.com",
+      "specSheetUrl": "https://www.atkore.com/product/6202-30-00"
+    },
+    {
+      "mpn": "5602-30-00",
+      "brand": "AFC Cable Systems",
+      "name": "AFC 5602-30-00 Reduced Wall Aluminum Flex",
+      "description": "Type RW FAC reduced wall flexible aluminum conduit, premium aluminum alloy strip, 1/2 in trade size, 100 ft coil.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "FMC, reduced wall (Type RW FAC)", "isNonNeg": true },
+        { "name": "Material", "value": "Aluminum alloy", "isNonNeg": false },
+        { "name": "Coil Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 1.82,
+      "priceSource": "nassaunationalcable.com",
+      "specSheetUrl": "https://www.atkore.com/product/5602-30-00"
+    },
+    {
+      "mpn": "21101",
+      "brand": "Electri-Flex",
+      "name": "Electri-Flex 21101 Liquatite Type LA",
+      "description": "Liquatite Type LA liquidtight flexible metal conduit, 1/2 in, gray PVC jacket over galvanized steel core, 100 ft carton.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "LFMC (Liquatite Type LA)", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Inside Diameter", "value": "0.622-0.642 in", "isNonNeg": false },
+        { "name": "Outside Diameter", "value": "0.820-0.840 in", "isNonNeg": false },
+        { "name": "Carton Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 1.83,
+      "priceSource": "standardelectricsupply.com",
+      "specSheetUrl": "https://www.electriflex.com/products/type-la/"
+    },
+    {
+      "mpn": "22101",
+      "brand": "Electri-Flex",
+      "name": "Electri-Flex 22101 Liquatite Type LA",
+      "description": "Liquatite Type LA liquidtight flexible metal conduit, 3/4 in, gray PVC jacket over galvanized steel core, 100 ft carton.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Type", "value": "LFMC (Liquatite Type LA)", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Inside Diameter", "value": "0.820-0.840 in", "isNonNeg": false },
+        { "name": "Outside Diameter", "value": "1.030-1.050 in", "isNonNeg": false },
+        { "name": "Carton Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 2.50,
+      "priceSource": "standardelectricsupply.com",
+      "specSheetUrl": "https://www.electriflex.com/products/type-la/"
+    },
+    {
+      "mpn": "34212",
+      "brand": "Anamet",
+      "name": "Anamet 34212 Anaconda Sealtite Type UA",
+      "description": "Anaconda Sealtite Type UA HD liquidtight flexible metal conduit, 1/2 in, gray PVC jacket, galvanized steel core, 100 ft carton.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "LFMC (Sealtite Type UA HD)", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Inside Diameter", "value": "0.622-0.642 in", "isNonNeg": false },
+        { "name": "Carton Length", "value": "100 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 3.64,
+      "priceSource": "penntoolco.com",
+      "specSheetUrl": "https://flexiblewiringconduits.anacondasealtite.com/item/sealtite-ul/type-ua-liquid-tight-flexible-metal-conduit-lfmc/34212"
+    }
+  ]
+}

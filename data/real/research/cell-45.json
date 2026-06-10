@@ -1,0 +1,135 @@
+{
+  "category": "datacom",
+  "subcategory": "Racks & Cabinets",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "SR42UB",
+      "brand": "Tripp Lite",
+      "name": "Tripp Lite SR42UB 42U SmartRack Enclosure",
+      "description": "SmartRack 42U standard-depth server rack enclosure with locking reversible doors and side panels; ships fully assembled.",
+      "specs": [
+        { "name": "Height", "value": "42U", "isNonNeg": true },
+        { "name": "Type", "value": "Floor-standing enclosure cabinet", "isNonNeg": true },
+        { "name": "Load Capacity", "value": "3000 lb stationary", "isNonNeg": false },
+        { "name": "Mounting Width", "value": "19 in EIA", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 1327.39,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/sr42ub.pdf"
+    },
+    {
+      "mpn": "SRW12US",
+      "brand": "Tripp Lite",
+      "name": "Tripp Lite SRW12US 12U Wall-Mount Cabinet",
+      "description": "SmartRack 12U low-profile switch-depth wall-mount rack enclosure with hinged back panel for easy cable access.",
+      "specs": [
+        { "name": "Height", "value": "12U", "isNonNeg": true },
+        { "name": "Type", "value": "Wall-mount cabinet", "isNonNeg": true },
+        { "name": "Depth Class", "value": "Low-profile switch-depth", "isNonNeg": false },
+        { "name": "Back Panel", "value": "Hinged", "isNonNeg": false },
+        { "name": "Mounting Width", "value": "19 in EIA", "isNonNeg": false }
+      ],
+      "estListPrice": 546.59,
+      "priceSource": "matrixsolutionsinc.com",
+      "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/srw12us.pdf"
+    },
+    {
+      "mpn": "SR2POST25",
+      "brand": "Tripp Lite",
+      "name": "Tripp Lite SR2POST25 25U 2-Post Rack",
+      "description": "SmartRack 25U 2-post open frame rack with threaded mounting holes; 800 lb capacity for network equipment.",
+      "specs": [
+        { "name": "Height", "value": "25U", "isNonNeg": true },
+        { "name": "Type", "value": "2-post open frame rack", "isNonNeg": true },
+        { "name": "Load Capacity", "value": "800 lb", "isNonNeg": false },
+        { "name": "Mounting Width", "value": "19 in EIA", "isNonNeg": false },
+        { "name": "Mounting Holes", "value": "Threaded", "isNonNeg": false }
+      ],
+      "estListPrice": 222.79,
+      "priceSource": "staples.com",
+      "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/sr2post25.pdf"
+    },
+    {
+      "mpn": "SRW6U",
+      "brand": "Tripp Lite",
+      "name": "Tripp Lite SRW6U 6U Wall-Mount Cabinet",
+      "description": "SmartRack 6U low-profile switch-depth wall-mount mini rack enclosure for 19-inch network equipment.",
+      "specs": [
+        { "name": "Height", "value": "6U", "isNonNeg": true },
+        { "name": "Type", "value": "Wall-mount cabinet", "isNonNeg": true },
+        { "name": "Depth Class", "value": "Low-profile switch-depth", "isNonNeg": false },
+        { "name": "Mounting Width", "value": "19 in EIA", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 302.79,
+      "priceSource": "staples.com",
+      "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/srw6u.pdf"
+    },
+    {
+      "mpn": "AR3100",
+      "brand": "APC",
+      "name": "APC AR3100 NetShelter SX 42U Enclosure",
+      "description": "NetShelter SX 42U server rack enclosure, 600 mm wide x 1070 mm deep, with side panels; black.",
+      "specs": [
+        { "name": "Height", "value": "42U", "isNonNeg": true },
+        { "name": "Type", "value": "Server rack enclosure", "isNonNeg": true },
+        { "name": "Dimensions", "value": "1991H x 600W x 1070D mm", "isNonNeg": false },
+        { "name": "Load Capacity", "value": "3000 lb static", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 1887.13,
+      "priceSource": "eaccu-tech.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/AR3100/apc-netshelter-sx-server-rack-enclosure-42u-black-1991h-x-600w-x-1070d-mm-taa/"
+    },
+    {
+      "mpn": "AR100",
+      "brand": "APC",
+      "name": "APC AR100 NetShelter WX 13U Wall-Mount",
+      "description": "NetShelter WX 13U wall-mount rack cabinet with glass front door; double-hinged, server depth.",
+      "specs": [
+        { "name": "Height", "value": "13U", "isNonNeg": true },
+        { "name": "Type", "value": "Wall-mount cabinet", "isNonNeg": true },
+        { "name": "Door", "value": "Glass front door", "isNonNeg": false },
+        { "name": "Hinging", "value": "Double hinged, server depth", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false }
+      ],
+      "estListPrice": 614.99,
+      "priceSource": "odpbusiness.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/AR100/apc-netshelter-13u-wallmount-rack-cabinet-glass-door-double-hinged-server-depth/"
+    },
+    {
+      "mpn": "55053-703",
+      "brand": "Chatsworth",
+      "name": "Chatsworth 55053-703 45U Standard Rack",
+      "description": "CPI Standard Rack two-post relay rack, 45U, 84 in H x 19 in W x 3 in D, grounded, UL Listed, black.",
+      "specs": [
+        { "name": "Height", "value": "45U", "isNonNeg": true },
+        { "name": "Type", "value": "2-post relay rack", "isNonNeg": true },
+        { "name": "Dimensions", "value": "84 in H x 19 in W x 3 in D", "isNonNeg": false },
+        { "name": "Load Capacity", "value": "1000 lb static", "isNonNeg": false },
+        { "name": "Material", "value": "Aluminum", "isNonNeg": false }
+      ],
+      "estListPrice": 268.95,
+      "priceSource": "server-rack-online.com",
+      "specSheetUrl": "https://www.chatsworth.com/en-us/products/racks-cable-management/two-post-racks/relay-racks/standard-rack-3d-80mm/55053-703"
+    },
+    {
+      "mpn": "R4P",
+      "brand": "Panduit",
+      "name": "Panduit R4P 45U 4-Post Rack",
+      "description": "Adjustable-rail 4-post rack, 45 RU, 30 in deep, #12-24 threaded E-rails, welded steel, UL listed 2500 lb, black.",
+      "specs": [
+        { "name": "Height", "value": "45U", "isNonNeg": true },
+        { "name": "Type", "value": "4-post open frame rack", "isNonNeg": true },
+        { "name": "Depth", "value": "30 in (adjustable rails)", "isNonNeg": false },
+        { "name": "Load Capacity", "value": "2500 lb UL listed", "isNonNeg": false },
+        { "name": "Rails", "value": "#12-24 threaded E-rails", "isNonNeg": false }
+      ],
+      "estListPrice": 2359.58,
+      "priceSource": "rspsupply.com",
+      "specSheetUrl": "https://www.panduit.com/en/products/cabinets-thermal-management-racks-enclosures/racks-accessories/racks/p205063.html"
+    }
+  ]
+}

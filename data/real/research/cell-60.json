@@ -1,0 +1,152 @@
+{
+  "category": "av",
+  "subcategory": "Microphones & Audio Capture",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "SM58-LC",
+      "brand": "Shure",
+      "name": "Shure SM58-LC Cardioid Dynamic Vocal Mic",
+      "description": "Industry-standard cardioid dynamic vocal microphone with spherical grille and built-in pop filter; cable not included.",
+      "specs": [
+        { "name": "Type", "value": "Dynamic", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired XLR (3-pin)", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Cardioid", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "50 Hz - 15 kHz", "isNonNeg": false },
+        { "name": "Weight", "value": "0.65 lb (298 g)", "isNonNeg": false }
+      ],
+      "estListPrice": 109,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://pubs.shure.com/view/guide/SM58/en-US.pdf"
+    },
+    {
+      "mpn": "SM57-LC",
+      "brand": "Shure",
+      "name": "Shure SM57-LC Dynamic Instrument Mic",
+      "description": "Cardioid dynamic instrument microphone for amps, snare and speech; contoured 40 Hz-15 kHz frequency response.",
+      "specs": [
+        { "name": "Type", "value": "Dynamic", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired XLR (3-pin)", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Cardioid", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "40 Hz - 15 kHz", "isNonNeg": false },
+        { "name": "Sensitivity", "value": "-56 dBV/Pa (1.6 mV)", "isNonNeg": false }
+      ],
+      "estListPrice": 109,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://pubs.shure.com/view/guide/SM57/en-US.pdf"
+    },
+    {
+      "mpn": "SM7B",
+      "brand": "Shure",
+      "name": "Shure SM7B Dynamic Broadcast Vocal Mic",
+      "description": "Dynamic broadcast/vocal microphone with flat wide-range response, switchable bass roll-off and presence boost.",
+      "specs": [
+        { "name": "Type", "value": "Dynamic", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired XLR (3-pin)", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Cardioid", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "50 Hz - 20 kHz", "isNonNeg": false },
+        { "name": "Switches", "value": "Bass roll-off, presence boost", "isNonNeg": false }
+      ],
+      "estListPrice": 439,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://pubs.shure.com/view/guide/SM7B/en-US.pdf"
+    },
+    {
+      "mpn": "MX418/C",
+      "brand": "Shure",
+      "name": "Shure MX418/C Gooseneck Podium Mic",
+      "description": "Microflex 18 in cardioid gooseneck podium microphone with attached XLR preamp and snap-fit foam windscreen.",
+      "specs": [
+        { "name": "Type", "value": "Electret condenser (gooseneck)", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired XLR via inline preamp (phantom power)", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Cardioid", "isNonNeg": false },
+        { "name": "Gooseneck Length", "value": "18 in (45.7 cm)", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "50 Hz - 17 kHz", "isNonNeg": false }
+      ],
+      "estListPrice": 296,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://pubs.shure.com/view/guide/MX400/en-US.pdf"
+    },
+    {
+      "mpn": "MV7+-K",
+      "brand": "Shure",
+      "name": "Shure MV7+-K Hybrid Podcast Mic",
+      "description": "Hybrid USB-C/XLR dynamic podcast microphone with Auto Level Mode, digital pop filter and LED touch panel; black.",
+      "specs": [
+        { "name": "Type", "value": "Dynamic", "isNonNeg": true },
+        { "name": "Connectivity", "value": "USB-C and XLR", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Cardioid", "isNonNeg": false },
+        { "name": "Color", "value": "Black", "isNonNeg": false },
+        { "name": "Software", "value": "Shure MOTIV Mix desktop app", "isNonNeg": false }
+      ],
+      "estListPrice": 279,
+      "priceSource": "bestbuy.com",
+      "specSheetUrl": "https://pubs.shure.com/view/guide/MV7Plus/en-US.pdf"
+    },
+    {
+      "mpn": "e 835",
+      "brand": "Sennheiser",
+      "name": "Sennheiser e 835 Dynamic Vocal Mic",
+      "description": "Cardioid dynamic vocal stage microphone with hum-compensating coil and rugged metal housing; 10-year US warranty.",
+      "specs": [
+        { "name": "Type", "value": "Dynamic", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired XLR-3", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Cardioid", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "40 Hz - 16 kHz", "isNonNeg": false },
+        { "name": "Sensitivity", "value": "2.7 mV/Pa", "isNonNeg": false }
+      ],
+      "estListPrice": 99.95,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://www.sennheiser.com/globalassets/digizuite/41678-en-sp_1209_v1.0_e_835_e_835-s_product_specification_en.pdf"
+    },
+    {
+      "mpn": "e 935",
+      "brand": "Sennheiser",
+      "name": "Sennheiser e 935 Dynamic Vocal Mic",
+      "description": "Cardioid dynamic vocal microphone for the working musician with shock-mounted capsule and rugged metal housing.",
+      "specs": [
+        { "name": "Type", "value": "Dynamic", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired XLR-3", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Cardioid", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "40 Hz - 18 kHz", "isNonNeg": false },
+        { "name": "Weight", "value": "355 g", "isNonNeg": false }
+      ],
+      "estListPrice": 199.95,
+      "priceSource": "sweetwater.com",
+      "specSheetUrl": "https://www.sennheiser.com/globalassets/digizuite/41696-en-sp_1218_v1.0_e_935_product_specification_en.pdf"
+    },
+    {
+      "mpn": "MKE 600",
+      "brand": "Sennheiser",
+      "name": "Sennheiser MKE 600 Shotgun Mic",
+      "description": "Shotgun condenser microphone for camera/video with switchable low-cut filter; 48V phantom or AA battery powered.",
+      "specs": [
+        { "name": "Type", "value": "Condenser (shotgun)", "isNonNeg": true },
+        { "name": "Connectivity", "value": "Wired XLR-3 (48V phantom or AA battery)", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Supercardioid/lobar", "isNonNeg": false },
+        { "name": "Frequency Response", "value": "40 Hz - 20 kHz", "isNonNeg": false },
+        { "name": "Max SPL", "value": "132 dB SPL (phantom power)", "isNonNeg": false }
+      ],
+      "estListPrice": 329.95,
+      "priceSource": "bestbuy.com",
+      "specSheetUrl": "https://www.sennheiser.com/globalassets/digizuite/41788-en-sp_1302_v1.0_mke_600_product_specification_en.pdf"
+    },
+    {
+      "mpn": "911.0498.900",
+      "brand": "Biamp",
+      "name": "Biamp 911.0498.900 Parle TCM-X Ceiling Mic",
+      "description": "Parle TCM-X Beamtracking ceiling microphone (white) with 16-element array and four 90-degree zones for 360-degree pickup.",
+      "specs": [
+        { "name": "Type", "value": "Beamtracking ceiling array microphone", "isNonNeg": true },
+        { "name": "Connectivity", "value": "AVB over single CAT cable (PoE)", "isNonNeg": true },
+        { "name": "Polar Pattern", "value": "Four 90-degree beamtracking zones (360-degree coverage)", "isNonNeg": false },
+        { "name": "Diameter", "value": "5.9 in (150 mm)", "isNonNeg": false },
+        { "name": "Color", "value": "White", "isNonNeg": false },
+        { "name": "Warranty", "value": "5 years", "isNonNeg": false }
+      ],
+      "estListPrice": 2565,
+      "priceSource": "conferenceroomav.com",
+      "specSheetUrl": "https://downloads.biamp.com/assets/docs/default-source/data-sheets/biamp_data_sheet_parle-mics_all-models_jul22.pdf?sfvrsn=6c44e0b5_48"
+    }
+  ]
+}

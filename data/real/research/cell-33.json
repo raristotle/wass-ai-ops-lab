@@ -1,0 +1,174 @@
+{
+  "category": "electrical",
+  "subcategory": "Industrial Plugs & Receptacles",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "HBL2611",
+      "brand": "Hubbell",
+      "name": "Hubbell HBL2611 Twist-Lock Plug L5-30P",
+      "description": "Insulgrip Twist-Lock industrial male plug, 30A 125V, 2-pole 3-wire grounding, NEMA L5-30P, nylon body, screw terminals.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "125VAC", "isNonNeg": true },
+        { "name": "Configuration", "value": "NEMA L5-30P", "isNonNeg": true },
+        { "name": "Environmental", "value": "-40C to 75C operating", "isNonNeg": false },
+        { "name": "Termination", "value": "Screw terminal, #18-#10 AWG", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 30.65,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL2611_spec.pdf"
+    },
+    {
+      "mpn": "HBL2310",
+      "brand": "Hubbell",
+      "name": "Hubbell HBL2310 Twist-Lock Receptacle L5-20R",
+      "description": "Twist-Lock industrial flush receptacle, 20A 125V, 2-pole 3-wire grounding, NEMA L5-20R, black nylon face, screw terminals.",
+      "specs": [
+        { "name": "Amperage", "value": "20A", "isNonNeg": true },
+        { "name": "Voltage", "value": "125VAC", "isNonNeg": true },
+        { "name": "Configuration", "value": "NEMA L5-20R", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw terminal", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 36.48,
+      "priceSource": "partstown.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL2310_spec.pdf"
+    },
+    {
+      "mpn": "HBL5266C",
+      "brand": "Hubbell",
+      "name": "Hubbell HBL5266C Insulgrip Plug 5-15P",
+      "description": "Insulgrip straight-blade male plug, 15A 125V, 2-pole 3-wire grounding, NEMA 5-15P, impact-resistant black/white nylon housing.",
+      "specs": [
+        { "name": "Amperage", "value": "15A", "isNonNeg": true },
+        { "name": "Voltage", "value": "125VAC", "isNonNeg": true },
+        { "name": "Configuration", "value": "NEMA 5-15P", "isNonNeg": true },
+        { "name": "Termination", "value": "Screw terminal, #18-#10 AWG", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial/commercial heavy duty", "isNonNeg": false }
+      ],
+      "estListPrice": 24.41,
+      "priceSource": "worldelectricsupply.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL5266C_spec.pdf",
+      "upc": "783585173009"
+    },
+    {
+      "mpn": "CS8365C",
+      "brand": "Hubbell",
+      "name": "Hubbell CS8365C Twist-Lock Plug 50A 3-Phase",
+      "description": "Twist-Lock male plug, 50A 250VAC 3-phase delta, 3-pole 4-wire grounding, non-NEMA California-style, stainless shroud.",
+      "specs": [
+        { "name": "Amperage", "value": "50A", "isNonNeg": true },
+        { "name": "Voltage", "value": "250VAC 3-phase delta", "isNonNeg": true },
+        { "name": "Configuration", "value": "Non-NEMA CS8365C (California style), 3P4W", "isNonNeg": true },
+        { "name": "Environmental", "value": "-40C to 75C operating", "isNonNeg": false },
+        { "name": "Termination", "value": "Screw terminal, #8-#4 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 76.95,
+      "priceSource": "store.monkeywrenchpro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_CS8365C_spec.pdf"
+    },
+    {
+      "mpn": "HBL460R9W",
+      "brand": "Hubbell",
+      "name": "Hubbell HBL460R9W Pin & Sleeve Receptacle 60A",
+      "description": "IEC 60309 pin and sleeve receptacle, 60A 250VAC 3-phase, 3-pole 4-wire grounding, watertight IP67, blue nylon housing.",
+      "specs": [
+        { "name": "Amperage", "value": "60A", "isNonNeg": true },
+        { "name": "Voltage", "value": "250VAC 3-phase", "isNonNeg": true },
+        { "name": "Configuration", "value": "IEC 60309 pin & sleeve, 3P4W (9W)", "isNonNeg": true },
+        { "name": "Environmental", "value": "Watertight, IP67", "isNonNeg": false },
+        { "name": "Termination", "value": "#8-#2 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 462.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL460R9W_spec.pdf"
+    },
+    {
+      "mpn": "2611",
+      "brand": "Leviton",
+      "name": "Leviton 2611 Locking Plug L5-30P",
+      "description": "Industrial grade locking plug, 30A 125V, 2-pole 3-wire grounding, NEMA L5-30P, black/white super tough nylon body.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "125VAC", "isNonNeg": true },
+        { "name": "Configuration", "value": "NEMA L5-30P", "isNonNeg": true },
+        { "name": "Environmental", "value": "-40C to 60C operating", "isNonNeg": false },
+        { "name": "Termination", "value": "Screw terminal, #18-#10 AWG", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 18.76,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://leviton.com/products/2611",
+      "upc": "078477807989"
+    },
+    {
+      "mpn": "460P9W",
+      "brand": "Leviton",
+      "name": "Leviton 460P9W Pin & Sleeve Plug 60A",
+      "description": "North American-rated pin & sleeve plug, 60A 250VAC 3-phase, 3P 4W, industrial grade, watertight IP67, blue Valox housing.",
+      "specs": [
+        { "name": "Amperage", "value": "60A", "isNonNeg": true },
+        { "name": "Voltage", "value": "250VAC 3-phase", "isNonNeg": true },
+        { "name": "Configuration", "value": "IEC 60309 pin & sleeve, 3P4W (9W)", "isNonNeg": true },
+        { "name": "Environmental", "value": "Watertight, IP67", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial", "isNonNeg": false }
+      ],
+      "estListPrice": 322.88,
+      "priceSource": "twacomm.com",
+      "specSheetUrl": "https://leviton.com/products/460P9W"
+    },
+    {
+      "mpn": "L530P",
+      "brand": "Pass & Seymour",
+      "name": "Pass & Seymour L530P Turnlok Plug",
+      "description": "Turnlok industrial spec grade locking plug, 30A 125V, 3-wire, NEMA L5-30P, impact- and corrosion-resistant nylon, black/white.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "125VAC", "isNonNeg": true },
+        { "name": "Configuration", "value": "NEMA L5-30P", "isNonNeg": true },
+        { "name": "Environmental", "value": "-40C to 75C operating", "isNonNeg": false },
+        { "name": "Termination", "value": "#18-#6 AWG", "isNonNeg": false },
+        { "name": "Grade", "value": "Industrial spec grade", "isNonNeg": false }
+      ],
+      "estListPrice": 23.48,
+      "priceSource": "capitalelectricsupply.com",
+      "specSheetUrl": "https://www.legrand.us/wiring-devices/plugs-and-connectors/turnlok/30a-nema-l530-plug-black-back-white-front-body/p/l530p",
+      "upc": "785007253047"
+    },
+    {
+      "mpn": "63-34043",
+      "brand": "Meltric",
+      "name": "Meltric 63-34043 DSN30 Receptacle",
+      "description": "DSN30 Decontactor switch-rated pin & sleeve receptacle, 30A 480VAC, 3P+G, blue polyamide housing, Type 4X, 100kA SCCR.",
+      "specs": [
+        { "name": "Amperage", "value": "30A", "isNonNeg": true },
+        { "name": "Voltage", "value": "480VAC", "isNonNeg": true },
+        { "name": "Configuration", "value": "DSN30 Decontactor, 3P+G", "isNonNeg": true },
+        { "name": "Environmental", "value": "NEMA 4X", "isNonNeg": false },
+        { "name": "Termination", "value": "#14-#8 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 347,
+      "priceSource": "cooper-electric.com",
+      "specSheetUrl": "https://meltric.com/media/contentmanager/content/meltric-catalog-dsn30-en.pdf",
+      "upc": "784474544207"
+    },
+    {
+      "mpn": "ACP1034CD",
+      "brand": "Appleton",
+      "name": "Appleton ACP1034CD Powertite Plug 100A",
+      "description": "Powertite clamping-ring pin & sleeve plug, 100A 600VAC/250VDC, 4-pole 3-wire, Style 2, corrosion-resistant aluminum body.",
+      "specs": [
+        { "name": "Amperage", "value": "100A", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC / 250VDC", "isNonNeg": true },
+        { "name": "Configuration", "value": "Powertite pin & sleeve, 4P3W, Style 2", "isNonNeg": true },
+        { "name": "Environmental", "value": "NEMA 3/3R/4/4X, -40C to 107C", "isNonNeg": false },
+        { "name": "Termination", "value": "#4-#1 AWG", "isNonNeg": false }
+      ],
+      "estListPrice": 769.72,
+      "priceSource": "elliottelectric.com",
+      "specSheetUrl": "https://www.appleton.emerson.com/catalog/en-us/shop/appleton/appleton-sku-acp1034cd?locale=en-us"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "category": "av",
+  "subcategory": "Projectors",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "V11HA27020",
+      "brand": "Epson",
+      "name": "Epson PowerLite L530U Laser Projector",
+      "description": "PowerLite L530U 3LCD laser projector, 5,200 lumens WUXGA with 4K-signal input and 20,000-hour maintenance-free light source.",
+      "specs": [
+        { "name": "Brightness", "value": "5200 lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "WUXGA 1920 x 1200", "isNonNeg": true },
+        { "name": "Light Source", "value": "Laser, 20,000 hr", "isNonNeg": false },
+        { "name": "Technology", "value": "3LCD", "isNonNeg": false },
+        { "name": "Warranty", "value": "3 years", "isNonNeg": false }
+      ],
+      "estListPrice": 2943,
+      "priceSource": "epson.com",
+      "specSheetUrl": "https://mediaserver.goepson.com/ImConvServlet/imconv/d35b20f8a3b9ca9520a2af4ff393d3a4de1c0a56/original?assetDescr=PowerLite_L530U_Specification_Sheet_CPD-60911R1_FINAL.pdf"
+    },
+    {
+      "mpn": "V11H988020",
+      "brand": "Epson",
+      "name": "Epson PowerLite 992F Classroom Projector",
+      "description": "PowerLite 992F 3LCD classroom projector, 4,000 lumens Full HD 1080p with built-in wireless, screen mirroring and 1.6x zoom.",
+      "specs": [
+        { "name": "Brightness", "value": "4000 lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "Full HD 1920 x 1080", "isNonNeg": true },
+        { "name": "Lamp Life", "value": "Up to 17,000 hr", "isNonNeg": false },
+        { "name": "Technology", "value": "3LCD", "isNonNeg": false },
+        { "name": "Zoom", "value": "1.0 - 1.6x optical", "isNonNeg": false }
+      ],
+      "estListPrice": 1158,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://mediaserver.goepson.com/ImConvServlet/imconv/cc33a3aae5958342e5122362ad0e64a3c615e542/original?assetDescr=PowerLite-992F_SpecSheet_CPD-59277_Final.pdf"
+    },
+    {
+      "mpn": "V11H982020",
+      "brand": "Epson",
+      "name": "Epson PowerLite X49 XGA Projector",
+      "description": "PowerLite X49 3LCD XGA classroom projector, 3,600 lumens with HDMI and up to 12,000-hour lamp life in ECO mode.",
+      "specs": [
+        { "name": "Brightness", "value": "3600 lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "XGA 1024 x 768", "isNonNeg": true },
+        { "name": "Lamp Life", "value": "Up to 12,000 hr (ECO)", "isNonNeg": false },
+        { "name": "Technology", "value": "3LCD", "isNonNeg": false },
+        { "name": "Zoom", "value": "1.2x optical", "isNonNeg": false }
+      ],
+      "estListPrice": 508,
+      "priceSource": "epson.com",
+      "specSheetUrl": "https://epson.com/For-Work/Projectors/Classroom/PowerLite-X49-3LCD-XGA-Classroom-Projector-with-HDMI/p/V11H982020"
+    },
+    {
+      "mpn": "V11HA98020",
+      "brand": "Epson",
+      "name": "Epson PowerLite L570U Laser Projector",
+      "description": "PowerLite L570U 3LCD laser projector, 5,200 lumens WUXGA with 4K Enhancement, lens shift and 20,000-hour laser light source.",
+      "specs": [
+        { "name": "Brightness", "value": "5200 lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "WUXGA 1920 x 1200 with 4K Enhancement", "isNonNeg": true },
+        { "name": "Light Source", "value": "Laser, 20,000 hr", "isNonNeg": false },
+        { "name": "Technology", "value": "3LCD", "isNonNeg": false },
+        { "name": "Zoom", "value": "1.6x optical with lens shift", "isNonNeg": false }
+      ],
+      "estListPrice": 3496,
+      "priceSource": "epson.com",
+      "specSheetUrl": "https://epson.com/For-Work/Projectors/Meeting-Room/PowerLite-L570U-3LCD-Laser-Projector-with-4K-Enhancement/p/V11HA98020"
+    },
+    {
+      "mpn": "LH730",
+      "brand": "BenQ",
+      "name": "BenQ LH730 LED Conference Projector",
+      "description": "LH730 LED DLP conference-room projector, 4,000 ANSI lumens 1080p with 98% Rec.709 and up to 30,000-hour LED light source.",
+      "specs": [
+        { "name": "Brightness", "value": "4000 ANSI lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "Full HD 1920 x 1080", "isNonNeg": true },
+        { "name": "Light Source", "value": "4LED, up to 30,000 hr (ECO)", "isNonNeg": false },
+        { "name": "Technology", "value": "DLP", "isNonNeg": false },
+        { "name": "Color Coverage", "value": "98% Rec.709", "isNonNeg": false }
+      ],
+      "estListPrice": 1499,
+      "priceSource": "officewonderland.com",
+      "specSheetUrl": "https://www.benq.com/en-us/business/projector/lh730/specifications.html"
+    },
+    {
+      "mpn": "LH650",
+      "brand": "BenQ",
+      "name": "BenQ LH650 Laser Business Projector",
+      "description": "LH650 laser DLP business projector, 4,000 ANSI lumens 1080p with USB-C, 20,000-hour laser light source and built-in 10 W speaker.",
+      "specs": [
+        { "name": "Brightness", "value": "4000 ANSI lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "Full HD 1920 x 1080", "isNonNeg": true },
+        { "name": "Light Source", "value": "Laser phosphor, 20,000 hr", "isNonNeg": false },
+        { "name": "Technology", "value": "DLP", "isNonNeg": false },
+        { "name": "Color Coverage", "value": "92% Rec.709", "isNonNeg": false }
+      ],
+      "estListPrice": 999,
+      "priceSource": "walmart.com",
+      "specSheetUrl": "https://www.benq.com/en-us/projector/business/lh650/spec.html"
+    },
+    {
+      "mpn": "DWU760-iS",
+      "brand": "Christie",
+      "name": "Christie DWU760-iS Laser Projector",
+      "description": "Inspire Series DWU760-iS 1DLP laser projector, 7,150 ISO lumens WUXGA with IP5X-sealed optics, motorized zoom and 24/7 operation.",
+      "specs": [
+        { "name": "Brightness", "value": "7150 ISO lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "WUXGA 1920 x 1200", "isNonNeg": true },
+        { "name": "Light Source", "value": "Laser phosphor, 20,000 hr", "isNonNeg": false },
+        { "name": "Technology", "value": "1DLP", "isNonNeg": false },
+        { "name": "Operation", "value": "24/7", "isNonNeg": false }
+      ],
+      "estListPrice": 5419,
+      "priceSource": "officewonderland.com",
+      "specSheetUrl": "https://www.christiedigital.com/products/projectors/all-projectors/inspire-series/dwu760-is/"
+    },
+    {
+      "mpn": "G62-W9",
+      "brand": "Barco",
+      "name": "Barco G62-W9 Laser Projector",
+      "description": "G62-W9 single-chip DLP laser phosphor installation projector, 9,000 lumens WUXGA; projection lens sold separately.",
+      "specs": [
+        { "name": "Brightness", "value": "9000 lumens", "isNonNeg": true },
+        { "name": "Resolution", "value": "WUXGA 1920 x 1200", "isNonNeg": true },
+        { "name": "Light Source", "value": "Laser phosphor", "isNonNeg": false },
+        { "name": "Technology", "value": "1-chip DLP", "isNonNeg": false },
+        { "name": "Lens", "value": "Not included", "isNonNeg": false }
+      ],
+      "estListPrice": 11450,
+      "priceSource": "farralane.com",
+      "specSheetUrl": "https://assets.barco.com/m/2e18595d63338fcc/original/G62-W9-en-Spec-sheet.pdf"
+    }
+  ]
+}

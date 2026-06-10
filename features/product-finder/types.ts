@@ -54,6 +54,18 @@ export interface ProductSpec {
   isNonNeg?: boolean;
 }
 
+/**
+ * Data provenance for a catalog entry:
+ *  - "verified"  — real manufacturer part number; specs and spec-sheet URL
+ *                  researched against public manufacturer/distributor sources
+ *                  and the URL verified live at dataset-build time.
+ *  - "curated"   — hand-written demo entry built around a real part number,
+ *                  but not link-verified.
+ *  - "simulated" — output of the deterministic catalog generator; SKU, price,
+ *                  and inventory are synthetic demo data.
+ */
+export type ProductDataSource = "verified" | "curated" | "simulated";
+
 export interface CatalogProduct {
   id: string;
   sku: string;
@@ -74,6 +86,11 @@ export interface CatalogProduct {
   externalSources: ExternalSource[];
   compatScore?: number;
   imageIcon: string;
+  dataSource?: ProductDataSource;
+  /** Manufacturer spec sheet / datasheet URL (live-verified at build time for "verified" entries). */
+  specSheetUrl?: string;
+  /** Provenance of unitPrice, e.g. "Est. list price, researched 2026-06 (grainger.com)". */
+  priceNote?: string;
 }
 
 export interface BomLine {

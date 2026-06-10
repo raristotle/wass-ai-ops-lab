@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "Motor Starters & Controls",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "8536SCO3V02S",
+      "brand": "Square D",
+      "name": "Square D 8536SCO3V02S NEMA Size 1 Starter",
+      "description": "NEMA Size 1 Type S full-voltage non-reversing starter, 27A, 3-pole, melting alloy overload, 120VAC coil, open type.",
+      "specs": [
+        { "name": "HP Rating", "value": "10 HP @ 460V (3-phase)", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Full-voltage non-reversing, NEMA Size 1", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Open", "isNonNeg": false },
+        { "name": "Amperage", "value": "27A continuous", "isNonNeg": false },
+        { "name": "Coil Voltage", "value": "110/120VAC 50/60Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 498,
+      "priceSource": "breakeroutlet.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/8536SCO3V02S/"
+    },
+    {
+      "mpn": "2510KG2",
+      "brand": "Square D",
+      "name": "Square D 2510KG2 Manual Starting Switch",
+      "description": "Class 2510 Type K manual starting switch, 30A, 3-pole, toggle operated, no indicator, 600VAC, NEMA 1 enclosure.",
+      "specs": [
+        { "name": "HP Rating", "value": "10 HP @ 460/575V (3-phase)", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Manual switch, toggle operated", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1 surface mount", "isNonNeg": false },
+        { "name": "Amperage", "value": "30A continuous", "isNonNeg": false },
+        { "name": "Poles", "value": "3", "isNonNeg": false }
+      ],
+      "estListPrice": 152.55,
+      "priceSource": "blackhawksupply.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/2510KG2/"
+    },
+    {
+      "mpn": "2510FG1",
+      "brand": "Square D",
+      "name": "Square D 2510FG1 FHP Manual Starter",
+      "description": "Fractional-horsepower manual starter, 16A, 1-pole, toggle operated, melting alloy overload, NEMA 1 enclosure, 1 HP at 277VAC.",
+      "specs": [
+        { "name": "HP Rating", "value": "1 HP @ 277VAC (1-phase)", "isNonNeg": true },
+        { "name": "Voltage", "value": "277VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "FHP manual starter, toggle operated", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 1 surface mount", "isNonNeg": false },
+        { "name": "Amperage", "value": "16A", "isNonNeg": false },
+        { "name": "Poles", "value": "1", "isNonNeg": false }
+      ],
+      "estListPrice": 73.15,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/2510FG1/"
+    },
+    {
+      "mpn": "14CUC32AA",
+      "brand": "Siemens",
+      "name": "Siemens 14CUC32AA Size 0 ESP200 Starter",
+      "description": "Class 14 NEMA Size 0 full-voltage starter with ESP200 solid-state overload (3-12A), 110-120/220-240VAC coil, open type.",
+      "specs": [
+        { "name": "HP Rating", "value": "5 HP @ 460V (3-phase, NEMA Size 0)", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Full-voltage non-reversing, ESP200 solid-state overload", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Open", "isNonNeg": false },
+        { "name": "Overload Range", "value": "3-12A adjustable", "isNonNeg": false },
+        { "name": "Coil Voltage", "value": "110-120/220-240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 388.89,
+      "priceSource": "kentstore.com",
+      "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:bc7079de-68ad-44ed-9fd9-206d73a3ff2b/nebr-olrpg-0420-lr.pdf"
+    },
+    {
+      "mpn": "14DUC32AA",
+      "brand": "Siemens",
+      "name": "Siemens 14DUC32AA Size 1 ESP200 Starter",
+      "description": "Class 14 NEMA Size 1 full-voltage starter with ESP200 solid-state overload (3-12A), 110-120/220-240VAC coil, open type.",
+      "specs": [
+        { "name": "HP Rating", "value": "10 HP @ 460V (3-phase, NEMA Size 1)", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Full-voltage non-reversing, ESP200 solid-state overload", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Open", "isNonNeg": false },
+        { "name": "Overload Range", "value": "3-12A adjustable", "isNonNeg": false },
+        { "name": "Coil Voltage", "value": "110-120/220-240VAC", "isNonNeg": false }
+      ],
+      "estListPrice": 435.71,
+      "priceSource": "kentstore.com",
+      "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:bc7079de-68ad-44ed-9fd9-206d73a3ff2b/nebr-olrpg-0420-lr.pdf"
+    },
+    {
+      "mpn": "509-AOD",
+      "brand": "Allen-Bradley",
+      "name": "Allen-Bradley 509-AOD Size 0 Starter",
+      "description": "Bulletin 509 NEMA Size 0 full-voltage starter, open type, 18A, 120VAC 60Hz coil, eutectic alloy overload relay.",
+      "specs": [
+        { "name": "HP Rating", "value": "5 HP @ 460V (3-phase, NEMA Size 0)", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Full-voltage non-reversing, eutectic alloy overload", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Open", "isNonNeg": false },
+        { "name": "Amperage", "value": "18A", "isNonNeg": false },
+        { "name": "Coil Voltage", "value": "115-120VAC 60Hz", "isNonNeg": false }
+      ],
+      "estListPrice": 617.7,
+      "priceSource": "superbreakers.com",
+      "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.509-AOD.html",
+      "upc": "781180156281"
+    },
+    {
+      "mpn": "MS116-4.0",
+      "brand": "ABB",
+      "name": "ABB MS116-4.0 Manual Motor Starter",
+      "description": "MS116 manual motor starter, 2.5-4.0A setting range, trip class 10A, Ics 50kA at 400V, 45mm width, fuseless motor protection.",
+      "specs": [
+        { "name": "HP Rating", "value": "2 HP @ 480V (3-phase)", "isNonNeg": true },
+        { "name": "Voltage", "value": "690VAC max", "isNonNeg": true },
+        { "name": "Type", "value": "Manual motor starter/protector, trip class 10A", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Open, DIN rail mount", "isNonNeg": false },
+        { "name": "Setting Range", "value": "2.5-4.0A", "isNonNeg": false },
+        { "name": "Breaking Capacity", "value": "Ics 50kA @ 400V", "isNonNeg": false }
+      ],
+      "estListPrice": 164.6,
+      "priceSource": "us.rs-online.com",
+      "specSheetUrl": "https://library.e.abb.com/public/d0d3e7cb418a1a34c12579e9005c5e6b/2CDC131025D0201_H.pdf"
+    },
+    {
+      "mpn": "GV2ME16",
+      "brand": "Square D",
+      "name": "Square D GV2ME16 Manual Motor Starter",
+      "description": "TeSys GV2ME manual starter/motor protector, 9-14A adjustable thermal-magnetic, Class 10, push-button operated, DIN rail mount.",
+      "specs": [
+        { "name": "HP Rating", "value": "10 HP @ 460V (3-phase)", "isNonNeg": true },
+        { "name": "Voltage", "value": "600VAC max (UL)", "isNonNeg": true },
+        { "name": "Type", "value": "Manual starter/motor protector, thermal-magnetic", "isNonNeg": false },
+        { "name": "Enclosure", "value": "Open, DIN rail mount", "isNonNeg": false },
+        { "name": "Setting Range", "value": "9-14A", "isNonNeg": false },
+        { "name": "Trip Class", "value": "Class 10", "isNonNeg": false }
+      ],
+      "estListPrice": 68.63,
+      "priceSource": "kentstore.com",
+      "specSheetUrl": "https://www.se.com/us/en/product/GV2ME16/"
+    }
+  ]
+}

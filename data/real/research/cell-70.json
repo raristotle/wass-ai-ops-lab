@@ -1,0 +1,152 @@
+{
+  "category": "security",
+  "subcategory": "Security Cable & Power Supplies",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "SMP3",
+      "brand": "Altronix",
+      "name": "Altronix SMP3 Power Supply/Charger Board",
+      "description": "Switching power supply/charger board; 6/12/24VDC selectable output @ 2.5A continuous; built-in battery charger with auto switchover.",
+      "specs": [
+        { "name": "Type", "value": "Power Supply/Charger Board", "isNonNeg": true },
+        { "name": "Rating", "value": "6/12/24VDC @ 2.5A continuous", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "16-28VAC", "isNonNeg": false },
+        { "name": "Battery Charging", "value": "Sealed lead acid or gel, auto switchover", "isNonNeg": false },
+        { "name": "Dimensions", "value": "3.5 x 3 x 2 in", "isNonNeg": false }
+      ],
+      "estListPrice": 59.99,
+      "priceSource": "firealarm.com",
+      "specSheetUrl": "https://www.altronix.com/library/pdf/data_sheets/DS_SMP3.pdf",
+      "upc": "782239930432"
+    },
+    {
+      "mpn": "SMP5",
+      "brand": "Altronix",
+      "name": "Altronix SMP5 Power Supply/Charger Board",
+      "description": "Switching power supply/charger board; single 6/12/24VDC selectable output @ 4A; 24/28VAC input; built-in lead acid/gel battery charger.",
+      "specs": [
+        { "name": "Type", "value": "Power Supply/Charger Board", "isNonNeg": true },
+        { "name": "Rating", "value": "6/12/24VDC @ 4A continuous", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "24/28VAC", "isNonNeg": false },
+        { "name": "Battery Charging", "value": "Sealed lead acid or gel, auto switchover", "isNonNeg": false }
+      ],
+      "estListPrice": 41.27,
+      "priceSource": "amazon.com",
+      "specSheetUrl": "https://www.altronix.com/library/pdf/data_sheets/DS_SMP5.pdf"
+    },
+    {
+      "mpn": "AL400ULX",
+      "brand": "Altronix",
+      "name": "Altronix AL400ULX Power Supply/Charger",
+      "description": "UL-listed power supply/charger in enclosure; 12VDC @ 4A or 24VDC @ 3A Class 2 output; 115VAC input; AC fail and low battery supervision.",
+      "specs": [
+        { "name": "Type", "value": "Power Supply/Charger", "isNonNeg": true },
+        { "name": "Rating", "value": "12VDC @ 4A or 24VDC @ 3A", "isNonNeg": true },
+        { "name": "Input Voltage", "value": "115VAC 60Hz", "isNonNeg": false },
+        { "name": "Supervision", "value": "AC fail, low battery, battery presence", "isNonNeg": false },
+        { "name": "Listings", "value": "UL294/UL603/UL1069/UL1481, cUL, CSFM, FM", "isNonNeg": false }
+      ],
+      "estListPrice": 241.99,
+      "priceSource": "firealarm.com",
+      "specSheetUrl": "https://www.altronix.com/library/pdf/data_sheets/DS_AL400ULXseries.pdf",
+      "upc": "782239930098"
+    },
+    {
+      "mpn": "AL600ULACM",
+      "brand": "Altronix",
+      "name": "Altronix AL600ULACM Access Power Controller",
+      "description": "Access power controller with power supply/charger; eight fused outputs, 12/24VDC @ 6A total; fire alarm disconnect; BC400 enclosure.",
+      "specs": [
+        { "name": "Type", "value": "Access Power Controller w/ Power Supply/Charger", "isNonNeg": true },
+        { "name": "Rating", "value": "12/24VDC @ 6A total continuous", "isNonNeg": true },
+        { "name": "Outputs", "value": "8 independently controlled fused outputs", "isNonNeg": false },
+        { "name": "Input Voltage", "value": "115VAC 60Hz", "isNonNeg": false },
+        { "name": "Fire Alarm Interface", "value": "Individually selectable FAI disconnect", "isNonNeg": false }
+      ],
+      "estListPrice": 448.6,
+      "priceSource": "zensupply.com",
+      "specSheetUrl": "https://www.altronix.com/products/AL600ULACM"
+    },
+    {
+      "mpn": "11035501",
+      "brand": "Honeywell Genesis",
+      "name": "Honeywell Genesis 11035501 22/4 Solid Security Cable",
+      "description": "Genesis 22/4 solid bare copper unshielded general-purpose cable, CM/CL2 rated, sunlight resistant, white, 500 ft pull box.",
+      "specs": [
+        { "name": "Type", "value": "22/4 Solid Unshielded", "isNonNeg": true },
+        { "name": "Rating", "value": "CM/CL2", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "White", "isNonNeg": false },
+        { "name": "Length", "value": "500 ft", "isNonNeg": false },
+        { "name": "Conductor", "value": "22 AWG solid bare copper", "isNonNeg": false }
+      ],
+      "estListPrice": 47.75,
+      "priceSource": "jmac.com",
+      "specSheetUrl": "https://www.southwire.com/medias/Genesis-Product-Catalog.pdf?context=bWFzdGVyfHJvb3R8Njc4NDk1OHxhcHBsaWNhdGlvbi9wZGZ8aGU5L2hlYi85MTU3MzcyODcwNjg2L0dlbmVzaXMgUHJvZHVjdCBDYXRhbG9nLnBkZnw5MzAxYzI4NDJiNmJjNDkzMjI5Zjc4YzBiODg3ZjljZmM1ZTZmN2ZiNmRlY2NiMDgyNDU4ZDllMDBmZDE0MTI1",
+      "upc": "619172002981"
+    },
+    {
+      "mpn": "11185501",
+      "brand": "Honeywell Genesis",
+      "name": "Honeywell Genesis 11185501 18/2 Stranded Security Cable",
+      "description": "Genesis 18/2 stranded bare copper unshielded cable, CM/CL2 rated, white PVC jacket, 500 ft box for security and low-voltage circuits.",
+      "specs": [
+        { "name": "Type", "value": "18/2 Stranded Unshielded", "isNonNeg": true },
+        { "name": "Rating", "value": "CM/CL2", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "White", "isNonNeg": false },
+        { "name": "Length", "value": "500 ft", "isNonNeg": false },
+        { "name": "Conductor", "value": "18 AWG stranded bare copper", "isNonNeg": false }
+      ],
+      "estListPrice": 92.04,
+      "priceSource": "jmac.com",
+      "specSheetUrl": "https://www.southwire.com/medias/Genesis-Product-Catalog.pdf?context=bWFzdGVyfHJvb3R8Njc4NDk1OHxhcHBsaWNhdGlvbi9wZGZ8aGU5L2hlYi85MTU3MzcyODcwNjg2L0dlbmVzaXMgUHJvZHVjdCBDYXRhbG9nLnBkZnw5MzAxYzI4NDJiNmJjNDkzMjI5Zjc4YzBiODg3ZjljZmM1ZTZmN2ZiNmRlY2NiMDgyNDU4ZDllMDBmZDE0MTI1",
+      "upc": "619172017008"
+    },
+    {
+      "mpn": "224",
+      "brand": "West Penn Wire",
+      "name": "West Penn Wire 224 18/2 Riser Security Cable",
+      "description": "18 AWG 2-conductor 7x26 stranded bare copper, unshielded, PVC jacket, CMR riser rated; for security, intercom and audio circuits.",
+      "specs": [
+        { "name": "Type", "value": "18/2 Stranded Unshielded", "isNonNeg": true },
+        { "name": "Rating", "value": "CMR", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Length", "value": "500 ft", "isNonNeg": false },
+        { "name": "Outside Diameter", "value": "0.156 in", "isNonNeg": false }
+      ],
+      "estListPrice": 89.57,
+      "priceSource": "showmecables.com",
+      "specSheetUrl": "https://www.westpennwire.com/specifications/224.pdf"
+    },
+    {
+      "mpn": "241",
+      "brand": "West Penn Wire",
+      "name": "West Penn Wire 241 22/4 Riser Security Cable",
+      "description": "22 AWG 4-conductor stranded bare copper, unshielded, PVC jacket, CMR riser rated; for intercom, security and power-limited control.",
+      "specs": [
+        { "name": "Type", "value": "22/4 Stranded Unshielded", "isNonNeg": true },
+        { "name": "Rating", "value": "CMR", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Length", "value": "1000 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 369.99,
+      "priceSource": "showmecables.com",
+      "specSheetUrl": "https://www.westpennwire.com/specifications/241.pdf"
+    },
+    {
+      "mpn": "25224B",
+      "brand": "West Penn Wire",
+      "name": "West Penn Wire 25224B 18/2 Plenum Cable",
+      "description": "18 AWG 2-conductor stranded bare copper, unshielded, plenum CMP rated; audio, control and low-voltage power applications.",
+      "specs": [
+        { "name": "Type", "value": "18/2 Stranded Unshielded", "isNonNeg": true },
+        { "name": "Rating", "value": "CMP (Plenum)", "isNonNeg": true },
+        { "name": "Jacket Color", "value": "Gray", "isNonNeg": false },
+        { "name": "Length", "value": "500 ft", "isNonNeg": false }
+      ],
+      "estListPrice": 105.6,
+      "priceSource": "wireandcableyourway.com",
+      "specSheetUrl": "https://www.westpennwire.com/specifications/25224B.pdf"
+    }
+  ]
+}

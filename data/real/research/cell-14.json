@@ -1,0 +1,176 @@
+{
+  "category": "electrical",
+  "subcategory": "Fuses",
+  "uom": "PK",
+  "products": [
+    {
+      "mpn": "FRN-R-30",
+      "brand": "Bussmann",
+      "name": "Bussmann FRN-R-30 Fusetron Time-Delay Fuse",
+      "description": "Fusetron dual-element time-delay Class RK5 fuse, 30 A, 250 Vac/125 Vdc, 200 kA IR; motor overload and short-circuit protection.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "RK5", "isNonNeg": true },
+        { "name": "Voltage", "value": "250 Vac / 125 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay (dual-element)", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "200 kA @ 250 Vac", "isNonNeg": false }
+      ],
+      "estListPrice": 5.93,
+      "priceSource": "energyavenue.com",
+      "specSheetUrl": "https://www.cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20FRN-R/Bus_Ele_DS_1019_FRN-R_1_10-60A%5B1%5D.pdf",
+      "upc": "051712101769"
+    },
+    {
+      "mpn": "FRS-R-30",
+      "brand": "Bussmann",
+      "name": "Bussmann FRS-R-30 Fusetron Time-Delay Fuse",
+      "description": "Fusetron dual-element time-delay Class RK5 fuse, 30 A, 600 Vac/300 Vdc, 200 kA IR, rejection style.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "RK5", "isNonNeg": true },
+        { "name": "Voltage", "value": "600 Vac / 300 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay (dual-element)", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "200 kA @ 600 Vac", "isNonNeg": false }
+      ],
+      "estListPrice": 10.74,
+      "priceSource": "allfuses.com",
+      "specSheetUrl": "https://www.relayspec.com/specs/020/FRS-R.pdf",
+      "upc": "051712508346"
+    },
+    {
+      "mpn": "LPJ-30SP",
+      "brand": "Bussmann",
+      "name": "Bussmann LPJ-30SP Low-Peak Class J Fuse",
+      "description": "Low-Peak LPJ dual-element time-delay Class J fuse, 30 A, 600 Vac/300 Vdc, 300 kA IR, current-limiting.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "J", "isNonNeg": true },
+        { "name": "Voltage", "value": "600 Vac / 300 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay (dual-element)", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "300 kA @ 600 Vac", "isNonNeg": false }
+      ],
+      "estListPrice": 26.29,
+      "priceSource": "energyavenue.com",
+      "specSheetUrl": "https://www.cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20LPJ_SP%2060/Bussmann%20Data%20Sheet%201%20to%2060%20Amps%20no%20Indication%20DS_1006.pdf"
+    },
+    {
+      "mpn": "LPN-RK-30SP",
+      "brand": "Bussmann",
+      "name": "Bussmann LPN-RK-30SP Low-Peak RK1 Fuse",
+      "description": "Low-Peak dual-element time-delay Class RK1 fuse, 30 A, 250 Vac/125 Vdc, 300 kA IR, current-limiting.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "RK1", "isNonNeg": true },
+        { "name": "Voltage", "value": "250 Vac / 125 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay (dual-element)", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "300 kA @ 250 Vac", "isNonNeg": false }
+      ],
+      "estListPrice": 12.89,
+      "priceSource": "allfuses.com",
+      "specSheetUrl": "https://cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20LPN-RK%200-60/Bussmann%20LPN-RK%200-60%20Amps%20DS_1003.pdf",
+      "upc": "051712538367"
+    },
+    {
+      "mpn": "KTK-R-30",
+      "brand": "Bussmann",
+      "name": "Bussmann KTK-R-30 Limitron Fast-Acting Fuse",
+      "description": "Limitron KTK-R fast-acting Class CC fuse, 30 A, 600 Vac, 200 kA IR, rejection style, current-limiting.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "CC", "isNonNeg": true },
+        { "name": "Voltage", "value": "600 Vac", "isNonNeg": true },
+        { "name": "Speed", "value": "Fast-acting", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "200 kA", "isNonNeg": false },
+        { "name": "Dimensions", "value": "13/32 in x 1-1/2 in", "isNonNeg": false }
+      ],
+      "estListPrice": 19.2,
+      "priceSource": "energyavenue.com",
+      "specSheetUrl": "https://www.cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20KTK-R/Bussmann%20KTK-R%20Data%20Sheet%20600V%200-30%20Amps%20DS_1015.pdf"
+    },
+    {
+      "mpn": "FNM-30",
+      "brand": "Bussmann",
+      "name": "Bussmann FNM-30 Fusetron Midget Fuse",
+      "description": "Fusetron FNM dual-element time-delay midget supplemental fuse, 30 A, 250 Vac, 10 kA IR, 13/32 x 1-1/2 in.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "Supplemental (midget)", "isNonNeg": true },
+        { "name": "Voltage", "value": "250 Vac", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay (dual-element)", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "10 kA @ 250 Vac", "isNonNeg": false },
+        { "name": "Dimensions", "value": "13/32 in x 1-1/2 in", "isNonNeg": false }
+      ],
+      "estListPrice": 5.64,
+      "priceSource": "allfuses.com",
+      "specSheetUrl": "https://www.ficcorp.com/content/FNM-Data-Sheet.pdf"
+    },
+    {
+      "mpn": "FLNR030",
+      "brand": "Littelfuse",
+      "name": "Littelfuse FLNR030 Class RK5 Time-Delay Fuse",
+      "description": "POWR-GARD FLNR dual-element time-delay Class RK5 fuse, 30 A, 250 Vac/125 Vdc, for motor and general-purpose circuits.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "RK5", "isNonNeg": true },
+        { "name": "Voltage", "value": "250 Vac / 125 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay (dual-element)", "isNonNeg": false },
+        { "name": "Dimensions", "value": "0.563 in dia x 2 in", "isNonNeg": false }
+      ],
+      "estListPrice": 6.09,
+      "priceSource": "allfuses.com",
+      "specSheetUrl": "https://www.lvelectronics.com/images/pdf/FLNR-series.pdf"
+    },
+    {
+      "mpn": "FLSR030",
+      "brand": "Littelfuse",
+      "name": "Littelfuse FLSR030 Class RK5 Time-Delay Fuse",
+      "description": "POWR-GARD FLSR dual-element time-delay Class RK5 fuse, 30 A, 600 Vac/300 Vdc, 200 kA AC interrupting rating.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "RK5", "isNonNeg": true },
+        { "name": "Voltage", "value": "600 Vac / 300 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay (dual-element)", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "200 kA AC / 20 kA DC", "isNonNeg": false }
+      ],
+      "estListPrice": 9.99,
+      "priceSource": "allfuses.com",
+      "specSheetUrl": "https://www.lvelectronics.com/images/pdf/FLSR-series.pdf",
+      "upc": "079458170733"
+    },
+    {
+      "mpn": "TR30R",
+      "brand": "Mersen",
+      "name": "Mersen TR30R Tri-Onic Time-Delay Fuse",
+      "description": "Tri-Onic TR-R time-delay Class RK5 fuse, 30 A, 250 Vac/160 Vdc, 200 kA AC IR, for motor and transformer circuits.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "RK5", "isNonNeg": true },
+        { "name": "Voltage", "value": "250 Vac / 160 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "200 kA AC / 20 kA DC", "isNonNeg": false },
+        { "name": "Mounting", "value": "Ferrule", "isNonNeg": false }
+      ],
+      "estListPrice": 5.27,
+      "priceSource": "auroraindustry.com",
+      "specSheetUrl": "https://us.mersen.com/en/products/tr-r-class-rk5-time-delay/tr30r",
+      "upc": "782001747862"
+    },
+    {
+      "mpn": "AJT30",
+      "brand": "Mersen",
+      "name": "Mersen AJT30 Amp-Trap 2000 Fuse",
+      "description": "Amp-Trap 2000 AJT time-delay Class J fuse, 30 A, 600 Vac/500 Vdc, 200 kA IR, SmartSpot open-fuse indicator.",
+      "specs": [
+        { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+        { "name": "Class", "value": "J", "isNonNeg": true },
+        { "name": "Voltage", "value": "600 Vac / 500 Vdc", "isNonNeg": true },
+        { "name": "Speed", "value": "Time-delay", "isNonNeg": false },
+        { "name": "Interrupting Rating", "value": "200 kA AC / 100 kA DC", "isNonNeg": false },
+        { "name": "Indicator", "value": "SmartSpot visual open-fuse indicator", "isNonNeg": false }
+      ],
+      "estListPrice": 57.71,
+      "priceSource": "us.rs-online.com",
+      "specSheetUrl": "https://us.mersen.com/en/products/ajt-class-j-time-delay/ajt30"
+    }
+  ]
+}

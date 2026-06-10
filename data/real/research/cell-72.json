@@ -1,0 +1,142 @@
+{
+  "category": "safety",
+  "subcategory": "Safety Glasses",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "11329-00000-20",
+      "brand": "3M",
+      "name": "3M 11329-00000-20 Virtua Clear Anti-Fog",
+      "description": "Economy protective eyewear with clear anti-fog polycarbonate lens; absorbs 99.9% UV and meets ANSI Z87.1 high impact requirements.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, anti-fog coating", "isNonNeg": true },
+        { "name": "Rating", "value": "ANSI Z87.1 high impact (Z87+)", "isNonNeg": true },
+        { "name": "UV Protection", "value": "Absorbs 99.9% UV", "isNonNeg": false },
+        { "name": "Frame", "value": "Clear temples, frameless wraparound", "isNonNeg": false }
+      ],
+      "estListPrice": 2.42,
+      "priceSource": "nationalsafetyinc.com",
+      "specSheetUrl": "https://www.3m.com/3M/en_US/p/d/b00034301/"
+    },
+    {
+      "mpn": "SF401AF",
+      "brand": "3M",
+      "name": "3M SF401AF SecureFit 400 Clear Anti-Fog",
+      "description": "Self-adjusting safety glasses with Pressure Diffusion Temple technology and clear anti-fog polycarbonate lens; ANSI Z87.1 rated.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, anti-fog coating", "isNonNeg": true },
+        { "name": "Rating", "value": "ANSI Z87.1 high impact (Z87+)", "isNonNeg": true },
+        { "name": "Temple", "value": "Pressure Diffusion Temple, self-adjusting", "isNonNeg": false },
+        { "name": "UV Protection", "value": "Absorbs 99.9% UV", "isNonNeg": false }
+      ],
+      "estListPrice": 4.02,
+      "priceSource": "envirosafetyproducts.com",
+      "specSheetUrl": "https://www.3m.com/3M/en_US/p/d/b00050518/"
+    },
+    {
+      "mpn": "S1101SGAF",
+      "brand": "3M",
+      "name": "3M S1101SGAF Solus 1000 Scotchgard Anti-Fog",
+      "description": "Low-profile safety glasses with clear Scotchgard anti-fog/anti-scratch lens that resists fogging through repeated washings.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, Scotchgard anti-fog/anti-scratch coating", "isNonNeg": true },
+        { "name": "Rating", "value": "ANSI Z87.1 compliant", "isNonNeg": true },
+        { "name": "Frame", "value": "Black/blue low-profile", "isNonNeg": false },
+        { "name": "UV Protection", "value": "Blocks 99.9% UV", "isNonNeg": false }
+      ],
+      "estListPrice": 13.29,
+      "priceSource": "envirosafetyproducts.com",
+      "specSheetUrl": "https://www.3m.com/3M/en_US/p/dc/v000244792/"
+    },
+    {
+      "mpn": "S2510S",
+      "brand": "Pyramex",
+      "name": "Pyramex S2510S Ztek Clear Safety Glasses",
+      "description": "Economical frameless wraparound glasses with scratch-resistant clear polycarbonate lens; exceeds ANSI Z87.1 high impact.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, scratch-resistant coating", "isNonNeg": true },
+        { "name": "Rating", "value": "Exceeds ANSI Z87.1 high impact; CE EN166", "isNonNeg": true },
+        { "name": "UV Protection", "value": "99% UV-A/UV-B protection", "isNonNeg": false },
+        { "name": "Frame", "value": "Clear, frameless wraparound with rubber temple tips", "isNonNeg": false }
+      ],
+      "estListPrice": 1.59,
+      "priceSource": "envirosafetyproducts.com",
+      "specSheetUrl": "https://www.pyramexsafety.com/products/eye-protection/s2510s"
+    },
+    {
+      "mpn": "S4110S",
+      "brand": "Pyramex",
+      "name": "Pyramex S4110S Intruder Clear Safety Glasses",
+      "description": "Lightweight frameless safety glasses with clear hard-coated polycarbonate lens; economical general purpose eye protection.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, hardcoated", "isNonNeg": true },
+        { "name": "Rating", "value": "Exceeds ANSI Z87.1 high impact", "isNonNeg": true },
+        { "name": "Frame", "value": "Clear temples, frameless", "isNonNeg": false },
+        { "name": "UV Protection", "value": "99% UV-A/UV-B protection", "isNonNeg": false }
+      ],
+      "estListPrice": 1.39,
+      "priceSource": "ohiopowertool.com",
+      "specSheetUrl": "https://www.pyramexsafety.com/products/eye-protection/s4110s"
+    },
+    {
+      "mpn": "CL110",
+      "brand": "MCR Safety",
+      "name": "MCR Safety CL110 Checklite Clear Glasses",
+      "description": "Ultralight (under 23 g) single-lens safety glasses with clear scratch-resistant polycarbonate lens and snug orbital seal fit.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, scratch-resistant", "isNonNeg": true },
+        { "name": "Rating", "value": "ANSI Z87.1+", "isNonNeg": true },
+        { "name": "Weight", "value": "Less than 23 grams", "isNonNeg": false },
+        { "name": "Frame", "value": "Clear temples, frameless single lens", "isNonNeg": false }
+      ],
+      "estListPrice": 1.09,
+      "priceSource": "fullsource.com",
+      "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/glasses/cl110"
+    },
+    {
+      "mpn": "BK110",
+      "brand": "MCR Safety",
+      "name": "MCR Safety BK110 BearKat Clear Glasses",
+      "description": "Compact frameless safety glasses with clear scratch-resistant polycarbonate lens and soft non-slip temple and nose piece.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, scratch-resistant coating", "isNonNeg": true },
+        { "name": "Rating", "value": "ANSI Z87.1+", "isNonNeg": true },
+        { "name": "Frame", "value": "Clear temples with non-slip temple sleeve", "isNonNeg": false },
+        { "name": "UV Protection", "value": "Polycarbonate lens with UV protection", "isNonNeg": false }
+      ],
+      "estListPrice": 2.60,
+      "priceSource": "bettymills.com",
+      "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/glasses/bk110"
+    },
+    {
+      "mpn": "S3200HS",
+      "brand": "Honeywell",
+      "name": "Honeywell Uvex S3200HS Genesis HydroShield Clear",
+      "description": "Uvex Genesis premium eyewear with MMT frame, ratchet temples and clear HydroShield anti-fog lens; ANSI Z87+ and CSA Z94.3.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, HydroShield anti-fog coating", "isNonNeg": true },
+        { "name": "Rating", "value": "ANSI Z87+; CSA Z94.3; MIL-PRF-31013 clause 3.5.1.1", "isNonNeg": true },
+        { "name": "Frame", "value": "Black, MMT Multi-Material Technology with ratchet adjustable temples", "isNonNeg": false },
+        { "name": "Country of Origin", "value": "Made in USA", "isNonNeg": false }
+      ],
+      "estListPrice": 11.70,
+      "priceSource": "magidglove.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-us/products/head-eye-face-protection/documents/eye/sps-his-honeywell-uvex-genesis-family-brochure-na-eng-2.pdf"
+    },
+    {
+      "mpn": "A700",
+      "brand": "Honeywell",
+      "name": "Honeywell Uvex A700 Clear Hardcoat Glasses",
+      "description": "Lightweight 9-base wraparound glasses with clear anti-scratch hardcoat polycarbonate lens; 99.9% UV; ANSI Z87+ and CSA Z94.3.",
+      "specs": [
+        { "name": "Lens", "value": "Clear polycarbonate, anti-scratch hardcoat", "isNonNeg": true },
+        { "name": "Rating", "value": "ANSI Z87+; CSA Z94.3", "isNonNeg": true },
+        { "name": "UV Protection", "value": "99.9% UV protection", "isNonNeg": false },
+        { "name": "Frame", "value": "9-base wraparound, lightweight with padded temple tips", "isNonNeg": false }
+      ],
+      "estListPrice": 8.07,
+      "priceSource": "ppe.honeywell.com",
+      "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-us/products/head-eye-face-protection/documents/eye/sps-his-honeywell-uvex-a700-brochure-na-eng.pdf"
+    }
+  ]
+}

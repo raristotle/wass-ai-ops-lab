@@ -164,6 +164,14 @@ export function ProductCard({
 
           <p className="text-xs text-[#4F758B] mb-1">
             {product.brand} · SKU: {product.sku}
+            {product.dataSource === "verified" && (
+              <span
+                className="ml-1.5 text-[10px] font-semibold text-[#00AA13]"
+                title="Real manufacturer part — spec sheet link verified"
+              >
+                ✓ verified
+              </span>
+            )}
           </p>
 
           <p className="text-xs text-[#1D252D] line-clamp-2 leading-relaxed">

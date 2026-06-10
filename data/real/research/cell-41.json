@@ -1,0 +1,144 @@
+{
+  "category": "electrical",
+  "subcategory": "Outdoor & Area Lighting",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "TWX1 LED ALO 50K MVOLT DDBTXD",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting TWX1 LED ALO 50K MVOLT DDBTXD LED Wall Pack",
+      "description": "Contractor Select glass-lens LED wall pack; adjustable 600-2,950 lumen output, 5000K, 120-277V, IP65, textured dark bronze finish.",
+      "specs": [
+        { "name": "Type", "value": "Wall pack", "isNonNeg": true },
+        { "name": "Lumens", "value": "600-2,950 (adjustable)", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (MVOLT)", "isNonNeg": true },
+        { "name": "Controls", "value": "None (ALO output dial)", "isNonNeg": false },
+        { "name": "CCT", "value": "5000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "22W max", "isNonNeg": false }
+      ],
+      "estListPrice": 170.5,
+      "priceSource": "superiorlighting.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1307297/contractor-select-twx-led.pdf"
+    },
+    {
+      "mpn": "WPX1 LED P2 40K MVOLT DDBXD M4",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting WPX1 LED P2 40K MVOLT DDBXD M4 LED Wall Pack",
+      "description": "Contractor Select WPX1 LED wall pack, 24W, 2,900 lumens, 4000K, 120-277V, super-durable dark bronze finish; replaces up to 100W MH.",
+      "specs": [
+        { "name": "Type", "value": "Wall pack", "isNonNeg": true },
+        { "name": "Lumens", "value": "2,900 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (MVOLT)", "isNonNeg": true },
+        { "name": "Controls", "value": "None", "isNonNeg": false },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "24W", "isNonNeg": false }
+      ],
+      "estListPrice": 158.37,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1239913/wpx-led---contractor-select-spec-sheet_0720.pdf"
+    },
+    {
+      "mpn": "HGX LED 2RH 40K 120 DDB M2",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting HGX LED 2RH 40K 120 DDB M2 LED Flood Light",
+      "description": "HomeGuard two-round-head LED security floodlight, 25W, 2,750 lumens, 4000K, 120V, wall or eave mount, dark bronze finish.",
+      "specs": [
+        { "name": "Type", "value": "Security flood light", "isNonNeg": true },
+        { "name": "Lumens", "value": "2,750 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120V", "isNonNeg": true },
+        { "name": "Controls", "value": "None (switch operated)", "isNonNeg": false },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Wattage", "value": "25W", "isNonNeg": false }
+      ],
+      "estListPrice": 88.0,
+      "priceSource": "superiorlighting.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1687797/contractor-select-hgx-led.pdf"
+    },
+    {
+      "mpn": "TFX1 LED 40K MVOLT THK DDBXD M6",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting TFX1 LED 40K MVOLT THK DDBXD M6 LED Floodlight",
+      "description": "Contractor Select size-1 LED floodlight, 54W, 7,300 lumens, 4000K, 120-277V, knuckle mount, IP66; replaces up to 150W metal halide.",
+      "specs": [
+        { "name": "Type", "value": "Flood light", "isNonNeg": true },
+        { "name": "Lumens", "value": "7,300 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V (MVOLT)", "isNonNeg": true },
+        { "name": "Controls", "value": "None", "isNonNeg": false },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Mounting", "value": "Knuckle (THK)", "isNonNeg": false }
+      ],
+      "estListPrice": 194.99,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/963046/contractor-select-tfx-led.pdf"
+    },
+    {
+      "mpn": "ESXF2 ALO SWW2 KY DDB M2",
+      "brand": "Lithonia Lighting",
+      "name": "Lithonia Lighting ESXF2 ALO SWW2 KY DDB M2 LED Floodlight",
+      "description": "Contractor Select LED flood with selectable 3,500/5,500/7,500 lumens and 3000/4000/5000K CCT; 120-277V, photocell, knuckle/yoke mount.",
+      "specs": [
+        { "name": "Type", "value": "Flood light", "isNonNeg": true },
+        { "name": "Lumens", "value": "3,500/5,500/7,500 lm selectable", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Controls", "value": "Dusk-to-dawn photocell", "isNonNeg": false },
+        { "name": "CCT", "value": "3000K/4000K/5000K switchable", "isNonNeg": false },
+        { "name": "Wattage", "value": "56W", "isNonNeg": false }
+      ],
+      "estListPrice": 155.02,
+      "priceSource": "shineretrofits.com",
+      "specSheetUrl": "https://img.acuitybrands.com/public-assets/catalog/1748750/contractor-select-esxf-led.pdf",
+      "upc": "196182393242"
+    },
+    {
+      "mpn": "SLIM37",
+      "brand": "RAB Lighting",
+      "name": "RAB Lighting SLIM37 LED Wall Pack",
+      "description": "SLIM 37W full-cutoff LED wall pack with selectable 3000K/4000K/5000K CCT, up to 3,900 lumens, IP66, bronze; 100,000-hour L70 life.",
+      "specs": [
+        { "name": "Type", "value": "Wall pack", "isNonNeg": true },
+        { "name": "Lumens", "value": "3,600-3,900 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "100-277V", "isNonNeg": true },
+        { "name": "Controls", "value": "None", "isNonNeg": false },
+        { "name": "CCT", "value": "3000K/4000K/5000K selectable", "isNonNeg": false },
+        { "name": "Wattage", "value": "37W", "isNonNeg": false }
+      ],
+      "estListPrice": 408.0,
+      "priceSource": "communitylightingsupply.com",
+      "specSheetUrl": "https://www.rablighting.com/product/SLIM37"
+    },
+    {
+      "mpn": "X34-25L/120",
+      "brand": "RAB Lighting",
+      "name": "RAB Lighting X34-25L/120 LED Floodlight",
+      "description": "X34 field-adjustable 25W LED floodlight, knuckle mount, selectable 3000K/4000K/5000K, up to 3,000 lumens, 120V, IP65 wet location.",
+      "specs": [
+        { "name": "Type", "value": "Flood light", "isNonNeg": true },
+        { "name": "Lumens", "value": "2,775-3,000 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120V", "isNonNeg": true },
+        { "name": "Controls", "value": "None", "isNonNeg": false },
+        { "name": "CCT", "value": "3000K/4000K/5000K selectable", "isNonNeg": false },
+        { "name": "Wattage", "value": "25W", "isNonNeg": false }
+      ],
+      "estListPrice": 79.75,
+      "priceSource": "communitylightingsupply.com",
+      "specSheetUrl": "https://www.rablighting.com/product/X34-25L/120"
+    },
+    {
+      "mpn": "C-WP-A-TR-1L-40K-DB",
+      "brand": "Cree Lighting",
+      "name": "Cree Lighting C-WP-A-TR-1L-40K-DB LED Wall Pack",
+      "description": "C-Lite traditional-style non-cutoff LED wall pack, 1,300 lumens, 4000K, 120-277V universal voltage, dark bronze housing.",
+      "specs": [
+        { "name": "Type", "value": "Wall pack", "isNonNeg": true },
+        { "name": "Lumens", "value": "1,300 lm", "isNonNeg": true },
+        { "name": "Voltage", "value": "120-277V", "isNonNeg": true },
+        { "name": "Controls", "value": "None", "isNonNeg": false },
+        { "name": "CCT", "value": "4000K", "isNonNeg": false },
+        { "name": "Finish", "value": "Dark bronze", "isNonNeg": false }
+      ],
+      "estListPrice": 150.79,
+      "priceSource": "zoro.com",
+      "specSheetUrl": "https://www.creelighting.com/products/outdoor/wall-pack/clite-wall-pack"
+    }
+  ]
+}

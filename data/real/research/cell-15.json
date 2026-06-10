@@ -1,0 +1,158 @@
+{
+  "category": "electrical",
+  "subcategory": "Meter Sockets",
+  "uom": "EA",
+  "products": [
+    {
+      "mpn": "U7487-RL-TG",
+      "brand": "Milbank",
+      "name": "Milbank U7487-RL-TG 125A Ringless Meter Socket",
+      "description": "125 A 600 VAC 1-phase 4-terminal ringless meter socket, no bypass, overhead/underground entry, UL Type 3R galvanized steel.",
+      "specs": [
+        { "name": "Amperage", "value": "125 A continuous", "isNonNeg": true },
+        { "name": "Jaws", "value": "4", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless, 1-position", "isNonNeg": false },
+        { "name": "Bypass", "value": "None", "isNonNeg": false },
+        { "name": "Voltage", "value": "600 VAC", "isNonNeg": false },
+        { "name": "Service Entry", "value": "Overhead/Underground", "isNonNeg": false },
+        { "name": "Enclosure", "value": "UL Type 3R, G90 galvanized steel", "isNonNeg": false }
+      ],
+      "estListPrice": 67.7,
+      "priceSource": "needco.com",
+      "specSheetUrl": "https://www.milbankworks.com/specsheets/1000470_SS.pdf"
+    },
+    {
+      "mpn": "U7021-RL-TG",
+      "brand": "Milbank",
+      "name": "Milbank U7021-RL-TG 200A Ringless Meter Socket",
+      "description": "200 A 600 VAC 1-phase 4-terminal ringless single-position meter socket, overhead service, UL Type 3R, 6 AWG-350 kcmil.",
+      "specs": [
+        { "name": "Amperage", "value": "200 A continuous", "isNonNeg": true },
+        { "name": "Jaws", "value": "4", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless, 1-position", "isNonNeg": false },
+        { "name": "Bypass", "value": "None", "isNonNeg": false },
+        { "name": "Voltage", "value": "600 VAC", "isNonNeg": false },
+        { "name": "Wire Range", "value": "6 AWG-350 kcmil Cu/Al", "isNonNeg": false },
+        { "name": "Enclosure", "value": "UL Type 3R, G90 galvanized steel", "isNonNeg": false }
+      ],
+      "estListPrice": 105.92,
+      "priceSource": "summit.com",
+      "specSheetUrl": "https://www.milbankworks.com/specsheets/1000454_SS.pdf",
+      "upc": "784572139947"
+    },
+    {
+      "mpn": "U4801-XL-5T9",
+      "brand": "Milbank",
+      "name": "Milbank U4801-XL-5T9 Lever-Bypass Meter Socket",
+      "description": "200 A 600 VAC heavy-duty 5-terminal ringless meter socket with lever bypass, 5th terminal at 9 o'clock, OH/UG, UL Type 3R.",
+      "specs": [
+        { "name": "Amperage", "value": "200 A continuous", "isNonNeg": true },
+        { "name": "Jaws", "value": "5", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless, heavy-duty, 1-position", "isNonNeg": false },
+        { "name": "Bypass", "value": "Lever bypass", "isNonNeg": false },
+        { "name": "Voltage", "value": "600 VAC", "isNonNeg": false },
+        { "name": "Service Entry", "value": "Overhead/Underground", "isNonNeg": false },
+        { "name": "Phase", "value": "Single phase", "isNonNeg": false }
+      ],
+      "estListPrice": 341.02,
+      "priceSource": "elliottelectric.com",
+      "specSheetUrl": "https://www.milbankworks.com/specsheets/1092206_SS.pdf",
+      "upc": "784572288218"
+    },
+    {
+      "mpn": "UTRS213CE",
+      "brand": "Eaton",
+      "name": "Eaton UTRS213CE 200A Ringless Meter Socket",
+      "description": "200 A 600 V single-position ringless residential meter socket, 4-jaw, overhead/underground feed, #6-350 kcmil, NEMA 3R.",
+      "specs": [
+        { "name": "Amperage", "value": "200 A", "isNonNeg": true },
+        { "name": "Jaws", "value": "4", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless, single-position residential", "isNonNeg": false },
+        { "name": "Bypass", "value": "None", "isNonNeg": false },
+        { "name": "Voltage", "value": "600 V", "isNonNeg": false },
+        { "name": "Service Entry", "value": "Overhead/Underground", "isNonNeg": false },
+        { "name": "Wire Range", "value": "#6-350 kcmil", "isNonNeg": false }
+      ],
+      "estListPrice": 61.41,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://assets.usesi.com/product-media/specification-sheets/USESI_325323_specification_sheets.pdf",
+      "upc": "786685217901"
+    },
+    {
+      "mpn": "UHTRS213CE",
+      "brand": "Eaton",
+      "name": "Eaton UHTRS213CE Horn-Bypass Meter Socket",
+      "description": "200 A 600 Vac single-position ringless residential meter socket with horn bypass, 4-jaw, overhead/underground feed.",
+      "specs": [
+        { "name": "Amperage", "value": "200 A", "isNonNeg": true },
+        { "name": "Jaws", "value": "4", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless, single-position residential", "isNonNeg": false },
+        { "name": "Bypass", "value": "Horn bypass", "isNonNeg": false },
+        { "name": "Voltage", "value": "600 Vac", "isNonNeg": false },
+        { "name": "Service Entry", "value": "Overhead/Underground", "isNonNeg": false },
+        { "name": "Wire Range", "value": "#6-350 kcmil", "isNonNeg": false }
+      ],
+      "estListPrice": 505.52,
+      "priceSource": "elliottelectric.com",
+      "specSheetUrl": "https://externalassets.unilogcorp.com/ASSETS/DOCUMENTS/ITEMS/EN/UHTRS213CE_Specification_Sheet.pdf",
+      "upc": "786685217772"
+    },
+    {
+      "mpn": "UAT417-XGF",
+      "brand": "Siemens",
+      "name": "Siemens UAT417-XGF Talon Ringless Meter Socket",
+      "description": "Talon UAT4 200 A 600 VAC 4-jaw ringless 1-position meter socket, no bypass, OH/UG, stainless steel latch and hasp, NEMA 3R.",
+      "specs": [
+        { "name": "Amperage", "value": "200 A", "isNonNeg": true },
+        { "name": "Jaws", "value": "4", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless, 1-position (Talon UAT4)", "isNonNeg": false },
+        { "name": "Bypass", "value": "None", "isNonNeg": false },
+        { "name": "Voltage", "value": "600 VAC", "isNonNeg": false },
+        { "name": "Service Entry", "value": "Overhead/Underground", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false }
+      ],
+      "estListPrice": 74.99,
+      "priceSource": "sselectricalsupply.com",
+      "specSheetUrl": "https://pdf.lowes.com/productdocuments/75fa463d-a4fc-41fd-b51a-39df709c327f/64790820.pdf",
+      "upc": "783643242050"
+    },
+    {
+      "mpn": "UTRS213B",
+      "brand": "Square D",
+      "name": "Square D UTRS213B Ringless Meter Socket",
+      "description": "200 A 600 VAC 1-phase 3-wire 4-jaw ringless meter socket, no bypass, Series A hub, overhead/underground service, NEMA 3R.",
+      "specs": [
+        { "name": "Amperage", "value": "200 A", "isNonNeg": true },
+        { "name": "Jaws", "value": "4", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless, 1-phase 3-wire, individual", "isNonNeg": false },
+        { "name": "Bypass", "value": "None", "isNonNeg": false },
+        { "name": "Voltage", "value": "600 VAC", "isNonNeg": false },
+        { "name": "Service Entry", "value": "Overhead/Underground", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R steel", "isNonNeg": false }
+      ],
+      "estListPrice": 99.0,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://media.distributordatasolutions.com/schneider_synd_rework/2024q1/documents/a83c236b52a1c03aecfb633ecf6cf27c0561a52c.pdf",
+      "upc": "785901627661"
+    },
+    {
+      "mpn": "R281C1",
+      "brand": "Midwest Electric",
+      "name": "Midwest R281C1 Metered Service Entrance",
+      "description": "200 A 120/240 VAC 1-phase ringless metered power outlet / combination service entrance device, 4-space, NEMA 3R.",
+      "specs": [
+        { "name": "Amperage", "value": "200 A", "isNonNeg": true },
+        { "name": "Jaws", "value": "4", "isNonNeg": true },
+        { "name": "Type", "value": "Ringless combination service entrance device", "isNonNeg": false },
+        { "name": "Bypass", "value": "None", "isNonNeg": false },
+        { "name": "Voltage", "value": "120/240 VAC", "isNonNeg": false },
+        { "name": "Wire Range", "value": "6 AWG-4/0 AWG", "isNonNeg": false },
+        { "name": "Enclosure", "value": "NEMA 3R", "isNonNeg": false }
+      ],
+      "estListPrice": 477.0,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://library.e.abb.com/public/dcebb02b699045f0bce80a815ef76c50/MET017O_Midwest_Elec_General_Products_Catalog_web.pdf",
+      "upc": "784567585407"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "category": "electrical",
+  "subcategory": "Conduit",
+  "uom": "FT",
+  "products": [
+    {
+      "mpn": "101543",
+      "brand": "Allied Tube & Conduit",
+      "name": "Allied Tube & Conduit 101543 1/2 in EMT Conduit",
+      "description": "1/2 in. x 10 ft. E-Z Pull galvanized steel EMT with Flo-Coat exterior and low-friction interior coating; UL 797, ANSI C80.3.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Galvanized steel", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 797, ANSI C80.3", "isNonNeg": false }
+      ],
+      "estListPrice": 5.79,
+      "priceSource": "mccoys.com",
+      "specSheetUrl": "https://www.atkore.com/products/conduit/ez-pull(r)-emt"
+    },
+    {
+      "mpn": "101550",
+      "brand": "Allied Tube & Conduit",
+      "name": "Allied Tube & Conduit 101550 3/4 in EMT Conduit",
+      "description": "3/4 in. x 10 ft. E-Z Pull galvanized steel EMT with Flo-Coat exterior and low-friction interior coating; UL 797, ANSI C80.3.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Galvanized steel", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 797, ANSI C80.3", "isNonNeg": false }
+      ],
+      "estListPrice": 9.29,
+      "priceSource": "mccoys.com",
+      "specSheetUrl": "https://www.atkore.com/products/conduit/ez-pull(r)-emt"
+    },
+    {
+      "mpn": "101568",
+      "brand": "Allied Tube & Conduit",
+      "name": "Allied Tube & Conduit 101568 1 in EMT Conduit",
+      "description": "1 in. x 10 ft. E-Z Pull galvanized steel EMT with Flo-Coat exterior and low-friction interior coating; UL 797, ANSI C80.3.",
+      "specs": [
+        { "name": "Trade Size", "value": "1 in", "isNonNeg": true },
+        { "name": "Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Galvanized steel", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 797, ANSI C80.3", "isNonNeg": false }
+      ],
+      "estListPrice": 16.49,
+      "priceSource": "mccoys.com",
+      "specSheetUrl": "https://www.atkore.com/products/conduit/ez-pull(r)-emt"
+    },
+    {
+      "mpn": "0550010000",
+      "brand": "Wheatland",
+      "name": "Wheatland 0550010000 1/2 in EMT Conduit",
+      "description": "1/2 in. x 10 ft. in-line galvanized steel EMT with low-friction polymer ID coating; UL 797 Listed, made to ANSI C80.3.",
+      "specs": [
+        { "name": "Trade Size", "value": "1/2 in", "isNonNeg": true },
+        { "name": "Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Galvanized steel", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 797, ANSI C80.3", "isNonNeg": false }
+      ],
+      "estListPrice": 7.68,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2019/03/10-and-20-Steel-EMT-Submittal-Sheet.pdf"
+    },
+    {
+      "mpn": "0550110000",
+      "brand": "Wheatland",
+      "name": "Wheatland 0550110000 3/4 in EMT Conduit",
+      "description": "3/4 in. x 10 ft. in-line galvanized steel EMT with low-friction polymer ID coating; UL 797 Listed, made to ANSI C80.3.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Type", "value": "EMT", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Galvanized steel", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 797, ANSI C80.3", "isNonNeg": false }
+      ],
+      "estListPrice": 11.53,
+      "priceSource": "homedepot.com",
+      "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2019/03/10-and-20-Steel-EMT-Submittal-Sheet.pdf"
+    },
+    {
+      "mpn": "0543910000",
+      "brand": "Wheatland",
+      "name": "Wheatland 0543910000 3/4 in Rigid Metal Conduit",
+      "description": "3/4 in. x 10 ft. hot-dip galvanized rigid metal conduit (GRC), threaded; UL 6 Listed, manufactured to ANSI C80.1.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Type", "value": "RMC (GRC)", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Hot-dip galvanized steel", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 6, ANSI C80.1", "isNonNeg": false }
+      ],
+      "estListPrice": 36.99,
+      "priceSource": "doitbest.com",
+      "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2018/11/Rigid-Metal-Conduit-Submittal-Sheet.pdf"
+    },
+    {
+      "mpn": "0548810000",
+      "brand": "Wheatland",
+      "name": "Wheatland 0548810000 3/4 in IMC Conduit",
+      "description": "3/4 in. x 10 ft. galvanized intermediate metal conduit (IMC), threaded; lighter-wall alternative to rigid, UL 1242 Listed.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Type", "value": "IMC", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Galvanized steel", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 1242, ANSI C80.6", "isNonNeg": false }
+      ],
+      "estListPrice": 32.99,
+      "priceSource": "doitbest.com",
+      "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2018/11/Intermediate-Metal-Conduit-Submittal-Sheet.pdf"
+    },
+    {
+      "mpn": "A52AG12",
+      "brand": "Cantex",
+      "name": "Cantex A52AG12 3/4 in Schedule 40 PVC Conduit",
+      "description": "3/4 in. x 10 ft. gray Schedule 40 rigid PVC conduit, sunlight resistant, for above and underground use; UL 651 Listed.",
+      "specs": [
+        { "name": "Trade Size", "value": "3/4 in", "isNonNeg": true },
+        { "name": "Type", "value": "PVC Schedule 40", "isNonNeg": true },
+        { "name": "Length", "value": "10 ft", "isNonNeg": false },
+        { "name": "Material", "value": "Rigid PVC", "isNonNeg": false },
+        { "name": "Standards", "value": "UL 651, NEMA TC-2", "isNonNeg": false }
+      ],
+      "estListPrice": 8.99,
+      "priceSource": "acehardware.com",
+      "specSheetUrl": "https://www.cantexinc.com/Portals/0/CANTEX-Schedule-40-and-80-Conduit-Sell-Sheet.pdf"
+    }
+  ]
+}
