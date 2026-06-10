@@ -2,6 +2,23 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  // Wesco SignalDesk runs as its own Vercel project; this domain proxies
+  // /signaldesk/* to it (the SignalDesk app is basePath-aware, so the
+  // prefix is preserved on the destination).
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/signaldesk",
+          destination: "https://signaldesk-mike-w-s-projects.vercel.app/signaldesk",
+        },
+        {
+          source: "/signaldesk/:path*",
+          destination: "https://signaldesk-mike-w-s-projects.vercel.app/signaldesk/:path*",
+        },
+      ],
+    };
+  },
   turbopack: {
     resolveAlias: {
       "@/components": path.resolve(__dirname, "../../components"),
