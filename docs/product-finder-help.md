@@ -139,6 +139,20 @@ It's completely transparent — no black box. A product scores higher when it:
 **matches the key specs**, is **in stock at your branch**, is a **Preferred** line,
 **costs less** than your reference, and is the **same type** of product.
 
+### The "For you" rail
+The landing view (before you search) opens with personalized, one-tap
+recommendations built from your own data:
+- **Time to reorder** — products from past orders, ranked by how often they're
+  bought; a **DUE** badge appears once the last order is 30+ days old, and
+  **Add** pre-fills the last ordered quantity.
+- **From your favorites** — starred products that aren't in your basket yet.
+- **Goes well with your orders** — complementary cross-sell for your top
+  reorder candidate.
+
+With a customer selected in "Quoting for," the rail uses **their** history; with
+no customer it looks across all orders and each card shows whose order it came
+from. *(Demo data: three seeded orders make the rail light up immediately.)*
+
 ### Product details
 Each product card shows the name, brand, SKU, and description, plus:
 - a collapsible **Specifications** list — key specs are marked **✓** when they match
@@ -177,7 +191,21 @@ specific to those products. Two kinds:
 When a product is **out of stock at Meridian Supply Co.**, the card and detail view
 show an estimated **lead time** and a **"Notify when available"** button. Click it to
 add the product to your watch list (remembered in your browser); click again to stop
-watching. *(Demo: no email is actually sent.)*
+watching. Watched products feed the **notification bell** (below). *(Demo: no email
+is actually sent.)*
+
+### Notifications (🔔)
+The bell in the header collects everything that needs your attention, with an
+**unread badge**:
+- **Approval requests** — below-margin quotes awaiting sign-off *(managers and
+  admins only)*.
+- **Follow-ups** — quotes sent more than 14 days ago with no decision.
+- **Restock alerts** — watched products, each with an **estimated restock date**;
+  when the window is reached the alert flips to "check availability."
+
+Click any notification to jump straight to the quote section or the product's
+detail view; **Mark all read** clears the badge. Read state is remembered in your
+browser.
 
 ### Out-of-stock substitutes
 When a product is out of stock **everywhere**, its card automatically offers the
@@ -221,6 +249,17 @@ Click **Import List / BOM** by the search box to bulk-add products:
   or just a name (defaults to qty 1);
 - each line is matched to the best catalog product with a **matched / unmatched**
   summary; click **Add N matched to cart** to add them all at their quantities.
+
+Every matched line also carries a **confidence score (0–100%)**:
+- **Green (80%+)** — the product covers your line text; exact SKUs always score
+  100%, and **numbers must match exactly** (a `20A` line never silently matches a
+  200A part).
+- **Amber / red** — worth a second look; the summary shows an "**n to review**"
+  count.
+- Lines that aren't a confident match list up to **two alternatives** — click
+  **Use** to swap one in (the score updates).
+- **Typos are rescued automatically** — `5x circut breakr` matches as *circuit
+  breaker* with a "corrected to…" note on the line.
 
 ### External sources
 - If a product is **out of stock at Meridian Supply Co.**, the app lists **external distributors**
@@ -303,6 +342,13 @@ applied), or clear it.
   margin %**, color-coded (red <15%, amber 15–30%, green 30%+), so you know your
   discount room. Marked **internal** — it never appears on the printed quote, shared
   basket, or customer CSV. *(Cost is estimated from list price in this demo.)*
+- **Line price override (✎ price)** — set a **custom unit price** on any line for
+  price-matching or close-the-deal discounts. **Guardrails:** never above list,
+  never below a **5% margin** over estimated cost — out-of-band entries snap to
+  the nearest bound, and the allowed range is shown while editing. Overridden
+  lines get a **CUSTOM** badge and a **reset** link; margins, the quote sheet,
+  saved quotes, orders, and CSV all use the overridden price. Deep discounts
+  still trip the 20% **approval** floor below.
 - **Quantity stock warnings** — if a line's quantity exceeds available stock, the
   cart flags it: *"Ordering 50 · 30 in stock · 20 on backorder ~1–2 weeks."*
 - **Submittal Package (PDF)** — builds an approval-ready document for the whole
@@ -319,6 +365,13 @@ applied), or clear it.
     flagged **Approval pending** and can't be converted until a **manager** clicks
     **Approve** (managers see Approve/Reject; the pipeline lists everything awaiting
     sign-off).
+  - **Customer Link:** copies a **no-login link** your customer can open to review
+    the branded quote — number, validity, line prices, total — and **Accept** or
+    **Decline** on the spot. Accepting **converts the quote to an order** and marks
+    it **Won**; declining marks it **Lost**. Expired or approval-pending quotes
+    can't be accepted (the page explains why), and copying a Draft's link
+    auto-advances it to **Sent**. *(Demo: the acceptance state lives in the browser
+    where the link is opened.)*
 - **Email Quote** — opens an inline form (recipient pre-filled). **Send Quote**
   records the quote with status **Sent** and confirms. *(Demo: no email is actually
   sent — the quote is tracked as Sent for follow-up.)*
@@ -347,6 +400,16 @@ the choice is remembered:
   to remove.
 
 All three persist **even after you close the browser**.
+
+### On your phone
+The finder is built to work one-handed at the counter or on a job site:
+- **Filters** live behind the floating **Filters** button (a bottom sheet).
+- The **basket** opens as a full-width drawer; quotes, orders, templates, and
+  the price override all work on mobile.
+- **Customer quote links** are mobile-first — customers usually open them on
+  a phone.
+- **Voice search** and the **notification bell** sit within thumb reach in the
+  header. (The ⌘K palette is desktop-only.)
 
 ---
 

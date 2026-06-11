@@ -67,7 +67,7 @@ export function ProductCard({
   const isFavorite = useProductFinder((s) => s.favorites.includes(product.id));
   const toggleFavorite = useProductFinder((s) => s.toggleFavorite);
   const setActiveProduct = useProductFinder((s) => s.setActiveProduct);
-  const isWatched = useProductFinder((s) => s.watches.includes(product.id));
+  const isWatched = useProductFinder((s) => s.watches.some((w) => w.id === product.id));
   const toggleWatch = useProductFinder((s) => s.toggleWatch);
   const activeCustomer = useProductFinder(selectActiveCustomer);
 
@@ -340,7 +340,7 @@ export function ProductCard({
           )}
           <button
             type="button"
-            onClick={() => toggleWatch(product.id)}
+            onClick={() => toggleWatch(product.id, { name: product.name })}
             aria-pressed={isWatched}
             className={cn(
               "ml-auto flex items-center gap-1 rounded border px-2.5 py-1 text-xs font-medium transition-colors",

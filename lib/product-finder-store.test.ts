@@ -957,15 +957,23 @@ describe("watches – toggleWatch", () => {
     expect(useProductFinder.getState().watches).toEqual([]);
   });
 
-  it("toggleWatch adds a product id that is not yet watched", () => {
-    useProductFinder.getState().toggleWatch("prod-001");
-    expect(useProductFinder.getState().watches).toContain("prod-001");
+  it("toggleWatch adds a WatchEntry (id, name, addedAt) for a product not yet watched", () => {
+    useProductFinder.getState().toggleWatch("prod-001", { name: "Test Breaker", now: 1234 });
+    const entry = useProductFinder.getState().watches.find((w) => w.id === "prod-001");
+    expect(entry).toEqual({ id: "prod-001", name: "Test Breaker", addedAt: 1234 });
   });
 
-  it("toggleWatch removes a product id that is already watched (toggle off)", () => {
+  it("toggleWatch defaults name to the id when no info is passed", () => {
+    useProductFinder.getState().toggleWatch("prod-001");
+    const entry = useProductFinder.getState().watches.find((w) => w.id === "prod-001");
+    expect(entry?.name).toBe("prod-001");
+    expect(typeof entry?.addedAt).toBe("number");
+  });
+
+  it("toggleWatch removes a product that is already watched (toggle off)", () => {
     useProductFinder.getState().toggleWatch("prod-001");
     useProductFinder.getState().toggleWatch("prod-001");
-    expect(useProductFinder.getState().watches).not.toContain("prod-001");
+    expect(useProductFinder.getState().watches.some((w) => w.id === "prod-001")).toBe(false);
   });
 
   it("toggleWatch does not duplicate: adding the same id twice yields one entry", () => {
@@ -973,7 +981,7 @@ describe("watches – toggleWatch", () => {
     useProductFinder.getState().toggleWatch("prod-002"); // removes
     useProductFinder.getState().toggleWatch("prod-002"); // adds again
     const { watches } = useProductFinder.getState();
-    const count = watches.filter((id) => id === "prod-002").length;
+    const count = watches.filter((w) => w.id === "prod-002").length;
     expect(count).toBe(1);
   });
 
@@ -989,8 +997,8 @@ describe("watches – toggleWatch", () => {
     useProductFinder.getState().toggleWatch("persist-id");
     const raw = mockStorage["pf_watches"];
     expect(raw).toBeDefined();
-    const parsed = JSON.parse(raw) as string[];
-    expect(parsed).toContain("persist-id");
+    const parsed = JSON.parse(raw) as { id: string }[];
+    expect(parsed.some((w) => w.id === "persist-id")).toBe(true);
 
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
@@ -1007,8 +1015,8 @@ describe("watches – toggleWatch", () => {
     useProductFinder.getState().toggleWatch("unwatch-id");
     useProductFinder.getState().toggleWatch("unwatch-id");
     const raw = mockStorage["pf_watches"];
-    const parsed = raw ? (JSON.parse(raw) as string[]) : [];
-    expect(parsed).not.toContain("unwatch-id");
+    const parsed = raw ? (JSON.parse(raw) as { id: string }[]) : [];
+    expect(parsed.some((w) => w.id === "unwatch-id")).toBe(false);
 
     (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
   });
@@ -1023,8 +1031,34 @@ describe("watches – toggleWatch", () => {
 describe("watches – hydrateSavedState loads pf_watches", () => {
   beforeEach(resetStore);
 
-  it("loads watches from localStorage on hydrate", () => {
+  it("migrates legacy string[] watches to WatchEntry[] on hydrate (one-time upgrade)", () => {
     const stored = ["product-a", "product-b"];
+    const mockStorage: Record<string, string> = {
+      pf_watches: JSON.stringify(stored),
+    };
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    hydrateSavedState();
+    const { watches } = useProductFinder.getState();
+    expect(watches.map((w) => w.id)).toEqual(stored);
+    for (const w of watches) {
+      expect(typeof w.name).toBe("string");
+      expect(typeof w.addedAt).toBe("number");
+    }
+    // The migrated shape is written back so the upgrade happens exactly once
+    const persisted = JSON.parse(mockStorage["pf_watches"]) as { id: string }[];
+    expect(persisted.map((w) => w.id)).toEqual(stored);
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("loads modern WatchEntry[] watches as-is on hydrate", () => {
+    const stored = [{ id: "p1", name: "Widget", addedAt: 555 }];
     const mockStorage: Record<string, string> = {
       pf_watches: JSON.stringify(stored),
     };

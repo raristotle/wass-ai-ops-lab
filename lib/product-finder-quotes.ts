@@ -51,7 +51,8 @@ export interface SavedQuote {
   number: string;
   customer: string;
   project: string;
-  lines: { product: CatalogProduct; qty: number }[];
+  /** unitPrice = price the line was quoted at (incl. manual overrides); absent on pre-override quotes. */
+  lines: { product: CatalogProduct; qty: number; unitPrice?: number }[];
   total: number;
   status: QuoteStatus;
   createdAt: number;

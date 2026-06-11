@@ -16,7 +16,7 @@ const MAX_ITEMS = 200;
 // ─── Base64url helpers ────────────────────────────────────────────────────────
 
 /** Encode a UTF-8 string to a URL-safe base64 string (no padding). */
-function b64uEncode(str: string): string {
+export function b64uEncode(str: string): string {
   if (typeof Buffer !== "undefined") {
     // Node / Vitest environment
     return Buffer.from(str, "utf8")
@@ -38,7 +38,7 @@ function b64uEncode(str: string): string {
 }
 
 /** Decode a URL-safe base64 string back to a UTF-8 string. */
-function b64uDecode(str: string): string {
+export function b64uDecode(str: string): string {
   // Re-pad to a multiple of 4
   const padded = str + "=".repeat((4 - (str.length % 4)) % 4);
   // Re-introduce standard base64 chars

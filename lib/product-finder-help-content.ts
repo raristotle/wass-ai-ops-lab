@@ -368,6 +368,73 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "for-you",
+    title: "“For you” — reorder predictions & picks",
+    body: [
+      "The For-you rail on the landing view turns your history into one-tap actions:",
+      "• Time to reorder — products from past orders, ranked by how often you buy them; a DUE badge appears 30+ days after the last order. Add pre-fills the last quantity.",
+      "• From your favorites — starred products you haven't basketed yet.",
+      "• Goes well with your orders — complementary products for your top reorder candidate.",
+      "With a customer selected it uses their history; with no customer it looks across all orders (each card shows whose order it came from).",
+    ],
+  },
+  {
+    id: "price-override",
+    title: "Line price override (margin-guarded)",
+    body: [
+      "Click ✎ price on any basket line to set a custom unit price — for price matching or close-the-deal discounts.",
+      "• Guardrails: you can't price above list or below a 5% margin over estimated cost; out-of-band entries snap to the nearest bound.",
+      "• Overridden lines show a CUSTOM badge and a reset link; line and basket margin update live.",
+      "• The override flows into the quote sheet, saved quotes, orders, and CSV export.",
+      "Deep discounts still trip the 20% margin floor — the quote saves as “Approval pending” for a manager to sign off.",
+    ],
+  },
+  {
+    id: "notifications",
+    title: "Notification center (🔔)",
+    body: [
+      "The bell in the header gathers everything that needs your attention:",
+      "• Approval requests — below-margin quotes awaiting sign-off (managers/admins).",
+      "• Follow-ups — quotes sent more than 14 days ago with no decision.",
+      "• Restock alerts — products you're watching, with an estimated restock date; you're alerted when the window is reached.",
+      "Click a notification to jump straight to the quote section or product. Unread items are badged; Mark all read clears them.",
+    ],
+  },
+  {
+    id: "customer-link",
+    title: "Customer quote link — review & accept",
+    body: [
+      "Every saved quote has a Customer Link button — it copies a link your customer can open with no login.",
+      "They see a branded quote (number, validity, line prices, total) with Accept and Decline buttons.",
+      "• Accept converts the quote to an order and marks it Won — the full loop in one click.",
+      "• Decline marks it Lost so your pipeline stays honest.",
+      "• Expired or approval-pending quotes can't be accepted — the page says why.",
+      "Copying the link also moves a Draft quote to Sent. (Demo note: acceptance state lives in the browser where the link is opened.)",
+    ],
+  },
+  {
+    id: "bom-confidence",
+    title: "BOM match confidence & alternates",
+    body: [
+      "Import List / BOM now scores every matched line 0–100%:",
+      "• Green (80%+) — the product covers your line text, including exact numbers like “20A”. Exact SKUs always score 100%.",
+      "• Amber / red — worth a look; a “to review” count appears in the summary.",
+      "• Lines that aren't a confident match list up to two alternatives — click Use to swap one in.",
+      "• Typos are auto-corrected (“circut breakr” → “circuit breaker”) and flagged on the line.",
+    ],
+  },
+  {
+    id: "mobile",
+    title: "Using it on a phone",
+    body: [
+      "The finder works one-handed at the counter or on a job site:",
+      "• Filters live behind the floating Filters button (bottom sheet).",
+      "• The basket opens as a full-width drawer; quotes, orders, and templates all work.",
+      "• Customer quote links are mobile-first — customers usually open them on a phone.",
+      "• Voice search and the notification bell are in easy thumb reach in the header.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

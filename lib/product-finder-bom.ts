@@ -7,6 +7,11 @@
  */
 
 import type { CatalogProduct } from "@/features/product-finder/types";
+import {
+  matchConfidence,
+  confidenceTier,
+  type ConfidenceTier,
+} from "@/lib/product-finder-match-confidence";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -26,6 +31,17 @@ export type ParsedBomLine = {
 
 export type MatchedBomLine = ParsedBomLine & {
   match: CatalogProduct | null;
+};
+
+export type ScoredBomLine = ParsedBomLine & {
+  match: CatalogProduct | null;
+  /** 0..1 token coverage of the (possibly corrected) query by the match. 0 when unmatched. */
+  confidence: number;
+  tier: ConfidenceTier | null;
+  /** Runner-up candidates the user can swap in (top-3 search minus the match). */
+  alternates: CatalogProduct[];
+  /** Set when the raw query found nothing and a typo correction rescued it. */
+  correctedQuery?: string;
 };
 
 // ─── parseBomLines ────────────────────────────────────────────────────────────
@@ -151,6 +167,71 @@ export async function matchBom(
         match = null;
       }
       return { ...line, match };
+    },
+    MATCH_CONCURRENCY
+  );
+}
+
+// ─── matchBomScored ───────────────────────────────────────────────────────────
+
+/**
+ * Confidence-scored matching with alternates and an optional typo-correction
+ * rescue pass.
+ *
+ * @param parsed     Output of parseBomLines.
+ * @param searchTopK Async query → top candidate products (the modal uses
+ *                   apiSearch with pageSize 3). Errors → treated as no hits.
+ * @param suggest    Optional corrector (e.g. suggestCorrection). Consulted only
+ *                   when the raw query returns zero hits; if the corrected
+ *                   query finds products, the line carries `correctedQuery`.
+ *
+ * The top hit becomes `match`, scored against whichever query produced it;
+ * the rest become `alternates` the user can swap in.
+ */
+export async function matchBomScored(
+  parsed: ParsedBomLine[],
+  searchTopK: (query: string) => Promise<CatalogProduct[]>,
+  suggest?: (query: string) => { corrected: string } | null
+): Promise<ScoredBomLine[]> {
+  return batchedAwait(
+    parsed,
+    async (line) => {
+      let items: CatalogProduct[] = [];
+      let usedQuery = line.query;
+      let correctedQuery: string | undefined;
+
+      try {
+        items = await searchTopK(line.query);
+      } catch {
+        items = [];
+      }
+
+      if (items.length === 0 && suggest) {
+        const sugg = suggest(line.query);
+        if (sugg && sugg.corrected.toLowerCase() !== line.query.toLowerCase()) {
+          try {
+            const rescued = await searchTopK(sugg.corrected);
+            if (rescued.length > 0) {
+              items = rescued;
+              usedQuery = sugg.corrected;
+              correctedQuery = sugg.corrected;
+            }
+          } catch {
+            /* rescue failed — stay unmatched */
+          }
+        }
+      }
+
+      const match = items[0] ?? null;
+      const confidence = match ? matchConfidence(usedQuery, match) : 0;
+      return {
+        ...line,
+        match,
+        confidence,
+        tier: match ? confidenceTier(confidence) : null,
+        alternates: items.slice(1, 3),
+        ...(correctedQuery !== undefined ? { correctedQuery } : {}),
+      };
     },
     MATCH_CONCURRENCY
   );

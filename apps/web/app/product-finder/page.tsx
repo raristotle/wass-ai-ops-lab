@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import type { CatalogProduct } from "@/features/product-finder/types";
 import { LandingState, NoResultsState } from "@/features/product-finder/EmptyState";
 import { SavedAndRecentPanel } from "@/features/product-finder/SavedAndRecentPanel";
+import { ForYouRail } from "@/features/product-finder/ForYouRail";
 
 // ─── Active Product Banner ────────────────────────────────────────────────────
 
@@ -347,7 +348,8 @@ export default function ProductFinderPage() {
                 <LandingState />
               ) : (
                 <>
-                  {/* Default browse view (no query/filters): surface saved & recent above the grid */}
+                  {/* Default browse view (no query/filters): personalized rail + saved & recent above the grid */}
+                  {!hasQueryOrFilters && <ForYouRail />}
                   {!hasQueryOrFilters && <SavedAndRecentPanel />}
                   <ProductGrid products={results} />
                 </>

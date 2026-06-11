@@ -10,6 +10,7 @@ import { BomImportModal } from "@/features/product-finder/BomImportModal";
 import { BulkQuoteModal } from "@/features/product-finder/BulkQuoteModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
+import { NotificationBell } from "@/features/product-finder/NotificationBell";
 import { TourOverlay } from "@/features/product-finder/TourOverlay";
 import { CommandPalette } from "@/features/product-finder/CommandPalette";
 import { cn } from "@/lib/utils";
@@ -60,7 +61,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
         </div>
 
         {/* Right: role switcher + customer selector + user info + cart */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Demo role switcher */}
           <RoleSwitcher />
 
@@ -108,16 +109,19 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
             </Link>
           )}
 
-          {/* Command palette */}
+          {/* Command palette — pointless on touch; hidden below sm */}
           <button
             type="button"
             onClick={() => setPaletteOpen(true)}
             aria-label="Open command palette"
             title="Command palette (Ctrl+K)"
-            className="flex h-9 items-center justify-center rounded-lg border border-[#4F758B] px-2 text-xs font-bold text-[#B7C9D3] transition-colors hover:border-[#64CCC9] hover:text-[#64CCC9]"
+            className="hidden h-9 items-center justify-center rounded-lg border border-[#4F758B] px-2 text-xs font-bold text-[#B7C9D3] transition-colors hover:border-[#64CCC9] hover:text-[#64CCC9] sm:flex"
           >
             ⌘K
           </button>
+
+          {/* Notifications */}
+          <NotificationBell />
 
           {/* Help */}
           <button

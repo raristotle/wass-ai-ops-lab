@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { parseBomLines, matchBom, BOM_LINE_CAP } from "@/lib/product-finder-bom";
+import { parseBomLines, matchBom, matchBomScored, BOM_LINE_CAP } from "@/lib/product-finder-bom";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── parseBomLines ────────────────────────────────────────────────────────────
@@ -284,5 +284,80 @@ describe("matchBom", () => {
 
     // Assert searchFn was called once per line
     expect(searchFn).toHaveBeenCalledTimes(20);
+  });
+});
+
+// ─── matchBomScored ───────────────────────────────────────────────────────────
+
+const ALT_PRODUCT: CatalogProduct = {
+  ...MOCK_PRODUCT,
+  id: "p-002",
+  sku: "SKU-002",
+  name: "15A Circuit Breaker GFCI",
+};
+
+describe("matchBomScored", () => {
+  it("scores the top hit and exposes the rest as alternates", async () => {
+    const searchTopK = vi.fn().mockResolvedValue([MOCK_PRODUCT, ALT_PRODUCT]);
+    const parsed = parseBomLines("5x 15A circuit breaker");
+    const [line] = await matchBomScored(parsed, searchTopK);
+    expect(line.match).toBe(MOCK_PRODUCT);
+    expect(line.alternates).toEqual([ALT_PRODUCT]);
+    expect(line.confidence).toBeGreaterThanOrEqual(0.8);
+    expect(line.tier).toBe("high");
+    expect(line.correctedQuery).toBeUndefined();
+  });
+
+  it("exact SKU lines score 1.0 / high", async () => {
+    const searchTopK = vi.fn().mockResolvedValue([MOCK_PRODUCT]);
+    const [line] = await matchBomScored(parseBomLines("2x SKU-001"), searchTopK);
+    expect(line.confidence).toBe(1);
+    expect(line.tier).toBe("high");
+  });
+
+  it("unmatched lines have confidence 0, null tier, no alternates", async () => {
+    const searchTopK = vi.fn().mockResolvedValue([]);
+    const [line] = await matchBomScored(parseBomLines("1x unobtainium flux"), searchTopK);
+    expect(line.match).toBeNull();
+    expect(line.confidence).toBe(0);
+    expect(line.tier).toBeNull();
+    expect(line.alternates).toEqual([]);
+  });
+
+  it("rescues zero-hit lines via the suggest corrector and records correctedQuery", async () => {
+    const searchTopK = vi.fn(async (q: string) =>
+      q === "circuit breaker" ? [MOCK_PRODUCT] : []
+    );
+    const suggest = vi.fn((q: string) =>
+      q === "circut breakr" ? { corrected: "circuit breaker" } : null
+    );
+    const [line] = await matchBomScored(parseBomLines("4x circut breakr"), searchTopK, suggest);
+    expect(line.match).toBe(MOCK_PRODUCT);
+    expect(line.correctedQuery).toBe("circuit breaker");
+    // confidence is scored against the corrected query
+    expect(line.confidence).toBeGreaterThanOrEqual(0.8);
+    expect(searchTopK).toHaveBeenCalledTimes(2);
+  });
+
+  it("does not consult suggest when the raw query already matched", async () => {
+    const searchTopK = vi.fn().mockResolvedValue([MOCK_PRODUCT]);
+    const suggest = vi.fn().mockReturnValue({ corrected: "something else" });
+    await matchBomScored(parseBomLines("1x breaker"), searchTopK, suggest);
+    expect(suggest).not.toHaveBeenCalled();
+  });
+
+  it("stays unmatched when the correction also finds nothing", async () => {
+    const searchTopK = vi.fn().mockResolvedValue([]);
+    const suggest = vi.fn().mockReturnValue({ corrected: "still wrong" });
+    const [line] = await matchBomScored(parseBomLines("1x gibberish"), searchTopK, suggest);
+    expect(line.match).toBeNull();
+    expect(line.correctedQuery).toBeUndefined();
+  });
+
+  it("treats searchTopK rejections as no hits", async () => {
+    const searchTopK = vi.fn().mockRejectedValue(new Error("boom"));
+    const [line] = await matchBomScored(parseBomLines("1x anything"), searchTopK);
+    expect(line.match).toBeNull();
+    expect(line.confidence).toBe(0);
   });
 });

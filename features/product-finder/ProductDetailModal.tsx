@@ -138,7 +138,7 @@ export function ProductDetailModal() {
   const dotColor  = branchQty > 0 ? "bg-[#00AA13]" : dcQty > 0 ? "bg-[#EAAA00]" : "bg-gray-300";
   const links     = externalSearchLinks(product);
   const productInStock = isInStock(product);
-  const isWatched = watches.includes(product.id);
+  const isWatched = watches.some((w) => w.id === product.id);
 
   const nonNegSpecs = product.specs.filter((s) => s.isNonNeg);
   const otherSpecs  = product.specs.filter((s) => !s.isNonNeg);
@@ -401,7 +401,7 @@ export function ProductDetailModal() {
               <div className="flex items-center gap-3 flex-wrap">
                 <button
                   type="button"
-                  onClick={() => toggleWatch(product.id)}
+                  onClick={() => toggleWatch(product.id, { name: product.name })}
                   aria-pressed={isWatched}
                   className={cn(
                     "flex items-center gap-1 rounded border px-2.5 py-1 text-xs font-medium transition-colors",

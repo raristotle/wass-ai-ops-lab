@@ -3,10 +3,12 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer } from "@/lib/product-finder-store";
 import { priceTiers } from "@/lib/product-finder-pricing";
+import { overrideBounds } from "@/lib/product-finder-override";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { getPricingProvider } from "@/lib/integration/index";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { encodeCart } from "@/lib/product-finder-share";
+import { encodeQuoteShare, QUOTE_SHARE_VERSION, type QuoteSharePayload } from "@/lib/product-finder-quote-share";
 import { basketCsv, downloadCsv } from "@/lib/product-finder-csv";
 import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import { isInLocalMonth } from "@/lib/analytics";
@@ -35,6 +37,10 @@ export function CartDrawer() {
   const cartCount = useProductFinder(selectCartCount);
   const cartTotal = useProductFinder(selectCartTotal);
   const user = useProductFinder((s) => s.user);
+  const priceOverrides = useProductFinder((s) => s.priceOverrides);
+  const setPriceOverride = useProductFinder((s) => s.setPriceOverride);
+  const [editingPriceId, setEditingPriceId] = useState<string | null>(null);
+  const [priceDraft, setPriceDraft] = useState("");
 
   const savedBaskets = useProductFinder((s) => s.savedBaskets);
   const saveCurrentBasket = useProductFinder((s) => s.saveCurrentBasket);
@@ -145,17 +151,20 @@ export function CartDrawer() {
   // "Complete this job" — complementary products the basket is missing
   const completions = useMemo(() => (items.length === 0 ? [] : completeTheJob(items, 4)), [items]);
 
-  // Internal margin across the basket (effective price vs estimated cost)
+  // Internal margin across the basket (effective price vs estimated cost).
+  // Override-aware: a manually re-priced line contributes its custom price.
   const margin = useMemo(() => {
     if (items.length === 0) return null;
     const provider = getPricingProvider();
     const lines = items.map(({ product, qty }) => ({
       product,
       qty,
-      effectiveUnitPrice: provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
+      effectiveUnitPrice:
+        priceOverrides[product.id] ??
+        provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
     }));
     return basketMargin(lines);
-  }, [items, activeCustomer]);
+  }, [items, activeCustomer, priceOverrides]);
 
   // ── Email-quote state ──────────────────────────────────────────────────────
   const [emailOpen, setEmailOpen] = useState(false);
@@ -170,6 +179,43 @@ export function CartDrawer() {
   // ── Share / quote-save state ───────────────────────────────────────────────
   const [shareCopied, setShareCopied] = useState(false);
   const [quoteSaved, setQuoteSaved] = useState(false);
+  const [copiedQuoteId, setCopiedQuoteId] = useState<string | null>(null);
+  const customers = useProductFinder((s) => s.customers);
+
+  /** Build + copy the customer-facing acceptance link for a saved quote. */
+  const handleCustomerLink = (q: SavedQuote) => {
+    const provider = getPricingProvider();
+    const quoteCustomer = q.customerId ? customers.find((c) => c.id === q.customerId) ?? null : null;
+    const payload: QuoteSharePayload = {
+      v: QUOTE_SHARE_VERSION,
+      id: q.id,
+      number: q.number,
+      customer: q.customer,
+      project: q.project,
+      lines: q.lines.map((l) => ({
+        id: l.product.id,
+        sku: l.product.sku,
+        name: l.product.name,
+        qty: l.qty,
+        // Prefer the price captured at save time (incl. manual overrides)
+        unitPrice:
+          l.unitPrice ??
+          provider.getPricing(l.product, { customer: quoteCustomer, qty: l.qty }).effectiveUnitPrice,
+      })),
+      total: q.total,
+      createdAt: q.createdAt,
+      validUntil: quoteValidityDate(new Date(q.createdAt)).getTime(),
+      ...(user ? { rep: user.name, branch: user.branch } : {}),
+      ...(q.approvalStatus === "pending" ? { approvalPending: true as const } : {}),
+    };
+    const url = `${location.origin}/product-finder/quote?q=${encodeQuoteShare(payload)}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopiedQuoteId(q.id);
+      setTimeout(() => setCopiedQuoteId(null), 2500);
+    });
+    // Sharing the link with the customer IS sending the quote.
+    if (q.status === "draft") setQuoteStatus(q.id, "sent");
+  };
 
   const handleShare = () => {
     const lines = Object.values(cart).map(({ product, qty }) => ({
@@ -253,7 +299,7 @@ export function CartDrawer() {
       */}
       <div
         className={cn(
-          "fixed right-0 top-0 z-50 flex h-full w-80 flex-col bg-white shadow-2xl transition-transform duration-300 sm:w-96",
+          "fixed right-0 top-0 z-50 flex h-full w-full max-w-[26rem] flex-col bg-white shadow-2xl transition-transform duration-300 sm:w-96",
           "print:static print:translate-x-0 print:w-full print:h-auto print:overflow-visible print:shadow-none print:flex print:flex-col",
           cartOpen ? "translate-x-0" : "translate-x-full"
         )}
@@ -309,13 +355,19 @@ export function CartDrawer() {
             <ul className="divide-y divide-[#B7C9D3]">
               {items.map(({ product, qty }) => {
                 const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
-                const effectiveUnitPrice = pricing.effectiveUnitPrice;
+                const override = priceOverrides[product.id];
+                const isOverridden = override !== undefined;
+                const effectiveUnitPrice = override ?? pricing.effectiveUnitPrice;
                 const lineTotal = effectiveUnitPrice * qty;
-                const hasContract = pricing.contractPrice !== null;
+                // Contract / volume chips describe provider pricing — hide them
+                // when a manual override replaces that price entirely.
+                const hasContract = pricing.contractPrice !== null && !isOverridden;
                 // Find the qualifying tier break (minQty > 1 means a vol-price discount applies)
                 const tiers = priceTiers(product);
                 const activeTier = [...tiers].reverse().find((t) => qty >= t.minQty);
-                const hasVolBreak = activeTier !== undefined && activeTier.minQty > 1;
+                const hasVolBreak = activeTier !== undefined && activeTier.minQty > 1 && !isOverridden;
+                const bounds = overrideBounds(product);
+                const isEditingPrice = editingPriceId === product.id;
                 return (
                   <li key={product.id} className="px-4 py-4">
                     <div className="flex items-start gap-3">
@@ -373,6 +425,83 @@ export function CartDrawer() {
                         {!hasContract && hasVolBreak && activeTier && (
                           <p className="mt-0.5 text-[10px] font-semibold text-[#00AA13]">
                             vol. price ({activeTier.minQty}+)
+                          </p>
+                        )}
+
+                        {/* Manual price override (internal, margin-guarded) */}
+                        {isEditingPrice ? (
+                          <div className="mt-1 rounded border border-[#4F758B]/40 bg-[#F8FAFB] p-1.5">
+                            <div className="flex items-center gap-1">
+                              <span className="text-[10px] text-[#4F758B]">$</span>
+                              <input
+                                type="number"
+                                step="0.01"
+                                min={bounds.min}
+                                max={bounds.max}
+                                value={priceDraft}
+                                onChange={(e) => setPriceDraft(e.target.value)}
+                                onKeyDown={(e) => {
+                                  if (e.key === "Enter") {
+                                    setPriceOverride(product.id, parseFloat(priceDraft));
+                                    setEditingPriceId(null);
+                                  }
+                                  if (e.key === "Escape") setEditingPriceId(null);
+                                }}
+                                className="w-20 rounded border border-[#B7C9D3] px-1.5 py-0.5 text-xs text-[#1D252D] focus:border-[#4F758B] focus:outline-none"
+                                aria-label={`Override unit price for ${product.name}`}
+                                autoFocus
+                              />
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setPriceOverride(product.id, parseFloat(priceDraft));
+                                  setEditingPriceId(null);
+                                }}
+                                className="rounded bg-[#1D252D] px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-[#2d3a47]"
+                              >
+                                Apply
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => setEditingPriceId(null)}
+                                aria-label="Cancel price override"
+                                className="text-[#B7C9D3] hover:text-[#1D252D]"
+                              >
+                                ✕
+                              </button>
+                            </div>
+                            <p className="mt-1 text-[9px] text-[#4F758B]">
+                              Allowed: ${bounds.min.toFixed(2)}–${bounds.max.toFixed(2)} (min 5% margin)
+                            </p>
+                          </div>
+                        ) : (
+                          <p className="mt-0.5 flex items-center gap-1.5 text-[10px]">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setEditingPriceId(product.id);
+                                setPriceDraft(effectiveUnitPrice.toFixed(2));
+                              }}
+                              className="text-[#4F758B] underline underline-offset-2 hover:text-[#1D252D]"
+                              aria-label={`Adjust unit price for ${product.name}`}
+                            >
+                              ✎ price
+                            </button>
+                            {isOverridden && (
+                              <>
+                                <span className="rounded bg-[#004986] px-1 text-[8px] font-semibold uppercase tracking-wide text-white">
+                                  custom
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => setPriceOverride(product.id, null)}
+                                  className="text-[#4F758B] underline underline-offset-2 hover:text-[#1D252D]"
+                                  aria-label={`Reset unit price for ${product.name}`}
+                                >
+                                  reset
+                                </button>
+                              </>
+                            )}
                           </p>
                         )}
 
@@ -751,6 +880,15 @@ export function CartDrawer() {
                       )}
                       <button
                         type="button"
+                        onClick={() => handleCustomerLink(q)}
+                        className="rounded bg-[#004986] px-2 py-0.5 text-[10px] font-semibold text-white transition-colors hover:bg-[#003a6d]"
+                        title="Copy a link your customer can open to review & accept this quote"
+                        aria-label={`Copy customer acceptance link for quote ${q.number}`}
+                      >
+                        {copiedQuoteId === q.id ? "Link copied ✓" : "Customer Link"}
+                      </button>
+                      <button
+                        type="button"
                         onClick={() => deleteQuote(q.id)}
                         className="ml-auto shrink-0 text-[#B7C9D3] transition-colors hover:text-red-600"
                         aria-label={`Delete quote ${q.number}`}
@@ -1008,7 +1146,9 @@ export function CartDrawer() {
                 const lines = items.map(({ product, qty }) => ({
                   product,
                   qty,
-                  effectiveUnitPrice: provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
+                  effectiveUnitPrice:
+                    priceOverrides[product.id] ??
+                    provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
                 }));
                 downloadCsv("basket.csv", basketCsv(lines));
               }}
@@ -1168,7 +1308,7 @@ export function CartDrawer() {
                 <tbody>
                   {items.map(({ product, qty }) => {
                     const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
-                    const unit = pricing.effectiveUnitPrice;
+                    const unit = priceOverrides[product.id] ?? pricing.effectiveUnitPrice;
                     const ext = unit * qty;
                     return (
                       <tr key={product.id} className="border-b border-[#B7C9D3]/60">

@@ -38,6 +38,8 @@ import { getPricingProvider } from "@/lib/integration/index";
 import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-finder-quotes";
 import { needsApproval } from "@/lib/product-finder-quotes";
 import { basketMargin } from "@/lib/product-finder-margin";
+import { clampOverride } from "@/lib/product-finder-override";
+import type { WatchEntry } from "@/lib/product-finder-notifications";
 import {
   searchProducts,
   getAlternatives,
@@ -194,6 +196,10 @@ export interface ProductFinderState {
   removeFromCart: (id: string) => void;
   updateCartQty: (id: string, qty: number) => void;
   clearCart: () => void;
+  /** Per-line manual unit-price overrides (productId → price). In-memory, like the cart. */
+  priceOverrides: Record<string, number>;
+  /** Set (clamped to overrideBounds) or clear (null) a manual line price. */
+  setPriceOverride: (id: string, price: number | null) => void;
   cartOpen: boolean;
   setCartOpen: (v: boolean) => void;
   // Cart deep-linking: open the drawer at a section, optionally pre-filtered.
@@ -237,8 +243,12 @@ export interface ProductFinderState {
   convertQuoteToOrder: (id: string, now?: number) => void;
 
   // Watches (notify-when-available)
-  watches: string[];
-  toggleWatch: (id: string) => void;
+  watches: WatchEntry[];
+  toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
+
+  // Notification read state (notification id → readAt)
+  notifReads: Record<string, number>;
+  markNotificationsRead: (ids: string[], now: number) => void;
 
   // Saved & history
   favorites: string[];
@@ -680,7 +690,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   removeFromCart(id) {
     set((s) => {
       const { [id]: _, ...rest } = s.cart;
-      return { cart: rest };
+      const { [id]: _o, ...restOverrides } = s.priceOverrides;
+      return { cart: rest, priceOverrides: restOverrides };
     });
   },
 
@@ -691,7 +702,22 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     }));
   },
 
-  clearCart() { set({ cart: {} }); },
+  clearCart() { set({ cart: {}, priceOverrides: {} }); },
+
+  // ── Per-line price overrides (margin-guarded) ─────────────
+  priceOverrides: {},
+
+  setPriceOverride(id, price) {
+    set((s) => {
+      const line = s.cart[id];
+      if (!line) return s;
+      if (price === null) {
+        const { [id]: _, ...rest } = s.priceOverrides;
+        return { priceOverrides: rest };
+      }
+      return { priceOverrides: { ...s.priceOverrides, [id]: clampOverride(line.product, price) } };
+    });
+  },
   setCartOpen(v) {
     // Plain open/close always starts from a clean drawer — no stale deep-link
     // section or filters.
@@ -764,7 +790,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     for (const line of basket.lines) {
       newCart[line.product.id] = { product: line.product, qty: line.qty };
     }
-    set({ cart: newCart });
+    set({ cart: newCart, priceOverrides: {} });
   },
 
   deleteBasket(id) {
@@ -799,17 +825,17 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     const cartValues = Object.values(cart);
     if (cartValues.length === 0) return;
 
-    const activeCustomer = selectActiveCustomer(get());
-    const provider = getPricingProvider();
+    const state = get();
+    const activeCustomer = selectActiveCustomer(state);
 
     const lines = cartValues.map((entry) => ({
       product: entry.product,
       qty: entry.qty,
     }));
-    // Use the SAME pricing the cart shows (effectiveUnitPrice) to fix the bug
-    // where contract customer order totals didn't match the cart subtotal.
+    // Use the SAME pricing the cart shows (effectiveUnitPrice, incl. manual
+    // overrides) so order totals always match the cart subtotal.
     const total = lines.reduce(
-      (sum, l) => sum + provider.getPricing(l.product, { customer: activeCustomer, qty: l.qty }).effectiveUnitPrice * l.qty,
+      (sum, l) => sum + lineUnitPrice(state, l.product, l.qty) * l.qty,
       0
     );
     const orderId = id ?? `order-${now}`;
@@ -827,7 +853,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_orders", JSON.stringify(orders));
       }
-      return { orders, cart: {} };
+      return { orders, cart: {}, priceOverrides: {} };
     });
   },
 
@@ -842,7 +868,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
         qty: line.qty,
       };
     }
-    set({ cart: newCart });
+    set({ cart: newCart, priceOverrides: {} });
   },
 
   deleteOrder(id) {
@@ -917,14 +943,15 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     const cartValues = Object.values(get().cart);
     if (cartValues.length === 0) return;
 
-    const activeCustomer = selectActiveCustomer(get());
-    const provider = getPricingProvider();
-    const lines = cartValues.map((entry) => ({ product: entry.product, qty: entry.qty }));
-    const marginLines = lines.map((l) => ({
-      product: l.product,
-      qty: l.qty,
-      effectiveUnitPrice: provider.getPricing(l.product, { customer: activeCustomer, qty: l.qty }).effectiveUnitPrice,
+    const state = get();
+    const activeCustomer = selectActiveCustomer(state);
+    const marginLines = cartValues.map((entry) => ({
+      product: entry.product,
+      qty: entry.qty,
+      effectiveUnitPrice: lineUnitPrice(state, entry.product, entry.qty),
     }));
+    // Capture the unit price each line was quoted at (incl. manual overrides)
+    const lines = marginLines.map((l) => ({ product: l.product, qty: l.qty, unitPrice: l.effectiveUnitPrice }));
     const total = marginLines.reduce((sum, l) => sum + l.effectiveUnitPrice * l.qty, 0);
     const margin = basketMargin(marginLines);
     const ts = now ?? Date.now();
@@ -979,7 +1006,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     for (const line of quote.lines) {
       newCart[line.product.id] = { product: line.product, qty: line.qty };
     }
-    set({ cart: newCart });
+    set({ cart: newCart, priceOverrides: {} });
   },
 
   deleteQuote(id) {
@@ -1026,14 +1053,31 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
 
-  toggleWatch(id) {
+  toggleWatch(id, info) {
     set((s) => {
-      const has = s.watches.includes(id);
-      const watches = has ? s.watches.filter((w) => w !== id) : [...s.watches, id];
+      const has = s.watches.some((w) => w.id === id);
+      const watches = has
+        ? s.watches.filter((w) => w.id !== id)
+        : [...s.watches, { id, name: info?.name ?? id, addedAt: info?.now ?? Date.now() }];
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_watches", JSON.stringify(watches));
       }
       return { watches };
+    });
+  },
+
+  // ── Notification read state ───────────────────────────────
+  notifReads: {},
+
+  markNotificationsRead(ids, now) {
+    if (ids.length === 0) return;
+    set((s) => {
+      const notifReads = { ...s.notifReads };
+      for (const id of ids) notifReads[id] = now;
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_notif_reads", JSON.stringify(notifReads));
+      }
+      return { notifReads };
     });
   },
 
@@ -1177,16 +1221,66 @@ export function hydrateSavedState() {
     return exists ? raw : null;
   };
 
+  const favoriteSnapshots = readMap("pf_fav_snap");
+  const recentSnapshots = readMap("pf_recent_snap");
+
+  // Watches: migrate the legacy string[] shape (pre-notification-center) to
+  // WatchEntry[] in place. Names fall back to a known snapshot, then the id.
+  const readWatches = (): WatchEntry[] => {
+    const raw = localStorage.getItem("pf_watches");
+    if (!raw) return [];
+    try {
+      const v: unknown = JSON.parse(raw);
+      if (!Array.isArray(v)) return [];
+      const now = Date.now();
+      const entries: WatchEntry[] = [];
+      for (const e of v as unknown[]) {
+        if (typeof e === "string") {
+          const snap = recentSnapshots[e] ?? favoriteSnapshots[e];
+          entries.push({ id: e, name: snap?.name ?? e, addedAt: now });
+        } else if (e && typeof e === "object" && typeof (e as { id?: unknown }).id === "string") {
+          const o = e as { id: string; name?: unknown; addedAt?: unknown };
+          entries.push({
+            id: o.id,
+            name: typeof o.name === "string" ? o.name : o.id,
+            addedAt: typeof o.addedAt === "number" ? o.addedAt : now,
+          });
+        }
+      }
+      return entries;
+    } catch {
+      localStorage.removeItem("pf_watches");
+      return [];
+    }
+  };
+
+  const readReads = (): Record<string, number> => {
+    const raw = localStorage.getItem("pf_notif_reads");
+    if (!raw) return {};
+    try {
+      const v = JSON.parse(raw);
+      return v && typeof v === "object" && !Array.isArray(v) ? (v as Record<string, number>) : {};
+    } catch {
+      localStorage.removeItem("pf_notif_reads");
+      return {};
+    }
+  };
+
+  const watches = readWatches();
+  // Persist the migrated shape so legacy entries upgrade exactly once.
+  localStorage.setItem("pf_watches", JSON.stringify(watches));
+
   useProductFinder.setState({
     favorites: readArr("pf_favorites"),
     recentlyViewed: readArr("pf_recent"),
-    favoriteSnapshots: readMap("pf_fav_snap"),
-    recentSnapshots: readMap("pf_recent_snap"),
+    favoriteSnapshots,
+    recentSnapshots,
     searchHistory: readArr("pf_search_history"),
     savedBaskets: readBaskets("pf_saved_baskets"),
     jobTemplates: readTemplates(),
     quotes: readQuotes(),
-    watches: readArr("pf_watches"),
+    watches,
+    notifReads: readReads(),
     orders: readOrders(),
     activeCustomerId: readActiveCustomer(),
   });
@@ -1301,12 +1395,27 @@ export function selectCartCount(state: ProductFinderState) {
 }
 
 export function selectCartTotal(state: ProductFinderState) {
-  const customer = selectActiveCustomer(state);
-  const provider = getPricingProvider();
-  return Object.values(state.cart).reduce((sum, { product, qty }) => {
-    const effectiveUnitPrice = provider.getPricing(product, { customer, qty }).effectiveUnitPrice;
-    return sum + effectiveUnitPrice * qty;
-  }, 0);
+  return Object.values(state.cart).reduce(
+    (sum, { product, qty }) => sum + lineUnitPrice(state, product, qty) * qty,
+    0
+  );
+}
+
+/**
+ * The unit price a cart line is actually sold at: the rep's manual override
+ * when present, otherwise the pricing provider's effective price.
+ */
+export function lineUnitPrice(
+  state: Pick<ProductFinderState, "priceOverrides" | "customers" | "activeCustomerId">,
+  product: CatalogProduct,
+  qty: number
+): number {
+  const override = state.priceOverrides[product.id];
+  if (override !== undefined) return override;
+  const customer = state.activeCustomerId
+    ? state.customers.find((c) => c.id === state.activeCustomerId) ?? null
+    : null;
+  return getPricingProvider().getPricing(product, { customer, qty }).effectiveUnitPrice;
 }
 
 export function selectActiveCustomer(state: ProductFinderState): CustomerAccount | null {

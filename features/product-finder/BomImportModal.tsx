@@ -2,16 +2,23 @@
 
 import { useRef, useState, type ChangeEvent, type KeyboardEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { parseBomLines, matchBom } from "@/lib/product-finder-bom";
+import { parseBomLines, matchBomScored } from "@/lib/product-finder-bom";
 import { apiSearch } from "@/lib/product-finder-api";
+import { suggestCorrection } from "@/lib/product-finder-suggest-correction";
+import {
+  matchConfidence,
+  confidenceTier,
+  CONFIDENCE_TIER_COLOR,
+  CONFIDENCE_TIER_LABEL,
+} from "@/lib/product-finder-match-confidence";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
-import type { MatchedBomLine } from "@/lib/product-finder-bom";
+import type { ScoredBomLine } from "@/lib/product-finder-bom";
 
-// ─── Real searchFn: calls apiSearch with query as text, pageSize=1 ─────────────
+// ─── Real searchFn: calls apiSearch with query as text, top-3 candidates ──────
 
-async function searchTopHit(query: string): Promise<CatalogProduct | null> {
+async function searchTop3(query: string): Promise<CatalogProduct[]> {
   try {
     const res = await apiSearch(
       {
@@ -30,11 +37,11 @@ async function searchTopHit(query: string): Promise<CatalogProduct | null> {
         specRanges: {},
       },
       0,
-      1
+      3
     );
-    return res.items[0] ?? null;
+    return res.items;
   } catch {
-    return null;
+    return [];
   }
 }
 
@@ -76,26 +83,75 @@ function SpinnerIcon() {
 
 // ─── Match result row ─────────────────────────────────────────────────────────
 
-function MatchRow({ line }: { line: MatchedBomLine }) {
+function ConfidenceBadge({ line }: { line: ScoredBomLine }) {
+  if (!line.match || line.tier === null) return null;
+  const color = CONFIDENCE_TIER_COLOR[line.tier];
+  return (
+    <span
+      className="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold text-white"
+      style={{ backgroundColor: color }}
+      title={`Match confidence: ${CONFIDENCE_TIER_LABEL[line.tier]} — ${(line.confidence * 100).toFixed(0)}% of your line text is covered by this product`}
+    >
+      {(line.confidence * 100).toFixed(0)}%
+    </span>
+  );
+}
+
+function MatchRow({ line, onUseAlternate }: {
+  line: ScoredBomLine;
+  onUseAlternate: (alt: CatalogProduct) => void;
+}) {
   const { match } = line;
+  const showAlternates = line.alternates.length > 0 && (match === null || line.tier !== "high");
   return (
     <tr className="border-b border-[#B7C9D3]/30 last:border-0">
-      <td className="px-3 py-2 text-sm font-mono text-center text-[#4F758B] align-middle w-12">
+      <td className="px-3 py-2 text-sm font-mono text-center text-[#4F758B] align-top w-12">
         {line.qty}
       </td>
-      <td className="px-3 py-2 text-sm text-[#1D252D] align-middle max-w-[200px]">
+      <td className="px-3 py-2 text-sm text-[#1D252D] align-top max-w-[200px]">
         <span className="truncate block" title={line.query}>{line.query}</span>
+        {line.correctedQuery && (
+          <span className="mt-0.5 block text-[10px] italic text-[#00573F]">
+            corrected to &ldquo;{line.correctedQuery}&rdquo;
+          </span>
+        )}
       </td>
-      <td className="px-3 py-2 align-middle">
+      <td className="px-3 py-2 align-top">
         {match ? (
-          <div className="flex items-center gap-2">
-            <span className="text-lg leading-none" aria-hidden="true">{match.imageIcon}</span>
-            <div className="min-w-0">
-              <p className="text-sm font-medium text-[#1D252D] truncate">{match.name}</p>
-              <p className="text-xs text-[#4F758B] truncate">
-                {match.brand} &middot; ${match.unitPrice.toFixed(2)}/{match.uom}
-              </p>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-lg leading-none" aria-hidden="true">{match.imageIcon}</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium text-[#1D252D] truncate">{match.name}</p>
+                <p className="text-xs text-[#4F758B] truncate">
+                  {match.brand} &middot; ${match.unitPrice.toFixed(2)}/{match.uom}
+                </p>
+              </div>
+              <ConfidenceBadge line={line} />
             </div>
+            {showAlternates && (
+              <div className="mt-1.5 space-y-1 border-l-2 border-[#B7C9D3]/60 pl-2">
+                <p className="text-[10px] font-semibold uppercase tracking-wide text-[#4F758B]">
+                  Not quite right? Alternatives:
+                </p>
+                {line.alternates.map((alt) => (
+                  <div key={alt.id} className="flex items-center gap-1.5">
+                    <span className="min-w-0 flex-1 truncate text-xs text-[#1D252D]">
+                      {alt.name}{" "}
+                      <span className="text-[#4F758B]">· ${alt.unitPrice.toFixed(2)}</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => onUseAlternate(alt)}
+                      className="shrink-0 rounded border border-[#4F758B] px-1.5 py-0.5 text-[10px] font-semibold text-[#4F758B] transition-colors hover:border-[#00AA13] hover:text-[#00AA13]"
+                      aria-label={`Use ${alt.name} for this line instead`}
+                    >
+                      Use
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ) : (
           <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
@@ -116,7 +172,7 @@ export function BomImportModal() {
 
   const [text, setText] = useState("");
   const [matching, setMatching] = useState(false);
-  const [matched, setMatched] = useState<MatchedBomLine[] | null>(null);
+  const [matched, setMatched] = useState<ScoredBomLine[] | null>(null);
   const [added, setAdded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -164,11 +220,30 @@ export function BomImportModal() {
     setMatched(null);
     setAdded(false);
     try {
-      const results = await matchBom(parsed, searchTopHit);
+      const results = await matchBomScored(parsed, searchTop3, suggestCorrection);
       setMatched(results);
     } finally {
       setMatching(false);
     }
+  }
+
+  /** Swap a line's match for one of its alternates and rescore. */
+  function handleUseAlternate(index: number, alt: CatalogProduct) {
+    setMatched((prev) => {
+      if (!prev) return prev;
+      return prev.map((line, i) => {
+        if (i !== index || !line.match) return line;
+        const confidence = matchConfidence(line.correctedQuery ?? line.query, alt);
+        return {
+          ...line,
+          match: alt,
+          confidence,
+          tier: confidenceTier(confidence),
+          alternates: [...line.alternates.filter((a) => a.id !== alt.id), line.match],
+        };
+      });
+    });
+    setAdded(false);
   }
 
   function handleAddMatched() {
@@ -187,6 +262,9 @@ export function BomImportModal() {
 
   const matchedCount = matched ? matched.filter((l) => l.match !== null).length : 0;
   const totalCount = matched ? matched.length : 0;
+  const reviewCount = matched
+    ? matched.filter((l) => l.match !== null && l.tier !== "high").length
+    : 0;
 
   // ── Render ──────────────────────────────────────────────────────────────────
 
@@ -300,6 +378,11 @@ export function BomImportModal() {
                 <span className="font-semibold text-[#1D252D]">{matchedCount}</span> of{" "}
                 <span className="font-semibold text-[#1D252D]">{totalCount}</span> line
                 {totalCount !== 1 ? "s" : ""} matched
+                {reviewCount > 0 && (
+                  <span className="ml-1.5 font-semibold text-[#EAAA00]">
+                    · {reviewCount} to review
+                  </span>
+                )}
               </span>
             )}
 
@@ -323,13 +406,13 @@ export function BomImportModal() {
                       Query
                     </th>
                     <th className="px-3 py-2 text-left text-xs font-semibold text-[#4F758B]">
-                      Matched product
+                      Matched product · confidence
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {matched.map((line, i) => (
-                    <MatchRow key={i} line={line} />
+                    <MatchRow key={i} line={line} onUseAlternate={(alt) => handleUseAlternate(i, alt)} />
                   ))}
                 </tbody>
               </table>

@@ -37,3 +37,14 @@ export function leadTimeFor(product: CatalogProduct): string | null {
   const idx = stableHash(product.id) % LEAD_TIME_BUCKETS.length;
   return LEAD_TIME_BUCKETS[idx];
 }
+
+// ─── leadTimeDaysForId ───────────────────────────────────────────────────────
+// Outer-bound days per bucket, index-aligned with LEAD_TIME_BUCKETS so the
+// same product id always maps to the same bucket AND the same day count.
+
+const LEAD_TIME_DAYS = [7, 14, 21, 42] as const;
+
+/** Deterministic outer-bound lead time in days for a product id. */
+export function leadTimeDaysForId(id: string): number {
+  return LEAD_TIME_DAYS[stableHash(id) % LEAD_TIME_DAYS.length];
+}

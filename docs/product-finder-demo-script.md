@@ -20,11 +20,21 @@ Every SKU below is deterministic — it exists with the same data in every envir
     from the Help panel footer).
 2. **Point at the header**: name + branch top-right, the **"Demo role:"** selector
    (*"swap between rep, manager, and admin instantly — no retyping credentials;
-   we'll use it later"*), the **⌘K** palette button, the **?** Help button
-   (*"interactive help with try-it examples, for new reps"*), and the Cart.
+   we'll use it later"*), the **⌘K** palette button, the **🔔 notification bell**
+   (*"approvals, follow-ups, restock alerts — we'll come back to it"*), the **?**
+   Help button (*"interactive help with try-it examples, for new reps"*), and the
+   Cart.
+2a. **Point at the "For you" rail** at the top of the landing view.
+    *"Before I type anything, the app already knows this branch's rhythm —
+    'Time to reorder' is ranked from real order history, with a DUE badge when a
+    customer's last order is 30+ days old, and the Add button pre-fills the
+    quantity they bought last time. Next to it: favorites I haven't basketed, and
+    cross-sell that goes with what we order. This is the recommender working
+    before the first search."*
 3. **Set "Quoting for:" → Gulf Coast Industrial.**
    *"First thing a rep does — pick the customer. That drives their contract
-   pricing, their order history, and the quote."*
+   pricing, their order history, the quote — and the For-you rail re-scopes to
+   their history."*
 
 ## Act 2 — Search like you talk (3 min)
 
@@ -73,6 +83,13 @@ Every SKU below is deterministic — it exists with the same data in every envir
     that's internal, it never prints on the customer's quote."* If the 50 exceeds
     stock, point at the **⚠ backorder warning** — *"and it tells me honestly that
     part of this quantity is on backorder."*
+10a. **Click ✎ price on the line and type something absurdly low** (e.g. `1.00`),
+    **Apply.** *"Price-matching a competitor? I can override the line price — but
+    watch: it snapped to the floor. The guardrails won't let me sell above list or
+    below a 5% margin over cost, and the allowed range was right there while I
+    typed. The line is badged CUSTOM, my margin recalculated live, and this exact
+    price flows into the quote, the saved quote, and the order."* **Click reset**
+    (or keep it — a deep discount sets up the approval moment in step 13).
 11. **Point at "Complete this job."** *"The basket knows what's missing — I added
     conduit, so it's offering the fittings and boxes I'd forget. One tap each."*
     **Click + Add** on a suggestion.
@@ -91,6 +108,14 @@ Every SKU below is deterministic — it exists with the same data in every envir
     the customer — and it's logged as Sent automatically."* (Simulated send.) Then
     in **Saved Quotes**, **Convert to Order** on a quote — *"customer says yes; one
     click turns the quote into a placed order and marks it ✓ ordered."*
+14a. **Click Customer Link on a saved quote**, then **open the copied URL in a new
+    tab.** *"Or skip the phone call entirely: this is what the customer gets — no
+    login, the branded quote with their prices and the validity date, and two
+    buttons."* **Click Accept Quote.** *"Accepted — and back on our side it's
+    already marked Won and converted to an order. Decline marks it Lost so the
+    pipeline stays honest. If the quote was below the margin floor, this page
+    says 'awaiting approval' and won't let them accept until a manager signs
+    off."* (Copying the link also auto-advanced a Draft to **Sent**.)
 15. **Click Export CSV.** *"Same basket as a spreadsheet — list vs. effective price,
     totals — for procurement."* Then **Share Basket** — *"a link that rebuilds this
     exact basket for a teammate or the customer."*
@@ -108,15 +133,31 @@ Every SKU below is deterministic — it exists with the same data in every envir
     12x gfci receptacle
     5 led troffer
     10x 3/4" EMT conduit
+    5x circut breakr 20A
     3, transformer
     ```
-    **Match → Add matched to cart.** *"A whole bill of materials in seconds."*
+    **Match.** *"A whole bill of materials in seconds — and look at the scores.
+    Every line gets a match confidence: green means the product covers the line,
+    exact SKUs are always 100%, and numbers are strict — a 20A request will never
+    silently match a 200A part. The misspelled line? Auto-corrected to 'circuit
+    breaker' and flagged. Anything amber gets alternatives —"* **click Use on an
+    alternate** — *"one click to swap, and the summary counts what's left to
+    review. Customers' messy faxed lists, handled honestly."*
+    **Add matched to cart.**
 
 ## Act 5 — The manager view (2 min)
 
 19. **Switch the "Demo role:" selector to Marcus Rivera (Manager).**
     *"No sign-out, no retyping — the role changes, and the Insights link appears
     because Marcus is a manager. The basket and orders carry over."*
+19a. **Click the 🔔 bell** (it should be badged if a below-margin quote exists —
+    save one in step 13 with the step-10a discount kept).
+    *"Marcus doesn't go hunting for work — it comes to him. A below-margin quote
+    needs his sign-off, any quote sent two weeks ago with no answer asks for a
+    follow-up, and products reps are watching show their estimated restock date.
+    Click one—"* **click the approval notification** — *"and it lands exactly on
+    the quote, ready to approve."* (Reps see follow-ups and restock alerts; only
+    managers see approvals.)
     **Click Insights.**
     *"Managers get the rollup — orders, value, contract savings delivered, top
     categories, customer mix. Reps don't see this."*
@@ -146,11 +187,14 @@ Every SKU below is deterministic — it exists with the same data in every envir
 ## Wrap-up
 
 *"One screen takes a rep from a rough request to a customer-priced, quoted,
-emailed, tracked order — searchable by voice or in trade slang, with explainable
-recommendations, automatic substitutes for out-of-stock items, basket-level 'what's
-missing' cross-sell, delivery dates, live stock, cross-references, CSV/PDF
-deliverables, reusable kits, a click-through quote pipeline for managers, a whole
-BOM imported in seconds, and every screen two keystrokes away."*
+emailed, tracked order — and now the order can close itself: the customer taps a
+link on their phone and accepts. Searchable by voice or in trade slang, reorder
+predictions before the first keystroke, explainable recommendations, automatic
+substitutes for out-of-stock items, margin-guarded price overrides, basket-level
+'what's missing' cross-sell, delivery dates, live stock, cross-references,
+confidence-scored BOM imports, CSV/PDF deliverables, reusable kits, a
+notification bell and click-through pipeline for managers, and every screen two
+keystrokes away — desk or job site."*
 
 > **Demo honesty note:** customer accounts, contract pricing, inventory/ATP, PIM
 > provenance, and cross-references run on **synthetic data behind swap-in
@@ -169,5 +213,13 @@ BOM imported in seconds, and every screen two keystrokes away."*
   **Help panel footer → "Restart the tour"** (or the command palette).
 - **No Insights link** → check the "Demo role:" selector shows Marcus Rivera
   (Manager) or Admin User.
+- **For-you rail missing** → it shows on the landing view (no search/filters
+  active) once orders or favorites exist; the three seeded demo orders make it
+  appear on a fresh browser. Clear the search to get back to it.
+- **Bell shows no approval item** → approvals only appear for manager/admin, and
+  only while a quote is "Approval pending" — save a quote with a deep ✎ price
+  discount first.
+- **Customer link says "awaiting approval"** → that's the guardrail working;
+  approve the quote (manager) and copy a fresh link.
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.
