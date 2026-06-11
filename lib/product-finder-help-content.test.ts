@@ -42,6 +42,13 @@ describe("HELP_TOPICS", () => {
     }
   });
 
+  it("covers the Tier 3 features", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    for (const required of ["job-wizard", "win-loss-insights", "customer-health", "commodity-index", "counter-offer"]) {
+      expect(ids.has(required), required).toBe(true);
+    }
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

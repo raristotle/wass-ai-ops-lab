@@ -23,6 +23,7 @@ export function TourOverlay() {
   const closeTour = useProductFinder((s) => s.closeTour);
   const runNlSearch = useProductFinder((s) => s.runNlSearch);
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
+  const setJobWizardOpen = useProductFinder((s) => s.setJobWizardOpen);
   const router = useRouter();
 
   // ── Auto-open: first-ever visit (per browser), signed-in users only ────────
@@ -60,6 +61,8 @@ export function TourOverlay() {
       runNlSearch(action.query);
     } else if (action.kind === "openCart") {
       setCartOpen(true);
+    } else if (action.kind === "openJobWizard") {
+      setJobWizardOpen(true);
     } else {
       router.push(action.href);
     }

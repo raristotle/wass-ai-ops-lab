@@ -12,9 +12,9 @@ import { formatDisplayDate } from "@/lib/product-finder-quote";
 import { Button } from "@/components/ui/button";
 
 /** Customer decision recorded in this browser (works even without the rep's quote data). */
-type Decision = "accepted" | "declined";
+type Decision = "accepted" | "declined" | "countered";
 
-function readDecisions(): Record<string, { status: Decision; at: number }> {
+function readDecisions(): Record<string, { status: Decision; at: number; note?: string }> {
   if (typeof localStorage === "undefined") return {};
   try {
     const raw = localStorage.getItem("pf_quote_acceptances");
@@ -25,10 +25,10 @@ function readDecisions(): Record<string, { status: Decision; at: number }> {
   }
 }
 
-function writeDecision(id: string, status: Decision, at: number) {
+function writeDecision(id: string, status: Decision, at: number, note?: string) {
   if (typeof localStorage === "undefined") return;
   const all = readDecisions();
-  all[id] = { status, at };
+  all[id] = { status, at, ...(note ? { note } : {}) };
   localStorage.setItem("pf_quote_acceptances", JSON.stringify(all));
 }
 
@@ -36,11 +36,14 @@ export default function QuoteAcceptancePage() {
   const quotes = useProductFinder((s) => s.quotes);
   const convertQuoteToOrder = useProductFinder((s) => s.convertQuoteToOrder);
   const setQuoteStatus = useProductFinder((s) => s.setQuoteStatus);
+  const counterQuote = useProductFinder((s) => s.counterQuote);
 
   const [payload, setPayload] = useState<QuoteSharePayload | null>(null);
   const [badLink, setBadLink] = useState(false);
   const [decision, setDecision] = useState<Decision | null>(null);
   const [hydrated, setHydrated] = useState(false);
+  const [counterOpen, setCounterOpen] = useState(false);
+  const [counterNote, setCounterNote] = useState("");
 
   useEffect(() => {
     hydrateSavedState();
@@ -76,7 +79,10 @@ export default function QuoteAcceptancePage() {
   const approvalPending =
     localQuote?.approvalStatus === "pending" || (localQuote === null && payload.approvalPending === true);
   const alreadyOrdered = localQuote?.convertedOrderId !== undefined;
-  const canAccept = !expired && !approvalPending && decision === null && !alreadyOrdered;
+  // A quote already marked Won/Lost on the rep side is decided — no actions.
+  const alreadyDecided =
+    alreadyOrdered || localQuote?.status === "won" || localQuote?.status === "lost";
+  const canAccept = !expired && !approvalPending && decision === null && !alreadyDecided;
 
   const handleAccept = () => {
     const now = Date.now();
@@ -94,6 +100,18 @@ export default function QuoteAcceptancePage() {
     }
     writeDecision(payload.id, "declined", now);
     setDecision("declined");
+  };
+
+  const handleCounter = () => {
+    const note = counterNote.trim();
+    if (!note) return;
+    const now = Date.now();
+    if (localQuote) {
+      counterQuote(payload.id, note, now);
+    }
+    writeDecision(payload.id, "countered", now, note);
+    setDecision("countered");
+    setCounterOpen(false);
   };
 
   return (
@@ -116,9 +134,24 @@ export default function QuoteAcceptancePage() {
             <p className="mt-1">Thanks for letting us know — your rep can revise and resend at any time.</p>
           </div>
         )}
+        {decision === "countered" && (
+          <div className="mb-4 rounded-xl border border-[#EAAA00]/50 bg-[#EAAA00]/10 p-4 text-sm text-[#1D252D]">
+            <p className="font-bold">↩️ Change request sent</p>
+            <p className="mt-1">
+              Your note is with {payload.rep ?? "your Meridian rep"} — they&apos;ll get back to you with a revised
+              quote. The current quote stays open in the meantime.
+            </p>
+          </div>
+        )}
         {decision === null && alreadyOrdered && (
           <div className="mb-4 rounded-xl border border-[#00AA13]/40 bg-[#00AA13]/10 p-4 text-sm text-[#00573F]">
             <p className="font-bold">✓ This quote has already been converted to an order.</p>
+          </div>
+        )}
+        {decision === null && !alreadyOrdered && alreadyDecided && (
+          <div className="mb-4 rounded-xl border border-[#B7C9D3] bg-[#B7C9D3]/15 p-4 text-sm text-[#1D252D]">
+            <p className="font-bold">This quote has already been decided</p>
+            <p className="mt-1">Ask your Meridian rep for a fresh quote if anything has changed.</p>
           </div>
         )}
         {decision === null && expired && (
@@ -221,7 +254,9 @@ export default function QuoteAcceptancePage() {
           </div>
 
           <p className="mt-4 text-[10px] text-[#4F758B]">
-            All prices in USD. This quote is valid for 30 days from the date of issue.
+            All prices in USD. Pricing reflects the commodity index as of{" "}
+            {formatDisplayDate(new Date(payload.createdAt))}. This quote is valid for 30 days
+            from the date of issue.
           </p>
 
           {/* Actions */}
@@ -235,13 +270,45 @@ export default function QuoteAcceptancePage() {
             </Button>
             <Button
               variant="outline"
+              className="w-full border-[#EAAA00] text-[#1D252D] hover:bg-[#EAAA00]/10 sm:w-auto sm:flex-1"
+              disabled={decision !== null || alreadyDecided}
+              onClick={() => setCounterOpen((v) => !v)}
+            >
+              Request changes
+            </Button>
+            <Button
+              variant="outline"
               className="w-full border-[#DB6B30] text-[#DB6B30] hover:bg-[#DB6B30]/10 sm:w-auto sm:flex-1"
-              disabled={decision !== null || alreadyOrdered}
+              disabled={decision !== null || alreadyDecided}
               onClick={handleDecline}
             >
               {decision === "declined" ? "Declined" : "Decline"}
             </Button>
           </div>
+
+          {/* Counter-offer note */}
+          {counterOpen && decision === null && !alreadyDecided && (
+            <div className="mt-3 rounded-lg border border-[#EAAA00]/50 bg-[#EAAA00]/5 p-3">
+              <label htmlFor="counter-note" className="block text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
+                What should change?
+              </label>
+              <textarea
+                id="counter-note"
+                value={counterNote}
+                onChange={(e) => setCounterNote(e.target.value)}
+                rows={3}
+                placeholder="e.g. Can you sharpen the breaker pricing? Need it under $60/unit, and delivery by the 25th."
+                className="mt-1.5 w-full rounded border border-[#B7C9D3] px-2 py-1.5 text-sm text-[#1D252D] placeholder-[#B7C9D3] focus:border-[#4F758B] focus:outline-none"
+              />
+              <Button
+                className="mt-2 w-full bg-[#1D252D] text-white hover:bg-[#2d3a47] sm:w-auto"
+                disabled={counterNote.trim().length === 0}
+                onClick={handleCounter}
+              >
+                Send change request
+              </Button>
+            </div>
+          )}
 
           <p className="mt-4 text-center text-[10px] italic text-[#4F758B]">
             Demonstration quote — simulated data. Accepting records the decision in this browser

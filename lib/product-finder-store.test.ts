@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders, hydrateSavedState, buildDemoOrders, DEMO_ACCOUNTS, DEMO_PASSWORD } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders, hydrateSavedState, buildDemoOrders, buildDemoQuotes, DEMO_ACCOUNTS, DEMO_PASSWORD } from "@/lib/product-finder-store";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
 import { emptyFilterState } from "@/lib/product-finder-url";
 import { ordersOverTime } from "@/lib/analytics";
@@ -2252,5 +2252,86 @@ describe("runNlSearch – subcategory chips", () => {
     expect(chip).toBeDefined();
     await useProductFinder.getState().removeNlFilter(chip!.id);
     expect(useProductFinder.getState().filters.subcategories.has("Wire & Cable")).toBe(false);
+  });
+});
+
+// ─── counterQuote (customer "Request changes") ────────────────────────────────
+
+describe("counterQuote", () => {
+  beforeEach(() => {
+    resetStore();
+    useProductFinder.setState({ quotes: [], cart: {}, priceOverrides: {} });
+  });
+
+  function seedQuote() {
+    useProductFinder.getState().addToCart(CATALOG_PRODUCTS[0], 2);
+    useProductFinder.getState().saveQuote({ number: "Q-CTR-0001", customer: "Acme", project: "", now: 1_700_000_000_000 });
+    return useProductFinder.getState().quotes[0];
+  }
+
+  it("attaches a trimmed counter-offer note with the injected timestamp", () => {
+    const q = seedQuote();
+    useProductFinder.getState().counterQuote(q.id, "  Can you do $60 even?  ", 1_700_000_100_000);
+    const updated = useProductFinder.getState().quotes[0];
+    expect(updated.counterOffer).toEqual({ note: "Can you do $60 even?", at: 1_700_000_100_000 });
+    // status stays in play — countering does not decide the quote
+    expect(updated.status).toBe(q.status);
+  });
+
+  it("ignores empty notes and unknown ids", () => {
+    const q = seedQuote();
+    useProductFinder.getState().counterQuote(q.id, "   ");
+    expect(useProductFinder.getState().quotes[0].counterOffer).toBeUndefined();
+    useProductFinder.getState().counterQuote("nope", "hello");
+    expect(useProductFinder.getState().quotes[0].counterOffer).toBeUndefined();
+  });
+
+  it("does not counter quotes already converted to orders", () => {
+    const q = seedQuote();
+    useProductFinder.getState().setQuoteApproval(q.id, "approved");
+    useProductFinder.getState().convertQuoteToOrder(q.id, 1_700_000_200_000);
+    useProductFinder.getState().counterQuote(q.id, "too late");
+    expect(useProductFinder.getState().quotes[0].counterOffer).toBeUndefined();
+  });
+});
+
+// ─── buildDemoQuotes (first-load seed) ────────────────────────────────────────
+
+describe("buildDemoQuotes", () => {
+  const NOW = 1_781_000_000_000;
+
+  it("seeds a deterministic spread with stable ids and captured line prices", () => {
+    const quotes = buildDemoQuotes(NOW);
+    expect(quotes.length).toBeGreaterThanOrEqual(10);
+    expect(new Set(quotes.map((q) => q.id)).size).toBe(quotes.length);
+    for (const q of quotes) {
+      expect(q.id.startsWith("demo-quote-")).toBe(true);
+      expect(q.marginPct).toBeGreaterThan(0);
+      expect(q.lines[0].unitPrice).toBeGreaterThan(0);
+      expect(q.createdAt).toBeLessThanOrEqual(NOW);
+    }
+    expect(buildDemoQuotes(NOW)).toEqual(quotes);
+  });
+
+  it("includes the demo beats: a stale sent quote and a pending below-margin draft", () => {
+    const quotes = buildDemoQuotes(NOW);
+    const DAY = 86_400_000;
+    const staleSent = quotes.find((q) => q.status === "sent" && NOW - q.createdAt > 14 * DAY);
+    expect(staleSent).toBeDefined();
+    const pending = quotes.find((q) => q.approvalStatus === "pending");
+    expect(pending).toBeDefined();
+    expect(pending?.marginPct).toBeLessThan(0.2);
+  });
+
+  it("shapes a win-rate gradient across margin bands (low bands win more)", () => {
+    const quotes = buildDemoQuotes(NOW);
+    const decided = (lo: number, hi: number) =>
+      quotes.filter((q) => (q.status === "won" || q.status === "lost") && (q.marginPct ?? 0) >= lo && (q.marginPct ?? 0) < hi);
+    const rate = (xs: typeof quotes) => xs.filter((q) => q.status === "won").length / xs.length;
+    const low = decided(0.15, 0.2);
+    const high = decided(0.3, 1);
+    expect(low.length).toBeGreaterThanOrEqual(3);
+    expect(high.length).toBeGreaterThanOrEqual(3);
+    expect(rate(low)).toBeGreaterThan(rate(high));
   });
 });

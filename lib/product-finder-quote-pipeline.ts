@@ -35,6 +35,8 @@ export interface QuotePipeline {
   conversionRate: number;
   /** Below-margin quotes awaiting manager sign-off, highest value first. */
   needsApproval: SavedQuote[];
+  /** Open quotes the customer countered ("Request changes"), newest first. */
+  countered: SavedQuote[];
 }
 
 /** A sent quote older than STALE_DAYS relative to `now`. */
@@ -60,6 +62,11 @@ export function quotePipeline(quotes: SavedQuote[], now: number): QuotePipeline 
     .filter((q) => q.approvalStatus === "pending")
     .sort((a, b) => b.total - a.total);
 
+  // Still-open quotes with a customer counter-offer — these need a response.
+  const countered = quotes
+    .filter((q) => q.counterOffer !== undefined && q.status !== "won" && q.status !== "lost")
+    .sort((a, b) => (b.counterOffer?.at ?? 0) - (a.counterOffer?.at ?? 0));
+
   return {
     byStatus,
     openValue: pipelineValue(quotes, "draft") + pipelineValue(quotes, "sent"),
@@ -72,5 +79,6 @@ export function quotePipeline(quotes: SavedQuote[], now: number): QuotePipeline 
     convertedValue: converted.reduce((sum, q) => sum + q.total, 0),
     conversionRate: wonCount === 0 ? 0 : converted.length / wonCount,
     needsApproval: awaitingApproval,
+    countered,
   };
 }

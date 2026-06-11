@@ -31,6 +31,7 @@ export function CommandPalette() {
   const setHelpOpen = useProductFinder((s) => s.setHelpOpen);
   const setBomModalOpen = useProductFinder((s) => s.setBomModalOpen);
   const setBulkModalOpen = useProductFinder((s) => s.setBulkModalOpen);
+  const setJobWizardOpen = useProductFinder((s) => s.setJobWizardOpen);
   const pageSize = useProductFinder((s) => s.pageSize);
   const router = useRouter();
 
@@ -55,6 +56,7 @@ export function CommandPalette() {
         s.helpOpen ||
         s.bomModalOpen ||
         s.bulkModalOpen ||
+        s.jobWizardOpen ||
         s.compareModalOpen ||
         s.submittalOpen ||
         s.detailModalProduct !== null
@@ -99,6 +101,7 @@ export function CommandPalette() {
         if (action.target === "cart") setCartOpen(true);
         else if (action.target === "help") setHelpOpen(true);
         else if (action.target === "bom") setBomModalOpen(true);
+        else if (action.target === "jobwizard") setJobWizardOpen(true);
         else setBulkModalOpen(true);
         break;
       case "tour":

@@ -13,18 +13,23 @@ import { cn } from "@/lib/utils";
 const KIND_ICON: Record<PfNotification["kind"], string> = {
   approval: "🛡️",
   "stale-quote": "⏰",
+  counter: "↩️",
   "restock-due": "📦",
   "restock-eta": "👁️",
+  "customer-risk": "📉",
 };
 
 export function NotificationBell() {
   const user = useProductFinder((s) => s.user);
   const quotes = useProductFinder((s) => s.quotes);
   const watches = useProductFinder((s) => s.watches);
+  const orders = useProductFinder((s) => s.orders);
+  const customers = useProductFinder((s) => s.customers);
   const notifReads = useProductFinder((s) => s.notifReads);
   const markNotificationsRead = useProductFinder((s) => s.markNotificationsRead);
   const openCartAt = useProductFinder((s) => s.openCartAt);
   const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
+  const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
 
   const [open, setOpen] = useState(false);
   // `now` is set after mount so SSR/first client render stay byte-identical.
@@ -40,18 +45,21 @@ export function NotificationBell() {
   const isManager = user?.role === "manager" || user?.role === "admin";
 
   const notifications = useMemo(
-    () => (now === null ? [] : buildNotifications({ quotes, watches, isManager }, now)),
-    [quotes, watches, isManager, now]
+    () => (now === null ? [] : buildNotifications({ quotes, watches, orders, customers, isManager }, now)),
+    [quotes, watches, orders, customers, isManager, now]
   );
   const unread = unreadCount(notifications, notifReads);
 
   const handleClick = async (n: PfNotification) => {
     markNotificationsRead([n.id], Date.now());
     setOpen(false);
-    if (n.kind === "approval") {
+    if (n.kind === "approval" || n.kind === "counter") {
       openCartAt("quotes");
     } else if (n.kind === "stale-quote") {
       openCartAt("quotes", { quoteStatus: "sent" });
+    } else if (n.kind === "customer-risk" && n.customerId) {
+      setActiveCustomer(n.customerId);
+      openCartAt("orders");
     } else if (n.productId) {
       try {
         const detail = await apiGetProduct(n.productId);

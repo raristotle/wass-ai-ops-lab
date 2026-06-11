@@ -239,6 +239,7 @@ interface SingleSearchPanelProps {
   onOpenBom: () => void;
   onOpenCrossRef: () => void;
   onOpenBulk: () => void;
+  onOpenJobWizard: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
 }
@@ -260,6 +261,7 @@ function SingleSearchPanel({
   onOpenBom,
   onOpenCrossRef,
   onOpenBulk,
+  onOpenJobWizard,
   onVoiceInterim,
   onVoiceFinal,
 }: SingleSearchPanelProps) {
@@ -370,12 +372,31 @@ function SingleSearchPanel({
           </button>
         ))}
 
+        {/* Ask Meridian — Job Wizard (deterministic guided job builder) */}
+        <button
+          type="button"
+          onClick={onOpenJobWizard}
+          className={cn(
+            "ml-auto flex items-center gap-1.5 rounded-full border border-[#00AA13]/60 px-3 py-1 text-xs font-semibold text-[#00573F]",
+            "hover:border-[#00AA13] hover:bg-[#00AA13]/10",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00AA13]"
+          )}
+          aria-label="Ask Meridian — Job Wizard"
+          data-tour="job-wizard"
+        >
+          <span aria-hidden="true">🧰</span>
+          Job Wizard
+          <span className="rounded-full bg-[#00AA13] px-1.5 text-[9px] font-bold uppercase tracking-wide text-white">
+            AI
+          </span>
+        </button>
+
         {/* Import List / BOM — secondary action aligned with quick-picks */}
         <button
           type="button"
           onClick={onOpenBom}
           className={cn(
-            "ml-auto flex items-center gap-1.5 rounded-full border border-[#4F758B]/50 px-3 py-1 text-xs font-medium text-[#4F758B]",
+            "flex items-center gap-1.5 rounded-full border border-[#4F758B]/50 px-3 py-1 text-xs font-medium text-[#4F758B]",
             "hover:border-[#1D252D] hover:bg-[#1D252D]/5 hover:text-[#1D252D]",
             "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1D252D]"
           )}
@@ -449,6 +470,7 @@ export function SearchBar() {
     appliedNlFilters,
     setBomModalOpen,
     setBulkModalOpen,
+    setJobWizardOpen,
   } = useProductFinder();
 
   // Suggestion dropdown state
@@ -583,6 +605,7 @@ export function SearchBar() {
             onOpenBom={() => setBomModalOpen(true)}
             onOpenCrossRef={() => setCrossRefOpen(true)}
             onOpenBulk={() => setBulkModalOpen(true)}
+            onOpenJobWizard={() => setJobWizardOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}
           />

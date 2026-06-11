@@ -11,6 +11,7 @@ import type { AuthUser } from "@/features/product-finder/types";
 export type TourAction =
   | { kind: "nlSearch"; label: string; query: string }
   | { kind: "openCart"; label: string }
+  | { kind: "openJobWizard"; label: string }
   | { kind: "navigate"; label: string; href: string };
 
 export interface TourStep {
@@ -67,13 +68,26 @@ export const TOUR_STEPS: readonly TourStep[] = [
     ],
   },
   {
+    id: "job-wizard",
+    title: "Ask Meridian — the Job Wizard",
+    body: [
+      "Don't build the basket part by part — describe the job and let the wizard do it.",
+      "• Pick a job (200A service upgrade, network drops, LED retrofit, cameras, EV charger).",
+      "• Every step resolves to a stocked, priced product from the catalog — swap alternates, adjust quantities, skip steps.",
+      "• One click adds the whole bill of materials to the basket.",
+      "Deterministic recommendations today; the conversational version is on the roadmap.",
+    ],
+    action: { kind: "openJobWizard", label: "Open the Job Wizard" },
+  },
+  {
     id: "basket-quote",
     title: "Basket, quotes, and orders",
     body: [
       "Add products at any quantity, then open the cart drawer.",
       "• Volume tiers and contract pricing apply per line automatically.",
       "• Generate a branded quote PDF, email it, or save it to track Draft → Sent → Won/Lost.",
-      "• Saved baskets and job templates turn repeat work into one click.",
+      "• Need to discount? ✎ price overrides are margin-guarded, and win/loss history coaches the sweet spot.",
+      "• Every saved quote has a Customer Link — they accept, decline, or counter from their phone.",
     ],
     action: { kind: "openCart", label: "Open the cart" },
   },
@@ -84,7 +98,9 @@ export const TOUR_STEPS: readonly TourStep[] = [
       "Managers and admins get an Insights dashboard:",
       "• KPI cards — orders, total and average value, active customers.",
       "• Contract savings delivered, top categories, orders over time, and customer mix.",
-      "• A quote pipeline with open value, win rate, and follow-up alerts.",
+      "• A quote pipeline with open value, win rate, follow-up, approval, and counter-offer alerts.",
+      "• Pricing win/loss by margin band — see where quotes actually close.",
+      "• Customer health — accounts going quiet vs their usual order cadence.",
       "Signed in as a sales rep? Switch roles from the command palette to see it.",
     ],
     action: { kind: "navigate", label: "Open Insights", href: "/product-finder/dashboard" },
@@ -95,6 +111,8 @@ export const TOUR_STEPS: readonly TourStep[] = [
     title: "Power tools when you need them",
     body: [
       "A few more ways to move faster:",
+      "• The 🔔 bell collects approvals, follow-ups, counter-offers, restock and at-risk-customer alerts.",
+      "• “For you” on the landing view predicts reorders before you type; the metals index flags copper swings.",
       "• Voice search — tap the mic and say “twenty amp breaker in stock”.",
       "• Command palette — Ctrl/Cmd-K jumps anywhere, switches roles, or runs a search.",
       "• Deep links — every filtered view has a shareable URL that rebuilds it exactly.",

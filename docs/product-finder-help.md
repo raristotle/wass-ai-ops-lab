@@ -153,6 +153,28 @@ With a customer selected in "Quoting for," the rail uses **their** history; with
 no customer it looks across all orders and each card shows whose order it came
 from. *(Demo data: three seeded orders make the rail light up immediately.)*
 
+### Ask Meridian — Job Wizard
+Don't build the basket part by part — describe the job. Click the **🧰 Job
+Wizard** button by the search bar (or Ctrl/Cmd-K → "Start a job"):
+- **Pick a job** — 200A residential service upgrade, office network (12 drops),
+  warehouse LED retrofit, 8-camera security install, or a Level-2 EV charger.
+- **Every step resolves to a real product** — stocked and priced from the
+  catalog, branch stock preferred — with up to two alternates to swap in, a
+  quantity stepper, and include/skip checkboxes (optional steps like whole-home
+  surge protection start unchecked, with field notes on why they're easy upsells).
+- The footer shows a running estimated total; **Add N items to basket** drops
+  the whole bill of materials in at once, where contract/volume pricing applies.
+
+The picks are deterministic recommendations from your catalog; the
+conversational version of Ask Meridian is on the roadmap.
+
+### Metals index (simulated)
+The landing view opens with a slim **metals index strip** — Copper and Aluminum
+$/lb with a 30-day trend, simulated deterministically (same values all day,
+every browser). When copper trends up, the strip nudges you to **quote wire &
+cable now** and lock the 30-day validity window; quotes and the customer
+acceptance page cite the index date their pricing reflects.
+
 ### Product details
 Each product card shows the name, brand, SKU, and description, plus:
 - a collapsible **Specifications** list — key specs are marked **✓** when they match
@@ -203,9 +225,26 @@ The bell in the header collects everything that needs your attention, with an
 - **Restock alerts** — watched products, each with an **estimated restock date**;
   when the window is reached the alert flips to "check availability."
 
-Click any notification to jump straight to the quote section or the product's
-detail view; **Mark all read** clears the badge. Read state is remembered in your
-browser.
+- **Counter-offers** — a ↩️ alert when a customer requests changes on a quote link.
+- **At-risk customers** — 📉 alerts for accounts going quiet vs their usual cadence.
+
+Click any notification to jump straight to the quote section, the product's
+detail view, or the customer's orders; **Mark all read** clears the badge. Read
+state is remembered in your browser.
+
+### Customer health scores
+Every account's **order cadence** is tracked automatically — "usually orders
+every 30 days — now 38 days quiet":
+- A **status dot** (🟢 Healthy / 🟡 Watch / 🟠 At risk) sits under the "Quoting
+  for" selector for the active customer; hover for the cadence message.
+- **At-risk accounts** raise a bell alert — one click lands on their order
+  history, ready for a win-back call.
+- Managers get the full **Customer Health** panel in Insights, most urgent
+  first.
+
+Within 1.25× the usual cadence = Healthy; up to 2× = Watch; beyond = At risk.
+*(The seeded demo data ships one healthy and one at-risk account so the feature
+is visible immediately.)*
 
 ### Out-of-stock substitutes
 When a product is out of stock **everywhere**, its card automatically offers the
@@ -342,6 +381,11 @@ applied), or clear it.
   margin %**, color-coded (red <15%, amber 15–30%, green 30%+), so you know your
   discount room. Marked **internal** — it never appears on the printed quote, shared
   basket, or customer CSV. *(Cost is estimated from list price in this demo.)*
+- **Win/loss pricing guidance** — a 📊 line under the basket margin shows how
+  quotes in your **current margin band** have historically closed ("Quotes in the
+  15–20% band historically win 75%"), so discounting becomes a coached decision.
+  Appears once a band has 3+ decided quotes; the full per-band breakdown lives in
+  Insights. *(Fresh browsers seed a simulated quote history.)*
 - **Line price override (✎ price)** — set a **custom unit price** on any line for
   price-matching or close-the-deal discounts. **Guardrails:** never above list,
   never below a **5% margin** over estimated cost — out-of-band entries snap to
@@ -366,12 +410,17 @@ applied), or clear it.
     **Approve** (managers see Approve/Reject; the pipeline lists everything awaiting
     sign-off).
   - **Customer Link:** copies a **no-login link** your customer can open to review
-    the branded quote — number, validity, line prices, total — and **Accept** or
-    **Decline** on the spot. Accepting **converts the quote to an order** and marks
-    it **Won**; declining marks it **Lost**. Expired or approval-pending quotes
-    can't be accepted (the page explains why), and copying a Draft's link
-    auto-advances it to **Sent**. *(Demo: the acceptance state lives in the browser
-    where the link is opened.)*
+    the branded quote — number, validity, line prices, total — and **Accept**,
+    **Decline**, or **Request changes** on the spot. Accepting **converts the
+    quote to an order** and marks it **Won**; declining marks it **Lost**. Expired
+    or approval-pending quotes can't be accepted (the page explains why), and
+    copying a Draft's link auto-advances it to **Sent**. *(Demo: the acceptance
+    state lives in the browser where the link is opened.)*
+  - **Counter-offers:** when the customer **requests changes**, their note comes
+    back as an amber **COUNTERED** badge on the quote with the ask inline ("need
+    it under $60/unit"), plus a ↩️ bell notification and an Insights pipeline
+    alert. The quote stays open — **Load** it, adjust pricing or products, and
+    send a fresh Customer Link.
 - **Email Quote** — opens an inline form (recipient pre-filled). **Send Quote**
   records the quote with status **Sent** and confirms. *(Demo: no email is actually
   sent — the quote is tracked as Sent for follow-up.)*

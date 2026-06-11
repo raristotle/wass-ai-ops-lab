@@ -46,6 +46,8 @@ import {
 } from "@/lib/analytics";
 import { quotePipeline } from "@/lib/product-finder-quote-pipeline";
 import { QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR } from "@/lib/product-finder-quotes";
+import { winLossByBand, winLossSummary } from "@/lib/product-finder-winloss";
+import { allCustomerHealth, HEALTH_COLOR, HEALTH_LABEL } from "@/lib/product-finder-customer-health";
 import { categoryShareQuery } from "@/lib/product-finder-url";
 import { apiGetProduct } from "@/lib/product-finder-api";
 import type { ProductCategory } from "@/features/product-finder/types";
@@ -122,6 +124,7 @@ function DashboardContent() {
   // actually changes (Zustand shallow-compares primitives and array identity).
   const orders = useProductFinder((s) => s.orders);
   const quotes = useProductFinder((s) => s.quotes);
+  const customers = useProductFinder((s) => s.customers);
   const user = useProductFinder((s) => s.user);
   const openCartAt = useProductFinder((s) => s.openCartAt);
   const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
@@ -139,6 +142,12 @@ function DashboardContent() {
   const mix = useMemo(() => customerMix(orders), [orders]);
   const savings = useMemo(() => contractSavings(orders), [orders]);
   const pipeline = useMemo(() => quotePipeline(quotes, now), [quotes, now]);
+  const winLossBands = useMemo(() => winLossByBand(quotes), [quotes]);
+  const wlSummary = useMemo(() => winLossSummary(quotes), [quotes]);
+  const customerHealthList = useMemo(
+    () => allCustomerHealth(orders, customers, now),
+    [orders, customers, now]
+  );
 
   // ── Drill-through handlers ──────────────────────────────────────────────────
   // Bar click payload carries the original CategoryStat datum.
@@ -394,9 +403,135 @@ function DashboardContent() {
                 </ul>
               </div>
             )}
+
+            {/* Customer counter-offers awaiting a response */}
+            {pipeline.countered.length > 0 && (
+              <div className="mt-3 rounded-lg border border-[#004986]/50 bg-[#004986]/10 px-3 py-2">
+                <p className="text-xs font-semibold text-[#1D252D]">
+                  ↩️ {pipeline.countered.length} counter-offer{pipeline.countered.length !== 1 ? "s" : ""} awaiting a response
+                </p>
+                <ul className="mt-1 space-y-0.5">
+                  {pipeline.countered.slice(0, 5).map((q) => (
+                    <li key={q.id} className="truncate text-[11px] text-[#4F758B]">
+                      {q.number} · {q.customer || "—"} · {fmt$(q.total)} · “{q.counterOffer?.note}”
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </>
         )}
       </section>
+
+      {/* ── Pricing win/loss + Customer health ─────────────────────────────────── */}
+      <div className="grid gap-4 lg:grid-cols-2">
+        {/* Win/loss by margin band */}
+        <section
+          aria-label="Pricing win/loss by margin band"
+          className="rounded-xl border border-[#B7C9D3]/40 bg-white p-4 shadow-sm"
+        >
+          <h2 className="mb-1 text-sm font-semibold text-[#1D252D]">
+            Pricing Win/Loss
+            <span className="ml-1 text-xs font-normal text-[#4F758B]">(by margin band)</span>
+          </h2>
+          {wlSummary.decided === 0 ? (
+            <p className="py-8 text-center text-xs text-[#4F758B]">
+              No decided quotes yet — win/loss insights appear once quotes are marked Won or Lost.
+            </p>
+          ) : (
+            <>
+              <p className="mb-3 text-xs text-[#4F758B]">
+                {wlSummary.decided} decided quotes · won avg margin{" "}
+                <span className="font-semibold text-[#00AA13]">
+                  {wlSummary.avgMarginWon !== null ? `${(wlSummary.avgMarginWon * 100).toFixed(0)}%` : "—"}
+                </span>{" "}
+                vs lost{" "}
+                <span className="font-semibold text-[#DB6B30]">
+                  {wlSummary.avgMarginLost !== null ? `${(wlSummary.avgMarginLost * 100).toFixed(0)}%` : "—"}
+                </span>
+              </p>
+              <ul className="space-y-1.5">
+                {winLossBands.map((b) => (
+                  <li key={b.band} className="flex items-center gap-2">
+                    <span className="w-14 shrink-0 text-xs font-semibold text-[#1D252D]">{b.band}</span>
+                    <div className="h-3 flex-1 overflow-hidden rounded bg-[#B7C9D3]/30">
+                      {b.decided > 0 && (
+                        <div
+                          className="h-full rounded bg-[#004986]"
+                          style={{ width: `${Math.round(b.winRate * 100)}%` }}
+                          aria-hidden="true"
+                        />
+                      )}
+                    </div>
+                    <span className="w-24 shrink-0 text-right text-xs text-[#4F758B]">
+                      {b.decided === 0 ? (
+                        "—"
+                      ) : (
+                        <>
+                          <span className="font-semibold text-[#1D252D]">{Math.round(b.winRate * 100)}%</span>{" "}
+                          ({b.won}W/{b.lost}L)
+                        </>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-[10px] italic text-[#4F758B]">
+                The same guidance appears in the basket while a rep is pricing — simulated history.
+              </p>
+            </>
+          )}
+        </section>
+
+        {/* Customer health */}
+        <section
+          aria-label="Customer health"
+          className="rounded-xl border border-[#B7C9D3]/40 bg-white p-4 shadow-sm"
+        >
+          <h2 className="mb-3 text-sm font-semibold text-[#1D252D]">
+            Customer Health
+            <span className="ml-1 text-xs font-normal text-[#4F758B]">(order cadence)</span>
+          </h2>
+          {customerHealthList.length === 0 ? (
+            <p className="py-8 text-center text-xs text-[#4F758B]">No customer accounts.</p>
+          ) : (
+            <ul className="space-y-2">
+              {customerHealthList.map((h) => (
+                <li key={h.customerId}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveCustomer(h.customerId);
+                      openCartAt("orders");
+                    }}
+                    aria-label={`View orders for ${h.customerName}`}
+                    className="flex w-full items-center gap-3 rounded text-left transition-colors hover:bg-[#B7C9D3]/20"
+                  >
+                    <span
+                      className="h-2.5 w-2.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: HEALTH_COLOR[h.status] }}
+                      aria-hidden="true"
+                    />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm text-[#1D252D]">{h.customerName}</span>
+                      <span className="block truncate text-[11px] text-[#4F758B]">{h.message}</span>
+                    </span>
+                    <span
+                      className="shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide"
+                      style={{
+                        backgroundColor: HEALTH_COLOR[h.status],
+                        color: h.status === "watch" || h.status === "new" ? "#1D252D" : "#FFFFFF",
+                      }}
+                    >
+                      {HEALTH_LABEL[h.status]}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
 
       {/* ── Charts row: Top categories + Orders over time ──────────────────────── */}
       <div className="grid gap-4 lg:grid-cols-2">

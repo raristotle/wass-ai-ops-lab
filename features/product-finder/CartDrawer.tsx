@@ -22,6 +22,7 @@ import { isValidEmail, guessRecipient } from "@/lib/product-finder-email";
 import {
   estimatedUnitCost, marginPct, marginTier, MARGIN_TIER_COLOR, basketMargin,
 } from "@/lib/product-finder-margin";
+import { marginGuidance } from "@/lib/product-finder-winloss";
 import { stockWarning } from "@/lib/product-finder-stock-warning";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -823,8 +824,21 @@ export function CartDrawer() {
                             ✓ ordered
                           </span>
                         )}
+                        {q.counterOffer && q.status !== "won" && q.status !== "lost" && (
+                          <span className="rounded bg-[#EAAA00] px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-[#1D252D]">
+                            ↩ countered
+                          </span>
+                        )}
                       </div>
                     </div>
+
+                    {/* Customer counter-offer note */}
+                    {q.counterOffer && q.status !== "won" && q.status !== "lost" && (
+                      <p className="mt-1.5 rounded border border-[#EAAA00]/50 bg-[#EAAA00]/10 px-2 py-1 text-[10px] text-[#1D252D]">
+                        <span className="font-semibold">Customer asks:</span> “{q.counterOffer.note}”
+                        <span className="ml-1 text-[#4F758B]">— Load the quote, adjust, and resend.</span>
+                      </p>
+                    )}
 
                     {/* Manager approval controls for below-margin quotes */}
                     {q.approvalStatus === "pending" && isManager && (
@@ -1021,6 +1035,18 @@ export function CartDrawer() {
                 </span>
               </div>
             )}
+
+            {/* Win/loss guidance for the current margin band — internal coaching */}
+            {margin && (() => {
+              const guidance = marginGuidance(quotes, margin.marginPct);
+              if (!guidance) return null;
+              return (
+                <p className="rounded border border-[#004986]/30 bg-[#004986]/5 px-3 py-1.5 text-[10px] text-[#1D252D]">
+                  <span aria-hidden="true">📊</span> {guidance.message}
+                  <span className="ml-1 italic text-[#4F758B]">— simulated history</span>
+                </p>
+              );
+            })()}
 
             {/* Estimated delivery — whole order ships complete by */}
             {orderEta && (
@@ -1349,8 +1375,9 @@ export function CartDrawer() {
 
             {/* ── Footer note ──────────────────────────────── */}
             <p className="text-[10px] text-[#4F758B] mb-6 print:mb-8">
-              Pricing reflects volume tier discounts as of quote date. All prices in USD.
-              This quote is valid for 30 days from the date of issue.
+              Pricing reflects volume tier discounts and the commodity index as of{" "}
+              {formatDisplayDate(quoteDate)}. All prices in USD. This quote is valid for
+              30 days from the date of issue.
             </p>
 
             {/* ── Print button (screen only) ───────────────── */}

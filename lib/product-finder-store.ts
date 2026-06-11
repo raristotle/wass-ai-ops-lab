@@ -37,6 +37,7 @@ import { NEAR_ZERO_RESULTS, suggestCorrection } from "@/lib/product-finder-sugge
 import { getPricingProvider } from "@/lib/integration/index";
 import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-finder-quotes";
 import { needsApproval } from "@/lib/product-finder-quotes";
+import { quoteNumber } from "@/lib/product-finder-quote";
 import { basketMargin } from "@/lib/product-finder-margin";
 import { clampOverride } from "@/lib/product-finder-override";
 import type { WatchEntry } from "@/lib/product-finder-notifications";
@@ -241,6 +242,12 @@ export interface ProductFinderState {
   loadQuoteToCart: (id: string) => void;
   deleteQuote: (id: string) => void;
   convertQuoteToOrder: (id: string, now?: number) => void;
+  /** Customer "Request changes" — attaches a counter-offer note (status stays in play). */
+  counterQuote: (id: string, note: string, now?: number) => void;
+
+  // Job wizard (Ask Meridian)
+  jobWizardOpen: boolean;
+  setJobWizardOpen: (v: boolean) => void;
 
   // Watches (notify-when-available)
   watches: WatchEntry[];
@@ -1050,6 +1057,26 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     });
   },
 
+  counterQuote(id, note, now) {
+    const trimmed = note.trim();
+    if (!trimmed) return;
+    set((s) => {
+      const quotes = s.quotes.map((q) =>
+        q.id === id && !q.convertedOrderId && q.status !== "won" && q.status !== "lost"
+          ? { ...q, counterOffer: { note: trimmed, at: now ?? Date.now() } }
+          : q,
+      );
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_quotes", JSON.stringify(quotes));
+      }
+      return { quotes };
+    });
+  },
+
+  // ── Job wizard (Ask Meridian) ─────────────────────────────
+  jobWizardOpen: false,
+  setJobWizardOpen(v) { set({ jobWizardOpen: v }); },
+
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
 
@@ -1198,7 +1225,13 @@ export function hydrateSavedState() {
   };
   const readQuotes = (): SavedQuote[] => {
     const raw = localStorage.getItem("pf_quotes");
-    if (!raw) return [];
+    // null means ABSENT (never been set) → seed demo quotes so the pipeline,
+    // win/loss insights, and counter-offer demos light up on a fresh browser.
+    if (raw === null) {
+      const demoQuotes = buildDemoQuotes(Date.now());
+      localStorage.setItem("pf_quotes", JSON.stringify(demoQuotes));
+      return demoQuotes;
+    }
     try { const v = JSON.parse(raw); return Array.isArray(v) ? (v as SavedQuote[]) : []; }
     catch { localStorage.removeItem("pf_quotes"); return []; }
   };
@@ -1377,6 +1410,87 @@ export function buildDemoOrders(now: number): Order[] {
   }
 
   return orders;
+}
+
+// ─── Demo quote seed (first-ever load only) ───────────────────────────────────
+/**
+ * Build demo saved quotes with createdAt timestamps relative to `now` —
+ * seeded once when pf_quotes has never been written (mirrors buildDemoOrders).
+ *
+ * The won/lost margin spread is deliberate so win/loss insights show a
+ * credible gradient out of the box:
+ *   15–20% band → 3 won / 1 lost (75%)
+ *   20–25% band → 2 won / 1 lost (67%)
+ *   25–30% band → 2 won / 1 lost (67%) — typical catalog band
+ *   30%+  band → 1 won / 2 lost (33%)
+ * Plus one stale sent quote (>14 days, triggers the follow-up alert), one
+ * fresh sent quote, and one below-margin draft pending approval (badges the
+ * manager bell immediately).
+ *
+ * `now` is injected so the function stays pure / unit-testable.
+ */
+export function buildDemoQuotes(now: number): SavedQuote[] {
+  const DAY = 86_400_000;
+  const p1 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115");
+  const p2 = CATALOG_PRODUCTS.find((p) => p.id === "CB-EAT-CH115");
+  if (!p1 || !p2) return [];
+
+  type Seed = {
+    daysAgo: number;
+    status: QuoteStatus;
+    marginPct: number;
+    customerId: string | null;
+    customer: string;
+    qty: number;
+    approvalStatus?: ApprovalStatus;
+  };
+
+  const seeds: Seed[] = [
+    // 15–20% band: 3 won / 1 lost
+    { daysAgo: 52, status: "won", marginPct: 0.17, customerId: "CUST-001", customer: "Gulf Coast Industrial", qty: 40 },
+    { daysAgo: 45, status: "won", marginPct: 0.18, customerId: "CUST-002", customer: "Lone Star Data Systems", qty: 25 },
+    { daysAgo: 33, status: "won", marginPct: 0.16, customerId: "CUST-001", customer: "Gulf Coast Industrial", qty: 60 },
+    { daysAgo: 41, status: "lost", marginPct: 0.19, customerId: null, customer: "Bayou Contracting", qty: 30 },
+    // 20–25% band: 2 won / 1 lost
+    { daysAgo: 28, status: "won", marginPct: 0.22, customerId: "CUST-001", customer: "Gulf Coast Industrial", qty: 35 },
+    { daysAgo: 24, status: "won", marginPct: 0.24, customerId: "CUST-002", customer: "Lone Star Data Systems", qty: 20 },
+    { daysAgo: 26, status: "lost", marginPct: 0.23, customerId: null, customer: "Pinnacle Builders", qty: 45 },
+    // 25–30% band: 2 won / 1 lost — the catalog's typical band, so the cart
+    // guidance line has history for everyday baskets
+    { daysAgo: 18, status: "won", marginPct: 0.27, customerId: "CUST-001", customer: "Gulf Coast Industrial", qty: 22 },
+    { daysAgo: 15, status: "won", marginPct: 0.29, customerId: null, customer: "Pinnacle Builders", qty: 16 },
+    { daysAgo: 12, status: "lost", marginPct: 0.26, customerId: "CUST-002", customer: "Lone Star Data Systems", qty: 40 },
+    // 30%+ band: 1 won / 2 lost — over-margined quotes lose
+    { daysAgo: 38, status: "won", marginPct: 0.31, customerId: "CUST-002", customer: "Lone Star Data Systems", qty: 12 },
+    { daysAgo: 31, status: "lost", marginPct: 0.33, customerId: null, customer: "Bayou Contracting", qty: 50 },
+    { daysAgo: 22, status: "lost", marginPct: 0.36, customerId: "CUST-001", customer: "Gulf Coast Industrial", qty: 28 },
+    // Open pipeline: one stale sent (follow-up alert) + one fresh sent
+    { daysAgo: 20, status: "sent", marginPct: 0.21, customerId: "CUST-001", customer: "Gulf Coast Industrial", qty: 32 },
+    { daysAgo: 3, status: "sent", marginPct: 0.27, customerId: "CUST-002", customer: "Lone Star Data Systems", qty: 18 },
+    // Below-margin draft awaiting manager sign-off (badges the bell)
+    { daysAgo: 1, status: "draft", marginPct: 0.12, customerId: null, customer: "Bayou Contracting", qty: 80, approvalStatus: "pending" },
+  ];
+
+  return seeds.map((s, i) => {
+    const ts = now - s.daysAgo * DAY;
+    const product = i % 2 === 0 ? p1 : p2;
+    const unitPrice = product.unitPrice;
+    const total = Math.round(unitPrice * s.qty * 100) / 100;
+    const quote: SavedQuote = {
+      id: `demo-quote-${String(i + 1).padStart(3, "0")}`,
+      number: quoteNumber(new Date(ts), 9000 + i),
+      customer: s.customer,
+      project: "",
+      lines: [{ product, qty: s.qty, unitPrice }],
+      total,
+      status: s.status,
+      createdAt: ts,
+      customerId: s.customerId,
+      marginPct: s.marginPct,
+      ...(s.approvalStatus ? { approvalStatus: s.approvalStatus } : {}),
+    };
+    return quote;
+  });
 }
 
 // ─── Derived selectors ────────────────────────────────────────────────────────

@@ -424,6 +424,61 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "job-wizard",
+    title: "Ask Meridian — Job Wizard",
+    body: [
+      "Describe the job instead of building the basket part by part. Open it from the 🧰 Job Wizard button by the search bar (or Ctrl/Cmd-K → \"Start a job\").",
+      "• Pick a job — 200A service upgrade, office network drops, warehouse LED retrofit, security cameras, or an EV charger install.",
+      "• Every step resolves to a stocked, priced product from the catalog, branch stock preferred — with alternates you can swap in and quantities you can adjust.",
+      "• Optional steps (like whole-home surge protection — an easy upsell) start unchecked.",
+      "• One click adds the whole bill of materials to the basket; contract and volume pricing apply there.",
+      "Deterministic recommendations from your catalog — the conversational version of Ask Meridian is on the roadmap.",
+    ],
+  },
+  {
+    id: "win-loss-insights",
+    title: "Pricing win/loss insights",
+    body: [
+      "Every saved quote captures its margin and ends life Won or Lost — crossing the two tells you where quotes actually close.",
+      "• In the basket, a 📊 guidance line under the margin shows how quotes in your current margin band have historically performed.",
+      "• In Insights, the Pricing Win/Loss card breaks down win rate by margin band (<15%, 15–20%, 20–25%, 25–30%, 30%+) and compares the average margin of won vs lost quotes.",
+      "• Guidance only appears once a band has at least 3 decided quotes — no advice from thin air.",
+      "Fresh browsers come seeded with a simulated quote history so the insights are visible immediately.",
+    ],
+  },
+  {
+    id: "customer-health",
+    title: "Customer health scores",
+    body: [
+      "Each account's order cadence is tracked automatically: \"usually orders every 30 days — now 38 days quiet.\"",
+      "• A status dot (Healthy / Watch / At risk) appears under the \"Quoting for\" selector for the active customer.",
+      "• At-risk accounts raise a 📉 alert in the notification bell — click it to jump to their order history.",
+      "• Managers get the full Customer Health panel in Insights, most urgent first.",
+      "Statuses: within 1.25× their usual cadence = Healthy; up to 2× = Watch; beyond = At risk. New accounts show as New.",
+    ],
+  },
+  {
+    id: "commodity-index",
+    title: "Metals index (simulated)",
+    body: [
+      "Electrical distribution pricing lives on copper. The landing view shows a simulated daily metals index — Copper and Aluminum $/lb with a 30-day trend.",
+      "• Copper trending up → a nudge to quote wire & cable now and lock the 30-day validity window.",
+      "• Quotes and the customer acceptance page note the index date their pricing reflects.",
+      "Simulated and deterministic (same values all day, every browser) — a live feed is a drop-in upgrade.",
+    ],
+  },
+  {
+    id: "counter-offer",
+    title: "Counter-offers (Request changes)",
+    body: [
+      "Customers don't just accept or decline — the quote link also has Request changes.",
+      "• The customer writes what should change (\"need it under $60/unit\"); the quote stays open.",
+      "• The rep sees an amber COUNTERED badge on the quote, the customer's note inline, and a ↩️ bell notification.",
+      "• Managers see counter-offers awaiting a response in the Insights quote pipeline.",
+      "Load the quote into the basket, adjust pricing or products, and send a fresh Customer Link.",
+    ],
+  },
+  {
     id: "mobile",
     title: "Using it on a phone",
     body: [

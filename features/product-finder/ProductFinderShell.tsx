@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import { useProductFinder, selectCartCount } from "@/lib/product-finder-store";
+import { customerHealth, HEALTH_COLOR, HEALTH_LABEL } from "@/lib/product-finder-customer-health";
 import { FilterSidebar } from "@/features/product-finder/FilterSidebar";
 import { CartDrawer } from "@/features/product-finder/CartDrawer";
 import { SpecCompareModal } from "@/features/product-finder/SpecCompareModal";
 import { ProductDetailModal } from "@/features/product-finder/ProductDetailModal";
 import { BomImportModal } from "@/features/product-finder/BomImportModal";
 import { BulkQuoteModal } from "@/features/product-finder/BulkQuoteModal";
+import { JobWizardModal } from "@/features/product-finder/JobWizardModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
 import { NotificationBell } from "@/features/product-finder/NotificationBell";
@@ -29,6 +32,19 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const customers = useProductFinder((s) => s.customers);
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
   const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
+  const orders = useProductFinder((s) => s.orders);
+
+  // Clock read after mount keeps SSR and the first client render identical.
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => {
+    setNow(Date.now());
+  }, []);
+
+  const activeHealth = useMemo(() => {
+    if (now === null || activeCustomerId === null) return null;
+    const customer = customers.find((c) => c.id === activeCustomerId);
+    return customer ? customerHealth(orders, customer, now) : null;
+  }, [now, activeCustomerId, customers, orders]);
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-[#F8FAFB] print:block print:h-auto print:overflow-visible">
@@ -86,6 +102,25 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
                 </option>
               ))}
             </select>
+            {/* Customer health (order cadence) for the active account */}
+            {activeHealth && (
+              <span
+                className="mt-0.5 flex items-center gap-1 text-[9px] font-semibold uppercase tracking-wide"
+                style={{ color: activeHealth.status === "new" ? "#B7C9D3" : HEALTH_COLOR[activeHealth.status] }}
+                title={activeHealth.message}
+                data-tour="customer-health"
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: HEALTH_COLOR[activeHealth.status] }}
+                  aria-hidden="true"
+                />
+                {HEALTH_LABEL[activeHealth.status]}
+                {activeHealth.status !== "healthy" && activeHealth.status !== "new" && activeHealth.daysSinceLast !== null && (
+                  <span className="normal-case text-[#B7C9D3]">· {activeHealth.daysSinceLast}d quiet</span>
+                )}
+              </span>
+            )}
           </div>
 
           {/* Vertical divider */}
@@ -186,6 +221,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <ProductDetailModal />
       <BomImportModal />
       <BulkQuoteModal />
+      <JobWizardModal />
       <HelpPanel />
       <TourOverlay />
       <CommandPalette />

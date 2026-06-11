@@ -3,13 +3,18 @@ import { MARGIN_FLOOR } from "@/lib/product-finder-quotes";
 import { isStale } from "@/lib/product-finder-quote-pipeline";
 import { leadTimeDaysForId } from "@/lib/product-finder-leadtime";
 import { formatDisplayDate } from "@/lib/product-finder-quote";
+import { allCustomerHealth } from "@/lib/product-finder-customer-health";
+import type { Order } from "@/lib/product-finder-store";
+import type { CustomerAccount } from "@/lib/integration/types";
 
 /**
  * In-app notification feed — pure & deterministic (`now` injected).
- * Three signal sources, all already tracked by the store:
- *   approval     — below-margin quotes awaiting manager sign-off (manager/admin)
- *   stale-quote  — sent quotes past the 14-day follow-up window
- *   restock      — watched products: ETA reminder, then a "window reached" alert
+ * Five signal sources, all already tracked by the store:
+ *   approval      — below-margin quotes awaiting manager sign-off (manager/admin)
+ *   stale-quote   — sent quotes past the 14-day follow-up window
+ *   counter       — quotes the customer countered via "Request changes"
+ *   restock       — watched products: ETA reminder, then a "window reached" alert
+ *   customer-risk — accounts gone quiet vs their usual order cadence
  */
 
 const DAY_MS = 86_400_000;
@@ -22,7 +27,13 @@ export type WatchEntry = {
   addedAt: number;
 };
 
-export type NotificationKind = "approval" | "stale-quote" | "restock-due" | "restock-eta";
+export type NotificationKind =
+  | "approval"
+  | "stale-quote"
+  | "counter"
+  | "restock-due"
+  | "restock-eta"
+  | "customer-risk";
 
 export interface PfNotification {
   /** Stable id (`kind:entityId`) — read state keys off this. */
@@ -34,6 +45,7 @@ export interface PfNotification {
   at: number;
   productId?: string;
   quoteId?: string;
+  customerId?: string;
   /** Deep-link hint for the cart drawer's quote section. */
   quoteStatus?: QuoteStatus;
 }
@@ -41,6 +53,9 @@ export interface PfNotification {
 export interface NotificationInput {
   quotes: SavedQuote[];
   watches: WatchEntry[];
+  /** Order history + accounts — drives customer-risk alerts. */
+  orders: Order[];
+  customers: Pick<CustomerAccount, "id" | "name">[];
   /** Approval requests are a manager/admin concern. */
   isManager: boolean;
 }
@@ -78,6 +93,31 @@ export function buildNotifications(input: NotificationInput, now: number): PfNot
         quoteStatus: "sent",
       });
     }
+    if (q.counterOffer && q.status !== "won" && q.status !== "lost") {
+      const excerpt =
+        q.counterOffer.note.length > 80 ? `${q.counterOffer.note.slice(0, 77)}…` : q.counterOffer.note;
+      out.push({
+        id: `counter:${q.id}`,
+        kind: "counter",
+        title: `Counter-offer on quote ${q.number}`,
+        detail: `${q.customer || "Customer"}: “${excerpt}”`,
+        at: q.counterOffer.at,
+        quoteId: q.id,
+        quoteStatus: q.status,
+      });
+    }
+  }
+
+  for (const h of allCustomerHealth(input.orders, input.customers, now)) {
+    if (h.status !== "at-risk" || h.lastOrderAt === null) continue;
+    out.push({
+      id: `customer-risk:${h.customerId}`,
+      kind: "customer-risk",
+      title: `${h.customerName} is going quiet`,
+      detail: `${h.message.charAt(0).toUpperCase()}${h.message.slice(1)} — worth a call.`,
+      at: h.lastOrderAt,
+      customerId: h.customerId,
+    });
   }
 
   for (const w of input.watches) {

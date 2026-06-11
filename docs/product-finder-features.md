@@ -45,6 +45,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Competitor cross-reference | Paste a competitor/legacy part number → Meridian equivalent; "Replaces" list per product |
 | Spec compare | Side-by-side comparison of up to 4 products, differences + cheapest highlighted, PDF export |
 | **"For you" rail** | Landing-view recommendations from your own data: **Time to reorder** (frequency-ranked, DUE badge 30+ days after last order, qty-prefilled Add), **From your favorites**, **Goes well with your orders** cross-sell; follows the active customer (walk-in sees all history with customer chips) |
+| **Ask Meridian — Job Wizard** | Pick a job (200A service upgrade, 12 network drops, LED retrofit, 8-camera install, EV charger) → every step resolves to a stocked, priced catalog product (branch stock preferred) with swappable alternates, qty steppers, optional-step toggles, and an estimated total; one click adds the whole bill of materials to the basket. Deterministic; conversational version on the roadmap |
 | **BOM match confidence** | Every Import List/BOM line scored 0–100% (exact SKU = 100%; exact numbers enforced — "20A" never silently matches a 200A part); non-high-confidence lines list up to 2 alternates with one-click **Use** swap; typo lines auto-corrected ("circut breakr" → "circuit breaker") and flagged; "n to review" summary |
 
 ## Product detail
@@ -73,7 +74,9 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | **Convert quote → order** | One-click conversion of a quote into a placed order; marks the quote Won + "✓ ordered" without touching the cart |
 | **Rep margin** (internal) | Per-line and basket gross-margin %, color-coded; excluded from all customer-facing outputs |
 | **Line price override** | ✎ price on any cart line — custom unit price with guardrails (never above list, never below 5% margin over estimated cost; out-of-band entries snap to the bound); CUSTOM badge + reset; flows through quote sheet, saved quotes (per-line price captured), orders, and CSV; deep discounts still trip the 20% approval floor |
-| **Customer quote link** | Per saved quote — copies a no-login link where the customer reviews the branded quote and **Accepts** (converts to order, marks Won) or **Declines** (marks Lost); expiry and approval-pending guards; copying a Draft's link auto-marks it Sent |
+| **Customer quote link** | Per saved quote — copies a no-login link where the customer reviews the branded quote and **Accepts** (converts to order, marks Won), **Declines** (marks Lost), or **Requests changes** (counter-offer); expiry and approval-pending guards; copying a Draft's link auto-marks it Sent |
+| **Counter-offers** | Customer "Request changes" notes flow back as an amber **COUNTERED** badge + inline note on the quote, a ↩️ bell notification, and a pipeline alert in Insights — load, adjust, resend |
+| **Win/loss pricing guidance** | 📊 line under the basket margin: how quotes in the current margin band have historically closed (needs ≥3 decided quotes in the band); full **Pricing Win/Loss** card in Insights with per-band win rates and won-vs-lost average margins; fresh browsers seed a simulated quote history |
 | **Quantity stock warnings** | Flags cart lines where ordered qty exceeds available stock, with shortfall + backorder ETA |
 | **Job templates / kits** | Save a basket as a reusable kit; "Add to Basket" merges it into the current cart |
 | **Delivery ETA** | "Ships complete by" date in the cart — slowest line across branch/transfer/DC/lead-time tiers |
@@ -88,6 +91,8 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Feature | Summary |
 |---|---|
 | Customer accounts | "Quoting for" selector drives pricing, orders, and quotes |
+| **Customer health scores** | Order-cadence tracking per account ("usually orders every 30 days — now 38 quiet"): Healthy/Watch/At-risk dot under the customer selector, 📉 bell alert for at-risk accounts, and a most-urgent-first **Customer Health** panel in Insights |
+| **Metals index (simulated)** | Deterministic daily Copper/Aluminum index strip on the landing view with 30-day trends; copper-up triggers a "quote wire & cable now" nudge; quotes and the acceptance page cite the index date their pricing reflects |
 | Contract pricing | Category discounts + negotiated net prices, layered with volume tiers — List → Your price → You save % |
 | Live inventory adapter | Branch/DC stock + ATP behind a swap-in interface |
 | PIM provenance | Catalog source strip (source, count, last sync) |
@@ -105,7 +110,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | **Analytics drill-through** | Every KPI card, Top Categories bar, top-product row, customer-mix row, quote-status tile, and orders-over-time point clicks through to the underlying search, product, customer, quotes, or orders |
 | **Quote pipeline** | Dashboard view: value/count by status, open vs. won/lost, win rate, conversion rate (won→ordered), an approval-needed alert (below-margin), and a stale-quote follow-up alert (>14 days) |
 | **Interactive help** | "?" header button → searchable help topics with one-click "Try it" example searches |
-| **Notification center** | 🔔 header bell with unread badge: below-margin approval requests (managers/admins), stale-quote follow-ups (>14 days), and restock-watch alerts with estimated dates; click-through deep-links to the quote section or product detail; read state persists |
+| **Notification center** | 🔔 header bell with unread badge: below-margin approval requests (managers/admins), stale-quote follow-ups (>14 days), customer **counter-offers**, restock-watch alerts with estimated dates, and **at-risk customer** alerts; click-through deep-links to the quote section, product detail, or customer orders; read state persists |
 | **Mobile field-rep layout** | Phone-ready (390px+): full-width basket drawer, bottom-sheet filters, single-column For-you rail, viewport-anchored notifications, mobile-first customer quote page |
 | Favorites & recently viewed | Starred products and view history, persistent |
 | Print support | Quote, spec sheet, and comparison print as clean documents |

@@ -65,6 +65,8 @@ export interface SavedQuote {
   /** Set when the quote has been converted into a placed order. */
   convertedOrderId?: string;
   convertedAt?: number;
+  /** Customer pushed back via the acceptance page ("Request changes"). */
+  counterOffer?: { note: string; at: number };
 }
 
 export function isQuoteStatus(value: unknown): value is QuoteStatus {
