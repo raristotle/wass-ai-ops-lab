@@ -24,10 +24,20 @@ export interface LiveQuote {
   productUrl: string | null;
 }
 
+/**
+ * Read an env credential, trimmed. CLI/stdin paths on Windows can leave a
+ * trailing "\r" on stored values — a CR inside an OAuth form body reads as an
+ * invalid credential, so never trust raw whitespace here.
+ */
+function env(name: string): string | null {
+  const v = process.env[name]?.trim();
+  return v ? v : null;
+}
+
 export function liveDistributorsConfigured(): string[] {
   const out: string[] = [];
-  if (process.env.MOUSER_API_KEY) out.push("Mouser Electronics");
-  if (process.env.DIGIKEY_CLIENT_ID && process.env.DIGIKEY_CLIENT_SECRET) out.push("Digi-Key");
+  if (env("MOUSER_API_KEY")) out.push("Mouser Electronics");
+  if (env("DIGIKEY_CLIENT_ID") && env("DIGIKEY_CLIENT_SECRET")) out.push("Digi-Key");
   return out;
 }
 
@@ -70,7 +80,7 @@ export function mapMouserParts(parts: MouserPart[], mpn: string): LiveQuote[] {
 }
 
 async function fetchMouser(mpn: string): Promise<LiveQuote[]> {
-  const key = process.env.MOUSER_API_KEY;
+  const key = env("MOUSER_API_KEY");
   if (!key) return [];
   const r = await fetch(`https://api.mouser.com/api/v1/search/keyword?apiKey=${key}`, {
     method: "POST",
@@ -116,8 +126,8 @@ export function mapDigiKeyProducts(products: DigiKeyProduct[], mpn: string): Liv
 const g = globalThis as unknown as { __dkToken?: { token: string; expiresAt: number } };
 
 async function digikeyToken(): Promise<string | null> {
-  const id = process.env.DIGIKEY_CLIENT_ID;
-  const secret = process.env.DIGIKEY_CLIENT_SECRET;
+  const id = env("DIGIKEY_CLIENT_ID");
+  const secret = env("DIGIKEY_CLIENT_SECRET");
   if (!id || !secret) return null;
   if (g.__dkToken && g.__dkToken.expiresAt > Date.now() + 30_000) return g.__dkToken.token;
   const r = await fetch("https://api.digikey.com/v1/oauth2/token", {
