@@ -75,7 +75,10 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | **Rep margin** (internal) | Per-line and basket gross-margin %, color-coded; excluded from all customer-facing outputs |
 | **Line price override** | ✎ price on any cart line — custom unit price with guardrails (never above list, never below 5% margin over estimated cost; out-of-band entries snap to the bound); CUSTOM badge + reset; flows through quote sheet, saved quotes (per-line price captured), orders, and CSV; deep discounts still trip the 20% approval floor |
 | **Customer quote link** | Per saved quote — copies a no-login link where the customer reviews the branded quote and **Accepts** (converts to order, marks Won), **Declines** (marks Lost), or **Requests changes** (counter-offer); expiry and approval-pending guards; copying a Draft's link auto-marks it Sent |
-| **Counter-offers** | Customer "Request changes" notes flow back as an amber **COUNTERED** badge + inline note on the quote, a ↩️ bell notification, and a pipeline alert in Insights — load, adjust, resend |
+| **Counter-offers** | Customer "Request changes" notes flow back as an amber **COUNTERED** badge + inline note on the quote, a ↩️ bell notification, and a pipeline alert in Insights — answer with one-click **Revise** |
+| **Quote revisions** | **Revise** loads an open quote (lines, customer, note, terms) into the basket; Save Quote creates **v2** linked to the original; superseded versions leave the pipeline/alerts and their customer links say a newer version exists; revisions chain (v3, v4…) |
+| **Quote audit trail** | Per-quote **History**: created/status/approval events with actor names, customer link copies, counter-offers, conversion, and revision links — append-only, capped at 50 |
+| **Quote notes & terms** | Free-text customer note + selectable T&C blocks (freight, returns, payment, commodity escalation, lead times) on the quote sheet — printed on the PDF and shown on the customer acceptance page |
 | **Win/loss pricing guidance** | 📊 line under the basket margin: how quotes in the current margin band have historically closed (needs ≥3 decided quotes in the band); full **Pricing Win/Loss** card in Insights with per-band win rates and won-vs-lost average margins; fresh browsers seed a simulated quote history |
 | **Quantity stock warnings** | Flags cart lines where ordered qty exceeds available stock, with shortfall + backorder ETA |
 | **Job templates / kits** | Save a basket as a reusable kit; "Add to Basket" merges it into the current cart |
@@ -93,6 +96,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Customer accounts | "Quoting for" selector drives pricing, orders, and quotes |
 | **Customer health scores** | Order-cadence tracking per account ("usually orders every 30 days — now 38 quiet"): Healthy/Watch/At-risk dot under the customer selector, 📉 bell alert for at-risk accounts, and a most-urgent-first **Customer Health** panel in Insights |
 | **Metals index (simulated)** | Deterministic daily Copper/Aluminum index strip on the landing view with 30-day trends; copper-up triggers a "quote wire & cable now" nudge; quotes and the acceptance page cite the index date their pricing reflects |
+| **Seasonal demand signals** | Weekly rotating merchandising banner (storm prep, heat advisory, construction kickoff, datacom refresh) with one-tap trending searches — simulated, feed-swappable |
 | Contract pricing | Category discounts + negotiated net prices, layered with volume tiers — List → Your price → You save % |
 | Live inventory adapter | Branch/DC stock + ATP behind a swap-in interface |
 | PIM provenance | Catalog source strip (source, count, last sync) |

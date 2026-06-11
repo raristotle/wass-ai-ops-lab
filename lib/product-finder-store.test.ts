@@ -2295,6 +2295,118 @@ describe("counterQuote", () => {
   });
 });
 
+// ─── Quote notes, terms, audit trail, revisions ───────────────────────────────
+
+describe("quote notes, terms & audit trail", () => {
+  beforeEach(() => {
+    resetStore();
+    useProductFinder.setState({ quotes: [], cart: {}, priceOverrides: {}, revisingQuoteId: null, user: { name: "Sarah Chen", email: "s@x", role: "sales", branch: "B", branchId: "B-1" } });
+  });
+
+  it("saveQuote captures note + termsIds and logs a created event with the actor", () => {
+    useProductFinder.getState().addToCart(CATALOG_PRODUCTS[0], 2);
+    useProductFinder.getState().saveQuote({ number: "Q-N-0001", customer: "Acme", project: "", now: 1_700_000_000_000, note: "  Crane access required  ", termsIds: ["freight", "returns"] });
+    const q = useProductFinder.getState().quotes[0];
+    expect(q.note).toBe("Crane access required");
+    expect(q.termsIds).toEqual(["freight", "returns"]);
+    expect(q.events?.[0]).toMatchObject({ kind: "created", actor: "Sarah Chen", at: 1_700_000_000_000 });
+  });
+
+  it("status, approval, counter, and link events append to the trail", () => {
+    useProductFinder.getState().addToCart(CATALOG_PRODUCTS[0], 2);
+    useProductFinder.getState().saveQuote({ number: "Q-N-0002", customer: "Acme", project: "", now: 1_700_000_000_000 });
+    const id = useProductFinder.getState().quotes[0].id;
+    useProductFinder.getState().setQuoteStatus(id, "sent");
+    useProductFinder.getState().counterQuote(id, "Sharpen the pricing", 1_700_000_100_000);
+    useProductFinder.getState().logQuoteLink(id, 1_700_000_200_000);
+    const kinds = useProductFinder.getState().quotes[0].events?.map((e) => e.kind);
+    expect(kinds).toContain("status");
+    expect(kinds).toContain("counter");
+    expect(kinds).toContain("link-copied");
+    const counter = useProductFinder.getState().quotes[0].events?.find((e) => e.kind === "counter");
+    expect(counter?.actor).toBe("Customer");
+  });
+
+  it("setQuoteStatus to the same status does not log a duplicate event", () => {
+    useProductFinder.getState().addToCart(CATALOG_PRODUCTS[0], 2);
+    useProductFinder.getState().saveQuote({ number: "Q-N-0003", customer: "A", project: "", now: 1_700_000_000_000 });
+    const id = useProductFinder.getState().quotes[0].id;
+    const before = useProductFinder.getState().quotes[0].events?.length ?? 0;
+    useProductFinder.getState().setQuoteStatus(id, "draft");
+    expect(useProductFinder.getState().quotes[0].events?.length).toBe(before);
+  });
+});
+
+describe("quote revisions", () => {
+  beforeEach(() => {
+    resetStore();
+    useProductFinder.setState({ quotes: [], cart: {}, priceOverrides: {}, revisingQuoteId: null, user: null });
+  });
+
+  function saveBase(now = 1_700_000_000_000) {
+    useProductFinder.getState().addToCart(CATALOG_PRODUCTS[0], 2);
+    useProductFinder.getState().saveQuote({ number: "Q-R-0001", customer: "Acme", project: "P1", now });
+    return useProductFinder.getState().quotes[0];
+  }
+
+  it("startReviseQuote loads lines, flags revising, and Save Quote links v2", () => {
+    const v1 = saveBase();
+    useProductFinder.getState().startReviseQuote(v1.id);
+    expect(useProductFinder.getState().revisingQuoteId).toBe(v1.id);
+    expect(Object.keys(useProductFinder.getState().cart)).toHaveLength(1);
+
+    useProductFinder.getState().updateCartQty(CATALOG_PRODUCTS[0].id, 5);
+    useProductFinder.getState().saveQuote({ number: "Q-R-0002", customer: "Acme", project: "P1", now: 1_700_000_500_000 });
+
+    const quotes = useProductFinder.getState().quotes;
+    const v2 = quotes.find((q) => q.number === "Q-R-0002");
+    const v1After = quotes.find((q) => q.id === v1.id);
+    expect(v2?.revision).toBe(2);
+    expect(v2?.revisionOf).toBe(v1.id);
+    expect(v1After?.supersededBy).toBe(v2?.id);
+    expect(v1After?.events?.some((e) => e.kind === "revised")).toBe(true);
+    expect(v2?.events?.some((e) => e.kind === "revised")).toBe(true);
+    expect(useProductFinder.getState().revisingQuoteId).toBeNull();
+  });
+
+  it("a revision of a revision becomes v3", () => {
+    const v1 = saveBase();
+    useProductFinder.getState().startReviseQuote(v1.id);
+    useProductFinder.getState().saveQuote({ number: "Q-R-0002", customer: "Acme", project: "", now: 1_700_000_500_000 });
+    const v2 = useProductFinder.getState().quotes.find((q) => q.number === "Q-R-0002");
+    useProductFinder.getState().startReviseQuote(v2!.id);
+    useProductFinder.getState().saveQuote({ number: "Q-R-0003", customer: "Acme", project: "", now: 1_700_000_900_000 });
+    const v3 = useProductFinder.getState().quotes.find((q) => q.number === "Q-R-0003");
+    expect(v3?.revision).toBe(3);
+    expect(v3?.revisionOf).toBe(v2?.id);
+  });
+
+  it("refuses to revise won, converted, or superseded quotes", () => {
+    const v1 = saveBase();
+    // superseded
+    useProductFinder.getState().startReviseQuote(v1.id);
+    useProductFinder.getState().saveQuote({ number: "Q-R-0002", customer: "A", project: "", now: 1_700_000_500_000 });
+    useProductFinder.getState().clearCart();
+    useProductFinder.getState().startReviseQuote(v1.id);
+    expect(useProductFinder.getState().revisingQuoteId).toBeNull();
+    // won
+    const v2 = useProductFinder.getState().quotes.find((q) => q.number === "Q-R-0002");
+    useProductFinder.getState().setQuoteStatus(v2!.id, "won");
+    useProductFinder.getState().startReviseQuote(v2!.id);
+    expect(useProductFinder.getState().revisingQuoteId).toBeNull();
+  });
+
+  it("replace-cart actions and clearCart cancel the revising flag", () => {
+    const v1 = saveBase();
+    useProductFinder.getState().startReviseQuote(v1.id);
+    useProductFinder.getState().clearCart();
+    expect(useProductFinder.getState().revisingQuoteId).toBeNull();
+    useProductFinder.getState().startReviseQuote(v1.id);
+    useProductFinder.getState().loadQuoteToCart(v1.id);
+    expect(useProductFinder.getState().revisingQuoteId).toBeNull();
+  });
+});
+
 // ─── buildDemoQuotes (first-load seed) ────────────────────────────────────────
 
 describe("buildDemoQuotes", () => {

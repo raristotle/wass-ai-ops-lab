@@ -14,8 +14,10 @@ import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import { isInLocalMonth } from "@/lib/analytics";
 import {
   QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR,
-  APPROVAL_LABEL, APPROVAL_COLOR, type SavedQuote, type QuoteStatus,
+  APPROVAL_LABEL, APPROVAL_COLOR, isSuperseded, type SavedQuote, type QuoteStatus,
 } from "@/lib/product-finder-quotes";
+import { TERMS_BLOCKS, resolveTerms } from "@/lib/product-finder-terms";
+import { EVENT_ICON, EVENT_LABEL } from "@/lib/product-finder-quote-events";
 import { SubmittalPackage } from "@/features/product-finder/SubmittalPackage";
 import { completeTheJob } from "@/lib/product-finder-complete-job";
 import { isValidEmail, guessRecipient } from "@/lib/product-finder-email";
@@ -60,6 +62,10 @@ export function CartDrawer() {
   const loadQuoteToCart = useProductFinder((s) => s.loadQuoteToCart);
   const deleteQuote = useProductFinder((s) => s.deleteQuote);
   const convertQuoteToOrder = useProductFinder((s) => s.convertQuoteToOrder);
+  const logQuoteLink = useProductFinder((s) => s.logQuoteLink);
+  const revisingQuoteId = useProductFinder((s) => s.revisingQuoteId);
+  const startReviseQuote = useProductFinder((s) => s.startReviseQuote);
+  const cancelRevise = useProductFinder((s) => s.cancelRevise);
   const submittalOpen = useProductFinder((s) => s.submittalOpen);
   const setSubmittalOpen = useProductFinder((s) => s.setSubmittalOpen);
   const isManager = user?.role === "manager" || user?.role === "admin";
@@ -176,6 +182,8 @@ export function CartDrawer() {
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [customer, setCustomer] = useState("");
   const [project, setProject] = useState("");
+  const [quoteNote, setQuoteNote] = useState("");
+  const [termsIds, setTermsIds] = useState<string[]>([]);
 
   // ── Share / quote-save state ───────────────────────────────────────────────
   const [shareCopied, setShareCopied] = useState(false);
@@ -208,12 +216,15 @@ export function CartDrawer() {
       validUntil: quoteValidityDate(new Date(q.createdAt)).getTime(),
       ...(user ? { rep: user.name, branch: user.branch } : {}),
       ...(q.approvalStatus === "pending" ? { approvalPending: true as const } : {}),
+      ...(q.note ? { note: q.note } : {}),
+      ...(q.termsIds && q.termsIds.length > 0 ? { terms: resolveTerms(q.termsIds) } : {}),
     };
     const url = `${location.origin}/product-finder/quote?q=${encodeQuoteShare(payload)}`;
     navigator.clipboard.writeText(url).then(() => {
       setCopiedQuoteId(q.id);
       setTimeout(() => setCopiedQuoteId(null), 2500);
     });
+    logQuoteLink(q.id);
     // Sharing the link with the customer IS sending the quote.
     if (q.status === "draft") setQuoteStatus(q.id, "sent");
   };
@@ -239,7 +250,35 @@ export function CartDrawer() {
     if (typeof localStorage === "undefined") return;
     setCustomer(localStorage.getItem("pf_quote_customer") ?? "");
     setProject(localStorage.getItem("pf_quote_project") ?? "");
+    setQuoteNote(localStorage.getItem("pf_quote_note") ?? "");
+    try {
+      const t = JSON.parse(localStorage.getItem("pf_quote_terms") ?? "[]");
+      if (Array.isArray(t)) setTermsIds(t.filter((x): x is string => typeof x === "string"));
+    } catch { /* corrupt — start clean */ }
   }, []);
+
+  // Persist note + terms selections
+  useEffect(() => {
+    if (typeof localStorage === "undefined") return;
+    localStorage.setItem("pf_quote_note", quoteNote);
+  }, [quoteNote]);
+  useEffect(() => {
+    if (typeof localStorage === "undefined") return;
+    localStorage.setItem("pf_quote_terms", JSON.stringify(termsIds));
+  }, [termsIds]);
+
+  // Starting a revision pre-fills the quote fields from the original
+  useEffect(() => {
+    if (!revisingQuoteId) return;
+    const original = quotes.find((q) => q.id === revisingQuoteId);
+    if (!original) return;
+    setCustomer(original.customer);
+    setProject(original.project);
+    setQuoteNote(original.note ?? "");
+    setTermsIds(original.termsIds ?? []);
+  }, [revisingQuoteId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const revisingQuote = revisingQuoteId ? quotes.find((q) => q.id === revisingQuoteId) ?? null : null;
 
   // Pre-fill quote customer field when an active customer is selected
   useEffect(() => {
@@ -331,6 +370,25 @@ export function CartDrawer() {
             is released so the quote sheet / submittal print in full.
         ── */}
         <div className="flex-1 overflow-y-auto print:overflow-visible">
+
+        {/* Revising banner — Save Quote will create the next version */}
+        {revisingQuote && (
+          <div className="flex items-center gap-2 border-b border-[#004986]/30 bg-[#004986]/10 px-4 py-2 print:hidden">
+            <span aria-hidden="true">🆕</span>
+            <p className="min-w-0 flex-1 text-xs text-[#1D252D]">
+              Revising <span className="font-semibold">{revisingQuote.number}</span> — Save Quote
+              creates <span className="font-semibold">v{(revisingQuote.revision ?? 1) + 1}</span> and
+              supersedes the original.
+            </p>
+            <button
+              type="button"
+              onClick={cancelRevise}
+              className="shrink-0 text-xs text-[#4F758B] underline underline-offset-2 hover:text-[#1D252D]"
+            >
+              Cancel
+            </button>
+          </div>
+        )}
 
         {/* Items list — hidden during print */}
         <div ref={basketSectionRef} className="print:hidden">
@@ -794,7 +852,19 @@ export function CartDrawer() {
                   <li key={q.id} className="rounded border border-[#B7C9D3] bg-white px-3 py-2">
                     <div className="flex items-center gap-2">
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-semibold text-[#1D252D]">{q.number}</p>
+                        <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-[#1D252D]">
+                          {q.number}
+                          {q.revision !== undefined && (
+                            <span className="shrink-0 rounded bg-[#004986] px-1 text-[8px] font-bold uppercase tracking-wide text-white">
+                              v{q.revision}
+                            </span>
+                          )}
+                          {isSuperseded(q) && (
+                            <span className="shrink-0 rounded bg-[#B7C9D3] px-1 text-[8px] font-bold uppercase tracking-wide text-[#1D252D]">
+                              superseded
+                            </span>
+                          )}
+                        </p>
                         <p className="truncate text-[10px] text-[#4F758B]">
                           {q.customer || "—"}
                           {q.project ? ` · ${q.project}` : ""} ·{" "}
@@ -901,6 +971,17 @@ export function CartDrawer() {
                       >
                         {copiedQuoteId === q.id ? "Link copied ✓" : "Customer Link"}
                       </button>
+                      {!q.convertedOrderId && !isSuperseded(q) && q.status !== "won" && (
+                        <button
+                          type="button"
+                          onClick={() => startReviseQuote(q.id)}
+                          className="rounded border border-[#004986] px-2 py-0.5 text-[10px] font-semibold text-[#004986] transition-colors hover:bg-[#004986]/10"
+                          title="Load this quote into the basket — Save Quote creates the next version"
+                          aria-label={`Revise quote ${q.number}`}
+                        >
+                          Revise
+                        </button>
+                      )}
                       <button
                         type="button"
                         onClick={() => deleteQuote(q.id)}
@@ -910,6 +991,30 @@ export function CartDrawer() {
                         ✕
                       </button>
                     </div>
+
+                    {/* Audit trail */}
+                    {q.events && q.events.length > 0 && (
+                      <details className="group mt-1.5">
+                        <summary className="cursor-pointer list-none text-[10px] text-[#4F758B] hover:text-[#1D252D]">
+                          History ({q.events.length})
+                          <span className="ml-1 inline-block transition-transform group-open:rotate-180">▾</span>
+                        </summary>
+                        <ul className="mt-1 space-y-0.5 border-l-2 border-[#B7C9D3]/60 pl-2">
+                          {[...q.events].reverse().map((e, i) => (
+                            <li key={i} className="text-[10px] text-[#4F758B]">
+                              <span aria-hidden="true">{EVENT_ICON[e.kind]}</span>{" "}
+                              <span className="font-semibold text-[#1D252D]">{EVENT_LABEL[e.kind]}</span>
+                              {" — "}{e.detail}
+                              {e.actor ? <span> · {e.actor}</span> : null}
+                              <span className="text-[#B7C9D3]">
+                                {" · "}
+                                {new Date(e.at).toLocaleDateString(undefined, { month: "short", day: "numeric" })}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    )}
                   </li>
                 );
               })}
@@ -1098,12 +1203,18 @@ export function CartDrawer() {
                   number: quoteNumber(new Date()),
                   customer: customer || (activeCustomer?.name ?? ""),
                   project,
+                  note: quoteNote,
+                  termsIds,
                 });
                 setQuoteSaved(true);
                 setTimeout(() => setQuoteSaved(false), 2500);
               }}
             >
-              {quoteSaved ? "Quote saved ✓" : "Save Quote"}
+              {quoteSaved
+                ? "Quote saved ✓"
+                : revisingQuote
+                  ? `Save Quote (v${(revisingQuote.revision ?? 1) + 1})`
+                  : "Save Quote"}
             </Button>
 
             {/* Email quote (simulated) */}
@@ -1142,6 +1253,8 @@ export function CartDrawer() {
                       customer: customer || (activeCustomer?.name ?? ""),
                       project,
                       status: "sent",
+                      note: quoteNote,
+                      termsIds,
                     });
                     setEmailSent(true);
                   }}
@@ -1371,6 +1484,54 @@ export function CartDrawer() {
                   </tr>
                 </tfoot>
               </table>
+            </div>
+
+            {/* ── Note to customer ─────────────────────────── */}
+            <div className="mb-4 print:mb-6">
+              <label className="block text-xs font-semibold uppercase tracking-wide text-[#4F758B] mb-1">
+                Note
+              </label>
+              <textarea
+                value={quoteNote}
+                onChange={(e) => setQuoteNote(e.target.value)}
+                rows={2}
+                placeholder="Optional note to the customer (site access, scheduling, alternates offered…)"
+                className="w-full rounded border border-[#B7C9D3] px-2 py-1.5 text-sm text-[#1D252D] placeholder-[#B7C9D3] focus:border-[#4F758B] focus:outline-none print:hidden"
+              />
+              <p className="hidden text-sm text-[#1D252D] print:block">{quoteNote || "—"}</p>
+            </div>
+
+            {/* ── Terms & conditions blocks ─────────────────── */}
+            <div className="mb-4 print:mb-6">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B] mb-1">
+                Terms &amp; Conditions
+              </p>
+              {/* Screen: checkboxes */}
+              <div className="flex flex-wrap gap-x-4 gap-y-1 print:hidden">
+                {TERMS_BLOCKS.map((block) => (
+                  <label key={block.id} className="flex items-center gap-1.5 text-xs text-[#1D252D]">
+                    <input
+                      type="checkbox"
+                      checked={termsIds.includes(block.id)}
+                      onChange={(e) =>
+                        setTermsIds((prev) =>
+                          e.target.checked ? [...prev, block.id] : prev.filter((id) => id !== block.id),
+                        )
+                      }
+                      className="h-3.5 w-3.5 accent-[#00AA13]"
+                    />
+                    {block.label}
+                  </label>
+                ))}
+              </div>
+              {/* Both: selected texts (print shows only these) */}
+              {termsIds.length > 0 && (
+                <ul className="mt-1.5 list-disc space-y-0.5 pl-4">
+                  {resolveTerms(termsIds).map((text, i) => (
+                    <li key={i} className="text-[10px] text-[#4F758B]">{text}</li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             {/* ── Footer note ──────────────────────────────── */}

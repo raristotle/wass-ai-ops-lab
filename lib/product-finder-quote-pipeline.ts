@@ -45,31 +45,38 @@ export function isStale(quote: SavedQuote, now: number): boolean {
 }
 
 export function quotePipeline(quotes: SavedQuote[], now: number): QuotePipeline {
+  // Superseded OPEN quotes leave the pipeline — their revision represents the
+  // deal now. Decided (won/lost) superseded quotes stay: that history is real.
+  const active = quotes.filter(
+    (q) => q.supersededBy === undefined || q.status === "won" || q.status === "lost",
+  );
+
   const byStatus: PipelineStat[] = QUOTE_STATUSES.map((status) => ({
     status,
-    count: quotes.filter((q) => q.status === status).length,
-    value: pipelineValue(quotes, status),
+    count: active.filter((q) => q.status === status).length,
+    value: pipelineValue(active, status),
   }));
 
-  const stale = quotes
+  const stale = active
     .filter((q) => isStale(q, now))
     .sort((a, b) => a.createdAt - b.createdAt);
 
   const converted = quotes.filter((q) => q.convertedOrderId !== undefined);
   const wonCount = quotes.filter((q) => q.status === "won").length;
 
-  const awaitingApproval = quotes
+  const awaitingApproval = active
     .filter((q) => q.approvalStatus === "pending")
     .sort((a, b) => b.total - a.total);
 
   // Still-open quotes with a customer counter-offer — these need a response.
-  const countered = quotes
+  // (A superseded quote's counter was answered by the revision.)
+  const countered = active
     .filter((q) => q.counterOffer !== undefined && q.status !== "won" && q.status !== "lost")
     .sort((a, b) => (b.counterOffer?.at ?? 0) - (a.counterOffer?.at ?? 0));
 
   return {
     byStatus,
-    openValue: pipelineValue(quotes, "draft") + pipelineValue(quotes, "sent"),
+    openValue: pipelineValue(active, "draft") + pipelineValue(active, "sent"),
     wonValue: pipelineValue(quotes, "won"),
     lostValue: pipelineValue(quotes, "lost"),
     winRate: winRate(quotes),

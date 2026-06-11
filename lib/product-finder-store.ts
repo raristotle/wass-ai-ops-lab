@@ -36,8 +36,9 @@ import { emptyFilterState } from "@/lib/product-finder-url";
 import { NEAR_ZERO_RESULTS, suggestCorrection } from "@/lib/product-finder-suggest-correction";
 import { getPricingProvider } from "@/lib/integration/index";
 import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-finder-quotes";
-import { needsApproval } from "@/lib/product-finder-quotes";
+import { needsApproval, QUOTE_STATUS_LABEL, APPROVAL_LABEL, isSuperseded } from "@/lib/product-finder-quotes";
 import { quoteNumber } from "@/lib/product-finder-quote";
+import { quoteEvent, appendEvent } from "@/lib/product-finder-quote-events";
 import { basketMargin } from "@/lib/product-finder-margin";
 import { clampOverride } from "@/lib/product-finder-override";
 import type { WatchEntry } from "@/lib/product-finder-notifications";
@@ -236,7 +237,7 @@ export interface ProductFinderState {
 
   // Saved quotes (with status workflow)
   quotes: SavedQuote[];
-  saveQuote: (input: { number: string; customer: string; project: string; status?: QuoteStatus; now?: number }) => void;
+  saveQuote: (input: { number: string; customer: string; project: string; status?: QuoteStatus; now?: number; note?: string; termsIds?: string[] }) => void;
   setQuoteStatus: (id: string, status: QuoteStatus) => void;
   setQuoteApproval: (id: string, status: ApprovalStatus) => void;
   loadQuoteToCart: (id: string) => void;
@@ -244,6 +245,15 @@ export interface ProductFinderState {
   convertQuoteToOrder: (id: string, now?: number) => void;
   /** Customer "Request changes" — attaches a counter-offer note (status stays in play). */
   counterQuote: (id: string, note: string, now?: number) => void;
+  /** Audit-trail entry for a copied customer link. */
+  logQuoteLink: (id: string, now?: number) => void;
+
+  // Quote revisions
+  /** Quote currently being revised in the basket (Save Quote creates v(n+1)). */
+  revisingQuoteId: string | null;
+  /** Load a quote's lines for revision; refused for converted/won/superseded quotes. */
+  startReviseQuote: (id: string) => void;
+  cancelRevise: () => void;
 
   // Job wizard (Ask Meridian)
   jobWizardOpen: boolean;
@@ -709,7 +719,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     }));
   },
 
-  clearCart() { set({ cart: {}, priceOverrides: {} }); },
+  clearCart() { set({ cart: {}, priceOverrides: {}, revisingQuoteId: null }); },
 
   // ── Per-line price overrides (margin-guarded) ─────────────
   priceOverrides: {},
@@ -797,7 +807,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     for (const line of basket.lines) {
       newCart[line.product.id] = { product: line.product, qty: line.qty };
     }
-    set({ cart: newCart, priceOverrides: {} });
+    set({ cart: newCart, priceOverrides: {}, revisingQuoteId: null });
   },
 
   deleteBasket(id) {
@@ -860,7 +870,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_orders", JSON.stringify(orders));
       }
-      return { orders, cart: {}, priceOverrides: {} };
+      return { orders, cart: {}, priceOverrides: {}, revisingQuoteId: null };
     });
   },
 
@@ -875,7 +885,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
         qty: line.qty,
       };
     }
-    set({ cart: newCart, priceOverrides: {} });
+    set({ cart: newCart, priceOverrides: {}, revisingQuoteId: null });
   },
 
   deleteOrder(id) {
@@ -946,12 +956,13 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Saved quotes (status workflow) ────────────────────────
   quotes: [],
 
-  saveQuote({ number, customer, project, status, now }) {
+  saveQuote({ number, customer, project, status, now, note, termsIds }) {
     const cartValues = Object.values(get().cart);
     if (cartValues.length === 0) return;
 
     const state = get();
     const activeCustomer = selectActiveCustomer(state);
+    const actor = state.user?.name;
     const marginLines = cartValues.map((entry) => ({
       product: entry.product,
       qty: entry.qty,
@@ -962,6 +973,21 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     const total = marginLines.reduce((sum, l) => sum + l.effectiveUnitPrice * l.qty, 0);
     const margin = basketMargin(marginLines);
     const ts = now ?? Date.now();
+
+    // Revision link: Save Quote while revising creates v(n+1) and supersedes the original.
+    const revising = state.revisingQuoteId
+      ? state.quotes.find((q) => q.id === state.revisingQuoteId) ?? null
+      : null;
+
+    const pending = needsApproval(margin.marginPct);
+    let events = appendEvent(undefined, quoteEvent("created", `Quote ${number} saved`, ts, actor));
+    if (pending) {
+      events = appendEvent(events, quoteEvent("approval", "Below-margin — approval pending", ts));
+    }
+    if (revising) {
+      events = appendEvent(events, quoteEvent("revised", `Revision of ${revising.number}`, ts, actor));
+    }
+
     const newQuote: SavedQuote = {
       id: `quote-${ts}`,
       number,
@@ -973,22 +999,50 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       createdAt: ts,
       customerId: activeCustomer?.id ?? null,
       marginPct: margin.marginPct,
+      events,
+      ...(note?.trim() ? { note: note.trim() } : {}),
+      ...(termsIds && termsIds.length > 0 ? { termsIds: [...termsIds] } : {}),
       // Below-margin quotes start pending manager sign-off.
-      ...(needsApproval(margin.marginPct) ? { approvalStatus: "pending" as const } : {}),
+      ...(pending ? { approvalStatus: "pending" as const } : {}),
+      ...(revising
+        ? { revision: (revising.revision ?? 1) + 1, revisionOf: revising.id }
+        : {}),
     };
 
     set((s) => {
-      const quotes = [newQuote, ...s.quotes];
+      const prior = revising
+        ? s.quotes.map((q) =>
+            q.id === revising.id
+              ? {
+                  ...q,
+                  supersededBy: newQuote.id,
+                  events: appendEvent(q.events, quoteEvent("revised", `Superseded by ${number} (v${newQuote.revision})`, ts, actor)),
+                }
+              : q,
+          )
+        : s.quotes;
+      const quotes = [newQuote, ...prior];
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_quotes", JSON.stringify(quotes));
       }
-      return { quotes };
+      return { quotes, revisingQuoteId: null };
     });
   },
 
   setQuoteStatus(id, status) {
     set((s) => {
-      const quotes = s.quotes.map((q) => (q.id === id ? { ...q, status } : q));
+      const actor = s.user?.name;
+      const quotes = s.quotes.map((q) => {
+        if (q.id !== id || q.status === status) return q;
+        return {
+          ...q,
+          status,
+          events: appendEvent(
+            q.events,
+            quoteEvent("status", `${QUOTE_STATUS_LABEL[q.status]} → ${QUOTE_STATUS_LABEL[status]}`, Date.now(), actor),
+          ),
+        };
+      });
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_quotes", JSON.stringify(quotes));
       }
@@ -998,7 +1052,15 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   setQuoteApproval(id, status) {
     set((s) => {
-      const quotes = s.quotes.map((q) => (q.id === id ? { ...q, approvalStatus: status } : q));
+      const actor = s.user?.name;
+      const quotes = s.quotes.map((q) => {
+        if (q.id !== id) return q;
+        return {
+          ...q,
+          approvalStatus: status,
+          events: appendEvent(q.events, quoteEvent("approval", APPROVAL_LABEL[status], Date.now(), actor)),
+        };
+      });
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_quotes", JSON.stringify(quotes));
       }
@@ -1013,7 +1075,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     for (const line of quote.lines) {
       newCart[line.product.id] = { product: line.product, qty: line.qty };
     }
-    set({ cart: newCart, priceOverrides: {} });
+    set({ cart: newCart, priceOverrides: {}, revisingQuoteId: null });
   },
 
   deleteQuote(id) {
@@ -1047,7 +1109,15 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     set((s) => {
       const orders = [newOrder, ...s.orders];
       const quotes = s.quotes.map((q) =>
-        q.id === id ? { ...q, status: "won" as QuoteStatus, convertedOrderId: orderId, convertedAt: ts } : q,
+        q.id === id
+          ? {
+              ...q,
+              status: "won" as QuoteStatus,
+              convertedOrderId: orderId,
+              convertedAt: ts,
+              events: appendEvent(q.events, quoteEvent("converted", `Converted to order (${orderId})`, ts, s.user?.name)),
+            }
+          : q,
       );
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_orders", JSON.stringify(orders));
@@ -1060,10 +1130,15 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   counterQuote(id, note, now) {
     const trimmed = note.trim();
     if (!trimmed) return;
+    const ts = now ?? Date.now();
     set((s) => {
       const quotes = s.quotes.map((q) =>
         q.id === id && !q.convertedOrderId && q.status !== "won" && q.status !== "lost"
-          ? { ...q, counterOffer: { note: trimmed, at: now ?? Date.now() } }
+          ? {
+              ...q,
+              counterOffer: { note: trimmed, at: ts },
+              events: appendEvent(q.events, quoteEvent("counter", `“${trimmed.slice(0, 60)}${trimmed.length > 60 ? "…" : ""}”`, ts, "Customer")),
+            }
           : q,
       );
       if (typeof localStorage !== "undefined") {
@@ -1071,6 +1146,38 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       }
       return { quotes };
     });
+  },
+
+  logQuoteLink(id, now) {
+    const ts = now ?? Date.now();
+    set((s) => {
+      const quotes = s.quotes.map((q) =>
+        q.id === id
+          ? { ...q, events: appendEvent(q.events, quoteEvent("link-copied", "Customer link copied", ts, s.user?.name)) }
+          : q,
+      );
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_quotes", JSON.stringify(quotes));
+      }
+      return { quotes };
+    });
+  },
+
+  // ── Quote revisions ───────────────────────────────────────
+  revisingQuoteId: null,
+
+  startReviseQuote(id) {
+    const quote = get().quotes.find((q) => q.id === id);
+    if (!quote || quote.convertedOrderId || quote.status === "won" || isSuperseded(quote)) return;
+    const newCart: Record<string, { product: CatalogProduct; qty: number }> = {};
+    for (const line of quote.lines) {
+      newCart[line.product.id] = { product: line.product, qty: line.qty };
+    }
+    set({ cart: newCart, priceOverrides: {}, revisingQuoteId: id });
+  },
+
+  cancelRevise() {
+    set({ revisingQuoteId: null });
   },
 
   // ── Job wizard (Ask Meridian) ─────────────────────────────

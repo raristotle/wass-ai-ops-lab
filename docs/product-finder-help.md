@@ -175,6 +175,13 @@ every browser). When copper trends up, the strip nudges you to **quote wire &
 cable now** and lock the 30-day validity window; quotes and the customer
 acceptance page cite the index date their pricing reflects.
 
+### Seasonal demand signals
+Below the metals index, a **weekly merchandising banner** surfaces what's about
+to sell — storm prep (surge, temporary power, PPE), heat advisory, construction
+season kickoff, and quarter-end datacom refresh rotate week by week, each with
+**one-tap searches** for the trending categories. Simulated and deterministic;
+a live weather or market feed is a drop-in upgrade.
+
 ### Product details
 Each product card shows the name, brand, SKU, and description, plus:
 - a collapsible **Specifications** list — key specs are marked **✓** when they match
@@ -419,8 +426,21 @@ applied), or clear it.
   - **Counter-offers:** when the customer **requests changes**, their note comes
     back as an amber **COUNTERED** badge on the quote with the ask inline ("need
     it under $60/unit"), plus a ↩️ bell notification and an Insights pipeline
-    alert. The quote stays open — **Load** it, adjust pricing or products, and
-    send a fresh Customer Link.
+    alert. The quote stays open — answer it with **Revise**.
+  - **Revisions (v1 → v2):** **Revise** loads an open quote — lines, customer,
+    project, note, and terms — into the basket with a "Revising Q-X" banner.
+    Adjust anything, then **Save Quote** creates **v2** linked to the original.
+    The old version is marked **superseded**: it leaves the pipeline and its
+    alerts, and its customer link politely says a newer version exists. Won or
+    already-ordered quotes can't be revised. Revisions chain (v3, v4…).
+  - **History (audit trail):** expand **History** on any quote row for its full
+    receipt — created/status/approval events with names, customer link copies,
+    counter-offers, the conversion to an order, and revision links on both
+    versions. Append-only, capped at 50 entries.
+  - **Note & terms:** the quote sheet has a free-text **Note** field and
+    selectable **Terms & Conditions** blocks (freight, returns, payment,
+    commodity escalation, lead times). Both print on the PDF and travel inside
+    the Customer Link.
 - **Email Quote** — opens an inline form (recipient pre-filled). **Send Quote**
   records the quote with status **Sent** and confirms. *(Demo: no email is actually
   sent — the quote is tracked as Sent for follow-up.)*

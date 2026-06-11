@@ -35,6 +35,19 @@ describe("encode/decode round-trip", () => {
     expect(decodeQuoteShare(encodeQuoteShare(p))).toEqual(p);
   });
 
+  it("round-trips note and terms; drops junk terms entries", () => {
+    const p = { ...samplePayload(), note: "Crane access required", terms: ["Net 30 days.", "Freight allowed over $2,500."] };
+    const decoded = decodeQuoteShare(encodeQuoteShare(p));
+    expect(decoded?.note).toBe("Crane access required");
+    expect(decoded?.terms).toHaveLength(2);
+
+    const junk = { ...samplePayload(), terms: [5, "", "Valid sentence."] };
+    const dec2 = decodeQuoteShare(b64uEncode(JSON.stringify(junk)));
+    expect(dec2?.terms).toEqual(["Valid sentence."]);
+
+    expect(decodeQuoteShare(encodeQuoteShare(samplePayload()))?.note).toBeUndefined();
+  });
+
   it("round-trips approvalPending and omits it when false-y", () => {
     const p = { ...samplePayload(), approvalPending: true };
     expect(decodeQuoteShare(encodeQuoteShare(p))?.approvalPending).toBe(true);

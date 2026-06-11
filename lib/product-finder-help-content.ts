@@ -475,7 +475,51 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• The customer writes what should change (\"need it under $60/unit\"); the quote stays open.",
       "• The rep sees an amber COUNTERED badge on the quote, the customer's note inline, and a ↩️ bell notification.",
       "• Managers see counter-offers awaiting a response in the Insights quote pipeline.",
-      "Load the quote into the basket, adjust pricing or products, and send a fresh Customer Link.",
+      "Click Revise on the quote, adjust pricing or products, and send a fresh Customer Link — the counter is answered by the new version.",
+    ],
+  },
+  {
+    id: "quote-revisions",
+    title: "Quote revisions (v1 → v2)",
+    body: [
+      "Customer countered? Numbers changed? Don't edit history — revise it.",
+      "• Click Revise on any open quote: its lines, customer, project, note, and terms load into the basket with a \"Revising Q-X\" banner.",
+      "• Adjust anything — quantities, products, ✎ price overrides — then Save Quote creates v2, linked to the original.",
+      "• The old version is marked superseded: it leaves the pipeline, its alerts go quiet, and its customer link politely says a newer version exists.",
+      "• Won and already-ordered quotes can't be revised — ask for a fresh quote instead.",
+      "Revisions chain: revising v2 creates v3, and the History trail records every step.",
+    ],
+  },
+  {
+    id: "audit-trail",
+    title: "Quote history (audit trail)",
+    body: [
+      "Every saved quote keeps a receipt of its life — expand History on the quote row:",
+      "• Created (and by whom), status changes (Draft → Sent → Won/Lost), approvals and rejections with the manager's name.",
+      "• Customer-side events too: link copies, counter-offers, and the acceptance that converted it to an order.",
+      "• Revisions log on both versions — v1 shows \"superseded by v2\", v2 shows what it revised.",
+      "Append-only and capped at 50 entries per quote — a receipt, not a database.",
+    ],
+  },
+  {
+    id: "quote-terms",
+    title: "Quote notes & terms blocks",
+    body: [
+      "The quote sheet now carries the boring-but-critical fine print:",
+      "• A free-text Note field (site access, scheduling, alternates offered) — persists between quotes like customer/project.",
+      "• Selectable Terms & Conditions blocks: freight, returns, payment, commodity escalation, lead times.",
+      "• Both print on the quote PDF and travel inside the Customer Link, so the customer sees exactly what the rep agreed to.",
+    ],
+  },
+  {
+    id: "seasonal",
+    title: "Seasonal demand signals",
+    body: [
+      "Under the metals index, a weekly merchandising banner surfaces what's about to sell:",
+      "• Storm watch — surge protection, temporary power, PPE.",
+      "• Heat advisory, construction-season kickoff, and quarter-end datacom refresh rotate week by week.",
+      "• Each signal carries one-tap searches for the trending categories.",
+      "Simulated and deterministic — a live weather or market feed is a drop-in upgrade.",
     ],
   },
   {

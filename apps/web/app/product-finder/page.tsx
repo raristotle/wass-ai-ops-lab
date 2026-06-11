@@ -21,6 +21,7 @@ import { LandingState, NoResultsState } from "@/features/product-finder/EmptySta
 import { SavedAndRecentPanel } from "@/features/product-finder/SavedAndRecentPanel";
 import { ForYouRail } from "@/features/product-finder/ForYouRail";
 import { CommodityStrip } from "@/features/product-finder/CommodityStrip";
+import { SeasonalRail } from "@/features/product-finder/SeasonalRail";
 
 // ─── Active Product Banner ────────────────────────────────────────────────────
 
@@ -351,6 +352,7 @@ export default function ProductFinderPage() {
                 <>
                   {/* Default browse view (no query/filters): commodity strip + personalized rail + saved & recent above the grid */}
                   {!hasQueryOrFilters && <CommodityStrip />}
+                  {!hasQueryOrFilters && <SeasonalRail />}
                   {!hasQueryOrFilters && <ForYouRail />}
                   {!hasQueryOrFilters && <SavedAndRecentPanel />}
                   <ProductGrid products={results} />

@@ -1,4 +1,5 @@
 import type { CatalogProduct } from "@/features/product-finder/types";
+import type { QuoteEvent } from "@/lib/product-finder-quote-events";
 
 /**
  * Saved-quote model + status workflow. Pure data/helpers; the store owns
@@ -67,6 +68,23 @@ export interface SavedQuote {
   convertedAt?: number;
   /** Customer pushed back via the acceptance page ("Request changes"). */
   counterOffer?: { note: string; at: number };
+  /** Free-text note printed on the quote and shown on the customer page. */
+  note?: string;
+  /** Selected terms-block ids (lib/product-finder-terms). */
+  termsIds?: string[];
+  /** Audit trail, newest-last (lib/product-finder-quote-events). */
+  events?: QuoteEvent[];
+  /** Revision number; absent = v1. */
+  revision?: number;
+  /** Id of the quote this one revises. */
+  revisionOf?: string;
+  /** Id of the revision that replaced this quote — superseded quotes leave the pipeline. */
+  supersededBy?: string;
+}
+
+/** True when a newer revision has replaced this quote. */
+export function isSuperseded(q: Pick<SavedQuote, "supersededBy">): boolean {
+  return q.supersededBy !== undefined;
 }
 
 export function isQuoteStatus(value: unknown): value is QuoteStatus {

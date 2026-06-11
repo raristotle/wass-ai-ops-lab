@@ -1,8 +1,9 @@
-# Demo Script — Tier 3 additions (PENDING MERGE)
+# Demo Script — Tier 3 + Tier 4 additions (PENDING MERGE)
 
 > **Why this file exists:** `product-finder-demo-script.md` was write-locked by
-> another process while the Tier 3 features shipped. Merge these beats into the
-> main script at the indicated positions, then delete this file.
+> another process (open in Word) while Tiers 3 and 4 shipped. Merge these beats
+> into the main script at the indicated positions, then delete this file.
+> Tier 3 beats first; Tier 4 beats at the bottom.
 
 ## Act 1 — insert as step 2b (before the For-you beat 2a)
 
@@ -82,3 +83,49 @@ and every screen two keystrokes away, desk or job site."*
 - **Job Wizard step says "No match"** → that subcategory search found nothing;
   swap an alternate on another step or search manually — every default
   template query is verified against the catalog.
+
+---
+
+# Tier 4 additions
+
+## Act 1 — insert as step 2c (after the metals strip beat 2b)
+
+2c. **Point at the seasonal banner** under the metals strip.
+    *"And the app knows the calendar: storm prep, heat advisories, construction
+    season, quarter-end datacom budgets — a weekly demand signal with one-tap
+    searches for what's about to sell. Simulated rotation; a live weather feed
+    is a drop-in."* **Click one pick chip**, then clear the search.
+
+## Act 4 — append to step 13 (after Save Quote / approval governance)
+
+    **Before saving, type a Note** ("Crane access required — call ahead") **and
+    tick two Terms blocks** (Freight, Price escalation).
+    *"The boring-but-critical fine print rides along: a note to the customer and
+    selectable terms — freight, returns, payment, commodity escalation. They
+    print on the PDF and show up on the customer's acceptance page, so what the
+    rep agreed to is what the customer sees."*
+
+## Act 4 — insert as step 14c (after the counter-offer beat 14b)
+
+14c. **Back in Saved Quotes, click Revise on the countered quote.**
+    *"The counter gets a real answer. Revise loads everything — lines, customer,
+    note, terms — back into the basket with a banner. Drop the price or swap a
+    product…"* **adjust something, click Save Quote (v2).**
+    *"…and Save creates version 2, linked to the original. The old quote is
+    superseded — it leaves the pipeline, its alerts go quiet, and if the
+    customer opens the old link it says a newer version exists. Now expand
+    History on either version:"* **click History.**
+    *"Every step — created, sent, countered, revised, by whom, when. When IT
+    asks about auditability, this is the answer."*
+
+## Wrap-up — addendum
+
+Add to the wrap-up sentence: *"…with every quote carrying its own audit trail,
+revisions instead of overwrites, and the fine print traveling with the deal."*
+
+## If something goes sideways — add
+
+- **Revise button missing** → won, ordered, and already-superseded quotes can't
+  be revised; pick an open (draft/sent) version.
+- **Seasonal banner shows a different event than expected** → it rotates by
+  week deterministically; whatever shows, the talking point is the same.

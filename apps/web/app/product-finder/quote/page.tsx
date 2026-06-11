@@ -79,9 +79,11 @@ export default function QuoteAcceptancePage() {
   const approvalPending =
     localQuote?.approvalStatus === "pending" || (localQuote === null && payload.approvalPending === true);
   const alreadyOrdered = localQuote?.convertedOrderId !== undefined;
+  // A newer revision replaced this quote — this link is stale.
+  const superseded = localQuote?.supersededBy !== undefined;
   // A quote already marked Won/Lost on the rep side is decided — no actions.
   const alreadyDecided =
-    alreadyOrdered || localQuote?.status === "won" || localQuote?.status === "lost";
+    alreadyOrdered || superseded || localQuote?.status === "won" || localQuote?.status === "lost";
   const canAccept = !expired && !approvalPending && decision === null && !alreadyDecided;
 
   const handleAccept = () => {
@@ -128,13 +130,13 @@ export default function QuoteAcceptancePage() {
             </p>
           </div>
         )}
-        {decision === "declined" && (
+        {decision === "declined" && !superseded && (
           <div className="mb-4 rounded-xl border border-[#DB6B30]/40 bg-[#DB6B30]/10 p-4 text-sm text-[#1D252D]">
             <p className="font-bold">Quote declined</p>
             <p className="mt-1">Thanks for letting us know — your rep can revise and resend at any time.</p>
           </div>
         )}
-        {decision === "countered" && (
+        {decision === "countered" && !superseded && (
           <div className="mb-4 rounded-xl border border-[#EAAA00]/50 bg-[#EAAA00]/10 p-4 text-sm text-[#1D252D]">
             <p className="font-bold">↩️ Change request sent</p>
             <p className="mt-1">
@@ -148,7 +150,17 @@ export default function QuoteAcceptancePage() {
             <p className="font-bold">✓ This quote has already been converted to an order.</p>
           </div>
         )}
-        {decision === null && !alreadyOrdered && alreadyDecided && (
+        {decision !== "accepted" && superseded && (
+          <div className="mb-4 rounded-xl border border-[#004986]/40 bg-[#004986]/10 p-4 text-sm text-[#1D252D]">
+            <p className="font-bold">🆕 This quote has been revised</p>
+            <p className="mt-1">
+              A newer version replaces this one
+              {decision === "countered" ? " — your change request was answered" : ""} — ask{" "}
+              {payload.rep ?? "your Meridian rep"} for the latest link.
+            </p>
+          </div>
+        )}
+        {decision === null && !alreadyOrdered && !superseded && alreadyDecided && (
           <div className="mb-4 rounded-xl border border-[#B7C9D3] bg-[#B7C9D3]/15 p-4 text-sm text-[#1D252D]">
             <p className="font-bold">This quote has already been decided</p>
             <p className="mt-1">Ask your Meridian rep for a fresh quote if anything has changed.</p>
@@ -252,6 +264,26 @@ export default function QuoteAcceptancePage() {
               </tfoot>
             </table>
           </div>
+
+          {/* Rep note + terms & conditions */}
+          {payload.note && (
+            <div className="mt-4 rounded-lg border border-[#B7C9D3]/60 bg-[#F8FAFB] px-3 py-2">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B]">Note</p>
+              <p className="mt-0.5 text-sm text-[#1D252D]">{payload.note}</p>
+            </div>
+          )}
+          {payload.terms && payload.terms.length > 0 && (
+            <div className="mt-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
+                Terms &amp; Conditions
+              </p>
+              <ul className="mt-1 list-disc space-y-0.5 pl-4">
+                {payload.terms.map((t, i) => (
+                  <li key={i} className="text-[11px] text-[#4F758B]">{t}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <p className="mt-4 text-[10px] text-[#4F758B]">
             All prices in USD. Pricing reflects the commodity index as of{" "}

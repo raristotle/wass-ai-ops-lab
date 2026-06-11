@@ -38,6 +38,10 @@ export interface QuoteSharePayload {
   branch?: string;
   /** True when the quote is still awaiting manager margin sign-off. */
   approvalPending?: boolean;
+  /** Free-text note from the rep, shown under the line table. */
+  note?: string;
+  /** Resolved terms & conditions sentences (texts, not ids — page stays standalone). */
+  terms?: string[];
 }
 
 export function encodeQuoteShare(payload: QuoteSharePayload): string {
@@ -97,6 +101,11 @@ export function decodeQuoteShare(str: string): QuoteSharePayload | null {
     if (typeof o.rep === "string") payload.rep = o.rep;
     if (typeof o.branch === "string") payload.branch = o.branch;
     if (o.approvalPending === true) payload.approvalPending = true;
+    if (typeof o.note === "string" && o.note.trim()) payload.note = o.note;
+    if (Array.isArray(o.terms)) {
+      const terms = (o.terms as unknown[]).filter((t): t is string => typeof t === "string" && t.trim().length > 0);
+      if (terms.length > 0) payload.terms = terms;
+    }
     return payload;
   } catch {
     return null;
