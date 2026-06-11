@@ -1,4 +1,5 @@
 import { ALL_BRANDS } from "@/data/mock/catalog-products";
+import { applySynonyms } from "@/lib/product-finder-synonyms";
 import type { ParsedFilter, ParsedFilterKind, ParsedQuery, ProductCategory } from "@/features/product-finder/types";
 
 function escapeRe(s: string): string {
@@ -9,10 +10,21 @@ function escapeRe(s: string): string {
 const CATEGORIES: ProductCategory[] = ["electrical", "datacom", "oem-electrical", "av", "security", "safety"];
 
 export function parseQuery(raw: string): ParsedQuery {
-  let working = ` ${raw.toLowerCase()} `;
+  // Trade-slang expansion runs FIRST so every later pass sees catalog terms.
+  const synonyms = applySynonyms(raw);
+  let working = ` ${synonyms.text.toLowerCase()} `;
   const filters: ParsedFilter[] = [];
   const push = (kind: ParsedFilterKind, label: string, value: string | number | boolean) =>
     filters.push({ id: `${kind}:${value}`, kind, label, value });
+
+  // Subcategory chips from applied synonyms (e.g. "romex" → Wire & Cable).
+  const pushedSubcategories = new Set<string>();
+  for (const applied of synonyms.applied) {
+    if (applied.subcategory !== undefined && !pushedSubcategories.has(applied.subcategory)) {
+      pushedSubcategories.add(applied.subcategory);
+      push("subcategory", `In ${applied.subcategory}`, applied.subcategory);
+    }
+  }
 
   // Price range first. Require at least one '$' so product specs such as
   // "12-2" (NM cable) or "10-32" (screw thread) are NOT read as price ranges.

@@ -27,6 +27,19 @@ describe("HELP_TOPICS", () => {
       expect(ids.has(required), required).toBe(true);
     }
   });
+
+  it("covers the Tier 1 polish features", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    for (const required of ["tour", "voice-search", "command-palette", "deep-links", "did-you-mean", "role-switcher"]) {
+      expect(ids.has(required), required).toBe(true);
+    }
+  });
+
+  it("states the 200,000-product catalog size (not the old 60,000)", () => {
+    const text = JSON.stringify(HELP_TOPICS);
+    expect(text).toContain("200,000");
+    expect(text).not.toContain("60,000");
+  });
 });
 
 describe("searchHelpTopics", () => {

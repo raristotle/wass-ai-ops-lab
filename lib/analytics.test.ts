@@ -14,6 +14,7 @@ import {
   ordersOverTime,
   customerMix,
   contractSavings,
+  isInLocalMonth,
 } from "@/lib/analytics";
 import type { Order } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
@@ -237,6 +238,71 @@ describe("ordersOverTime", () => {
     const b = ordersOverTime(ALL_ORDERS, now, 6);
     expect(a).toEqual(b);
   });
+
+  it("buckets carry year and month (0-indexed, local)", () => {
+    const buckets = ordersOverTime(ALL_ORDERS, now, 6);
+    const jan = buckets.find((b) => b.label === "Jan 26")!;
+    expect(jan.year).toBe(2026);
+    expect(jan.month).toBe(0);
+    const mar = buckets.find((b) => b.label === "Mar 26")!;
+    expect(mar.year).toBe(2026);
+    expect(mar.month).toBe(2);
+  });
+
+  it("year/month fields are correct across a year boundary", () => {
+    // now = local Feb 1 2026 → 6 buckets: Sep 25 … Feb 26
+    const boundaryNow = new Date(2026, 1, 1).getTime();
+    const buckets = ordersOverTime([], boundaryNow, 6);
+    expect(buckets.map((b) => [b.year, b.month])).toEqual([
+      [2025, 8],
+      [2025, 9],
+      [2025, 10],
+      [2025, 11],
+      [2026, 0],
+      [2026, 1],
+    ]);
+  });
+});
+
+// ─── isInLocalMonth ──────────────────────────────────────────────────────────
+
+describe("isInLocalMonth", () => {
+  it("last millisecond of a local month is inside; the next ms is not", () => {
+    // Local-time month edge: Jan 31 2026 23:59:59.999 vs Feb 1 2026 00:00:00.000
+    const lastMs = new Date(2026, 1, 1).getTime() - 1;
+    const firstMsNext = new Date(2026, 1, 1).getTime();
+    expect(isInLocalMonth(lastMs, 2026, 0)).toBe(true);
+    expect(isInLocalMonth(lastMs, 2026, 1)).toBe(false);
+    expect(isInLocalMonth(firstMsNext, 2026, 1)).toBe(true);
+    expect(isInLocalMonth(firstMsNext, 2026, 0)).toBe(false);
+  });
+
+  it("agrees with ordersOverTime bucket assignment at boundary timestamps", () => {
+    const boundaryNow = new Date(2026, 3, 15).getTime();
+    const edgeTimestamps = [
+      new Date(2026, 0, 1).getTime(), // first ms of Jan (local)
+      new Date(2026, 1, 1).getTime() - 1, // last ms of Jan (local)
+      new Date(2026, 1, 1).getTime(), // first ms of Feb (local)
+      new Date(2026, 2, 31, 23, 59, 59, 999).getTime(), // last ms of Mar (local)
+    ];
+    const orders: Order[] = edgeTimestamps.map((t, i) => ({
+      id: `edge-${i}`,
+      placedAt: t,
+      lines: [{ product: prodA, qty: 1 }],
+      total: 1,
+      customerId: null,
+      customerName: null,
+    }));
+    const buckets = ordersOverTime(orders, boundaryNow, 6);
+    for (const bucket of buckets) {
+      const expectedCount = edgeTimestamps.filter((t) =>
+        isInLocalMonth(t, bucket.year, bucket.month),
+      ).length;
+      expect(bucket.count, bucket.label).toBe(expectedCount);
+    }
+    // All four edge orders land in exactly one bucket each
+    expect(buckets.reduce((s, b) => s + b.count, 0)).toBe(edgeTimestamps.length);
+  });
 });
 
 // ─── customerMix ─────────────────────────────────────────────────────────────
@@ -265,6 +331,21 @@ describe("customerMix", () => {
     const mix = customerMix([walkIn]);
     expect(mix).toHaveLength(1);
     expect(mix[0].customerName).toBe("Walk-in");
+  });
+
+  it("entries carry the expected customerId (null for walk-in)", () => {
+    const walkIn: Order = {
+      id: "ord-walk-2",
+      placedAt: Date.now(),
+      lines: [{ product: prodA, qty: 1 }],
+      total: 9.0,
+      customerId: null,
+      customerName: null,
+    };
+    const mix = customerMix([...ALL_ORDERS, walkIn]);
+    expect(mix.find((m) => m.customerName === "Acme Corp")!.customerId).toBe("CUST-001");
+    expect(mix.find((m) => m.customerName === "Beta Inc")!.customerId).toBe("CUST-002");
+    expect(mix.find((m) => m.customerName === "Walk-in")!.customerId).toBeNull();
   });
 
   it("returns empty for empty orders", () => {

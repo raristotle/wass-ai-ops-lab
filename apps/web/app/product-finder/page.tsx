@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { decodeCart } from "@/lib/product-finder-share";
 import { apiGetProduct } from "@/lib/product-finder-api";
+import {
+  hasFilterParams,
+  decodeFiltersFromQuery,
+  buildShareQuery,
+} from "@/lib/product-finder-url";
 import { AuthGuard } from "@/features/product-finder/AuthGuard";
 import { ProductFinderShell } from "@/features/product-finder/ProductFinderShell";
 import { SearchBar } from "@/features/product-finder/SearchBar";
@@ -166,9 +171,13 @@ export default function ProductFinderPage() {
   const runNlSearch = useProductFinder((s) => s.runNlSearch);
   const filters = useProductFinder((s) => s.filters);
   const runSearch = useProductFinder((s) => s.runSearch);
+  const setAllFilters = useProductFinder((s) => s.setAllFilters);
   const loading = useProductFinder((s) => s.loading);
   const error = useProductFinder((s) => s.error);
+  const total = useProductFinder((s) => s.total);
   const addToCart = useProductFinder((s) => s.addToCart);
+  const correction = useProductFinder((s) => s.correction);
+  const dismissCorrection = useProductFinder((s) => s.dismissCorrection);
 
   // ── Load cart from ?cart= URL param (runs once on mount) ─────────────────
   useEffect(() => {
@@ -209,17 +218,40 @@ export default function ProductFinderPage() {
         if (project) localStorage.setItem("pf_quote_project", project);
       }
 
-      // Strip the cart param from the URL to prevent re-adding on refresh
-      sp.delete("cart");
-      const next = sp.toString();
-      history.replaceState(null, "", next ? `?${next}` : window.location.pathname);
+      // Strip the cart param from the URL to prevent re-adding on refresh.
+      // Rebuild from the CURRENT location — not the mount-time `sp` snapshot —
+      // so we don't clobber filter params the filters→URL subscription may
+      // have written while the cart was loading.
+      const cur = new URLSearchParams(window.location.search);
+      cur.delete("cart");
+      const qs = cur.toString();
+      history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
     };
 
     loadAndPopulate();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // intentionally empty — run once on mount only
 
-  useEffect(() => { runSearch(); }, [runSearch]);
+  // ── URL hydration (once) + filters → URL subscription ─────────────────────
+  // First pass: decode any filter params from the address bar into the store,
+  // then run the initial search. After that, every filters change rewrites the
+  // query string via history.replaceState so the current view is shareable.
+  const didInit = useRef(false);
+  useEffect(() => {
+    if (!didInit.current) {
+      didInit.current = true;
+      const search = window.location.search;
+      if (hasFilterParams(search)) setAllFilters(decodeFiltersFromQuery(search));
+      runSearch();
+    }
+    const unsub = useProductFinder.subscribe((state, prev) => {
+      if (state.filters === prev.filters) return;
+      const qs = buildShareQuery(state.filters, state.pageSize, window.location.search);
+      history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+    });
+    return unsub;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const hasQueryOrFilters =
     filters.query.length > 0 ||
@@ -260,12 +292,57 @@ export default function ProductFinderPage() {
             </div>
           ) : (
             <div className="space-y-4">
+              {/* Auto-applied "showing results for…" correction notice */}
+              {correction?.autoApplied && (
+                <div className="flex items-center gap-2 rounded-lg bg-[#B7C9D3]/20 px-4 py-2 text-sm text-[#1D252D]">
+                  <span>
+                    Showing results for{" "}
+                    <span className="font-semibold">&ldquo;{correction.corrected}&rdquo;</span>
+                    {" "}— search instead for{" "}
+                    <button
+                      type="button"
+                      onClick={() => runNlSearch(correction.original, { noCorrect: true })}
+                      className="font-semibold underline underline-offset-2 hover:text-[#00AA13]"
+                    >
+                      &ldquo;{correction.original}&rdquo;
+                    </button>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={dismissCorrection}
+                    aria-label="Dismiss correction notice"
+                    className="ml-auto shrink-0 text-[#4F758B] hover:text-[#1D252D]"
+                  >
+                    ✕
+                  </button>
+                </div>
+              )}
+
+              {/* Near-zero results: gentle "did you mean…?" line */}
+              {correction && !correction.autoApplied && total > 0 && (
+                <p className="text-sm text-[#1D252D]">
+                  Did you mean{" "}
+                  <button
+                    type="button"
+                    onClick={() => runNlSearch(correction.corrected, { noCorrect: true })}
+                    className="font-semibold text-[#00AA13] underline underline-offset-2 hover:text-[#009911]"
+                  >
+                    {correction.corrected}
+                  </button>
+                  ?
+                </p>
+              )}
+
               {loading && results.length === 0 ? (
                 <SearchLoadingState />
               ) : error && !loading ? (
                 <SearchErrorBanner message={error} onRetry={runSearch} />
               ) : results.length === 0 && hasQueryOrFilters ? (
-                <NoResultsState onClear={() => runNlSearch("")} />
+                <NoResultsState
+                  onClear={() => runNlSearch("")}
+                  suggestion={correction && !correction.autoApplied ? correction.corrected : null}
+                  onTrySuggestion={(q) => runNlSearch(q, { noCorrect: true })}
+                />
               ) : results.length === 0 ? (
                 <LandingState />
               ) : (

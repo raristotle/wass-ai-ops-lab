@@ -9,6 +9,9 @@ import { ProductDetailModal } from "@/features/product-finder/ProductDetailModal
 import { BomImportModal } from "@/features/product-finder/BomImportModal";
 import { BulkQuoteModal } from "@/features/product-finder/BulkQuoteModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
+import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
+import { TourOverlay } from "@/features/product-finder/TourOverlay";
+import { CommandPalette } from "@/features/product-finder/CommandPalette";
 import { cn } from "@/lib/utils";
 
 interface ProductFinderShellProps {
@@ -20,6 +23,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const logout = useProductFinder((s) => s.logout);
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
   const setHelpOpen = useProductFinder((s) => s.setHelpOpen);
+  const setPaletteOpen = useProductFinder((s) => s.setPaletteOpen);
   const cartCount = useProductFinder(selectCartCount);
   const customers = useProductFinder((s) => s.customers);
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
@@ -55,8 +59,11 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
           </div>
         </div>
 
-        {/* Right: customer selector + user info + cart */}
+        {/* Right: role switcher + customer selector + user info + cart */}
         <div className="flex items-center gap-3">
+          {/* Demo role switcher */}
+          <RoleSwitcher />
+
           {/* Customer selector */}
           <div className="hidden flex-col gap-0.5 sm:flex">
             <label
@@ -100,6 +107,17 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
               <span>Insights</span>
             </Link>
           )}
+
+          {/* Command palette */}
+          <button
+            type="button"
+            onClick={() => setPaletteOpen(true)}
+            aria-label="Open command palette"
+            title="Command palette (Ctrl+K)"
+            className="flex h-9 items-center justify-center rounded-lg border border-[#4F758B] px-2 text-xs font-bold text-[#B7C9D3] transition-colors hover:border-[#64CCC9] hover:text-[#64CCC9]"
+          >
+            ⌘K
+          </button>
 
           {/* Help */}
           <button
@@ -165,6 +183,8 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <BomImportModal />
       <BulkQuoteModal />
       <HelpPanel />
+      <TourOverlay />
+      <CommandPalette />
     </div>
   );
 }

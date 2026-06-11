@@ -11,7 +11,7 @@ import { CATALOG_SIZE } from "@/lib/catalog/generate";
 const FIXED_NOW = new Date("2026-06-06T12:00:00.000Z");
 
 describe("mockCatalogProvider.getSource(now)", () => {
-  // Call once — building 60k catalog is ~200ms; reuse the result.
+  // Call once — building the 200k catalog takes a moment; reuse the result.
   const source = mockCatalogProvider.getSource(FIXED_NOW);
 
   it("source is 'PIM (simulated)'", () => {

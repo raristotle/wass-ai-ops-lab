@@ -41,10 +41,16 @@ export interface TimeBucket {
   label: string;
   value: number;
   count: number;
+  /** Bucket calendar year (local time). */
+  year: number;
+  /** Bucket calendar month, 0-indexed (local time) — matches Date#getMonth(). */
+  month: number;
 }
 
 export interface CustomerMixEntry {
   customerName: string;
+  /** Customer account id; null for walk-in / unknown customers. */
+  customerId: string | null;
   value: number;
   count: number;
 }
@@ -194,8 +200,20 @@ export function ordersOverTime(
 
   return bucketKeys.map((b) => {
     const data = acc.get(`${b.year}-${b.month}`) ?? { value: 0, count: 0 };
-    return { label: b.label, value: data.value, count: data.count };
+    return { label: b.label, value: data.value, count: data.count, year: b.year, month: b.month };
   });
+}
+
+/**
+ * True when `timestamp` falls inside the given local calendar month.
+ * Uses the same getFullYear/getMonth local-time logic as ordersOverTime's
+ * bucket assignment, so the two always agree.
+ *
+ * @param month - 0-indexed month, matching Date#getMonth()
+ */
+export function isInLocalMonth(timestamp: number, year: number, month: number): boolean {
+  const d = new Date(timestamp);
+  return d.getFullYear() === year && d.getMonth() === month;
 }
 
 // ─── customerMix ─────────────────────────────────────────────────────────────
@@ -207,19 +225,20 @@ export function ordersOverTime(
  * Walk-in orders (customerName === null) are grouped under the label "Walk-in".
  */
 export function customerMix(orders: Order[]): CustomerMixEntry[] {
-  const byCustomer = new Map<string, { value: number; count: number }>();
+  const byCustomer = new Map<string, { customerId: string | null; value: number; count: number }>();
 
   for (const order of orders) {
     const name = order.customerName ?? "Walk-in";
-    const existing = byCustomer.get(name) ?? { value: 0, count: 0 };
+    const existing = byCustomer.get(name) ?? { customerId: order.customerId ?? null, value: 0, count: 0 };
     byCustomer.set(name, {
+      customerId: existing.customerId ?? order.customerId ?? null,
       value: existing.value + order.total,
       count: existing.count + 1,
     });
   }
 
   return Array.from(byCustomer.entries())
-    .map(([customerName, { value, count }]) => ({ customerName, value, count }))
+    .map(([customerName, { customerId, value, count }]) => ({ customerName, customerId, value, count }))
     .sort((a, b) => b.value - a.value);
 }
 

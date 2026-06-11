@@ -54,6 +54,17 @@ GET /api/products/search?q=circuit%20breaker&spec.Amperage=15A&onlyBranchStock=t
 GET /api/products/search?q=CB-EAT-329        # OOS product → substitutes map populated
 ```
 
+#### Deep-link URLs (page, not API)
+
+The Product Finder **page URL** mirrors this exact grammar — `q`, `category`,
+`subcategory`, `brand`, `onlyBranchStock` / `onlyDCStock` / `onlyPreferred`,
+`priceMin` / `priceMax`, `spec.<Name>`, `specmin.` / `specmax.<Name>`, and `sort`
+all work on `/product-finder?…` and are kept in sync with the current view as you
+search (the results bar's **Copy link** button copies it). `page` / `pageSize` are
+ignored by the page, and the `?cart=` basket-share param rides alongside untouched.
+No endpoint changes — the page decodes with the same parser
+(`lib/product-finder-url.ts` delegating to `lib/catalog/schemas.ts`).
+
 ### `GET /api/products/suggest?q=<text>`
 
 Type-ahead suggestions. Returns `{ "items": SuggestItem[] }` —

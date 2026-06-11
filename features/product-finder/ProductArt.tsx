@@ -1,5 +1,6 @@
 import type { CatalogProduct, ProductCategory } from "@/features/product-finder/types";
 import { glyphIdFor } from "@/lib/product-finder-glyph-map";
+import { keySpecCallout } from "@/lib/product-finder-plate";
 import { GLYPH_ART } from "@/features/product-finder/glyphs";
 
 // ─── Category palette ─────────────────────────────────────────────────────────
@@ -16,6 +17,8 @@ const CATEGORY_COLORS: Record<ProductCategory, { band: string; plate: string; te
 interface ProductArtProps {
   product: CatalogProduct;
   className?: string;
+  /** Render the key-spec callout badge (detail views only; thumbnails stay clean). */
+  showCallout?: boolean;
 }
 
 /**
@@ -23,9 +26,10 @@ interface ProductArtProps {
  * Uses a category-tinted background band + a soft inner plate with a subcategory
  * line-art glyph, subcategory label, brand name, and SKU. Meridian palette per category.
  */
-export function ProductArt({ product, className }: ProductArtProps) {
+export function ProductArt({ product, className, showCallout = false }: ProductArtProps) {
   const colors = CATEGORY_COLORS[product.category] ?? CATEGORY_COLORS.electrical;
   const glyph = GLYPH_ART[glyphIdFor(product.subcategory, product.category)];
+  const callout = showCallout ? keySpecCallout(product.specs) : null;
 
   const displaySubcat = product.subcategory.length > 30
     ? product.subcategory.slice(0, 30) + "…"
@@ -69,6 +73,34 @@ export function ProductArt({ product, className }: ProductArtProps) {
           {glyph}
         </g>
       </svg>
+
+      {/* ── Key-spec callout badge (top-right of inner plate) ── */}
+      {callout !== null && (
+        <g>
+          <rect
+            x="236"
+            y="70"
+            width="56"
+            height="22"
+            rx="6"
+            fill="#FFFFFF"
+            stroke={colors.band}
+            strokeWidth="1.5"
+          />
+          <text
+            x="264"
+            y="81.5"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fontSize="13"
+            fontWeight="700"
+            fontFamily="'Titillium Web', 'Arial Bold', Arial, sans-serif"
+            fill="#1D252D"
+          >
+            {callout}
+          </text>
+        </g>
+      )}
 
       {/* ── Subcategory label ────────────────────────────────── */}
       <text

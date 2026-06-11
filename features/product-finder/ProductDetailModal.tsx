@@ -230,7 +230,7 @@ export function ProductDetailModal() {
         <div className="print:hidden flex flex-col sm:flex-row gap-6 px-6 py-5 border-b border-[#B7C9D3]/40">
           {/* Left: product art */}
           <div className="w-full sm:w-56 flex-shrink-0">
-            <ProductImage product={product} className="rounded-lg overflow-hidden" />
+            <ProductImage product={product} className="rounded-lg overflow-hidden" showCallout />
           </div>
 
           {/* Right: price, stock, actions */}

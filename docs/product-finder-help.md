@@ -5,7 +5,7 @@ rough request to a **stocked, priced, and justified** product recommendation —
 one screen. It finds products, suggests smart alternatives **with clear reasons**,
 checks stock, compares options, and builds a basket.
 
-> Everything runs on a built-in catalog of **60,000 synthetic products** spanning
+> Everything runs on a built-in catalog of **200,000 synthetic products** spanning
 > six categories — Electrical (~77%, weighted toward common commercial/residential
 > construction products, including **10,000+ wiring devices** — receptacles,
 > switches, wall plates & covers, cord plugs, combination devices, and lighting
@@ -27,6 +27,16 @@ checks stock, compares options, and builds a basket.
 
 - Your **name and branch** show top-right. **Sign out** is next to the cart.
 - You stay signed in if you come back later.
+- **Switch roles without retyping:** the header's **"Demo role:"** selector (marked
+  with a *demo* pill) swaps you between Sarah, Marcus, and Admin **instantly** — the
+  Insights link and quote-approval powers follow the role. Your cart and orders stay
+  put across switches (shared demo storage, by design).
+- **First visit?** A 7-step **guided tour** card opens bottom-right — welcome →
+  plain-English search → filters → alternatives → basket & quote → insights → more
+  tools — each step with a one-click **"try it"** that runs the real feature. It's
+  non-blocking (keep working while it's open), shows **once per browser**, and can be
+  restarted anytime from the **Help panel footer → "Restart the tour"** (or the
+  command palette).
 - **Stuck?** Click the **?** button in the header — an interactive **Help panel**
   with searchable topics and one-click "Try it" example searches.
 
@@ -37,7 +47,9 @@ checks stock, compares options, and builds a basket.
 
 ## 2. The screen at a glance
 
-- **Top bar:** Meridian Supply Co. logo, app title, your name/branch, the **Cart** button, Sign out.
+- **Top bar:** Meridian Supply Co. logo, app title, your name/branch, the **"Demo
+  role:"** switcher, the **⌘K** palette button, the **?** Help button, the **Cart**
+  button, Sign out.
 - **Left sidebar:** Filters.
 - **Middle:** the search box and your results.
 - **Right side** (appears for an out-of-stock selected product): **external
@@ -48,7 +60,7 @@ checks stock, compares options, and builds a basket.
 ## 3. Features
 
 ### Search
-Search runs **server-side over all 60,000 products**.
+Search runs **server-side over all 200,000 products**.
 
 - Type a **product name, SKU, brand, or spec** (e.g. `15A breaker`, `led troffer`,
   `Cat6`).
@@ -60,13 +72,50 @@ Search runs **server-side over all 60,000 products**.
   - `preferred`
   - category — `electrical`, `datacom`, `oem-electrical`, `av`, `security`, `safety`
   - brand names (e.g. `Square D`)
+  - **trade terms** — `romex` → NM-B, `GFI` → GFCI, `cat 6` → Cat6, `EMT` →
+    conduit, `wire nut`, `load center`, `wall pack`, `PoE`, … (~36 in all) —
+    rewritten automatically into the right catalog terms
 - Each understood condition becomes a **removable filter chip** below the box
   (e.g. `Under $50 ✕`). Click a chip's **✕** to drop just that condition.
+- **Misspelled it?** See *"Did you mean…?" typo fixes* below — typos don't dead-end.
+- **Prefer to talk?** Click the **microphone** in the search box — see *Voice
+  search* below.
 - **Quick picks:** one-click buttons for common searches (Circuit Breakers,
   Cat6 Cable, IP Cameras, Safety Glasses, Relays, Displays).
 - The **✕ in the search box** clears the search *and* all chips.
 - Results are paged — click **Load more** at the bottom of the grid to fetch the
   next page.
+
+### Voice search
+Click the **microphone** in the search box and just say the request
+(e.g. *"twenty amp breaker in stock under fifty dollars"*):
+- your words appear **live in the box** as you speak;
+- the final transcript is **normalized** — "twenty amp breaker" becomes
+  `20A breaker`, and filler words ("please", "search for", "show me") are stripped;
+- the cleaned-up text runs through the **same plain-English parser** as typed
+  searches — chips and all.
+
+*(Works in Chrome and Edge; the button hides itself in browsers without speech
+recognition. Audio is processed by the browser's speech service.)*
+
+### "Did you mean…?" typo fixes
+Misspelled searches don't dead-end:
+- When a search comes back **empty** and there's **one clear fix** (`breakr` →
+  `breaker`), it's applied **automatically** — with a *"Showing results for X —
+  search instead for 'y'"* notice so you can revert in one click.
+- When results are sparse or the fix is ambiguous, you get a **one-click
+  suggestion** instead — nothing changes until you click it.
+- Numbers and specs like `20A` or `12-2` are never "corrected".
+*(Try it: search `breakr`.)*
+
+### Shareable deep links & Copy link
+The page URL **always reflects your current search** — query, category, brand,
+stock/preferred toggles, price range, spec facets, and sort:
+- copy the address bar — or click **Copy link** next to **Export CSV** in the
+  results bar — and send it to a teammate; they land on the **same results**;
+- deep links and **shared basket links** combine — the `cart=` payload rides along
+  untouched;
+- junk or outdated parameters are ignored safely, so old links never break the page.
 
 ### Filters (left sidebar)
 Narrow the results by **Category** (all six), **Subcategory** (nearly 80 — from
@@ -181,8 +230,24 @@ Click **Import List / BOM** by the search box to bulk-add products:
 Each product card and the detail view show a **branded product plate**: a
 category-colored band, a **subcategory line-art glyph** (circuit breaker, RJ45
 connector, hard hat, …), the **brand**, and the **SKU** — deterministic per
-product, with no third-party image dependency. *(Swappable for curated/real
+product, with no third-party image dependency. **Every one of the 79 subcategories
+has its own distinct glyph**, so a receptacle, a switch, and a wall plate each look
+like what they are. On the **detail view**, the plate also shows a **key-spec
+badge** — the product's single most identifying short spec (e.g. `20A`, `12 AWG`,
+`4K UHD`), picked by priority when one fits. *(Swappable for curated/real
 product photography later via the same `ProductImage` seam.)*
+
+### Command palette (Ctrl/Cmd-K)
+Press **Ctrl-K** (Windows) or **⌘K** (Mac) anywhere — or click the **⌘K** button in
+the header — to open the **command palette**:
+- **jump** to Search or the Insights dashboard (role-gated — Insights only appears
+  for managers/admins);
+- **open** the Basket, Help, BOM import, or Bulk price check;
+- **restart the tour** or **switch demo roles** without retyping credentials;
+- run a **quick-pick search**, or type anything else and hit **Enter** to search it.
+
+Arrow keys move the selection (it wraps); **Enter** runs the highlighted command;
+**Esc** closes.
 
 ### Analytics dashboard (managers & admins only)
 Signed in as a **manager** or **admin**, an **Insights** link appears in the header →
@@ -192,6 +257,12 @@ vs. won/lost, **win rate**, **conversion rate** for won quotes turned into order
 and a **follow-up alert** for Sent quotes older than 14 days), **top categories** and
 **orders over time** charts, top products, and customer mix. Sales reps don't see it.
 *(Demo analytics derived from seeded sample data.)*
+
+**Everything on the dashboard drills through.** Click a KPI card, a **Top
+Categories** bar, a top-product row, a customer-mix row, a quote-status tile, or an
+**orders-over-time** point to land on the underlying search, product, customer,
+quotes, or orders — the cart drawer opens scrolled to the right section, with a
+clearable **Status:** / **Month:** chip showing what's filtered.
 
 ### Enterprise integration (simulated)
 A set of "system of record" capabilities, built behind clean adapter interfaces so
@@ -287,11 +358,12 @@ All three persist **even after you close the browser**.
 
 1. **Sign in** as `sales@meridiansupply.com` / `meridian2024`. Point out the **rep
    name + branch** (Houston Downtown) at the top right and the grid already browsing
-   **all 60,000 products**.
+   **all 200,000 products**. (Dismiss — or show off — the **guided tour** card that
+   opens bottom-right on a first visit.)
 2. In the header, set **"Quoting for:" → Gulf Coast Industrial** (a contract
    customer). Explain this is the **customer account** context — it drives pricing,
    order history, and the quote. *(Simulated CRM — real integration noted below.)*
-3. Show the **six category chips** — click **⚡ Electrical** (~46,000 products), then
+3. Show the **six category chips** — click **⚡ Electrical** (~154,000 products), then
    clear.
 4. Type **`circuit breaker`** and press Enter. In the sidebar, tick a **spec facet**
    (e.g. **Amperage → 15A**) and watch the **live counts** narrow results.
@@ -352,8 +424,15 @@ in seconds."*
 
 ## 5. Quick tips
 
-- All **60,000 products are sample data** — click anything; nothing leaves the app.
+- All **200,000 products are sample data** — click anything; nothing leaves the app.
 - **No results?** Use **Clear search & filters** to start over.
+- **Ctrl-K / ⌘K** opens the **command palette** — every screen and tool is two
+  keystrokes away.
+- **Typos are fine** — `breakr` still finds breakers, with a one-click undo.
+- **Talk instead of type** — the **mic** in the search box dictates a search
+  (Chrome/Edge).
+- **Send a search, not a screenshot** — **Copy link** (next to Export CSV)
+  reproduces your exact query, filters, and sort for whoever opens it.
 - **Try different logins** — each has a different home branch, which changes the
   *"in stock at your branch"* part of the match score.
 - **Plain English works** — `preferred safety under $20`, `in stock Square D`,

@@ -26,14 +26,14 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• manager@meridiansupply.com — Marcus Rivera, Manager (Dallas North)",
       "• admin@meridiansupply.com — Admin User (Corporate)",
       "Your branch matters: it decides what counts as “in stock at your branch,” which feeds match scores.",
-      "Everything runs on 60,000 synthetic products — click around freely; nothing leaves the app.",
+      "Everything runs on 200,000 synthetic products — click around freely; nothing leaves the app.",
     ],
   },
   {
     id: "search",
     title: "Search & plain-English queries",
     body: [
-      "Search runs server-side over all 60,000 products. Type a product name, SKU, brand, or spec.",
+      "Search runs server-side over all 200,000 products. Type a product name, SKU, brand, or spec.",
       "Plain English works: price (“under $50”), availability (“in stock”), “preferred,” categories, and brand names all become removable filter chips.",
       "• Suggestions drop down as you type — click one to jump to it.",
       "• Quick-pick chips run common searches in one click.",
@@ -301,6 +301,70 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• KPI cards — orders, total/average value, active customers.",
       "• Contract savings delivered, top categories, orders over time, customer mix.",
       "Sales reps don't see this view. (Derived from seeded sample orders.)",
+    ],
+  },
+  {
+    id: "tour",
+    title: "Guided tour",
+    body: [
+      "New to the app? The guided tour walks the whole flow in about two minutes — search, filters, alternatives, basket & quotes, and the manager dashboard.",
+      "• It opens automatically on your first visit.",
+      "• Restart it anytime: open the command palette (Ctrl/Cmd-K) and run “Restart the product tour”.",
+      "• Steps with a “try it” button run the real feature live — the tour stays out of your way.",
+    ],
+  },
+  {
+    id: "voice-search",
+    title: "Voice search",
+    body: [
+      "Click the microphone in the search bar and just say the request.",
+      "• Spoken numbers are normalized — “twenty amp breaker” becomes “20A breaker”.",
+      "• Filler words (“please”, “search for”, “show me”) are stripped automatically.",
+      "• The cleaned-up text runs through the same plain-English parser as typed searches, chips and all.",
+      "(Requires a browser with speech recognition; everything is processed like a typed query.)",
+    ],
+  },
+  {
+    id: "command-palette",
+    title: "Command palette (Ctrl/Cmd-K)",
+    body: [
+      "Press Ctrl-K (Windows) or Cmd-K (Mac) anywhere to open the command palette.",
+      "• Jump to search or the Insights dashboard, open the cart, help, BOM import, or bulk price check.",
+      "• Switch between the three demo roles without retyping credentials.",
+      "• Run a quick-pick search, or type anything and hit Enter to search it.",
+      "Arrow keys move the selection (it wraps); Enter runs the highlighted command.",
+    ],
+  },
+  {
+    id: "deep-links",
+    title: "Shareable deep links",
+    body: [
+      "Every filtered view has a URL that rebuilds it exactly — filters, search text, specs, price range, and sort.",
+      "• Copy the address bar (or use Share) and send it to a teammate; they land on the same results.",
+      "• Shared basket links and filter links can be combined — the cart payload rides along untouched.",
+      "• Junk or outdated parameters are ignored safely, so old links never break the page.",
+    ],
+  },
+  {
+    id: "did-you-mean",
+    title: "“Did you mean…?” typo fixes",
+    body: [
+      "Misspelled searches don't dead-end:",
+      "• When a search comes back empty and there's one clear fix (“breakr” → “breaker”), it's applied automatically — with a banner so you can undo it.",
+      "• When results are sparse or the fix is ambiguous, you get a one-click suggestion instead.",
+      "• Numbers and specs like “20A” or “12-2” are never “corrected”.",
+    ],
+    tryQuery: "breakr",
+  },
+  {
+    id: "role-switcher",
+    title: "Switching demo roles",
+    body: [
+      "Three demo accounts show how the app changes by role — all use the password meridian2024:",
+      "• sales@meridiansupply.com — Sarah Chen, Sales Rep (Houston Downtown).",
+      "• manager@meridiansupply.com — Marcus Rivera, Manager (Dallas North) — unlocks Insights and quote approvals.",
+      "• admin@meridiansupply.com — Admin User (Corporate).",
+      "Switch from the command palette (Ctrl/Cmd-K → “Switch to …”) or log out and back in. Your branch changes with the role, so stock and match scores shift too.",
     ],
   },
   {

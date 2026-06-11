@@ -32,6 +32,8 @@ export type Order = {
   customerName: string | null;
 };
 import { parseQuery } from "@/lib/product-finder-nl-search";
+import { emptyFilterState } from "@/lib/product-finder-url";
+import { NEAR_ZERO_RESULTS, suggestCorrection } from "@/lib/product-finder-suggest-correction";
 import { getPricingProvider } from "@/lib/integration/index";
 import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-finder-quotes";
 import { needsApproval } from "@/lib/product-finder-quotes";
@@ -51,6 +53,9 @@ const MAX_SEARCH_HISTORY = 12;
 
 // ─── Auth slice ───────────────────────────────────────────────────────────────
 
+/** Shared demo password for every demo account. */
+export const DEMO_PASSWORD = "meridian2024";
+
 const DEMO_USERS: Record<string, AuthUser & { password: string }> = {
   "sales@meridiansupply.com": {
     name: "Sarah Chen",
@@ -58,7 +63,7 @@ const DEMO_USERS: Record<string, AuthUser & { password: string }> = {
     role: "sales",
     branch: "Houston Downtown",
     branchId: "B-HOU-01",
-    password: "meridian2024",
+    password: DEMO_PASSWORD,
   },
   "manager@meridiansupply.com": {
     name: "Marcus Rivera",
@@ -66,7 +71,7 @@ const DEMO_USERS: Record<string, AuthUser & { password: string }> = {
     role: "manager",
     branch: "Dallas North",
     branchId: "B-DAL-01",
-    password: "meridian2024",
+    password: DEMO_PASSWORD,
   },
   "admin@meridiansupply.com": {
     name: "Admin User",
@@ -74,8 +79,28 @@ const DEMO_USERS: Record<string, AuthUser & { password: string }> = {
     role: "admin",
     branch: "Corporate",
     branchId: "B-CORP",
-    password: "meridian2024",
+    password: DEMO_PASSWORD,
   },
+};
+
+/** Password-free public projection of a demo account (safe for UI lists). */
+export type DemoAccount = Pick<AuthUser, "name" | "email" | "role">;
+
+export const DEMO_ACCOUNTS: readonly DemoAccount[] = Object.values(DEMO_USERS).map(
+  ({ name, email, role }) => ({ name, email, role }),
+);
+
+// ─── UI types ─────────────────────────────────────────────────────────────────
+
+/** A section of the cart drawer that can be deep-linked / opened directly. */
+export type CartSection = "basket" | "quotes" | "orders";
+
+/** A "did you mean…?" suggestion attached to the last NL search. */
+export type SearchCorrection = {
+  original: string;
+  corrected: string;
+  /** true = the corrected query was already run automatically. */
+  autoApplied: boolean;
 };
 
 // ─── Compare slice ─────────────────────────────────────────────────────────────
@@ -96,8 +121,23 @@ export interface ProductFinderState {
   query: string;
   setQuery: (q: string) => void;
   appliedNlFilters: ParsedFilter[];
-  runNlSearch: (raw: string) => Promise<void>;
+  runNlSearch: (raw: string, opts?: { noCorrect?: boolean }) => Promise<void>;
   removeNlFilter: (id: string) => Promise<void>;
+
+  // "Did you mean…?" correction for the last NL search
+  correction: SearchCorrection | null;
+  dismissCorrection: () => void;
+
+  // Guided tour
+  tourOpen: boolean;
+  tourStep: number;
+  startTour: () => void;
+  setTourStep: (step: number) => void;
+  closeTour: () => void;
+
+  // Command palette
+  paletteOpen: boolean;
+  setPaletteOpen: (v: boolean) => void;
 
   // BOM mode
   bomMode: boolean;
@@ -123,6 +163,8 @@ export interface ProductFinderState {
   setSortKey: (k: SortKey) => void;
   setViewMode: (v: ViewMode) => void;
   clearFilters: () => void;
+  /** Replace the whole FilterState (mirrors query, clears NL chips) WITHOUT running a search. */
+  setAllFilters: (filters: FilterState) => void;
   toggleSpecFilter: (name: string, value: string) => Promise<void>;
   /** Set or clear a numeric range for a spec. When both min and max are undefined the key is deleted. */
   setSpecRange: (name: string, range: { min?: number; max?: number }) => Promise<void>;
@@ -154,6 +196,15 @@ export interface ProductFinderState {
   clearCart: () => void;
   cartOpen: boolean;
   setCartOpen: (v: boolean) => void;
+  // Cart deep-linking: open the drawer at a section, optionally pre-filtered.
+  cartSection: CartSection | null;
+  cartQuoteStatusFilter: QuoteStatus | null;
+  cartOrderMonthFilter: { year: number; month: number } | null;
+  openCartAt: (
+    section: CartSection,
+    opts?: { quoteStatus?: QuoteStatus; orderMonth?: { year: number; month: number } },
+  ) => void;
+  clearCartFilters: () => void;
   helpOpen: boolean;
   setHelpOpen: (v: boolean) => void;
 
@@ -216,21 +267,9 @@ export interface ProductFinderState {
 }
 
 function defaultFilters(): FilterState {
-  return {
-    query: "",
-    categories: new Set(),
-    subcategories: new Set(),
-    brands: new Set(),
-    onlyBranchStock: false,
-    onlyDCStock: false,
-    onlyPreferred: false,
-    priceMin: null,
-    priceMax: null,
-    sortKey: "relevance",
-    viewMode: "list",
-    specFilters: {},
-    specRanges: {},
-  };
+  // Canonical defaults live in lib/product-finder-url so URL decode/encode
+  // and the store always agree.
+  return emptyFilterState();
 }
 
 function applyParsedFilter(filters: FilterState, f: ParsedFilter, on: boolean): FilterState {
@@ -256,6 +295,10 @@ function applyParsedFilter(filters: FilterState, f: ParsedFilter, on: boolean): 
     case "category":
       if (on) next.categories.add(f.value as ProductCategory);
       else next.categories.delete(f.value as ProductCategory);
+      break;
+    case "subcategory":
+      if (on) next.subcategories.add(f.value as string);
+      else next.subcategories.delete(f.value as string);
       break;
     case "brand":
       if (on) next.brands.add(f.value as string);
@@ -317,7 +360,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   appliedNlFilters: [],
 
-  async runNlSearch(raw) {
+  async runNlSearch(raw, opts) {
     if (raw.trim()) get().addSearchTerm(raw);
     const parsed = parseQuery(raw);
     set((s) => {
@@ -333,6 +376,59 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       return { filters, appliedNlFilters: parsed.filters, query: raw };
     });
     await get().runSearch();
+
+    // ── "Did you mean…?" flow — only after the search resolves ──────────────
+    if (opts?.noCorrect || !raw.trim()) {
+      set({ correction: null });
+      return;
+    }
+    if (get().total >= NEAR_ZERO_RESULTS) {
+      set({ correction: null });
+      return;
+    }
+    const sugg = suggestCorrection(raw);
+    if (!sugg || sugg.corrected.toLowerCase() === raw.toLowerCase()) {
+      set({ correction: null });
+      return;
+    }
+    if (get().total === 0 && sugg.confident) {
+      // Zero results + a confident fix → auto-apply, then surface the banner.
+      await get().runNlSearch(sugg.corrected, { noCorrect: true });
+      set({ correction: { original: raw, corrected: sugg.corrected, autoApplied: true } });
+    } else {
+      set({ correction: { original: raw, corrected: sugg.corrected, autoApplied: false } });
+    }
+  },
+
+  // ── "Did you mean…?" correction ───────────────────────────
+  correction: null,
+  dismissCorrection() {
+    set({ correction: null });
+  },
+
+  // ── Guided tour ───────────────────────────────────────────
+  tourOpen: false,
+  tourStep: 0,
+  startTour() {
+    set({ tourOpen: true, tourStep: 0 });
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("pf_tour_seen", "1");
+    }
+  },
+  setTourStep(step) {
+    set({ tourStep: step });
+  },
+  closeTour() {
+    set({ tourOpen: false });
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("pf_tour_seen", "1");
+    }
+  },
+
+  // ── Command palette ───────────────────────────────────────
+  paletteOpen: false,
+  setPaletteOpen(v) {
+    set({ paletteOpen: v });
   },
 
   async removeNlFilter(id) {
@@ -528,6 +624,12 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     get().runSearch();
   },
 
+  setAllFilters(filters) {
+    // Replace state only — callers (e.g. URL hydration) decide when to search.
+    // Never flips `loading` and never fires a request.
+    set({ filters, query: filters.query, appliedNlFilters: [] });
+  },
+
   // ── Compare ───────────────────────────────────────────────
   compareIds: new Set(),
   compareModalOpen: false,
@@ -590,7 +692,31 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   },
 
   clearCart() { set({ cart: {} }); },
-  setCartOpen(v) { set({ cartOpen: v }); },
+  setCartOpen(v) {
+    // Plain open/close always starts from a clean drawer — no stale deep-link
+    // section or filters.
+    set({ cartOpen: v, cartSection: null, cartQuoteStatusFilter: null, cartOrderMonthFilter: null });
+  },
+
+  // ── Cart deep-linking ─────────────────────────────────────
+  cartSection: null,
+  cartQuoteStatusFilter: null,
+  cartOrderMonthFilter: null,
+
+  openCartAt(section, opts) {
+    set({
+      cartOpen: true,
+      cartSection: section,
+      // Exactly the provided filter is set; the other is always nulled.
+      cartQuoteStatusFilter: opts?.quoteStatus ?? null,
+      cartOrderMonthFilter: opts?.orderMonth ?? null,
+    });
+  },
+
+  clearCartFilters() {
+    // Keep the drawer open and the section selected — only drop the filters.
+    set({ cartQuoteStatusFilter: null, cartOrderMonthFilter: null });
+  },
 
   helpOpen: false,
   setHelpOpen(v) { set({ helpOpen: v }); },

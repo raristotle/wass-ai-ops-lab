@@ -105,4 +105,19 @@ describe("parseQuery", () => {
     expect(r.filters.filter((f) => f.kind === "category")).toHaveLength(1);
     expect(r.text).toBe("widget");
   });
+
+  it("expands 'romex in stock' via synonyms: subcategory chip + stock chip + NM-B text", () => {
+    const r = parseQuery("romex in stock");
+    expect(r.filters).toContainEqual(
+      expect.objectContaining({ kind: "subcategory", value: "Wire & Cable", label: "In Wire & Cable" }),
+    );
+    expect(r.filters).toContainEqual(expect.objectContaining({ kind: "branchStock", value: true }));
+    expect(r.text).toContain("nm-b");
+  });
+
+  it("synonym entries without a subcategory add no subcategory chip", () => {
+    const r = parseQuery("gfi outlet");
+    expect(r.filters.some((f) => f.kind === "subcategory")).toBe(false);
+    expect(r.text).toContain("gfci");
+  });
 });

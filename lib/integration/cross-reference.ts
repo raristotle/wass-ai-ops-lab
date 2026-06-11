@@ -39,7 +39,7 @@ function stableHash(s: string): number {
  * Derives a short uppercase alphanumeric string from a hash value.
  * Uses base-36 encoding of the hash, uppercased, padded to exactly 8 chars.
  * 8 chars gives ~2.8 trillion unique values (36^8), eliminating collisions
- * across the 60,000-product catalog.
+ * across the 200,000-product catalog.
  */
 function alnumFromHash(h: number): string {
   // Convert to base 36 (0-9 + a-z), uppercase, pad to exactly 8 characters.

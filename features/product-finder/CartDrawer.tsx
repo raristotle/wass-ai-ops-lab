@@ -9,6 +9,7 @@ import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product
 import { encodeCart } from "@/lib/product-finder-share";
 import { basketCsv, downloadCsv } from "@/lib/product-finder-csv";
 import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
+import { isInLocalMonth } from "@/lib/analytics";
 import {
   QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR,
   APPROVAL_LABEL, APPROVAL_COLOR, type SavedQuote, type QuoteStatus,
@@ -70,6 +71,28 @@ export function CartDrawer() {
   const deleteOrder = useProductFinder((s) => s.deleteOrder);
   const activeCustomer = useProductFinder(selectActiveCustomer);
 
+  // ── Deep-link anchoring + section filters (null = exactly today's behavior) ─
+  const cartSection = useProductFinder((s) => s.cartSection);
+  const cartQuoteStatusFilter = useProductFinder((s) => s.cartQuoteStatusFilter);
+  const cartOrderMonthFilter = useProductFinder((s) => s.cartOrderMonthFilter);
+  const clearCartFilters = useProductFinder((s) => s.clearCartFilters);
+  const basketSectionRef = useRef<HTMLDivElement>(null);
+  const quotesSectionRef = useRef<HTMLDivElement>(null);
+  const ordersSectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!cartOpen || !cartSection) return;
+    const target =
+      cartSection === "basket"
+        ? basketSectionRef.current
+        : cartSection === "quotes"
+          ? quotesSectionRef.current
+          : ordersSectionRef.current;
+    // Slight delay so the slide-in panel has mounted/positioned first.
+    const t = setTimeout(() => target?.scrollIntoView({ block: "start" }), 80);
+    return () => clearTimeout(t);
+  }, [cartOpen, cartSection]);
+
   const items = Object.values(cart);
   const hasContractCustomer = activeCustomer !== null && activeCustomer.tier === "contract";
 
@@ -85,6 +108,32 @@ export function CartDrawer() {
         : quotes.filter((q) => q.customerId === activeCustomerId || q.customerId === null),
     [quotes, activeCustomerId]
   );
+
+  // Deep-link status filter — applied ON TOP of the customer scoping above.
+  const visibleQuotes = useMemo(
+    () =>
+      cartQuoteStatusFilter === null
+        ? quotesForCustomer
+        : quotesForCustomer.filter((q) => q.status === cartQuoteStatusFilter),
+    [quotesForCustomer, cartQuoteStatusFilter]
+  );
+
+  // Deep-link month filter — applied ON TOP of the customer-scoped order list.
+  const monthFilteredOrders = useMemo(
+    () =>
+      cartOrderMonthFilter === null
+        ? visibleOrders
+        : visibleOrders.filter((o) =>
+            isInLocalMonth(o.placedAt, cartOrderMonthFilter.year, cartOrderMonthFilter.month)
+          ),
+    [visibleOrders, cartOrderMonthFilter]
+  );
+  const orderMonthLabel = cartOrderMonthFilter
+    ? new Date(cartOrderMonthFilter.year, cartOrderMonthFilter.month, 1).toLocaleDateString(
+        "en-US",
+        { month: "short", year: "2-digit" }
+      )
+    : null;
 
   // Whole-order delivery ETA ("ships complete by")
   const orderEta = useMemo(() => {
@@ -227,8 +276,17 @@ export function CartDrawer() {
           </button>
         </div>
 
+        {/* ── Scrollable drawer content ────────────────────────────────────────
+            The single vertical scroll region of the drawer. Everything between
+            the header and the end of the panel scrolls as one column, so the
+            deep-link scrollIntoView effect (basket / quotes / orders refs) can
+            actually reveal sections that sit below the fold. Print: overflow
+            is released so the quote sheet / submittal print in full.
+        ── */}
+        <div className="flex-1 overflow-y-auto print:overflow-visible">
+
         {/* Items list — hidden during print */}
-        <div className="flex-1 overflow-y-auto print:hidden">
+        <div ref={basketSectionRef} className="print:hidden">
           {items.length === 0 ? (
             /* Empty state */
             <div className="flex flex-col items-center justify-center gap-3 px-6 py-16 text-center">
@@ -569,7 +627,7 @@ export function CartDrawer() {
         </div>
 
         {/* ── Saved Quotes section — hidden during print ────────────────────── */}
-        <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
+        <div ref={quotesSectionRef} className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
           <div className="mb-3 flex items-baseline justify-between gap-2">
             <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
               Saved Quotes
@@ -579,11 +637,28 @@ export function CartDrawer() {
             </span>
           </div>
 
-          {quotesForCustomer.length === 0 ? (
+          {/* Deep-link status filter chip */}
+          {cartQuoteStatusFilter !== null && (
+            <button
+              type="button"
+              onClick={clearCartFilters}
+              aria-label={`Clear quote status filter ${QUOTE_STATUS_LABEL[cartQuoteStatusFilter]}`}
+              className="mb-2 inline-flex items-center gap-1 rounded-full border border-[#00AA13]/40 bg-[#00AA13]/10 px-2.5 py-0.5 text-xs font-medium text-[#00573F] hover:bg-[#00AA13]/20"
+            >
+              Status: {QUOTE_STATUS_LABEL[cartQuoteStatusFilter]}
+              <span aria-hidden="true" className="text-[#4F758B]">✕</span>
+            </button>
+          )}
+
+          {cartQuoteStatusFilter !== null && visibleQuotes.length === 0 ? (
+            <p className="text-xs text-[#B7C9D3]">
+              No {QUOTE_STATUS_LABEL[cartQuoteStatusFilter]} quotes.
+            </p>
+          ) : quotesForCustomer.length === 0 ? (
             <p className="text-xs text-[#B7C9D3]">No saved quotes yet. Use “Save Quote” below the quote sheet.</p>
           ) : (
             <ul className="max-h-56 space-y-1.5 overflow-y-auto">
-              {quotesForCustomer.map((q: SavedQuote) => {
+              {visibleQuotes.map((q: SavedQuote) => {
                 const c = QUOTE_STATUS_COLOR[q.status];
                 return (
                   <li key={q.id} className="rounded border border-[#B7C9D3] bg-white px-3 py-2">
@@ -691,7 +766,7 @@ export function CartDrawer() {
         </div>
 
         {/* ── Order History section — hidden during print ───────────────────── */}
-        <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
+        <div ref={ordersSectionRef} className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-4 print:hidden">
           <div className="mb-3 flex items-baseline justify-between gap-2">
             <p className="text-xs font-semibold uppercase tracking-wide text-[#4F758B]">
               Order History
@@ -701,11 +776,26 @@ export function CartDrawer() {
             </span>
           </div>
 
-          {visibleOrders.length === 0 ? (
+          {/* Deep-link month filter chip */}
+          {orderMonthLabel !== null && (
+            <button
+              type="button"
+              onClick={clearCartFilters}
+              aria-label={`Clear order month filter ${orderMonthLabel}`}
+              className="mb-2 inline-flex items-center gap-1 rounded-full border border-[#00AA13]/40 bg-[#00AA13]/10 px-2.5 py-0.5 text-xs font-medium text-[#00573F] hover:bg-[#00AA13]/20"
+            >
+              Month: {orderMonthLabel}
+              <span aria-hidden="true" className="text-[#4F758B]">✕</span>
+            </button>
+          )}
+
+          {orderMonthLabel !== null && monthFilteredOrders.length === 0 ? (
+            <p className="text-xs text-[#B7C9D3]">No orders in {orderMonthLabel}.</p>
+          ) : visibleOrders.length === 0 ? (
             <p className="text-xs text-[#B7C9D3]">No orders yet.</p>
           ) : (
             <ul className="space-y-1.5 max-h-48 overflow-y-auto">
-              {visibleOrders.map((order: Order) => {
+              {monthFilteredOrders.map((order: Order) => {
                 const orderDate = new Date(order.placedAt);
                 const dateLabel = orderDate.toLocaleDateString(undefined, {
                   month: "short",
@@ -1132,6 +1222,8 @@ export function CartDrawer() {
             </Button>
           </section>
         )}
+        </div>
+        {/* ── /Scrollable drawer content ── */}
       </div>
     </>
   );

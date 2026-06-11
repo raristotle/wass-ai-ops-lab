@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
@@ -46,6 +47,43 @@ export function ProductGrid({
     downloadCsv("product-results.csv", searchResultsCsv(products));
   }
 
+  // ── Copy shareable link ─────────────────────────────────────────────────────
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
+  const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    return () => { if (copyTimer.current) clearTimeout(copyTimer.current); };
+  }, []);
+
+  async function handleCopyLink() {
+    const url = window.location.href;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(url);
+      ok = true;
+    } catch {
+      // Fallback for blocked clipboard API: hidden textarea + execCommand.
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = url;
+        ta.setAttribute("readonly", "");
+        ta.className = "sr-only";
+        document.body.appendChild(ta);
+        ta.select();
+        ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+      } catch {
+        ok = false;
+      }
+    }
+    if (ok) {
+      setCopyState("copied");
+      if (copyTimer.current) clearTimeout(copyTimer.current);
+      copyTimer.current = setTimeout(() => setCopyState("idle"), 2000);
+    } else {
+      setCopyState("failed");
+    }
+  }
+
   return (
     <div className="flex flex-col gap-3">
       {/* ── Compare bar ─────────────────────────────────────────── */}
@@ -83,6 +121,21 @@ export function ProductGrid({
         </span>
 
         <div className="flex items-center gap-2 ml-auto">
+          {/* Copy shareable link */}
+          {total > 0 && (
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              className="text-xs border border-[#B7C9D3] rounded-md px-2 py-1.5 text-[#4F758B] bg-white hover:border-[#1D252D] hover:text-[#1D252D] transition-colors"
+              aria-label="Copy shareable link to these results"
+            >
+              {copyState === "copied" ? "✓ Copied" : "🔗 Copy link"}
+            </button>
+          )}
+          {total > 0 && copyState === "failed" && (
+            <span className="text-[10px] text-[#DB6B30]">Copy from the address bar</span>
+          )}
+
           {/* Export CSV */}
           {products.length > 0 && (
             <button

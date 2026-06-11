@@ -5,7 +5,7 @@
 **live** product, catalog, inventory, customer, and pricing systems.
 
 > **What this app is today.** A working Next.js application (the "AI Product
-> Recommender") running on a **deterministic, synthetic 60,000-product catalog** with
+> Recommender") running on a **deterministic, synthetic 200,000-product catalog** with
 > **no external connectivity**. All "enterprise" behaviors — customer accounts,
 > contract pricing, live inventory/ATP, PIM catalog provenance, competitor
 > cross-reference — are **simulations behind adapter interfaces**. The simulations

@@ -1,29 +1,45 @@
 # Product Finder — Demonstration Script
 
-A presenter-ready, ~12-minute walkthrough of <https://app.raristotle.com/product-finder>.
+A presenter-ready, ~14-minute walkthrough of <https://app.raristotle.com/product-finder>.
 Every SKU below is deterministic — it exists with the same data in every environment.
 **Bold** = what you do. *Italic* = what you say.
 
 > Prep (30 seconds): open the site in a fresh tab, have this script on a second
 > screen. No other setup — the catalog, customers, and orders are built in.
 
-## Act 1 — Sign in & the one-screen pitch (1 min)
+## Act 1 — Sign in & the one-screen pitch (1.5 min)
 
 1. **Sign in** as `sales@meridiansupply.com` / `meridian2024`.
    *"I'm Sarah Chen, an inside sales rep at the Houston Downtown branch. Everything
    I need to turn a customer request into a priced, stocked order is on this one
-   screen — searching 60,000 products."*
-2. **Point at the header**: name + branch top-right, the **?** Help button
+   screen — searching 200,000 products."*
+1a. **Point at the guided tour card** (bottom-right, on a first visit).
+    *"New reps get a 7-step tour — search, filters, alternatives, basket and quote,
+    insights — and every step has a one-click 'try it' that runs the real feature.
+    It shows once and never blocks the screen."* **Dismiss it** (it's re-launchable
+    from the Help panel footer).
+2. **Point at the header**: name + branch top-right, the **"Demo role:"** selector
+   (*"swap between rep, manager, and admin instantly — no retyping credentials;
+   we'll use it later"*), the **⌘K** palette button, the **?** Help button
    (*"interactive help with try-it examples, for new reps"*), and the Cart.
 3. **Set "Quoting for:" → Gulf Coast Industrial.**
    *"First thing a rep does — pick the customer. That drives their contract
    pricing, their order history, and the quote."*
 
-## Act 2 — Search like you talk (2 min)
+## Act 2 — Search like you talk (3 min)
 
 4. **Type `20A breaker in stock under $50`** and press Enter.
    *"Plain English. The app parsed price, availability, and product — each one is
    a chip I can remove."* **Click the ✕ on `Under $50`** to show instant update.
+4a. **Click the mic** in the search box and say *"twenty amp breaker in stock
+    under fifty dollars."*
+    *"Or just say it. The dictation shows live, then 'twenty amp' is normalized to
+    20A and it runs through the same plain-English parser."* (Chrome/Edge — the
+    button hides itself where the browser has no speech service.)
+4b. **Type `romex`** and press Enter. *"Reps talk in trade terms — romex becomes
+    NM-B cable. GFI becomes GFCI, cat 6 becomes Cat6, EMT finds conduit — about
+    three dozen of these."* Then **type `breakr`** — *"and typos don't dead-end:
+    one confident fix gets applied automatically, with a banner to undo it."*
 5. **Point at a card's price block**: *"List price, struck through — Gulf Coast's
    contract price, and the savings. Switch the customer to walk-in and it's list
    again."* (Optionally toggle the customer selector to show it.)
@@ -45,7 +61,9 @@ Every SKU below is deterministic — it exists with the same data in every envir
 9. **Click View Details** on any product: volume pricing tiers, the Availability
    panel (*"branch stock, DC stock, promise dates, transfer ETA — simulated ERP
    adapters ready for real systems"*), the printable Spec Sheet, and
-   **Goes well with** cross-sell.
+   **Goes well with** cross-sell. **Point at the product plate** — *"every one of
+   the 79 subcategories has its own line art, and the plate badges the key spec —
+   that 20A comes straight off the spec sheet."*
 
 ## Act 4 — From basket to deliverables (4 min)
 
@@ -94,9 +112,11 @@ Every SKU below is deterministic — it exists with the same data in every envir
     ```
     **Match → Add matched to cart.** *"A whole bill of materials in seconds."*
 
-## Act 5 — The manager view (1.5 min)
+## Act 5 — The manager view (2 min)
 
-19. **Sign out, sign in** as `manager@meridiansupply.com` / `meridian2024`.
+19. **Switch the "Demo role:" selector to Marcus Rivera (Manager).**
+    *"No sign-out, no retyping — the role changes, and the Insights link appears
+    because Marcus is a manager. The basket and orders carry over."*
     **Click Insights.**
     *"Managers get the rollup — orders, value, contract savings delivered, top
     categories, customer mix. Reps don't see this."*
@@ -105,14 +125,32 @@ Every SKU below is deterministic — it exists with the same data in every envir
     how many won quotes actually **converted to orders**, and a flag on any quote
     sent over two weeks ago that needs a follow-up. The rep's quoting activity
     becomes the manager's pipeline, automatically."*
+20a. **Click a Top Categories bar, then back; then the Sent quote-status tile.**
+    *"Every number on this dashboard answers 'which ones?' — a category bar lands
+    on that category's search, a top product opens its detail, a customer row opens
+    their orders, and the Sent tile opens the cart at Saved Quotes with a Status:
+    Sent chip I can clear. An orders-over-time point does the same for its month.
+    No dead-end KPIs."*
+
+## Act 6 — Two keystrokes to anywhere (1 min)
+
+21. **Press Ctrl-K** (⌘K on Mac). *"The command palette — search, Insights, the
+    basket, help, BOM import, bulk pricing, restarting the tour, even switching
+    roles. Or type anything and Enter searches it."* **Type `cat6`, press Enter** →
+    results.
+22. **Click Copy link** (next to Export CSV in the results bar). *"And the URL
+    **is** the search — query, filters, sort. Paste this link and anyone lands on
+    these exact results. It even coexists with the shared-basket links from
+    earlier."*
 
 ## Wrap-up
 
 *"One screen takes a rep from a rough request to a customer-priced, quoted,
-emailed, tracked order — with explainable recommendations, automatic substitutes
-for out-of-stock items, basket-level 'what's missing' cross-sell, delivery dates,
-live stock, cross-references, CSV/PDF deliverables, reusable kits, a quote pipeline
-for managers, and a whole BOM imported in seconds."*
+emailed, tracked order — searchable by voice or in trade slang, with explainable
+recommendations, automatic substitutes for out-of-stock items, basket-level 'what's
+missing' cross-sell, delivery dates, live stock, cross-references, CSV/PDF
+deliverables, reusable kits, a click-through quote pipeline for managers, a whole
+BOM imported in seconds, and every screen two keystrokes away."*
 
 > **Demo honesty note:** customer accounts, contract pricing, inventory/ATP, PIM
 > provenance, and cross-references run on **synthetic data behind swap-in
@@ -125,4 +163,11 @@ for managers, and a whole BOM imported in seconds."*
 - **Substitute panel missing** → make sure you searched `CB-EAT-329` exactly; any
   fully out-of-stock product works.
 - **No contract pricing** → check "Quoting for:" still shows Gulf Coast Industrial.
-- **Stuck anywhere** → the **?** Help button covers every feature with examples.
+- **No mic button** → the browser has no speech service (use Chrome or Edge);
+  voice is optional — type the same query.
+- **Tour card didn't appear** → it shows once per browser; relaunch it from the
+  **Help panel footer → "Restart the tour"** (or the command palette).
+- **No Insights link** → check the "Demo role:" selector shows Marcus Rivera
+  (Manager) or Admin User.
+- **Stuck anywhere** → the **?** Help button covers every feature with examples,
+  or **Ctrl-K / ⌘K** jumps anywhere.

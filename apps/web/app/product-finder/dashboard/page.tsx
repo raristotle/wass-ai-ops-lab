@@ -15,6 +15,7 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   BarChart,
   Bar,
@@ -32,6 +33,7 @@ import { useProductFinder } from "@/lib/product-finder-store";
 import { AuthGuard } from "@/features/product-finder/AuthGuard";
 import { ProductFinderShell } from "@/features/product-finder/ProductFinderShell";
 import { getCatalog } from "@/lib/catalog/index";
+import { CATEGORIES } from "@/lib/catalog/taxonomy";
 import {
   salesKpis,
   topCategories,
@@ -39,9 +41,14 @@ import {
   ordersOverTime,
   customerMix,
   contractSavings,
+  type CategoryStat,
+  type TimeBucket,
 } from "@/lib/analytics";
 import { quotePipeline } from "@/lib/product-finder-quote-pipeline";
 import { QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR } from "@/lib/product-finder-quotes";
+import { categoryShareQuery } from "@/lib/product-finder-url";
+import { apiGetProduct } from "@/lib/product-finder-api";
+import type { ProductCategory } from "@/features/product-finder/types";
 
 // ─── Brand tertiary palette for chart series ──────────────────────────────────
 const SERIES_COLORS = ["#EAAA00", "#64CCC9", "#DB6B30", "#004986", "#00573F"] as const;
@@ -63,11 +70,14 @@ interface KpiCardProps {
   value: string;
   sub?: string;
   accent?: string;
+  /** When set, the card renders as a drill-through button. */
+  onClick?: () => void;
+  ariaLabel?: string;
 }
 
-function KpiCard({ label, value, sub, accent = "#00AA13" }: KpiCardProps) {
-  return (
-    <div className="rounded-xl border border-[#B7C9D3]/40 bg-white p-5 shadow-sm">
+function KpiCard({ label, value, sub, accent = "#00AA13", onClick, ariaLabel }: KpiCardProps) {
+  const inner = (
+    <>
       <p className="text-xs font-semibold uppercase tracking-widest text-[#4F758B]">{label}</p>
       <p
         className="mt-1 text-2xl font-bold"
@@ -76,9 +86,34 @@ function KpiCard({ label, value, sub, accent = "#00AA13" }: KpiCardProps) {
         {value}
       </p>
       {sub && <p className="mt-0.5 text-xs text-[#4F758B]">{sub}</p>}
-    </div>
+    </>
   );
+
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        aria-label={ariaLabel ?? label}
+        className="rounded-xl border border-[#B7C9D3]/40 bg-white p-5 text-left shadow-sm transition-colors hover:border-[#4F758B]"
+      >
+        {inner}
+      </button>
+    );
+  }
+  return <div className="rounded-xl border border-[#B7C9D3]/40 bg-white p-5 shadow-sm">{inner}</div>;
 }
+
+// ─── Drill-through helpers ────────────────────────────────────────────────────
+
+function isProductCategory(value: string): value is ProductCategory {
+  return (CATEGORIES as string[]).includes(value);
+}
+
+/** Minimal shape of the recharts categorical-chart click state we read. */
+type ChartClickState = {
+  activePayload?: { payload?: unknown }[];
+} | null;
 
 // ─── Dashboard content (for manager/admin only) ───────────────────────────────
 
@@ -88,6 +123,10 @@ function DashboardContent() {
   const orders = useProductFinder((s) => s.orders);
   const quotes = useProductFinder((s) => s.quotes);
   const user = useProductFinder((s) => s.user);
+  const openCartAt = useProductFinder((s) => s.openCartAt);
+  const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
+  const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
+  const router = useRouter();
 
   // Compute all analytics once per `orders` change — never on re-render.
   const catalog = useMemo(() => getCatalog(), []);
@@ -100,6 +139,40 @@ function DashboardContent() {
   const mix = useMemo(() => customerMix(orders), [orders]);
   const savings = useMemo(() => contractSavings(orders), [orders]);
   const pipeline = useMemo(() => quotePipeline(quotes, now), [quotes, now]);
+
+  // ── Drill-through handlers ──────────────────────────────────────────────────
+  // Bar click payload carries the original CategoryStat datum.
+  const handleCategoryClick = (entry: { payload?: CategoryStat }) => {
+    const category = entry.payload?.category;
+    if (category && isProductCategory(category)) {
+      router.push("/product-finder?" + categoryShareQuery(category));
+    }
+  };
+
+  // Chart-level click: read the hovered point's TimeBucket (year/month).
+  const handleOverTimeClick = (state: ChartClickState) => {
+    const payload = state?.activePayload?.[0]?.payload;
+    if (
+      payload !== null &&
+      typeof payload === "object" &&
+      payload !== undefined &&
+      "year" in payload &&
+      "month" in payload
+    ) {
+      const bucket = payload as TimeBucket;
+      openCartAt("orders", { orderMonth: { year: bucket.year, month: bucket.month } });
+    }
+  };
+
+  // Open the same detail modal ProductCard uses — full product via the API.
+  const handleProductClick = async (id: string) => {
+    try {
+      const detail = await apiGetProduct(id, user?.branchId);
+      setDetailModalProduct(detail.product);
+    } catch {
+      // Fetch failure → no-op (the row simply doesn't open).
+    }
+  };
 
   return (
     <div className="p-4 space-y-6">
@@ -133,17 +206,31 @@ function DashboardContent() {
           Key Metrics
         </h2>
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-          <KpiCard label="Total Orders" value={String(kpis.orderCount)} />
-          <KpiCard label="Total Value" value={fmt$(kpis.totalValue)} />
+          <KpiCard
+            label="Total Orders"
+            value={String(kpis.orderCount)}
+            onClick={() => openCartAt("orders")}
+            ariaLabel="View order history — total orders"
+          />
+          <KpiCard
+            label="Total Value"
+            value={fmt$(kpis.totalValue)}
+            onClick={() => openCartAt("orders")}
+            ariaLabel="View order history — total value"
+          />
           <KpiCard
             label="Avg Order Value"
             value={fmt$(kpis.avgOrderValue)}
             accent="#004986"
+            onClick={() => openCartAt("orders")}
+            ariaLabel="View order history — average order value"
           />
           <KpiCard
             label="Active Customers"
             value={String(kpis.activeCustomers)}
             accent="#64CCC9"
+            onClick={() => openCartAt("orders")}
+            ariaLabel="View order history — active customers"
           />
         </div>
       </section>
@@ -204,7 +291,13 @@ function DashboardContent() {
               {pipeline.byStatus.map((s) => {
                 const c = QUOTE_STATUS_COLOR[s.status];
                 return (
-                  <div key={s.status} className="rounded-lg border border-[#B7C9D3]/40 bg-white p-3">
+                  <button
+                    key={s.status}
+                    type="button"
+                    onClick={() => openCartAt("quotes", { quoteStatus: s.status })}
+                    aria-label={`View ${QUOTE_STATUS_LABEL[s.status]} quotes`}
+                    className="rounded-lg border border-[#B7C9D3]/40 bg-white p-3 text-left transition-colors hover:border-[#4F758B]"
+                  >
                     <div className="flex items-center gap-1.5">
                       <span
                         className="rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide"
@@ -215,26 +308,46 @@ function DashboardContent() {
                       <span className="text-xs text-[#4F758B]">×{s.count}</span>
                     </div>
                     <p className="mt-1 text-lg font-bold text-[#1D252D]">{fmt$(s.value)}</p>
-                  </div>
+                  </button>
                 );
               })}
             </div>
 
             {/* Open vs won summary */}
             <div className="mt-3 flex flex-wrap gap-6">
-              <div>
+              <button
+                type="button"
+                onClick={() => openCartAt("quotes")}
+                aria-label="View saved quotes — open value"
+                className="text-left"
+              >
                 <p className="text-xs text-[#4F758B]">Open (draft + sent)</p>
                 <p className="text-lg font-bold text-[#004986]">{fmt$(pipeline.openValue)}</p>
-              </div>
-              <div>
+              </button>
+              <button
+                type="button"
+                onClick={() => openCartAt("quotes")}
+                aria-label="View saved quotes — won value"
+                className="text-left"
+              >
                 <p className="text-xs text-[#4F758B]">Won</p>
                 <p className="text-lg font-bold text-[#00AA13]">{fmt$(pipeline.wonValue)}</p>
-              </div>
-              <div>
+              </button>
+              <button
+                type="button"
+                onClick={() => openCartAt("quotes")}
+                aria-label="View saved quotes — lost value"
+                className="text-left"
+              >
                 <p className="text-xs text-[#4F758B]">Lost</p>
                 <p className="text-lg font-bold text-[#DB6B30]">{fmt$(pipeline.lostValue)}</p>
-              </div>
-              <div>
+              </button>
+              <button
+                type="button"
+                onClick={() => openCartAt("quotes")}
+                aria-label="View saved quotes — converted to orders"
+                className="text-left"
+              >
                 <p className="text-xs text-[#4F758B]">
                   Converted to orders
                   <span className="ml-1 text-[#B7C9D3]">
@@ -245,7 +358,7 @@ function DashboardContent() {
                   {fmt$(pipeline.convertedValue)}{" "}
                   <span className="text-xs font-normal text-[#4F758B]">×{pipeline.convertedCount}</span>
                 </p>
-              </div>
+              </button>
             </div>
 
             {/* Below-margin quotes awaiting approval */}
@@ -308,7 +421,14 @@ function DashboardContent() {
                 <XAxis dataKey="category" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v: number) => `$${v}`} width={55} />
                 <Tooltip formatter={(v: number) => [fmt$(v), "Value"]} />
-                <Bar dataKey="value" name="Value ($)" fill={SERIES_COLORS[0]} radius={[4, 4, 0, 0]} />
+                <Bar
+                  dataKey="value"
+                  name="Value ($)"
+                  fill={SERIES_COLORS[0]}
+                  radius={[4, 4, 0, 0]}
+                  cursor="pointer"
+                  onClick={handleCategoryClick}
+                />
               </BarChart>
             </ResponsiveContainer>
           )}
@@ -330,6 +450,8 @@ function DashboardContent() {
               <LineChart
                 data={overTime}
                 margin={{ top: 4, right: 16, left: 0, bottom: 0 }}
+                onClick={handleOverTimeClick}
+                className="cursor-pointer"
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="label" tick={{ fontSize: 11 }} />
@@ -392,19 +514,26 @@ function DashboardContent() {
           ) : (
             <ol className="space-y-2">
               {products.map((p, i) => (
-                <li key={p.id} className="flex items-center gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#1D252D] text-[10px] font-bold text-white">
-                    {i + 1}
-                  </span>
-                  <span className="min-w-0 flex-1 truncate text-sm text-[#1D252D]">
-                    {p.name}
-                  </span>
-                  <span className="shrink-0 text-sm font-semibold text-[#4F758B]">
-                    {fmt$(p.value)}
-                  </span>
-                  <span className="shrink-0 text-xs text-[#B7C9D3]">
-                    ×{p.qty}
-                  </span>
+                <li key={p.id}>
+                  <button
+                    type="button"
+                    onClick={() => handleProductClick(p.id)}
+                    aria-label={`View product details for ${p.name}`}
+                    className="flex w-full items-center gap-3 rounded text-left transition-colors hover:bg-[#B7C9D3]/20"
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#1D252D] text-[10px] font-bold text-white">
+                      {i + 1}
+                    </span>
+                    <span className="min-w-0 flex-1 truncate text-sm text-[#1D252D]">
+                      {p.name}
+                    </span>
+                    <span className="shrink-0 text-sm font-semibold text-[#4F758B]">
+                      {fmt$(p.value)}
+                    </span>
+                    <span className="shrink-0 text-xs text-[#B7C9D3]">
+                      ×{p.qty}
+                    </span>
+                  </button>
                 </li>
               ))}
             </ol>
@@ -431,22 +560,33 @@ function DashboardContent() {
                     ? ((entry.value / totalEffective) * 100).toFixed(0)
                     : "0";
                 return (
-                  <li key={entry.customerName} className="flex items-center gap-3">
-                    <span
-                      className="h-2.5 w-2.5 shrink-0 rounded-full"
-                      style={{ backgroundColor: SERIES_COLORS[i % SERIES_COLORS.length] }}
-                      aria-hidden="true"
-                    />
-                    <span className="min-w-0 flex-1 truncate text-sm text-[#1D252D]">
-                      {entry.customerName}
-                    </span>
-                    <span className="shrink-0 text-xs text-[#4F758B]">
-                      {entry.count} order{entry.count !== 1 ? "s" : ""}
-                    </span>
-                    <span className="shrink-0 text-sm font-semibold text-[#1D252D]">
-                      {fmt$(entry.value)}
-                    </span>
-                    <span className="shrink-0 text-xs text-[#B7C9D3]">{pct}%</span>
+                  <li key={entry.customerName}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // null customerId = walk-in — a valid selection.
+                        setActiveCustomer(entry.customerId);
+                        openCartAt("orders");
+                      }}
+                      aria-label={`View orders for ${entry.customerName}`}
+                      className="flex w-full items-center gap-3 rounded text-left transition-colors hover:bg-[#B7C9D3]/20"
+                    >
+                      <span
+                        className="h-2.5 w-2.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: SERIES_COLORS[i % SERIES_COLORS.length] }}
+                        aria-hidden="true"
+                      />
+                      <span className="min-w-0 flex-1 truncate text-sm text-[#1D252D]">
+                        {entry.customerName}
+                      </span>
+                      <span className="shrink-0 text-xs text-[#4F758B]">
+                        {entry.count} order{entry.count !== 1 ? "s" : ""}
+                      </span>
+                      <span className="shrink-0 text-sm font-semibold text-[#1D252D]">
+                        {fmt$(entry.value)}
+                      </span>
+                      <span className="shrink-0 text-xs text-[#B7C9D3]">{pct}%</span>
+                    </button>
                   </li>
                 );
               })}

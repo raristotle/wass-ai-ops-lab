@@ -14,6 +14,9 @@ import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { apiSuggest } from "@/lib/product-finder-api";
 import { lookupCrossReference } from "@/lib/integration/cross-reference";
+import { QUICK_PICKS } from "@/lib/product-finder-commands";
+import { normalizeTranscript } from "@/lib/product-finder-voice";
+import { VoiceSearchButton } from "@/features/product-finder/VoiceSearchButton";
 import type { SuggestItem, ParsedFilter } from "@/features/product-finder/types";
 
 // ─── Cross-reference icon ─────────────────────────────────────────────────────
@@ -169,12 +172,6 @@ function ListImportIcon({ className }: { className?: string }) {
   );
 }
 
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-const QUICK_PICKS: readonly string[] = [
-  "Circuit Breakers", "Cat6 Cable", "IP Cameras", "Safety Glasses", "Relays", "Displays",
-];
-
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
 function SearchIcon({ className }: { className?: string }) {
@@ -242,6 +239,8 @@ interface SingleSearchPanelProps {
   onOpenBom: () => void;
   onOpenCrossRef: () => void;
   onOpenBulk: () => void;
+  onVoiceInterim: (text: string) => void;
+  onVoiceFinal: (text: string) => void;
 }
 
 function SingleSearchPanel({
@@ -261,6 +260,8 @@ function SingleSearchPanel({
   onOpenBom,
   onOpenCrossRef,
   onOpenBulk,
+  onVoiceInterim,
+  onVoiceFinal,
 }: SingleSearchPanelProps) {
   return (
     <div className="space-y-3">
@@ -281,7 +282,7 @@ function SingleSearchPanel({
               role="combobox"
               placeholder="Search by product name, SKU, brand, or spec (e.g. '15A circuit breaker', 'Cat6 cable')"
               className={cn(
-                "h-10 w-full rounded-lg border border-[#B7C9D3] bg-white py-2 pl-9 pr-8 text-sm text-[#1D252D]",
+                "h-10 w-full rounded-lg border border-[#B7C9D3] bg-white py-2 pl-9 pr-14 text-sm text-[#1D252D]",
                 "placeholder:text-[#4F758B]/60",
                 "focus:outline-none focus:ring-2 focus:ring-[#00AA13] focus:border-[#00AA13]",
                 "transition-colors"
@@ -290,6 +291,12 @@ function SingleSearchPanel({
               aria-controls="pf-search-suggestions"
               aria-expanded={showSuggestions}
               aria-haspopup="listbox"
+            />
+            {/* Voice search (hidden when the browser lacks SpeechRecognition) */}
+            <VoiceSearchButton
+              className="absolute right-8"
+              onInterim={onVoiceInterim}
+              onFinal={onVoiceFinal}
             />
             {/* Clear button */}
             {query.length > 0 && (
@@ -512,6 +519,26 @@ export function SearchBar() {
     runNlSearch(chip);
   };
 
+  // ── Voice search ────────────────────────────────────────────────────────────
+  // Interim transcripts only echo into the input — never trigger the suggest
+  // fetch (any pending suggest timer is cancelled and the dropdown closed).
+  const handleVoiceInterim = (text: string) => {
+    if (suggestTimer.current) clearTimeout(suggestTimer.current);
+    suggestSeq.current++;
+    setQuery(text);
+    setSuggestions([]);
+    setShowSuggestions(false);
+  };
+
+  const handleVoiceFinal = (text: string) => {
+    const q = normalizeTranscript(text);
+    if (!q) return;
+    setQuery(q);
+    setSuggestions([]);
+    setShowSuggestions(false);
+    runNlSearch(q);
+  };
+
   // Cancel any pending suggest timer on unmount
   useEffect(() => {
     return () => { if (suggestTimer.current) clearTimeout(suggestTimer.current); };
@@ -556,6 +583,8 @@ export function SearchBar() {
             onOpenBom={() => setBomModalOpen(true)}
             onOpenCrossRef={() => setCrossRefOpen(true)}
             onOpenBulk={() => setBulkModalOpen(true)}
+            onVoiceInterim={handleVoiceInterim}
+            onVoiceFinal={handleVoiceFinal}
           />
         </div>
       </div>

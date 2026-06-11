@@ -3,7 +3,7 @@
 Monitoring and operations dashboard for AI/LLM workloads — incidents, pipeline runs, model latency, and throughput in one view.
 
 Also hosts the **Product Finder** (`/product-finder`) — an AI product recommender
-over a deterministic **60,000-product synthetic catalog** (~77% electrical, weighted
+over a deterministic **200,000-product synthetic catalog** (~77% electrical, weighted
 toward common commercial/residential construction products — including 10,000+
 wiring devices: receptacles, switches, wall plates, plugs, combination devices —
 across 6 categories and 79 subcategories), with server-side search/suggest/detail
@@ -24,8 +24,14 @@ win rate, conversion rate, stale-quote alerts), **whole-order delivery ETA**
 out-of-stock lead times with notify-me, **automatic in-stock substitutes for
 out-of-stock products**, **CSV export** (search results + basket), printable spec
 sheets / comparisons / quotes (PDF), value + numeric **range** facets,
-deterministic branded product-plate images, a **manager analytics dashboard**
-(Recharts), an **interactive in-app help panel**, and demo auth. Live at
+deterministic branded product-plate images (**distinct artwork for all 79
+subcategories + a key-spec callout badge**), **trade-term synonyms with
+"did you mean?" typo correction** (romex → NM-B, GFI → GFCI, …),
+**deep-linkable searches with a Copy link button**, **voice search** (Chrome/Edge),
+a **7-step guided tour**, a **demo role quick-switcher**, a **command palette
+(Ctrl+K / ⌘K)**, a **manager analytics dashboard** (Recharts) with **click-through
+drill-down from every KPI/chart/row**, an **interactive in-app help panel**, and
+demo auth. Live at
 <https://app.raristotle.com/product-finder>.
 It also includes a **simulated enterprise-integration layer** (`lib/integration/`)
 behind swap-in adapter interfaces — customer accounts, contract/customer pricing,

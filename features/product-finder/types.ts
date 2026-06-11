@@ -157,6 +157,7 @@ export type ParsedFilterKind =
   | "branchStock"
   | "preferred"
   | "category"
+  | "subcategory"
   | "brand";
 
 export interface ParsedFilter {

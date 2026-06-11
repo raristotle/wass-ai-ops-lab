@@ -10,10 +10,14 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 
 | Feature | Summary |
 |---|---|
-| 60,000-product catalog | Deterministic synthetic catalog — 6 categories, ~80 subcategories, ~77% electrical |
+| 200,000-product catalog | Deterministic synthetic catalog — 6 categories, ~80 subcategories, ~77% electrical |
 | Server-side search | Name / SKU / brand / spec search over the full catalog, paged 24 at a time |
 | Type-ahead suggestions | Live dropdown of matching products as you type |
 | Natural-language search | "20A breaker in stock under $50" → parsed into removable filter chips (price, stock, preferred, category, brand) |
+| **Trade-term synonyms** | ~36 trade terms understood (romex → NM-B, GFI → GFCI, cat 6 → Cat6, EMT → conduit, wire nut, load center, wall pack, PoE, …), rewritten into removable chips before parsing |
+| **"Did you mean?" typo tolerance** | Misspellings get a one-click suggestion; zero results with one confident fix auto-applies with a revertible "Showing results for X" notice |
+| **Voice search** | Mic button in the search box (Chrome/Edge) — live dictation, transcript normalized ("twenty amp breaker" → "20A breaker") and run through NL search |
+| **Deep-linkable searches** | The URL always reflects the current query/filters/sort (same grammar as the search API); "Copy link" button next to CSV export; coexists with `?cart=` share links |
 | Quick picks | One-click common searches (Circuit Breakers, Cat6 Cable, IP Cameras, …) |
 | Search history | Last 12 searches as clickable, persistent chips |
 
@@ -46,6 +50,7 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Feature | Summary |
 |---|---|
 | Branded product plates | Deterministic SVG image per product: category band, subcategory glyph, brand, SKU |
+| **Distinct subcategory artwork + key-spec callout** | All 79 subcategories now carry their own stroke glyph (was 54 shared); the detail view's plate adds a key-spec badge (e.g. "20A") picked by priority (Amperage → Main Rating → … → Voltage, ≤8 chars) |
 | Spec sheet | Full specification table with Required flags + printable PDF cut sheet |
 | Volume pricing tiers | 1 / 10 / 50 / 100+ breaks, qualifying tier highlighted |
 | Availability / ATP | Branch & DC stock, available-to-promise date, other stocking branches, transfer ETA |
@@ -89,7 +94,11 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | Feature | Summary |
 |---|---|
 | Demo auth & roles | sales / manager / admin accounts; branch drives stock scoring |
+| **Demo role quick-switcher** | Header "Demo role:" select (with a demo pill) swaps Sarah Chen (sales) / Marcus Rivera (manager) / Admin User instantly — no retyping credentials; Insights link and approval powers follow the role; cart/orders persist across switches |
+| **Guided tour** | 7-step non-blocking tour card (welcome → NL search → filters → alternatives → basket & quote → insights → more tools) with one-click "try it" actions; auto-opens once per browser, restartable from the Help panel |
+| **Command palette** | Ctrl+K / ⌘K (or the header ⌘K button) — jump to Search/Insights (role-gated), open Basket/Help/BOM import/Bulk pricing, restart the tour, switch demo role, quick-pick or free-text search |
 | Manager analytics | Role-gated Insights dashboard: KPIs, contract savings, top categories/products, orders over time, customer mix |
+| **Analytics drill-through** | Every KPI card, Top Categories bar, top-product row, customer-mix row, quote-status tile, and orders-over-time point clicks through to the underlying search, product, customer, quotes, or orders |
 | **Quote pipeline** | Dashboard view: value/count by status, open vs. won/lost, win rate, conversion rate (won→ordered), an approval-needed alert (below-margin), and a stale-quote follow-up alert (>14 days) |
 | **Interactive help** | "?" header button → searchable help topics with one-click "Try it" example searches |
 | Favorites & recently viewed | Starred products and view history, persistent |

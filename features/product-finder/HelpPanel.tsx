@@ -14,6 +14,7 @@ export function HelpPanel() {
   const helpOpen = useProductFinder((s) => s.helpOpen);
   const setHelpOpen = useProductFinder((s) => s.setHelpOpen);
   const runNlSearch = useProductFinder((s) => s.runNlSearch);
+  const startTour = useProductFinder((s) => s.startTour);
 
   const [query, setQuery] = useState("");
   const [openTopicId, setOpenTopicId] = useState<string | null>("getting-started");
@@ -149,6 +150,16 @@ export function HelpPanel() {
 
         {/* Footer */}
         <div className="shrink-0 border-t border-[#B7C9D3] bg-[#F8FAFB] px-5 py-3">
+          <button
+            type="button"
+            onClick={() => {
+              setHelpOpen(false);
+              startTour();
+            }}
+            className="mb-2 rounded bg-[#1D252D] px-2.5 py-1 text-[11px] font-semibold text-white transition-colors hover:bg-[#2d3a47]"
+          >
+            Restart the tour
+          </button>
           <p className="text-[11px] text-[#4F758B]">
             Demo accounts use password <span className="font-semibold">meridian2024</span>.
             Full guide:{" "}

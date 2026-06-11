@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders, hydrateSavedState, buildDemoOrders } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectVisibleOrders, hydrateSavedState, buildDemoOrders, DEMO_ACCOUNTS, DEMO_PASSWORD } from "@/lib/product-finder-store";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
+import { emptyFilterState } from "@/lib/product-finder-url";
 import { ordersOverTime } from "@/lib/analytics";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { tierUnitPrice } from "@/lib/product-finder-pricing";
@@ -60,6 +61,13 @@ function resetStore() {
     watches: [],
     orders: [],
     activeCustomerId: null,
+    correction: null,
+    tourOpen: false,
+    tourStep: 0,
+    paletteOpen: false,
+    cartSection: null,
+    cartQuoteStatusFilter: null,
+    cartOrderMonthFilter: null,
     filters: {
       query: "",
       categories: new Set(),
@@ -1926,5 +1934,289 @@ describe("specRanges – setSpecRange", () => {
     await useProductFinder.getState().setSpecRange("CCT", { min: 3000, max: 5000 });
     resetStore();
     expect(useProductFinder.getState().filters.specRanges).toEqual({});
+  });
+});
+
+// ─── Demo accounts (password-free projection) ─────────────────────────────────
+
+describe("DEMO_ACCOUNTS & DEMO_PASSWORD", () => {
+  it("DEMO_ACCOUNTS has exactly 3 entries", () => {
+    expect(DEMO_ACCOUNTS).toHaveLength(3);
+  });
+
+  it("no entry carries a password property", () => {
+    for (const account of DEMO_ACCOUNTS) {
+      expect("password" in account).toBe(false);
+      expect(Object.keys(account).sort()).toEqual(["email", "name", "role"]);
+    }
+  });
+
+  it("covers the sales/manager/admin demo emails", () => {
+    const emails = DEMO_ACCOUNTS.map((a) => a.email).sort();
+    expect(emails).toEqual([
+      "admin@meridiansupply.com",
+      "manager@meridiansupply.com",
+      "sales@meridiansupply.com",
+    ]);
+  });
+
+  it('DEMO_PASSWORD is "meridian2024" and works for login', () => {
+    expect(DEMO_PASSWORD).toBe("meridian2024");
+    expect(useProductFinder.getState().login("sales@meridiansupply.com", DEMO_PASSWORD)).toBe(true);
+    useProductFinder.getState().logout();
+  });
+});
+
+// ─── Cart deep-linking (openCartAt / clearCartFilters / setCartOpen) ──────────
+
+describe("cart deep-linking", () => {
+  beforeEach(resetStore);
+
+  it("starts with no section and no filters", () => {
+    const s = useProductFinder.getState();
+    expect(s.cartSection).toBeNull();
+    expect(s.cartQuoteStatusFilter).toBeNull();
+    expect(s.cartOrderMonthFilter).toBeNull();
+  });
+
+  it('openCartAt("quotes", { quoteStatus: "sent" }) opens the drawer with the quote filter and nulls the month filter', () => {
+    useProductFinder.getState().openCartAt("quotes", { quoteStatus: "sent" });
+    const s = useProductFinder.getState();
+    expect(s.cartOpen).toBe(true);
+    expect(s.cartSection).toBe("quotes");
+    expect(s.cartQuoteStatusFilter).toBe("sent");
+    expect(s.cartOrderMonthFilter).toBeNull();
+  });
+
+  it('openCartAt("orders", { orderMonth }) sets the month filter and nulls the quote filter', () => {
+    useProductFinder.getState().openCartAt("quotes", { quoteStatus: "won" });
+    useProductFinder.getState().openCartAt("orders", { orderMonth: { year: 2026, month: 4 } });
+    const s = useProductFinder.getState();
+    expect(s.cartOpen).toBe(true);
+    expect(s.cartSection).toBe("orders");
+    expect(s.cartOrderMonthFilter).toEqual({ year: 2026, month: 4 });
+    expect(s.cartQuoteStatusFilter).toBeNull();
+  });
+
+  it("openCartAt with no opts nulls both filters", () => {
+    useProductFinder.getState().openCartAt("quotes", { quoteStatus: "sent" });
+    useProductFinder.getState().openCartAt("basket");
+    const s = useProductFinder.getState();
+    expect(s.cartSection).toBe("basket");
+    expect(s.cartQuoteStatusFilter).toBeNull();
+    expect(s.cartOrderMonthFilter).toBeNull();
+  });
+
+  it("clearCartFilters nulls both filters but keeps the drawer open and the section", () => {
+    useProductFinder.getState().openCartAt("quotes", { quoteStatus: "sent" });
+    useProductFinder.getState().clearCartFilters();
+    const s = useProductFinder.getState();
+    expect(s.cartOpen).toBe(true);
+    expect(s.cartSection).toBe("quotes");
+    expect(s.cartQuoteStatusFilter).toBeNull();
+    expect(s.cartOrderMonthFilter).toBeNull();
+  });
+
+  it("setCartOpen(true) resets section and both filters", () => {
+    useProductFinder.getState().openCartAt("orders", { orderMonth: { year: 2025, month: 11 } });
+    useProductFinder.getState().setCartOpen(true);
+    const s = useProductFinder.getState();
+    expect(s.cartOpen).toBe(true);
+    expect(s.cartSection).toBeNull();
+    expect(s.cartQuoteStatusFilter).toBeNull();
+    expect(s.cartOrderMonthFilter).toBeNull();
+  });
+
+  it("setCartOpen(false) also resets section and filters", () => {
+    useProductFinder.getState().openCartAt("quotes", { quoteStatus: "draft" });
+    useProductFinder.getState().setCartOpen(false);
+    const s = useProductFinder.getState();
+    expect(s.cartOpen).toBe(false);
+    expect(s.cartSection).toBeNull();
+    expect(s.cartQuoteStatusFilter).toBeNull();
+    expect(s.cartOrderMonthFilter).toBeNull();
+  });
+});
+
+// ─── setAllFilters ────────────────────────────────────────────────────────────
+
+describe("setAllFilters", () => {
+  beforeEach(resetStore);
+
+  it("sets filters, mirrors the query field, and clears appliedNlFilters", async () => {
+    await useProductFinder.getState().runNlSearch("preferred under $50");
+    expect(useProductFinder.getState().appliedNlFilters.length).toBeGreaterThan(0);
+
+    const next = emptyFilterState();
+    next.query = "gfci";
+    next.categories.add("electrical");
+    useProductFinder.getState().setAllFilters(next);
+
+    const s = useProductFinder.getState();
+    expect(s.filters).toBe(next);
+    expect(s.query).toBe("gfci");
+    expect(s.appliedNlFilters).toEqual([]);
+  });
+
+  it("does not run a search and does not flip loading", () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const callsBefore = fetchSpy.mock.calls.length;
+    const next = emptyFilterState();
+    next.query = "breaker";
+    useProductFinder.getState().setAllFilters(next);
+    expect(fetchSpy.mock.calls.length).toBe(callsBefore);
+    expect(useProductFinder.getState().loading).toBe(false);
+  });
+});
+
+// ─── Guided tour ──────────────────────────────────────────────────────────────
+
+describe("guided tour", () => {
+  beforeEach(resetStore);
+
+  it("starts closed at step 0", () => {
+    const s = useProductFinder.getState();
+    expect(s.tourOpen).toBe(false);
+    expect(s.tourStep).toBe(0);
+  });
+
+  it("startTour opens at step 0 and writes pf_tour_seen", () => {
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().setTourStep(4);
+    useProductFinder.getState().startTour();
+    const s = useProductFinder.getState();
+    expect(s.tourOpen).toBe(true);
+    expect(s.tourStep).toBe(0);
+    expect(mockStorage["pf_tour_seen"]).toBe("1");
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+
+  it("setTourStep updates the step", () => {
+    useProductFinder.getState().startTour();
+    useProductFinder.getState().setTourStep(3);
+    expect(useProductFinder.getState().tourStep).toBe(3);
+  });
+
+  it("closeTour closes the tour and writes pf_tour_seen", () => {
+    const mockStorage: Record<string, string> = {};
+    const originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    (globalThis as Record<string, unknown>).localStorage = {
+      getItem: (k: string) => mockStorage[k] ?? null,
+      setItem: (k: string, v: string) => { mockStorage[k] = v; },
+      removeItem: (k: string) => { delete mockStorage[k]; },
+    };
+
+    useProductFinder.getState().startTour();
+    delete mockStorage["pf_tour_seen"];
+    useProductFinder.getState().closeTour();
+    expect(useProductFinder.getState().tourOpen).toBe(false);
+    expect(mockStorage["pf_tour_seen"]).toBe("1");
+
+    (globalThis as Record<string, unknown>).localStorage = originalLocalStorage;
+  });
+});
+
+// ─── Command palette ──────────────────────────────────────────────────────────
+
+describe("command palette", () => {
+  beforeEach(resetStore);
+
+  it("starts closed", () => {
+    expect(useProductFinder.getState().paletteOpen).toBe(false);
+  });
+
+  it("setPaletteOpen toggles", () => {
+    useProductFinder.getState().setPaletteOpen(true);
+    expect(useProductFinder.getState().paletteOpen).toBe(true);
+    useProductFinder.getState().setPaletteOpen(false);
+    expect(useProductFinder.getState().paletteOpen).toBe(false);
+  });
+});
+
+// ─── "Did you mean…?" correction flow ────────────────────────────────────────
+
+describe("runNlSearch correction flow", () => {
+  beforeEach(() => {
+    resetStore();
+    searchItems = [];
+    searchTotal = 0;
+  });
+
+  it("dismissCorrection clears the banner", () => {
+    useProductFinder.setState({ correction: { original: "a", corrected: "b", autoApplied: false } });
+    useProductFinder.getState().dismissCorrection();
+    expect(useProductFinder.getState().correction).toBeNull();
+  });
+
+  it("zero results + a confident typo auto-applies the corrected query", async () => {
+    searchTotal = 0;
+    await useProductFinder.getState().runNlSearch("breakr");
+    const s = useProductFinder.getState();
+    expect(s.correction).toEqual({ original: "breakr", corrected: "breaker", autoApplied: true });
+    expect(s.query).toBe("breaker"); // recursive corrected search ran last
+  });
+
+  it("plenty of results → no correction", async () => {
+    searchTotal = 100;
+    await useProductFinder.getState().runNlSearch("breakr");
+    expect(useProductFinder.getState().correction).toBeNull();
+    expect(useProductFinder.getState().query).toBe("breakr"); // untouched
+  });
+
+  it("near-zero (1–2) results suggests without auto-applying", async () => {
+    searchTotal = 2;
+    await useProductFinder.getState().runNlSearch("breakr");
+    const s = useProductFinder.getState();
+    expect(s.correction).toEqual({ original: "breakr", corrected: "breaker", autoApplied: false });
+    expect(s.query).toBe("breakr"); // original search results stay on screen
+  });
+
+  it("a clean query with zero results sets no correction", async () => {
+    searchTotal = 0;
+    await useProductFinder.getState().runNlSearch("breaker");
+    expect(useProductFinder.getState().correction).toBeNull();
+  });
+
+  it("noCorrect opt suppresses the flow entirely", async () => {
+    searchTotal = 0;
+    await useProductFinder.getState().runNlSearch("breakr", { noCorrect: true });
+    expect(useProductFinder.getState().correction).toBeNull();
+    expect(useProductFinder.getState().query).toBe("breakr");
+  });
+});
+
+// ─── NL search — subcategory chips via synonyms ───────────────────────────────
+
+describe("runNlSearch – subcategory chips", () => {
+  beforeEach(() => {
+    resetStore();
+    searchItems = [];
+    searchTotal = 100; // plenty of results — keep the correction flow quiet
+  });
+
+  it('"romex in stock" applies a Wire & Cable subcategory filter', async () => {
+    await useProductFinder.getState().runNlSearch("romex in stock");
+    const { filters, appliedNlFilters } = useProductFinder.getState();
+    expect(filters.subcategories.has("Wire & Cable")).toBe(true);
+    expect(filters.onlyBranchStock).toBe(true);
+    expect(appliedNlFilters).toContainEqual(
+      expect.objectContaining({ kind: "subcategory", value: "Wire & Cable" }),
+    );
+  });
+
+  it("removing the subcategory chip clears the subcategory filter", async () => {
+    await useProductFinder.getState().runNlSearch("romex in stock");
+    const chip = useProductFinder.getState().appliedNlFilters.find((f) => f.kind === "subcategory");
+    expect(chip).toBeDefined();
+    await useProductFinder.getState().removeNlFilter(chip!.id);
+    expect(useProductFinder.getState().filters.subcategories.has("Wire & Cable")).toBe(false);
   });
 });
