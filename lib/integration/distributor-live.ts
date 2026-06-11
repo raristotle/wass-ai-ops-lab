@@ -126,9 +126,16 @@ async function digikeyToken(): Promise<string | null> {
     body: new URLSearchParams({ client_id: id, client_secret: secret, grant_type: "client_credentials" }),
     signal: AbortSignal.timeout(10000),
   });
-  if (!r.ok) return null;
+  if (!r.ok) {
+    // Status only — never log credentials or response bodies wholesale.
+    console.warn(`[distributor-live] Digi-Key token request failed: ${r.status}`);
+    return null;
+  }
   const data = await r.json();
-  if (!data?.access_token) return null;
+  if (!data?.access_token) {
+    console.warn("[distributor-live] Digi-Key token response had no access_token");
+    return null;
+  }
   g.__dkToken = { token: data.access_token, expiresAt: Date.now() + (Number(data.expires_in) || 600) * 1000 };
   return g.__dkToken.token;
 }
@@ -148,7 +155,10 @@ async function fetchDigiKey(mpn: string): Promise<LiveQuote[]> {
     body: JSON.stringify({ Keywords: mpn, Limit: 5, Offset: 0 }),
     signal: AbortSignal.timeout(10000),
   });
-  if (!r.ok) return [];
+  if (!r.ok) {
+    console.warn(`[distributor-live] Digi-Key search failed: ${r.status}`);
+    return [];
+  }
   const data = await r.json();
   return mapDigiKeyProducts(data?.Products ?? [], mpn);
 }
