@@ -311,6 +311,19 @@ Every matched line also carries a **confidence score (0–100%)**:
 - If a product is **out of stock at Meridian Supply Co.**, the app lists **external distributors**
   (with price, quantity, and lead time) so you still have an answer.
 
+### Live distributor pricing (REAL — Mouser & Digi-Key)
+For **real, verified products**, the detail view fetches **live** price, stock,
+and datasheet data from distributor APIs — actual market data, not simulation:
+- Try it: search **`AF09-30-10-13`** (ABB contactor) and open **View Details** —
+  Mouser and Digi-Key quotes appear side by side with live stock, price breaks,
+  and distributor links. (Also good: `UTPSP5BUY`, `LC1D09G7`, `3RT2026-1AK60`.)
+- The price spread between distributors is real multi-source intelligence —
+  the same part can differ by 2× across sources.
+- **Simulated catalog SKUs are never sent to distributor APIs** — only verified
+  part numbers are queried, per-request, and nothing is stored.
+- Empty panels are normal for construction commodities (electronics
+  distributors don't carry them) — the panel says so rather than faking it.
+
 ### Product images
 Each product card and the detail view show a **branded product plate**: a
 category-colored band, a **subcategory line-art glyph** (circuit breaker, RJ45
@@ -339,9 +352,12 @@ Signed in as a **manager** or **admin**, an **Insights** link appears in the hea
 an **Analytics Dashboard**: KPI cards (orders, total/avg value, active customers),
 **contract savings delivered**, a **Quote Pipeline** (value & count by status, open
 vs. won/lost, **win rate**, **conversion rate** for won quotes turned into orders,
-and a **follow-up alert** for Sent quotes older than 14 days), **top categories** and
-**orders over time** charts, top products, and customer mix. Sales reps don't see it.
-*(Demo analytics derived from seeded sample data.)*
+plus **follow-up**, **approval**, and **counter-offer** alerts), **Pricing
+Win/Loss** by margin band, **Customer Health** by order cadence, a **Branch
+Demand Forecast** (trailing-90-day demand by subcategory with trend arrows and a
+30-day stocking projection — rows drill through to the subcategory), **top
+categories** and **orders over time** charts, top products, and customer mix.
+Sales reps don't see it. *(Demo analytics derived from seeded sample data.)*
 
 **Everything on the dashboard drills through.** Click a KPI card, a **Top
 Categories** bar, a top-product row, a customer-mix row, a quote-status tile, or an
@@ -441,9 +457,14 @@ applied), or clear it.
     selectable **Terms & Conditions** blocks (freight, returns, payment,
     commodity escalation, lead times). Both print on the PDF and travel inside
     the Customer Link.
-- **Email Quote** — opens an inline form (recipient pre-filled). **Send Quote**
-  records the quote with status **Sent** and confirms. *(Demo: no email is actually
-  sent — the quote is tracked as Sent for follow-up.)*
+- **Email Quote** — opens an inline form (recipient pre-filled). With an email
+  key configured, **Send Quote** delivers a **real branded email via Resend** —
+  the full line table, your note and terms, and a one-tap **Review & Accept**
+  button opening the customer quote link. Without a key it falls back to a
+  clearly-labeled simulated send. Either way the quote records as **Sent**, and
+  the form tells you which mode is active. *(Resend free-tier note: until a
+  sending domain is verified, emails deliver only to the account owner's
+  address.)*
 - **Job Templates** — save the current basket as a reusable **kit** (e.g. "Standard
   office buildout"). **Add to Basket** *merges* a template into your current cart
   (it adds, rather than replacing), so kits combine. Templates persist across sessions.

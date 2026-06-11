@@ -1,10 +1,12 @@
 # Product Finder — API Guide
 
 How to use, manage, and extend the Product Finder's HTTP API.
-All endpoints are **read-only GET** routes under `/api/products/*`, served by
+Catalog endpoints are **read-only GET** routes under `/api/products/*`, served by
 Next.js route handlers in `apps/web/app/api/products/`. They run against the
 in-memory deterministic catalog (`lib/catalog/`) — no database, no auth required,
-no rate limits beyond the platform's.
+no rate limits beyond the platform's. Two routes reach outside the catalog:
+`/api/products/[id]/live` (real distributor data) and `/api/quote-email`
+(real email via Resend) — both documented below.
 
 Base URL (production): `https://app.raristotle.com`
 
@@ -88,6 +90,44 @@ branch" (e.g. `B-HOU-01`). 404 with `{ "error": "Not found" }` for unknown ids.
 ### `GET /api/products/[id]/goeswith`
 
 Complementary products for cross-sell. Returns `{ "items": CatalogProduct[] }`.
+
+### `GET /api/products/[id]/live`
+
+**Live distributor data (REAL).** For `verified`/`curated` products only, fetches
+real price, stock, and datasheet data from Mouser and Digi-Key per-request
+(never stored — distributor terms prohibit caching). Simulated SKUs return
+`{ "enabled": false, "reason": "simulated-sku" }` without any outbound call;
+with no keys configured the reason is `"no-keys"`.
+
+```jsonc
+{
+  "enabled": true,
+  "configured": ["Mouser Electronics", "Digi-Key"],
+  "quotes": [ { "distributor", "matchedPart", "manufacturer", "description",
+                "unitPrice", "priceBreaks", "stock", "datasheetUrl", "productUrl" } ],
+  "fetchedAt": "2026-06-11T22:00:00.000Z"
+}
+```
+
+Configuration (env): `MOUSER_API_KEY`, `DIGIKEY_CLIENT_ID` + `DIGIKEY_CLIENT_SECRET`
+(OAuth2 client-credentials). Values are trimmed defensively — a stray trailing
+CR from Windows stdin piping once produced Digi-Key 401s. Empty `quotes` is
+normal: electronics distributors don't carry most construction commodities.
+
+### `GET | POST /api/quote-email`
+
+The one **non-products, non-read-only** route: real quote email via Resend.
+
+- `GET` → `{ "configured": boolean }` — whether `RESEND_API_KEY` is set (the
+  cart UI switches between real-send and labeled simulated-send messaging).
+- `POST { to, subject, html }` (Zod-validated) → `{ "sent": true, "id" }` on
+  success; `{ "sent": false, "simulated": true }` when unconfigured; `502` with
+  Resend's reason on provider errors (e.g. the free-tier
+  only-to-account-owner restriction before a domain is verified).
+- Sender defaults to `Meridian Supply Co. <onboarding@resend.dev>`; override
+  with `RESEND_FROM` once a domain is verified. Email HTML is composed
+  client-side by the pure, tested `quoteEmailHtml()` in
+  `lib/product-finder-email.ts`.
 
 ## Managing the API
 

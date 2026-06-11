@@ -1,11 +1,13 @@
 # Product Finder — Demonstration Script
 
-A presenter-ready, ~14-minute walkthrough of <https://app.raristotle.com/product-finder>.
-Every SKU below is deterministic — it exists with the same data in every environment.
+A presenter-ready, ~18-minute walkthrough of <https://app.raristotle.com/product-finder>.
+Every SKU below is deterministic — it exists with the same data in every environment
+(the live distributor prices in Act 3 are the one deliberate exception: they're real).
 **Bold** = what you do. *Italic* = what you say.
 
 > Prep (30 seconds): open the site in a fresh tab, have this script on a second
-> screen. No other setup — the catalog, customers, and orders are built in.
+> screen. No other setup — the catalog, customers, orders, and a seeded quote
+> history are built in.
 
 ## Act 1 — Sign in & the one-screen pitch (1.5 min)
 
@@ -14,16 +16,25 @@ Every SKU below is deterministic — it exists with the same data in every envir
    I need to turn a customer request into a priced, stocked order is on this one
    screen — searching 200,000 products."*
 1a. **Point at the guided tour card** (bottom-right, on a first visit).
-    *"New reps get a 7-step tour — search, filters, alternatives, basket and quote,
-    insights — and every step has a one-click 'try it' that runs the real feature.
-    It shows once and never blocks the screen."* **Dismiss it** (it's re-launchable
-    from the Help panel footer).
+    *"New reps get an 8-step tour — search, filters, alternatives, the Job Wizard,
+    basket and quote, insights — and every step has a one-click 'try it' that runs
+    the real feature. It shows once and never blocks the screen."* **Dismiss it**
+    (it's re-launchable from the Help panel footer).
 2. **Point at the header**: name + branch top-right, the **"Demo role:"** selector
    (*"swap between rep, manager, and admin instantly — no retyping credentials;
    we'll use it later"*), the **⌘K** palette button, the **🔔 notification bell**
    (*"approvals, follow-ups, restock alerts — we'll come back to it"*), the **?**
    Help button (*"interactive help with try-it examples, for new reps"*), and the
    Cart.
+2b. **Point at the metals index strip** at the top of the landing view.
+    *"Distribution pricing lives on copper. The app tracks a daily metals index —
+    when copper trends up, it nudges the rep to quote wire and cable now and lock
+    the 30-day validity. Every quote cites the index date its pricing reflects.
+    Simulated here — a live feed is a drop-in."*
+2c. **Point at the seasonal banner** under the metals strip.
+    *"And it knows the calendar: storm prep, heat advisories, construction season,
+    quarter-end datacom budgets — a weekly demand signal with one-tap searches for
+    what's about to sell."* **Click one pick chip**, then clear the search.
 2a. **Point at the "For you" rail** at the top of the landing view.
     *"Before I type anything, the app already knows this branch's rhythm —
     'Time to reorder' is ranked from real order history, with a DUE badge when a
@@ -34,7 +45,11 @@ Every SKU below is deterministic — it exists with the same data in every envir
 3. **Set "Quoting for:" → Gulf Coast Industrial.**
    *"First thing a rep does — pick the customer. That drives their contract
    pricing, their order history, the quote — and the For-you rail re-scopes to
-   their history."*
+   their history."* **Point at the health dot under the selector.**
+   *"And the app already knows this account's rhythm — green means Gulf Coast is
+   ordering on their usual 30-day cadence. Pick Lone Star instead and you'd see a
+   Watch flag: 70 days quiet. That's a win-back call, surfaced automatically —
+   at-risk accounts go straight to the bell."*
 
 ## Act 2 — Search like you talk (3 min)
 
@@ -74,8 +89,28 @@ Every SKU below is deterministic — it exists with the same data in every envir
    **Goes well with** cross-sell. **Point at the product plate** — *"every one of
    the 79 subcategories has its own line art, and the plate badges the key spec —
    that 20A comes straight off the spec sheet."*
+9a. **Search `AF09-30-10-13`** (a real ABB contactor) **and open View Details.
+    Scroll to the live distributor panel.**
+    *"And here's where the demo stops being a demo: those are LIVE calls to
+    Mouser Electronics AND Digi-Key — real stock, real price breaks, real
+    datasheets, fetched this second for this real part number. And look at the
+    spread: Mouser wants $94 for this contactor, Digi-Key $49 — that's the
+    multi-source price intelligence a rep never had at the counter. Our simulated
+    SKUs never leave the building; verified parts get live market data."*
+    (Also works: `UTPSP5BUY` Panduit patch cord, `LC1D09G7` Schneider contactor,
+    `3RT2026-1AK60` Siemens.)
 
-## Act 4 — From basket to deliverables (4 min)
+## Act 4 — From basket to deliverables (5 min)
+
+9b. **Click the 🧰 Job Wizard button** by the search bar. **Pick "200A
+    residential service upgrade".** *"Here's the headline: don't build the
+    basket part by part — describe the job. Seven steps — panel, breakers,
+    GFCIs, feeder wire, grounding, lugs — each already resolved to a stocked,
+    priced product from our catalog, with alternates one click away and field
+    notes on the code requirements. The whole-home surge protector is optional —
+    and flagged as the easy upsell it is."* **Click Add 6 items to basket.**
+    *"A whole job, basketed in ten seconds. Deterministic recommendations
+    today — the conversational 'Ask Meridian' is the roadmap."*
 
 10. **Open the Cart.** The GE substitute is there. **Set its quantity to 50** —
     *"volume tier kicks in automatically."* Point at the **margin** on the line and
@@ -83,6 +118,11 @@ Every SKU below is deterministic — it exists with the same data in every envir
     that's internal, it never prints on the customer's quote."* If the 50 exceeds
     stock, point at the **⚠ backorder warning** — *"and it tells me honestly that
     part of this quantity is on backorder."*
+    **Point at the 📊 line under the basket margin.**
+    *"And the margin isn't just a number — it's coached. Quotes in this margin
+    band historically win two out of three; push past 30% and the win rate drops
+    to a third. That's the branch's own quote history teaching reps where deals
+    close."*
 10a. **Click ✎ price on the line and type something absurdly low** (e.g. `1.00`),
     **Apply.** *"Price-matching a competitor? I can override the line price — but
     watch: it snapped to the floor. The guardrails won't let me sell above list or
@@ -104,10 +144,20 @@ Every SKU below is deterministic — it exists with the same data in every envir
     the status to Sent.** *"Draft → Sent → Won or Lost. And if I'd discounted below
     our 20% margin floor, this quote would say 'Approval pending' and I couldn't
     convert it until a manager signs off — discount governance built in."*
-14. **Click Email Quote**, show the pre-filled recipient, **Send Quote.** *"Off to
-    the customer — and it's logged as Sent automatically."* (Simulated send.) Then
-    in **Saved Quotes**, **Convert to Order** on a quote — *"customer says yes; one
-    click turns the quote into a placed order and marks it ✓ ordered."*
+    **Before saving, type a Note** ("Crane access required — call ahead") **and
+    tick two Terms blocks** (Freight, Price escalation).
+    *"The boring-but-critical fine print rides along: a note to the customer and
+    selectable terms — freight, returns, payment, commodity escalation. They print
+    on the PDF and show up on the customer's acceptance page, so what the rep
+    agreed to is what the customer sees."*
+14. **Click Email Quote**, show the pre-filled recipient, **Send Quote.**
+    *"With the email key configured this is a real branded email via Resend —
+    the line table, the note and terms, and a Review-and-Accept button that opens
+    the customer quote page. No key? It says so honestly and simulates. Either
+    way the quote is logged as Sent."* (Free tier delivers only to the Resend
+    account owner's address until a domain is verified — demo to your own inbox.)
+    Then in **Saved Quotes**, **Convert to Order** on a quote — *"customer says
+    yes; one click turns the quote into a placed order and marks it ✓ ordered."*
 14a. **Click Customer Link on a saved quote**, then **open the copied URL in a new
     tab.** *"Or skip the phone call entirely: this is what the customer gets — no
     login, the branded quote with their prices and the validity date, and two
@@ -116,6 +166,21 @@ Every SKU below is deterministic — it exists with the same data in every envir
     pipeline stays honest. If the quote was below the margin floor, this page
     says 'awaiting approval' and won't let them accept until a manager signs
     off."* (Copying the link also auto-advanced a Draft to **Sent**.)
+14b. **On a second quote's customer link, click Request changes**, type *"need
+    delivery by the 25th"*, **Send change request.** *"Customers don't just take
+    or leave it — they push back. That note lands on the rep's quote as a
+    COUNTERED badge with the ask inline, rings the bell, and rolls up on the
+    manager's pipeline as 'counter-offers awaiting a response.'"*
+14c. **Back in Saved Quotes, click Revise on the countered quote.**
+    *"And the counter gets a real answer. Revise loads everything — lines,
+    customer, note, terms — back into the basket with a banner. Drop the price
+    or swap a product…"* **adjust something, click Save Quote (v2).**
+    *"…and Save creates version 2, linked to the original. The old quote is
+    superseded — it leaves the pipeline, its alerts go quiet, and the old
+    customer link says a newer version exists. Now expand History on either
+    version:"* **click History.**
+    *"Every step — created, link copied, sent, countered, revised, by whom,
+    when. When IT asks about auditability, this is the answer."*
 15. **Click Export CSV.** *"Same basket as a spreadsheet — list vs. effective price,
     totals — for procurement."* Then **Share Basket** — *"a link that rebuilds this
     exact basket for a teammate or the customer."*
@@ -154,10 +219,12 @@ Every SKU below is deterministic — it exists with the same data in every envir
     save one in step 13 with the step-10a discount kept).
     *"Marcus doesn't go hunting for work — it comes to him. A below-margin quote
     needs his sign-off, any quote sent two weeks ago with no answer asks for a
-    follow-up, and products reps are watching show their estimated restock date.
-    Click one—"* **click the approval notification** — *"and it lands exactly on
-    the quote, ready to approve."* (Reps see follow-ups and restock alerts; only
-    managers see approvals.)
+    follow-up, customer counter-offers ring here, products reps are watching show
+    their estimated restock date, and accounts going quiet raise an at-risk flag.
+    Five signal types, all click-through. Click one—"* **click the approval
+    notification** — *"and it lands exactly on the quote, ready to approve."*
+    (Reps see follow-ups, counters, and restock alerts; only managers see
+    approvals.)
     **Click Insights.**
     *"Managers get the rollup — orders, value, contract savings delivered, top
     categories, customer mix. Reps don't see this."*
@@ -172,6 +239,18 @@ Every SKU below is deterministic — it exists with the same data in every envir
     their orders, and the Sent tile opens the cart at Saved Quotes with a Status:
     Sent chip I can clear. An orders-over-time point does the same for its month.
     No dead-end KPIs."*
+20b. **Scroll to Pricing Win/Loss and Customer Health.**
+    *"Two panels that turn quoting exhaust into management insight. Win/loss by
+    margin band — won deals average 23% margin, lost ones 27%; the sweet spot is
+    visible, and the same guidance coaches reps in the basket. And Customer
+    Health ranks every account by order cadence — Lone Star's been quiet 70
+    days; one click lands on their history, ready for the win-back call."*
+20c. **Scroll to Branch Demand Forecast.**
+    *"And the same history answers 'what should this branch stock next month?'
+    Ninety days of orders and won quotes by subcategory, a trend arrow, and a
+    30-day stocking suggestion — click a row and you're browsing that
+    subcategory. Simple, explainable math; a real forecasting model plugs into
+    the same panel."*
 
 ## Act 6 — Two keystrokes to anywhere (1 min)
 
@@ -186,19 +265,21 @@ Every SKU below is deterministic — it exists with the same data in every envir
 
 ## Wrap-up
 
-*"One screen takes a rep from a rough request to a customer-priced, quoted,
-emailed, tracked order — and now the order can close itself: the customer taps a
-link on their phone and accepts. Searchable by voice or in trade slang, reorder
-predictions before the first keystroke, explainable recommendations, automatic
-substitutes for out-of-stock items, margin-guarded price overrides, basket-level
-'what's missing' cross-sell, delivery dates, live stock, cross-references,
-confidence-scored BOM imports, CSV/PDF deliverables, reusable kits, a
-notification bell and click-through pipeline for managers, and every screen two
-keystrokes away — desk or job site."*
+*"One screen takes a rep from a rough request — or just the name of the job —
+to a customer-priced, quoted, coached, tracked order the customer can accept or
+counter from their phone. Reorder predictions and commodity trends before the
+first keystroke, seasonal demand signals, explainable recommendations, LIVE
+Mouser and Digi-Key pricing on real parts, automatic substitutes, margin-guarded
+overrides with win/loss coaching, confidence-scored BOM imports, real branded
+quote emails, every quote carrying its own audit trail with revisions instead
+of overwrites, customer health and demand forecasts rolling up to a manager
+bell and pipeline — and every screen two keystrokes away, desk or job site."*
 
 > **Demo honesty note:** customer accounts, contract pricing, inventory/ATP, PIM
 > provenance, and cross-references run on **synthetic data behind swap-in
-> adapters** (`lib/integration/`). See the
+> adapters** (`lib/integration/`). Two deliberate exceptions are REAL: the live
+> Mouser/Digi-Key distributor panel (Act 3, step 9a) and the Resend quote email
+> when a key is configured. See the
 > [integration guide](wesco-it-integration-guide.md) for connecting real systems.
 
 ## If something goes sideways
@@ -221,5 +302,23 @@ keystrokes away — desk or job site."*
   discount first.
 - **Customer link says "awaiting approval"** → that's the guardrail working;
   approve the quote (manager) and copy a fresh link.
+- **No 📊 guidance line in the cart** → the basket's margin band needs 3+
+  decided quotes; the seeded history covers the 15–30%+ bands on a fresh browser.
+- **No health dot** → select a customer in "Quoting for" first.
+- **Metals strip / seasonal banner missing** → they show on the landing view
+  only (clear search and filters); the copper nudge appears only when copper
+  trends up that day, and the seasonal event rotates weekly — whatever shows,
+  the talking point is the same.
+- **Job Wizard step says "No match"** → that subcategory search found nothing;
+  swap an alternate on another step or search manually — every default template
+  query is verified against the catalog.
+- **Revise button missing** → won, ordered, and already-superseded quotes can't
+  be revised; pick an open (draft/sent) version.
+- **Live distributor panel empty** → normal for most parts; use the known-good
+  SKUs in step 9a. Construction commodities often aren't carried by electronics
+  distributors — the panel says so rather than faking it.
+- **Real email fails with a domain message** → Resend free tier delivers only
+  to the account owner's inbox until a domain is verified; send to that address
+  or verify a domain.
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

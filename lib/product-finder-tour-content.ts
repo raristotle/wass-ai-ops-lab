@@ -65,6 +65,7 @@ export const TOUR_STEPS: readonly TourStep[] = [
       "• ✓ CROSS-REF means a genuine functional equivalent — same subcategory, identical key specs, just a different brand, price, or stock position.",
       "• A match ring and “Why recommended?” explain every ranking, so you can defend the swap to the customer.",
       "• Out-of-stock items automatically offer their best in-stock substitute.",
+      "• Verified real parts go further: the detail view pulls LIVE Mouser and Digi-Key pricing, stock, and datasheets (try AF09-30-10-13).",
     ],
   },
   {
@@ -85,9 +86,9 @@ export const TOUR_STEPS: readonly TourStep[] = [
     body: [
       "Add products at any quantity, then open the cart drawer.",
       "• Volume tiers and contract pricing apply per line automatically.",
-      "• Generate a branded quote PDF, email it, or save it to track Draft → Sent → Won/Lost.",
+      "• Generate a branded quote PDF — with your note and selectable terms — email it for real, or save it to track Draft → Sent → Won/Lost.",
       "• Need to discount? ✎ price overrides are margin-guarded, and win/loss history coaches the sweet spot.",
-      "• Every saved quote has a Customer Link — they accept, decline, or counter from their phone.",
+      "• Every saved quote has a Customer Link — they accept, decline, or counter from their phone; Revise answers a counter with a linked v2, and History keeps the audit trail.",
     ],
     action: { kind: "openCart", label: "Open the cart" },
   },
@@ -101,6 +102,7 @@ export const TOUR_STEPS: readonly TourStep[] = [
       "• A quote pipeline with open value, win rate, follow-up, approval, and counter-offer alerts.",
       "• Pricing win/loss by margin band — see where quotes actually close.",
       "• Customer health — accounts going quiet vs their usual order cadence.",
+      "• A branch demand forecast — what to stock for the next 30 days, from real order history.",
       "Signed in as a sales rep? Switch roles from the command palette to see it.",
     ],
     action: { kind: "navigate", label: "Open Insights", href: "/product-finder/dashboard" },
@@ -112,7 +114,7 @@ export const TOUR_STEPS: readonly TourStep[] = [
     body: [
       "A few more ways to move faster:",
       "• The 🔔 bell collects approvals, follow-ups, counter-offers, restock and at-risk-customer alerts.",
-      "• “For you” on the landing view predicts reorders before you type; the metals index flags copper swings.",
+      "• “For you” on the landing view predicts reorders before you type; the metals index flags copper swings; the seasonal banner surfaces what's about to sell.",
       "• Voice search — tap the mic and say “twenty amp breaker in stock”.",
       "• Command palette — Ctrl/Cmd-K jumps anywhere, switches roles, or runs a search.",
       "• Deep links — every filtered view has a shareable URL that rebuilds it exactly.",
