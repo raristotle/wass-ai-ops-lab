@@ -127,8 +127,9 @@ async function digikeyToken(): Promise<string | null> {
     signal: AbortSignal.timeout(10000),
   });
   if (!r.ok) {
-    // Status only — never log credentials or response bodies wholesale.
-    console.warn(`[distributor-live] Digi-Key token request failed: ${r.status}`);
+    // OAuth error bodies carry no secrets — log a truncated description.
+    const detail = (await r.text().catch(() => "")).slice(0, 200);
+    console.warn(`[distributor-live] Digi-Key token request failed: ${r.status} ${detail}`);
     return null;
   }
   const data = await r.json();
