@@ -6,6 +6,7 @@ import {
   hasFilterParams,
   buildShareQuery,
   categoryShareQuery,
+  subcategoryShareQuery,
 } from "@/lib/product-finder-url";
 
 // Sets don't deep-equal usefully across encode/decode — compare via sorted arrays.
@@ -207,5 +208,19 @@ describe("categoryShareQuery", () => {
 
   it("counts as filter params", () => {
     expect(hasFilterParams(categoryShareQuery("av"))).toBe(true);
+  });
+});
+
+describe("subcategoryShareQuery", () => {
+  it("decodes back to a single-subcategory filter state (multi-word names survive)", () => {
+    const decoded = decodeFiltersFromQuery(subcategoryShareQuery("Wire & Cable"));
+    expect([...decoded.subcategories]).toEqual(["Wire & Cable"]);
+    const expected = emptyFilterState();
+    expected.subcategories.add("Wire & Cable");
+    expect(normalize(decoded)).toEqual(normalize(expected));
+  });
+
+  it("counts as filter params", () => {
+    expect(hasFilterParams(subcategoryShareQuery("Circuit Breakers"))).toBe(true);
   });
 });

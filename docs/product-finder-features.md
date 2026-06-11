@@ -99,6 +99,9 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | **Seasonal demand signals** | Weekly rotating merchandising banner (storm prep, heat advisory, construction kickoff, datacom refresh) with one-tap trending searches — simulated, feed-swappable |
 | Contract pricing | Category discounts + negotiated net prices, layered with volume tiers — List → Your price → You save % |
 | Live inventory adapter | Branch/DC stock + ATP behind a swap-in interface |
+| **Live distributor pricing (REAL)** | Mouser API active: verified products' detail views fetch real price breaks, live stock, and datasheets per-request (never stored); Digi-Key wired, pending OAuth credentials; simulated SKUs are never sent out. Try `AF09-30-10-13` |
+| **Branch demand forecast** | Insights panel: trailing-90-day demand (orders + won quotes) by subcategory with trend arrows and a 30-day stocking projection; rows drill through to the subcategory |
+| **Real quote email (Resend)** | With `RESEND_API_KEY` set, Email Quote delivers a real branded email — line table, note/terms, and a Review & Accept button opening the customer link; without a key it falls back to the labeled simulated send |
 | PIM provenance | Catalog source strip (source, count, last sync) |
 | Adapter architecture | All integration seams in `lib/integration/` ready for real ERP/PIM/CRM/pricing systems |
 

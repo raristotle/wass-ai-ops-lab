@@ -163,12 +163,13 @@ export const HELP_TOPICS: HelpTopic[] = [
   },
   {
     id: "email-quote",
-    title: "Email a quote",
+    title: "Email a quote (real send)",
     body: [
       "In the cart, Email Quote opens an inline form pre-filled with a recipient address.",
-      "• Send Quote saves the quote with status “Sent” and confirms — so it's tracked for follow-up.",
-      "• Pair it with Saved Quotes to move it to Won or Lost later.",
-      "(Demo: no email is actually transmitted; the quote is recorded as Sent.)",
+      "• With an email key configured, Send Quote delivers a REAL branded email via Resend — the full line table, your note and terms, and a one-tap Review & Accept button that opens the customer quote link.",
+      "• Without a key it falls back to a clearly-labeled simulated send.",
+      "• Either way the quote is saved with status “Sent” and tracked for follow-up; the form tells you which mode is active.",
+      "(Free-tier note: until a sending domain is verified with Resend, emails deliver only to the account owner's address.)",
     ],
   },
   {
@@ -509,6 +510,29 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• A free-text Note field (site access, scheduling, alternates offered) — persists between quotes like customer/project.",
       "• Selectable Terms & Conditions blocks: freight, returns, payment, commodity escalation, lead times.",
       "• Both print on the quote PDF and travel inside the Customer Link, so the customer sees exactly what the rep agreed to.",
+    ],
+  },
+  {
+    id: "live-pricing",
+    title: "Live distributor pricing (Mouser / Digi-Key)",
+    body: [
+      "For real, verified products, the detail view fetches LIVE price, stock, and datasheet data from distributor APIs — actual market data, not simulation.",
+      "• Try a real part: search AF09-30-10-13 (ABB contactor) or UTPSP5BUY (Panduit patch cord) and open View Details.",
+      "• Each quote shows the matched part, live stock, price breaks, and a link to the distributor page.",
+      "• Simulated catalog SKUs are never sent to distributor APIs — the panel only queries verified part numbers.",
+      "Mouser is active; Digi-Key lights up when its OAuth credentials are added. Data is fetched per-request and never stored.",
+    ],
+    tryQuery: "AF09-30-10-13",
+  },
+  {
+    id: "demand-forecast",
+    title: "Branch demand forecast",
+    body: [
+      "Insights now projects what the branch should stock next:",
+      "• Trailing 90 days of orders plus won quotes, aggregated by subcategory.",
+      "• A half-window trend (▲ accelerating / ▼ cooling) adjusts a simple moving-average projection for the next 30 days.",
+      "• Each row shows the volume behind the number and the top product — click through to browse the subcategory.",
+      "Simple, explainable math on demo data — a real forecasting model plugs into the same panel.",
     ],
   },
   {

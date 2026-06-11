@@ -111,3 +111,10 @@ export function categoryShareQuery(category: ProductCategory): string {
   filters.categories.add(category);
   return filtersToQuery(filters, 0, 24);
 }
+
+/** Share query for a single-subcategory deep link (default page size). */
+export function subcategoryShareQuery(subcategory: string): string {
+  const filters = emptyFilterState();
+  filters.subcategories.add(subcategory);
+  return filtersToQuery(filters, 0, 24);
+}

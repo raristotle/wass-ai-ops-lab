@@ -48,6 +48,8 @@ import { quotePipeline } from "@/lib/product-finder-quote-pipeline";
 import { QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR } from "@/lib/product-finder-quotes";
 import { winLossByBand, winLossSummary } from "@/lib/product-finder-winloss";
 import { allCustomerHealth, HEALTH_COLOR, HEALTH_LABEL } from "@/lib/product-finder-customer-health";
+import { demandForecast, WINDOW_DAYS } from "@/lib/product-finder-forecast";
+import { subcategoryShareQuery } from "@/lib/product-finder-url";
 import { categoryShareQuery } from "@/lib/product-finder-url";
 import { apiGetProduct } from "@/lib/product-finder-api";
 import type { ProductCategory } from "@/features/product-finder/types";
@@ -148,6 +150,7 @@ function DashboardContent() {
     () => allCustomerHealth(orders, customers, now),
     [orders, customers, now]
   );
+  const forecast = useMemo(() => demandForecast(orders, quotes, now, 6), [orders, quotes, now]);
 
   // ── Drill-through handlers ──────────────────────────────────────────────────
   // Bar click payload carries the original CategoryStat datum.
@@ -532,6 +535,66 @@ function DashboardContent() {
           )}
         </section>
       </div>
+
+      {/* ── Branch demand forecast ─────────────────────────────────────────────── */}
+      <section
+        aria-label="Branch demand forecast"
+        className="rounded-xl border border-[#00573F]/30 bg-[#00573F]/5 p-4"
+      >
+        <div className="mb-3 flex items-baseline justify-between gap-2">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-[#00573F]">
+            Branch Demand Forecast
+          </h2>
+          <span className="text-xs text-[#4F758B]">
+            trailing {WINDOW_DAYS} days of orders + won quotes → next 30 days
+          </span>
+        </div>
+        {forecast.length === 0 ? (
+          <p className="py-4 text-center text-xs text-[#4F758B]">
+            No demand history yet — forecasts appear as orders and won quotes accumulate.
+          </p>
+        ) : (
+          <ul className="grid gap-2 lg:grid-cols-2">
+            {forecast.map((f) => (
+              <li key={f.subcategory}>
+                <button
+                  type="button"
+                  onClick={() => router.push("/product-finder?" + subcategoryShareQuery(f.subcategory))}
+                  aria-label={`Browse ${f.subcategory}`}
+                  className="flex w-full items-center gap-3 rounded-lg border border-[#B7C9D3]/40 bg-white px-3 py-2 text-left transition-colors hover:border-[#00573F]"
+                >
+                  <span className="min-w-0 flex-1">
+                    <span className="flex items-center gap-1.5">
+                      <span className="truncate text-sm font-semibold text-[#1D252D]">{f.subcategory}</span>
+                      <span
+                        aria-label={`trend ${f.trend}`}
+                        className="text-xs"
+                        style={{ color: f.trend === "up" ? "#00AA13" : f.trend === "down" ? "#DB6B30" : "#4F758B" }}
+                      >
+                        {f.trend === "up" ? "▲" : f.trend === "down" ? "▼" : "→"}
+                      </span>
+                    </span>
+                    <span className="block truncate text-[11px] text-[#4F758B]">
+                      {f.qty90d} units / {WINDOW_DAYS}d ({f.monthlyRate}/mo)
+                      {f.topProduct ? ` · top: ${f.topProduct.name}` : ""}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-right">
+                    <span className="block text-lg font-bold text-[#00573F]">~{f.projected30d}</span>
+                    <span className="block text-[9px] uppercase tracking-wide text-[#4F758B]">
+                      stock next 30d
+                    </span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p className="mt-2 text-[10px] italic text-[#4F758B]">
+          Simple moving-average projection with a trend adjustment — demo data; a real
+          forecasting model plugs into the same panel.
+        </p>
+      </section>
 
       {/* ── Charts row: Top categories + Orders over time ──────────────────────── */}
       <div className="grid gap-4 lg:grid-cols-2">

@@ -14,13 +14,13 @@ import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import { isInLocalMonth } from "@/lib/analytics";
 import {
   QUOTE_STATUSES, QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR,
-  APPROVAL_LABEL, APPROVAL_COLOR, isSuperseded, type SavedQuote, type QuoteStatus,
+  APPROVAL_LABEL, APPROVAL_COLOR, isSuperseded, needsApproval, type SavedQuote, type QuoteStatus,
 } from "@/lib/product-finder-quotes";
 import { TERMS_BLOCKS, resolveTerms } from "@/lib/product-finder-terms";
 import { EVENT_ICON, EVENT_LABEL } from "@/lib/product-finder-quote-events";
 import { SubmittalPackage } from "@/features/product-finder/SubmittalPackage";
 import { completeTheJob } from "@/lib/product-finder-complete-job";
-import { isValidEmail, guessRecipient } from "@/lib/product-finder-email";
+import { isValidEmail, guessRecipient, defaultQuoteSubject, quoteEmailHtml } from "@/lib/product-finder-email";
 import {
   estimatedUnitCost, marginPct, marginTier, MARGIN_TIER_COLOR, basketMargin,
 } from "@/lib/product-finder-margin";
@@ -177,6 +177,109 @@ export function CartDrawer() {
   const [emailOpen, setEmailOpen] = useState(false);
   const [emailTo, setEmailTo] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+  // null = unknown (not yet checked); true = Resend key configured server-side.
+  const [emailConfigured, setEmailConfigured] = useState<boolean | null>(null);
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
+
+  // Check once per drawer mount whether real sending is available.
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/quote-email")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!cancelled) setEmailConfigured(Boolean(d?.configured));
+      })
+      .catch(() => {
+        if (!cancelled) setEmailConfigured(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  /** Email the quote: save it as Sent, then deliver for real when configured. */
+  const handleEmailSend = async () => {
+    const ts = Date.now();
+    const num = quoteNumber(new Date(ts));
+    const provider = getPricingProvider();
+    const payloadLines = items.map(({ product, qty }) => ({
+      id: product.id,
+      sku: product.sku,
+      name: product.name,
+      qty,
+      unitPrice:
+        priceOverrides[product.id] ??
+        provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
+    }));
+    const total = payloadLines.reduce((s, l) => s + l.unitPrice * l.qty, 0);
+    const pending = margin ? needsApproval(margin.marginPct) : false;
+    const payload: QuoteSharePayload = {
+      v: QUOTE_SHARE_VERSION,
+      // saveQuote(now: ts) creates id `quote-${ts}` — the link targets it exactly.
+      id: `quote-${ts}`,
+      number: num,
+      customer: customer || (activeCustomer?.name ?? ""),
+      project,
+      lines: payloadLines,
+      total,
+      createdAt: ts,
+      validUntil: quoteValidityDate(new Date(ts)).getTime(),
+      ...(user ? { rep: user.name, branch: user.branch } : {}),
+      ...(pending ? { approvalPending: true as const } : {}),
+      ...(quoteNote.trim() ? { note: quoteNote.trim() } : {}),
+      ...(termsIds.length > 0 ? { terms: resolveTerms(termsIds) } : {}),
+    };
+    const linkUrl = `${location.origin}/product-finder/quote?q=${encodeQuoteShare(payload)}`;
+
+    saveQuote({
+      number: num,
+      customer: customer || (activeCustomer?.name ?? ""),
+      project,
+      status: "sent",
+      now: ts,
+      note: quoteNote,
+      termsIds,
+    });
+
+    setEmailError(null);
+    if (!emailConfigured) {
+      setEmailSent(true);
+      return;
+    }
+    setEmailSending(true);
+    try {
+      const res = await fetch("/api/quote-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to: emailTo,
+          subject: defaultQuoteSubject(num),
+          html: quoteEmailHtml({
+            customer: customer || (activeCustomer?.name ?? ""),
+            quoteNumber: num,
+            lines: payloadLines,
+            total,
+            rep: user?.name ?? "",
+            branch: user?.branch,
+            linkUrl,
+            ...(quoteNote.trim() ? { note: quoteNote.trim() } : {}),
+            ...(termsIds.length > 0 ? { terms: resolveTerms(termsIds) } : {}),
+          }),
+        }),
+      });
+      const data = await res.json();
+      if (data?.sent) {
+        setEmailSent(true);
+      } else {
+        setEmailError(typeof data?.error === "string" ? data.error : "Send failed — quote saved as Sent anyway.");
+      }
+    } catch {
+      setEmailError("Email service unreachable — quote saved as Sent anyway.");
+    } finally {
+      setEmailSending(false);
+    }
+  };
 
   // ── Quote state ────────────────────────────────────────────────────────────
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -1245,25 +1348,21 @@ export function CartDrawer() {
                 />
                 <button
                   type="button"
-                  disabled={!isValidEmail(emailTo)}
-                  onClick={() => {
-                    // Simulated send: save the quote as "sent" and confirm.
-                    saveQuote({
-                      number: quoteNumber(new Date()),
-                      customer: customer || (activeCustomer?.name ?? ""),
-                      project,
-                      status: "sent",
-                      note: quoteNote,
-                      termsIds,
-                    });
-                    setEmailSent(true);
-                  }}
+                  disabled={!isValidEmail(emailTo) || emailSending}
+                  onClick={handleEmailSend}
                   className="w-full rounded bg-[#004986] px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[#003a6d] disabled:cursor-not-allowed disabled:opacity-40"
                 >
-                  {emailSent ? `Sent to ${emailTo} ✓` : "Send Quote"}
+                  {emailSending ? "Sending…" : emailSent ? `Sent to ${emailTo} ✓` : "Send Quote"}
                 </button>
+                {emailError && (
+                  <p className="rounded border border-[#DB6B30]/50 bg-[#DB6B30]/10 px-2 py-1 text-[10px] text-[#1D252D]">
+                    ⚠ {emailError}
+                  </p>
+                )}
                 <p className="text-[9px] italic text-[#4F758B]">
-                  Simulated — no email is actually sent. The quote is saved with status “Sent.”
+                  {emailConfigured
+                    ? "Sends a real email via Resend with the line table and a Review & Accept link. The quote is saved with status “Sent.”"
+                    : "Simulated — no email is actually sent (no email key configured). The quote is saved with status “Sent.”"}
                 </p>
               </div>
             )}

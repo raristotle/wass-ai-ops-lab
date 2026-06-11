@@ -129,3 +129,47 @@ revisions instead of overwrites, and the fine print traveling with the deal."*
   be revised; pick an open (draft/sent) version.
 - **Seasonal banner shows a different event than expected** → it rotates by
   week deterministically; whatever shows, the talking point is the same.
+
+---
+
+# Tier 5 additions
+
+## Act 3 — insert as step 9a (after View Details beat 9)
+
+9a. **Search `AF09-30-10-13`** (a real ABB contactor) **and open View Details.
+    Scroll to the live distributor panel.**
+    *"And here's where the demo stops being a demo: that's a LIVE call to
+    Mouser Electronics — real stock, real price breaks, real datasheet,
+    fetched this second for this real part number. Our simulated SKUs never
+    leave the building; verified parts get live market data. Digi-Key drops in
+    the same way once its credentials are added."*
+    (Also works: `UTPSP5BUY` Panduit patch cord, `LC1D09G7` Schneider
+    contactor, `3RT2026-1AK60` Siemens.)
+
+## Act 4 — replace the Email Quote beat (step 14) talk track
+
+14. **Click Email Quote**, show the pre-filled recipient, **Send Quote.**
+    *"With the email key configured this is a real branded email via Resend —
+    the line table, the note and terms, and a Review-and-Accept button that
+    opens the customer quote page. No key? It says so honestly and simulates.
+    Either way the quote is logged as Sent."* (Free tier delivers only to the
+    Resend account owner's address until a domain is verified — demo to your
+    own inbox.)
+
+## Act 5 — insert as step 20c (after the win/loss + health beat 20b)
+
+20c. **Scroll to Branch Demand Forecast.**
+    *"And the same order history now answers 'what should this branch stock
+    next month?' Ninety days of orders and won quotes by subcategory, a trend
+    arrow, and a 30-day stocking suggestion — click a row and you're browsing
+    that subcategory. Simple, explainable math; a real forecasting model plugs
+    into the same panel."*
+
+## If something goes sideways — add
+
+- **Live distributor panel empty** → normal for most parts; use the known-good
+  SKUs above. Construction commodities often aren't carried by electronics
+  distributors — the panel says so rather than faking it.
+- **Real email fails with a domain message** → Resend free tier delivers only
+  to the account owner's inbox until a domain is verified; send to that
+  address or verify a domain.
