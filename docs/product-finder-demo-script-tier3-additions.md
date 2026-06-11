@@ -138,11 +138,13 @@ revisions instead of overwrites, and the fine print traveling with the deal."*
 
 9a. **Search `AF09-30-10-13`** (a real ABB contactor) **and open View Details.
     Scroll to the live distributor panel.**
-    *"And here's where the demo stops being a demo: that's a LIVE call to
-    Mouser Electronics — real stock, real price breaks, real datasheet,
-    fetched this second for this real part number. Our simulated SKUs never
-    leave the building; verified parts get live market data. Digi-Key drops in
-    the same way once its credentials are added."*
+    *"And here's where the demo stops being a demo: those are LIVE calls to
+    Mouser Electronics AND Digi-Key — real stock, real price breaks, real
+    datasheets, fetched this second for this real part number. And look at
+    the spread: Mouser wants $94 for this contactor, Digi-Key $49 — that's
+    the multi-source price intelligence a rep never had at the counter. Our
+    simulated SKUs never leave the building; verified parts get live market
+    data."*
     (Also works: `UTPSP5BUY` Panduit patch cord, `LC1D09G7` Schneider
     contactor, `3RT2026-1AK60` Siemens.)
 
