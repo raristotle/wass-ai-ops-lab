@@ -513,6 +513,19 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "verified-crosses",
+    title: "Verified cross-references (source-backed)",
+    body: [
+      "For real, verified products, cross-references are no longer similarity guesses — every pair cites the official document that states it.",
+      "• Sources: manufacturer cross tools (ABB's competitor lookup, Eaton's UL-classified charts, Signify's ballast guides, Hubbell's cross guide), datasheets, and published cross tables — each result links its source.",
+      "• Every recommendation is explainable: match reason, which attributes agree, what's missing or conflicting, and warning flags straight from the source (\"UL Classified for listed panels only\", \"add a CA4-01 aux contact\").",
+      "• Confidence is scored by source authority; anything below 95% never reaches the recommendation — it stays in the review queue.",
+      "Try it: search LC1D09G7 (Schneider contactor) and open View Details — ABB's own cross tool maps it to the AF09-30-10-13 we stock.",
+      "Simulated catalog SKUs keep their clearly-labeled simulated equivalence engine — the two paths never mix.",
+    ],
+    tryQuery: "LC1D09G7",
+  },
+  {
     id: "live-pricing",
     title: "Live distributor pricing (Mouser / Digi-Key)",
     body: [

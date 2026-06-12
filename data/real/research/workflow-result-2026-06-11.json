@@ -1,0 +1,927 @@
+{
+ "hierarchy": [
+  {
+   "brand": "Square D",
+   "parentCompany": "Schneider Electric",
+   "division": "Flagship Schneider Electric brand for electrical distribution and industrial control (US)",
+   "aliases": [
+    "Square D by Schneider Electric",
+    "SQUARE D"
+   ],
+   "sourceUrl": "https://www.se.com/us/en/brands/squared/about/",
+   "evidence": "Schneider Electric's own se.com Square D brand/history pages (seen in se.com-restricted search results) describe Square D as Schneider Electric's flagship brand, acquired by Schneider Electric in 1991; in 2003 the 'Square D by Schneider Electric' brand celebrated its 100th anniversary."
+  },
+  {
+   "brand": "Schneider Electric",
+   "parentCompany": "Schneider Electric",
+   "aliases": [
+    "Schneider Electric SE"
+   ],
+   "sourceUrl": "https://www.se.com/ww/en/about-us/company-profile/",
+   "evidence": "Schneider Electric's company-profile page (se.com search results) describes Schneider Electric as a global energy technology leader in energy management and automation with about 160,000 employees in over 100 countries — an independent corporate parent."
+  },
+  {
+   "brand": "Eaton",
+   "parentCompany": "Eaton",
+   "aliases": [
+    "Eaton Corporation plc"
+   ],
+   "sourceUrl": "https://www.eaton.com/us/en-us/company/about-us.html",
+   "evidence": "Eaton's About Us page (eaton.com search results: 'About us | Power management company | Eaton') describes Eaton as an intelligent power management company founded in 1911 with nearly $25 billion in 2024 revenues serving customers in more than 160 countries — an independent corporate parent.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/e/eaton.html"
+  },
+  {
+   "brand": "Eaton B-Line",
+   "parentCompany": "Eaton",
+   "division": "B-Line series (Eaton support systems / cable management portfolio; formerly Cooper B-Line)",
+   "aliases": [
+    "B-Line",
+    "B-Line series",
+    "Cooper B-Line",
+    "Eaton's B-Line series"
+   ],
+   "sourceUrl": "https://www.eaton.com/us/en-us/products/support-systems.html",
+   "evidence": "Eaton's support-systems pages market the B-Line series as Eaton's portfolio of cable management, support systems, enclosures and meter mounting solutions; search results note Eaton B-Line was formerly known as Cooper B-Line (Eaton acquired Cooper Industries).",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/e/eaton/eaton-b-line-series.html"
+  },
+  {
+   "brand": "Bussmann",
+   "parentCompany": "Eaton",
+   "division": "Bussmann series (Eaton circuit protection, St. Louis, MO; formerly Cooper Bussmann)",
+   "aliases": [
+    "Bussmann series",
+    "Eaton Bussmann Series",
+    "Cooper Bussmann"
+   ],
+   "sourceUrl": "https://www.eaton.com/us/en-us/products/electrical-circuit-protection/fuses.html",
+   "evidence": "Eaton's electrical-circuit-protection pages sell fuses and fuse holders under 'Eaton's Bussmann series'; search results describe Bussmann as a division of Eaton headquartered in St. Louis, MO manufacturing circuit protection products.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/e/eaton/eaton-bussmann-series.html"
+  },
+  {
+   "brand": "Tripp Lite",
+   "parentCompany": "Eaton",
+   "division": "Eaton power quality business (Americas)",
+   "aliases": [
+    "Tripp Lite by Eaton"
+   ],
+   "sourceUrl": "https://www.eaton.com/us/en-us/company/news-insights/news-releases/2021/eaton-completes-the-acquisition-of-tripp-lite--expanding-eaton-s.html",
+   "evidence": "Eaton's news release (eaton.com, March 17, 2021) states Eaton completed the $1.65 billion acquisition of Tripp Lite, a Chicago-based supplier of power quality products, expanding Eaton's power quality business in the Americas."
+  },
+  {
+   "brand": "GE (ABB)",
+   "parentCompany": "ABB",
+   "division": "ABB Electrification (GE Industrial Solutions integrated as Electrification Products Industrial Solutions); GE brand used by ABB under a long-term right acquired in the deal",
+   "aliases": [
+    "GE",
+    "GE Industrial Solutions",
+    "GEIS"
+   ],
+   "sourceUrl": "https://new.abb.com/news/detail/5475/abb-completes-acquisition-of-ge-industrial-solutions",
+   "evidence": "ABB's press release states ABB completed its $2.6 billion acquisition of GE Industrial Solutions (GE's global electrification solutions business) on June 30, 2018, integrating it into ABB's Electrification Products division; included in the acquisition is a long-term right to use the GE brand."
+  },
+  {
+   "brand": "ABB",
+   "parentCompany": "ABB",
+   "aliases": [
+    "ABB Ltd",
+    "ABB Group"
+   ],
+   "sourceUrl": "https://www.abb.com/global/en/company/about",
+   "evidence": "ABB's About page (abb.com search results) describes ABB as a global technology leader in electrification and automation, formed in 1988 from the merger of ASEA (Sweden) and BBC (Switzerland), with around 110,000 employees — an independent corporate parent.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/a/abb.html"
+  },
+  {
+   "brand": "Thomas & Betts",
+   "parentCompany": "ABB",
+   "division": "ABB Installation Products (formerly Thomas & Betts), within ABB's low-voltage/Electrification business",
+   "aliases": [
+    "T&B",
+    "ABB Installation Products"
+   ],
+   "sourceUrl": "https://new.abb.com/news/detail/13297/abb-completes-acquisition-of-thomas-betts",
+   "evidence": "ABB's press release states ABB completed its acquisition of Thomas & Betts, a maker of low-voltage products, on May 16, 2012, with T&B shares ceasing to trade on the NYSE; Wesco's brand pages list 'ABB Installation Products, formerly Thomas & Betts'.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/a/abb/abb-installation-products.html"
+  },
+  {
+   "brand": "Siemens",
+   "parentCompany": "Siemens",
+   "aliases": [
+    "Siemens AG"
+   ],
+   "sourceUrl": "https://www.siemens.com/global/en/company/about.html",
+   "evidence": "Siemens' corporate About page (fetched) describes Siemens as 'a leading technology company' accelerating customer transformations through industrial AI, digitalization and sustainability — an independent corporate parent."
+  },
+  {
+   "brand": "Allen-Bradley",
+   "parentCompany": "Rockwell Automation",
+   "division": "Flagship product brand of Rockwell Automation (industrial automation hardware)",
+   "aliases": [
+    "Allen Bradley",
+    "A-B"
+   ],
+   "sourceUrl": "https://www.rockwellautomation.com/en-us/company.html",
+   "evidence": "Rockwell Automation's company page (fetched) states: 'Across the globe, our flagship Allen Bradley® and FactoryTalk® product brands are recognized for excellence.'"
+  },
+  {
+   "brand": "Hubbell",
+   "parentCompany": "Hubbell",
+   "aliases": [
+    "Hubbell Incorporated"
+   ],
+   "sourceUrl": "https://www.hubbell.com/hubbell/en",
+   "evidence": "Hubbell's corporate site (fetched) — 'Trusted solutions for critical infrastructure since 1888' — describes Hubbell as a designer and manufacturer of electrical, lighting, power and data communications products for utility, industrial and commercial markets; an independent corporate parent.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/h/hubbell.html"
+  },
+  {
+   "brand": "RACO",
+   "parentCompany": "Hubbell",
+   "division": "Hubbell Commercial Construction business",
+   "aliases": [
+    "Raco",
+    "Hubbell-RACO"
+   ],
+   "sourceUrl": "https://www.hubbell.com/raco/en/about-us",
+   "evidence": "RACO's About Us page on hubbell.com (fetched) states 'Hubbell.Inc (Delaware) acquired the company in 1981' and identifies RACO as 'A Hubbell brand'; search results add it is part of the Commercial Construction business of Hubbell Incorporated."
+  },
+  {
+   "brand": "Burndy",
+   "parentCompany": "Hubbell",
+   "division": "Hubbell Electrical Systems",
+   "aliases": [
+    "BURNDY"
+   ],
+   "sourceUrl": "https://www.hubbell.com/burndy/en/about-us",
+   "evidence": "Burndy's About Us page on hubbell.com (fetched) states: 'it was in October 2009 that the BURNDY® segment became a part of the HUBBELL Electrical Systems family of companies (NYSE: HUB.B).'"
+  },
+  {
+   "brand": "APC",
+   "parentCompany": "Schneider Electric",
+   "division": "Flagship Schneider Electric brand for battery back-up/UPS and IT physical infrastructure (formerly American Power Conversion, acquired 2007)",
+   "aliases": [
+    "APC by Schneider Electric",
+    "American Power Conversion"
+   ],
+   "sourceUrl": "https://www.wesco.com/us/en/brands/a/apc-by-schneider-electric.html",
+   "evidence": "Wesco's brand page (seen in search results, not fetched) states 'APC, a flagship brand of Schneider Electric, is a leading manufacturer of clean battery back-up, IT physical infrastructure and software solutions'; search results (APC 8-K filings, automation.com) corroborate Schneider Electric completed its ~US$6.1 billion acquisition of American Power Conversion on February 14, 2007.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/a/apc-by-schneider-electric.html"
+  },
+  {
+   "brand": "Leviton",
+   "parentCompany": "Leviton Manufacturing Co., Inc. (independent, family-owned)",
+   "sourceUrl": "https://leviton.com/company/about-leviton1",
+   "evidence": "Leviton's own About page states \"Leviton's integrity and reputation as a private, family business is paramount and must be protected and maintained by its employees at all times\" (founded 1906, celebrating 120 years).",
+   "aliases": [
+    "Leviton Manufacturing",
+    "Leviton Electrical Solutions",
+    "Leviton Network Solutions"
+   ],
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/l/leviton.html"
+  },
+  {
+   "brand": "Pass & Seymour",
+   "parentCompany": "Legrand",
+   "division": "Legrand North America",
+   "sourceUrl": "https://www.legrand.us/brands",
+   "evidence": "Pass & Seymour is listed on the Legrand US \"All Brands\" page (linked to legrand.us/pass-and-seymour, \"Pass & Seymour Electrical Devices | Legrand\").",
+   "aliases": [
+    "Pass and Seymour"
+   ]
+  },
+  {
+   "brand": "Legrand Cablofil",
+   "parentCompany": "Legrand",
+   "division": "Legrand North America",
+   "subBrand": "Cablofil",
+   "sourceUrl": "https://www.legrand.us/brands",
+   "evidence": "Cablofil is listed on the Legrand US \"All Brands\" page (linked to legrand.us/cablofil, \"Cablofil Cable Management | Legrand\").",
+   "aliases": [
+    "Cablofil"
+   ]
+  },
+  {
+   "brand": "Wattstopper",
+   "parentCompany": "Legrand",
+   "division": "Legrand North America",
+   "sourceUrl": "https://www.legrand.us/brands",
+   "evidence": "Wattstopper is listed on the Legrand US \"All Brands\" page (linked to legrand.us/wattstopper, \"Wattstopper Lighting Control Systems\" hosted on legrand.us).",
+   "aliases": [
+    "WattStopper",
+    "Legrand Wattstopper"
+   ]
+  },
+  {
+   "brand": "Lutron",
+   "parentCompany": "Lutron Electronics Co., Inc. (independent, privately held)",
+   "sourceUrl": "https://www.lutron.com/us/en/about/who-we-are",
+   "evidence": "Lutron's Who We Are page states \"Lutron was founded by Ruth and Joel Spira in 1961\"; lutron.com search results describe it as a privately-held, family owned and operated company headquartered in Coopersburg, PA.",
+   "aliases": [
+    "Lutron Electronics",
+    "Lutron Electronics Co"
+   ]
+  },
+  {
+   "brand": "3M",
+   "parentCompany": "3M Company (independent; 3M is the ultimate parent)",
+   "sourceUrl": "https://www.3m.com/3M/en_US/company-us/about-3m/",
+   "evidence": "3M's own About page (\"Learn About 3M: Innovation, History & Core Values\") describes 3M as \"a global science company that never stops inventing\" with no parent entity; the company sells under its own name.",
+   "aliases": [
+    "3M Company"
+   ]
+  },
+  {
+   "brand": "Panduit",
+   "parentCompany": "Panduit Corp. (independent, privately owned)",
+   "sourceUrl": "https://www.panduit.com/en/about/company-profile.html",
+   "evidence": "Panduit's Company Profile page states \"Founded in 1955, Panduit has grown to become a global leader in infrastructure and connectivity solutions\" and its \"Panduit at a Glance\" section lists the company as \"Privately Owned\" (HQ Tinley Park, IL per panduit.com).",
+   "aliases": [
+    "Panduit Corp"
+   ],
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/p/panduit.html"
+  },
+  {
+   "brand": "Southwire",
+   "parentCompany": "Southwire Company, LLC (independent, family-owned)",
+   "sourceUrl": "https://www.southwire.com/family-owned",
+   "evidence": "Southwire's own page states \"Southwire has been family-owned since 1950\" and \"the company is owned by family members and governed by a ten member board of mostly independent directors,\" with the Richards family \"deeply committed to staying independent.\"",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/s/southwire.html"
+  },
+  {
+   "brand": "Metalux",
+   "parentCompany": "Signify",
+   "division": "Cooper Lighting Solutions",
+   "sourceUrl": "https://www.cooperlighting.com/global/brands",
+   "evidence": "Metalux is listed among the 28 brands on cooperlighting.com/global/brands, and cooperlighting.com/global/about-us states \"Cooper Lighting Solutions is a business unit of Signify, the world leader in lighting.\""
+  },
+  {
+   "brand": "Halo",
+   "parentCompany": "Signify",
+   "division": "Cooper Lighting Solutions",
+   "sourceUrl": "https://www.cooperlighting.com/global/brands",
+   "evidence": "HALO (and HALO Commercial) are listed among Cooper Lighting Solutions brands on cooperlighting.com/global/brands, and cooperlighting.com/global/about-us states \"Cooper Lighting Solutions is a business unit of Signify, the world leader in lighting.\"",
+   "aliases": [
+    "HALO",
+    "HALO Commercial"
+   ]
+  },
+  {
+   "brand": "Sure-Lites",
+   "parentCompany": "Signify",
+   "division": "Cooper Lighting Solutions",
+   "sourceUrl": "https://www.cooperlighting.com/global/brands",
+   "evidence": "Sure-Lites is listed among Cooper Lighting Solutions brands on cooperlighting.com/global/brands, and cooperlighting.com/global/about-us states \"Cooper Lighting Solutions is a business unit of Signify, the world leader in lighting.\""
+  },
+  {
+   "brand": "Sylvania",
+   "parentCompany": "MLS Co., Ltd. (via LEDVANCE)",
+   "division": "LEDVANCE LLC — SYLVANIA general lighting, US/Canada",
+   "sourceUrl": "https://www.ledvance.com/en-us/company/about-ledvance/ledvance-sylvania-brand-story",
+   "evidence": "LEDVANCE's brand-story page states \"LEDVANCE sells a complete line of SYLVANIA branded products\" in North America, that LEDVANCE \"was carved-out as an independent, global company selling under the SYLVANIA and OSRAM brands\" in 2016, and that \"In 2017, LEDVANCE was sold to a leading Chinese lighting company, MLS Co., Ltd. (MLS).\"",
+   "aliases": [
+    "SYLVANIA",
+    "LEDVANCE SYLVANIA",
+    "Osram Sylvania (historical labeling)"
+   ]
+  },
+  {
+   "brand": "Philips Advance",
+   "parentCompany": "Signify",
+   "division": "Genlyte Solutions (Signify North America)",
+   "subBrand": "Advance",
+   "sourceUrl": "https://www.genlyte.com/en-us/brands",
+   "evidence": "The Genlyte Solutions brands page (signify.com/en-us/brands 301-redirects here) states \"Genlyte Solutions is a business unit within Signify North America\" and lists Advance, described as having \"a long-standing tradition in quality and delivering reliable LED drivers, modules, and ballasts.\"",
+   "aliases": [
+    "Advance"
+   ]
+  },
+  {
+   "brand": "Philips Day-Brite",
+   "parentCompany": "Signify",
+   "division": "Genlyte Solutions (Signify North America)",
+   "subBrand": "Day-Brite",
+   "sourceUrl": "https://www.genlyte.com/en-us/brands",
+   "evidence": "The Genlyte Solutions brands page (signify.com/en-us/brands 301-redirects here) states \"Genlyte Solutions is a business unit within Signify North America\" and lists Day-Brite among its indoor lighting heritage brands (\"These brands include Lightolier, Day-Brite, Ledalite...\").",
+   "aliases": [
+    "Day-Brite"
+   ]
+  },
+  {
+   "brand": "Columbia Lighting",
+   "parentCompany": "Current Lighting Solutions, LLC (portfolio company of American Industrial Partners)",
+   "division": "HLI Brands (formerly Hubbell Lighting)",
+   "sourceUrl": "https://www.currentlighting.com/newsroom/ge-current-daintree-company-completes-acquisition-of-hubbell-commercial-industrial-lighting-to-create-current",
+   "evidence": "Current's own press release (search-result verbatim; currentlighting.com blocks scripted fetch) says GE Current completed the acquisition of Hubbell's commercial and industrial lighting business on Feb 1, 2022, with Columbia Lighting explicitly listed among the acquired brands; the company rebranded to Current Lighting Solutions in June 2022, and American Industrial Partners completed its acquisition of Current (powered by GE) in April 2019 per americanindustrial.com.",
+   "aliases": [
+    "Columbia",
+    "Hubbell Columbia Lighting (historical labeling)"
+   ]
+  },
+  {
+   "brand": "Cree Lighting",
+   "parentCompany": "CLNA Holdings, LLC (Advanced Lighting Technologies / ADLT group)",
+   "division": "ADLT Lighting Group",
+   "sourceUrl": "https://www.ewweb.com/news/mergers-acquisitions/article/21273641/ideal-sells-cree-lighting-division-to-advanced-lighting-technologies-clna-holdings",
+   "evidence": "Electrical Wholesaling (fetched, Sept 14, 2023) reports IDEAL Industries divested its Cree Lighting division to \"CLNA Holdings, the parent company of Advanced Lighting Technologies (ADLT),\" joining ADLT's portfolio alongside Venture Lighting International; Cree, Inc. (now Wolfspeed) had sold Cree Lighting to IDEAL Industries effective May 13, 2019 per wolfspeed.com.",
+   "aliases": [
+    "Cree"
+   ]
+  },
+  {
+   "brand": "Belden",
+   "parentCompany": "Belden Inc.",
+   "aliases": [
+    "Belden Inc."
+   ],
+   "sourceUrl": "https://investor.belden.com/overview/default.aspx",
+   "evidence": "Belden's investor-relations site presents Belden Inc. (NYSE: BDC) as an independent publicly traded company, 'a global leader in simpler, smarter complete connection solutions' (in April 2026 Belden itself announced an agreement to acquire RUCKUS Networks).",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/b/belden.html"
+  },
+  {
+   "brand": "CommScope",
+   "parentCompany": "Amphenol Corporation",
+   "division": "Amphenol Communications Solutions segment (former CommScope Connectivity and Cable Solutions / CCS business)",
+   "aliases": [
+    "CommScope Holding Company, Inc."
+   ],
+   "sourceUrl": "https://www.commscope.com/about-us/",
+   "evidence": "CommScope's own About page (fetched) states 'Now part of the Amphenol family of brands, CommScope is taking our next bold step into the future,' following Amphenol Corporation's completion of its $10.5 billion acquisition of CommScope's Connectivity and Cable Solutions (CCS) business on January 9, 2026 (announced January 12; see investors.amphenol.com news release 'Amphenol Completes Acquisition of CCS Business From CommScope')."
+  },
+  {
+   "brand": "Corning",
+   "parentCompany": "Corning Incorporated",
+   "aliases": [
+    "Corning Incorporated"
+   ],
+   "sourceUrl": "https://www.corning.com/",
+   "evidence": "Corning Incorporated (NYSE: GLW) is an independent publicly traded materials-science company founded in 1851 and headquartered in Corning, NY, per its corporate site and stock listings.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/c/corning.html"
+  },
+  {
+   "brand": "Cisco",
+   "parentCompany": "Cisco Systems, Inc.",
+   "aliases": [
+    "Cisco Systems, Inc."
+   ],
+   "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/csco",
+   "evidence": "Cisco Systems, Inc. is an independent American multinational networking company headquartered in San Jose, California, publicly traded on Nasdaq under ticker CSCO (per Nasdaq's listing page seen in search results)."
+  },
+  {
+   "brand": "Axis",
+   "parentCompany": "Canon Inc.",
+   "aliases": [
+    "Axis Communications",
+    "Axis Communications AB"
+   ],
+   "sourceUrl": "https://global.canon/en/news/2018/20181022.html",
+   "evidence": "Canon's news release (fetched) on making Axis a wholly owned subsidiary states Canon would 'hold more than 90 percent (97.9 percent; 68,000,798 shares) of the total number of shares and votes in Axis' and pursue compulsory acquisition of remaining shares; Axis operates as an independent company within the Canon Group.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/a/axis.html"
+  },
+  {
+   "brand": "Hanwha Vision",
+   "parentCompany": "Hanwha Group",
+   "division": "Hanwha Group — Aerospace & Defense, Mechatronics segment",
+   "aliases": [
+    "Hanwha Techwin",
+    "Samsung Techwin"
+   ],
+   "sourceUrl": "https://www.hanwha.com/companies/hanwha-vision.do",
+   "evidence": "Hanwha's corporate site (fetched) lists Hanwha Vision as one of its operating companies (video surveillance, largest share of the South Korean market) under the group's Aerospace & Defense, Mechatronics segment; the company was renamed from Hanwha Techwin (formerly Samsung Techwin) on March 1, 2023.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/h/hanwha.html"
+  },
+  {
+   "brand": "Honeywell Home",
+   "parentCompany": "Resideo Technologies, Inc.",
+   "aliases": [],
+   "sourceUrl": "https://www.prnewswire.com/news-releases/resideo-introduces-honeywell-home-x2s-smart-thermostat-at-ces-2025-302343040.html",
+   "evidence": "Resideo's press release boilerplate (fetched) states 'The Honeywell Home trademark is used under a long-term license from Honeywell International Inc.' — Honeywell Home products are made and marketed by Resideo Technologies, Inc., spun off from Honeywell in 2018 under a long-term brand license."
+  },
+  {
+   "brand": "Honeywell Howard Leight",
+   "parentCompany": "Protective Industrial Products, Inc. (a portfolio company of Odyssey Investment Partners)",
+   "aliases": [
+    "Howard Leight"
+   ],
+   "sourceUrl": "https://us.pipglobal.com/en/about-us/news-and-events/?type=pr&nID=264",
+   "evidence": "PIP's press release (fetched) confirms Protective Industrial Products completed its acquisition of Honeywell's Personal Protective Equipment business on May 22, 2025, with the deal including the Howard Leight(TM) brand among others (Fendall, Fibre-Metal, Miller, North, Salisbury, etc.)."
+  },
+  {
+   "brand": "Omron",
+   "parentCompany": "OMRON Corporation",
+   "division": "OMRON Industrial Automation",
+   "aliases": [
+    "OMRON Corporation"
+   ],
+   "sourceUrl": "https://industrial.omron.eu/en/company-info",
+   "evidence": "OMRON's industrial-automation company-info page describes OMRON Corporation, headquartered in Kyoto, Japan and established in 1933, as an independent global leader in automation."
+  },
+  {
+   "brand": "Phoenix Contact",
+   "parentCompany": "Phoenix Contact GmbH & Co. KG",
+   "aliases": [
+    "PHOENIX CONTACT"
+   ],
+   "sourceUrl": "https://www.phoenixcontact.com/en-us/company/phoenix-contact-group",
+   "evidence": "Phoenix Contact's corporate group page describes Phoenix Contact as an independent, global market leader that has been a family-owned company since 1923, headquartered in Blomberg, Germany."
+  },
+  {
+   "brand": "WAGO",
+   "parentCompany": "WAGO GmbH & Co. KG",
+   "aliases": [
+    "WAGO Corporation",
+    "WAGO Kontakttechnik GmbH & Co. KG"
+   ],
+   "sourceUrl": "https://www.wago.com/ca-en/company",
+   "evidence": "WAGO's company page (fetched) quotes shareholder Sven Hohorst describing WAGO as a family business 'at home in Minden' Germany (founded 1951), i.e., an independent family-owned company.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/w/wago-corporation.html"
+  },
+  {
+   "brand": "Mean Well",
+   "parentCompany": "MEAN WELL Enterprises Co., Ltd.",
+   "aliases": [
+    "MEAN WELL",
+    "MEAN WELL Enterprises Co., Ltd."
+   ],
+   "sourceUrl": "https://www.meanwell.com/aboutstory.aspx",
+   "evidence": "MEAN WELL's own Brand Story page states MEAN WELL ENTERPRISES CO., LTD. was established in 1982 in Taiwan by founder Jerry Lin and sells standard power supplies under its own independent brand."
+  },
+  {
+   "brand": "Intermatic",
+   "parentCompany": "MPE Partners",
+   "aliases": [
+    "Intermatic Incorporated",
+    "Intermatic, LLC"
+   ],
+   "sourceUrl": "https://www.mpepartners.com/portfolio/intermatic/",
+   "evidence": "MPE Partners' portfolio page (fetched) lists Intermatic as an active 2025 platform investment made through MPE Partners IV, L.P. (leveraged recapitalization from the founding Kinney family); MPE announced completion of the acquisition in April 2025."
+  },
+  {
+   "brand": "Generac",
+   "parentCompany": "Generac Holdings Inc.",
+   "aliases": [
+    "Generac Holdings Inc.",
+    "Generac Power Systems, Inc."
+   ],
+   "sourceUrl": "https://investors.generac.com/faqs",
+   "evidence": "Generac's investor FAQ describes Generac Holdings Inc. (NYSE: GNRC) as the parent company of Generac Power Systems, Inc., publicly traded on the NYSE since February 11, 2010, headquartered in Waukesha, Wisconsin."
+  },
+  {
+   "brand": "Hoffman",
+   "parentCompany": "nVent",
+   "division": "nVent HOFFMAN (enclosures)",
+   "aliases": [
+    "nVent HOFFMAN"
+   ],
+   "sourceUrl": "https://www.nvent.com/en-us/our-brands/HOFFMAN",
+   "evidence": "nVent's brand page 'Electrical Enclosures for any application | nVent HOFFMAN | nVent' presents HOFFMAN as an nVent brand specializing in electrical enclosures; Wesco's nVent brand page likewise lists nVent's portfolio as including 'nVent CADDY, ERICO, HOFFMAN, ILSCO, SCHROFF and TRACHTE'.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/n/nvent.html"
+  },
+  {
+   "brand": "nVent ERICO",
+   "parentCompany": "nVent",
+   "division": "nVent ERICO (grounding, bonding and lightning protection)",
+   "aliases": [
+    "ERICO"
+   ],
+   "sourceUrl": "https://www.nvent.com/en-us/erico/solutions/grounding-earthing-bonding",
+   "evidence": "nVent's own pages present nVent ERICO as its brand for grounding, bonding, lightning protection and electrical rail connection solutions; Wesco's nVent brand page lists ERICO among nVent's brand portfolio.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/n/nvent.html"
+  },
+  {
+   "brand": "Appleton",
+   "parentCompany": "Emerson Electric Co.",
+   "division": "Appleton Group",
+   "aliases": [
+    "Appleton Group",
+    "Appleton Grp"
+   ],
+   "sourceUrl": "https://www.emerson.com/en-ca/automation/appleton",
+   "evidence": "Emerson's own site (emerson.com/en-ca/automation/appleton and appleton.emerson.com, 'Appleton Group Home Page | Emerson US') presents Appleton as an Emerson brand offering a complete line of Appleton and O-Z/Gedney electrical infrastructure products for ordinary, industrial and hazardous locations.",
+   "wescoBrandUrl": "https://www.wesco.com/us/en/brands/e/emerson.html"
+  },
+  {
+   "brand": "Carlon",
+   "parentCompany": "ABB",
+   "division": "ABB Electrification (Thomas & Betts)",
+   "aliases": [
+    "Carlon (Thomas & Betts)"
+   ],
+   "sourceUrl": "https://electrification.us.abb.com/products/boxes-commercial-fittings/carlon-pvc-elbows-fittings",
+   "evidence": "ABB Electrification U.S. lists 'Carlon PVC Elbows & Fittings' as one of its product lines, and authorized distributor listings (Graybar, Border States) label Carlon(R) products as 'ABB (Thomas And Betts)', reflecting ABB's ownership of the former Thomas & Betts Carlon brand."
+  },
+  {
+   "brand": "Wheatland",
+   "parentCompany": "Zekelman Industries",
+   "division": "Wheatland Tube, a division of Zekelman Industries",
+   "aliases": [
+    "Wheatland Tube"
+   ],
+   "sourceUrl": "https://www.zekelman.com/our-companies/wheatland-tube/",
+   "evidence": "Zekelman Industries' corporate site (fetched) lists Wheatland Tube under 'Our Companies' as 'the leading domestic manufacturer of steel pipe and tube,' and industry directories describe it as 'Wheatland Tube, a division of Zekelman Industries.'"
+  },
+  {
+   "brand": "AFC Cable Systems",
+   "parentCompany": "Atkore",
+   "aliases": [
+    "AFC Cable Systems, Inc.",
+    "AFC"
+   ],
+   "sourceUrl": "https://www.atkore.com/about-us/brands/afc-cable-systems",
+   "evidence": "Atkore's own brand page (fetched) states 'Atkore's AFC Cable Systems, founded in 1926, is an industry-leading brand of pre-wired armored and metal-clad cables,' confirming AFC Cable Systems as an Atkore brand."
+  },
+  {
+   "brand": "GE",
+   "parentCompany": "ABB",
+   "division": "ABB Electrification (Electrification Products Industrial Solutions business unit)",
+   "aliases": [
+    "GE (ABB)",
+    "GE Industrial Solutions"
+   ],
+   "sourceUrl": "https://new.abb.com/news/detail/5475/abb-completes-acquisition-of-ge-industrial-solutions",
+   "evidence": "ABB's news release (seen in search results) states ABB completed its $2.6 billion acquisition of GE Industrial Solutions, GE's global electrification solutions business, on June 30, 2018, and that 'included in the acquisition is a long-term right to use the GE brand' — so GE-branded residential electrical products in the catalog are supplied by ABB under that license (catalog label 'GE (ABB)' recorded as alias)."
+  }
+ ],
+ "hierarchyRejected": [],
+ "unresolvedBrands": [],
+ "crosses": [
+  {
+   "aBrand": "Square D",
+   "aMpn": "QO115",
+   "bBrand": "Eaton (Cutler-Hammer)",
+   "bMpn": "CHQ115",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://rexel-cdn.com/products/breakers-classifedtype.pdf?i=7969BAC6-13FD-414A-B6C0-B48C72385185",
+   "evidence": "Eaton's 'UL Classified Circuit Breaker Replacement Chart' (Type CHQ 3/4-in Classified Breaker Solutions for Square D QO) lists CHQ115 (15 A, 1-pole) in the row for Square D catalog number QO115.",
+   "notes": "Valid only per the UL classification terms: CHQ is a 3/4-in classified breaker for replacement use in Square D QO loadcenters; 120/240 VAC, 10 kAIC; clamshell pack CHQ115CS also listed. Not a same-brand listed equivalent."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "QO120",
+   "bBrand": "Eaton (Cutler-Hammer)",
+   "bMpn": "CHQ120",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://rexel-cdn.com/products/breakers-classifedtype.pdf?i=7969BAC6-13FD-414A-B6C0-B48C72385185",
+   "evidence": "Eaton's UL Classified Circuit Breaker Replacement Chart maps CHQ120 (20 A, 1-pole) to Square D QO120 in the Type CHQ 'Classified Breaker Solutions for Square D QO' table.",
+   "notes": "UL Classified for replacement use in Square D QO loadcenters only; 120/240 VAC, 10 kAIC; clamshell pack CHQ120CS also listed."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "QO230",
+   "bBrand": "Eaton (Cutler-Hammer)",
+   "bMpn": "CHQ230",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://rexel-cdn.com/products/breakers-classifedtype.pdf?i=7969BAC6-13FD-414A-B6C0-B48C72385185",
+   "evidence": "Eaton's UL Classified Circuit Breaker Replacement Chart maps CHQ230 (30 A, 2-pole) to Square D QO230 in the Type CHQ 'Classified Breaker Solutions for Square D QO' table.",
+   "notes": "UL Classified for replacement use in Square D QO loadcenters only; 2-pole 120/240 VAC, 10 kAIC; clamshell pack CHQ230CS also listed."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "HOM120CP",
+   "bBrand": "Eaton (Cutler-Hammer)",
+   "bMpn": "CL120",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://rexel-cdn.com/products/breakers-classifedtype.pdf?i=7969BAC6-13FD-414A-B6C0-B48C72385185",
+   "evidence": "Eaton's UL Classified Circuit Breaker Replacement Chart (Type CL 1-in Classified Breaker Solutions) lists CL120 (20 A, 1-pole) against Square D HOMELINE catalog HOM120, alongside Crouse-Hinds MP120, Siemens Q120, Murray MP120 and T&B TB120.",
+   "notes": "UL Classified 1-in replacement breaker; valid only in the listed manufacturers' loadcenters. Chart lists base catalog HOM120; our HOM120CP is Schneider's clamshell-pack catalog number for the same Homeline 20 A 1-pole 120/240 VAC plug-in breaker (per se.com product page) — verify packaging-suffix mapping in catalog data."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "HOM230CP",
+   "bBrand": "Eaton (Cutler-Hammer)",
+   "bMpn": "CL230",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://rexel-cdn.com/products/breakers-classifedtype.pdf?i=7969BAC6-13FD-414A-B6C0-B48C72385185",
+   "evidence": "Eaton's UL Classified Circuit Breaker Replacement Chart (Type CL 1-in section, 30 A 2-pole row) lists CL230 against Square D HOMELINE catalog HOM230.",
+   "notes": "UL Classified 1-in replacement breaker for Square D Homeline (and listed Crouse-Hinds/Siemens/Murray/T&B) loadcenters; 2-pole 120/240 VAC, 10 kAIC; clamshell pack CL230CS also listed. Chart lists base catalog HOM230; HOM230CP is the clamshell-pack number of the same 30 A 2-pole Homeline breaker — verify suffix mapping."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "QO115",
+   "bBrand": "Siemens",
+   "bMpn": "D115",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://media.distributordatasolutions.com/siemenssi/2020q1/2bcea7e2ac2999ce0b76302a4f39f6e0065f1c7e.pdf",
+   "evidence": "Siemens Residential Product News bulletin RPPN-S3013 ('Siemens Type QD 3/4-in Format Circuit Breaker') contains a Comparative Guide table mapping Siemens catalog D115 to Square D catalog QO115.",
+   "notes": "Type QD is UL Classified for use in place of Square D Type QO breakers only in the specific Square D UL-listed panelboards enumerated in the bulletin's compatibility list; 'Do not use in series rated systems with those panelboards'; not series rated with Square D equipment; 10 kAIC max, 120/240 VAC."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "QO120",
+   "bBrand": "Siemens",
+   "bMpn": "D120",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://media.distributordatasolutions.com/siemenssi/2020q1/2bcea7e2ac2999ce0b76302a4f39f6e0065f1c7e.pdf",
+   "evidence": "Siemens bulletin RPPN-S3013 Comparative Guide maps Siemens Type QD catalog D120 (20 A, 1-pole, 3/4-in format) to Square D catalog QO120.",
+   "notes": "UL Classified only for the Square D listed panelboards on the bulletin's compatibility list; do not use in series-rated systems; 10 kAIC max; 15/20 A 1-pole QD breakers are SWD rated."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "QO230",
+   "bBrand": "Siemens",
+   "bMpn": "D230",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://media.distributordatasolutions.com/siemenssi/2020q1/2bcea7e2ac2999ce0b76302a4f39f6e0065f1c7e.pdf",
+   "evidence": "Siemens bulletin RPPN-S3013 Comparative Guide maps Siemens Type QD catalog D230 (30 A, 2-pole, 3/4-in format) to Square D catalog QO230.",
+   "notes": "UL Classified only for the Square D listed panelboards on the bulletin's compatibility list; do not use in series-rated systems; 2-pole 120/240 VAC, 10 kAIC max."
+  },
+  {
+   "aBrand": "Eaton",
+   "aMpn": "CH115",
+   "bBrand": "Square D",
+   "bMpn": "QO115",
+   "relation": "functional-substitute",
+   "sourceKind": "industry-table",
+   "sourceUrl": "https://rexel-cdn.com/Products/957F33D7-074C-47F8-BD3F-F61946CF4628/957F33D7-074C-47F8-BD3F-F61946CF4628.pdf",
+   "evidence": "DiversiTech's published circuit-breaker part-number cross-reference (Rev 10032016, hosted on Rexel's CDN) lists Eaton CH115 against Square D QO115 in its 3/4-inch-wide-per-pole breaker table.",
+   "notes": "Source explicitly states Eaton breakers are NOT direct replacements for Square D part numbers — 'comparable alternative for reference only'; breaker brand typically must match panel brand to keep agency certification. Treat as catalog-comparison cross, not an installation-approved replacement."
+  },
+  {
+   "aBrand": "Eaton",
+   "aMpn": "BR120",
+   "bBrand": "Square D",
+   "bMpn": "HOM120",
+   "relation": "functional-substitute",
+   "sourceKind": "industry-table",
+   "sourceUrl": "https://rexel-cdn.com/Products/957F33D7-074C-47F8-BD3F-F61946CF4628/957F33D7-074C-47F8-BD3F-F61946CF4628.pdf",
+   "evidence": "DiversiTech's circuit-breaker cross-reference (Rev 10032016) lists Eaton BR120 against Square D HOM120 (and Square D series 625-GS20H) in its 1-inch-wide-per-pole breaker table.",
+   "notes": "Same source disclaimer: not a direct replacement, comparable alternative for reference only; panel brand must match breaker brand to preserve certification. HOM120 is the standard-pack number of our HOM120CP clamshell catalog item."
+  },
+  {
+   "aBrand": "Allen-Bradley",
+   "aMpn": "100-C09D10",
+   "bBrand": "ABB",
+   "bMpn": "AF09-30-10-13",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/competitors/search/ajax?competitorName=&competitorCode=100-C09D10",
+   "evidence": "ABB's Empower eCatalog Competitor Lookup returns ABB AF09-30-10-13 (order code 1SBL137001R1310, 'AF09-30-10-13 100-250V50/60HZ-DC Contactor') as the cross for Rockwell 100-C09D10 with match type 'Close Match'.",
+   "notes": "ABB flags this as 'Close Match', not 'Exact Match' — AF09 uses a 100-250V AC/DC electronic coil vs the 100-C09D10 fixed AC coil; verify coil control scheme and accessory compatibility. Human-facing tool: https://empower.abb.com/ecatalog/ec/EN_NA/competitors/sub-detail/"
+  },
+  {
+   "aBrand": "Schneider Electric",
+   "aMpn": "LC1D09G7",
+   "bBrand": "ABB",
+   "bMpn": "AF09-30-10-13",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/competitors/search/ajax?competitorName=&competitorCode=LC1D09G7",
+   "evidence": "ABB's Empower Competitor Lookup returns ABB AF09-30-10-13 (1SBL137001R1310) as the cross for Schneider/Square D/Telemecanique 'LC1-D09G7' with match type 'Close Match'.",
+   "notes": "Both sides of this pair are in our catalog. ABB lists the competitor code as 'LC1-D09G7' (legacy hyphenated form of LC1D09G7, 120V coil). 'Close Match', not exact: AF09 has a wide-range 100-250V AC/DC coil vs the fixed 120V AC coil of the G7."
+  },
+  {
+   "aBrand": "Schneider Electric",
+   "aMpn": "LC1D18G7",
+   "bBrand": "ABB",
+   "bMpn": "AF16-30-10-13",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/competitors/search/ajax?competitorName=&competitorCode=LC1D18G7",
+   "evidence": "ABB's Empower Competitor Lookup returns ABB AF16-30-10-13 (1SBL177001R1310) as a 'Close Match' for Schneider 'LC1-D18G7', with the comment 'Plus (1) CA4-01 aux. contact if required'.",
+   "notes": "ABB's own qualifier: add one CA4-01 auxiliary contact if required — LC1D18 ships with 1NO+1NC built-in aux while AF16-30-10 has only 1NO, so the NC function needs the CA4-01 add-on. Match type 'Close Match'."
+  },
+  {
+   "aBrand": "Siemens",
+   "aMpn": "3RT2026-1AK60",
+   "bBrand": "ABB",
+   "bMpn": "AF26N1-30-00-13",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/competitors/search/ajax?competitorName=&competitorCode=3RT2026-1AK60",
+   "evidence": "ABB's Empower Competitor Lookup returns ABB AF26N1-30-00-13 as an 'Exact Match' for Siemens 3RT2026-1AK60 (described 'NEMA,SZ1,100-250VAC/DC'), with the comment 'SIZE 0 ONLY GOES TO 18 AMPS'.",
+   "notes": "ABB marks this 'Exact Match'. ABB comment 'SIZE 0 ONLY GOES TO 18 AMPS' explains why the NEMA Size 1 AF26N1 (not a smaller frame) is the cross for this 25 A AC-3 contactor. AF26N1 has no built-in aux (-00); the 3RT2026-1AK60 also has none built into the base S0 device."
+  },
+  {
+   "aBrand": "Allen-Bradley",
+   "aMpn": "100-C23D10",
+   "bBrand": "ABB",
+   "bMpn": "AF30-30-00-13",
+   "relation": "functional-substitute",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/competitors/search/ajax?competitorName=&competitorCode=100-C23D10",
+   "evidence": "ABB's Empower Competitor Lookup returns ABB AF30-30-00-13 (1SBL277001R1300) as the cross for Rockwell 100-C23D10 with match type 'Close Match'.",
+   "notes": "'Close Match': the suggested AF30-30-00 has no built-in auxiliary contact while the 100-C23D10 includes 1 NO aux — an ABB front aux block must be added to replicate the aux function. AF30 coil is 100-250V AC/DC vs the fixed 120V AC coil of the D10 suffix part."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "8910DPA32V02",
+   "bBrand": "Eaton (Cutler-Hammer)",
+   "bMpn": "C25DND230A",
+   "relation": "equivalent",
+   "sourceKind": "industry-table",
+   "sourceUrl": "https://s3.amazonaws.com/s3.supplyhouse.com/product_files/45FG20AG-cross%20reference.pdf",
+   "evidence": "The multi-brand definite-purpose contactor 'CROSS REFERENCE LIST' (columns: Zettler, Siemens/Furnas, Products Unlimited, Square D, GE, Hartland Controls, Cutler Hammer) aligns Square D 8910DPA32V02 in the same row as Cutler-Hammer C25DND230A.",
+   "notes": "Row also lists Zettler XMC0-323AFBBD, Siemens (Furnas) 42BF15AF and GE CR453AC2AAA. 30 A 2-pole DP contactor, 110/120V coil (Square D V02 = Eaton coil code A). Verify mounting plate and quick-connect terminal layout when swapping DP contactors. Document hosted by distributor SupplyHouse.com."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "8910DPA32V02",
+   "bBrand": "Siemens (Furnas)",
+   "bMpn": "42BF15AF",
+   "relation": "equivalent",
+   "sourceKind": "industry-table",
+   "sourceUrl": "https://s3.amazonaws.com/s3.supplyhouse.com/product_files/45FG20AG-cross%20reference.pdf",
+   "evidence": "The same definite-purpose contactor cross-reference list row aligns Square D 8910DPA32V02 with Siemens (Furnas) 42BF15AF.",
+   "notes": "42BF15AF is the legacy Furnas 30 A 2-pole DP contactor with 110/120V coil (F coil code), now a Siemens catalog number. Same row also crosses to GE CR453AC2AAA and Cutler-Hammer C25DND230A. Verify footprint/terminals before substitution."
+  },
+  {
+   "aBrand": "Square D",
+   "aMpn": "8910DPA32V02",
+   "bBrand": "GE",
+   "bMpn": "CR453AC2AAA",
+   "relation": "equivalent",
+   "sourceKind": "industry-table",
+   "sourceUrl": "https://s3.amazonaws.com/s3.supplyhouse.com/product_files/45FG20AG-cross%20reference.pdf",
+   "evidence": "The same definite-purpose contactor cross-reference list row aligns Square D 8910DPA32V02 with GE CR453AC2AAA.",
+   "notes": "30 A 2-pole definite-purpose contactor, 110/120V coil on both sides of the cross. GE CR453 line has since transitioned to ABB ownership; check current availability. Verify mounting and termination."
+  },
+  {
+   "aBrand": "Hubbell",
+   "aMpn": "HBL5262",
+   "bBrand": "Cooper (Arrow Hart)",
+   "bMpn": "AH5262B",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+   "evidence": "Hubbell's Bin Stocking Cross Reference Guide row for the 15A 125V NEMA 5-15R extra-heavy-duty duplex receptacle (brown) lists AH5262B in both the Arrow Hart and Cooper competitor columns against preferred-brand Hubbell HBL5262.",
+   "notes": "Arrow Hart is now an Eaton brand. Guide is dated 2013 and matches competitor catalog numbers to the preferred Hubbell item for bin re-stocking; verify current color/packaging suffixes."
+  },
+  {
+   "aBrand": "Hubbell",
+   "aMpn": "HBL5262",
+   "bBrand": "Pass & Seymour",
+   "bMpn": "5262-A",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+   "evidence": "The same HBL5262 (brown) row shows catalog number 5262A under the Leviton / Pass & Seymour competitor columns; 5262-A is Pass & Seymour's brown spec-grade 15A duplex catalog number.",
+   "notes": "PDF-to-text extraction overlaps the Leviton and P&S columns in this row (both render as '5262A'); the string matches P&S's 5262-A numbering scheme exactly, but confirm column attribution against the printed page before publishing."
+  },
+  {
+   "aBrand": "Hubbell",
+   "aMpn": "HBL5362W",
+   "bBrand": "Cooper (Arrow Hart)",
+   "bMpn": "AH5362W",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+   "evidence": "Guide row for the 20A 125V NEMA 5-20R extra-heavy-duty duplex receptacle (white) lists AH5362W in both the Arrow Hart and Cooper competitor columns against preferred-brand Hubbell HBL5362W.",
+   "notes": "Arrow Hart is now an Eaton brand. 2013 edition; confirm current part status."
+  },
+  {
+   "aBrand": "Hubbell",
+   "aMpn": "HBL5362W",
+   "bBrand": "Pass & Seymour",
+   "bMpn": "PS5362-W",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+   "evidence": "Within the HBL5362W (white) row block of the guide, PS5362W appears in the Pass & Seymour competitor column; PS5362-W is P&S's white extra-heavy-duty industrial 20A duplex.",
+   "notes": "PDF table extraction places PS5362W on a continuation line of the white row; verify against the printed page. P&S PS5362-W is a current Legrand/Pass & Seymour catalog number."
+  },
+  {
+   "aBrand": "Pass & Seymour",
+   "aMpn": "CR20W",
+   "bBrand": "Hubbell",
+   "bMpn": "CR20WHI",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+   "evidence": "Guide row for the 20A 125V NEMA 5-20R commercial duplex receptacle (white) lists Pass & Seymour CR20W as the competitor cross for preferred-brand Hubbell CR20WHI.",
+   "notes": "Row reads: Hubbell CR20WHI | Arrow Hart CR20W | Cooper CR20W | Leviton CR020W / CR20W | P&S CR20W. Hubbell uses 'WHI' as its white suffix on this series."
+  },
+  {
+   "aBrand": "Pass & Seymour",
+   "aMpn": "CR20W",
+   "bBrand": "Leviton",
+   "bMpn": "CR020-W",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+   "evidence": "The same 20A commercial duplex (white) row lists 'CR020W / CR20W' in the Leviton competitor column alongside Pass & Seymour CR20W, crossing Leviton's CR020-W commercial-grade duplex to the same item.",
+   "notes": "Leviton column prints two values (CR020W / CR20W); CR020-W is Leviton's catalog number for its 20A commercial spec-grade duplex."
+  },
+  {
+   "aBrand": "Pass & Seymour",
+   "aMpn": "CR20W",
+   "bBrand": "Cooper (Arrow Hart)",
+   "bMpn": "CR20W",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+   "evidence": "The same 20A commercial duplex (white) row lists CR20W in both the Arrow Hart and Cooper competitor columns, i.e. Cooper/Arrow Hart uses the identical catalog number CR20W for this cross.",
+   "notes": "Catalog numbers are identical strings across P&S and Cooper/Arrow Hart for this commercial series (industry-common CR20 numbering); brand on the box differs. Arrow Hart is now Eaton."
+  },
+  {
+   "aBrand": "Keystone",
+   "aMpn": "KTEB-232-UV-IS-N-P",
+   "bBrand": "Philips Advance",
+   "bMpn": "IOP-2P32-SC",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://pimmedia.winsupplyinc.com/pim/CUT/122017/KEYSTONE-BALLAST_KTEB-275-UV-TP-PIC_89094900188_CUT.pdf",
+   "evidence": "Keystone's Quick Reference Guide 'Cross Reference Guide - Fluorescent Ballasts' table lists KTEB-232-UV-IS-N-P ((2) F17/25/32T8, 120-277V, Standard Output) with Advance part number IOP-2P32-SC in the same row.",
+   "notes": "Keystone document states it 'does not warrant or guarantee the accuracy of this cross reference guide' and to contact Keystone for proper ballast selection; document is Keystone-authored, hosted on distributor (Winsupply) PIM."
+  },
+  {
+   "aBrand": "Keystone",
+   "aMpn": "KTEB-232-UV-IS-N-P",
+   "bBrand": "Universal (ULT/Magnetek)",
+   "bMpn": "B232IUNVHE-A",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://pimmedia.winsupplyinc.com/pim/CUT/122017/KEYSTONE-BALLAST_KTEB-275-UV-TP-PIC_89094900188_CUT.pdf",
+   "evidence": "Keystone's cross reference table lists KTEB-232-UV-IS-N-P with ULT/Magnetek part number B232IUNVHE-A in the same row (2-lamp F17/25/32T8, 120-277V, standard output instant start).",
+   "notes": "Same Keystone accuracy disclaimer applies; confirm physical case/mounting before substitution."
+  },
+  {
+   "aBrand": "Keystone",
+   "aMpn": "KTEB-232-UV-IS-N-P",
+   "bBrand": "GE",
+   "bMpn": "GE232MAX-N/ULTRA",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://pimmedia.winsupplyinc.com/pim/CUT/122017/KEYSTONE-BALLAST_KTEB-275-UV-TP-PIC_89094900188_CUT.pdf",
+   "evidence": "Keystone's cross reference table lists KTEB-232-UV-IS-N-P with GE part number GE232MAX-N/ULTRA in the same row.",
+   "notes": "Same Keystone accuracy disclaimer applies."
+  },
+  {
+   "aBrand": "Keystone",
+   "aMpn": "KTEB-232-UV-IS-N-P",
+   "bBrand": "Sylvania",
+   "bMpn": "QHE2X32T8/UNVISN-SC",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://pimmedia.winsupplyinc.com/pim/CUT/122017/KEYSTONE-BALLAST_KTEB-275-UV-TP-PIC_89094900188_CUT.pdf",
+   "evidence": "Keystone's cross reference table lists KTEB-232-UV-IS-N-P with Sylvania part number QHE2X32T8/UNVISN-SC in the same row, sourcing the Sylvania QHE 2-lamp T8 high-efficiency instant-start model.",
+   "notes": "This is the verified Sylvania QHE cross requested ('QHE only if sourced'); same Keystone accuracy disclaimer applies."
+  },
+  {
+   "aBrand": "Philips Advance",
+   "aMpn": "ICN-2P32-N",
+   "bBrand": "Osram Sylvania",
+   "bMpn": "QTP2X32T8/UNV-SC",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+   "evidence": "Signify's official 'Osram-Motorola to Advance' Ballast Cross Reference Guide (PAd_1430CR, 09/19) maps competitor part QTP2X32T8/UNV-SC to Advance ICN-2P32-N (Electronic Fluorescent, Centium family) with no caveat note.",
+   "notes": "Guide brands the competitor line 'Osram-Motorola'; QTP2X32T8/UNV-SC is a Sylvania Quicktronic model. Signify disclaims warranty as to accuracy/completeness of the guide."
+  },
+  {
+   "aBrand": "Philips Advance",
+   "aMpn": "ICN-4P32-N",
+   "bBrand": "Osram Sylvania",
+   "bMpn": "QTP4X32T8/UNV-SC",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+   "evidence": "Signify's 'Osram-Motorola to Advance' Cross Reference Guide maps QTP4X32T8/UNV-SC (and several other QT/QTP 4x32 T8 instant-start variants such as QTP4X32T8/120ISN-A and QTP4X32T8/277ISN-A) to Advance ICN-4P32-N.",
+   "notes": "Some 4-lamp variants in the same guide carry the note 'Dimensions differ significantly' (e.g. QT4X32T8/120ISN-K-G4); the QTP4X32T8/UNV-SC row has no caveat, but check housing dimensions when retrofitting."
+  },
+  {
+   "aBrand": "Philips Advance",
+   "aMpn": "ICF-2S26-H1-LD",
+   "bBrand": "GE",
+   "bMpn": "GEC226-MVPS-SE",
+   "relation": "equivalent",
+   "sourceKind": "manufacturer-cross",
+   "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-ge.pdf",
+   "evidence": "Signify's official 'GE to Advance' Ballast Cross Reference Guide (PAd_1423CR, 09/19) maps GE compact-fluorescent ballast GEC226-MVPS-SE to Advance ICF-2S26-H1-LD (Electronic Fluorescent, SmartMate family).",
+   "notes": "Cross runs GE-to-Advance (ICF-2S26-H1-LD replaces GEC226-MVPS-SE); Signify disclaims warranty as to accuracy/completeness of the guide."
+  },
+  {
+   "aBrand": "Hatch",
+   "aMpn": "LC40-1050Z-UNV-W",
+   "bBrand": "Delta Electronics",
+   "bMpn": "USCI-040105FA",
+   "relation": "functional-substitute",
+   "sourceKind": "distributor-cross",
+   "sourceUrl": "https://forum.digikey.com/t/alternative-for-obsolete-led-driver-usci-040105fa/43073",
+   "evidence": "DigiKey's TechForum (authorized distributor) offers Hatch LC40-1050Z-UNV-W as a possible alternative for the obsolete Delta Electronics USCI-040105FA 40W/1050mA LED driver, with a side-by-side spec comparison.",
+   "notes": "Not a 1:1 equivalent: input range differs (120-277VAC vs 108-305VAC), output voltage window differs (12-36V vs 26-38V), and dimensions/temperature ratings differ - DigiKey says to verify against the datasheet before use."
+  },
+  {
+   "aBrand": "Hatch",
+   "aMpn": "LC40-1050Z-UNV-W",
+   "bBrand": "Mean Well",
+   "bMpn": "GSC40B-1050",
+   "relation": "functional-substitute",
+   "sourceKind": "distributor-cross",
+   "sourceUrl": "https://forum.digikey.com/t/alternative-for-obsolete-led-driver-gsc40b-1050/43425",
+   "evidence": "DigiKey's TechForum states 'LC40-1050Z-UNV-W from Hatch Lighting is being offered as a possible alternative for obsolete part GSC40B-1050' (Mean Well), both 40W/1.05A constant-current drivers.",
+   "notes": "Qualifiers from source: Mean Well accepts 90-277VAC vs Hatch 120-277VAC; output 19-38V vs 12-36V; Mean Well uses a barrel plug vs Hatch wire leads - verify wiring and LED load voltage."
+  }
+ ],
+ "crossesRejected": [],
+ "sourceNotes": [
+  "All pairs come from three documents actually retrieved and read in full. (1) Eaton's official 'UL Classified Circuit Breaker Replacement Chart' (Eaton-branded, Type CL 1-in and Type CHQ 3/4-in classified solutions), retrieved from authorized distributor Rexel's CDN: https://rexel-cdn.com/products/breakers-classifedtype.pdf?i=7969BAC6-13FD-414A-B6C0-B48C72385185 — manufacturer cross, classed as manufacturer-cross despite distributor hosting. (2) Siemens Residential Product News bulletin RPPN-S3013 (Type QD), retrieved via Siemens' distributor-data syndication host: https://media.distributordatasolutions.com/siemenssi/2020q1/2bcea7e2ac2999ce0b76302a4f39f6e0065f1c7e.pdf. (3) DiversiTech part-number cross-reference Rev 10032016 (Rexel CDN) for the CH115/BR120 anchors — an industry cross sheet that itself disclaims direct replacement; both pairs carry that qualifier. UNRESOLVED — GE (ABB) THQL1115/THQL1120/THQL2130: eaton.com was unreachable from this client (repeated timeouts/connection failures via fetch and curl), so Eaton publication 5651B63 'Standard circuit breaker catalog numbers' — which per search-result snippets lists exact GE THQL1115–THQL1150 numbers against CL classified breakers — could not be retrieved; the retrievable Eaton chart prints the GE column in shorthand ('THQ1115/THQ1120') and Global's distributor catalog of Eaton CL classified breakers (https://s3.amazonaws.com/globalthesource/pdfcatalog/151/Circuit_Breakers_CL_Classified.pdf, retrieved) prints 'THQL115/THQL120/THQL230', so no pair was emitted at the exact THQL MPN level rather than risk a fabricated catalog number; corroborating language from that retrieved Global page: 'Classified Replacement Circuit Breakers are considered suitable, by Underwriters Laboratories, for use in another manufacturers' panel board.' UNRESOLVED — Siemens load centers SN3048B1200 and P4040B1200CU: no official cross/transition document was found in targeted searches; load centers are generally not crossed brand-to-brand, so no pair emitted. HOM120CP/HOM230CP suffix: Schneider's se.com product page (seen verbatim in search results: https://www.se.com/us/en/product/HOM120CP/mini-circuit-breaker-homeline-20a-1-pole-120-240vac-10ka-air-standard-type-plug-in-ul/) identifies HOM120CP as the Homeline 20 A 1-pole 120/240 VAC 10 kA plug-in breaker; the Eaton chart lists base numbers HOM120/HOM230 — the CP packaging-suffix mapping is flagged in pair notes for catalog QA. wesco.com was not fetched per instructions and no wesco.com brand URLs appeared in any search results. All classified-breaker relations were deliberately recorded as functional-substitute (not equivalent) because each source conditions the cross on UL classification terms limited to specific listed panels.",
+  "VERIFIED SOURCES ACTUALLY RETRIEVED: (1) ABB Empower eCatalog Competitor Lookup (official ABB manufacturer cross tool, https://empower.abb.com/ecatalog/ec/EN_NA/competitors/sub-detail/). I queried its public JSON endpoint (.../competitors/search/ajax?competitorName=&competitorCode=<PN>) directly over HTTPS and captured the raw responses, including ABB's own match-type ('Exact Match' vs 'Close Match') and comment fields, which are reproduced verbatim in evidence/notes. The cited ajax URLs return the data without authentication. (2) Multi-brand definite-purpose contactor CROSS REFERENCE LIST (Zettler / Siemens-Furnas / Products Unlimited / Square D / GE / Hartland Controls / Cutler-Hammer) hosted by distributor SupplyHouse.com; retrieved and text-extracted from https://s3.amazonaws.com/s3.supplyhouse.com/product_files/45FG20AG-cross%20reference.pdf (same file is served at s3.supplyhouse.com but that alias has a TLS cert mismatch, so the s3.amazonaws.com form is the working https URL). UNRESOLVED: LC1D32G7 — no entry in ABB's Competitor Lookup (queried LC1D32G7, LC1-D32G7, LC1D32; all empty) and no other official cross document could be retrieved for it; left out rather than inferred. AF09-30-10-13 as an anchor is covered as the B-side of two pairs (ABB's tool only maps competitor->ABB). TOOLS THAT BLOCKED SCRIPTED ACCESS: Schneider Electric cross-reference tool (tools.se.app/xref) — its AWS API (rj297lnzdk.execute-api.us-east-2.amazonaws.com/prd/competitordatafetch) returns {\"message\":\"Error in login\"} without a browser session; Eaton cross-reference tools (eaton.com/us/en-us/cross-reference-search.html and tools.eaton.com) timed out / refused connections; NOARK's cross-reference page is a JS app with no reachable static data. wesco.com was not fetched per instructions and no wesco.com brand URLs appeared verbatim in search results, so no wescoBrandUrl values are recorded. EXCLUDED LOWER-QUALITY LEADS: Kent Electrical Supply (kentstore.com) product-page FAQs state the Eaton XTCE009B10 is 'comparable' to Schneider LC1D09 and Siemens 3RT2015 (page fetched and verified) but explicitly say accessories are not interchangeable and it is an informal FAQ, not a cross table from a verified authorized distributor, so it was excluded; usbreaker.com and scribd cross PDFs were rejected as aftermarket/SEO-grade sources. Relation mapping: ABB 'Exact Match' -> equivalent; ABB 'Close Match' -> functional-substitute with ABB's qualifier captured in notes; row-aligned entries in the published DP cross list -> equivalent with verify-mounting caveats.",
+  "VERIFIED SOURCE USED (fetched and parsed in full): Hubbell Wiring Device-Kellems \"Bin Stocking Cross Reference Guide\" (2013), hosted on Hubbell's official CDN: https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf. Table columns per section header: Description | Color | Fastenal # | Preferred Brand (Hubbell/Bryant) | Competitor Part Numbers: Arrow Hart, Cooper, Leviton, Pass & Seymour, Woodhead. The PDF was downloaded and text-extracted; a few cells overlap in extraction, and I flagged the two affected pairs (HBL5262↔P&S 5262-A and HBL5362W↔PS5362-W) in their notes. All seven emitted pairs anchor to our catalog MPNs HBL5262, HBL5362W, or CR20W.\n\nOTHER OFFICIAL CROSS DOCUMENTS RETRIEVED BUT NOT USABLE FOR OUR ANCHORS: (1) Leviton \"Lev-lok Modular Wiring Devices Competitive Cross Reference\" Q-1185 (https://leviton.com/content/dam/leviton/commercial-industrial/product_documents/solution_sheets/Lev-lok_Competitive_Cross_Reference_Q-1185.pdf) — genuine Leviton-published brand-to-brand cross (e.g., Leviton M5262 ↔ Hubbell SNAP5262A ↔ P&S PT5262A ↔ Arrow Hart AH5262M), but it covers only modular Lev-lok/SNAP/PT part families; none of our 13 anchor MPNs appear, so no pairs were emitted from it. (2) Leviton \"Dimmer Cross Reference Guide\" (https://leviton.com/content/dam/leviton/residential/product_documents/user_guide-manual/Dimmer-Cross-Reference-Guide.pdf) — official Leviton-vs-Lutron cross, but it covers dimmers/fan controls only and does NOT include the Lutron Claro CA-1PS switch line.\n\nUNRESOLVED ANCHORS (no official cross document naming them could be retrieved): Leviton 5325-W, T5325-W, GFNT2-W, 1221-2W, 1453-2W; Hubbell CS120W, HBL1221W; Pass & Seymour 3232W, PS20AC1-I; Lutron CA-1PS-WH. The official interactive cross tools that would answer these exist but are JavaScript-driven or block scripted access: Hubbell Competitor Part Cross Reference (https://www.hubbell.com/hubbell/en/part-cross-reference), Hubbell legacy eCross (hciapps.hubbell.com/hcipunchout/wiring/ecross.aspx — returned an application error), Leviton Manufacturer Cross Reference (https://leviton.com/manufacturer-cross-reference) and Leviton Quick Search (leviton.idea4industry.com — HTTP 403), Legrand Competitor Product Cross Reference (https://www.legrand.us/tools/product-cross-reference — results endpoint returned a server error), Eaton cross-reference search (eaton.com — interactive, states crosses are provided on a confidential basis). Distributor pages known to carry per-part crosses (onestopbuy.com, acdcusa.com) returned HTTP 403 to scripted fetch. A search snippet confirmed the Leviton 1221 ↔ P&S PS20AC1 ↔ Hubbell 1221 family cross exists (OneStopBuy listing for Leviton 1221-PLR citing P&S \"PS 20 AC 1 RPL\", Hubbell \"1221 PL\", Cooper \"AH1221-PL\"), but the snippet's MPNs are not in our catalog list, so per the anchoring rule no pair was emitted; a human with browser access to the Hubbell/Leviton/Legrand tools above could quickly resolve the remaining anchors. CAVEATS: the Hubbell guide is a 2013 edition assembled for a bin-stocking program (Fastenal); treat crosses as direct equivalents per the guide but re-verify discontinued/updated models (e.g., GFCI families have since changed to self-test designs). No wesco.com URLs were fetched and no wescoBrandUrl values were observed in search results.",
+  "All 9 pairs were verified on pages actually fetched and read in full. Primary sources: (1) Signify's official Advance ballast cross-reference guides hosted on assets.signify.com (GE-to-Advance PAd_1423CR and Osram-Motorola-to-Advance PAd_1430CR, both 09/19 editions, linked from signify.com/en-us/brands/advance/ballasts/cross-reference) - manufacturer competitive crosses, with Signify's standard no-warranty disclaimer; (2) Keystone Technologies' Quick Reference Guide cross-reference table (Keystone-authored catalog pages hosted on a Winsupply distributor PIM at pimmedia.winsupplyinc.com; a second edition of the same Keystone guide is hosted at assets.gordonelectricsupply.com and corroborates the same KTEB cross structure) - Keystone explicitly disclaims warranty of accuracy; (3) DigiKey TechForum obsolescence-replacement posts (authorized distributor) for the two Hatch LED-driver substitutes. UNRESOLVED (no official cross found, do not fabricate): Fulham WH2-120-C and WH5-120-L - Fulham publishes spec sheets (e.g. fulham.com/PDFs/SpecSheets/WH2-120-C-2006-43SP.pdf) listing supported lamp combinations but no published competitive cross table; fulham.com's 'Driver Cross Reference' page is a request form, not a table, and the only WorkHorse 'cross reference' pages found were SEO spam (rejected). Philips Advance XI040C110V054BST1 - ballastshop.com (fetched) confirms it is 'Discontinued by Manufacturer - Shipping Manufacturer's Exact Next Generation Replacement' but does not name the successor part number, so no pair is recorded; one unfetched search snippet suggested XI040C110V054B as the successor but this could not be verified on a retrieved page. Keystone's KTEB-232-UV-IS-N-P crosses to Advance IOP-2P32-SC (Optanium), not ICN-2P32-N (Centium) - no official document was found crossing KTEB-232-UV-IS-N-P directly to ICN-2P32-N, so that commonly-assumed pairing is intentionally omitted (Amazon/SEO listings asserting it were rejected). The Signify GE guide also crosses GE-232-MAX-N/ULTRA to IOP-2P32-N and GE-432-MAX-N/ULTRA to IOP-4P32-N, but those Advance IOP parts are not in our catalog list so they were not emitted as pairs. No wesco.com brand URLs appeared in any search results, so none were recorded. relation='equivalent' was used only where a manufacturer cross table presents a direct row-level cross; the two DigiKey obsolescence suggestions are marked functional-substitute per their 'possible alternative / verify datasheet' wording."
+ ]
+}

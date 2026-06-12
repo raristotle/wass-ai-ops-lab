@@ -8,6 +8,7 @@ import { priceTiers } from "@/lib/product-finder-pricing";
 import { apiGoesWith } from "@/lib/product-finder-api";
 import { ProductImage } from "@/features/product-finder/ProductImage";
 import { LiveDistributorPanel } from "@/features/product-finder/LiveDistributorPanel";
+import { VerifiedCrossPanel } from "@/features/product-finder/VerifiedCrossPanel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -443,6 +444,8 @@ export function ProductDetailModal() {
 
         {/* ── Live distributor data (real, on-demand; renders only when the
                Mouser/Digi-Key seam is configured and the SKU is real) ── */}
+        <VerifiedCrossPanel product={product} />
+
         <LiveDistributorPanel product={product} />
 
         {/* ── Spec Sheet section ──────────────────────────────── */}

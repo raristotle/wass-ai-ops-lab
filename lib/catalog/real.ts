@@ -8,6 +8,7 @@ import type {
 import { TAXONOMY } from "@/lib/catalog/taxonomy";
 import { makeRng, randInt } from "@/lib/catalog/prng";
 import { REAL_PRODUCT_ENTRIES } from "@/data/real/real-products";
+import { assessCatalog, type CatalogAssessment } from "@/lib/catalog/provenance";
 
 /**
  * A web-researched, link-verified real product as emitted by
@@ -31,6 +32,21 @@ export interface RealProductEntry {
   specSheetUrl: string;
   upc?: string;
   verifiedAt: string; // YYYY-MM-DD the spec link was last verified
+  // ── SKU-level identity & provenance (optional — researched per record) ──
+  /** Wesco stock number when known (from a wesco.com/buy.wesco.com page). */
+  wescoSku?: string;
+  /** Manufacturer catalog number when it differs from the MPN. */
+  catalogNumber?: string;
+  /** Validated GTIN/UPC digits (lib/catalog/identifiers normalizeGtin). */
+  gtin?: string;
+  /** Brand hierarchy overrides — usually resolved via lib/catalog/brand-hierarchy. */
+  subBrand?: string;
+  division?: string;
+  parentCompany?: string;
+  /** Manufacturer/Wesco product page for this exact SKU. */
+  productUrl?: string;
+  /** Page the record's facts were taken from, when distinct from the above. */
+  sourceUrl?: string;
 }
 
 // Deterministic 32-bit hash so each real product gets stable simulated stock.
@@ -89,11 +105,18 @@ function toCatalogProduct(e: RealProductEntry): CatalogProduct {
   };
 }
 
+/**
+ * Provenance gate: every entry is confidence-assessed; only production-ready
+ * (verified, ≥95) records enter the catalog. The rest are quarantined here
+ * and surfaced by the data-quality report — never silently included.
+ */
+export const REAL_CATALOG_ASSESSMENT: CatalogAssessment = assessCatalog(REAL_PRODUCT_ENTRIES);
+
 function buildRealProducts(): CatalogProduct[] {
   const out: CatalogProduct[] = [];
   const seen = new Set<string>();
   const seenSku = new Set<string>();
-  for (const e of REAL_PRODUCT_ENTRIES) {
+  for (const e of REAL_CATALOG_ASSESSMENT.productionReady) {
     if (!e.specs.some((s) => s.isNonNeg)) {
       throw new Error(`Real product "${e.brand} ${e.mpn}" has no isNonNeg spec — fix the dataset build.`);
     }

@@ -220,4 +220,8 @@ export interface SuggestItem {
 export interface ProductDetail {
   product: CatalogProduct;
   equivalents: CatalogProduct[];
+  /** Source-backed crosses (≥95 confidence only) — verified/curated products. */
+  verifiedCrosses?: import("@/lib/catalog/verified-crosses").VerifiedCrossResult[];
+  /** Researched brand→parent hierarchy for this product's brand, when modeled. */
+  brandHierarchy?: import("@/lib/catalog/brand-hierarchy").BrandNode | null;
 }

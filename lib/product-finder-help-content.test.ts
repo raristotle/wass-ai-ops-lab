@@ -58,7 +58,7 @@ describe("HELP_TOPICS", () => {
 
   it("covers the Tier 5 features", () => {
     const ids = new Set(HELP_TOPICS.map((t) => t.id));
-    for (const required of ["live-pricing", "demand-forecast"]) {
+    for (const required of ["live-pricing", "demand-forecast", "verified-crosses"]) {
       expect(ids.has(required), required).toBe(true);
     }
   });
