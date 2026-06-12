@@ -521,9 +521,21 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• Every recommendation is explainable: match reason, which attributes agree, what's missing or conflicting, and warning flags straight from the source (\"UL Classified for listed panels only\", \"verify dimensions before substituting\").",
       "• Confidence is scored by source authority; anything below 95% never reaches the recommendation — it stays in the review queue. When sources contradict, a documented rule picks the winning record: source authority, then source quality score, then recency.",
       "Try it: search FRN-R-30 (Bussmann fuse) and open View Details — Mersen's own cross guide maps it to the TR30R we stock. LC1D09G7 → ABB AF09-30-10-13 still works too.",
+      "Result cards flag it up front: a ⇄ VERIFIED CROSS badge means documented substitutes exist — click it to see them.",
       "Simulated catalog SKUs keep their clearly-labeled simulated equivalence engine — the two paths never mix.",
     ],
     tryQuery: "FRN-R-30",
+  },
+  {
+    id: "cross-explorer",
+    title: "Cross-Reference Explorer & competitor-BOM conversion",
+    body: [
+      "Two ways to put the verified cross dataset to work beyond the detail view:",
+      "• Cross-Reference Explorer (/product-finder/crosses, or Ctrl+K → \"Open Cross-Reference Explorer\"): browse every source-backed pair — filter by brand, part number, or source kind, see which sides we stock, and click through to the document that states each cross. The Sources tab shows the full ingestion registry: 166 sources from a 1,000-row workbook, classified as ingested, ingestible, browser-gated, API-key, or licensed.",
+      "• Competitor-BOM conversion: paste a bill of materials with competitor part numbers into Import List / BOM. Lines naming a documented competitor part get a green \"Verified cross — we stock the equivalent\" box with the source citation; one click swaps the stocked equivalent in. The summary line counts how many competitor parts are crossable to stock.",
+      "Try it: open Import List / BOM and paste \"4x QTP2X32T8/UNV-SC\" and \"2 Hoffman A1212CHFL\" — competitor parts we don't stock, crossed to the Philips Advance and Hammond equivalents we do, manufacturer documents linked.",
+      "Only production-grade crosses (≥95% source confidence) are ever suggested; everything is explainable and cited.",
+    ],
   },
   {
     id: "live-pricing",

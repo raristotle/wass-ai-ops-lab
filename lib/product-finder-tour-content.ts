@@ -65,8 +65,11 @@ export const TOUR_STEPS: readonly TourStep[] = [
       "• ✓ CROSS-REF means a genuine functional equivalent — same subcategory, identical key specs, just a different brand, price, or stock position.",
       "• A match ring and “Why recommended?” explain every ranking, so you can defend the swap to the customer.",
       "• Out-of-stock items automatically offer their best in-stock substitute.",
+      "• Real parts carry SOURCE-BACKED crosses: a ⇄ VERIFIED CROSS badge on the card means a manufacturer document maps it to substitutes we stock — open View Details to see each cross with its source linked (try FRN-R-30).",
+      "• The Cross-Reference Explorer (Ctrl+K → “Open Cross-Reference Explorer”) lets you browse every documented pair and the sources behind them.",
       "• Verified real parts go further: the detail view pulls LIVE Mouser and Digi-Key pricing, stock, and datasheets (try AF09-30-10-13).",
     ],
+    action: { kind: "nlSearch", label: "See a verified cross", query: "FRN-R-30" },
   },
   {
     id: "job-wizard",
@@ -113,6 +116,7 @@ export const TOUR_STEPS: readonly TourStep[] = [
     title: "Power tools when you need them",
     body: [
       "A few more ways to move faster:",
+      "• Import List / BOM converts competitor bills of materials: lines naming a documented competitor part get a cited “use stocked cross” suggestion — the counter-sale, automated.",
       "• The 🔔 bell collects approvals, follow-ups, counter-offers, restock and at-risk-customer alerts.",
       "• “For you” on the landing view predicts reorders before you type; the metals index flags copper swings; the seasonal banner surfaces what's about to sell.",
       "• Voice search — tap the mic and say “twenty amp breaker in stock”.",

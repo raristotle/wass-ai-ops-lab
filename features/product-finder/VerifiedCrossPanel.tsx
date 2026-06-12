@@ -49,7 +49,17 @@ export function VerifiedCrossPanel({ product }: { product: CatalogProduct }) {
         <p className="text-xs font-bold uppercase tracking-wide text-[#00573F]">
           Verified cross-references
         </p>
-        <span className="text-[9px] italic text-[#4F758B]">source-backed · ≥95% confidence</span>
+        <span className="text-[9px] italic text-[#4F758B]">
+          source-backed · ≥95% confidence ·{" "}
+          <a
+            href="/product-finder/crosses"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="not-italic font-semibold text-[#004986] underline underline-offset-2"
+          >
+            browse all
+          </a>
+        </span>
       </div>
 
       {showHierarchy && (

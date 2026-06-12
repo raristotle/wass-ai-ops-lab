@@ -80,6 +80,23 @@ export async function apiGetProduct(
   return res.json();
 }
 
+/** Competitor-BOM cross matching: one suggestion (or null) per query, in order. */
+export async function apiCrossMatch(
+  queries: string[]
+): Promise<(import("@/lib/catalog/bom-cross").BomCrossSuggestion | null)[]> {
+  try {
+    const res = await fetch("/api/crosses/match", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ queries }),
+    });
+    if (!res.ok) return queries.map(() => null);
+    return (await res.json()).suggestions;
+  } catch {
+    return queries.map(() => null);
+  }
+}
+
 export async function apiGoesWith(id: string): Promise<import("@/features/product-finder/types").CatalogProduct[]> {
   const res = await fetch(`/api/products/${encodeURIComponent(id)}/goeswith`);
   if (!res.ok) return [];

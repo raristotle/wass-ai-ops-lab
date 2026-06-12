@@ -139,6 +139,16 @@ export function ProductCard({
                 PREFERRED
               </Badge>
             )}
+            {(product.verifiedCrossCount ?? 0) > 0 && (
+              <Badge
+                variant="outline"
+                className="text-[10px] px-1.5 py-0 h-4 flex-shrink-0 text-[#00573F] border-[#00573F] cursor-pointer"
+                title={`${product.verifiedCrossCount} source-backed cross-reference${product.verifiedCrossCount === 1 ? "" : "s"} — open View Details to see them`}
+                onClick={() => setDetailModalProduct(product)}
+              >
+                ⇄ {product.verifiedCrossCount} VERIFIED CROSS{product.verifiedCrossCount === 1 ? "" : "ES"}
+              </Badge>
+            )}
             {(() => {
               const inAltContext = isAlternative || (referenceProduct != null && referenceProduct.id !== product.id);
               if (!inAltContext) return null;

@@ -59,6 +59,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       action: { kind: "navigate", href: "/product-finder/dashboard" },
     });
   }
+  items.push({
+    id: "nav-crosses",
+    label: "Open Cross-Reference Explorer",
+    group: "Navigate",
+    keywords: ["cross", "crosses", "xref", "substitutes", "sources", "registry"],
+    action: { kind: "navigate", href: "/product-finder/crosses" },
+  });
 
   items.push(
     {

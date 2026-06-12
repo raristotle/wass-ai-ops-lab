@@ -87,6 +87,8 @@ export interface CatalogProduct {
   compatScore?: number;
   imageIcon: string;
   dataSource?: ProductDataSource;
+  /** Number of source-backed cross-reference pairs touching this SKU (search API attaches it for verified/curated results). */
+  verifiedCrossCount?: number;
   /** Manufacturer spec sheet / datasheet URL (live-verified at build time for "verified" entries). */
   specSheetUrl?: string;
   /** Provenance of unitPrice, e.g. "Est. list price, researched 2026-06 (grainger.com)". */

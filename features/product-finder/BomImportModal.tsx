@@ -3,7 +3,7 @@
 import { useRef, useState, type ChangeEvent, type KeyboardEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { parseBomLines, matchBomScored } from "@/lib/product-finder-bom";
-import { apiSearch } from "@/lib/product-finder-api";
+import { apiSearch, apiCrossMatch } from "@/lib/product-finder-api";
 import { suggestCorrection } from "@/lib/product-finder-suggest-correction";
 import {
   matchConfidence,
@@ -15,6 +15,13 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
 import type { ScoredBomLine } from "@/lib/product-finder-bom";
+import type { BomCrossSuggestion } from "@/lib/catalog/bom-cross";
+
+/** A scored line plus its verified-cross suggestion, when one is documented. */
+type CrossedBomLine = ScoredBomLine & {
+  cross?: BomCrossSuggestion | null;
+  crossApplied?: boolean;
+};
 
 // ─── Real searchFn: calls apiSearch with query as text, top-3 candidates ──────
 
@@ -97,12 +104,18 @@ function ConfidenceBadge({ line }: { line: ScoredBomLine }) {
   );
 }
 
-function MatchRow({ line, onUseAlternate }: {
-  line: ScoredBomLine;
+function MatchRow({ line, onUseAlternate, onUseCross }: {
+  line: CrossedBomLine;
   onUseAlternate: (alt: CatalogProduct) => void;
+  onUseCross: (cross: BomCrossSuggestion) => void;
 }) {
   const { match } = line;
   const showAlternates = line.alternates.length > 0 && (match === null || line.tier !== "high");
+  // Offer the documented cross when the line names a competitor part we don't
+  // stock — if the named part itself is stocked, its detail panel covers it.
+  const showCross =
+    line.cross != null && !line.cross.originStocked && !line.crossApplied &&
+    line.match?.id !== line.cross.product.id;
   return (
     <tr className="border-b border-[#B7C9D3]/30 last:border-0">
       <td className="px-3 py-2 text-sm font-mono text-center text-[#4F758B] align-top w-12">
@@ -117,6 +130,42 @@ function MatchRow({ line, onUseAlternate }: {
         )}
       </td>
       <td className="px-3 py-2 align-top">
+        {showCross && line.cross && (
+          <div className="mb-1.5 rounded border border-[#00573F]/40 bg-[#00573F]/5 px-2.5 py-1.5">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-[#00573F]">
+              ✓ Verified cross — we stock the equivalent
+            </p>
+            <p className="mt-0.5 text-xs text-[#1D252D]">
+              {line.cross.fromBrand} {line.cross.fromMpn} →{" "}
+              <span className="font-semibold">{line.cross.product.name}</span>
+              <span className="text-[#4F758B]"> · ${line.cross.product.unitPrice.toFixed(2)}/{line.cross.product.uom}</span>
+            </p>
+            <p className="text-[10px] text-[#4F758B]">
+              {line.cross.matchReason} ·{" "}
+              <a
+                href={line.cross.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#004986] underline underline-offset-2"
+              >
+                source ↗
+              </a>
+            </p>
+            <button
+              type="button"
+              onClick={() => onUseCross(line.cross as BomCrossSuggestion)}
+              className="mt-1 rounded bg-[#00573F] px-2 py-0.5 text-[10px] font-semibold text-white transition-colors hover:bg-[#004936]"
+              aria-label={`Use stocked cross ${line.cross.product.name} for this line`}
+            >
+              Use stocked cross — {line.cross.confidence}%
+            </button>
+          </div>
+        )}
+        {line.crossApplied && (
+          <p className="mb-1 text-[10px] font-semibold text-[#00573F]">
+            ✓ crossed from {line.cross?.fromBrand} {line.cross?.fromMpn} (source-backed)
+          </p>
+        )}
         {match ? (
           <div>
             <div className="flex items-center gap-2">
@@ -172,7 +221,7 @@ export function BomImportModal() {
 
   const [text, setText] = useState("");
   const [matching, setMatching] = useState(false);
-  const [matched, setMatched] = useState<ScoredBomLine[] | null>(null);
+  const [matched, setMatched] = useState<CrossedBomLine[] | null>(null);
   const [added, setAdded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -221,10 +270,34 @@ export function BomImportModal() {
     setAdded(false);
     try {
       const results = await matchBomScored(parsed, searchTop3, suggestCorrection);
-      setMatched(results);
+      // Verified-cross pass: competitor part numbers documented in the cross
+      // dataset get a stocked-equivalent suggestion with its source citation.
+      const crosses = await apiCrossMatch(parsed.map((l) => l.query));
+      setMatched(results.map((line, i) => ({ ...line, cross: crosses[i] ?? null })));
     } finally {
       setMatching(false);
     }
+  }
+
+  /** Swap a line to its documented stocked cross. */
+  function handleUseCross(index: number, cross: BomCrossSuggestion) {
+    setMatched((prev) => {
+      if (!prev) return prev;
+      return prev.map((line, i) => {
+        if (i !== index) return line;
+        return {
+          ...line,
+          match: cross.product,
+          confidence: cross.confidence / 100,
+          tier: "high" as const,
+          alternates: line.match
+            ? [line.match, ...line.alternates.filter((a) => a.id !== cross.product.id)].slice(0, 2)
+            : line.alternates.filter((a) => a.id !== cross.product.id),
+          crossApplied: true,
+        };
+      });
+    });
+    setAdded(false);
   }
 
   /** Swap a line's match for one of its alternates and rescore. */
@@ -240,6 +313,7 @@ export function BomImportModal() {
           confidence,
           tier: confidenceTier(confidence),
           alternates: [...line.alternates.filter((a) => a.id !== alt.id), line.match],
+          crossApplied: false,
         };
       });
     });
@@ -264,6 +338,9 @@ export function BomImportModal() {
   const totalCount = matched ? matched.length : 0;
   const reviewCount = matched
     ? matched.filter((l) => l.match !== null && l.tier !== "high").length
+    : 0;
+  const crossableCount = matched
+    ? matched.filter((l) => l.cross != null && !l.cross.originStocked && !l.crossApplied && l.match?.id !== l.cross.product.id).length
     : 0;
 
   // ── Render ──────────────────────────────────────────────────────────────────
@@ -383,6 +460,11 @@ export function BomImportModal() {
                     · {reviewCount} to review
                   </span>
                 )}
+                {crossableCount > 0 && (
+                  <span className="ml-1.5 font-semibold text-[#00573F]">
+                    · {crossableCount} competitor part{crossableCount !== 1 ? "s" : ""} crossable to stock
+                  </span>
+                )}
               </span>
             )}
 
@@ -412,7 +494,12 @@ export function BomImportModal() {
                 </thead>
                 <tbody>
                   {matched.map((line, i) => (
-                    <MatchRow key={i} line={line} onUseAlternate={(alt) => handleUseAlternate(i, alt)} />
+                    <MatchRow
+                      key={i}
+                      line={line}
+                      onUseAlternate={(alt) => handleUseAlternate(i, alt)}
+                      onUseCross={(cross) => handleUseCross(i, cross)}
+                    />
                   ))}
                 </tbody>
               </table>

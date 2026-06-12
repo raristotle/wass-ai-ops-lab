@@ -99,8 +99,10 @@ Every SKU below is deterministic — it exists with the same data in every envir
     SKUs never leave the building; verified parts get live market data."*
     (Also works: `UTPSP5BUY` Panduit patch cord, `LC1D09G7` Schneider contactor,
     `3RT2026-1AK60` Siemens.)
-9c. **Search `FRN-R-30`** (a real Bussmann fuse) **and open View Details. Point
-    at the VERIFIED CROSS-REFERENCES panel.**
+9c. **Search `FRN-R-30`** (a real Bussmann fuse). **Point at the ⇄ VERIFIED
+    CROSSES badge on the result card** — *"the card tells you up front that
+    documented substitutes exist."* **Open View Details. Point at the VERIFIED
+    CROSS-REFERENCES panel.**
     *"This is the other half of real: 174 cross-references where every pair
     cites the official document that states it — this one is Mersen's own
     published cross guide mapping this Bussmann fuse to the Mersen TR30R we
@@ -112,6 +114,13 @@ Every SKU below is deterministic — it exists with the same data in every envir
     (Also works: `HBL5266C` Hubbell plug → Leviton & P&S crosses from Hubbell's
     own bin-stock guide; `CSD16126` Hoffman enclosure → Hammond's cross table;
     `LC1D09G7` → ABB's competitor lookup.)
+9d. **Click "browse all" in the panel** (or Ctrl+K → "Open Cross-Reference
+    Explorer"). *"The whole cross dataset is a first-class surface: every pair,
+    filterable, with the stocked sides marked and the source document one click
+    away. And the Sources tab is the data-governance story — the 1,000-row
+    source workbook we ingested, every source classified: extracted, extractable,
+    behind a browser wall, behind an API key, or licensed. Nothing is hidden;
+    a data steward can audit every recommendation back to its document."*
 
 ## Act 4 — From basket to deliverables (5 min)
 
@@ -222,6 +231,23 @@ Every SKU below is deterministic — it exists with the same data in every envir
     alternate** — *"one click to swap, and the summary counts what's left to
     review. Customers' messy faxed lists, handled honestly."*
     **Add matched to cart.**
+18b. **Open Import List / BOM again and paste a competitor's BOM** (parts we
+    DON'T stock, whose documented equivalents we DO):
+    ```
+    4x QTP2X32T8/UNV-SC ballast
+    2 Hoffman A1212CHFL
+    6 AH5362W receptacle
+    ```
+    **Match.** *"This is the counter-sale, automated: the customer walks in with
+    a competitor's bill of materials — none of these three are in our catalog —
+    and every line the cross dataset documents gets a green 'Verified cross — we
+    stock the equivalent' card: the Osram ballast to the Philips Advance we
+    stock per the manufacturer's own cross guide, the Hoffman enclosure to our
+    Hammond, the Arrow Hart receptacle to our Hubbell — source one click away.
+    Watch the summary: '3 competitor parts crossable to stock.'"*
+    **Click "Use stocked cross" on a line** — *"swapped, cited, and ready to
+    quote. No catalog-flipping, no guessing — if it's not documented, we don't
+    claim it."* **Add matched to cart.**
 
 ## Act 5 — The manager view (2 min)
 

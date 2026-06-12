@@ -3,6 +3,7 @@ import { searchCatalog } from "@/lib/catalog/search";
 import { parseSearchQuery } from "@/lib/catalog/schemas";
 import { findEquivalents } from "@/lib/catalog/equivalents";
 import { totalStock, pickInStockSubstitute } from "@/lib/product-finder-substitute";
+import { crossCountForSku } from "@/lib/catalog/cross-runtime";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
@@ -20,5 +21,13 @@ export function GET(req: Request) {
     const sub = pickInStockSubstitute(item, findEquivalents(item, 24));
     if (sub) substitutes[item.id] = sub;
   }
-  return NextResponse.json({ ...response, substitutes });
+
+  // Source-backed cross counts for result-card badges — verified/curated only.
+  const items = response.items.map((item) => {
+    if (item.dataSource !== "verified" && item.dataSource !== "curated") return item;
+    const n = crossCountForSku(item.sku);
+    return n > 0 ? { ...item, verifiedCrossCount: n } : item;
+  });
+
+  return NextResponse.json({ ...response, items, substitutes });
 }
