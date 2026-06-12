@@ -1,0 +1,24 @@
+{
+ "category": "datacom",
+ "subcategory": "Ethernet Cable",
+ "uom": "EA",
+ "products": [
+  {
+   "mpn": "CR5",
+   "brand": "Carol (General Cable)",
+   "name": "Carol CR5 Cat 5e Enhanced Riser Cable (CMR), 24 AWG, 1000 ft",
+   "description": "Carol Cat 5e enhanced-throughput riser cable, 24 AWG solid bare annealed copper, polyolefin insulation, flame-retardant PVC CMR (UL 1666) jacket, 1000 ft put-ups.",
+   "estListPrice": 109.99,
+   "priceSource": "discountedcables.com",
+   "specs": [
+    { "name": "Construction", "value": "24 AWG solid bare annealed copper conductors, polyolefin insulation", "isNonNeg": true },
+    { "name": "Jacket", "value": "Flame-retardant PVC, NEC/CEC Type CMR (UL 1666), non-plenum", "isNonNeg": true },
+    { "name": "Category Compliance", "value": "ANSI/TIA 568 B.2 Category 5e; ICEA S-90-661; UL 444" },
+    { "name": "Characteristic Impedance", "value": "100 +/-15 Ohms (1-250 MHz)" },
+    { "name": "Nominal Cable Diameter", "value": "0.200 in (CMR)" },
+    { "name": "Packaging", "value": "1000 ft Pull-Pac II or Spool-Pac; jacket colors incl. white CR5.30.02, blue CR5.30.07" }
+   ],
+   "specSheetUrl": "https://na.prysmian.com/sites/na.prysmian.com/files/2024-09/ELE-0001-0924_CAROL%20Electronics%20Wire%20&%20Cable%20Catalog_0.pdf"
+  }
+ ]
+}

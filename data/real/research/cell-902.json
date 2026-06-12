@@ -1,0 +1,75 @@
+{
+ "category": "electrical",
+ "subcategory": "Enclosures",
+ "uom": "EA",
+ "products": [
+  {
+   "mpn": "CSKO12126",
+   "brand": "Hammond",
+   "name": "Hammond CSKO12126 Type 1 Screw-Cover Junction Box w/Knockouts, 12x12x6 in",
+   "description": "Hammond CSKO Series Type 1 mild steel screw-cover junction box with knockouts, 12 x 12 x 6 in, gray; UL File E65324, CSA LR21001.",
+   "estListPrice": 48.35,
+   "priceSource": "digikey.com",
+   "specs": [
+    { "name": "NEMA Type", "value": "Type 1", "isNonNeg": true },
+    { "name": "Size (H x W x D)", "value": "12 x 12 x 6 in (305 x 305 x 152 mm)", "isNonNeg": true },
+    { "name": "Material", "value": "Mild steel, gray" },
+    { "name": "Cover", "value": "Screw cover with knockouts" },
+    { "name": "UL File", "value": "E65324" }
+   ],
+   "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/CSKO12126.pdf",
+   "upc": "623980360782"
+  },
+  {
+   "mpn": "HJ10106HLP",
+   "brand": "Hammond",
+   "name": "Hammond HJ10106HLP Type 4/12 Hinged Junction Box, 10x10x6 in",
+   "description": "Hammond HJ H Series Type 4, 12 mild steel hinged junction box, 10 x 10 x 6 in, steel/gray; UL File E65324, CSA LR21001.",
+   "estListPrice": 182.38,
+   "priceSource": "solutionsdirectonline.com",
+   "specs": [
+    { "name": "NEMA Type", "value": "Type 4, 12", "isNonNeg": true },
+    { "name": "Size (H x W x D)", "value": "10 x 10 x 6 in (254 x 254 x 152 mm)", "isNonNeg": true },
+    { "name": "Material", "value": "Mild steel, gray" },
+    { "name": "Door", "value": "Hinged" },
+    { "name": "UL File", "value": "E65324" }
+   ],
+   "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/HJ10106HLP.pdf",
+   "upc": "623980879123"
+  },
+  {
+   "mpn": "1414PHJ6",
+   "brand": "Hammond",
+   "name": "Hammond 1414PHJ6 Type 12 Hinge-Cover Junction Box w/Panel, 10x10x6 in",
+   "description": "Hammond 1414 PH Series Type 12 mild steel junction box with hinge cover and inner panel, 10 x 10 x 6 in, gray; UL File E65324, CSA LR21001.",
+   "estListPrice": 199.42,
+   "priceSource": "solutionsdirectonline.com",
+   "specs": [
+    { "name": "NEMA Type", "value": "Type 12", "isNonNeg": true },
+    { "name": "Size (H x W x D)", "value": "10 x 10 x 6 in (254 x 254 x 152 mm)", "isNonNeg": true },
+    { "name": "Cover", "value": "Hinge cover with panel" },
+    { "name": "Material", "value": "Mild steel, gray" },
+    { "name": "UL File", "value": "E65324" }
+   ],
+   "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/1414PHJ6.pdf",
+   "upc": "623980350202"
+  },
+  {
+   "mpn": "1414N4PHL6",
+   "brand": "Hammond",
+   "name": "Hammond 1414N4PHL6 Type 4 Hinge-Cover Junction Box w/Panel, 12x12x6 in",
+   "description": "Hammond 1414 N4 PH Series Type 4 mild steel junction box with hinge cover and panel, 12 x 12 x 6 in, steel/gray.",
+   "estListPrice": 301.58,
+   "priceSource": "solutionsdirectonline.com",
+   "specs": [
+    { "name": "NEMA Type", "value": "Type 4", "isNonNeg": true },
+    { "name": "Size (H x W x D)", "value": "12 x 12 x 6 in (305 x 305 x 152 mm)", "isNonNeg": true },
+    { "name": "Cover", "value": "Hinge cover with panel" },
+    { "name": "Material", "value": "Mild steel, gray" },
+    { "name": "Shipping Weight", "value": "17 lbs (7.71 kg)" }
+   ],
+   "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/1414N4PHL6.pdf",
+   "upc": "623980346403"
+  }
+ ]
+}

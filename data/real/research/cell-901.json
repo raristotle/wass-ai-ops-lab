@@ -1,0 +1,79 @@
+{
+ "category": "electrical",
+ "subcategory": "Fuses",
+ "uom": "EA",
+ "products": [
+  {
+   "mpn": "TRS30R",
+   "brand": "Mersen",
+   "name": "Mersen TRS30R Tri-Onic Class RK5 Time-Delay Fuse, 30 A, 600 V",
+   "description": "Mersen Tri-Onic TRS30R Class RK5 time-delay fuse, 30 A, 600 VAC/300 VDC, 200 kA IR, for motors, transformers, service entrance equipment, feeders and branch circuits.",
+   "estListPrice": 9.8,
+   "priceSource": "thefuseshop.com",
+   "specs": [
+    { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "600 VAC / 300 VDC", "isNonNeg": true },
+    { "name": "UL Class", "value": "RK5", "isNonNeg": true },
+    { "name": "Speed", "value": "Time-Delay", "isNonNeg": true },
+    { "name": "Interrupting Rating", "value": "200 kA" },
+    { "name": "Dimensions", "value": "0.81 in dia x 5 in L" }
+   ],
+   "specSheetUrl": "https://us.mersen.com/en/products/trs-r-class-rk5-time-delay/trs30r",
+   "upc": "782001748869"
+  },
+  {
+   "mpn": "ATMR30",
+   "brand": "Mersen",
+   "name": "Mersen ATMR30 Amp-Trap Class CC Fast-Acting Fuse, 30 A, 600 V",
+   "description": "Mersen Amp-Trap ATMR30 Class CC fast-acting fuse, 30 A, 600 VAC/VDC, 200 kA IR; smallest-dimension 600 V fuse suitable for branch-circuit protection with rejection ferrules.",
+   "estListPrice": 9.49,
+   "priceSource": "thefuseshop.com",
+   "specs": [
+    { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "600 VAC / 600 VDC", "isNonNeg": true },
+    { "name": "UL Class", "value": "CC", "isNonNeg": true },
+    { "name": "Speed", "value": "Fast-Acting", "isNonNeg": true },
+    { "name": "Interrupting Rating", "value": "200 kA" },
+    { "name": "Dimensions", "value": "0.41 in dia x 1.5 in L" }
+   ],
+   "specSheetUrl": "https://us.mersen.com/en/products/atmr-class-cc-fast-acting/atmr30",
+   "upc": "782001904845"
+  },
+  {
+   "mpn": "TRM30",
+   "brand": "Mersen",
+   "name": "Mersen TRM30 Tri-Onic Midget Time-Delay Fuse, 30 A, 250 V",
+   "description": "Mersen Tri-Onic TRM30 midget time-delay fuse, 30 A, 250 VAC, 10 kA IR, 12 s delay at 200% for supplemental protection of small motors and transformers; not for branch circuits.",
+   "estListPrice": 7.69,
+   "priceSource": "thefuseshop.com",
+   "specs": [
+    { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "250 VAC", "isNonNeg": true },
+    { "name": "Class", "value": "Midget", "isNonNeg": true },
+    { "name": "Speed", "value": "Time-Delay (12 s at 200%)", "isNonNeg": true },
+    { "name": "Interrupting Rating", "value": "10 kA" },
+    { "name": "Dimensions", "value": "0.41 in dia x 1.5 in L" }
+   ],
+   "specSheetUrl": "https://us.mersen.com/en/products/trm-midget-time-delay/trm30",
+   "upc": "782001746650"
+  },
+  {
+   "mpn": "A2D30R",
+   "brand": "Mersen",
+   "name": "Mersen A2D30R Amp-Trap 2000 Class RK1 Time-Delay Fuse, 30 A, 250 V",
+   "description": "Mersen Amp-Trap 2000 A2D30R Class RK1 time-delay fuse, 30 A, 250 VAC/250 VDC, 200 kA IR, time delay for motor inrush currents.",
+   "estListPrice": 12.99,
+   "priceSource": "thefuseshop.com",
+   "specs": [
+    { "name": "Amperage", "value": "30 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "250 VAC / 250 VDC", "isNonNeg": true },
+    { "name": "UL Class", "value": "RK1", "isNonNeg": true },
+    { "name": "Speed", "value": "Time-Delay", "isNonNeg": true },
+    { "name": "Interrupting Rating", "value": "200 kA" },
+    { "name": "Dimensions", "value": "0.56 in dia x 2 in L" }
+   ],
+   "specSheetUrl": "https://us.mersen.com/en/products/a2d-r-class-rk1-time-delay/a2d30r",
+   "upc": "782001990862"
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "category": "electrical",
+ "subcategory": "Cord Plugs & Connectors",
+ "uom": "EA",
+ "products": [
+  {
+   "mpn": "HBL2311",
+   "brand": "Hubbell",
+   "name": "Hubbell HBL2311 Twist-Lock Industrial Plug, L5-20P, 20A 125V",
+   "description": "Industrial-grade Twist-Lock male plug, 20A 125V AC, 2-pole 3-wire grounding, NEMA L5-20P, ribbed nylon housing, screw terminals, black and white.",
+   "estListPrice": 26.45,
+   "priceSource": "americancableassemblies.com",
+   "specs": [
+    { "name": "NEMA Configuration", "value": "L5-20P", "isNonNeg": true },
+    { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "125 VAC", "isNonNeg": true },
+    { "name": "Terminal Accommodation", "value": "#16-#8 AWG stranded copper" },
+    { "name": "Cord Range", "value": "0.360\"-0.930\" (9-24 mm)" },
+    { "name": "Housing Material", "value": "Nylon" }
+   ],
+   "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL2311-SPEC-EN.pdf",
+   "upc": "783585037707"
+  },
+  {
+   "mpn": "HBL5269C",
+   "brand": "Hubbell",
+   "name": "Hubbell HBL5269C Insulgrip Connector Body, 5-15R, 15A 125V",
+   "description": "Insulgrip heavy-duty industrial/commercial female connector body, straight, 15A 125V, 2-pole 3-wire grounding, NEMA 5-15R, black and white.",
+   "estListPrice": 32.84,
+   "priceSource": "standardelectricsupply.com",
+   "specs": [
+    { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": true },
+    { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "125 VAC", "isNonNeg": true },
+    { "name": "Cord Range", "value": "0.300\"-0.660\" (7.6-16.8 mm)" },
+    { "name": "Terminal Accommodation", "value": "#18-#10 AWG stranded copper" },
+    { "name": "Listings", "value": "UL Listed to UL 498; CSA Certified C22.2; NEMA WD-6" }
+   ],
+   "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL5269C-SPEC-EN.pdf",
+   "upc": "783585173252"
+  },
+  {
+   "mpn": "HBL5965VY",
+   "brand": "Hubbell",
+   "name": "Hubbell HBL5965VY Valise Plug, 5-15P, 15A 125V, Yellow",
+   "description": "Valise series industrial/commercial-grade straight male plug, 15A 125V, 2-pole 3-wire grounding, NEMA 5-15P, yellow nylon housing.",
+   "estListPrice": 13.36,
+   "priceSource": "standardelectricsupply.com",
+   "specs": [
+    { "name": "NEMA Configuration", "value": "5-15P", "isNonNeg": true },
+    { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "125 VAC", "isNonNeg": true },
+    { "name": "Housing Material", "value": "Nylon (PPO cable inserts)" },
+    { "name": "Terminal Accommodation", "value": "#18-#12 AWG stranded copper" },
+    { "name": "Listings", "value": "UL Listed to UL 498 File E1706; CSA Certified; NEMA WD-6" }
+   ],
+   "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL5965VY-SPEC-EN.pdf",
+   "upc": "783585013091"
+  },
+  {
+   "mpn": "HBL5969VY",
+   "brand": "Hubbell",
+   "name": "Hubbell HBL5969VY Valise Connector Body, 5-15R, 15A 125V, Yellow",
+   "description": "Valise series industrial/commercial-grade straight female connector body, 15A 125V, 2-pole 3-wire grounding, NEMA 5-15R, yellow nylon housing.",
+   "estListPrice": 26.64,
+   "priceSource": "standardelectricsupply.com",
+   "specs": [
+    { "name": "NEMA Configuration", "value": "5-15R", "isNonNeg": true },
+    { "name": "Amperage", "value": "15 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "125 VAC", "isNonNeg": true },
+    { "name": "Cord Range", "value": "0.230\"-0.720\" (5.8-18.3 mm)" },
+    { "name": "Housing Material", "value": "Nylon" },
+    { "name": "Terminal Accommodation", "value": "#18-#12 AWG stranded copper" }
+   ],
+   "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL5969VY-SPEC-EN.pdf",
+   "upc": "783585013107"
+  },
+  {
+   "mpn": "PS5366X",
+   "brand": "Pass & Seymour",
+   "name": "Pass & Seymour PS5366X Extra-Hard Use Spec-Grade Plug, 5-20P, 20A 125V",
+   "description": "Extra-hard use spec-grade straight blade plug, 20A 125V, 2-pole 3-wire grounding, NEMA 5-20P, nylon construction, black and white.",
+   "estListPrice": 14.54,
+   "priceSource": "crawfordelectricsupply.com",
+   "specs": [
+    { "name": "NEMA Configuration", "value": "5-20P", "isNonNeg": true },
+    { "name": "Amperage", "value": "20 A", "isNonNeg": true },
+    { "name": "Voltage", "value": "125 V", "isNonNeg": true },
+    { "name": "Terminal Accommodation", "value": "#18 AWG min to #10 AWG max" },
+    { "name": "Cord Grip Accommodation", "value": "0.230\"-0.720\" diameter" },
+    { "name": "Listings", "value": "UL Listed UL498 File E146159; CSA C22.2 No. 42; Fed Spec WC596; NEMA WD-1" }
+   ],
+   "specSheetUrl": "https://www.legrand.us/wiring-devices/plugs-and-connectors/straight-blade/20a-125v-extra-hard-use-spec-grade-plug-black-and-white/p/ps5366x"
+  }
+ ]
+}

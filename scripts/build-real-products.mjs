@@ -100,15 +100,27 @@ if (skipVerify) {
   verified.push(...candidates);
 } else {
   const queue = [...candidates];
+  const firstPassFails = [];
   const workers = Array.from({ length: 12 }, async () => {
     while (queue.length) {
       const c = queue.shift();
       if (!c) break;
       if (await checkUrl(c.specSheetUrl)) verified.push(c);
-      else dropped.push(`${c.brand} ${c.mpn}: dead link ${c.specSheetUrl}`);
+      else firstPassFails.push(c);
     }
   });
   await Promise.all(workers);
+  // Sites that rate-limit the parallel burst (nvent.com et al.) fail
+  // transiently — retry failures sequentially, up to 3 gently-spaced attempts.
+  for (const c of firstPassFails) {
+    let ok = false;
+    for (let attempt = 0; attempt < 3 && !ok; attempt++) {
+      await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
+      ok = await checkUrl(c.specSheetUrl);
+    }
+    if (ok) verified.push(c);
+    else dropped.push(`${c.brand} ${c.mpn}: dead link ${c.specSheetUrl}`);
+  }
 }
 
 // ── Emit ─────────────────────────────────────────────────────────────

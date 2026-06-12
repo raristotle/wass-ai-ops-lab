@@ -43,3 +43,4 @@ yarn-error.log*
 # Word owner-lock files
 ~$*
 docs/~$*
+.research/

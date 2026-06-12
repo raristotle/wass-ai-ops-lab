@@ -3,6 +3,7 @@ import {
   verifiedCrossesFor,
   validateCrossEntries,
   valuesCompatible,
+  resolveCrossConflicts,
   SOURCE_CONFIDENCE,
   type VerifiedCrossEntry,
 } from "@/lib/catalog/verified-crosses";
@@ -104,6 +105,19 @@ describe("verifiedCrossesFor — explainable, source-backed results", () => {
     expect(valuesCompatible("277VAC", "100-250V AC/DC")).toBe(false); // outside the range
   });
 
+  it("formatting variants between manufacturers' records are NOT conflicts", () => {
+    expect(valuesCompatible("15A", "15 A")).toBe(true);
+    expect(valuesCompatible("125VAC", "125 V")).toBe(true);
+    expect(valuesCompatible("Screw terminal, #18-#10 AWG", "Screw Terminals, 18-10 AWG")).toBe(true);
+  });
+
+  it("safe-exceed ratings: substitute may exceed voltage/IR ratings, never amperage", () => {
+    expect(valuesCompatible("250 Vac / 125 Vdc", "250 Vac / 160 Vdc")).toBe(true); // sub exceeds DC rating
+    expect(valuesCompatible("250 Vac / 160 Vdc", "250 Vac / 125 Vdc")).toBe(false); // sub falls short
+    expect(valuesCompatible("120/240V", "277V")).toBe(false); // different voltage system, not a rating upgrade
+    expect(valuesCompatible("30 A", "60 A")).toBe(false); // amperage must match
+  });
+
   it("source qualifiers from the entry's notes surface as warnings", () => {
     const e = cross({ notes: "UL Classified for listed panels only" });
     const [r] = verifiedCrossesFor(qo120, [e], resolve);
@@ -132,6 +146,102 @@ describe("verifiedCrossesFor — explainable, source-backed results", () => {
   });
 });
 
+describe("conflict resolution — data-quality + source rule", () => {
+  const mfr = cross({ sourceUrl: "https://mfr.example/cross.pdf", sourceKind: "manufacturer-cross" });
+  const industry = cross({ sourceUrl: "https://table.example/cross.html", sourceKind: "industry-table" });
+
+  it("duplicate pair from two sources: manufacturer beats industry table", () => {
+    const { resolved, dropped } = resolveCrossConflicts([industry, mfr]);
+    expect(resolved).toHaveLength(1);
+    expect(resolved[0].sourceKind).toBe("manufacturer-cross");
+    expect(dropped).toHaveLength(1);
+    expect(dropped[0].entry).toBe(industry);
+    expect(dropped[0].winnerUrl).toBe("https://mfr.example/cross.pdf");
+  });
+
+  it("relation disagreement is reported as a relation conflict", () => {
+    const sub = { ...industry, relation: "equivalent" as const };
+    const { dropped } = resolveCrossConflicts([sub, mfr]);
+    expect(dropped[0].reason).toContain("relation conflict");
+  });
+
+  it("equal source kind: the workbook quality score decides", () => {
+    const hiQ = cross({ sourceUrl: "https://high.example/a.pdf", sourceKind: "industry-table" });
+    const loQ = cross({ sourceUrl: "https://low.example/b.pdf", sourceKind: "industry-table" });
+    const quality = (url: string) => (url.includes("high") ? 95 : 60);
+    const { resolved } = resolveCrossConflicts([loQ, hiQ], { qualityScoreFor: quality });
+    expect(resolved[0].sourceUrl).toBe("https://high.example/a.pdf");
+  });
+
+  it("same source kind and quality: newer verifiedAt wins", () => {
+    const older = cross({ sourceUrl: "https://a.example/1.pdf", verifiedAt: "2025-01-01" });
+    const newer = cross({ sourceUrl: "https://b.example/2.pdf", verifiedAt: "2026-06-11" });
+    const { resolved } = resolveCrossConflicts([older, newer]);
+    expect(resolved[0].verifiedAt).toBe("2026-06-11");
+  });
+
+  it("conflicting 'equivalent' claims to different MPNs of one brand: loser is demoted, not dropped", () => {
+    const winner = cross({ relation: "equivalent", sourceKind: "manufacturer-cross", sourceUrl: "https://mfr.example/x.pdf" });
+    const rival = cross({
+      relation: "equivalent",
+      sourceKind: "industry-table",
+      bMpn: "THQL1125", // different claimed equivalent, same brand
+      sourceUrl: "https://table.example/y.html",
+    });
+    const { resolved, demoted, dropped } = resolveCrossConflicts([rival, winner]);
+    expect(dropped).toHaveLength(0); // different pairs — no duplicate drop
+    expect(resolved).toHaveLength(2);
+    const demotedEntry = resolved.find((e) => e.bMpn === "THQL1125");
+    expect(demotedEntry?.relation).toBe("functional-substitute");
+    expect(demotedEntry?.notes).toContain("demoted");
+    expect(demoted).toHaveLength(1);
+    const kept = resolved.find((e) => e.bMpn === "THQL1120");
+    expect(kept?.relation).toBe("equivalent");
+  });
+
+  it("many-to-one mappings from a SINGLE source are guide structure, not conflicts", () => {
+    // One Signify-style guide maps many obsolete competitor models to one current ballast.
+    const guide = "https://mfr.example/replacement-guide.pdf";
+    const entries = [
+      cross({ relation: "equivalent", aMpn: "OLD-1", sourceUrl: guide }),
+      cross({ relation: "equivalent", aMpn: "OLD-2", sourceUrl: guide }),
+      // ...and the reverse shape: one origin listed with two comparable variants in the same row.
+      cross({ relation: "equivalent", bMpn: "THQL1120", sourceUrl: guide }),
+      cross({ relation: "equivalent", bMpn: "THQL1125", sourceUrl: guide }),
+    ];
+    const { demoted, dropped } = resolveCrossConflicts(entries);
+    expect(demoted).toHaveLength(0);
+    expect(dropped).toHaveLength(0);
+  });
+
+  it("agreeing sources for different pairs pass through untouched", () => {
+    const a = cross({});
+    const b = cross({ aMpn: "QO230", bMpn: "THQL2130" });
+    const { resolved, dropped, demoted } = resolveCrossConflicts([a, b]);
+    expect(resolved).toHaveLength(2);
+    expect(dropped).toHaveLength(0);
+    expect(demoted).toHaveLength(0);
+  });
+
+  it("is deterministic regardless of input order", () => {
+    const entries = [industry, mfr, cross({ aMpn: "QO230", bMpn: "THQL2130" })];
+    const a = resolveCrossConflicts(entries).resolved.map((e) => e.sourceUrl).sort();
+    const b = resolveCrossConflicts([...entries].reverse()).resolved.map((e) => e.sourceUrl).sort();
+    expect(a).toEqual(b);
+  });
+});
+
+describe("stated attributes on unstocked substitutes", () => {
+  it("checks original specs against the source row's stated attributes", () => {
+    const e = cross({ statedAttributes: { Amperage: "20A", Poles: "1-Pole", Voltage: "277V" } });
+    const [r] = verifiedCrossesFor(qo120, [e], () => null, { includeReview: true });
+    expect(r.matchingAttributes).toEqual(["Amperage", "Poles"]);
+    expect(r.conflictingAttributes).toContainEqual({ name: "Voltage", original: "120/240V", substitute: "277V" });
+    expect(r.confidence).toBe(SOURCE_CONFIDENCE["manufacturer-cross"] - 4); // Voltage is non-negotiable
+    expect(r.statedAttributes).toEqual(e.statedAttributes);
+  });
+});
+
 describe("validateCrossEntries", () => {
   it("accepts clean entries and flags structural problems", () => {
     expect(validateCrossEntries([cross({})])).toEqual([]);
@@ -144,6 +254,11 @@ describe("validateCrossEntries", () => {
     expect(problems.some((p) => p.includes("https"))).toBe(true);
     expect(problems.some((p) => p.includes("self-cross"))).toBe(true);
     expect(problems.some((p) => p.includes("verifiedAt"))).toBe(true);
+  });
+
+  it("same pair from one source is redundant; from different sources it is allowed", () => {
+    expect(validateCrossEntries([cross({}), cross({})]).some((p) => p.includes("duplicate"))).toBe(true);
+    expect(validateCrossEntries([cross({}), cross({ sourceUrl: "https://other.example/t.pdf" })])).toEqual([]);
   });
 
   it("the shipped cross dataset is structurally valid", () => {

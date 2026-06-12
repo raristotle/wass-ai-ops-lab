@@ -383,5 +383,2029 @@ export const VERIFIED_CROSS_ENTRIES: VerifiedCrossEntry[] = [
   "sourceUrl": "https://forum.digikey.com/t/alternative-for-obsolete-led-driver-gsc40b-1050/43425",
   "notes": "Qualifiers from source: Mean Well accepts 90-277VAC vs Hatch 120-277VAC; output 19-38V vs 12-36V; Mean Well uses a barrel plug vs Hatch wire leads - verify wiring and LED load voltage.",
   "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "100-D180",
+  "bBrand": "Allen-Bradley",
+  "bMpn": "100-E190",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/migrat-pp033_-en-p.pdf",
+  "notes": "Rockwell-recommended migration (100-D/G discontinued after March 31, 2019). Pairing taken from the document's dimensional-equivalence panels, not a catalog-number table; full catalog numbers need coil/aux codes - Rockwell directs users to its CrossWorks online conversion tool for exact numbers.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Frame": "Large Frame IEC contactor"
+  },
+  "sourceId": "xref-src-070"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "100-D210",
+  "bBrand": "Allen-Bradley",
+  "bMpn": "100-E205",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/migrat-pp033_-en-p.pdf",
+  "notes": "Rockwell-recommended migration; pairing from dimensional-equivalence panels ('new 100-E contactors to equivalent 100-D/G contactors'); exact catalog conversion via Rockwell CrossWorks tool.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Frame": "Large Frame IEC contactor",
+   "100-E205 AC-3 rating": "205 A (AC-3, 400/415V)"
+  },
+  "sourceId": "xref-src-070"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "1492-W10",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-T8",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefab.pdf",
+  "notes": "AutomationDirect: 'comparable... approximate replacements based on UL wire size, ampacity and voltage'; physical size varies by manufacturer. 1492-W10-B crosses to DN-T8B in same table.",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "1492-W16",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-T4",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefab.pdf",
+  "notes": "Approximate replacement based on UL wire size, ampacity and voltage per table preamble.",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "1492-W70",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-T3/0",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefab.pdf",
+  "notes": "Approximate replacement based on UL wire size, ampacity and voltage per table preamble.",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "1492-WG4",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-G10",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefab.pdf",
+  "notes": "Grounding block row; approximate replacement per table preamble.",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "700-HA32",
+  "bBrand": "Square D",
+  "bMpn": "8501KP12",
+  "relation": "equivalent",
+  "sourceKind": "industry-table",
+  "sourceUrl": "https://www.elliottelectric.com/StaticPages/ElectricalReferences/Guides/relay-cross-reference-chart.aspx",
+  "notes": "Chart uses base catalog numbers without coil-voltage suffixes; our anchors 700-HA32A1 and 8501KP12V20 are coil-specific variants of these bases - verify coil voltage before substituting. Same row also lists Eaton D3PR2, Magnecraft 750XBX, Tyco P&B KRP(A)-11, Tyco Schrack MT2.",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "700-HA32",
+  "bBrand": "Omron",
+  "bMpn": "MK2P",
+  "relation": "equivalent",
+  "sourceKind": "industry-table",
+  "sourceUrl": "https://www.elliottelectric.com/StaticPages/ElectricalReferences/Guides/relay-cross-reference-chart.aspx",
+  "notes": "Base catalog numbers only (no coil-voltage suffix); anchor 700-HA32A1 is the coil-specific variant.",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "700-HA32",
+  "bBrand": "IDEC",
+  "bMpn": "RR2P",
+  "relation": "equivalent",
+  "sourceKind": "industry-table",
+  "sourceUrl": "https://www.elliottelectric.com/StaticPages/ElectricalReferences/Guides/relay-cross-reference-chart.aspx",
+  "notes": "Base catalog numbers only (no coil-voltage suffix).",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Allen-Bradley",
+  "aMpn": "700-HC14",
+  "bBrand": "IDEC",
+  "bMpn": "RU4S",
+  "relation": "equivalent",
+  "sourceKind": "industry-table",
+  "sourceUrl": "https://www.elliottelectric.com/StaticPages/ElectricalReferences/Guides/relay-cross-reference-chart.aspx",
+  "notes": "Same family as anchor 700-HC24A1-4 but different base (700-HC14, not 700-HC24); anchor itself not listed in chart. Same row lists Cyberdyn HJQ-22F, Eaton D2PR4, Magnecraft 782XDX1, Square D 8501RS(D)14, Tyco P&B KHAU-17, Tyco Schrack PT4.",
+  "verifiedAt": "2026-06-11"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "1505A",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "395025",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://docs.galco.com/techdoc/gncc/wire_hookup_cr.pdf",
+  "notes": "RG59-class video cross from Belden-to-General Cable Carol index; row gives only catalog page 106.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-088"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "1583A",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "CR5",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://docs.galco.com/techdoc/gncc/wire_hookup_cr.pdf",
+  "notes": "ANCHOR. Row in 'Belden-to-General Cable Carol Brand Cross Reference Index' (Galco-hosted General Cable guide). Guide disclaimer: 'suggested alternative items which are functionally equal. Constructional differences are not indicated.' Cross row itself carries no construction columns (catalog page listed as N/A). Belden's own catalog search result describes 1583A as Category 5e, 4-pair U/UTP CMR.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-088"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "1585A",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "CP5",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://docs.galco.com/techdoc/gncc/wire_hookup_cr.pdf",
+  "notes": "Adjacent row to 1583A/CR5 in same index; no construction columns in row (page N/A). Same 'functionally equal / constructional differences not indicated' disclaimer.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-088"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "1694A",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "395011",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://docs.galco.com/techdoc/gncc/wire_hookup_cr.pdf",
+  "notes": "RG6-class precision video cross from Belden-to-General Cable Carol index; row gives only catalog page 92, no construction columns.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-088"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "5200FE",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "E2042S",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://na.prysmian.com/sites/na.prysmian.com/files/media/products/ELE-0003-0224_CAROL%20Electronics%20to%20Belden%20Cross-Reference%20Guide.pdf",
+  "notes": "Prysmian alarm/security section. Corroborated by Galco-hosted index row '5200FE | E2042S | 135'. Lake Cable table describes Belden 5200FE construction as 16/2C 19STR BC OAS CMR.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-046"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "5200UE",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "E1042S",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://na.prysmian.com/sites/na.prysmian.com/files/media/products/ELE-0003-0224_CAROL%20Electronics%20to%20Belden%20Cross-Reference%20Guide.pdf",
+  "notes": "Prysmian alarm/security section (unshielded counterpart). Corroborated by Galco-hosted index row '5200UE | E1042S | 134'.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-046"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "5300FE",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "E2032S",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://na.prysmian.com/sites/na.prysmian.com/files/media/products/ELE-0003-0224_CAROL%20Electronics%20to%20Belden%20Cross-Reference%20Guide.pdf",
+  "notes": "Prysmian CAROL-to-Belden guide ELE-0003-0224, 'Alarm and Security, Fire Alarm and Coaxial Cable - New 105C Rating' section. Guide: 'suggested alternative items, which are functionally equal. Constructional differences are not indicated.' Corroborated by Galco-hosted index row '5300FE | E2032S | 135' and by Lake Cable describing E2032S as 18/2C 7STR BC OAS (shielded) CMR.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-046"
+ },
+ {
+  "aBrand": "Belden",
+  "aMpn": "5300UE",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "E1032S",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://na.prysmian.com/sites/na.prysmian.com/files/media/products/ELE-0003-0224_CAROL%20Electronics%20to%20Belden%20Cross-Reference%20Guide.pdf",
+  "notes": "Same Prysmian alarm/security section (unshielded counterpart of 5300FE). Corroborated by Galco-hosted index row '5300UE | E1032S | 134'.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-046"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FNM-20",
+  "bBrand": "Mersen",
+  "bMpn": "TRM20",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: 20A applied to stated series cross FNM -> TRM.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FNM-30",
+  "bBrand": "Mersen",
+  "bMpn": "ATDR30",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://us.mersen.com/sites/default/files/files_imported_ep/CHT-Fuse-Cross-Reference-and-Upgrade-AmpTrap-2000-Family-Chart.pdf",
+  "notes": "Upgrade cross: FNM (midget time-delay) listed as existing fuse in Class CC/midget table with ATDR upgrade; '(amp)' instantiated at 30A. Chart note: below 3A use ATQR.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "UL Class": "CC"
+  },
+  "sourceId": "xref-src-044"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FNM-30",
+  "bBrand": "Mersen",
+  "bMpn": "TRM30",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Guide crosses series-to-series (FNM -> TRM, midget time-delay); 30A rating applied to series cross. Mersen directs to ep.mersen.com for comprehensive directory.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FRN-R-30",
+  "bBrand": "Mersen",
+  "bMpn": "A2D30R",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://us.mersen.com/sites/default/files/files_imported_ep/CHT-Fuse-Cross-Reference-and-Upgrade-AmpTrap-2000-Family-Chart.pdf",
+  "notes": "Presented as an UPGRADE, not a like-for-like cross: RK5 existing fuse -> Amp-Trap 2000 Class RK1 250V. '(amp)' placeholder instantiated at 30A. Stated class/voltage describe the upgrade target table.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "UL Class": "RK1",
+   "Voltage": "250V"
+  },
+  "sourceId": "xref-src-044"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FRN-R-30",
+  "bBrand": "Mersen",
+  "bMpn": "TR30R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Series-level cross (FRNR -> TR-R, Class RK5 time-delay 250V family); 30A applied (TR-R 30A = TR30R).",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FRN-R-60",
+  "bBrand": "Mersen",
+  "bMpn": "TR60R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: same series row as anchor, 60A applied to stated series cross FRNR -> TR-R.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FRS-R-30",
+  "bBrand": "Mersen",
+  "bMpn": "A6D30R",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://us.mersen.com/sites/default/files/files_imported_ep/CHT-Fuse-Cross-Reference-and-Upgrade-AmpTrap-2000-Family-Chart.pdf",
+  "notes": "Upgrade cross RK5 -> RK1 600V; '(amp)' instantiated at 30A.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "UL Class": "RK1",
+   "Voltage": "600V"
+  },
+  "sourceId": "xref-src-044"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FRS-R-30",
+  "bBrand": "Mersen",
+  "bMpn": "TRS30R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Series-level cross (FRSR -> TRS-R, Class RK5 time-delay 600V family); 30A applied.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "FRS-R-60",
+  "bBrand": "Mersen",
+  "bMpn": "TRS60R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: 60A applied to stated series cross FRSR -> TRS-R.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "KTK-R-20",
+  "bBrand": "Mersen",
+  "bMpn": "ATMR20",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: 20A applied to stated series cross KTK-R -> ATMR.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "KTK-R-30",
+  "bBrand": "Mersen",
+  "bMpn": "ATDR30",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://us.mersen.com/sites/default/files/files_imported_ep/CHT-Fuse-Cross-Reference-and-Upgrade-AmpTrap-2000-Family-Chart.pdf",
+  "notes": "Upgrade cross within Class CC; KTK-R is fast-acting, ATDR is the chart's recommended upgrade (time-delay CC). Chart note: below 3A use ATQR. '(amp)' instantiated at 30A. Mersen's like-for-like cross for KTK-R is ATMR per pocket guide.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "UL Class": "CC"
+  },
+  "sourceId": "xref-src-044"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "KTK-R-30",
+  "bBrand": "Mersen",
+  "bMpn": "ATMR30",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Series-level cross (KTK-R -> ATMR, Class CC fast-acting); 30A applied.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "LPJ-30SP",
+  "bBrand": "Mersen",
+  "bMpn": "AJT30",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Series-level cross (LPJ -> AJT, Class J time-delay); 30A applied. Also corroborated by Mersen Amp-Trap 2000 chart Class J 600V table ('J LPJ ... UpGRAdE To: AJT (amp)').",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "LPJ-60SP",
+  "bBrand": "Mersen",
+  "bMpn": "AJT60",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: 60A applied to stated series cross LPJ -> AJT.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "LPN-RK-30SP",
+  "bBrand": "Mersen",
+  "bMpn": "A2D30R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Series-level cross (LPN-RK -> A2D-R, Class RK1 time-delay 250V family); 30A applied (A2D-R 30A = A2D30R).",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Bussmann",
+  "aMpn": "LPN-RK-60SP",
+  "bBrand": "Mersen",
+  "bMpn": "A2D60R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: 60A applied to stated series cross LPN-RK -> A2D-R.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "GE",
+  "aMpn": "GE-232-MAX-H/ULTRA",
+  "bBrand": "Philips Advance",
+  "bMpn": "IOP-2P32-HL-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-ge.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "GE",
+  "aMpn": "GE-232-MAX-L/ULTRA",
+  "bBrand": "Philips Advance",
+  "bMpn": "IOP-2P32-LW-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-ge.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "GE",
+  "aMpn": "GE-232-MAX-N/ULTRA",
+  "bBrand": "Philips Advance",
+  "bMpn": "IOP-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-ge.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "GE",
+  "aMpn": "GE-432-MAX-L/ULTRA",
+  "bBrand": "Philips Advance",
+  "bMpn": "IOP-4P32-LW-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-ge.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "GE",
+  "aMpn": "GE-432-MAX-N/ULTRA",
+  "bBrand": "Philips Advance",
+  "bMpn": "IOP-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-ge.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "A10106CH",
+  "bBrand": "Hammond",
+  "bMpn": "1414PHJ6",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Table format is 'Hoffman Part No. + Panel Part No. = Hammond Part No.': Hoffman A10106CH plus panel A10P10 crosses to Hammond 1414PHJ6, which includes the panel ('Ham incl. Panel'). Hammond disclaimer: guide only, products may not be exactly the same; user must verify details for acceptable substitution.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "A10P10",
+   "Comment": "Ham incl. Panel",
+   "E6CatalogPage": "10"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "A10106CH",
+  "bBrand": "Hammond",
+  "bMpn": "HJ10106HLP",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/search/cross-reference?q=A10106CH",
+  "notes": "From Hammond's online competitor cross-reference tool (server-rendered results). Comment 'Ham also Type 4' - Hammond unit also carries Type 4 rating. No panel pairing for this cross. Same verify-substitution disclaimer shown on results page.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "XRefCompany": "nVent | Hoffman",
+   "XRefPanelNo": "n/a",
+   "Comment": "Ham also Type 4"
+  },
+  "sourceId": "xref-src-015"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "A10106CHFL",
+  "bBrand": "Hammond",
+  "bMpn": "EJ10106",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Hoffman A10106CHFL plus panel A10P10 = Hammond EJ10106 incl. panel. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "A10P10",
+   "Comment": "Ham incl. Panel",
+   "E6CatalogPage": "4"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "A1212CH",
+  "bBrand": "Hammond",
+  "bMpn": "1414PHL6",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Hoffman A1212CH plus panel A12P12 = Hammond 1414PHL6 incl. panel. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "A12P12",
+   "Comment": "Ham incl. Panel",
+   "E6CatalogPage": "10"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "A1212CHFL",
+  "bBrand": "Hammond",
+  "bMpn": "EJ12126",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Covers Hammond anchor EJ12126. Hoffman A1212CHFL plus panel A12P12 crosses to Hammond EJ12126, which includes panel ('Ham incl. Panel'). Hammond disclaimer: guide only; verify details before substitution.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "A12P12",
+   "Comment": "Ham incl. Panel",
+   "E6CatalogPage": "4"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "A1212CHNF",
+  "bBrand": "Hammond",
+  "bMpn": "1414N4PHL6",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Hoffman A1212CHNF plus panel A12P12 crosses to Hammond 1414N4PHL6, which includes panel ('Ham incl. Panel'). Hammond disclaimer: guide only; verify details before substitution.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "A12P12",
+   "Comment": "Ham incl. Panel",
+   "E6CatalogPage": "12"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "A1212CHNFSS",
+  "bBrand": "Hammond",
+  "bMpn": "1414N4PHSSL6",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Hoffman A1212CHNFSS plus panel A12P12 = Hammond 1414N4PHSSL6 incl. panel. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "A12P12",
+   "Comment": "Ham incl. Panel",
+   "E6CatalogPage": "74"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "ASE12X12X4",
+  "bBrand": "Hammond",
+  "bMpn": "CSKO12124",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "No panel (N/A), no qualifier comment. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "299"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "ASE12X12X6",
+  "bBrand": "Hammond",
+  "bMpn": "CSKO12126",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Direct row in Hammond's Hoffman-to-Hammond table; no panel (N/A) and no qualifier comment. Hammond disclaimer: guide only; verify details before substitution.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "300"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "ASE12X12X6NK",
+  "bBrand": "Hammond",
+  "bMpn": "CS12126",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "No-knockout (NK) variant row adjacent to ASE12X12X6. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "302"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "ASE12X12X8",
+  "bBrand": "Hammond",
+  "bMpn": "CSKO12128",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "No panel (N/A), no qualifier comment. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "300"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "CSD161210",
+  "bBrand": "Hammond",
+  "bMpn": "EN4SD161210GY",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "No panel (N/A), no qualifier comment. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "21"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "CSD16126",
+  "bBrand": "Hammond",
+  "bMpn": "EN4SD16126GY",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Single row covers two anchors (Hoffman CSD16126 and Hammond EN4SD16126GY). No panel (N/A), no qualifier comment. Hammond disclaimer: guide only; verify details before substitution.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "21"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "CSD16126LG",
+  "bBrand": "Hammond",
+  "bMpn": "EN4SD16126LG",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "LG-finish variant of the CSD16126 anchor row. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "21"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "CSD16126SS",
+  "bBrand": "Hammond",
+  "bMpn": "EN4SD16126SS",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Stainless variant of the CSD16126 anchor row. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "79"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "CSD16126ST",
+  "bBrand": "Hammond",
+  "bMpn": "ST16126LG",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "ST variant of the CSD16126 anchor family. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "26"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "CSD16126W",
+  "bBrand": "Hammond",
+  "bMpn": "EN4SD16126WGY",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "Window-door (W) variant of the CSD16126 anchor row. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "24"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hoffman",
+  "aMpn": "CSD16128",
+  "bBrand": "Hammond",
+  "bMpn": "EN4SD16128GY",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.hammfg.com/pdf/Hoffman2HammondXRef.pdf",
+  "notes": "No panel (N/A), no qualifier comment. Hammond disclaimer applies.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "HoffmanPanelPartNo": "N/A",
+   "E6CatalogPage": "21"
+  },
+  "sourceId": "xref-src-063"
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2310",
+  "bBrand": "Leviton",
+  "bMpn": "2310",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Single-line row, full column set: Arrow Hart 6200, Cooper CWL520R / L520R, Leviton 2310, P&S L520R, Woodhead 4747.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-20R",
+   "Rating": "20A 125V",
+   "Type": "Single Receptacle",
+   "Color": "Black"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2310",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "L520R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "P&S Turnlok column value L520R.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-20R",
+   "Rating": "20A 125V"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2311",
+  "bBrand": "Leviton",
+  "bMpn": "2311",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Leviton column value 2311 in same single-line row.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-20P",
+   "Rating": "20A 125V"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2313",
+  "bBrand": "Leviton",
+  "bMpn": "2313",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Row: Arrow Hart 6204, Cooper CWL520C, Leviton 2313; P&S 'L520C'/'L520CCN' and Woodhead '2747'/'27T47' on adjacent wrapped lines of the same row.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-20R",
+   "Rating": "20A 125V",
+   "Type": "Connector",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2313",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "L520C",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "P&S cells 'L520C' and 'L520CCN' on wrapped lines of the HBL2313 row.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-20R",
+   "Rating": "20A 125V"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2610",
+  "bBrand": "Leviton",
+  "bMpn": "2610",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Single-line row: Arrow Hart 6330, Cooper CWL530R, Leviton 2610, P&S L530R, Woodhead 4947.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-30R",
+   "Type": "Single Receptacle",
+   "Color": "Black"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2610",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "L530R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-30R"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2611",
+  "bBrand": "Leviton",
+  "bMpn": "2611",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Single-line row: Arrow Hart 6332, Cooper CWL530P, Leviton 2611, P&S L530P / L530PCN, Woodhead 2847 / 28T47.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-30P",
+   "Rating": "30A 125V",
+   "Type": "Plug",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2611",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "L530P",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "P&S column lists 'L530P / L530PCN'.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-30P",
+   "Rating": "30A 125V"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2613",
+  "bBrand": "Leviton",
+  "bMpn": "2613",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Single-line row: Arrow Hart 6334, Cooper CWL530C, Leviton 2613, P&S L530C, Woodhead 2947 / 29T47.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-30R",
+   "Rating": "30A 125V",
+   "Type": "Connector",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL2613",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "L530C",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-30R",
+   "Rating": "30A 125V"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL5266C",
+  "bBrand": "Leviton",
+  "bMpn": "5266-C",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Hubbell Bin Stocking Cross Reference Guide, 'Industrial Grade Insulgrip Plugs (Black and White)' table; competitor column order Bryant/Arrow Hart/Cooper/Leviton/Pass & Seymour/Woodhead. Doc prints Leviton number as 5266C (no hyphen). PDF text extraction jumbles multi-line cells.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "5-15P",
+   "Rating": "15A 125V",
+   "Grade": "Industrial",
+   "Series": "Insulgrip",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL5266C",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "PS5266X",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "P&S column also lists 5266X / 5266XBK / 5266XCN variants in same row.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "5-15P",
+   "Rating": "15A 125V",
+   "Grade": "Industrial"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL5269C",
+  "bBrand": "Leviton",
+  "bMpn": "5269-C",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Insulgrip connector body table, same column layout. Doc prints 5269C.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Rating": "15A 125V",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL5269C",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "5269X",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "P&S column lists '5269X / 5269XCN'.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Rating": "15A 125V"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL5366C",
+  "bBrand": "Leviton",
+  "bMpn": "5366-C",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Doc prints Leviton cell as '5366C / 5366CY'.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Rating": "20A 125V",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL5366C",
+  "bBrand": "Pass & Seymour",
+  "bMpn": "PS5366X",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "P&S column also lists 5366X / 5366XCN and D0521.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Rating": "20A 125V"
+  }
+ },
+ {
+  "aBrand": "Hubbell",
+  "aMpn": "HBL8215C",
+  "bBrand": "Leviton",
+  "bMpn": "8215-C",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "'Hospital Grade Plugs' table; doc prints Leviton as 8215C; P&S column shows 5266XHG / PS5266XHG / D0511H in same row.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "5-15P",
+   "Rating": "15A 125V",
+   "Grade": "Hospital",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "162C",
+  "bBrand": "Belden",
+  "bMpn": "5200UE",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/belden-cable-cross-reference",
+  "notes": "16/2 unshielded security/control, CMR riser.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Construction": "16/2C 19STR BC",
+   "Shield": "NS (no shield)",
+   "Jacket": "CMR",
+   "Color": "GRAY"
+  },
+  "sourceId": "xref-src-125"
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "162CS",
+  "bBrand": "Belden",
+  "bMpn": "5200FE",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/belden-cable-cross-reference",
+  "notes": "16/2 shielded security/control, CMR riser.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Construction": "16/2C 19STR BC",
+   "Shield": "OAS (overall shield)",
+   "Jacket": "CMR",
+   "Color": "GRAY"
+  },
+  "sourceId": "xref-src-125"
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "182C",
+  "bBrand": "Belden",
+  "bMpn": "5300UE",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/belden-cable-cross-reference",
+  "notes": "18/2 unshielded security/control, CMR riser.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Construction": "18/2C 7STR BC",
+   "Shield": "NS (no shield)",
+   "Jacket": "CMR",
+   "Color": "GRAY"
+  },
+  "sourceId": "xref-src-125"
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "182C",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "E1030S",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/general-cable-cross-reference",
+  "notes": "Lake Cable's General Cable cross table (columns: Lake Cable Item Number | General Cable Customer Number | General Cable Item Number | Item Description). 18/2 unshielded CMR. Note: Prysmian's own guide maps Belden 5300UE to E1032S, so E1030S vs E1032S differ across guides - treat as Lake's stated mapping only.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Construction": "18/2C 7STR BC",
+   "Shield": "NS (no shield)",
+   "Jacket": "CMR",
+   "Color": "GRAY"
+  },
+  "sourceId": "xref-src-126"
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "182CS",
+  "bBrand": "Belden",
+  "bMpn": "5300FE",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/belden-cable-cross-reference",
+  "notes": "Lake Cable's own Belden cross table; row format Lake Cable part | Belden part | description. 18/2 shielded security/control, CMR riser.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Construction": "18/2C 7STR BC",
+   "Shield": "OAS (overall shield)",
+   "Jacket": "CMR",
+   "Color": "GRAY"
+  },
+  "sourceId": "xref-src-125"
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "182CS",
+  "bBrand": "Carol (General Cable)",
+  "bMpn": "E2032S",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/general-cable-cross-reference",
+  "notes": "18/2 shielded CMR; consistent with Prysmian mapping Belden 5300FE = E2032S and Lake 182CS = Belden 5300FE.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Construction": "18/2C 7STR BC",
+   "Shield": "OAS (overall shield)",
+   "Jacket": "CMR",
+   "Color": "GRAY"
+  },
+  "sourceId": "xref-src-126"
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "AVBRG59HDTV",
+  "bBrand": "Belden",
+  "bMpn": "1505A",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/belden-broadcast-cross-reference",
+  "notes": "RG59-class HD video coax; row has no construction columns.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-111"
+ },
+ {
+  "aBrand": "Lake Cable",
+  "aMpn": "AVBRG6HDTV",
+  "bBrand": "Belden",
+  "bMpn": "1694A",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.lakecable.com/belden-broadcast-cross-reference",
+  "notes": "Lake Cable broadcast cross table (headers: Lake Cable | Belden). RG6-class HD/SDI video coax; table row has no construction columns.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-111"
+ },
+ {
+  "aBrand": "Leviton",
+  "aMpn": "515CV",
+  "bBrand": "Hubbell",
+  "bMpn": "HBL5969VY",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Vinyl connector table; Leviton cell reads '515CA / 515CV'. Column attribution based on position matching the companion vinyl plug row (515PV); extraction of adjacent cells jumbled.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Color": "Yellow"
+  }
+ },
+ {
+  "aBrand": "Leviton",
+  "aMpn": "515PV",
+  "bBrand": "Hubbell",
+  "bMpn": "HBL5965VY",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Vinyl plug table; Leviton column position between Cooper ('5965YSP') and P&S ('C0511' - C/D-prefixed numbers appear in the P&S column throughout this guide). Surrounding multi-variant rows partially jumbled by extraction.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Color": "Yellow"
+  }
+ },
+ {
+  "aBrand": "Leviton",
+  "aMpn": "CR020-W",
+  "bBrand": "Hubbell",
+  "bMpn": "CR20WHI",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "Leviton column cell prints 'CR020W / CR20W' (Leviton CR020-series).",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "5-20R",
+   "Rating": "20A 125V",
+   "Type": "Duplex Receptacle",
+   "Color": "White"
+  }
+ },
+ {
+  "aBrand": "Littelfuse",
+  "aMpn": "FLNR030",
+  "bBrand": "Mersen",
+  "bMpn": "A2D30R",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://us.mersen.com/sites/default/files/files_imported_ep/CHT-Fuse-Cross-Reference-and-Upgrade-AmpTrap-2000-Family-Chart.pdf",
+  "notes": "Upgrade cross RK5 -> RK1 250V; '(amp)' instantiated at 30A.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "UL Class": "RK1",
+   "Voltage": "250V"
+  },
+  "sourceId": "xref-src-044"
+ },
+ {
+  "aBrand": "Littelfuse",
+  "aMpn": "FLNR030",
+  "bBrand": "Mersen",
+  "bMpn": "TR30R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Series-level cross (FLNR -> TR-R, Class RK5 time-delay 250V family); 30A applied.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Littelfuse",
+  "aMpn": "FLNR060",
+  "bBrand": "Mersen",
+  "bMpn": "TR60R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: 60A applied to stated series cross FLNR -> TR-R.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Littelfuse",
+  "aMpn": "FLSR030",
+  "bBrand": "Mersen",
+  "bMpn": "A6D30R",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://us.mersen.com/sites/default/files/files_imported_ep/CHT-Fuse-Cross-Reference-and-Upgrade-AmpTrap-2000-Family-Chart.pdf",
+  "notes": "Upgrade cross RK5 -> RK1 600V; '(amp)' instantiated at 30A.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "UL Class": "RK1",
+   "Voltage": "600V"
+  },
+  "sourceId": "xref-src-044"
+ },
+ {
+  "aBrand": "Littelfuse",
+  "aMpn": "FLSR030",
+  "bBrand": "Mersen",
+  "bMpn": "TRS30R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Series-level cross (FLSR -> TRS-R, Class RK5 time-delay 600V family); 30A applied.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Littelfuse",
+  "aMpn": "FLSR060",
+  "bBrand": "Mersen",
+  "bMpn": "TRS60R",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.mersen.com/sites/default/files/files_imported_ep/BR-Pocket-Cross-Reference-Guide.pdf",
+  "notes": "Extra pair: 60A applied to stated series cross FLSR -> TRS-R.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-043"
+ },
+ {
+  "aBrand": "Mersen",
+  "aMpn": "TR30R",
+  "bBrand": "Mersen",
+  "bMpn": "A2D30R",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://us.mersen.com/sites/default/files/files_imported_ep/CHT-Fuse-Cross-Reference-and-Upgrade-AmpTrap-2000-Family-Chart.pdf",
+  "notes": "Mersen's own RK5 TR-R listed as existing fuse with RK1 A2D-R upgrade; '(amp)' instantiated at 30A.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "UL Class": "RK1",
+   "Voltage": "250V"
+  },
+  "sourceId": "xref-src-044"
+ },
+ {
+  "aBrand": "Osram Sylvania",
+  "aMpn": "QHE2X32T8/UNV ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "IOPA-2P32-SC",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "QUICKCROSS item 49969; same row also lists ULT B232IUNVHE-A, GE GE-232-MAX-N/ULTRA, Howard EP2/32IS/MV/MC/HE",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Osram Sylvania",
+  "aMpn": "QHE4X32T8/UNV ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "IOPA-4P32-SC",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "QUICKCROSS item 49971; same row also lists ULT B432IUNVHE-A, GE GE-432-MAX-N/ULTRA, Howard EP4/32IS/MV/MC/HE",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Osram Sylvania",
+  "aMpn": "QTP1x32T8/UNV ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-1P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "QUICKCROSS item 49905; corroborated by Signify Osram guide row QTP1X32T8/UNV-SC | ICN-1P32-N",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Osram Sylvania",
+  "aMpn": "QTP2x26CF/UNV DM",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICF-2S26-H1-LD",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "QUICKCROSS item 51833; CFL section states products run multiple lamp combinations with various mounting/case styles",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Osram Sylvania",
+  "aMpn": "QTP2x32T8/UNV ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "Sylvania QUICKCROSS item 49906; same row also lists ULT B232IUNVHP-B, GE GE-232-MV-N, Howard EP2/32IS/MV/MC",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Osram Sylvania",
+  "aMpn": "QTP3x32T8/UNV ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-3P32-SC",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "QUICKCROSS item 49907",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Osram Sylvania",
+  "aMpn": "QTP4x32T8/UNV ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-SC",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "QUICKCROSS item 49908; Sylvania crosses to ICN-4P32-SC while Signify's own guide crosses QTP4X32T8/UNV-SC to ICN-4P32-N",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M2-IN-T8-D-120",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M2-IN-T8-D-277",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M2-IN-T8-GP-D-120",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M2-IN-T8-GP-D-277",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M2-IN-T8-GP-J-120",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M2-IN-T8-GP-J-277",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-2P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M4-IN-T8-A-120",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M4-IN-T8-A-277",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M4-IN-T8-GP-A-277",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M4-IN-T8-GP-D-120",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M4-IN-T8-GP-K-120",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "notes": "Guide note: Dimensions differ significantly",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "M4-IN-T8-GP-K-277",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "notes": "Guide note: Dimensions differ significantly",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32/120HD10",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32/120IS",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32/120IS-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32/277HD10",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32/277IS",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32/277IS-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/120ISN",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/120ISN-D",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/120ISN-K-G4",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "notes": "Guide note: Dimensions differ significantly",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/120ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/277ISN",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/277ISN-A",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/277ISN-K-G4",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "notes": "Guide note: Dimensions differ significantly",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QT4X32T8/277ISN-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QTP3X32T8/UNV-SC",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-3P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QTP4X32T8/120ISN-A",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Osram-Motorola",
+  "aMpn": "QTP4X32T8/277ISN-A",
+  "bBrand": "Philips Advance",
+  "bMpn": "ICN-4P32-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.assets.signify.com/is/content/Signify/Assets/advance/20190931-cross-reference-guide-osram-motorola.pdf",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Ballast Type": "Electronic Fluorescent"
+  },
+  "sourceId": "xref-src-059"
+ },
+ {
+  "aBrand": "Pass & Seymour",
+  "aMpn": "L520P",
+  "bBrand": "Hubbell",
+  "bMpn": "HBL2311",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/literature/BIN_Stock_Guide_2013.pdf",
+  "notes": "P&S column lists 'L520P / L520PCN'; Cooper cell 'CWL520P / L520P' on wrapped line.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "NEMA": "L5-20P",
+   "Rating": "20A 125V",
+   "Type": "Plug",
+   "Color": "Black & White"
+  }
+ },
+ {
+  "aBrand": "Philips Advance",
+  "aMpn": "ICF-2S26-H1-LD",
+  "bBrand": "Universal Lighting Technologies",
+  "bMpn": "C2642UNV-BE",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "Both listed in same QUICKCROSS row 51833 as comparable to Sylvania QTP2x26CF/UNV DM",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Philips Advance",
+  "aMpn": "ICF-2S26-H1-LD",
+  "bBrand": "Universal Lighting Technologies",
+  "bMpn": "C2642UNV-SE",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "Both listed in same QUICKCROSS row 51833 as comparable to Sylvania QTP2x26CF/UNV DM",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Philips Advance",
+  "aMpn": "ICF-2S26-H1-LD",
+  "bBrand": "Howard",
+  "bMpn": "PSM226CQMVDW",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "Both listed in same QUICKCROSS row 51833 as comparable to Sylvania QTP2x26CF/UNV DM",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Philips Advance",
+  "aMpn": "ICN-2P32-N",
+  "bBrand": "Universal Lighting Technologies",
+  "bMpn": "B232IUNVHP-B",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "Both listed in same QUICKCROSS row 49906 as comparable to Sylvania QTP2x32T8/UNV ISN-SC",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Philips Advance",
+  "aMpn": "ICN-2P32-N",
+  "bBrand": "Howard",
+  "bMpn": "EP2/32IS/MV/MC",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "Both listed in same QUICKCROSS row 49906 as comparable to Sylvania QTP2x32T8/UNV ISN-SC",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Philips Advance",
+  "aMpn": "ICN-2P32-N",
+  "bBrand": "GE",
+  "bMpn": "GE-232-MV-N",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13111858",
+  "notes": "Both listed in same QUICKCROSS row 49906 as comparable to Sylvania QTP2x32T8/UNV ISN-SC",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "Lamp Type": "32 T8",
+   "Start": "Instant Start",
+   "Input Voltage": "Universal Voltage",
+   "Ballast Factor": "Normal"
+  },
+  "sourceId": "xref-src-051"
+ },
+ {
+  "aBrand": "Phoenix Contact",
+  "aMpn": "3004100",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-F10",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefphoenix.pdf",
+  "notes": "PDF prints Phoenix order number as '30 04 10 0'. Approximate replacement based on UL wire size, ampacity and voltage per table preamble.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-107"
+ },
+ {
+  "aBrand": "Phoenix Contact",
+  "aMpn": "3004171",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-F6",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefphoenix.pdf",
+  "notes": "PDF prints '30 04 17 1'. Approximate replacement per table preamble.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-107"
+ },
+ {
+  "aBrand": "Phoenix Contact",
+  "aMpn": "3004524",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-T8",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefphoenix.pdf",
+  "notes": "PDF prints '30 04 52 4'. Approximate replacement per table preamble.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-107"
+ },
+ {
+  "aBrand": "Phoenix Contact",
+  "aMpn": "3005073",
+  "bBrand": "AutomationDirect",
+  "bMpn": "DN-T6",
+  "relation": "functional-substitute",
+  "sourceKind": "distributor-cross",
+  "sourceUrl": "https://cdn.automationdirect.com/static/specs/dinxrefphoenix.pdf",
+  "notes": "PDF prints '30 05 07 3'. Approximate replacement per table preamble.",
+  "verifiedAt": "2026-06-11",
+  "sourceId": "xref-src-107"
  }
 ];

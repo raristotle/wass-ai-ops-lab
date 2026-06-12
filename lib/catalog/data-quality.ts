@@ -1,9 +1,11 @@
 import { REAL_PRODUCT_ENTRIES, REAL_PRODUCTS_BUILT_AT } from "@/data/real/real-products";
 import { BRAND_HIERARCHY_ENTRIES } from "@/data/real/brand-hierarchy";
 import { VERIFIED_CROSS_ENTRIES } from "@/data/real/verified-crosses";
+import { CROSS_SOURCE_ENTRIES, CROSS_SOURCE_WORKBOOK_ROWS } from "@/data/real/cross-source-registry";
 import { assessRecord } from "@/lib/catalog/provenance";
 import { brandCoverage, validateHierarchy } from "@/lib/catalog/brand-hierarchy";
-import { validateCrossEntries } from "@/lib/catalog/verified-crosses";
+import { validateCrossEntries, resolveCrossConflicts } from "@/lib/catalog/verified-crosses";
+import { crossSourceStats, validateCrossSources, qualityScoreForUrl } from "@/lib/catalog/cross-sources";
 import { parseSalesRank } from "@/lib/catalog/sales-rank";
 import { identifierKey } from "@/lib/catalog/identifiers";
 
@@ -33,6 +35,20 @@ export interface DataQualityReport {
     bySourceKind: Record<string, number>;
     anchoredBothSides: number;
     anchoredOneSide: number;
+    structuralProblems: string[];
+    conflicts: {
+      resolved: number;
+      dropped: { pair: string; reason: string; winnerUrl: string }[];
+      demoted: { pair: string; reason: string; winnerUrl: string }[];
+    };
+  };
+  sources: {
+    workbookRows: number;
+    total: number;
+    byStatus: Record<string, number>;
+    byAccess: Record<string, number>;
+    truncatedUrls: number;
+    ingested: { name: string; url: string; note: string }[];
     structuralProblems: string[];
   };
   missingInputs: { name: string; detail: string }[];
@@ -91,18 +107,26 @@ export function buildDataQualityReport(): DataQualityReport {
     .sort((a, b) => b.products - a.products)
     .slice(0, 15);
 
-  // Crosses
+  // Crosses — conflict-resolved with the documented rule before counting.
+  const resolution = resolveCrossConflicts(VERIFIED_CROSS_ENTRIES, {
+    qualityScoreFor: (url) => qualityScoreForUrl(url, CROSS_SOURCE_ENTRIES),
+  });
   const skuKeys = new Set(entries.map((e) => identifierKey(e.mpn)));
   let both = 0;
   let one = 0;
   const bySourceKind: Record<string, number> = {};
-  for (const c of VERIFIED_CROSS_ENTRIES) {
+  for (const c of resolution.resolved) {
     bySourceKind[c.sourceKind] = (bySourceKind[c.sourceKind] ?? 0) + 1;
     const aIn = skuKeys.has(identifierKey(c.aMpn));
     const bIn = skuKeys.has(identifierKey(c.bMpn));
     if (aIn && bIn) both += 1;
     else if (aIn || bIn) one += 1;
   }
+  const pairLabel = (e: { aBrand: string; aMpn: string; bBrand: string; bMpn: string }) =>
+    `${e.aBrand} ${e.aMpn} ↔ ${e.bBrand} ${e.bMpn}`;
+
+  // Source registry
+  const srcStats = crossSourceStats(CROSS_SOURCE_ENTRIES);
 
   // Missing inputs — reported, never guessed.
   const salesRank = parseSalesRank(null);
@@ -127,11 +151,29 @@ export function buildDataQualityReport(): DataQualityReport {
     brands: { distinct: allBrands.length, hierarchyModeled: covered.length, hierarchyMissingTop },
     missingFieldsByCategory: missingByCategory,
     crosses: {
-      pairs: VERIFIED_CROSS_ENTRIES.length,
+      pairs: resolution.resolved.length,
       bySourceKind,
       anchoredBothSides: both,
       anchoredOneSide: one,
       structuralProblems: [...validateCrossEntries(VERIFIED_CROSS_ENTRIES), ...validateHierarchy(BRAND_HIERARCHY_ENTRIES)],
+      conflicts: {
+        resolved: resolution.dropped.length + resolution.demoted.length,
+        dropped: resolution.dropped.map((d) => ({ pair: pairLabel(d.entry), reason: d.reason, winnerUrl: d.winnerUrl })),
+        demoted: resolution.demoted.map((d) => ({ pair: pairLabel(d.entry), reason: d.reason, winnerUrl: d.winnerUrl })),
+      },
+    },
+    sources: {
+      workbookRows: CROSS_SOURCE_WORKBOOK_ROWS,
+      total: srcStats.total,
+      byStatus: srcStats.byStatus,
+      byAccess: srcStats.byAccess,
+      truncatedUrls: srcStats.truncatedUrls,
+      ingested: CROSS_SOURCE_ENTRIES.filter((e) => e.ingestStatus === "ingested").map((e) => ({
+        name: e.name,
+        url: e.url,
+        note: e.ingestNote ?? "",
+      })),
+      structuralProblems: validateCrossSources(CROSS_SOURCE_ENTRIES),
     },
     missingInputs,
   };
@@ -196,6 +238,40 @@ export function renderDataQualityMarkdown(r: DataQualityReport): string {
     lines.push(`| Source: ${kind} | ${n} |`);
   }
   lines.push(`| Structural problems | ${r.crosses.structuralProblems.length} |`);
+  lines.push(`| Conflicts resolved by the source-priority rule | ${r.crosses.conflicts.resolved} |`);
+  if (r.crosses.conflicts.dropped.length > 0 || r.crosses.conflicts.demoted.length > 0) {
+    lines.push("");
+    lines.push("### Conflict resolutions");
+    lines.push("");
+    lines.push("Rule: source authority (manufacturer-cross > datasheet > distributor-cross > industry-table), then workbook quality score, then recency, then specificity.");
+    lines.push("");
+    for (const d of r.crosses.conflicts.dropped) {
+      lines.push(`- **Dropped** ${d.pair} — ${d.reason} (winner: ${d.winnerUrl})`);
+    }
+    for (const d of r.crosses.conflicts.demoted) {
+      lines.push(`- **Demoted** ${d.pair} — ${d.reason} (winner: ${d.winnerUrl})`);
+    }
+  }
+  lines.push("");
+  lines.push("## Cross-reference source registry");
+  lines.push("");
+  lines.push(`Ingested from the "Top 1000 Product Cross-Reference Source Records" workbook: ${r.sources.workbookRows} per-section rows deduped to ${r.sources.total} sources.`);
+  lines.push("");
+  lines.push(`| Ingest status | Sources |`);
+  lines.push(`|---|---|`);
+  for (const [status, n] of Object.entries(r.sources.byStatus)) {
+    lines.push(`| ${status} | ${n} |`);
+  }
+  lines.push(`| URLs truncated by the workbook (literal "...") | ${r.sources.truncatedUrls} |`);
+  lines.push(`| Registry structural problems | ${r.sources.structuralProblems.length} |`);
+  if (r.sources.ingested.length > 0) {
+    lines.push("");
+    lines.push("### Sources extracted into the cross dataset");
+    lines.push("");
+    for (const s of r.sources.ingested) {
+      lines.push(`- **${s.name}** — ${s.note}`);
+    }
+  }
   lines.push("");
   lines.push("## Missing inputs (reported, not guessed)");
   lines.push("");

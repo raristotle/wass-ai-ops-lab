@@ -108,6 +108,14 @@ export function VerifiedCrossPanel({ product }: { product: CatalogProduct }) {
                   ✓ matches: {c.matchingAttributes.join(", ")}
                 </p>
               )}
+              {c.statedAttributes && !c.substituteProduct && (
+                <p className="mt-0.5 text-[10px] text-[#4F758B]">
+                  Source states:{" "}
+                  {Object.entries(c.statedAttributes)
+                    .map(([n, v]) => `${n} ${v}`)
+                    .join(" · ")}
+                </p>
+              )}
               {c.warnings.map((w, i) => (
                 <p key={i} className="mt-0.5 text-[10px] text-[#DB6B30]">⚠ {w}</p>
               ))}

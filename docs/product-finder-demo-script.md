@@ -99,6 +99,19 @@ Every SKU below is deterministic — it exists with the same data in every envir
     SKUs never leave the building; verified parts get live market data."*
     (Also works: `UTPSP5BUY` Panduit patch cord, `LC1D09G7` Schneider contactor,
     `3RT2026-1AK60` Siemens.)
+9c. **Search `FRN-R-30`** (a real Bussmann fuse) **and open View Details. Point
+    at the VERIFIED CROSS-REFERENCES panel.**
+    *"This is the other half of real: 174 cross-references where every pair
+    cites the official document that states it — this one is Mersen's own
+    published cross guide mapping this Bussmann fuse to the Mersen TR30R we
+    stock, with the source PDF one click away. Attribute agreement is checked,
+    qualifiers come straight from the document, anything under 95% confidence
+    never reaches the rep, and when two sources disagree, a documented
+    rule — manufacturer beats distributor beats industry chart — picks the
+    winner. No black-box AI guesses on substitutions."*
+    (Also works: `HBL5266C` Hubbell plug → Leviton & P&S crosses from Hubbell's
+    own bin-stock guide; `CSD16126` Hoffman enclosure → Hammond's cross table;
+    `LC1D09G7` → ABB's competitor lookup.)
 
 ## Act 4 — From basket to deliverables (5 min)
 
@@ -276,9 +289,10 @@ of overwrites, customer health and demand forecasts rolling up to a manager
 bell and pipeline — and every screen two keystrokes away, desk or job site."*
 
 > **Demo honesty note:** customer accounts, contract pricing, inventory/ATP, PIM
-> provenance, and cross-references run on **synthetic data behind swap-in
-> adapters** (`lib/integration/`). Two deliberate exceptions are REAL: the live
-> Mouser/Digi-Key distributor panel (Act 3, step 9a) and the Resend quote email
+> provenance, and simulated-SKU cross-references run on **synthetic data behind
+> swap-in adapters** (`lib/integration/`). Three deliberate exceptions are REAL:
+> the live Mouser/Digi-Key distributor panel (Act 3, step 9a), the source-backed
+> verified cross-references (step 9c), and the Resend quote email
 > when a key is configured. See the
 > [integration guide](wesco-it-integration-guide.md) for connecting real systems.
 

@@ -1,10 +1,10 @@
 // GENERATED FILE — do not hand-edit.
 // Built by scripts/build-real-products.mjs from data/real/research/cell-*.json
-// (web-researched real products; every specSheetUrl re-verified live on 2026-06-10).
+// (web-researched real products; every specSheetUrl re-verified live on 2026-06-12).
 // Regenerate with:  node scripts/build-real-products.mjs
 import type { RealProductEntry } from "@/lib/catalog/real";
 
-export const REAL_PRODUCTS_BUILT_AT = "2026-06-10";
+export const REAL_PRODUCTS_BUILT_AT = "2026-06-12";
 
 export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
  {
@@ -42,7 +42,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://downloads.biamp.com/assets/docs/default-source/data-sheets/biamp_data_sheet_tesiraforte_avb_ai_oct20.pdf?sfvrsn=613d4f2f_12",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IZA 2120-LZ",
@@ -79,7 +79,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://boseprofessional.com/products/power-amplifiers/mixer-amps/iza/freespace-iza-2120-lz-integrated-zone-amplifier",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CDi 4|300",
@@ -116,7 +116,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.crownaudio.com/en-US/products/cdi-4-300",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XLi 800",
@@ -157,7 +157,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.crownaudio.com/en-US/products/xli-800",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XLS1002",
@@ -198,7 +198,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.crownaudio.com/en-US/products/xls-1002",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XLS1502",
@@ -235,7 +235,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.crownaudio.com/en-US/products/xls-1502",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Core 110f v2",
@@ -272,7 +272,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/dn/dsp_cores/core_110f/q_dn_core_110f_specs.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SPA2-60",
@@ -309,7 +309,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/amp/spa/q_amp_spa_specs_final.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LTM1U",
@@ -342,7 +342,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrandav.com/products/mounts/display-tv-mounts/fusion-wall-tilt/ltm1u",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RPAU",
@@ -379,7 +379,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrandav.com/products/mounts/projector-mounts/rpa-ceiling-projector-mounts/rpau",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T63",
@@ -420,7 +420,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://crimsonav.com/product/t63/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PRG-UNV",
@@ -457,7 +457,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://peerless-av.com/products/prg-unv",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ST650",
@@ -494,7 +494,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://docs.peerless-av.com/SELL%20SHEET-LIT0594-1-7-1.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PBC-UMS",
@@ -527,7 +527,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.premiermounts.com/products/pbc-series-universal-projector-mount",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "VLF728-B2",
@@ -568,7 +568,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.sanus.com/sanus/pdfs/promo/VLF728-SellSheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "VMPL50A-B1",
@@ -606,7 +606,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://pro.sanus.com/en_us/products/tv-mounts/vmpl50a/",
   "upc": "793795521965",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "55UH5N-E",
@@ -643,7 +643,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://solutions.lg.com/us/digital-signage/lg-55uh5n-e",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "55UR340C9UD",
@@ -680,7 +680,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://solutions.lg.com/us/digital-signage/lg-55ur340c9ud",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "E558",
@@ -717,7 +717,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.sharpnecdisplays.us/products/displays/e558",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "M551",
@@ -758,7 +758,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.sharpnecdisplays.us/products/displays/m551",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LH55BECHLGFXGO",
@@ -795,7 +795,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://image-us.samsung.com/SamsungUS/samsungbusiness/pdf/spec-sheets/Samsung_Pro_TV_BEC-H_Series_Leaflet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LH55QBCEBGCXGO",
@@ -832,7 +832,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://image-us.samsung.com/SamsungUS/samsungbusiness/displays/4k-uhd/qb-series/qbc-series-4k-uhd-display/QBC_Data_Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LH55QMCEBGCXGO",
@@ -869,7 +869,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://image-us.samsung.com/SamsungUS/samsung/us/tvs/decrypted/QMC-Crystal-UHD-Series-Leaflet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FW-55BZ30L",
@@ -906,7 +906,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cdn-docs.av-iq.com/dataSheet/FW55BZ30L.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FW-65BZ30L",
@@ -943,7 +943,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cdn-docs.av-iq.com/dataSheet/FW65BZ30L.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "911.0498.900",
@@ -984,7 +984,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://downloads.biamp.com/assets/docs/default-source/data-sheets/biamp_data_sheet_parle-mics_all-models_jul22.pdf?sfvrsn=6c44e0b5_48",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "e 835",
@@ -1021,7 +1021,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.sennheiser.com/globalassets/digizuite/41678-en-sp_1209_v1.0_e_835_e_835-s_product_specification_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "e 935",
@@ -1058,7 +1058,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.sennheiser.com/globalassets/digizuite/41696-en-sp_1218_v1.0_e_935_product_specification_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MKE 600",
@@ -1095,7 +1095,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.sennheiser.com/globalassets/digizuite/41788-en-sp_1302_v1.0_mke_600_product_specification_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MV7+-K",
@@ -1132,7 +1132,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://pubs.shure.com/view/guide/MV7Plus/en-US.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MX418/C",
@@ -1169,7 +1169,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://pubs.shure.com/view/guide/MX400/en-US.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SM57-LC",
@@ -1206,7 +1206,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://pubs.shure.com/view/guide/SM57/en-US.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SM58-LC",
@@ -1243,7 +1243,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://pubs.shure.com/view/guide/SM58/en-US.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SM7B",
@@ -1280,7 +1280,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://pubs.shure.com/view/guide/SM7B/en-US.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "G62-W9",
@@ -1317,7 +1317,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.barco.com/m/2e18595d63338fcc/original/G62-W9-en-Spec-sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LH650",
@@ -1354,7 +1354,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.benq.com/en-us/projector/business/lh650/spec.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LH730",
@@ -1391,7 +1391,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.benq.com/en-us/business/projector/lh730/specifications.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DWU760-iS",
@@ -1428,7 +1428,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.christiedigital.com/products/projectors/all-projectors/inspire-series/dwu760-is/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "V11H982020",
@@ -1465,7 +1465,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://epson.com/For-Work/Projectors/Classroom/PowerLite-X49-3LCD-XGA-Classroom-Projector-with-HDMI/p/V11H982020",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "V11H988020",
@@ -1502,7 +1502,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://mediaserver.goepson.com/ImConvServlet/imconv/cc33a3aae5958342e5122362ad0e64a3c615e542/original?assetDescr=PowerLite-992F_SpecSheet_CPD-59277_Final.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "V11HA27020",
@@ -1539,7 +1539,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://mediaserver.goepson.com/ImConvServlet/imconv/d35b20f8a3b9ca9520a2af4ff393d3a4de1c0a56/original?assetDescr=PowerLite_L530U_Specification_Sheet_CPD-60911R1_FINAL.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "V11HA98020",
@@ -1576,7 +1576,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://epson.com/For-Work/Projectors/Meeting-Room/PowerLite-L570U-3LCD-Laser-Projector-with-4K-Enhancement/p/V11HA98020",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AT-HDR-EX-70-2PS",
@@ -1617,7 +1617,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://atlona.com/pdf/data_sheet/AT-HDR-EX-70-2PS_Spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AT-OME-EX-KIT-LT",
@@ -1658,7 +1658,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://atlona.com/pdf/data_sheet/AT-OME-EX-KIT-LT_Spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HD-RXC-4KZ-101",
@@ -1699,7 +1699,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.crestron.com/Products/Catalog/Audio-Video-and-USB/DM-Essentials-Point-to-Point/Receiver/HD-RXC-4KZ-101",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HD-TXC-4KZ-101",
@@ -1740,7 +1740,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.crestron.com/Products/Catalog/Audio-Video-and-USB/DM-Essentials-Point-to-Point/Transmitter/HD-TXC-4KZ-101",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "60-1271-13",
@@ -1777,7 +1777,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://media.extron.com/public/download/files/brochure/dtp_hdmi_4k_230_A10.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "60-1491-12",
@@ -1818,7 +1818,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://media.extron.com/public/download/files/brochure/dtp_t_hd2_4k_230_A2.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TP-580R",
@@ -1859,7 +1859,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www1.kramerav.com/product/TP-580R",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TP-580T",
@@ -1900,7 +1900,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www1.kramerav.com/product/tp-580t",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FAP62T",
@@ -1941,7 +1941,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atlasied.com/fap62t",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SD72W",
@@ -1982,7 +1982,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atlasied.com/sd72w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DM2C-LP",
@@ -2023,7 +2023,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://boseprofessional.com/products/loudspeakers/ceiling-mount/designmax/designmax-dm2c-lp-1-pair",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FS2C",
@@ -2064,7 +2064,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.boseprofessional.com/m/2e5cca68f250f74b/original/TDS_FreeSpace_FS2C_A4_enUS.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Control 16C/T",
@@ -2101,7 +2101,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw91d75a79/pdfs/JBL_Ctrl16C_Tv1_Spec_Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Control 25-1",
@@ -2142,7 +2142,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8441c078/pdfs/JBL_Control_C25-1_Spec_Sheet_022616_lowres.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Control 26CT",
@@ -2183,7 +2183,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwd91cc59c/pdfs/JBL_Ctrl26C_CTv1_SpecSheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Control 28-1",
@@ -2224,7 +2224,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw66c7f336/pdfs/JBL_Control_C28-1_Spec_Sheet_022616_lowres.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AD-C6T",
@@ -2265,7 +2265,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/spk/ad/ad-c6t/q_spk_adc_6t_specsheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AD-S6T",
@@ -2306,7 +2306,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.qscaudio.com/resource-files/productresources/spk/ad/ad-s6t/q_spk_ads_6t_specs.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CS-BAR-T-K9",
@@ -2343,7 +2343,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/collaboration-endpoints/webex-room-series/webex-room-bar-ds.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UC-B70-A-T",
@@ -2384,7 +2384,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.crestron.com/Products/Catalog/Unified-Communications/Flex-Conferencing/Room-Kits/UC-B70-A-T",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "960-001308",
@@ -2421,7 +2421,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.logitech.com/content/dam/logitech/en_us/video-collaboration/pdf/rallybar.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "960-001336",
@@ -2462,7 +2462,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.logitech.com/content/dam/logitech/en_us/video-collaboration/pdf/rallybarmini.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "960-001691",
@@ -2503,7 +2503,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.logitech.com/content/dam/logitech/en/video-collaboration/pdf/meetup2-datasheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NEATBAR2-SE",
@@ -2544,7 +2544,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cdn-stories.neat.no/1/2024/09/Neat_Bar_Gen_2_Device_Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8D8K2AA#ABA",
@@ -2581,7 +2581,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c08705009",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "A09D4AA#ABA",
@@ -2618,7 +2618,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://h20195.www2.hp.com/v2/GetPDF.aspx/c08997980",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "A40-010",
@@ -2655,7 +2655,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://support.yealink.com/document-detail/8927004415374b449765c2a965d3ea69",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MGS400-318",
@@ -2692,7 +2692,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.commscope.com/product-type/connectors/rj45-jacks-accessories/category-6-jacks/mgs400/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HXJ6W",
@@ -2729,7 +2729,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/PREM_MX-HXJ6W-SPEC-EN.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "KS6A-36",
@@ -2766,7 +2766,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/network-infrastructure/copper/jacks-and-modules/techchoice-6-keystone-jack-blue/p/ks6a-36",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "41080-1WP",
@@ -2800,7 +2800,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/41080-1wp",
   "upc": "078477835555",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5G108-RW5",
@@ -2837,7 +2837,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/5g108-rw5",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "61110-RW6",
@@ -2874,7 +2874,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/content/dam/leviton/network-solutions/product_documents/product_specification/Leviton-Spec-61110-EXTREME-Cat-6-UTP-Jacks.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CJ5E88TGBU",
@@ -2911,7 +2911,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/connectors/jack-modules/cj5e88tgbu.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CJ688TGBU",
@@ -2948,7 +2948,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/connectors/jack-modules/cj688tgbu.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UTPSP5BUY",
@@ -2985,7 +2985,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/patch-cords-accessories/patch-cords/utpsp5buy.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Z6-02",
@@ -3022,7 +3022,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://files.siemon.com/en/specsheet/siemon-z-max-6-6a-utp-outlets_spec-sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "10GXS12",
@@ -3063,7 +3063,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalog.belden.com/techdata/EN/10GXS12_techdata.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1583A",
@@ -3104,7 +3104,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalog.belden.com/techdata/EN/1583A_techdata.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2412",
@@ -3145,7 +3145,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalog.belden.com/techdata/EN/2412_techdata.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2413",
@@ -3186,7 +3186,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalog.belden.com/techdata/EN/2413_techdata.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "10136226",
@@ -3227,7 +3227,48 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/content/dam/leviton/network-solutions/product_documents/product_specification/Leviton-Spec-LANMARK-6-Plenum-Rated-Cable.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "CR5",
+  "brand": "Carol (General Cable)",
+  "name": "Carol CR5 Cat 5e Enhanced Riser Cable (CMR), 24 AWG, 1000 ft",
+  "category": "datacom",
+  "subcategory": "Ethernet Cable",
+  "description": "Carol Cat 5e enhanced-throughput riser cable, 24 AWG solid bare annealed copper, polyolefin insulation, flame-retardant PVC CMR (UL 1666) jacket, 1000 ft put-ups.",
+  "uom": "EA",
+  "estListPrice": 109.99,
+  "priceSource": "discountedcables.com",
+  "specs": [
+   {
+    "name": "Construction",
+    "value": "24 AWG solid bare annealed copper conductors, polyolefin insulation",
+    "isNonNeg": true
+   },
+   {
+    "name": "Jacket",
+    "value": "Flame-retardant PVC, NEC/CEC Type CMR (UL 1666), non-plenum",
+    "isNonNeg": true
+   },
+   {
+    "name": "Category Compliance",
+    "value": "ANSI/TIA 568 B.2 Category 5e; ICEA S-90-661; UL 444"
+   },
+   {
+    "name": "Characteristic Impedance",
+    "value": "100 +/-15 Ohms (1-250 MHz)"
+   },
+   {
+    "name": "Nominal Cable Diameter",
+    "value": "0.200 in (CMR)"
+   },
+   {
+    "name": "Packaging",
+    "value": "1000 ft Pull-Pac II or Spool-Pac; jacket colors incl. white CR5.30.02, blue CR5.30.07"
+   }
+  ],
+  "specSheetUrl": "https://na.prysmian.com/sites/na.prysmian.com/files/2024-09/ELE-0001-0924_CAROL%20Electronics%20Wire%20&%20Cable%20Catalog_0.pdf",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "700208101",
@@ -3268,7 +3309,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.commscope.com/product-type/cables/twisted-pair-cables/category-6-cables/item700208101/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "700211956",
@@ -3309,7 +3350,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.commscope.com/product-type/cables/twisted-pair-cables/category-6-cables/item700211956/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PUP6004BU-UY",
@@ -3350,7 +3391,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/bulk-copper-cable/enterprise-data-center-copper-cable/pup6004bu-uy.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LV0129C5101N1D",
@@ -3387,7 +3428,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.aflglobal.com/en/emea/products/fiber-optic-cable/structured-cabling/indoor-outdoor/gelfree-riser-nonarmored-loose-tube-lv-series-gelfree-sj",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FI4D012P9",
@@ -3420,7 +3461,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalog.belden.com/techdata/EN/FI4D012P9_techdata.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "P-012-DS-8W-FSUYL",
@@ -3457,7 +3498,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.commscope.com/product-type/cables/fiber-cables/indoor-cables/item760004358/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "012E88-33131-29",
@@ -3494,7 +3535,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Indoor/Indoor-Plenum-Cables/MIC%C2%AE-Tight-Buffered-Cable,-Plenum/p/012E88-33131-29",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "012EUC-T4101D20",
@@ -3531,7 +3572,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Outdoor/Outdoor-Direct-Buried-Cables/ALTOS%C2%AE-Lite-Loose-Tube,-Gel-Free,-Single-Jacket,-Single-Armored-Cable/p/012EUC-T4101D20",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "012T88-33190-29",
@@ -3568,7 +3609,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Indoor/Indoor-Plenum-Cables/MIC%C2%AE-Tight-Buffered-Cable,-Plenum/p/012T88-33190-29",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "024E88-33131-29",
@@ -3605,7 +3646,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cables/Indoor/Indoor-Plenum-Cables/MIC%C2%AE-Tight-Buffered-Cable,-Plenum/p/024E88-33131-29",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FODPZ12Y",
@@ -3643,7 +3684,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/fiber-optic-systems/bulk-fiber-optic-cable/indoor-fiber-optic-cable/fodpz12y.html",
   "upc": "074983206339",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "C1300-24T-4G",
@@ -3680,7 +3721,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-1300-series-switches/nb-06-cat1300-ser-data-sheet-cte-en.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CBS110-24T-NA",
@@ -3713,7 +3754,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/business-110-series-unmanaged-switches/datasheet-c78-744158.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CBS350-24T-4G-NA",
@@ -3750,7 +3791,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/business-350-series-managed-switches/datasheet-c78-744156.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GS108-400NAS",
@@ -3783,7 +3824,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.netgear.com/images/datasheet/switches/GS105v5_GS108v4_DS.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GS308-300PAS",
@@ -3820,7 +3861,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.netgear.com/images/datasheet/switches/gs305_gs308_gs305p_gs308p.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GS324-200NAS",
@@ -3857,7 +3898,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.netgear.com/images/datasheet/switches/gs316_gs324_gs348.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GS724T-400NAS",
@@ -3894,7 +3935,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.downloads.netgear.com/files/GDC/datasheet/en/GS716Tv3-GS724Tv4-GS748Tv5.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TL-SG108",
@@ -3931,7 +3972,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.tp-link.com/us/business-networking/soho-switch-unmanaged/tl-sg108/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "USW-Lite-8-PoE",
@@ -3968,7 +4009,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://dl.ubnt.com/ds/usw-lite-8-poe.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UNP610-24P",
@@ -4005,7 +4046,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/copper-panels/item760180042/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HP624",
@@ -4042,7 +4083,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hubbell.com/hubbellpremisewiring/en/products/patch-panels-cat6-24-port-universalwiring/p/2377737",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ICMPP02460",
@@ -4080,7 +4121,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://icc.com/product/cat6-patch-panel-24-ports-1-rms/",
   "upc": "633758011297",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5G596-U24",
@@ -4117,7 +4158,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/5g596-u24",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "69586-U24",
@@ -4154,7 +4195,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/69586-u24",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "69586-U48",
@@ -4191,7 +4232,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/69586-u48",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DP24688TGY",
@@ -4228,7 +4269,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/patch-panels-accessories/populated-patch-panels/dp24688tgy.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TC-P24C6",
@@ -4265,7 +4306,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.trendnet.com/products/patch-panel/24-port-Cat6-Unshielded-Patch-Panel-TC-P24C6-v2",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "N252-024",
@@ -4302,7 +4343,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/n252024.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AR100",
@@ -4339,7 +4380,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/AR100/apc-netshelter-13u-wallmount-rack-cabinet-glass-door-double-hinged-server-depth/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AR3100",
@@ -4376,7 +4417,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/AR3100/apc-netshelter-sx-server-rack-enclosure-42u-black-1991h-x-600w-x-1070d-mm-taa/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "55053-703",
@@ -4413,7 +4454,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.chatsworth.com/en-us/products/racks-cable-management/two-post-racks/relay-racks/standard-rack-3d-80mm/55053-703",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "R4P",
@@ -4450,7 +4491,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/cabinets-thermal-management-racks-enclosures/racks-accessories/racks/p205063.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SR2POST25",
@@ -4487,7 +4528,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/sr2post25.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SR42UB",
@@ -4524,7 +4565,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/sr42ub.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SRW12US",
@@ -4561,7 +4602,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/srw12us.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SRW6U",
@@ -4598,7 +4639,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.tripplite.com/product-pdfs/en/srw6u.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "BE600M1",
@@ -4635,7 +4676,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/BE600M1/apc-backups-600va-120v-1-usb-charging-port-7-nema-outlets-2-surge/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "BR1500MS2",
@@ -4676,7 +4717,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/BR1500MS2/apc-backups-pro-1500va-900w-tower-120v-10x-nema-515r-outlets-avr-usb-type-a-+-c-ports-lcd-user-replaceable-battery/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SMT1500C",
@@ -4713,7 +4754,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/SMT1500C/apc-smartups-line-interactive-1500va-tower-120v-8x-nema-515r-outlets-smartconnect-port+smartslot-avr-lcd/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SMT1500RM2UC",
@@ -4750,7 +4791,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/SMT1500RM2UC/apc-smartups-line-interactive-1500va-rackmount-2u-120v-6x-nema-515r-outlets-smartconnect-port+smartslot-avr-lcd/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CP1500AVRLCD3",
@@ -4791,7 +4832,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cyberpowersystems.com/product/ups/intelligent-lcd/cp1500avrlcd3/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CP1500PFCLCD",
@@ -4832,7 +4873,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cyberpowersystems.com/product/ups/pfc-sinewave/cp1500pfclcd/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SMART1500LCDT",
@@ -4869,7 +4910,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://tripplite.eaton.com/smartpro-lcd-120v-1500va-900w-line-interactive-ups-avr-tower-lcd-usb-10-outlets~SMART1500LCDT",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GXT5-1500LVRT2UXL",
@@ -4910,7 +4951,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.vertiv.com/en-us/products-catalog/critical-power/uninterruptible-power-supplies-ups/gxt5-1500lvrt2uxl-vertiv-liebert-gxt5-1500va1350w-120v-online-double-conversion-ups-/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "C9120AXI-B",
@@ -4951,7 +4992,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/wireless/catalyst-9120ax-series-access-points/datasheet-c78-742115.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CW9166I-B",
@@ -4988,7 +5029,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cisco.com/c/en/us/products/collateral/wireless/catalyst-9166-series-access-points/catalyst-9166-series-access-points-ds.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MR36-HW",
@@ -5029,7 +5070,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://documentation.meraki.com/MR/MR_Overview_and_Specifications/MR36_Datasheet",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AP305C-FCC",
@@ -5070,7 +5111,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.extremenetworks.com/products/wi-fi-access-points/universal-aps-indoor/ap305c-and-ap305cx",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "901-R350-US02",
@@ -5111,7 +5152,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://webresources.ruckuswireless.com/datasheets/r350/ds-ruckus-r350.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "901-R650-US00",
@@ -5152,7 +5193,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://webresources.ruckuswireless.com/datasheets/r650/ds-ruckus-r650.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "U6-Pro",
@@ -5193,7 +5234,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://techspecs.ui.com/unifi/wifi/u6-pro",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "U7-Pro",
@@ -5234,7 +5275,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://techspecs.ui.com/unifi/wifi/u7-pro",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "B114R-UPC",
@@ -5272,7 +5313,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://new.abb.com/products/7TAA040050R0001/b114r-upc",
   "upc": "034481100157",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "B120A-UPC",
@@ -5313,7 +5354,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://new.abb.com/products/7TAA040010R0002/b120a-upc",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "B232A-UPC",
@@ -5350,7 +5391,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://new.abb.com/products/7TAA040060R0000/b232a-upc",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "125",
@@ -5388,7 +5429,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-125-SPEC-EN.pdf",
   "upc": "050169901250",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "232",
@@ -5426,7 +5467,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-232-SPEC-EN.pdf",
   "upc": "050169902325",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "660",
@@ -5464,7 +5505,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-660-SPEC-EN.pdf",
   "upc": "050169906606",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "752",
@@ -5498,7 +5539,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-752-SPEC-EN.pdf",
   "upc": "050169907528",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "774",
@@ -5532,7 +5573,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-774-SPEC-EN.pdf",
   "upc": "050169007747",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "52151-1/2-3/4",
@@ -5570,7 +5611,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://library.e.abb.com/public/44a156b0edd34d739673cdd5617a1c41/9AKK107045A7611_en_B_Steel%20City%20Metallic%20boxes%20and%20covers%20catalogue_ENG_ME_9AKK107045A7611.pdf?x-sign=xBYll1oIEZg3s9NZzblh5ytPIn6ASaQygwlJhdIhMTvmtRkbdXhVWhrWITIqRgol",
   "upc": "785991164305",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FT2X12X10 HD",
@@ -5613,7 +5654,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT2X12X10%20HD.html",
   "upc": "662516301936",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FT2X4X10 HD",
@@ -5655,7 +5696,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT2X4X10%20HD.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FT2X6X10 HD",
@@ -5697,7 +5738,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT2X6X10%20HD.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FT4X12X10 ELG",
@@ -5739,7 +5780,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.FT4X12X10%20ELG.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CF105/300EZ",
@@ -5777,7 +5818,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-4d12w120l-921/p/921",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CF105/450EZ",
@@ -5815,7 +5856,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-4d18w120l-1931/p/1931",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CF54/100EZ",
@@ -5853,7 +5894,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-2d4w120l-71/p/71",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CF54/150EZ",
@@ -5891,7 +5932,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-ez-2d6w120l-81/p/81",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CF54/300EZ",
@@ -5929,7 +5970,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/cablofil-cable-tray-2d12w120l-101/p/sap01-101",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "THQL1115",
@@ -5967,7 +6008,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL1115",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "THQL1120",
@@ -6010,7 +6051,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL1120",
   "upc": "783164012866",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "THQL2130",
@@ -6048,7 +6089,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL2130",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HOM120CP",
@@ -6090,7 +6131,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=1170BR1801",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HOM230CP",
@@ -6133,7 +6174,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=1170BR1801",
   "upc": "047569062773",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QO115",
@@ -6175,7 +6216,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=0730CT9801",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QO120",
@@ -6217,7 +6258,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=0730CT9801",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QO230",
@@ -6259,7 +6300,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_Doc_Ref=0730CT9801",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "275W",
@@ -6297,7 +6338,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.275W-BOX.html",
   "upc": "032664750205",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TR274W",
@@ -6339,7 +6380,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.TR274W.html",
   "upc": "032664750267",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RC108W",
@@ -6381,7 +6422,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/combination-devices-residential-grade-1-single-pole-toggle-1-single-receptacle-15a-120v-ac-self-grounding-side-wired/p/174740",
   "upc": "883778109737",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5224-2W",
@@ -6419,7 +6460,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/5224-2w",
   "upc": "078477226483",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5225-W",
@@ -6461,7 +6502,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/5225-w",
   "upc": "078477965849",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5634-W",
@@ -6499,7 +6540,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/5634-w",
   "upc": "078477516386",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T5225-W",
@@ -6536,7 +6577,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/t5225-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "691-W",
@@ -6573,7 +6614,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/light-switches-and-dimmers/residential-switches/15a-120v-125v-combination-single-pole-toggle-switch-and-single-receptacle-white/p/691w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "101543",
@@ -6610,7 +6651,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/products/conduit/ez-pull(r)-emt",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "101550",
@@ -6647,7 +6688,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/products/conduit/ez-pull(r)-emt",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "101568",
@@ -6684,7 +6725,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/products/conduit/ez-pull(r)-emt",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "A52AG12",
@@ -6721,7 +6762,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cantexinc.com/Portals/0/CANTEX-Schedule-40-and-80-Conduit-Sell-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "0543910000",
@@ -6758,7 +6799,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2018/11/Rigid-Metal-Conduit-Submittal-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "0548810000",
@@ -6795,7 +6836,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2018/11/Intermediate-Metal-Conduit-Submittal-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "0550010000",
@@ -6832,7 +6873,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2019/03/10-and-20-Steel-EMT-Submittal-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "0550110000",
@@ -6869,7 +6910,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wheatland.com/wp-content/uploads/2019/03/10-and-20-Steel-EMT-Submittal-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ST-50",
@@ -6908,7 +6949,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.appleton.emerson.com/catalog/en-us/shop/appleton/appleton-sku-st50?locale=en-us",
   "upc": "781381679107",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "250-DC2",
@@ -6946,7 +6987,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://nsiindustries.com/product/screw-on-emt-compression-connector-1-2-die-cast-zinc/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "251-DC2",
@@ -6984,7 +7025,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://nsiindustries.com/product/screw-on-emt-compression-connector-3-4-die-cast-zinc/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "E943E",
@@ -7023,7 +7064,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://carlonsales.com/techinfo/brochures/conduit/Conduit_Fittings_Schedule_40_and_80.pdf",
   "upc": "034481062028",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2602",
@@ -7062,7 +7103,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-2602-SPEC-EN.pdf",
   "upc": "050169026021",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2622",
@@ -7101,7 +7142,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-2622-SPEC-EN.pdf",
   "upc": "050169026229",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2902",
@@ -7139,75 +7180,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-2902-SPEC-EN.pdf",
-  "verifiedAt": "2026-06-10"
- },
- {
-  "mpn": "631",
-  "brand": "Topaz",
-  "name": "Topaz 631 EMT Set Screw Connector",
-  "category": "electrical",
-  "subcategory": "Conduit Fittings",
-  "description": "1/2 in. EMT set screw connector, die-cast zinc; concrete-tight when taped; UL listed.",
-  "uom": "EA",
-  "estListPrice": 0.58,
-  "priceSource": "kellyhayes.com",
-  "specs": [
-   {
-    "name": "Trade Size",
-    "value": "1/2 in",
-    "isNonNeg": true
-   },
-   {
-    "name": "Conduit Type",
-    "value": "EMT",
-    "isNonNeg": true
-   },
-   {
-    "name": "Fitting Type",
-    "value": "Set Screw Connector",
-    "isNonNeg": true
-   },
-   {
-    "name": "Material",
-    "value": "Die-Cast Zinc"
-   }
-  ],
-  "specSheetUrl": "https://www.topaz-usa.com/631",
-  "verifiedAt": "2026-06-10"
- },
- {
-  "mpn": "632",
-  "brand": "Topaz",
-  "name": "Topaz 632 EMT Set Screw Connector",
-  "category": "electrical",
-  "subcategory": "Conduit Fittings",
-  "description": "3/4 in. EMT set screw connector, die-cast zinc; concrete-tight when taped; UL listed.",
-  "uom": "EA",
-  "estListPrice": 0.53,
-  "priceSource": "emisupply.com",
-  "specs": [
-   {
-    "name": "Trade Size",
-    "value": "3/4 in",
-    "isNonNeg": true
-   },
-   {
-    "name": "Conduit Type",
-    "value": "EMT",
-    "isNonNeg": true
-   },
-   {
-    "name": "Fitting Type",
-    "value": "Set Screw Connector",
-    "isNonNeg": true
-   },
-   {
-    "name": "Material",
-    "value": "Die-Cast Zinc"
-   }
-  ],
-  "specSheetUrl": "https://www.topaz-usa.com/632",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AF09-30-10-13",
@@ -7249,7 +7222,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://library.e.abb.com/public/0463564beceb4a4da7db31b64217c3aa/1SBC100222M0201_A_PEI_AF09-96_NFcontactors.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "100-C09D10",
@@ -7292,7 +7265,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.100-C09D10.html",
   "upc": "662072608203",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "100-C23D10",
@@ -7335,7 +7308,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.100-C23D10.html",
   "upc": "662072596036",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LC1D09G7",
@@ -7377,7 +7350,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/LC1D09G7/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LC1D18G7",
@@ -7419,7 +7392,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/LC1D18G7/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LC1D32G7",
@@ -7461,7 +7434,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/LC1D32G7/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3RT2026-1AK60",
@@ -7503,7 +7476,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:2e16eb01-4de6-4ddd-9bbd-834cbc5978f4/chapter-2-contactors.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8910DPA32V02",
@@ -7545,7 +7518,179 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/8910DPA32V02/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "HBL2311",
+  "brand": "Hubbell",
+  "name": "Hubbell HBL2311 Twist-Lock Industrial Plug, L5-20P, 20A 125V",
+  "category": "electrical",
+  "subcategory": "Cord Plugs & Connectors",
+  "description": "Industrial-grade Twist-Lock male plug, 20A 125V AC, 2-pole 3-wire grounding, NEMA L5-20P, ribbed nylon housing, screw terminals, black and white.",
+  "uom": "EA",
+  "estListPrice": 26.45,
+  "priceSource": "americancableassemblies.com",
+  "specs": [
+   {
+    "name": "NEMA Configuration",
+    "value": "L5-20P",
+    "isNonNeg": true
+   },
+   {
+    "name": "Amperage",
+    "value": "20 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "125 VAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Terminal Accommodation",
+    "value": "#16-#8 AWG stranded copper"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.360\"-0.930\" (9-24 mm)"
+   },
+   {
+    "name": "Housing Material",
+    "value": "Nylon"
+   }
+  ],
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL2311-SPEC-EN.pdf",
+  "upc": "783585037707",
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "HBL5269C",
+  "brand": "Hubbell",
+  "name": "Hubbell HBL5269C Insulgrip Connector Body, 5-15R, 15A 125V",
+  "category": "electrical",
+  "subcategory": "Cord Plugs & Connectors",
+  "description": "Insulgrip heavy-duty industrial/commercial female connector body, straight, 15A 125V, 2-pole 3-wire grounding, NEMA 5-15R, black and white.",
+  "uom": "EA",
+  "estListPrice": 32.84,
+  "priceSource": "standardelectricsupply.com",
+  "specs": [
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15R",
+    "isNonNeg": true
+   },
+   {
+    "name": "Amperage",
+    "value": "15 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "125 VAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.300\"-0.660\" (7.6-16.8 mm)"
+   },
+   {
+    "name": "Terminal Accommodation",
+    "value": "#18-#10 AWG stranded copper"
+   },
+   {
+    "name": "Listings",
+    "value": "UL Listed to UL 498; CSA Certified C22.2; NEMA WD-6"
+   }
+  ],
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL5269C-SPEC-EN.pdf",
+  "upc": "783585173252",
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "HBL5965VY",
+  "brand": "Hubbell",
+  "name": "Hubbell HBL5965VY Valise Plug, 5-15P, 15A 125V, Yellow",
+  "category": "electrical",
+  "subcategory": "Cord Plugs & Connectors",
+  "description": "Valise series industrial/commercial-grade straight male plug, 15A 125V, 2-pole 3-wire grounding, NEMA 5-15P, yellow nylon housing.",
+  "uom": "EA",
+  "estListPrice": 13.36,
+  "priceSource": "standardelectricsupply.com",
+  "specs": [
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15P",
+    "isNonNeg": true
+   },
+   {
+    "name": "Amperage",
+    "value": "15 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "125 VAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Housing Material",
+    "value": "Nylon (PPO cable inserts)"
+   },
+   {
+    "name": "Terminal Accommodation",
+    "value": "#18-#12 AWG stranded copper"
+   },
+   {
+    "name": "Listings",
+    "value": "UL Listed to UL 498 File E1706; CSA Certified; NEMA WD-6"
+   }
+  ],
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL5965VY-SPEC-EN.pdf",
+  "upc": "783585013091",
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "HBL5969VY",
+  "brand": "Hubbell",
+  "name": "Hubbell HBL5969VY Valise Connector Body, 5-15R, 15A 125V, Yellow",
+  "category": "electrical",
+  "subcategory": "Cord Plugs & Connectors",
+  "description": "Valise series industrial/commercial-grade straight female connector body, 15A 125V, 2-pole 3-wire grounding, NEMA 5-15R, yellow nylon housing.",
+  "uom": "EA",
+  "estListPrice": 26.64,
+  "priceSource": "standardelectricsupply.com",
+  "specs": [
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15R",
+    "isNonNeg": true
+   },
+   {
+    "name": "Amperage",
+    "value": "15 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "125 VAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.230\"-0.720\" (5.8-18.3 mm)"
+   },
+   {
+    "name": "Housing Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Terminal Accommodation",
+    "value": "#18-#12 AWG stranded copper"
+   }
+  ],
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK-HBL5969VY-SPEC-EN.pdf",
+  "upc": "783585013107",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2311",
@@ -7587,7 +7732,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/2311",
   "upc": "078477800942",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2313",
@@ -7629,7 +7774,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/2313",
   "upc": "078477800973",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "515CV",
@@ -7671,7 +7816,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/515cv",
   "upc": "078477841334",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "515PV",
@@ -7712,7 +7857,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/515pv",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5266-C",
@@ -7754,7 +7899,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/5266-c",
   "upc": "078477795200",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5269-C",
@@ -7796,7 +7941,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/5269-c",
   "upc": "078477795316",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5366-C",
@@ -7838,7 +7983,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/5366-c",
   "upc": "078477795873",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "L520P",
@@ -7879,7 +8024,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/p/print/L520P.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PS5266X",
@@ -7921,7 +8066,49 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.legrand.us/p/print/PS5266X.pdf",
   "upc": "785007236903",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "PS5366X",
+  "brand": "Pass & Seymour",
+  "name": "Pass & Seymour PS5366X Extra-Hard Use Spec-Grade Plug, 5-20P, 20A 125V",
+  "category": "electrical",
+  "subcategory": "Cord Plugs & Connectors",
+  "description": "Extra-hard use spec-grade straight blade plug, 20A 125V, 2-pole 3-wire grounding, NEMA 5-20P, nylon construction, black and white.",
+  "uom": "EA",
+  "estListPrice": 14.54,
+  "priceSource": "crawfordelectricsupply.com",
+  "specs": [
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20P",
+    "isNonNeg": true
+   },
+   {
+    "name": "Amperage",
+    "value": "20 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "125 V",
+    "isNonNeg": true
+   },
+   {
+    "name": "Terminal Accommodation",
+    "value": "#18 AWG min to #10 AWG max"
+   },
+   {
+    "name": "Cord Grip Accommodation",
+    "value": "0.230\"-0.720\" diameter"
+   },
+   {
+    "name": "Listings",
+    "value": "UL Listed UL498 File E146159; CSA C22.2 No. 42; Fed Spec WC596; NEMA WD-1"
+   }
+  ],
+  "specSheetUrl": "https://www.legrand.us/wiring-devices/plugs-and-connectors/straight-blade/20a-125v-extra-hard-use-spec-grade-plug-black-and-white/p/ps5366x",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6674-P0W",
@@ -7962,7 +8149,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/6674-p0w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DSL06-1LZ",
@@ -8003,7 +8190,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/dsl06-1lz",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CTCL-153PDH-WH",
@@ -8044,7 +8231,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/369683.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DV-600P-WH",
@@ -8085,7 +8272,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/divasatincolors.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MACL-153M-WH",
@@ -8126,7 +8313,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.lutron.com/TechnicalDocumentLibrary/369613a.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PD-6WCL-WH",
@@ -8167,7 +8354,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/369987_eng.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TGCL-153PH-WH",
@@ -8208,7 +8395,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/369686.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RH703PTUW",
@@ -8249,7 +8436,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/p/print/RH703PTUW.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RHCL453PW",
@@ -8290,7 +8477,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/p/print/RHCL453PW.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "WH2-120-C",
@@ -8327,7 +8514,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.fulham.com/PDFs/SpecSheets/WH2-120-C-2006-43SP.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "WH5-120-L",
@@ -8364,7 +8551,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.fulham.com/PDFs/SpecSheets/WH5-120-L-2006-26SP.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LC40-1050Z-UNV-W",
@@ -8397,7 +8584,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hatchlighting.com/product-feed/lc40-1050z-unv-w/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "KTEB-232-UV-IS-N-P",
@@ -8434,7 +8621,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.keystonetech.com/wp-content/themes/keystoneTech/img/spec_sheets/fluorescent_ballasts/KTEB-232-UV-IS-N-P.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ICF-2S26-H1-LD",
@@ -8471,7 +8658,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.na.mytechnology.portal.signify.com/dam/jcr:0040c2c3-db6f-4d26-9b9c-340f49f2069e/ICF-2S26-H1-LD+ELE+BALLAST+(2)+26W+CFL+(4-PIN)+120-277V.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ICN-2P32-N",
@@ -8509,7 +8696,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.na.mytechnology.portal.signify.com/dam/jcr:8e915ac2-d62f-48a2-b9f1-c32272260876/ICN-2P32-N",
   "upc": "781087069127",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ICN-4P32-N",
@@ -8546,7 +8733,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.na.mytechnology.portal.signify.com/dam/jcr:8185bcc9-cd8a-417d-abb1-e4b68cb8675b/ICN-4P32-N+ELE+BALLAST+(4)+F32T8+120-277V+.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XI040C110V054BST1",
@@ -8579,7 +8766,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.assets.signify.com/is/content/PhilipsConsumer/PDFDownloads/Colombia/technical-sheets/ODLI20180306_001-UPD-es_CO-Xitanium_40W_0_1to1_1A_XI040C110V054BST1_PAd-1609DS.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T253010S",
@@ -8621,7 +8808,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/ACME_CA-T253010S-SPEC-EN.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "C1F005LES",
@@ -8664,7 +8851,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://documents.hammondpowersolutions.com/documents/Literature/Low_Voltage_Distribution_(Encapsulated_and_Ventilated)_Brochures/HPS-Fortress-Encapsulated-Transformers-for-Commercial-Applications-Brochure.pdf",
   "upc": "803423091354",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SG3A0045KB",
@@ -8707,7 +8894,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://documents.hammondpowersolutions.com/documents/Literature/Catalog_and_HPS_Info/HPS-Sentinel-Energy-Efficient-Low-Voltage-Distribution-Selection-Guide.pdf",
   "upc": "803423123536",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SG3A0075KB",
@@ -8749,7 +8936,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://documents.hammondpowersolutions.com/documents/Literature/Catalog_and_HPS_Info/HPS-Sentinel-Energy-Efficient-Low-Voltage-Distribution-Selection-Guide.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EXN30T3H",
@@ -8791,7 +8978,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=EXN30T3H_DATASHEET_US_en-US.pdf&p_Doc_Ref=EXN30T3H_DATASHEET",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EXN45T3H",
@@ -8833,7 +9020,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=EXN45T3H_DATASHEET_US_en-US.pdf&p_Doc_Ref=EXN45T3H_DATASHEET",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EXN75T3H",
@@ -8875,7 +9062,121 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=EXN75T3H_DATASHEET_US_en-US.pdf&p_Doc_Ref=EXN75T3H_DATASHEET",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "1414N4PHL6",
+  "brand": "Hammond",
+  "name": "Hammond 1414N4PHL6 Type 4 Hinge-Cover Junction Box w/Panel, 12x12x6 in",
+  "category": "electrical",
+  "subcategory": "Enclosures",
+  "description": "Hammond 1414 N4 PH Series Type 4 mild steel junction box with hinge cover and panel, 12 x 12 x 6 in, steel/gray.",
+  "uom": "EA",
+  "estListPrice": 301.58,
+  "priceSource": "solutionsdirectonline.com",
+  "specs": [
+   {
+    "name": "NEMA Type",
+    "value": "Type 4",
+    "isNonNeg": true
+   },
+   {
+    "name": "Size (H x W x D)",
+    "value": "12 x 12 x 6 in (305 x 305 x 152 mm)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Cover",
+    "value": "Hinge cover with panel"
+   },
+   {
+    "name": "Material",
+    "value": "Mild steel, gray"
+   },
+   {
+    "name": "Shipping Weight",
+    "value": "17 lbs (7.71 kg)"
+   }
+  ],
+  "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/1414N4PHL6.pdf",
+  "upc": "623980346403",
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "1414PHJ6",
+  "brand": "Hammond",
+  "name": "Hammond 1414PHJ6 Type 12 Hinge-Cover Junction Box w/Panel, 10x10x6 in",
+  "category": "electrical",
+  "subcategory": "Enclosures",
+  "description": "Hammond 1414 PH Series Type 12 mild steel junction box with hinge cover and inner panel, 10 x 10 x 6 in, gray; UL File E65324, CSA LR21001.",
+  "uom": "EA",
+  "estListPrice": 199.42,
+  "priceSource": "solutionsdirectonline.com",
+  "specs": [
+   {
+    "name": "NEMA Type",
+    "value": "Type 12",
+    "isNonNeg": true
+   },
+   {
+    "name": "Size (H x W x D)",
+    "value": "10 x 10 x 6 in (254 x 254 x 152 mm)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Cover",
+    "value": "Hinge cover with panel"
+   },
+   {
+    "name": "Material",
+    "value": "Mild steel, gray"
+   },
+   {
+    "name": "UL File",
+    "value": "E65324"
+   }
+  ],
+  "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/1414PHJ6.pdf",
+  "upc": "623980350202",
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "CSKO12126",
+  "brand": "Hammond",
+  "name": "Hammond CSKO12126 Type 1 Screw-Cover Junction Box w/Knockouts, 12x12x6 in",
+  "category": "electrical",
+  "subcategory": "Enclosures",
+  "description": "Hammond CSKO Series Type 1 mild steel screw-cover junction box with knockouts, 12 x 12 x 6 in, gray; UL File E65324, CSA LR21001.",
+  "uom": "EA",
+  "estListPrice": 48.35,
+  "priceSource": "digikey.com",
+  "specs": [
+   {
+    "name": "NEMA Type",
+    "value": "Type 1",
+    "isNonNeg": true
+   },
+   {
+    "name": "Size (H x W x D)",
+    "value": "12 x 12 x 6 in (305 x 305 x 152 mm)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Material",
+    "value": "Mild steel, gray"
+   },
+   {
+    "name": "Cover",
+    "value": "Screw cover with knockouts"
+   },
+   {
+    "name": "UL File",
+    "value": "E65324"
+   }
+  ],
+  "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/CSKO12126.pdf",
+  "upc": "623980360782",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EJ12126",
@@ -8912,7 +9213,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hammfg.com/part/EJ12126",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EN4SD16126GY",
@@ -8949,7 +9250,45 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hammfg.com/part/EN4SD16126GY",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "HJ10106HLP",
+  "brand": "Hammond",
+  "name": "Hammond HJ10106HLP Type 4/12 Hinged Junction Box, 10x10x6 in",
+  "category": "electrical",
+  "subcategory": "Enclosures",
+  "description": "Hammond HJ H Series Type 4, 12 mild steel hinged junction box, 10 x 10 x 6 in, steel/gray; UL File E65324, CSA LR21001.",
+  "uom": "EA",
+  "estListPrice": 182.38,
+  "priceSource": "solutionsdirectonline.com",
+  "specs": [
+   {
+    "name": "NEMA Type",
+    "value": "Type 4, 12",
+    "isNonNeg": true
+   },
+   {
+    "name": "Size (H x W x D)",
+    "value": "10 x 10 x 6 in (254 x 254 x 152 mm)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Material",
+    "value": "Mild steel, gray"
+   },
+   {
+    "name": "Door",
+    "value": "Hinged"
+   },
+   {
+    "name": "UL File",
+    "value": "E65324"
+   }
+  ],
+  "specSheetUrl": "https://www.hammfg.com/files/parts/pdf/HJ10106HLP.pdf",
+  "upc": "623980879123",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "A10106CH",
@@ -8982,7 +9321,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/enca10106ch",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "A1212CHNF",
@@ -9019,7 +9358,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/enca1212chnf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ASE12X12X6",
@@ -9056,7 +9395,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/encase12x12x6",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CSD16126",
@@ -9093,7 +9432,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.nvent.com/en-us/hoffman/products/enccsd16126",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SCE-1212CHNF",
@@ -9130,7 +9469,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.saginawcontrol.com/partnumber_info/?n=SCE-1212CHNF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "B121206CH",
@@ -9167,7 +9506,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hubbell.com/wiegmann/en/products/n12-jic-continuous-hinge-12x12x6-carbon-steel-gray/p/272200",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SC121206",
@@ -9204,7 +9543,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hubbell.com/wiegmann/en/products/n1-screw-cover-12x12x6-carbon-steel-gray/p/271831",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Maxi US AC LW12",
@@ -9246,7 +9585,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://store.autelenergy.com/products/ac-lite-home-50a-ev-charger",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CPH50-NEMA6-50-L23",
@@ -9288,7 +9627,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://docs.chargepoint.com/ref-docs-sec/content/pdfs/1-home/flex/flex-ds.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EMEVSE1UL",
@@ -9330,7 +9669,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://emporiaenergy.com/EV%20Charger%20Technical%20Specs.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HCS-40",
@@ -9372,7 +9711,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://enphase.com/download/clippercreek-hcs-40-data-sheet",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GR1-14-24-PB",
@@ -9414,7 +9753,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://grizzl-e.com/products-specs/grizzl-e-classic",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EV48W",
@@ -9457,7 +9796,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/ev48w",
   "upc": "078477877593",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1734411-02-E",
@@ -9499,7 +9838,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://energylibrary.tesla.com/docs/Public/More/Powershare/InstallManual/HomeBackup/en-us/GUID-36D8D1B7-7863-44B3-B487-78573D7E7DA6.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PUP1-U-1-5-N-002-A",
@@ -9541,7 +9880,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://support.wallbox.com/wp-content/uploads/ht_kb/2021/02/Pulsar_Plus_Datasheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CU2",
@@ -9578,7 +9917,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/COM_CU2_SPEC.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EVEURWE",
@@ -9619,7 +9958,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/dl_eve_spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "APC7R",
@@ -9656,7 +9995,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/global/brands/sure-lites/135644/apc-apch-series",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "APX7R",
@@ -9698,7 +10037,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/da549130ac8c484c97bcad3f014ce876/Sure-Lites-All-Pro-Sell-Sheet.pdf",
   "upc": "080083566532",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5502-30-00",
@@ -9731,7 +10070,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/product/5502-30-00",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5602-30-00",
@@ -9764,7 +10103,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/product/5602-30-00",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6202-30-00",
@@ -9801,7 +10140,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/product/6202-30-00",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "34212",
@@ -9838,7 +10177,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://flexiblewiringconduits.anacondasealtite.com/item/sealtite-ul/type-ua-liquid-tight-flexible-metal-conduit-lfmc/34212",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "21101",
@@ -9879,7 +10218,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.electriflex.com/products/type-la/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "22101",
@@ -9920,7 +10259,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.electriflex.com/products/type-la/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "55082103",
@@ -9953,7 +10292,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/flexible-conduit/alflex-type-rwa-reduced-wall-aluminum-flexible-metal-conduit/p/55082103",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "55094201",
@@ -9990,7 +10329,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/flexible-conduit/ultratite-sup-sup-type-nm/p/55094201",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FNM-30",
@@ -10032,7 +10371,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ficcorp.com/content/FNM-Data-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FRN-R-30",
@@ -10071,7 +10410,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20FRN-R/Bus_Ele_DS_1019_FRN-R_1_10-60A%5B1%5D.pdf",
   "upc": "051712101769",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FRS-R-30",
@@ -10110,7 +10449,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.relayspec.com/specs/020/FRS-R.pdf",
   "upc": "051712508346",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "KTK-R-30",
@@ -10152,7 +10491,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20KTK-R/Bussmann%20KTK-R%20Data%20Sheet%20600V%200-30%20Amps%20DS_1015.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LPJ-30SP",
@@ -10190,7 +10529,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20LPJ_SP%2060/Bussmann%20Data%20Sheet%201%20to%2060%20Amps%20no%20Indication%20DS_1006.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LPN-RK-30SP",
@@ -10229,7 +10568,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://cmafh.com/WebsiteCatalog/Data%20Sheets/BUSSMANN%20LPN-RK%200-60/Bussmann%20LPN-RK%200-60%20Amps%20DS_1003.pdf",
   "upc": "051712538367",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FLNR030",
@@ -10267,7 +10606,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.lvelectronics.com/images/pdf/FLNR-series.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FLSR030",
@@ -10306,7 +10645,51 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.lvelectronics.com/images/pdf/FLSR-series.pdf",
   "upc": "079458170733",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "A2D30R",
+  "brand": "Mersen",
+  "name": "Mersen A2D30R Amp-Trap 2000 Class RK1 Time-Delay Fuse, 30 A, 250 V",
+  "category": "electrical",
+  "subcategory": "Fuses",
+  "description": "Mersen Amp-Trap 2000 A2D30R Class RK1 time-delay fuse, 30 A, 250 VAC/250 VDC, 200 kA IR, time delay for motor inrush currents.",
+  "uom": "EA",
+  "estListPrice": 12.99,
+  "priceSource": "thefuseshop.com",
+  "specs": [
+   {
+    "name": "Amperage",
+    "value": "30 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "250 VAC / 250 VDC",
+    "isNonNeg": true
+   },
+   {
+    "name": "UL Class",
+    "value": "RK1",
+    "isNonNeg": true
+   },
+   {
+    "name": "Speed",
+    "value": "Time-Delay",
+    "isNonNeg": true
+   },
+   {
+    "name": "Interrupting Rating",
+    "value": "200 kA"
+   },
+   {
+    "name": "Dimensions",
+    "value": "0.56 in dia x 2 in L"
+   }
+  ],
+  "specSheetUrl": "https://us.mersen.com/en/products/a2d-r-class-rk1-time-delay/a2d30r",
+  "upc": "782001990862",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AJT30",
@@ -10348,7 +10731,51 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://us.mersen.com/en/products/ajt-class-j-time-delay/ajt30",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "ATMR30",
+  "brand": "Mersen",
+  "name": "Mersen ATMR30 Amp-Trap Class CC Fast-Acting Fuse, 30 A, 600 V",
+  "category": "electrical",
+  "subcategory": "Fuses",
+  "description": "Mersen Amp-Trap ATMR30 Class CC fast-acting fuse, 30 A, 600 VAC/VDC, 200 kA IR; smallest-dimension 600 V fuse suitable for branch-circuit protection with rejection ferrules.",
+  "uom": "EA",
+  "estListPrice": 9.49,
+  "priceSource": "thefuseshop.com",
+  "specs": [
+   {
+    "name": "Amperage",
+    "value": "30 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "600 VAC / 600 VDC",
+    "isNonNeg": true
+   },
+   {
+    "name": "UL Class",
+    "value": "CC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Speed",
+    "value": "Fast-Acting",
+    "isNonNeg": true
+   },
+   {
+    "name": "Interrupting Rating",
+    "value": "200 kA"
+   },
+   {
+    "name": "Dimensions",
+    "value": "0.41 in dia x 1.5 in L"
+   }
+  ],
+  "specSheetUrl": "https://us.mersen.com/en/products/atmr-class-cc-fast-acting/atmr30",
+  "upc": "782001904845",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TR30R",
@@ -10391,7 +10818,95 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://us.mersen.com/en/products/tr-r-class-rk5-time-delay/tr30r",
   "upc": "782001747862",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "TRM30",
+  "brand": "Mersen",
+  "name": "Mersen TRM30 Tri-Onic Midget Time-Delay Fuse, 30 A, 250 V",
+  "category": "electrical",
+  "subcategory": "Fuses",
+  "description": "Mersen Tri-Onic TRM30 midget time-delay fuse, 30 A, 250 VAC, 10 kA IR, 12 s delay at 200% for supplemental protection of small motors and transformers; not for branch circuits.",
+  "uom": "EA",
+  "estListPrice": 7.69,
+  "priceSource": "thefuseshop.com",
+  "specs": [
+   {
+    "name": "Amperage",
+    "value": "30 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "250 VAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Class",
+    "value": "Midget",
+    "isNonNeg": true
+   },
+   {
+    "name": "Speed",
+    "value": "Time-Delay (12 s at 200%)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Interrupting Rating",
+    "value": "10 kA"
+   },
+   {
+    "name": "Dimensions",
+    "value": "0.41 in dia x 1.5 in L"
+   }
+  ],
+  "specSheetUrl": "https://us.mersen.com/en/products/trm-midget-time-delay/trm30",
+  "upc": "782001746650",
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "TRS30R",
+  "brand": "Mersen",
+  "name": "Mersen TRS30R Tri-Onic Class RK5 Time-Delay Fuse, 30 A, 600 V",
+  "category": "electrical",
+  "subcategory": "Fuses",
+  "description": "Mersen Tri-Onic TRS30R Class RK5 time-delay fuse, 30 A, 600 VAC/300 VDC, 200 kA IR, for motors, transformers, service entrance equipment, feeders and branch circuits.",
+  "uom": "EA",
+  "estListPrice": 9.8,
+  "priceSource": "thefuseshop.com",
+  "specs": [
+   {
+    "name": "Amperage",
+    "value": "30 A",
+    "isNonNeg": true
+   },
+   {
+    "name": "Voltage",
+    "value": "600 VAC / 300 VDC",
+    "isNonNeg": true
+   },
+   {
+    "name": "UL Class",
+    "value": "RK5",
+    "isNonNeg": true
+   },
+   {
+    "name": "Speed",
+    "value": "Time-Delay",
+    "isNonNeg": true
+   },
+   {
+    "name": "Interrupting Rating",
+    "value": "200 kA"
+   },
+   {
+    "name": "Dimensions",
+    "value": "0.81 in dia x 5 in L"
+   }
+  ],
+  "specSheetUrl": "https://us.mersen.com/en/products/trs-r-class-rk5-time-delay/trs30r",
+  "upc": "782001748869",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "D00185A20200F40M",
@@ -10432,7 +10947,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product-range/66110-asco-series-185-power-transfer-switch/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "040658",
@@ -10469,7 +10984,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://energy.briggsandstratton.com/en-us/products/powerprotect-26kw-standby-generator",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "7043",
@@ -10506,7 +11021,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.generac.com/globalassets/products/residential/standby-generators/spec-sheets/20kw-22kw-24kw_guardian-series_aircooled-gasengine_specsheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "7172",
@@ -10539,7 +11054,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.generac.com/residential-products/standby-generators/gaseous/10kw-standby-generator-with-16-circuit-switch-wifi-enabled-7172/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "7210",
@@ -10576,7 +11091,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.generac.com/residential-products/standby-generators/gaseous/24kw-standby-generator-with-whole-house-switch-wifi-enabled-7210/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "7683",
@@ -10617,7 +11132,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.generac.com/globalassets/products/residential/portable-generators/spec-sheets/gp6500-cosense-49st-50st-specsheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RXSW200A3",
@@ -10654,7 +11169,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.generac.com/globalassets/products/residential/standby-generator-transfer-switches/automatic-transfer-switches/spec-sheets/rxsc100a3-200a3_rxsw100a3-150a3-200a3_specsheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "20RCAL-200SELS",
@@ -10691,7 +11206,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://kohlerpower.com/en/residential/generators/product/20rcal",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GB5",
@@ -10724,7 +11239,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.aifittings.com/catalog/grounding/intersystem-grounding-bridges/GB5",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GRC58",
@@ -10757,7 +11272,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hubbell.com/burndy/en/products/grc58-mechanical-ground-rod-clamp-cable-to-rod/p/482933",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "588",
@@ -10790,7 +11305,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.harger.com/product/copper-bonded-steel-1",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CGRC-58",
@@ -10823,7 +11338,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ilsco.com/Ilsco/ccrz__ProductDetails?sku=CGRC-58-ILSM-ILS&cclcl=en_US",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GBL-4DB",
@@ -10860,7 +11375,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ilsco.com/Ilsco/ccrz__ProductDetails?sku=GBL-4DB-ILSM-ILS&cclcl=en_US",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "615880",
@@ -10897,7 +11412,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.nvent.com/en-us/erico/products/efs615880",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "90PLUSF20",
@@ -10934,7 +11449,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.nvent.com/en-us/erico/products/efs90plusf20",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CWP1J",
@@ -10967,7 +11482,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.nvent.com/en-us/erico/products/efscwp1j",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PK15GTA",
@@ -11004,7 +11519,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/PK15GTA/load-center-accessory-qo-homeline-ground-bar-kit-15-terminals/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "G5",
@@ -11037,7 +11552,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/G5",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "KBL-B-UV-30L-40K-8-UL-10V",
@@ -11079,7 +11594,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.creelighting.com/products/indoor/high-bay-low-bay/kbl-series/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UHB-18-UNV-L840-CD-U",
@@ -11118,7 +11633,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/49b518154c3c46f08bfead4100870a8c/Metalux-UHB-LED-Round-High-Bay-spec-sheet.pdf",
   "upc": "080083885909",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "VHB-18-W-UNV-L840-CD-U",
@@ -11161,7 +11676,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/cd0c14f212cf46ee9939ad4100870ee5/Metalux-VHB-LED-specification-sheet.pdf",
   "upc": "080083785919",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HAYBAY100N/D10",
@@ -11203,7 +11718,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rablighting.com/specs/HAYBAY100N/D10",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HAYBAY150N/D10",
@@ -11245,7 +11760,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rablighting.com/specs/HAYBAY150N/D10",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ACP1034CD",
@@ -11283,7 +11798,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.appleton.emerson.com/catalog/en-us/shop/appleton/appleton-sku-acp1034cd?locale=en-us",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CS8365C",
@@ -11321,7 +11836,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_CS8365C_spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HBL2310",
@@ -11359,7 +11874,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL2310_spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HBL2611",
@@ -11401,7 +11916,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL2611_spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HBL460R9W",
@@ -11439,7 +11954,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL460R9W_spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HBL5266C",
@@ -11478,7 +11993,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL5266C_spec.pdf",
   "upc": "783585173009",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2611",
@@ -11521,7 +12036,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/2611",
   "upc": "078477807989",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "460P9W",
@@ -11559,7 +12074,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/460P9W",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "63-34043",
@@ -11598,7 +12113,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://meltric.com/media/contentmanager/content/meltric-catalog-dsn30-en.pdf",
   "upc": "784474544207",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "L530P",
@@ -11641,7 +12156,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/plugs-and-connectors/turnlok/30a-nema-l530-plug-black-back-white-front-body/p/l530p",
   "upc": "785007253047",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LED12ET8/G/4/840",
@@ -11682,7 +12197,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cdn.currentlighting.com/site/specsheet/GEL191-LED-Tubes-Type-A-Spec-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "16T8/LED/48-840/IF18/G 25/1",
@@ -11724,7 +12239,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.genlyte.com/en-us/products/led-lamps-and-tubes/led-tubes/contractor-grade-instantfit-ul-type-a-t8/929001960604_NA/product",
   "upc": "046677542085",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "F32T8/ADV841/ALTO",
@@ -11766,7 +12281,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.usa.lighting.philips.com/prof/conventional-lamps-and-tubes/fluorescent-lamps-and-starters/t8/advantage-t8/927869784203_NA/product",
   "upc": "046677280857",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ECOLED18T8L48FG850TYPEB",
@@ -11807,7 +12322,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13107339",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FO32/841/ECO",
@@ -11848,7 +12363,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13120116",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LED13T8/L48/FP/DIM/841/SUB/G8",
@@ -11889,7 +12404,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets3.ledvanceus.com/media/resource/original/asset-13110389",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "L12T8BY5050K",
@@ -11930,7 +12445,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.tcpi.com/product/led-liberat8-double-ended-bypass-tube-pet-coated-3-12w-50k/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LPT815B241K",
@@ -11971,7 +12486,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.tcpi.com/product/lpt815b241k-led-15w-4ft-t8-by-2e-41k-sc/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HLB4069FS1EMWR",
@@ -12012,7 +12527,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/74b9683f3a7a4c8494b0ad41007dce8b/HALO-HLB4-Series-spec-sheet.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HLB6099FS1EMWR",
@@ -12054,7 +12569,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/3c2d17327ab346528e24ad41007dd610/HALO-HLB6-Series-spec-sheet.pdf",
   "upc": "080083848164",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LT560WH6930R",
@@ -12095,7 +12610,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/20bfda12d99442b5a0a7ad41007e6bd2/HALO-LT56-5-6-LED-retrofit-trim-spec-sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RL56069S1EWHR",
@@ -12136,7 +12651,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/7c30c237df874e3087b2ad41007f519e/HALO-RL56-SeleCCTable-specification-sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NCSC-R6W2TWMPW",
@@ -12177,7 +12692,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://noralighting.com/product/ncsc-r6w2tw/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LCAT24-40MLG-EDU",
@@ -12220,7 +12735,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://cdn.currentlighting.com/site/specsheet/COL_LCAT24_spec.pdf",
   "upc": "078531125899",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "24CZ2-40-UNV-L840-CD1-U",
@@ -12258,7 +12773,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/94d65bb9c8f249bdac31ad410085263f/Metalux-2-x-4-Recessed-Cruze-ST-LED-Spec-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "24FP3840HE",
@@ -12300,7 +12815,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/8761b17b2ff0435486bead4100849db0/metalux-24fp-2x4-led-panel-specsheet.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2FGXG48L840-4-RS-UNV-DIM",
@@ -12342,7 +12857,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.assets.signify.com/is/content/Signify/Assets/day-brite/US/20210520-fluxgrid-gen-2-2x4.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "604-SP",
@@ -12379,7 +12894,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.604-SP.html",
   "upc": "032664750625",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1403-I",
@@ -12416,7 +12931,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/1403-i",
   "upc": "078477171301",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "49875",
@@ -12452,7 +12967,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/49875",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8829-CW4",
@@ -12488,7 +13003,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/8829-cw4",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "9726-C",
@@ -12524,7 +13039,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/9726-c",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "9874",
@@ -12557,7 +13072,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/9874",
   "upc": "078477294505",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "7042500",
@@ -12593,7 +13108,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.westinghouselighting.com/lighting-accessories/light-fixture-accessories/lamp-accessories-and-hardware/2-porcelain-fixture-socket-7042500.aspx",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TM3220CCU",
@@ -12636,7 +13151,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/TM3220CCU",
   "upc": "783164112757",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LP320-BPD",
@@ -12678,7 +13193,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://store.leviton.com/products/200-amp-30-space-30-circuit-indoor-load-center-enclosure-with-main-circuit-breaker-lp320-mb",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "P4040B1200CU",
@@ -12720,7 +13235,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cache.industry.siemens.com/dl/files/343/109792343/att_1051430/v1/SIE_SA_ESPL_Sel_App_Guide.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SN3048B1200",
@@ -12762,7 +13277,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cache.industry.siemens.com/dl/files/287/109983287/att_1316088/v1/SF-17-Sect-01-ALL-web.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HOM2040M100PCVP",
@@ -12804,7 +13319,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/HOM2040M100PCVP/load-center-homeline-1-phase-20-spaces-40-circuits-100a-convertible-main-breaker-pon-nema1-value-pack/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HOM3060M200PCVP",
@@ -12846,7 +13361,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/HOM3060M200PCVP/load-center-homeline-1-phase-30-spaces-60-circuits-200a-convertible-main-breaker-pon-nema1-value-pack/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QO130M200PC",
@@ -12888,7 +13403,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/QO130M200PC/load-center-qo-1-phase-30-spaces-30-circuits-200a-convertible-main-breaker-pon-nema1-combo-cover/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QO142M200PC",
@@ -12930,7 +13445,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/QO142M200PC/qo-loadcenter,-main-breaker,-200a,-1ph-3w,-42sp,-nema-1,-comb.cv,-pon/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QO342L225G",
@@ -12972,7 +13487,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/QO342L225G/load-center-qo-3-phase-42-spaces-42-circuits-225a-fixed-main-lugs-nema1-gnd-bar/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UY2",
@@ -13010,7 +13525,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/68690O/3m-scotchlok-insulation-displacement-connectors-br.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "KS25",
@@ -13048,7 +13563,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ks25-split-bolt-connector-runtap-4-awg-10-awg-str/p/503120",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "YA28",
@@ -13086,7 +13601,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ya28-comp-term-cu-1-hole-long-barrel/p/523561",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "30-074",
@@ -13124,7 +13639,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.idealind.com/us/en/category/product.html/Wire_Nut_Model_74B.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "30-451",
@@ -13162,7 +13677,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.idealind.com/us/en/category/product.html/Wing_Nut_Model_451.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SLU-70",
@@ -13200,7 +13715,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ilsco.com/Ilsco/ccrz__ProductDetails?sku=SLU-70-ILSM-ILS&cclcl=en_US",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LCA2-14-Q",
@@ -13238,7 +13753,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/lugs-splices-split-bolts-accessories/mechanical-compression-lugs-splices/lca2-14-q.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "221-412",
@@ -13272,7 +13787,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-412",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "221-413",
@@ -13306,7 +13821,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-413",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UHTRS213CE",
@@ -13352,7 +13867,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://externalassets.unilogcorp.com/ASSETS/DOCUMENTS/ITEMS/EN/UHTRS213CE_Specification_Sheet.pdf",
   "upc": "786685217772",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UTRS213CE",
@@ -13398,7 +13913,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://assets.usesi.com/product-media/specification-sheets/USESI_325323_specification_sheets.pdf",
   "upc": "786685217901",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "R281C1",
@@ -13444,7 +13959,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://library.e.abb.com/public/dcebb02b699045f0bce80a815ef76c50/MET017O_Midwest_Elec_General_Products_Catalog_web.pdf",
   "upc": "784567585407",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "U4801-XL-5T9",
@@ -13490,7 +14005,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.milbankworks.com/specsheets/1092206_SS.pdf",
   "upc": "784572288218",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "U7021-RL-TG",
@@ -13536,7 +14051,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.milbankworks.com/specsheets/1000454_SS.pdf",
   "upc": "784572139947",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "U7487-RL-TG",
@@ -13581,7 +14096,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.milbankworks.com/specsheets/1000470_SS.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UAT417-XGF",
@@ -13627,7 +14142,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://pdf.lowes.com/productdocuments/75fa463d-a4fc-41fd-b51a-39df709c327f/64790820.pdf",
   "upc": "783643242050",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "UTRS213B",
@@ -13673,7 +14188,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://media.distributordatasolutions.com/schneider_synd_rework/2024q1/documents/a83c236b52a1c03aecfb633ecf6cf27c0561a52c.pdf",
   "upc": "785901627661",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MS116-4.0",
@@ -13714,7 +14229,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://library.e.abb.com/public/d0d3e7cb418a1a34c12579e9005c5e6b/2CDC131025D0201_H.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "509-AOD",
@@ -13756,7 +14271,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.509-AOD.html",
   "upc": "781180156281",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "14CUC32AA",
@@ -13797,7 +14312,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:bc7079de-68ad-44ed-9fd9-206d73a3ff2b/nebr-olrpg-0420-lr.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "14DUC32AA",
@@ -13838,7 +14353,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:bc7079de-68ad-44ed-9fd9-206d73a3ff2b/nebr-olrpg-0420-lr.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2510FG1",
@@ -13879,7 +14394,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/2510FG1/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2510KG2",
@@ -13920,7 +14435,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/2510KG2/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8536SCO3V02S",
@@ -13961,7 +14476,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/8536SCO3V02S/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GV2ME16",
@@ -14002,7 +14517,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/GV2ME16/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IPS02-1LW",
@@ -14043,7 +14558,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/ips02-1lw",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ODS10-IDW",
@@ -14084,7 +14599,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/content/dam/leviton/lighting-controls/controls/product_documents/product_specification/Passive-Infrared-Wall-Switch-Occupancy-Sensor-ODS10-ID-English-Data-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "OSC10-M0W",
@@ -14125,7 +14640,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/content/dam/leviton/lighting-controls/controls/product_documents/product_specification/Multi-Technology-Ceiling-Mount-Occupancy-Sensor-OSCxx-MxW-English-Data-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MS-OPS2-WH",
@@ -14166,7 +14681,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/369666.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MS-OPS5M-WH",
@@ -14207,7 +14722,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/369666.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MS-VPS5M-WH",
@@ -14248,7 +14763,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/369666.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "WSX PDT WH",
@@ -14289,7 +14804,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://pdmassets.azureedge.net/library/SS/documents/specsheets/WSX%20Family.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DT-355",
@@ -14326,7 +14841,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/p/print/DT-355-U.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PW-100-W",
@@ -14367,7 +14882,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/p/print/PW-100-W.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "C-WP-A-TR-1L-40K-DB",
@@ -14409,7 +14924,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.creelighting.com/products/outdoor/wall-pack/clite-wall-pack",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SLIM37",
@@ -14451,7 +14966,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rablighting.com/product/SLIM37",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "X34-25L/120",
@@ -14493,7 +15008,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rablighting.com/product/X34-25L/120",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AQU3422RCXAXT1B4",
@@ -14536,7 +15051,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/AQU3422RCXAXT1B4",
   "upc": "783175408641",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "P1X42MC250CT",
@@ -14578,7 +15093,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cache.industry.siemens.com/dl/files/956/109799956/att_1147894/v1/SIE_CS_P1.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NF442L2",
@@ -14620,7 +15135,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/NF442L2/panelboard-interior-nf-main-lugs-250a-al-bus-42-pole-spaces-3-phase-4-wire-600y-347vac-max/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NF442L2C",
@@ -14662,7 +15177,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/NF442L2C/panelboard-interior-nf-main-lugs-250a-cu-bus-al-neutral-assembly-42-pole-spaces-3-phase-4-wire-600y-347vac-max/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NQ430L1C",
@@ -14704,7 +15219,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/NQ430L1C/panelboard-interior-nq-main-lugs-100a-cu-bus-30-pole-spaces-3-phase-4-wire-240vac-48vdc/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NQ430L2C",
@@ -14746,7 +15261,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://iportal.se.com/Contents/docs/SQD-NQ430L2C_DATASHEET.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NQ442L2",
@@ -14788,7 +15303,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/NQ442L2/panelboard-interior-nq-main-lugs-225a-al-bus-42-pole-spaces-3-phase-4-wire-240vac-48vdc/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NQ442L2C",
@@ -14830,7 +15345,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://iportal.se.com/Contents/docs/SQD-NQ442L2C_DATASHEET.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EK4036S",
@@ -14867,7 +15382,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/EK4036S",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EK4536",
@@ -14905,7 +15420,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/EK4536",
   "upc": "078275130173",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "K4121C",
@@ -14942,7 +15457,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/K4121C",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "K4221C",
@@ -14979,7 +15494,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/K4221C",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "K4223C",
@@ -15016,7 +15531,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/K4223C",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T-15",
@@ -15053,7 +15568,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.pmcontrols.com/products/lumatrol-t-et-and-st-series-wire-in-photocontrols",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2001",
@@ -15091,7 +15606,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://nsiindustries.com/product/tork-2001-1-2-stem-conduit-mount-photocontrol-light-sensor-180-degree-swivel/",
   "upc": "786261600158",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5237-UL",
@@ -15129,7 +15644,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://nsiindustries.com/product/tork-5237-ul-electronic-instant-response-turn-lock-led-photocontrol-longer-life/",
   "upc": "786261788955",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HBL5262",
@@ -15171,7 +15686,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL5262_spec.pdf",
   "upc": "783585435107",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HBL5362W",
@@ -15213,7 +15728,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL5362W_spec.pdf",
   "upc": "783585435329",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5325-W",
@@ -15254,7 +15769,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/5325-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GFNT2-W",
@@ -15295,7 +15810,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/gfnt2-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T5325-W",
@@ -15336,7 +15851,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/t5325-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3232W",
@@ -15377,7 +15892,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/outlets-and-receptacles/residential-receptacles/trademaster-15a-125v-duplex-receptacle-white/p/3232w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CR20W",
@@ -15418,7 +15933,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/outlets-and-receptacles/commercial-receptacles/20a-125v-commercial-spec-grade-duplex-receptacle-side-wire-white/p/cr20w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TGN3322R",
@@ -15460,7 +15975,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/TGN3322R",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GF222NR",
@@ -15503,7 +16018,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.compas.siemens-info.com/CatalogProduct/GF222NR.pdf",
   "upc": "783643149212",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HF361",
@@ -15545,7 +16060,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.compas.siemens-info.com/CatalogProduct/HF361.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "WN2060U",
@@ -15587,7 +16102,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.compas.siemens-info.com/CatalogProduct/WN2060U.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DU221RB",
@@ -15629,7 +16144,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=DU221RB_DATASHEET_US_en-US.pdf&p_Doc_Ref=DU221RB_DATASHEET",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DU222RB",
@@ -15671,7 +16186,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=DU222RB_DATASHEET_US_en-US.pdf&p_Doc_Ref=DU222RB_DATASHEET",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "H361",
@@ -15713,7 +16228,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=H361_DATASHEET_US_en-US.pdf&p_Doc_Ref=H361_DATASHEET",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HU361",
@@ -15755,7 +16270,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://download.schneider-electric.com/files?p_enDocType=Product+Data+Sheet&p_File_Name=HU361_DATASHEET_US_en-US.pdf&p_Doc_Ref=HU361_DATASHEET",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LCL4-40ML-EDU",
@@ -15797,7 +16312,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://cdn.currentlighting.com/site/specsheet/COL_LCL_spec.pdf",
   "upc": "078531124663",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "4SNLED-LD5-41SL-LW-UNV-L840-CD1-U",
@@ -15838,7 +16353,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/42e495a81e0445a8b6d0ad4100865021/metalux-snled-striplight-lensed-specsheet_snled-lens-ln-4ft-u.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "4WNLED-LD4-40SL-F-UNV-L840-CD1-U",
@@ -15879,7 +16394,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cooperlighting.com/api/assets/v1/file/CLS/content/7bcf5f42edfe40e9b6d1ad410087235d/Metalux-WNLED-Utility-LED-Wraparound-spec-sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "B22-120GLV",
@@ -15921,7 +16436,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.eaton.com/us/en-us/skuPage.B22-120GLV.html",
   "upc": "781011211301",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PS-200-10-PG",
@@ -15962,7 +16477,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.power-strut.com/product-details/ps-200",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PS-200-EH-10-PG",
@@ -16003,7 +16518,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://powerstrut.com/ps200eh-html/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ZA12HS10EG",
@@ -16044,7 +16559,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZA12HS10EG",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ZB1400HS 10",
@@ -16085,7 +16600,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZB1400HS%2010",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "P1000-10PG",
@@ -16126,7 +16641,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p1000",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "P1000T-10PG",
@@ -16167,7 +16682,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p1000t",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "P1001-10PG",
@@ -16208,7 +16723,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p1001",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "P4100-10PG",
@@ -16249,7 +16764,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.atkore.com/products/strut-and-fittings/p4100",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IG1240RC3",
@@ -16287,7 +16802,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/IG1240RC3",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IG2240-IMSK",
@@ -16329,7 +16844,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/IG2240-IMSK",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "51120-1",
@@ -16368,7 +16883,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/51120-1",
   "upc": "078477827642",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FS100",
@@ -16406,7 +16921,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:3eb4a3de-a6e1-4664-b525-d690178d6e20/firstsurge-datasheet-lp-1408-2.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FSPD140",
@@ -16444,7 +16959,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:501b541f-5ed1-4b75-a6af-161d5de25d6d/boltshield-qr-brochure.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QSPD2A065P",
@@ -16482,7 +16997,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.new.siemens.com/siemens/assets/api/uuid:b5e13ffe-4a75-4f74-a593-bae873f12b51/s09-surge-protection-devices.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HEPD80",
@@ -16520,7 +17035,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/HEPD80/surge-protection-device-hepd-80ka-120-240v-1-phase-3-wire-spd-type-1/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QO2175SB",
@@ -16558,7 +17073,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product-range/63126-qo2175sb-surgebreaker-surge-protective-device-spd/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SDSB80111",
@@ -16596,7 +17111,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/SDSB80111/surge-protection-device-surgebreaker-plus-80ka-120-240vac-1-phase-3-wire-whole-house/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CS120W",
@@ -16637,7 +17152,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_CS120W_spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HBL1221W",
@@ -16678,7 +17193,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_HBL1221W_spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1221-2W",
@@ -16719,7 +17234,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/1221-2w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1453-2W",
@@ -16760,7 +17275,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/1453-2w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CA-1PS-WH",
@@ -16797,7 +17312,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/0301637.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PS20AC1-I",
@@ -16838,7 +17353,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/light-switches-and-dimmers/nafta-compliant/industrial-extra-heavy-duty-specification-grade-switch-ivory/p/ps20ac1i",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EJ500",
@@ -16875,7 +17390,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/EJ500",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FF15MC",
@@ -16913,7 +17428,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/FF15MC",
   "upc": "078275005297",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ST01",
@@ -16954,7 +17469,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/ST01",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T101",
@@ -16991,7 +17506,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/T101",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T103",
@@ -17028,7 +17543,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/T103",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T104",
@@ -17065,7 +17580,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/T104",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T104R",
@@ -17102,7 +17617,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.intermatic.com/Product/T104R",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LTB30-1LZ",
@@ -17140,7 +17655,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/ltb30-1lz",
   "upc": "078477459225",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1101B",
@@ -17178,7 +17693,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://nsiindustries.com/product/tork-1101b-24-hour-indoor-mechanical-time-switch-40a-120v-spst-outputs/",
   "upc": "786261100641",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1104B",
@@ -17215,7 +17730,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://nsiindustries.com/product/tork-1104b-24-hour-indoor-mechanical-time-switch-40a-208-277v-dpst-outputs/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "80401-W",
@@ -17256,7 +17771,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/80401-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "84003-40",
@@ -17297,7 +17812,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/84003-40",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "88001",
@@ -17339,7 +17854,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/88001",
   "upc": "078477086926",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "88003",
@@ -17381,7 +17896,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/88003",
   "upc": "078477086933",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "88014",
@@ -17423,7 +17938,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://leviton.com/products/88014",
   "upc": "078477772997",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "97101",
@@ -17465,7 +17980,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://mulberrymetal.com/wp-content/uploads/2025/02/mulberry_general_catalog_2021.pdf",
   "upc": "095327971010",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TP1W",
@@ -17503,7 +18018,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/wall-plates/trademaster-1-gang-nylon-wall-plate-1-toggle-switch-opening-white/p/tp1w",
   "upc": "785007274066",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TP26W",
@@ -17541,7 +18056,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/wall-plates/trademaster-1-gang-nylon-wall-plate-1-decorator-opening-white/p/tp26w",
   "upc": "785007275117",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TP8W",
@@ -17579,7 +18094,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/wall-plates/trademaster-1-gang-nylon-wall-plate-duplex-receptacle-openings-white/p/tp8w",
   "upc": "785007274554",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "147-1672G",
@@ -17620,7 +18135,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.cerrowire.com/product/cerromax-nm-b/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "13055955",
@@ -17661,7 +18176,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/uf-b-copper-cable/p/13055955",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "13102915",
@@ -17698,7 +18213,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/ser-aluminum-service-entrance/p/13102915",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "22964158",
@@ -17739,7 +18254,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/thhn-thwn-copper-silicone-free/p/22964158",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "28827455",
@@ -17780,7 +18295,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/28827455",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "28828255",
@@ -17822,7 +18337,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/28828255",
   "upc": "032886163050",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "28829055",
@@ -17864,7 +18379,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/28829055",
   "upc": "032886163104",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "63950002",
@@ -17905,7 +18420,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.southwire.com/wire-cable/building-wire/romex-sup-sup-brand-simpull-sup-sup-copper-type-nm-b-cable/p/63950002",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1451-2W",
@@ -17942,7 +18457,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/1451-2w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5262-W",
@@ -17983,7 +18498,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/5262-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5320-W",
@@ -18024,7 +18539,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/5320-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5601-2W",
@@ -18065,7 +18580,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/5601-2w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GFNT1-W",
@@ -18106,7 +18621,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/gfnt1-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "T5320-W",
@@ -18147,7 +18662,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://leviton.com/products/t5320-w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DVCL-153P-WH",
@@ -18183,7 +18698,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.lutron.com/a/documents/369682.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3232-W",
@@ -18220,7 +18735,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/outlets-and-receptacles/residential-receptacles/trademaster-15a-125v-duplex-receptacle-white/p/3232w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TM870-W",
@@ -18257,7 +18772,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.legrand.us/wiring-devices/designer-switches-and-outlets/radiant-15a-single-pole-switch-white/p/tm870w",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1734-IB8",
@@ -18294,7 +18809,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.1734-IB8.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1756-IB16",
@@ -18331,7 +18846,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/1756-td002_-en-e.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1766-L32BWA",
@@ -18368,7 +18883,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.1766-L32BWA.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1769-L33ER",
@@ -18404,7 +18919,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/1769-td005_-en-p.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2080-LC50-24QBB",
@@ -18441,7 +18956,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/2080-td001_-en-p.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FX5U-32MR/ES",
@@ -18478,7 +18993,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://emea.mitsubishielectric.com/fa/products/cnt/plc/plcf/cpu-module/fx5u-32mr-es.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CP2E-E40DR-A",
@@ -18515,7 +19030,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://files.omron.eu/downloads/latest/datasheet/en/p145_cp2e_datasheet_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "TM221CE16R",
@@ -18552,7 +19067,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/TM221CE16R/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6ES7214-1AG40-0XB0",
@@ -18589,7 +19104,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.industry-mobile-support.siemens-info.com/en/article/6ES7214-1AG40-0XB0/man",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6ES7223-1BH32-0XB0",
@@ -18622,7 +19137,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.industry-mobile-support.siemens-info.com/en/article/6ES7223-1BH32-0XB0/man",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "EDR-120-24",
@@ -18659,7 +19174,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.meanwell.com/Upload/PDF/EDR-120/EDR-120-SPEC.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HDR-30-24",
@@ -18696,7 +19211,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.meanwell.com/Upload/PDF/HDR-30/HDR-30-SPEC.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LRS-350-24",
@@ -18733,7 +19248,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.meanwell.com/Upload/PDF/LRS-350/LRS-350-SPEC.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NDR-240-24",
@@ -18766,7 +19281,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.meanwell.com/Upload/PDF/NDR-240/NDR-240-SPEC.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SDR-240-24",
@@ -18807,7 +19322,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.meanwell.com/Upload/PDF/SDR-240/SDR-240-SPEC.PDF",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "S8VK-G06024",
@@ -18844,7 +19359,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://files.omron.eu/downloads/latest/datasheet/en/t056_s8vk-g_switch_mode_power_supply_datasheet_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "S8VK-G24024",
@@ -18881,7 +19396,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://files.omron.eu/downloads/latest/datasheet/en/t056_s8vk-g_switch_mode_power_supply_datasheet_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SDN5-24-100C",
@@ -18918,7 +19433,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://discreteautomation.emerson.com/product/solahd-sku-sdn524100c",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "800FM-F3MX10",
@@ -18959,7 +19474,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.800FM-F3MX10.html",
   "upc": "662468120869",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "800T-A1D1",
@@ -18996,7 +19511,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.800T-A1D1.html",
   "upc": "781180602153",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "800T-FX6D4",
@@ -19032,7 +19547,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.800T-FX6D4.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XB4BA21",
@@ -19072,7 +19587,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/XB4BA21/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XB4BA31",
@@ -19112,7 +19627,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/XB4BA31/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XB4BA42",
@@ -19152,7 +19667,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/XB4BA42/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XB4BS8442",
@@ -19192,7 +19707,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/XB4BS8442/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XB5AA31",
@@ -19232,7 +19747,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/XB5AA31/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "700-HA32A1",
@@ -19270,7 +19785,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://literature.rockwellautomation.com/idc/groups/literature/documents/td/700-td552_-en-p.pdf",
   "upc": "781180310829",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "700-HC24A1-4",
@@ -19303,7 +19818,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.700-HC24A1-4.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RH2B-ULAC110-120V",
@@ -19340,7 +19855,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.idec.com/en-us/industrial-components/relays-timers/relays/rh-power-relay/rh2b-ulac110-120v",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "G2R-1-S DC24(S)",
@@ -19373,7 +19888,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.omron.eu/downloads/latest/datasheet/en/j226_g2r-_-s_(s)_general-purpose_relay_datasheet_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LY2N-AC110/120",
@@ -19410,7 +19925,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.omron.com/m/3e54678f7feeb2fc/original/LY-Series-Bi-power-Relays-Datasheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MY4N AC110/120 (S)",
@@ -19447,7 +19962,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.omron.eu/downloads/latest/datasheet/en/j199_my(s)_miniature_power_relays_datasheet_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2966171",
@@ -19484,7 +19999,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://docs.rs-online.com/f5af/0900766b816e490e.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RXM2AB2BD",
@@ -19521,7 +20036,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/RXM2AB2BD/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "RXM4AB2BD",
@@ -19558,7 +20073,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/RXM4AB2BD/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8501KP12V20",
@@ -19591,7 +20106,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.se.com/us/en/product/8501KP12V20/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "Q4XTBLAF300-Q8",
@@ -19628,7 +20143,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://info.bannerengineering.com/cs/groups/public/documents/literature/181483.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QS18VN6D",
@@ -19665,7 +20180,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://info.bannerengineering.com/cs/groups/public/documents/literature/197052.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IFS204",
@@ -19702,7 +20217,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ifm.com/us/en/product/IFS204",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "E3Z-D62",
@@ -19739,7 +20254,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://assets.omron.eu/downloads/latest/datasheet/en/e3z_compact_photoelectric_sensor_with_built-in_amplifier_datasheet_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NBB5-18GM50-E2-V1",
@@ -19776,7 +20291,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://files.pepperl-fuchs.com/webcat/navi/productInfo/pds/326161-0104_eng.pdf?v=20230430161158",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "NBN8-18GM50-E2-V1",
@@ -19813,7 +20328,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://files.pepperl-fuchs.com/webcat/navi/productInfo/pds/084197_eng.pdf?v=20190111000150",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IME12-04BPSZC0S",
@@ -19850,7 +20365,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.sick.com/media/pdf/1/81/481/dataSheet_IME12-04BPSZC0S_1040764_en.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "BI2-M12-AP6X-H1141",
@@ -19887,7 +20402,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.turck.us/datasheet/_us/edb_46065_eng_us.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1492-J4",
@@ -19924,7 +20439,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.rockwellautomation.com/en-us/products/details.1492-J4.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3004362",
@@ -19965,7 +20480,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://docs.rs-online.com/ed64/0900766b81715049.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3031212",
@@ -20006,7 +20521,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://docs.rs-online.com/f7dd/0900766b811a9318.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3044076",
@@ -20043,7 +20558,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.farnell.com/datasheets/2309860.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3209510",
@@ -20080,7 +20595,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://docs.rs-online.com/de41/0900766b8170d6d2.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2002-1201",
@@ -20121,7 +20636,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wago.com/us/rail-chassis-terminal-blocks/topjobs-feedthrough-terminal-block/p/2002-1201",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2002-1307",
@@ -20162,7 +20677,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wago.com/us/rail-mount-terminal-blocks/3-conductor-ground-terminal-block/p/2002-1307",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2010-1201",
@@ -20199,7 +20714,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.wago.com/us/rail-chassis-terminal-blocks/topjobs-feedthrough-terminal-block/p/2010-1201",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1020000000",
@@ -20241,7 +20756,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://datasheet.weidmueller.com/pdf/en/1020000000/scope/2/",
   "upc": "4008190099633",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1020100000",
@@ -20282,7 +20797,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://datasheet.weidmueller.com/pdf/en/1020100000/scope/2/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1102000",
@@ -20323,7 +20838,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1719522O/3m-datasheet-fall-dbi-sala-delta-full-body-harnesses.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3100520",
@@ -20360,7 +20875,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1719538O/3m-datasheet-fall-dbi-sala-nano-lok-self-retracting-lifelines.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1341001",
@@ -20397,7 +20912,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1337999O/3m-protecta-full-line-catalog.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "3590500",
@@ -20434,7 +20949,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1719545O/3m-datasheet-fall-pro-rebel-sr-lifelines.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "7016B",
@@ -20475,7 +20990,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.falltech.com/Product/7016b/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8259",
@@ -20516,7 +21031,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.falltech.com/Product/8259/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "01703",
@@ -20557,7 +21072,85 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://guardianfall.com/product/01703",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "E650/UGN",
+  "brand": "Honeywell Miller",
+  "name": "Honeywell Miller E650/UGN DuraFlex Harness",
+  "category": "safety",
+  "subcategory": "Fall Protection",
+  "description": "DuraFlex stretchable harness with specially formulated elastomer webbing, back D-ring and tongue buckle legs; universal L/XL.",
+  "uom": "EA",
+  "estListPrice": 268.19,
+  "priceSource": "pendergastsafety.com",
+  "specs": [
+   {
+    "name": "Type",
+    "value": "Full body harness (stretchable)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Capacity",
+    "value": "400 lb",
+    "isNonNeg": true
+   },
+   {
+    "name": "Standard",
+    "value": "OSHA, ANSI Z359.1, ANSI A10.32"
+   },
+   {
+    "name": "Webbing",
+    "value": "DuraFlex elastomer"
+   },
+   {
+    "name": "Size",
+    "value": "Universal (L/XL)"
+   }
+  ],
+  "specSheetUrl": "https://automation.honeywell.com/us/en/products/personal-protective-equipment/fall-protection/harnesses/miller-duraflex-stretchable-harnesses",
+  "verifiedAt": "2026-06-12"
+ },
+ {
+  "mpn": "T4500/UAK",
+  "brand": "Honeywell Miller",
+  "name": "Honeywell Miller T4500/UAK Titan II Harness",
+  "category": "safety",
+  "subcategory": "Fall Protection",
+  "description": "Titan II non-stretch full body harness with sliding back D-ring, tongue buckle legs and sub-pelvic strap; universal L/XL.",
+  "uom": "EA",
+  "estListPrice": 58.97,
+  "priceSource": "mastermans.com",
+  "specs": [
+   {
+    "name": "Type",
+    "value": "Full body harness (non-stretch)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Capacity",
+    "value": "400 lb",
+    "isNonNeg": true
+   },
+   {
+    "name": "Standard",
+    "value": "OSHA, ANSI A10.32"
+   },
+   {
+    "name": "D-Ring",
+    "value": "Sliding back"
+   },
+   {
+    "name": "Leg Buckle",
+    "value": "Tongue buckle"
+   },
+   {
+    "name": "Size",
+    "value": "Universal (L/XL)"
+   }
+  ],
+  "specSheetUrl": "https://automation.honeywell.com/us/en/products/personal-protective-equipment/fall-protection/harnesses/miller-titan-ii-harness",
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "92738PU",
@@ -20594,7 +21187,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/gloves/92738pu",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "9670",
@@ -20631,7 +21224,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/gloves/9670",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "N9690",
@@ -20668,7 +21261,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/gloves/n9690",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MG-05-010",
@@ -20705,7 +21298,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.mechanix.com/us-en/all-work-gloves/MG-05-010.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MPT-58-010",
@@ -20742,7 +21335,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.mechanix.com/us-en/all-work-gloves/MPT-58-010.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "H-701R",
@@ -20779,7 +21372,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1759070O/3m-hard-hats-h700-series-technical-datasheet-english-online-version.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "E2RW01A000",
@@ -20820,7 +21413,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/es-mx/products/head-eye-face-protection/documents/head/sps-his-Honeywell-Fibre-Metal-Safety-Helmet-DataSheet-NA-ENG.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HP14110",
@@ -20858,7 +21451,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.pyramex.com/products/sl-series-cap-style",
   "upc": "814992006335",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HP44110",
@@ -20895,7 +21488,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.pyramex.com/products/ridgeline%C2%AE-cap-style",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HP54110",
@@ -20936,7 +21529,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.pyramex.com/products/ridgeline%C2%AE-full-brim",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1100",
@@ -20977,7 +21570,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/836362O/3m-1100-tds-pdf.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "311-1250",
@@ -21018,7 +21611,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/2237247O/3m-anz-2022-tech-data-sheet-3m-earsoft-yellow-neon-earplugs.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "312-1201",
@@ -21055,7 +21648,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/2237238O/3m-anz-2022-tech-data-sheet-3m-e-a-r-classic-earplugs.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "312-1250",
@@ -21096,7 +21689,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/2237247O/3m-anz-2022-tech-data-sheet-3m-earsoft-yellow-neon-earplugs.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LL-1",
@@ -21137,7 +21730,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/it-it/products/hearing-protection/documents/HL_laser_lite_single-use_earplug_laser-lite-single-use-earplug.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MAX-1",
@@ -21179,7 +21772,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-gb/localized/mei/sps-ppe-max-single-use-earplug-datasheet.pdf",
   "upc": "033552000037",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "MAX-30",
@@ -21220,7 +21813,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-gb/localized/mei/sps-ppe-max-single-use-earplug-datasheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6604",
@@ -21261,7 +21854,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.moldex.com/product/hearing-protection/disposable-earplugs/sparkplugs/6604/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6800",
@@ -21302,7 +21895,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.moldex.com/product/pura-fit/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FP70",
@@ -21344,7 +21937,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.radians.com/products/composite-radians-resistor-32-disposable-foam-earplug-products",
   "upc": "674326219240",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8205Z",
@@ -21381,7 +21974,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ergodyne.com/glowear-8205z-class-2-super-econo-vest.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8220Z",
@@ -21418,7 +22011,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ergodyne.com/glowear-8220z-class-2-standard-vest.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8289",
@@ -21455,7 +22048,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.ergodyne.com/glowear-8289-class-2-t-shirt.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1085",
@@ -21496,7 +22089,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalogs.kishigo.com/class-2-vests/full-view.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1163",
@@ -21537,7 +22130,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalogs.kishigo.com/class-2-vests/full-view.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1550",
@@ -21574,7 +22167,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://catalogs.kishigo.com/brilliant-series/full-view.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SV2ZGM",
@@ -21615,7 +22208,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.radians.com/products/radians-sv2z-economy-type-r-class-2-mesh-safety-vest-with-zipper",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SV59",
@@ -21652,7 +22245,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.radians.com/products/radians-sv59-type-r-class-2-heavy-duty-surveyor-safety-vest",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "72/40 KD RED",
@@ -21692,7 +22285,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.abususa.com/products/insulated-72-40",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "406RED",
@@ -21728,7 +22321,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/406RED",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "410RED",
@@ -21768,7 +22361,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/410RED",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "420",
@@ -21804,7 +22397,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/420",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "487",
@@ -21840,7 +22433,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/487",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "491B",
@@ -21876,7 +22469,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/491B",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "493B",
@@ -21912,7 +22505,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/493B",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "496B",
@@ -21948,7 +22541,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/496B",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "497A",
@@ -21984,7 +22577,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.masterlock.com/products/product/497A",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "S806",
@@ -22020,7 +22613,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cdn.masterlock.com/masterlock/resources/documents/pdf/sell-sheets/7000-0267_S806_SELL_SHEET.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PSL-CBNT",
@@ -22060,7 +22653,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.panduit.com/en/products/safety-security/lockout-tagout/lockout-tagout-devices/pslcbnt.html",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2091",
@@ -22097,7 +22690,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/5189O/3m-particulate-filter-2091-p100.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6001",
@@ -22134,7 +22727,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/879255O/3m-cartridge-6001-user-instructions.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6200",
@@ -22171,7 +22764,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1730559O/3m-6000-series-reusable-half-mask-data-sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6800",
@@ -22212,7 +22805,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/2602924O/3m-6000-full-facepiece-reusable-respirator.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "7502",
@@ -22253,7 +22846,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1731320O/3m-7500-series-reusable-half-mask-data-sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8210",
@@ -22290,7 +22883,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1425070O/3m-particulate-respirator-8210-n95-technical-specifications.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "8511",
@@ -22327,7 +22920,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://multimedia.3m.com/mws/media/1425060O/3m-particulate-respirator-8511-n95-technical-specifications.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "770030M",
@@ -22364,7 +22957,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-us/products/respiratory-protection/documents/7700%20Series%20Half%20Mask%20Data%20Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "2300N95",
@@ -22401,7 +22994,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.moldex.com/product/2300-n95-series-respirator-exhale-valve/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "11329-00000-20",
@@ -22434,7 +23027,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.3m.com/3M/en_US/p/d/b00034301/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "S1101SGAF",
@@ -22467,7 +23060,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.3m.com/3M/en_US/p/dc/v000244792/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SF401AF",
@@ -22500,7 +23093,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.3m.com/3M/en_US/p/d/b00050518/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "A700",
@@ -22533,7 +23126,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-us/products/head-eye-face-protection/documents/eye/sps-his-honeywell-uvex-a700-brochure-na-eng.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "S3200HS",
@@ -22566,7 +23159,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-us/products/head-eye-face-protection/documents/eye/sps-his-honeywell-uvex-genesis-family-brochure-na-eng-2.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "BK110",
@@ -22599,7 +23192,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/glasses/bk110",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "CL110",
@@ -22632,7 +23225,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.mcrsafety.com/safety-equipment/glasses/cl110",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "S2510S",
@@ -22665,7 +23258,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.pyramexsafety.com/products/eye-protection/s2510s",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "S4110S",
@@ -22698,7 +23291,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.pyramexsafety.com/products/eye-protection/s4110s",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "9600-12/24D-630",
@@ -22734,7 +23327,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hesinnovations.com/adobe/assets/urn:aaid:aem:0ca5481b-06e6-4c32-a0d2-112a619cc51b/original/as/AADSS1203093.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1326LSSMV",
@@ -22767,7 +23360,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/1326",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "1346LNSMN",
@@ -22800,7 +23393,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/1346",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "20NKS-00-000000",
@@ -22837,7 +23430,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/20",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "40NKS-00-000000",
@@ -22874,7 +23467,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/40",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5006PGGMN",
@@ -22911,7 +23504,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/seos-card",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "6005BGB00",
@@ -22948,7 +23541,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/6005",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "900NTNNEK00000",
@@ -22985,7 +23578,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/r10",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "920PTNNEK00000",
@@ -23022,7 +23615,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hidglobal.com/products/rp40",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "OP40HONS",
@@ -23059,7 +23652,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/hon-ba-l-omniprxd-d.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "B4512",
@@ -23096,7 +23689,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://commerce.boschsecurity.com/us/en/B4512-Control-Panels/p/F.01U.323.782/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "B5512",
@@ -23133,7 +23726,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://commerce.boschsecurity.com/us/en/B5512-Control-Panels/p/F.01U.323.781/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HS2032NK",
@@ -23174,7 +23767,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.dsc.com/alarm-security-products/HS2032%20-%20PowerSeries%20Neo%20Control%20Panels/2442",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HS2064NK",
@@ -23211,7 +23804,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.dsc.com/alarm-security-products/HS2064%20-%20PowerSeries%20Neo%20Control%20Panels/2443",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "VISTA-15P",
@@ -23244,7 +23837,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/intrusion-panels-systems/hybrid-systems/vista-15p-vistar-control-panel-vista-15p/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "VISTA-20P",
@@ -23285,7 +23878,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/intrusion-panels-systems/hybrid-systems/vista-20p-vistar-control-panel-vista-20p/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "GEM-P1632",
@@ -23322,7 +23915,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://napcosecurity.com/media/pdfs/a392b_p1632spec.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IQP4001",
@@ -23363,7 +23956,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://qolsys.com/iq-panel-4/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IQPH058",
@@ -23400,7 +23993,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://qolsys.com/iq4-hub/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PROA7PLUS",
@@ -23437,7 +24030,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/proseries/control-panels/proa7plus-proseries-7-inch-all-in-one-panel-proa7plus/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "02907-001",
@@ -23474,7 +24067,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://cdn.adiglobaldistribution.us/pim/Original/10492/5E-02907001_Product-Data-Sheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IX-DV",
@@ -23511,7 +24104,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.aiphone.com/products/ix-dv/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IX-EA",
@@ -23548,7 +24141,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.aiphone.com/products/ix-ea/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "JOS-1VW",
@@ -23585,7 +24178,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.aiphone.com/products/jos-1vw-boxed-set/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LEF-3",
@@ -23622,7 +24215,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.aiphone.com/products/lef-3/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HFX-7000M",
@@ -23659,7 +24252,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://staticpro.comelitgroup.com/en-us/datasheets/15961-hfx-7000m.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "D1101V",
@@ -23701,7 +24294,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.doorbird.com/downloads/datasheet/datasheet_d1101v_surface_en.pdf",
   "upc": "4260423866744",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "E-1600A-EWP",
@@ -23738,7 +24331,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://vikingelectronics.com/products/e-1600a-ewp/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "E-40-SS",
@@ -23775,7 +24368,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://vikingelectronics.com/products/e-40-ss/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ISC-BDL2-WP12G",
@@ -23811,7 +24404,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://commerce.boschsecurity.com/us/en/Blue-Line-Gen2-TriTech-Motion-Detectors/p/F.01U.364.820/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "ISC-BPR2-W12",
@@ -23847,7 +24440,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://commerce.boschsecurity.com/us/en/Blue-Line-Gen2-PIR-Motion-Detectors/p/F.01U.364.870/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "LC-100-PI",
@@ -23883,7 +24476,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.dsc.com/alarm-security-products/LC-100-PI%20-%20PIR%20Detector%20with%20Pet%20Immunity/93",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PG9303",
@@ -23915,7 +24508,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.dsc.com/alarm-security-products/PG9303%20-%20PowerG%20Wireless%20Door/Window%20Magnetic%20Contact/2663",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PG9914",
@@ -23951,7 +24544,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.dsc.com/alarm-security-products/PG9914%20-%20Wireless%20PowerG%20Digital%20Pet-Immune%20PIR%20Motion%20Detector/2629",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "5816WMWH",
@@ -23983,7 +24576,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/wireless-sensors/magnetic-contacts/5816-door-and-window-transmitter-white-5816/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DT8035V",
@@ -24019,7 +24612,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/wired-sensors/motion-sensors/dt8035v-wired-dual-technology-motion-sensor-35-ft-dt8035v/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "FG1625",
@@ -24051,7 +24644,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://buildings.honeywell.com/us/en/products/by-category/sensors/noise-sensors/fg1625-flexguard-glassbreak-detector",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "IS335",
@@ -24087,7 +24680,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.resideo.com/us/en/pro/products/security/wired-sensors/motion-sensors/is335-pet-immune-pir-detector-40-ft-x-56-ft-is335/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "PROSIXPIR",
@@ -24119,7 +24712,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.security.honeywellhome.com/product-repository/prosixpir",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "02328-001",
@@ -24160,7 +24753,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.axis.com/dam/public/ac/8e/70/datasheet-axis-p3265-lve-dome-camera-en-US-437931.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "02339-001",
@@ -24201,7 +24794,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.axis.com/dam/public/26/c9/db/datasheet-axis-p1465-le-bullet-camera-en-US-388270.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "02373-001",
@@ -24242,7 +24835,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.axis.com/products/axis-m3085-v",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QNO-C8083R",
@@ -24283,7 +24876,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hanwhavisionamerica.com/product/qno-c8083r/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QNV-C8083R",
@@ -24324,7 +24917,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hanwhavisionamerica.com/product/qnv-c8083r/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XNV-6083R",
@@ -24365,7 +24958,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hanwhavisionamerica.com/product/xnv-6083r/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DS-2CD2043G2-IU",
@@ -24406,7 +24999,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hikvision.com/content/dam/hikvision/usa/data-sheet/acusense-series/Datasheet-for-DS-2CD2043G2-IU.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DS-2CD2143G2-IU",
@@ -24447,7 +25040,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.hikvision.com/content/dam/hikvision/usa/data-sheet/DS-2CD2143G2-IU-DataSheet.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "02527-004",
@@ -24484,7 +25077,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.axis.com/products/axis-s3016",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "02765-004",
@@ -24521,7 +25114,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.axis.com/products/axis-s3008-mk-ii",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "DIP-4420IG-00N",
@@ -24554,7 +25147,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://resources.keenfinity.tech/public/documents/DIVAR_IP_all_in_one__Data_sheet_enUS_101032548747.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QRN-430S",
@@ -24591,7 +25184,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hanwhavisionamerica.com/product/qrn-430s/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "QRN-830S-2TB",
@@ -24628,7 +25221,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hanwhavisionamerica.com/product/qrn-830s/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XRN-1620SB1",
@@ -24665,7 +25258,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hanwhavisionamerica.com/product/xrn-1620sb1/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "XRN-820S-4TB",
@@ -24702,7 +25295,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://hanwhavisionamerica.com/product/xrn-820s/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "HE150D-12TB",
@@ -24739,7 +25332,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.milestonesys.com/products/hardware/HuskyIVO-series/Husky-IVO-150D/",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AL400ULX",
@@ -24777,7 +25370,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.altronix.com/library/pdf/data_sheets/DS_AL400ULXseries.pdf",
   "upc": "782239930098",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "AL600ULACM",
@@ -24814,7 +25407,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.altronix.com/products/AL600ULACM",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SMP3",
@@ -24852,7 +25445,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.altronix.com/library/pdf/data_sheets/DS_SMP3.pdf",
   "upc": "782239930432",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "SMP5",
@@ -24885,7 +25478,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.altronix.com/library/pdf/data_sheets/DS_SMP5.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "11035501",
@@ -24923,7 +25516,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.southwire.com/medias/Genesis-Product-Catalog.pdf?context=bWFzdGVyfHJvb3R8Njc4NDk1OHxhcHBsaWNhdGlvbi9wZGZ8aGU5L2hlYi85MTU3MzcyODcwNjg2L0dlbmVzaXMgUHJvZHVjdCBDYXRhbG9nLnBkZnw5MzAxYzI4NDJiNmJjNDkzMjI5Zjc4YzBiODg3ZjljZmM1ZTZmN2ZiNmRlY2NiMDgyNDU4ZDllMDBmZDE0MTI1",
   "upc": "619172002981",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "11185501",
@@ -24961,7 +25554,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   ],
   "specSheetUrl": "https://www.southwire.com/medias/Genesis-Product-Catalog.pdf?context=bWFzdGVyfHJvb3R8Njc4NDk1OHxhcHBsaWNhdGlvbi9wZGZ8aGU5L2hlYi85MTU3MzcyODcwNjg2L0dlbmVzaXMgUHJvZHVjdCBDYXRhbG9nLnBkZnw5MzAxYzI4NDJiNmJjNDkzMjI5Zjc4YzBiODg3ZjljZmM1ZTZmN2ZiNmRlY2NiMDgyNDU4ZDllMDBmZDE0MTI1",
   "upc": "619172017008",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "224",
@@ -24998,7 +25591,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.westpennwire.com/specifications/224.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "241",
@@ -25031,7 +25624,7 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.westpennwire.com/specifications/241.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  },
  {
   "mpn": "25224B",
@@ -25064,6 +25657,6 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
    }
   ],
   "specSheetUrl": "https://www.westpennwire.com/specifications/25224B.pdf",
-  "verifiedAt": "2026-06-10"
+  "verifiedAt": "2026-06-12"
  }
 ];
