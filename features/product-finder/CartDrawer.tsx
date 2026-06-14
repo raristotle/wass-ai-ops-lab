@@ -10,7 +10,10 @@ import { getPricingProvider } from "@/lib/integration/index";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { encodeCart } from "@/lib/product-finder-share";
 import { encodeQuoteShare, QUOTE_SHARE_VERSION, type QuoteSharePayload } from "@/lib/product-finder-quote-share";
-import { basketCsv, downloadCsv } from "@/lib/product-finder-csv";
+import { basketCsv, downloadCsv, downloadText } from "@/lib/product-finder-csv";
+import { buildPunchOutCxml } from "@/lib/procurement/cxml";
+import { buildEdi850 } from "@/lib/procurement/edi850";
+import type { ProcurementOrder } from "@/lib/procurement/types";
 import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import { isInLocalMonth } from "@/lib/analytics";
 import {
@@ -153,6 +156,28 @@ export function CartDrawer() {
   function swapToCross(originalId: string, substitute: CatalogProduct, qty: number) {
     removeFromCart(originalId);
     addToCart(substitute, qty);
+  }
+
+  /** Build a ProcurementOrder from the current basket for cXML / EDI export. */
+  function buildProcurementOrder(): ProcurementOrder {
+    const provider = getPricingProvider();
+    const safeId = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 15) || "BUYER";
+    return {
+      poNumber: quoteNum,
+      timestamp: new Date().toISOString(),
+      supplierName: brand.name,
+      supplierId: safeId(brand.id),
+      buyerName: activeCustomer?.name ?? "Customer",
+      buyerId: safeId(activeCustomer?.id ?? "BUYER"),
+      lines: Object.values(cart).map(({ product, qty }) => ({
+        sku: product.sku,
+        name: product.name,
+        brand: product.brand,
+        qty,
+        unitPrice: priceOverrides[product.id] ?? provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
+        uom: product.uom,
+      })),
+    };
   }
 
   const basketSavings = useMemo(
@@ -1507,6 +1532,32 @@ export function CartDrawer() {
             >
               Export CSV
             </Button>
+
+            {/* Procurement integration export — cXML PunchOut + EDI 850 */}
+            <div className="rounded-lg border border-[#004986]/30 bg-[#004986]/5 p-2 print:hidden">
+              <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide text-[#004986]">
+                Procurement export
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => downloadText(`${quoteNum}-punchout.xml`, buildPunchOutCxml(buildProcurementOrder()), "application/xml")}
+                  className="rounded border border-[#4F758B] px-2 py-1 text-xs font-medium text-[#1D252D] hover:border-[#004986] hover:bg-[#004986]/5"
+                >
+                  cXML PunchOut
+                </button>
+                <button
+                  type="button"
+                  onClick={() => downloadText(`${quoteNum}-850.edi`, buildEdi850(buildProcurementOrder()), "application/edi-x12")}
+                  className="rounded border border-[#4F758B] px-2 py-1 text-xs font-medium text-[#1D252D] hover:border-[#004986] hover:bg-[#004986]/5"
+                >
+                  EDI 850 PO
+                </button>
+              </div>
+              <p className="mt-1 text-[9px] italic text-[#4F758B]">
+                Drops straight into the customer&apos;s ERP / punchout (Ariba, Coupa, SAP).
+              </p>
+            </div>
 
             {/* Clear cart */}
             <button

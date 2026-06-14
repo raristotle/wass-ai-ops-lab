@@ -111,14 +111,19 @@ export function crossRefCsv(rows: CrossCsvRow[]): string {
 
 // ─── Browser download helper ──────────────────────────────────────────────────
 
-/** Trigger a client-side download of CSV text. No-op outside the browser. */
-export function downloadCsv(filename: string, csv: string): void {
+/** Trigger a client-side download of text content. No-op outside the browser. */
+export function downloadText(filename: string, text: string, mime = "text/plain"): void {
   if (typeof document === "undefined") return;
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const blob = new Blob([text], { type: `${mime};charset=utf-8` });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
   a.download = filename;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+/** Trigger a client-side download of CSV text. No-op outside the browser. */
+export function downloadCsv(filename: string, csv: string): void {
+  downloadText(filename, csv, "text/csv");
 }

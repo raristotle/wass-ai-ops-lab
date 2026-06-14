@@ -562,6 +562,26 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "sso",
+    title: "Enterprise single sign-on (SSO)",
+    body: [
+      "The login screen offers \"Sign in with SSO\" alongside the password form.",
+      "• In demo mode it simulates the round-trip and signs you in as an identity mapped from IdP group claims — proving the role mapping (a \"branch-manager\" group lands you as a Manager).",
+      "• When your identity provider is configured (Azure AD, Okta, Ping — set the SSO_* environment variables), the button starts the real OIDC sign-in against your tenant. The claims→role mapping is already built and tested; the final token-exchange wiring is a short onboarding step (docs/sso.md).",
+      "Password login always remains available for the demo accounts.",
+    ],
+  },
+  {
+    id: "procurement-export",
+    title: "Procurement export — cXML PunchOut & EDI 850",
+    body: [
+      "Open the cart and look under the quote actions for Procurement export.",
+      "• cXML PunchOut downloads a PunchOutOrderMessage — the payload an Ariba / Coupa / SAP punchout returns to a buyer's procurement system.",
+      "• EDI 850 PO downloads a valid X12 850 purchase order — the transaction set an ERP exchanges over EDI.",
+      "Both are generated from the live basket with real prices and quantities, in standards-faithful envelopes — \"how a Meridian quote becomes a purchase order in the customer's own buying system,\" one click.",
+    ],
+  },
+  {
     id: "white-label",
     title: "White-label brand mode",
     body: [

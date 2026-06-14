@@ -15,6 +15,10 @@ Every SKU below is deterministic — it exists with the same data in every envir
    *"I'm Sarah Chen, an inside sales rep at the Houston Downtown branch. Everything
    I need to turn a customer request into a priced, stocked order is on this one
    screen — searching 200,000 products."*
+   (Enterprise-IT aside: **point at "Sign in with SSO"** under the password form —
+   *"and for your org this is single sign-on: Azure AD or Okta, your IdP groups
+   mapping straight to rep/manager/admin roles. Click it in demo mode and it signs
+   me in as a manager mapped from a 'branch-manager' group claim."*)
 1a. **Point at the guided tour card** (bottom-right, on a first visit).
     *"New reps get an 8-step tour — search, filters, alternatives, the Job Wizard,
     basket and quote, insights — and every step has a one-click 'try it' that runs
@@ -240,6 +244,12 @@ Every SKU below is deterministic — it exists with the same data in every envir
 15. **Click Export CSV.** *"Same basket as a spreadsheet — list vs. effective price,
     totals — for procurement."* Then **Share Basket** — *"a link that rebuilds this
     exact basket for a teammate or the customer."*
+15a. **Point at Procurement export — click cXML PunchOut, then EDI 850 PO.**
+    *"And for an enterprise buyer this basket doesn't stop at a PDF: it exports
+    the formats their purchasing system actually ingests — a cXML
+    PunchOutOrderMessage for an Ariba or Coupa or SAP punchout, and an X12 850
+    purchase order for EDI. Real prices, real quantities, valid envelopes. That's
+    how a Meridian quote becomes a PO inside the customer's own ERP — no rekeying."*
 16. **Save the basket as a Job Template** ("Office buildout"). *"A reusable kit — next
     job, Add to Basket merges it in instead of rebuilding."*
 17. **Click Add to Order**, then expand **Order History**: *"every past order for
@@ -375,9 +385,11 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
 > swap-in adapters** (`lib/integration/`). The REAL pieces: the live
 > Mouser/Digi-Key distributor panel (Act 3, step 9a), the source-backed verified
 > cross-references (step 9c), the **MCP server** (`npm run mcp`, live now,
-> zero AI cost), and — when their keys are configured — the **Resend quote
-> email** and the **conversational Ask Meridian assistant** (step 9e; env-gated
-> behind `ANTHROPIC_API_KEY`, dormant and cost-free until set). See the
+> zero AI cost), and the **procurement export** (real cXML/EDI 850 generated from
+> the basket, step 15a). And — when their keys/config are present — the **Resend
+> quote email**, the **conversational Ask Meridian assistant** (step 9e; behind
+> `ANTHROPIC_API_KEY`), and **enterprise SSO** (step 1; behind `SSO_*`, with a
+> built-in demo flow). See the
 > [integration guide](wesco-it-integration-guide.md) for connecting real systems.
 
 ## If something goes sideways

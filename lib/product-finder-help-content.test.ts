@@ -68,6 +68,8 @@ describe("HELP_TOPICS", () => {
       "ask-meridian-ai",
       "mcp-server",
       "white-label",
+      "sso",
+      "procurement-export",
     ]) {
       expect(ids.has(required), required).toBe(true);
     }

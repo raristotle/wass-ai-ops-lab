@@ -117,6 +117,7 @@ export interface ProductFinderState {
   user: AuthUser | null;
   authError: string | null;
   login: (email: string, password: string) => boolean;
+  loginWithSso: (user: AuthUser) => void;
   logout: () => void;
 
   // Customer accounts
@@ -389,6 +390,12 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       localStorage.setItem("pf_user", JSON.stringify(user));
     }
     return true;
+  },
+
+  /** Establish a session from an SSO-mapped identity (no password). */
+  loginWithSso(user) {
+    set({ user, authError: null });
+    if (typeof localStorage !== "undefined") localStorage.setItem("pf_user", JSON.stringify(user));
   },
 
   logout() {

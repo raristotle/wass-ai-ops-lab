@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { getBrand } from "@/lib/brand";
+import { demoSsoUser } from "@/lib/auth/sso";
 import { cn } from "@/lib/utils";
 
 const DEMO_USERS = [
@@ -26,6 +27,7 @@ export default function LoginPage() {
   const authError = useProductFinder((s) => s.authError);
   const brand = getBrand(useProductFinder((s) => s.brandId));
   const setBrandId = useProductFinder((s) => s.setBrandId);
+  const loginWithSso = useProductFinder((s) => s.loginWithSso);
 
   // The login route is outside AuthGuard (which hydrates saved state), so pull
   // the persisted white-label brand directly after mount.
@@ -37,6 +39,29 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // SSO seam: ask the server whether a real IdP is configured.
+  const [sso, setSso] = useState<{ enabled: boolean; providerName: string } | null>(null);
+  const [ssoBusy, setSsoBusy] = useState(false);
+  useEffect(() => {
+    fetch("/api/auth/sso/config")
+      .then((r) => r.json())
+      .then(setSso)
+      .catch(() => setSso({ enabled: false, providerName: "SSO" }));
+  }, []);
+
+  function handleSso() {
+    if (sso?.enabled) {
+      window.location.href = "/api/auth/sso/start";
+      return;
+    }
+    // Demo SSO: simulate the IdP round-trip, then establish the mapped session.
+    setSsoBusy(true);
+    setTimeout(() => {
+      loginWithSso(demoSsoUser());
+      router.push("/product-finder");
+    }, 900);
+  }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -140,6 +165,33 @@ export default function LoginPage() {
                   {isSubmitting ? "Signing in..." : "Sign In"}
                 </Button>
               </form>
+
+              {/* Enterprise SSO */}
+              <div className="mt-5">
+                <div className="flex items-center gap-3">
+                  <span className="h-px flex-1 bg-[#B7C9D3]" />
+                  <span className="text-xs text-[#4F758B]">or</span>
+                  <span className="h-px flex-1 bg-[#B7C9D3]" />
+                </div>
+                <button
+                  type="button"
+                  onClick={handleSso}
+                  disabled={ssoBusy}
+                  className={cn(
+                    "mt-4 flex h-10 w-full items-center justify-center gap-2 rounded-md border border-[#4F758B] text-sm font-semibold text-[#1D252D]",
+                    "transition-colors hover:border-[#1D252D] hover:bg-[#1D252D]/5",
+                    ssoBusy && "opacity-60"
+                  )}
+                >
+                  <span aria-hidden="true">🔒</span>
+                  {ssoBusy ? "Authenticating…" : `Sign in with ${sso?.providerName ?? "SSO"}`}
+                </button>
+                <p className="mt-1.5 text-center text-[10px] text-[#4F758B]">
+                  {sso?.enabled
+                    ? "Enterprise single sign-on"
+                    : "SSO ready — demo mode. Configure SSO_* to connect your IdP."}
+                </p>
+              </div>
             </CardContent>
           </Card>
 
