@@ -1674,7 +1674,7 @@ export const CROSS_SOURCE_ENTRIES: CrossSourceEntry[] = [
   "batch": "Initial 500",
   "lastChecked": "2026-06-12",
   "urlTruncated": true,
-  "ingestNote": "34 SKU-level pairs extracted (lighting) on 2026-06-11"
+  "ingestNote": "37 SKU-level pairs extracted (lighting) on 2026-06-11"
  },
  {
   "id": "xref-src-060",

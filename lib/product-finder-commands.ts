@@ -15,7 +15,7 @@ export const QUICK_PICKS: readonly string[] = [
 
 export type CommandAction =
   | { kind: "navigate"; href: string }
-  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "jobwizard" }
+  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" }
   | { kind: "tour" }
   | { kind: "role"; email: string }
   | { kind: "search"; query: string };
@@ -95,6 +95,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["rfq", "availability", "price check"],
       action: { kind: "open", target: "bulk" },
+    },
+    {
+      id: "open-bulk-cross",
+      label: "Bulk cross-reference",
+      group: "Open",
+      keywords: ["competitor", "convert", "equivalents", "cross", "csv", "rfq"],
+      action: { kind: "open", target: "bulk-cross" },
     },
     {
       id: "open-jobwizard",

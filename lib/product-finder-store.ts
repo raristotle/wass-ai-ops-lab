@@ -49,7 +49,9 @@ import {
   getUpsells,
   CATALOG_PRODUCTS,
 } from "@/data/mock/catalog-products";
-import { apiSearch, apiGetProduct } from "@/lib/product-finder-api";
+import { apiSearch, apiGetProduct, filtersToQuery } from "@/lib/product-finder-api";
+import { decodeFiltersFromQuery } from "@/lib/product-finder-url";
+import { summarizeFilters, type SavedSearch } from "@/lib/product-finder-saved-search";
 import type { ProductSnapshot } from "@/features/product-finder/types";
 
 const MAX_RECENT = 12;
@@ -189,6 +191,8 @@ export interface ProductFinderState {
   setBomModalOpen: (v: boolean) => void;
   bulkModalOpen: boolean;
   setBulkModalOpen: (v: boolean) => void;
+  bulkCrossOpen: boolean;
+  setBulkCrossOpen: (v: boolean) => void;
   submittalOpen: boolean;
   setSubmittalOpen: (v: boolean) => void;
 
@@ -222,6 +226,13 @@ export interface ProductFinderState {
   loadBasket: (id: string) => void;
   deleteBasket: (id: string) => void;
   renameBasket: (id: string, name: string) => void;
+
+  // Saved searches + alerts
+  savedSearches: SavedSearch[];
+  saveSearch: (name: string) => void;
+  deleteSavedSearch: (id: string) => void;
+  setSavedSearchAlerts: (id: string, on: boolean) => void;
+  runSavedSearch: (id: string) => Promise<void>;
 
   // Order history
   orders: Order[];
@@ -670,6 +681,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setBomModalOpen(v) { set({ bomModalOpen: v }); },
   bulkModalOpen: false,
   setBulkModalOpen(v) { set({ bulkModalOpen: v }); },
+  bulkCrossOpen: false,
+  setBulkCrossOpen(v) { set({ bulkCrossOpen: v }); },
   submittalOpen: false,
   setSubmittalOpen(v) { set({ submittalOpen: v }); },
 
@@ -832,6 +845,62 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       }
       return { savedBaskets: nextBaskets };
     });
+  },
+
+  // ── Saved searches + alerts ───────────────────────────────
+  savedSearches: [],
+
+  saveSearch(name) {
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    const filters = get().filters;
+    const query = filtersToQuery(filters, 0, get().pageSize);
+    const summary = summarizeFilters(filters);
+    const ts = Date.now();
+    set((s) => {
+      const lower = trimmed.toLowerCase();
+      const idx = s.savedSearches.findIndex((x) => x.name.toLowerCase() === lower);
+      const entry: SavedSearch = {
+        id: idx !== -1 ? s.savedSearches[idx].id : `search-${ts}-${trimmed.replace(/\s+/g, "-").toLowerCase()}`,
+        name: trimmed,
+        query,
+        summary,
+        createdAt: ts,
+        alertsOn: true,
+        newMatches: 0,
+      };
+      const next = idx !== -1 ? s.savedSearches.map((x, i) => (i === idx ? entry : x)) : [entry, ...s.savedSearches];
+      if (typeof localStorage !== "undefined") localStorage.setItem("pf_saved_searches", JSON.stringify(next));
+      return { savedSearches: next };
+    });
+  },
+
+  deleteSavedSearch(id) {
+    set((s) => {
+      const next = s.savedSearches.filter((x) => x.id !== id);
+      if (typeof localStorage !== "undefined") localStorage.setItem("pf_saved_searches", JSON.stringify(next));
+      return { savedSearches: next };
+    });
+  },
+
+  setSavedSearchAlerts(id, on) {
+    set((s) => {
+      const next = s.savedSearches.map((x) => (x.id === id ? { ...x, alertsOn: on } : x));
+      if (typeof localStorage !== "undefined") localStorage.setItem("pf_saved_searches", JSON.stringify(next));
+      return { savedSearches: next };
+    });
+  },
+
+  async runSavedSearch(id) {
+    const entry = get().savedSearches.find((x) => x.id === id);
+    if (!entry) return;
+    set((s) => {
+      // Viewing clears the new-match signal.
+      const next = s.savedSearches.map((x) => (x.id === id ? { ...x, newMatches: 0 } : x));
+      if (typeof localStorage !== "undefined") localStorage.setItem("pf_saved_searches", JSON.stringify(next));
+      return { savedSearches: next, filters: decodeFiltersFromQuery(entry.query), appliedNlFilters: [] };
+    });
+    await get().runSearch();
   },
 
   // ── Order history ─────────────────────────────────────────
@@ -1406,6 +1475,23 @@ export function hydrateSavedState() {
     }
   };
 
+  const readSavedSearches = (): SavedSearch[] => {
+    const raw = localStorage.getItem("pf_saved_searches");
+    if (raw === null) {
+      // First-ever load: seed demo saved searches (one carries a new-match alert).
+      const seed = buildDemoSavedSearches(Date.now());
+      localStorage.setItem("pf_saved_searches", JSON.stringify(seed));
+      return seed;
+    }
+    try {
+      const v = JSON.parse(raw);
+      return Array.isArray(v) ? (v as SavedSearch[]) : [];
+    } catch {
+      localStorage.removeItem("pf_saved_searches");
+      return [];
+    }
+  };
+
   const watches = readWatches();
   // Persist the migrated shape so legacy entries upgrade exactly once.
   localStorage.setItem("pf_watches", JSON.stringify(watches));
@@ -1417,6 +1503,7 @@ export function hydrateSavedState() {
     recentSnapshots,
     searchHistory: readArr("pf_search_history"),
     savedBaskets: readBaskets("pf_saved_baskets"),
+    savedSearches: readSavedSearches(),
     jobTemplates: readTemplates(),
     quotes: readQuotes(),
     watches,
@@ -1424,6 +1511,37 @@ export function hydrateSavedState() {
     orders: readOrders(),
     activeCustomerId: readActiveCustomer(),
   });
+}
+
+/**
+ * Demo saved searches, seeded once when pf_saved_searches has never been written.
+ * One carries newMatches > 0 so the notification bell demonstrates a saved-search
+ * alert on first load. `now` is injected so the builder stays pure/testable.
+ */
+export function buildDemoSavedSearches(now: number): SavedSearch[] {
+  const DAY = 86_400_000;
+  const mk = (over: Partial<FilterState>) => {
+    const f: FilterState = { ...defaultFilters(), ...over };
+    return { query: filtersToQuery(f, 0, 24), summary: summarizeFilters(f) };
+  };
+  return [
+    {
+      id: "demo-search-breakers",
+      name: "Square D 20A breakers in stock",
+      ...mk({ query: "20A breaker", brands: new Set(["Square D"]), onlyBranchStock: true }),
+      createdAt: now - 3 * DAY,
+      alertsOn: true,
+      newMatches: 4,
+    },
+    {
+      id: "demo-search-cat6",
+      name: "Cat6 plenum cable",
+      ...mk({ query: "cat6 plenum" }),
+      createdAt: now - 10 * DAY,
+      alertsOn: true,
+      newMatches: 0,
+    },
+  ];
 }
 
 // ─── Demo order seed (first-ever load only) ───────────────────────────────────

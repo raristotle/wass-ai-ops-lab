@@ -2407,5 +2407,385 @@ export const VERIFIED_CROSS_ENTRIES: VerifiedCrossEntry[] = [
   "notes": "PDF prints '30 05 07 3'. Approximate replacement per table preamble.",
   "verifiedAt": "2026-06-11",
   "sourceId": "xref-src-107"
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "GRC-58",
+  "bBrand": "Ilsco",
+  "bMpn": "CP58",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Row G5 in 'Type G - Budget line ground rod clamps' table. Also crosses Blackburn G5, Penn Union CEB-2, Eritech GC-5, Dossert GNL62.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "budget-line ground rod clamp"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "GRC12",
+  "bBrand": "Ilsco",
+  "bMpn": "CGRC48",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Same JAB12 row also crosses Blackburn JAB12, Penn Union CAB-1, Eritech HDC12, Joslyn J8391AB, Dossert GNA50.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "ground rod clamp"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "GRC34",
+  "bBrand": "Ilsco",
+  "bMpn": "CP34",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Row G6 in Type G budget-line ground rod clamps table; also crosses Blackburn G6, Penn Union CEB-3, Eritech GC-6, Dossert GNL75.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "budget-line ground rod clamp"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "GRC3426",
+  "bBrand": "Ilsco",
+  "bMpn": "CGRC68",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Row JAB34C in Type JAB ground rod clamps table; Blackburn JAB34C.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "ground rod clamp"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "GRC58",
+  "bBrand": "Ilsco",
+  "bMpn": "CGRC58",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "ANCHOR PAIR. Both in same row of ABB/Blackburn EZGround 'Type JAB - Ground rod clamps' cross table (row JAB58). Same row also crosses Blackburn JAB58, Penn Union CAB-2, Joslyn J8392AB, Dossert GNA62.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "ground rod clamp"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "KS17",
+  "bBrand": "Penn-Union",
+  "bMpn": "S-6",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/mechanical-connetors/competitive-cross-reference.pdf",
+  "notes": "Type H split-bolt table, row 6H (adjacent to anchor KS25 row).",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "high-strength split-bolt",
+   "conductorSize": "6"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "KS25",
+  "bBrand": "Anderson",
+  "bMpn": "C-1/0",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/mechanical-connetors/competitive-cross-reference.pdf",
+  "notes": "Type H split-bolt row 10H, Anderson column.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "high-strength split-bolt",
+   "conductorSize": "1/0"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "KS25",
+  "bBrand": "Ilsco",
+  "bMpn": "IK-1/0",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/mechanical-connetors/competitive-cross-reference.pdf",
+  "notes": "Same Type H split-bolt row 10H. Ilsco/Utilco column.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "high-strength split-bolt",
+   "conductorSize": "1/0"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "KS25",
+  "bBrand": "Penn-Union",
+  "bMpn": "S-1/0",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/mechanical-connetors/competitive-cross-reference.pdf",
+  "notes": "ABB/Blackburn 'Type H - High strength split-bolt connectors' cross table, row 10H. Competitive cross chart with size-variation disclaimer, so functional-substitute.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "high-strength split-bolt",
+   "conductorSize": "1/0"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YA28",
+  "bBrand": "Ilsco",
+  "bMpn": "CRB-4/0B",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/compression-connectors/competitive-cross-reference.pdf",
+  "notes": "ABB/Blackburn 'Type CTL - Copper lugs, one-hole mount, long barrel' table, row CTL40L-12 (ABB 54970BE).",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper compression lug, one-hole, long barrel",
+   "conductor": "4/0"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YA28-2N",
+  "bBrand": "Ilsco",
+  "bMpn": "CRA-4/0L2",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/compression-connectors/competitive-cross-reference.pdf",
+  "notes": "ABB/Blackburn 'Type LCN - Copper lugs, two-hole mount, long barrel' table, row LCN40 (ABB 54866BE).",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper compression lug, two-hole, long barrel",
+   "conductor": "4/0"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YA28-L",
+  "bBrand": "Ilsco",
+  "bMpn": "CRB-4/0",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/compression-connectors/competitive-cross-reference.pdf",
+  "notes": "ABB/Blackburn 'Type CTL - Copper lugs, one-hole mount, short barrel' table, row CTL40-12 (4/0, 1/2in stud, ABB 54170).",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper compression lug, one-hole, short barrel",
+   "conductor": "4/0",
+   "stud": "1/2 in"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YA28-L",
+  "bBrand": "Panduit",
+  "bMpn": "LCA4/0-12",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/compression-connectors/competitive-cross-reference.pdf",
+  "notes": "Same CTL40-12 row, Panduit column.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper compression lug, one-hole, short barrel",
+   "conductor": "4/0",
+   "stud": "1/2 in"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YC2C2",
+  "bBrand": "Ilsco",
+  "bMpn": "ULT-7-Z",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "From 'C-crimp series BC' table (page 1); EZGround col BC22.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "C-crimp grounding connector"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YC4C4",
+  "bBrand": "Ilsco",
+  "bMpn": "ULT-5-Z",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "C-crimp series BC table; EZGround col BC44.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "C-crimp grounding connector"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YGHP29C2",
+  "bBrand": "Ilsco",
+  "bMpn": "GGC-2",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "From 'Figure 6 - Compression ground tap connectors' table (page 1). EZGround col is 54855.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "compression ground tap connector"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YGHP2C2",
+  "bBrand": "Ilsco",
+  "bMpn": "GGC-1",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Figure 6 compression ground tap connectors table; EZGround col 54875.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "compression ground tap connector"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YGHP34C2",
+  "bBrand": "Ilsco",
+  "bMpn": "GGC-5",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Figure 6 compression ground tap connectors table; EZGround col 54885.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "compression ground tap connector"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YGHP34C34",
+  "bBrand": "Ilsco",
+  "bMpn": "GGC-8",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Figure 6 compression ground tap connectors table; EZGround col 54900.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "compression ground tap connector"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YGL29C2",
+  "bBrand": "Ilsco",
+  "bMpn": "GGA-2",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "From 'Compression ground grid connectors' table (page 1); EZGround col 54865L.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "compression ground grid connector"
+  }
+ },
+ {
+  "aBrand": "Burndy",
+  "aMpn": "YGL34C34",
+  "bBrand": "Ilsco",
+  "bMpn": "GGA-6",
+  "relation": "equivalent",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://www.tnb.ca/en/pdf-catalogues/power-connection-and-grounding/grounding-systems/competitive-cross-reference.pdf",
+  "notes": "Compression ground grid connectors table; EZGround col 54900L.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "productType": "compression ground grid connector"
+  }
+ },
+ {
+  "aBrand": "Ilsco",
+  "aMpn": "SLU-70",
+  "bBrand": "Burndy",
+  "bMpn": "KA4C",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/mechanical-connetors/competitive-cross-reference.pdf",
+  "notes": "ABB/Blackburn 'Types L - Copper mechanical connectors, single conductor, one-hole mount' cross table, row L70 (ABB 31005).",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper mechanical lug, single conductor, one-hole",
+   "abbCat": "31005"
+  }
+ },
+ {
+  "aBrand": "Ilsco",
+  "aMpn": "SLU-70",
+  "bBrand": "Burndy",
+  "bMpn": "KPA4C",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/mechanical-connetors/competitive-cross-reference.pdf",
+  "notes": "ABB/Blackburn 'Type BTC - Copper single conductor, one-hole mount, offset tang' table, row BTC0208. Both Penn Union and Ilsco columns list SLU-70; Burndy column KPA4C.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper single-conductor lug, one-hole, offset tang"
+  }
+ },
+ {
+  "aBrand": "Ilsco",
+  "aMpn": "SLU-70",
+  "bBrand": "Penn-Union",
+  "bMpn": "PNL-4",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/mechanical-connetors/competitive-cross-reference.pdf",
+  "notes": "Same Type L row L70, Penn Union column.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper mechanical lug, single conductor, one-hole"
+  }
+ },
+ {
+  "aBrand": "Panduit",
+  "aMpn": "LCA2-14-Q",
+  "bBrand": "Ilsco",
+  "bMpn": "CRA-2",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/compression-connectors/competitive-cross-reference.pdf",
+  "notes": "Same CTL2-14 row, Ilsco column (CRA-2). -Q is Panduit packaging suffix.",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper compression lug, one-hole, short barrel",
+   "conductor": "2 AWG",
+   "stud": "1/4 in"
+  }
+ },
+ {
+  "aBrand": "Panduit",
+  "aMpn": "LCA2-14-Q",
+  "bBrand": "Burndy",
+  "bMpn": "YA2C-L2",
+  "relation": "functional-substitute",
+  "sourceKind": "manufacturer-cross",
+  "sourceUrl": "https://tnb.ca.abb.com/en/pdf-catalogues/power-connection-and-grounding/compression-connectors/competitive-cross-reference.pdf",
+  "notes": "ABB/Blackburn 'Type CTL - Copper lugs, one-hole mount, short barrel' table, row CTL2-14 (ABB 54107). Panduit column LCA2-14 (-Q is packaging suffix; Panduit datasheet confirms LCA2-14-Q = 2 AWG, 1/4in stud, die P33).",
+  "verifiedAt": "2026-06-11",
+  "statedAttributes": {
+   "type": "copper compression lug, one-hole, short barrel",
+   "conductor": "2 AWG",
+   "stud": "1/4 in",
+   "dieCode": "P33"
+  }
  }
 ];

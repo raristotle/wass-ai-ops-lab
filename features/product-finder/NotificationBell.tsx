@@ -17,6 +17,7 @@ const KIND_ICON: Record<PfNotification["kind"], string> = {
   "restock-due": "📦",
   "restock-eta": "👁️",
   "customer-risk": "📉",
+  "saved-search": "🔎",
 };
 
 export function NotificationBell() {
@@ -25,6 +26,8 @@ export function NotificationBell() {
   const watches = useProductFinder((s) => s.watches);
   const orders = useProductFinder((s) => s.orders);
   const customers = useProductFinder((s) => s.customers);
+  const savedSearches = useProductFinder((s) => s.savedSearches);
+  const runSavedSearch = useProductFinder((s) => s.runSavedSearch);
   const notifReads = useProductFinder((s) => s.notifReads);
   const markNotificationsRead = useProductFinder((s) => s.markNotificationsRead);
   const openCartAt = useProductFinder((s) => s.openCartAt);
@@ -45,8 +48,27 @@ export function NotificationBell() {
   const isManager = user?.role === "manager" || user?.role === "admin";
 
   const notifications = useMemo(
-    () => (now === null ? [] : buildNotifications({ quotes, watches, orders, customers, isManager }, now)),
-    [quotes, watches, orders, customers, isManager, now]
+    () =>
+      now === null
+        ? []
+        : buildNotifications(
+            {
+              quotes,
+              watches,
+              orders,
+              customers,
+              isManager,
+              savedSearches: savedSearches.map((s) => ({
+                id: s.id,
+                name: s.name,
+                createdAt: s.createdAt,
+                alertsOn: s.alertsOn,
+                newMatches: s.newMatches,
+              })),
+            },
+            now
+          ),
+    [quotes, watches, orders, customers, isManager, savedSearches, now]
   );
   const unread = unreadCount(notifications, notifReads);
 
@@ -60,6 +82,8 @@ export function NotificationBell() {
     } else if (n.kind === "customer-risk" && n.customerId) {
       setActiveCustomer(n.customerId);
       openCartAt("orders");
+    } else if (n.kind === "saved-search" && n.savedSearchId) {
+      void runSavedSearch(n.savedSearchId);
     } else if (n.productId) {
       try {
         const detail = await apiGetProduct(n.productId);

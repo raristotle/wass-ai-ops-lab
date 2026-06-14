@@ -55,10 +55,10 @@ Generated from datasets built 2026-06-12. Regenerated automatically by the test 
 
 | Metric | Value |
 |---|---|
-| Source-backed pairs | 174 |
-| Pairs with both sides in catalog | 29 |
-| Pairs with one side in catalog | 77 |
-| Source: manufacturer-cross | 151 |
+| Source-backed pairs | 200 |
+| Pairs with both sides in catalog | 30 |
+| Pairs with one side in catalog | 87 |
+| Source: manufacturer-cross | 177 |
 | Source: industry-table | 9 |
 | Source: distributor-cross | 14 |
 | Structural problems | 0 |
@@ -93,7 +93,7 @@ Ingested from the "Top 1000 Product Cross-Reference Source Records" workbook: 11
 - **Mersen Amp-Trap 2000 Cross Reference Chart** — 7 SKU-level pairs extracted (fuses) on 2026-06-11
 - **Carol Electronics to Belden Cross Reference Guide** — 4 SKU-level pairs extracted (cable) on 2026-06-11
 - **SYLVANIA QUICKCROSS** — 13 SKU-level pairs extracted (lighting) on 2026-06-11
-- **Philips Advance ULT Cross Reference Guide** — 34 SKU-level pairs extracted (lighting) on 2026-06-11
+- **Philips Advance ULT Cross Reference Guide** — 37 SKU-level pairs extracted (lighting) on 2026-06-11
 - **Hoffman to Hammond Cross Reference** — 17 SKU-level pairs extracted (enclosures) on 2026-06-11
 - **Rockwell Bulletin 100-D/G to 100-E Migration Profile - 100-D contactors** — 2 SKU-level pairs extracted (controls) on 2026-06-11
 - **Belden to General Cable Carol Cross Reference Index** — 4 SKU-level pairs extracted (cable) on 2026-06-11

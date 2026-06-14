@@ -80,6 +80,23 @@ export async function apiGetProduct(
   return res.json();
 }
 
+/** Substitute-&-save: stocked production cross candidates per cart SKU. */
+export async function apiCrossSavings(
+  skus: string[]
+): Promise<Record<string, import("@/lib/catalog/cross-savings").CrossCandidate[]>> {
+  try {
+    const res = await fetch("/api/crosses/savings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skus }),
+    });
+    if (!res.ok) return {};
+    return (await res.json()).candidates ?? {};
+  } catch {
+    return {};
+  }
+}
+
 /** Competitor-BOM cross matching: one suggestion (or null) per query, in order. */
 export async function apiCrossMatch(
   queries: string[]

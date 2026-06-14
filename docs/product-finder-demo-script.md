@@ -70,6 +70,12 @@ Every SKU below is deterministic — it exists with the same data in every envir
    again."* (Optionally toggle the customer selector to show it.)
 6. In the sidebar, **tick a spec facet** (e.g. Amperage → 20A) —
    *"live counts, real spec-level filtering, including numeric ranges."*
+6a. **Click ★ Save this search** under the search bar, **name it** ("20A
+   breakers in stock"). *"A search a rep runs every day is now one click away —
+   and the 🔔 flags it when new matches land."* **Point at the seeded saved-search
+   chip with a "+N new" badge, and the matching alert in the 🔔 bell** —
+   *"that's the alert firing: new stock matched a saved search, surfaced without
+   the rep lifting a finger."*
 
 ## Act 3 — The intelligence (3 min)
 
@@ -145,6 +151,13 @@ Every SKU below is deterministic — it exists with the same data in every envir
     band historically win two out of three; push past 30% and the win rate drops
     to a third. That's the branch's own quote history teaching reps where deals
     close."*
+10s. **If a line shows a green "✓ Save $X — documented cross" box, point at it.**
+    *"Here's margin the rep would never have found by hand: this line has a
+    cheaper equivalent we stock, and the system proves it with the manufacturer's
+    cross document — the basket even totals the documented savings across the
+    whole order. One click swaps it in, cited."* **Click "Swap & save"** on one.
+    (Reliable demo line: add `Bussmann FRN-R-30`, then a line whose stocked cross
+    is cheaper surfaces the swap.)
 10a. **Click ✎ price on the line and type something absurdly low** (e.g. `1.00`),
     **Apply.** *"Price-matching a competitor? I can override the line price — but
     watch: it snapped to the floor. The guardrails won't let me sell above list or
@@ -248,6 +261,21 @@ Every SKU below is deterministic — it exists with the same data in every envir
     **Click "Use stocked cross" on a line** — *"swapped, cited, and ready to
     quote. No catalog-flipping, no guessing — if it's not documented, we don't
     claim it."* **Add matched to cart.**
+18c. **Click Bulk Cross-Ref** (the green toolbar button). **Paste a column of
+    competitor part numbers:**
+    ```
+    FRN-R-30
+    QTP2X32T8/UNV-SC
+    HBL5266C
+    A1212CHFL
+    GRC58
+    ```
+    **Find equivalents.** *"This is procurement's tool: a customer hands you a
+    competitor's parts list — a hundred lines — and you get back our stocked
+    equivalent for each, every one cited. Export the CSV straight back to their
+    buyer, or add it all to the basket. That Burndy GRC58 ground clamp? Crosses
+    to the Ilsco we stock, per ABB's own EZGround cross table."* **Export CSV**,
+    then **Add crossed to basket.**
 
 ## Act 5 — The manager view (2 min)
 
@@ -290,6 +318,13 @@ Every SKU below is deterministic — it exists with the same data in every envir
     30-day stocking suggestion — click a row and you're browsing that
     subcategory. Simple, explainable math; a real forecasting model plugs into
     the same panel."*
+20d. **Scroll to Cross-Reference Coverage.**
+    *"And here's the data-governance view a Wesco steward asks for: 200
+    source-backed cross pairs, how many are both-sides stocked, the same
+    1,000-row source workbook broken down by what's ingested vs behind a browser
+    wall or a license, pairs by category, and the brands still missing a modeled
+    hierarchy. Every recommendation in this app traces back to one of these
+    sources — Open Explorer drills all the way to the document."*
 
 ## Act 6 — Two keystrokes to anywhere (1 min)
 

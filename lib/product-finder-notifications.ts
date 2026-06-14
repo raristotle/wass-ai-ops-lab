@@ -33,7 +33,8 @@ export type NotificationKind =
   | "counter"
   | "restock-due"
   | "restock-eta"
-  | "customer-risk";
+  | "customer-risk"
+  | "saved-search";
 
 export interface PfNotification {
   /** Stable id (`kind:entityId`) — read state keys off this. */
@@ -46,8 +47,19 @@ export interface PfNotification {
   productId?: string;
   quoteId?: string;
   customerId?: string;
+  /** Saved-search id — the bell re-runs the search on click. */
+  savedSearchId?: string;
   /** Deep-link hint for the cart drawer's quote section. */
   quoteStatus?: QuoteStatus;
+}
+
+/** The bell-relevant slice of a saved search (avoids importing the store type). */
+export interface SavedSearchSignal {
+  id: string;
+  name: string;
+  createdAt: number;
+  alertsOn: boolean;
+  newMatches: number;
 }
 
 export interface NotificationInput {
@@ -56,6 +68,8 @@ export interface NotificationInput {
   /** Order history + accounts — drives customer-risk alerts. */
   orders: Order[];
   customers: Pick<CustomerAccount, "id" | "name">[];
+  /** Saved searches with alerts enabled — surface "new matches". */
+  savedSearches?: SavedSearchSignal[];
   /** Approval requests are a manager/admin concern. */
   isManager: boolean;
 }
@@ -117,6 +131,18 @@ export function buildNotifications(input: NotificationInput, now: number): PfNot
       detail: `${h.message.charAt(0).toUpperCase()}${h.message.slice(1)} — worth a call.`,
       at: h.lastOrderAt,
       customerId: h.customerId,
+    });
+  }
+
+  for (const s of input.savedSearches ?? []) {
+    if (!s.alertsOn || s.newMatches <= 0) continue;
+    out.push({
+      id: `saved-search:${s.id}`,
+      kind: "saved-search",
+      title: `${s.newMatches} new match${s.newMatches === 1 ? "" : "es"} — ${s.name}`,
+      detail: "Your saved search picked up new results. Tap to view.",
+      at: s.createdAt,
+      savedSearchId: s.id,
     });
   }
 

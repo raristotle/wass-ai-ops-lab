@@ -17,6 +17,7 @@ import { lookupCrossReference } from "@/lib/integration/cross-reference";
 import { QUICK_PICKS } from "@/lib/product-finder-commands";
 import { normalizeTranscript } from "@/lib/product-finder-voice";
 import { VoiceSearchButton } from "@/features/product-finder/VoiceSearchButton";
+import { SavedSearchesBar } from "@/features/product-finder/SavedSearchesBar";
 import type { SuggestItem, ParsedFilter } from "@/features/product-finder/types";
 
 // ─── Cross-reference icon ─────────────────────────────────────────────────────
@@ -238,6 +239,7 @@ interface SingleSearchPanelProps {
   onRemoveFilter: (id: string) => void;
   onOpenBom: () => void;
   onOpenCrossRef: () => void;
+  onOpenBulkCross: () => void;
   onOpenBulk: () => void;
   onOpenJobWizard: () => void;
   onVoiceInterim: (text: string) => void;
@@ -260,6 +262,7 @@ function SingleSearchPanel({
   onRemoveFilter,
   onOpenBom,
   onOpenCrossRef,
+  onOpenBulkCross,
   onOpenBulk,
   onOpenJobWizard,
   onVoiceInterim,
@@ -435,6 +438,21 @@ function SingleSearchPanel({
           <ListImportIcon />
           Bulk Price Check
         </button>
+
+        {/* Bulk cross-reference — paste many competitor part numbers */}
+        <button
+          type="button"
+          onClick={onOpenBulkCross}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#00573F]/50 px-3 py-1 text-xs font-medium text-[#00573F]",
+            "hover:border-[#00573F] hover:bg-[#00573F]/5",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00573F]"
+          )}
+          aria-label="Bulk cross-reference"
+        >
+          <CrossRefIcon />
+          Bulk Cross-Ref
+        </button>
       </div>
 
       {/* Applied natural-language filter chips */}
@@ -470,6 +488,7 @@ export function SearchBar() {
     appliedNlFilters,
     setBomModalOpen,
     setBulkModalOpen,
+    setBulkCrossOpen,
     setJobWizardOpen,
   } = useProductFinder();
 
@@ -604,11 +623,13 @@ export function SearchBar() {
             onRemoveFilter={removeNlFilter}
             onOpenBom={() => setBomModalOpen(true)}
             onOpenCrossRef={() => setCrossRefOpen(true)}
+            onOpenBulkCross={() => setBulkCrossOpen(true)}
             onOpenBulk={() => setBulkModalOpen(true)}
             onOpenJobWizard={() => setJobWizardOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}
           />
+          <SavedSearchesBar />
         </div>
       </div>
 

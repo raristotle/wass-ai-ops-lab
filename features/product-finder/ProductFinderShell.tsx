@@ -10,6 +10,7 @@ import { SpecCompareModal } from "@/features/product-finder/SpecCompareModal";
 import { ProductDetailModal } from "@/features/product-finder/ProductDetailModal";
 import { BomImportModal } from "@/features/product-finder/BomImportModal";
 import { BulkQuoteModal } from "@/features/product-finder/BulkQuoteModal";
+import { BulkCrossModal } from "@/features/product-finder/BulkCrossModal";
 import { JobWizardModal } from "@/features/product-finder/JobWizardModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
@@ -221,6 +222,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <ProductDetailModal />
       <BomImportModal />
       <BulkQuoteModal />
+      <BulkCrossModal />
       <JobWizardModal />
       <HelpPanel />
       <TourOverlay />

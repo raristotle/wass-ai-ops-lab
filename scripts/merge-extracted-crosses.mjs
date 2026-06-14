@@ -103,6 +103,7 @@ const families = readdirSync(extractDir).filter((f) => f.endsWith(".json"));
 const added = [];
 const skipped = [];
 const ingestedNotes = new Map(); // registry url → {families:Set, pairs:n}
+const familyByUrl = new Map(); // source url → Set(family) seen across all extract files
 for (const f of families) {
   const family = f.replace(/\.json$/, "");
   const data = JSON.parse(readFileSync(join(extractDir, f), "utf8"));
@@ -130,18 +131,19 @@ for (const f of families) {
     if (!KINDS.has(e.sourceKind)) { why(`bad sourceKind ${e.sourceKind}`); continue; }
     if (!/^https:\/\/\S+$/.test(e.sourceUrl)) { why("sourceUrl not https"); continue; }
     if (idKey(e.aMpn) === idKey(e.bMpn) && e.aBrand === e.bBrand) { why("self-cross"); continue; }
+
+    // Track which family each source URL appears in (for the ingested note),
+    // BEFORE the dedupe check so duplicate (already-ingested) rows still count.
+    const fam = familyByUrl.get(e.sourceUrl) ?? new Set();
+    fam.add(family);
+    familyByUrl.set(e.sourceUrl, fam);
+
     const dup = `${pairKey(e)}@${e.sourceUrl}`;
     if (existingKeys.has(dup)) { why("already in dataset (same pair, same source)"); continue; }
     existingKeys.add(dup);
 
     const reg = registryFor(e.sourceUrl);
-    if (reg) {
-      e.sourceId = reg.id;
-      const note = ingestedNotes.get(reg.url) ?? { families: new Set(), pairs: 0 };
-      note.families.add(family);
-      note.pairs += 1;
-      ingestedNotes.set(reg.url, note);
-    }
+    if (reg) e.sourceId = reg.id;
     added.push(e);
   }
 }
@@ -150,6 +152,19 @@ added.sort((a, b) => a.aBrand.localeCompare(b.aBrand) || a.aMpn.localeCompare(b.
 
 // ── write outputs ──
 const all = [...existing, ...added];
+
+// Recompute ingested-source notes from the FULL dataset (existing + added), so a
+// run that only adds pairs from non-registry sources never drops the ingested
+// marks earned by earlier runs. A registry source is "ingested" if any pair in
+// the dataset cites it.
+for (const e of all) {
+  const reg = registryFor(e.sourceUrl);
+  if (!reg) continue;
+  const note = ingestedNotes.get(reg.url) ?? { families: new Set(), pairs: 0 };
+  for (const fm of familyByUrl.get(e.sourceUrl) ?? []) note.families.add(fm);
+  note.pairs += 1;
+  ingestedNotes.set(reg.url, note);
+}
 const header = src.slice(0, src.indexOf("export const VERIFIED_CROSS_ENTRIES"));
 writeFileSync(
   crossFile,

@@ -69,6 +69,46 @@ export function basketCsv(lines: BasketCsvLine[]): string {
   return toCsv(rows);
 }
 
+export interface CrossCsvRow {
+  input: string;
+  fromBrand?: string;
+  fromMpn?: string;
+  sku?: string;
+  name?: string;
+  brand?: string;
+  unitPrice?: number;
+  uom?: string;
+  relation?: string;
+  confidence?: number;
+  sourceUrl?: string;
+}
+
+const CROSS_HEADERS = [
+  "Input", "From Brand", "From Part", "Stocked SKU", "Name", "Brand",
+  "Unit Price", "UoM", "Relation", "Confidence %", "Source",
+];
+
+/** Bulk cross-reference export: one row per input part, blank cells when no documented cross. */
+export function crossRefCsv(rows: CrossCsvRow[]): string {
+  const out: (string | number)[][] = [CROSS_HEADERS];
+  for (const r of rows) {
+    out.push([
+      r.input,
+      r.fromBrand ?? "",
+      r.fromMpn ?? "",
+      r.sku ?? "",
+      r.name ?? "",
+      r.brand ?? "",
+      r.unitPrice !== undefined ? r.unitPrice.toFixed(2) : "",
+      r.uom ?? "",
+      r.relation ?? "",
+      r.confidence !== undefined ? String(r.confidence) : "",
+      r.sourceUrl ?? "",
+    ]);
+  }
+  return toCsv(out);
+}
+
 // ─── Browser download helper ──────────────────────────────────────────────────
 
 /** Trigger a client-side download of CSV text. No-op outside the browser. */

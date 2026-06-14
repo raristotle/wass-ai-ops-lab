@@ -89,6 +89,7 @@ export const TOUR_STEPS: readonly TourStep[] = [
     body: [
       "Add products at any quantity, then open the cart drawer.",
       "• Volume tiers and contract pricing apply per line automatically.",
+      "• Substitute & save: if a line has a cheaper documented cross we stock, the basket shows the swap and the dollars it saves — one click, fully cited.",
       "• Generate a branded quote PDF — with your note and selectable terms — email it for real, or save it to track Draft → Sent → Won/Lost.",
       "• Need to discount? ✎ price overrides are margin-guarded, and win/loss history coaches the sweet spot.",
       "• Every saved quote has a Customer Link — they accept, decline, or counter from their phone; Revise answers a counter with a linked v2, and History keeps the audit trail.",
@@ -116,7 +117,8 @@ export const TOUR_STEPS: readonly TourStep[] = [
     title: "Power tools when you need them",
     body: [
       "A few more ways to move faster:",
-      "• Import List / BOM converts competitor bills of materials: lines naming a documented competitor part get a cited “use stocked cross” suggestion — the counter-sale, automated.",
+      "• Import List / BOM converts competitor bills of materials: lines naming a documented competitor part get a cited “use stocked cross” suggestion — the counter-sale, automated. Bulk Cross-Ref does the same for up to 100 pasted part numbers, with CSV export.",
+      "• Saved searches: ★ Save this search keeps a query+filters one click away, and the 🔔 bell flags it when new matches land.",
       "• The 🔔 bell collects approvals, follow-ups, counter-offers, restock and at-risk-customer alerts.",
       "• “For you” on the landing view predicts reorders before you type; the metals index flags copper swings; the seasonal banner surfaces what's about to sell.",
       "• Voice search — tap the mic and say “twenty amp breaker in stock”.",

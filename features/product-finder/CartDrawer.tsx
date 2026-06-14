@@ -5,6 +5,7 @@ import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustome
 import { priceTiers } from "@/lib/product-finder-pricing";
 import { overrideBounds } from "@/lib/product-finder-override";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
+import type { CatalogProduct } from "@/features/product-finder/types";
 import { getPricingProvider } from "@/lib/integration/index";
 import { quoteNumber, quoteValidityDate, formatDisplayDate } from "@/lib/product-finder-quote";
 import { encodeCart } from "@/lib/product-finder-share";
@@ -26,6 +27,8 @@ import {
 } from "@/lib/product-finder-margin";
 import { marginGuidance } from "@/lib/product-finder-winloss";
 import { stockWarning } from "@/lib/product-finder-stock-warning";
+import { apiCrossSavings } from "@/lib/product-finder-api";
+import { bestCrossSaving, totalCrossSavings, type CrossCandidate, type CrossSaving } from "@/lib/catalog/cross-savings";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -107,6 +110,61 @@ export function CartDrawer() {
   }, [cartOpen, cartSection]);
 
   const items = Object.values(cart);
+
+  // ── Substitute-&-save: documented cheaper stocked crosses for cart lines ────
+  const [savingsCandidates, setSavingsCandidates] = useState<Record<string, CrossCandidate[]>>({});
+  const cartSkus = useMemo(
+    () => Object.values(cart).map(({ product }) => product.sku).sort().join("|"),
+    [cart]
+  );
+  useEffect(() => {
+    const skus = cartSkus ? cartSkus.split("|") : [];
+    if (skus.length === 0) {
+      setSavingsCandidates({});
+      return;
+    }
+    let cancelled = false;
+    apiCrossSavings(skus).then((c) => {
+      if (!cancelled) setSavingsCandidates(c);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [cartSkus]);
+
+  /** The best money-saving documented cross for a line at its sold price, or null. */
+  function savingForLine(product: CatalogProduct, qty: number, originalUnit: number): CrossSaving | null {
+    const candidates = savingsCandidates[product.sku];
+    if (!candidates || candidates.length === 0) return null;
+    return bestCrossSaving(
+      originalUnit,
+      qty,
+      candidates.map((candidate) => ({
+        candidate,
+        substituteUnit: getPricingProvider().getPricing(candidate.product, { customer: activeCustomer, qty })
+          .effectiveUnitPrice,
+      }))
+    );
+  }
+
+  /** Replace a cart line with its documented cheaper cross at the same quantity. */
+  function swapToCross(originalId: string, substitute: CatalogProduct, qty: number) {
+    removeFromCart(originalId);
+    addToCart(substitute, qty);
+  }
+
+  const basketSavings = useMemo(
+    () =>
+      totalCrossSavings(
+        Object.values(cart).map(({ product, qty }) => {
+          const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
+          const unit = priceOverrides[product.id] ?? pricing.effectiveUnitPrice;
+          return savingForLine(product, qty, unit);
+        })
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [cart, savingsCandidates, activeCustomer, priceOverrides]
+  );
   const hasContractCustomer = activeCustomer !== null && activeCustomer.tier === "contract";
 
   // ── Saved baskets / templates state ────────────────────────────────────────
@@ -514,6 +572,17 @@ export function CartDrawer() {
                 contract pricing — simulated
               </p>
             )}
+            {/* Basket-level documented-cross savings banner */}
+            {basketSavings > 0 && (
+              <div className="mx-4 mt-3 rounded-lg border border-[#00573F]/40 bg-[#00573F]/5 px-3 py-2">
+                <p className="text-xs font-semibold text-[#00573F]">
+                  💡 ${basketSavings.toFixed(2)} in documented swap savings available
+                </p>
+                <p className="text-[10px] text-[#4F758B]">
+                  Lines below offer a cheaper, source-backed stocked cross — swap each to capture the saving.
+                </p>
+              </div>
+            )}
             <ul className="divide-y divide-[#B7C9D3]">
               {items.map(({ product, qty }) => {
                 const pricing = getPricingProvider().getPricing(product, { customer: activeCustomer, qty });
@@ -589,6 +658,49 @@ export function CartDrawer() {
                             vol. price ({activeTier.minQty}+)
                           </p>
                         )}
+
+                        {/* Substitute-&-save — documented cheaper stocked cross */}
+                        {(() => {
+                          const saving = savingForLine(product, qty, effectiveUnitPrice);
+                          if (!saving) return null;
+                          const c = saving.candidate;
+                          return (
+                            <div className="mt-1.5 rounded border border-[#00573F]/40 bg-[#00573F]/5 px-2 py-1.5">
+                              <p className="text-[10px] font-bold uppercase tracking-wide text-[#00573F]">
+                                ✓ Save ${saving.lineSavings.toFixed(2)} — documented cross
+                              </p>
+                              <p className="mt-0.5 text-[11px] text-[#1D252D]">
+                                Swap to{" "}
+                                <span className="font-semibold">
+                                  {c.product.brand} {c.product.sku}
+                                </span>{" "}
+                                <span className="text-[#4F758B]">
+                                  @ ${saving.substituteUnit.toFixed(2)}/{c.product.uom} (
+                                  {(saving.pctSavings * 100).toFixed(0)}% less)
+                                </span>
+                              </p>
+                              <p className="text-[10px] text-[#4F758B]">
+                                {c.matchReason} ·{" "}
+                                <a
+                                  href={c.sourceUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[#004986] underline underline-offset-2"
+                                >
+                                  source ↗
+                                </a>
+                              </p>
+                              <button
+                                type="button"
+                                onClick={() => swapToCross(product.id, c.product, qty)}
+                                className="mt-1 rounded bg-[#00573F] px-2 py-0.5 text-[10px] font-semibold text-white transition-colors hover:bg-[#004936]"
+                                aria-label={`Swap ${product.name} to ${c.product.name} and save ${saving.lineSavings.toFixed(2)} dollars`}
+                              >
+                                Swap &amp; save ${saving.lineSavings.toFixed(2)}
+                              </button>
+                            </div>
+                          );
+                        })()}
 
                         {/* Manual price override (internal, margin-guarded) */}
                         {isEditingPrice ? (

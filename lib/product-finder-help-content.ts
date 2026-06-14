@@ -516,7 +516,7 @@ export const HELP_TOPICS: HelpTopic[] = [
     id: "verified-crosses",
     title: "Verified cross-references (source-backed)",
     body: [
-      "For real, verified products, cross-references are no longer similarity guesses — every pair cites the official document that states it. 174 source-backed pairs cover fuses, ballasts, enclosures, wiring devices, contactors, terminal blocks, and cable.",
+      "For real, verified products, cross-references are no longer similarity guesses — every pair cites the official document that states it. 200 source-backed pairs cover fuses, ballasts, enclosures, wiring devices, contactors, terminal blocks, cable, and grounding/compression lugs.",
       "• Sources: manufacturer cross tools and PDFs (ABB's competitor lookup, Mersen's pocket cross guide, Hammond's Hoffman cross table, Hubbell's bin-stock guide, Signify's ballast guides), datasheets, distributor tables, and industry charts — each result links its source. A 166-source registry built from a 1,000-row source workbook tracks what's ingested and what still needs licenses or a browser session.",
       "• Every recommendation is explainable: match reason, which attributes agree, what's missing or conflicting, and warning flags straight from the source (\"UL Classified for listed panels only\", \"verify dimensions before substituting\").",
       "• Confidence is scored by source authority; anything below 95% never reaches the recommendation — it stays in the review queue. When sources contradict, a documented rule picks the winning record: source authority, then source quality score, then recency.",
@@ -528,13 +528,37 @@ export const HELP_TOPICS: HelpTopic[] = [
   },
   {
     id: "cross-explorer",
-    title: "Cross-Reference Explorer & competitor-BOM conversion",
+    title: "Cross-Reference Explorer, conversion & review queue",
     body: [
-      "Two ways to put the verified cross dataset to work beyond the detail view:",
+      "Ways to put the verified cross dataset to work beyond the detail view:",
       "• Cross-Reference Explorer (/product-finder/crosses, or Ctrl+K → \"Open Cross-Reference Explorer\"): browse every source-backed pair — filter by brand, part number, or source kind, see which sides we stock, and click through to the document that states each cross. The Sources tab shows the full ingestion registry: 166 sources from a 1,000-row workbook, classified as ingested, ingestible, browser-gated, API-key, or licensed.",
-      "• Competitor-BOM conversion: paste a bill of materials with competitor part numbers into Import List / BOM. Lines naming a documented competitor part get a green \"Verified cross — we stock the equivalent\" box with the source citation; one click swaps the stocked equivalent in. The summary line counts how many competitor parts are crossable to stock.",
+      "• Competitor-BOM conversion: paste a bill of materials with competitor part numbers into Import List / BOM. Lines naming a documented competitor part get a green \"Verified cross — we stock the equivalent\" box with the source citation; one click swaps the stocked equivalent in.",
+      "• Bulk Cross-Ref (toolbar, or Ctrl+K → \"Bulk cross-reference\"): paste up to 100 competitor part numbers and get a table of stocked equivalents with cited sources — export the CSV back to procurement, or add it all to the basket.",
+      "• Review queue (Explorer tab): crosses below 95% confidence (distributor / industry tables) wait here for a reviewer to Approve or Reject — the human-in-the-loop promotion path. Managers also get a Cross-Reference Coverage card on the Insights dashboard.",
       "Try it: open Import List / BOM and paste \"4x QTP2X32T8/UNV-SC\" and \"2 Hoffman A1212CHFL\" — competitor parts we don't stock, crossed to the Philips Advance and Hammond equivalents we do, manufacturer documents linked.",
       "Only production-grade crosses (≥95% source confidence) are ever suggested; everything is explainable and cited.",
+    ],
+  },
+  {
+    id: "substitute-save",
+    title: "Substitute & save in quotes",
+    body: [
+      "While you build a basket or quote, any line that has a cheaper STOCKED documented cross shows a green \"Save $X\" box right on the line.",
+      "• It names the equivalent we stock, the % less it costs, and links the manufacturer document that states the cross — one click swaps it in at the same quantity.",
+      "• Pricing of both sides honors the customer's contract, volume tiers, and any manual override, so the saving shown is the real saving.",
+      "• The basket header totals the documented swap savings available across all lines.",
+      "Only ≥95%-confidence, source-backed crosses are ever offered — no guessing on a substitution the customer will question.",
+    ],
+  },
+  {
+    id: "saved-searches",
+    title: "Saved searches & alerts",
+    body: [
+      "Found a search you run often? Click ★ Save this search (under the search bar) and name it — it captures your query and every active filter.",
+      "• Saved searches appear as chips: click one to re-run it instantly; each carries a 🔔 toggle for new-match alerts and a ✕ to delete.",
+      "• When alerts are on and a saved search picks up new matches, the notification bell flags it — click the alert to jump straight back into that search.",
+      "• Each saved search is a deep link, so the exact filtered view rebuilds every time.",
+      "Two example searches are seeded so you can see the feature immediately.",
     ],
   },
   {
