@@ -80,6 +80,23 @@ export async function apiGetProduct(
   return res.json();
 }
 
+/** Ask Meridian (conversational): send the chat history, get a grounded reply. */
+export async function apiAssistant(
+  messages: { role: "user" | "assistant"; content: string }[]
+): Promise<{ enabled: boolean; reply: string; toolsUsed: string[] }> {
+  try {
+    const res = await fetch("/api/assistant", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages }),
+    });
+    if (!res.ok) return { enabled: true, reply: "Sorry — Ask Meridian is unavailable right now.", toolsUsed: [] };
+    return await res.json();
+  } catch {
+    return { enabled: true, reply: "Sorry — Ask Meridian is unavailable right now.", toolsUsed: [] };
+  }
+}
+
 /** Substitute-&-save: stocked production cross candidates per cart SKU. */
 export async function apiCrossSavings(
   skus: string[]

@@ -193,6 +193,8 @@ export interface ProductFinderState {
   setBulkModalOpen: (v: boolean) => void;
   bulkCrossOpen: boolean;
   setBulkCrossOpen: (v: boolean) => void;
+  assistantOpen: boolean;
+  setAssistantOpen: (v: boolean) => void;
   submittalOpen: boolean;
   setSubmittalOpen: (v: boolean) => void;
 
@@ -683,6 +685,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setBulkModalOpen(v) { set({ bulkModalOpen: v }); },
   bulkCrossOpen: false,
   setBulkCrossOpen(v) { set({ bulkCrossOpen: v }); },
+  assistantOpen: false,
+  setAssistantOpen(v) { set({ assistantOpen: v }); },
   submittalOpen: false,
   setSubmittalOpen(v) { set({ submittalOpen: v }); },
 

@@ -242,6 +242,7 @@ interface SingleSearchPanelProps {
   onOpenBulkCross: () => void;
   onOpenBulk: () => void;
   onOpenJobWizard: () => void;
+  onOpenAssistant: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
 }
@@ -265,6 +266,7 @@ function SingleSearchPanel({
   onOpenBulkCross,
   onOpenBulk,
   onOpenJobWizard,
+  onOpenAssistant,
   onVoiceInterim,
   onVoiceFinal,
 }: SingleSearchPanelProps) {
@@ -375,12 +377,29 @@ function SingleSearchPanel({
           </button>
         ))}
 
+        {/* Ask Meridian — conversational AI assistant */}
+        <button
+          type="button"
+          onClick={onOpenAssistant}
+          className={cn(
+            "ml-auto flex items-center gap-1.5 rounded-full bg-[#00AA13] px-3 py-1 text-xs font-semibold text-white",
+            "hover:bg-[#009911]",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00573F]"
+          )}
+          aria-label="Ask Meridian — AI assistant"
+          data-tour="assistant"
+        >
+          <span aria-hidden="true">💬</span>
+          Ask Meridian
+          <span className="rounded-full bg-white/25 px-1.5 text-[9px] font-bold uppercase tracking-wide">AI</span>
+        </button>
+
         {/* Ask Meridian — Job Wizard (deterministic guided job builder) */}
         <button
           type="button"
           onClick={onOpenJobWizard}
           className={cn(
-            "ml-auto flex items-center gap-1.5 rounded-full border border-[#00AA13]/60 px-3 py-1 text-xs font-semibold text-[#00573F]",
+            "flex items-center gap-1.5 rounded-full border border-[#00AA13]/60 px-3 py-1 text-xs font-semibold text-[#00573F]",
             "hover:border-[#00AA13] hover:bg-[#00AA13]/10",
             "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00AA13]"
           )}
@@ -490,6 +509,7 @@ export function SearchBar() {
     setBulkModalOpen,
     setBulkCrossOpen,
     setJobWizardOpen,
+    setAssistantOpen,
   } = useProductFinder();
 
   // Suggestion dropdown state
@@ -626,6 +646,7 @@ export function SearchBar() {
             onOpenBulkCross={() => setBulkCrossOpen(true)}
             onOpenBulk={() => setBulkModalOpen(true)}
             onOpenJobWizard={() => setJobWizardOpen(true)}
+            onOpenAssistant={() => setAssistantOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}
           />

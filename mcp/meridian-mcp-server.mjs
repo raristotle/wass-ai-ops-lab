@@ -1,0 +1,256 @@
+#!/usr/bin/env node
+/**
+ * Meridian Product Finder — MCP server.
+ *
+ * Exposes the recommender's catalog, source-backed cross-references, stock, and
+ * coverage as Model Context Protocol tools, so any MCP client (Claude Desktop,
+ * Claude Code, an agent) can do procurement against it: search the catalog,
+ * convert a competitor part to the stocked equivalent we document, read specs
+ * and live availability, and pull the cross-reference coverage summary.
+ *
+ * It is a thin, stateless HTTP client over the deployed REST API — no database,
+ * no AI, no per-call cost. Point it at any environment with MERIDIAN_API_BASE.
+ *
+ * Run:    node mcp/meridian-mcp-server.mjs         (stdio transport)
+ * Config: see mcp/README.md for the Claude Desktop / Claude Code entry.
+ */
+
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { ListToolsRequestSchema, CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
+
+const API_BASE = (process.env.MERIDIAN_API_BASE ?? "https://app.raristotle.com").replace(/\/$/, "");
+const UA = "meridian-mcp-server/1.0";
+
+async function api(path, init) {
+  const res = await fetch(`${API_BASE}${path}`, {
+    ...init,
+    headers: { "User-Agent": UA, ...(init?.headers ?? {}) },
+  });
+  if (!res.ok) throw new Error(`${path} → HTTP ${res.status}`);
+  return res.json();
+}
+
+const ok = (data) => ({ content: [{ type: "text", text: JSON.stringify(data, null, 2) }] });
+const fail = (msg) => ({ content: [{ type: "text", text: `Error: ${msg}` }], isError: true });
+
+// ── Tool implementations ──────────────────────────────────────────────────────
+
+const TOOLS = {
+  async search_products({ query, category, inStockOnly, limit }) {
+    const sp = new URLSearchParams();
+    if (query) sp.set("q", String(query));
+    if (category) sp.set("category", String(category));
+    if (inStockOnly) sp.set("onlyBranchStock", "true");
+    sp.set("pageSize", String(Math.min(Number(limit) || 10, 24)));
+    const res = await api(`/api/products/search?${sp.toString()}`);
+    return ok({
+      total: res.total,
+      results: (res.items ?? []).map((p) => ({
+        id: p.id,
+        sku: p.sku,
+        name: p.name,
+        brand: p.brand,
+        category: p.category,
+        subcategory: p.subcategory,
+        unitPrice: p.unitPrice,
+        uom: p.uom,
+        dataSource: p.dataSource,
+        verifiedCrossCount: p.verifiedCrossCount ?? 0,
+        branchStock: (p.branchStock ?? []).reduce((s, b) => s + b.quantity, 0),
+        dcStock: (p.dcStock ?? []).reduce((s, d) => s + d.quantity, 0),
+      })),
+    });
+  },
+
+  async cross_reference({ partNumber }) {
+    if (!partNumber) return fail("partNumber is required");
+    const res = await api(`/api/crosses/match`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ queries: [String(partNumber)] }),
+    });
+    const s = (res.suggestions ?? [])[0];
+    if (!s) return ok({ partNumber, crossed: false, message: "No documented cross to a stocked product." });
+    return ok({
+      partNumber,
+      crossed: true,
+      fromBrand: s.fromBrand,
+      fromMpn: s.fromMpn,
+      stockedEquivalent: { sku: s.product.sku, name: s.product.name, brand: s.product.brand, unitPrice: s.product.unitPrice, uom: s.product.uom, id: s.product.id },
+      relation: s.relation,
+      confidence: s.confidence,
+      matchReason: s.matchReason,
+      source: s.sourceUrl,
+    });
+  },
+
+  async bulk_cross_reference({ partNumbers }) {
+    if (!Array.isArray(partNumbers) || partNumbers.length === 0) return fail("partNumbers must be a non-empty array");
+    const res = await api(`/api/crosses/match`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ queries: partNumbers.slice(0, 100).map(String) }),
+    });
+    return ok({
+      rows: (res.suggestions ?? []).map((s, i) => ({
+        input: partNumbers[i],
+        stockedSku: s?.product.sku ?? null,
+        name: s?.product.name ?? null,
+        confidence: s?.confidence ?? null,
+        source: s?.sourceUrl ?? null,
+      })),
+    });
+  },
+
+  async product_detail({ idOrSku }) {
+    if (!idOrSku) return fail("idOrSku is required");
+    let id = String(idOrSku);
+    if (!id.startsWith("REAL-") && !id.includes("-")) {
+      // Looks like a bare SKU — resolve via search first.
+      const search = await api(`/api/products/search?q=${encodeURIComponent(id)}&pageSize=1`);
+      const hit = (search.items ?? [])[0];
+      if (!hit) return ok({ idOrSku, found: false });
+      id = hit.id;
+    }
+    let detail;
+    try {
+      detail = await api(`/api/products/${encodeURIComponent(id)}`);
+    } catch {
+      const search = await api(`/api/products/search?q=${encodeURIComponent(String(idOrSku))}&pageSize=1`);
+      const hit = (search.items ?? [])[0];
+      if (!hit) return ok({ idOrSku, found: false });
+      detail = await api(`/api/products/${encodeURIComponent(hit.id)}`);
+    }
+    const p = detail.product;
+    return ok({
+      found: true,
+      sku: p.sku,
+      name: p.name,
+      brand: p.brand,
+      category: p.category,
+      subcategory: p.subcategory,
+      description: p.description,
+      unitPrice: p.unitPrice,
+      uom: p.uom,
+      dataSource: p.dataSource,
+      specs: p.specs,
+      specSheetUrl: p.specSheetUrl ?? null,
+      branchStock: (p.branchStock ?? []).reduce((s, b) => s + b.quantity, 0),
+      dcStock: (p.dcStock ?? []).reduce((s, d) => s + d.quantity, 0),
+      verifiedCrosses: (detail.verifiedCrosses ?? []).map((c) => ({
+        substitute: `${c.substituteBrand} ${c.substituteSku}`,
+        confidence: c.confidence,
+        relation: c.relation,
+        stocked: !!c.substituteProduct,
+        source: c.sourceUrl,
+      })),
+      brandHierarchy: detail.brandHierarchy ?? null,
+    });
+  },
+
+  async check_availability({ sku }) {
+    const r = await TOOLS.product_detail({ idOrSku: sku });
+    if (r.isError) return r;
+    const d = JSON.parse(r.content[0].text);
+    if (!d.found) return ok({ sku, found: false });
+    return ok({ sku: d.sku, name: d.name, branchStock: d.branchStock, dcStock: d.dcStock, inStock: d.branchStock + d.dcStock > 0 });
+  },
+
+  async coverage_summary() {
+    const c = await api(`/api/crosses/coverage`);
+    return ok({
+      sourceBackedPairs: c.pairs,
+      bothSidesStocked: c.bothStocked,
+      oneSideStocked: c.oneStocked,
+      pairsByCategory: c.byCategory,
+      sourceWorkbook: { rows: c.sources.workbookRows, sources: c.sources.total, byStatus: c.sources.byStatus },
+      verifiedProducts: c.products,
+    });
+  },
+};
+
+const TOOL_DEFS = [
+  {
+    name: "search_products",
+    description:
+      "Search the Meridian product catalog by natural-language query. Returns stocked products with SKU, brand, price, stock, and how many source-backed cross-references each has. Use for 'what do you carry for X'.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: { type: "string", description: "Search text, e.g. '20A breaker' or 'cat6 plenum'." },
+        category: { type: "string", enum: ["electrical", "datacom", "oem-electrical", "av", "security", "safety"] },
+        inStockOnly: { type: "boolean", description: "Only return products in stock at a branch." },
+        limit: { type: "number", description: "Max results (default 10, max 24)." },
+      },
+      required: ["query"],
+    },
+  },
+  {
+    name: "cross_reference",
+    description:
+      "Convert ONE competitor or legacy part number to the stocked Meridian equivalent we DOCUMENT, with the source citation and confidence. Only ≥95% source-backed crosses are returned. Use for 'what do you stock that replaces <competitor part>'.",
+    inputSchema: {
+      type: "object",
+      properties: { partNumber: { type: "string", description: "The competitor/legacy part number, e.g. 'FRN-R-30'." } },
+      required: ["partNumber"],
+    },
+  },
+  {
+    name: "bulk_cross_reference",
+    description: "Convert up to 100 competitor part numbers to stocked equivalents at once. Returns one row per input with the stocked SKU, confidence, and source (null when nothing is documented).",
+    inputSchema: {
+      type: "object",
+      properties: { partNumbers: { type: "array", items: { type: "string" }, description: "Competitor/legacy part numbers." } },
+      required: ["partNumbers"],
+    },
+  },
+  {
+    name: "product_detail",
+    description: "Full detail for one product by id or SKU: specs, datasheet link, price, branch/DC stock, source-backed cross-references, and brand hierarchy. Use to answer spec questions and check substitutes.",
+    inputSchema: {
+      type: "object",
+      properties: { idOrSku: { type: "string", description: "Product id (REAL-…) or a SKU/part number." } },
+      required: ["idOrSku"],
+    },
+  },
+  {
+    name: "check_availability",
+    description: "Branch and DC stock totals for a product by SKU, and whether it is in stock.",
+    inputSchema: {
+      type: "object",
+      properties: { sku: { type: "string" } },
+      required: ["sku"],
+    },
+  },
+  {
+    name: "coverage_summary",
+    description: "The cross-reference dataset coverage: source-backed pair counts, both-sides-stocked, pairs by category, and the source-workbook ingest-status breakdown. No arguments.",
+    inputSchema: { type: "object", properties: {} },
+  },
+];
+
+// ── Wire up the server ────────────────────────────────────────────────────────
+
+const server = new Server(
+  { name: "meridian-product-finder", version: "1.0.0" },
+  { capabilities: { tools: {} } }
+);
+
+server.setRequestHandler(ListToolsRequestSchema, async () => ({ tools: TOOL_DEFS }));
+
+server.setRequestHandler(CallToolRequestSchema, async (req) => {
+  const { name, arguments: args } = req.params;
+  const impl = TOOLS[name];
+  if (!impl) return fail(`Unknown tool: ${name}`);
+  try {
+    return await impl(args ?? {});
+  } catch (e) {
+    return fail(e instanceof Error ? e.message : String(e));
+  }
+});
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+// stderr is safe for logs; stdout is the MCP JSON-RPC channel.
+console.error(`Meridian MCP server ready — API base ${API_BASE}, ${TOOL_DEFS.length} tools.`);

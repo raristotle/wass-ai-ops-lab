@@ -32,6 +32,7 @@ export function CommandPalette() {
   const setBomModalOpen = useProductFinder((s) => s.setBomModalOpen);
   const setBulkModalOpen = useProductFinder((s) => s.setBulkModalOpen);
   const setBulkCrossOpen = useProductFinder((s) => s.setBulkCrossOpen);
+  const setAssistantOpen = useProductFinder((s) => s.setAssistantOpen);
   const setJobWizardOpen = useProductFinder((s) => s.setJobWizardOpen);
   const pageSize = useProductFinder((s) => s.pageSize);
   const router = useRouter();
@@ -104,6 +105,7 @@ export function CommandPalette() {
         else if (action.target === "bom") setBomModalOpen(true);
         else if (action.target === "bulk-cross") setBulkCrossOpen(true);
         else if (action.target === "jobwizard") setJobWizardOpen(true);
+        else if (action.target === "assistant") setAssistantOpen(true);
         else setBulkModalOpen(true);
         break;
       case "tour":

@@ -551,6 +551,27 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "ask-meridian-ai",
+    title: "Ask Meridian — the conversational AI assistant",
+    body: [
+      "Click the green 💬 Ask Meridian button (or Ctrl+K → \"Ask Meridian — AI assistant\") to ask in plain English.",
+      "• It searches the catalog, cross-references a competitor part to what we stock (with the source document and confidence), answers spec questions, and checks availability — every answer grounded in the real catalog and the source-backed cross dataset.",
+      "• It never invents SKUs, prices, specs, or crosses. If nothing is documented, it says so — and points you to the Bulk Cross-Ref tool or the Job Wizard.",
+      "• It shows which tools it used (\"✓ cross-referenced a part\") so the answer is auditable.",
+      "Activation: the assistant is wired to the Anthropic API and lights up when an ANTHROPIC_API_KEY is set on the deployment — until then it runs in a labeled preview mode at zero AI cost. The deterministic Job Wizard and Bulk Cross-Ref work today regardless.",
+    ],
+  },
+  {
+    id: "mcp-server",
+    title: "MCP server — agentic procurement",
+    body: [
+      "The recommender ships an MCP (Model Context Protocol) server so any MCP client — Claude Desktop, Claude Code, or an agent — can do procurement against the catalog programmatically.",
+      "• Tools: search_products, cross_reference, bulk_cross_reference, product_detail, check_availability, coverage_summary — all backed by the live API, all source-cited, zero AI cost to run.",
+      "• Run it with `npm run mcp`; connect it per mcp/README.md. Then an agent can answer \"what do you stock that replaces this competitor BOM?\" and build an order without a human in the loop.",
+      "This is the same tool surface the in-app Ask Meridian assistant uses — the catalog as an agent-ready API.",
+    ],
+  },
+  {
     id: "saved-searches",
     title: "Saved searches & alerts",
     body: [

@@ -128,6 +128,20 @@ Every SKU below is deterministic — it exists with the same data in every envir
     behind a browser wall, behind an API key, or licensed. Nothing is hidden;
     a data steward can audit every recommendation back to its document."*
 
+9e. **Click the green 💬 Ask Meridian button.** *"And here's the 2026 layer:
+    a conversational assistant that answers in plain English — but grounded.
+    Watch."* **Type "What do you stock that replaces a Bussmann FRN-R-30?"**
+    *"It cross-references to the Mersen TR30R we stock, cites the manufacturer's
+    document, and tells me it used the cross-reference tool — auditable, never an
+    invented part. Spec questions, availability, search — same grounded answers,
+    same tools an agent gets through our MCP server."*
+    > **Activation note:** Ask Meridian lights up when an `ANTHROPIC_API_KEY` is
+    > set on the deployment (Vercel env). Until then it shows a labeled "preview
+    > mode" banner and zero AI cost is incurred — the Job Wizard and Bulk
+    > Cross-Ref answer the same questions deterministically today. The MCP server
+    > (`npm run mcp`) is live now regardless: connect Claude Desktop and ask it to
+    > convert a competitor BOM to our stock.
+
 ## Act 4 — From basket to deliverables (5 min)
 
 9b. **Click the 🧰 Job Wizard button** by the search bar. **Pick "200A
@@ -137,8 +151,9 @@ Every SKU below is deterministic — it exists with the same data in every envir
     priced product from our catalog, with alternates one click away and field
     notes on the code requirements. The whole-home surge protector is optional —
     and flagged as the easy upsell it is."* **Click Add 6 items to basket.**
-    *"A whole job, basketed in ten seconds. Deterministic recommendations
-    today — the conversational 'Ask Meridian' is the roadmap."*
+    *"A whole job, basketed in ten seconds. Deterministic and always-on — and
+    its conversational sibling (the 💬 Ask Meridian assistant, step 9e) now
+    answers the same questions in plain English when a key's configured."*
 
 10. **Open the Cart.** The GE substitute is there. **Set its quantity to 50** —
     *"volume tier kicks in automatically."* Point at the **margin** on the line and
@@ -351,10 +366,12 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
 
 > **Demo honesty note:** customer accounts, contract pricing, inventory/ATP, PIM
 > provenance, and simulated-SKU cross-references run on **synthetic data behind
-> swap-in adapters** (`lib/integration/`). Three deliberate exceptions are REAL:
-> the live Mouser/Digi-Key distributor panel (Act 3, step 9a), the source-backed
-> verified cross-references (step 9c), and the Resend quote email
-> when a key is configured. See the
+> swap-in adapters** (`lib/integration/`). The REAL pieces: the live
+> Mouser/Digi-Key distributor panel (Act 3, step 9a), the source-backed verified
+> cross-references (step 9c), the **MCP server** (`npm run mcp`, live now,
+> zero AI cost), and — when their keys are configured — the **Resend quote
+> email** and the **conversational Ask Meridian assistant** (step 9e; env-gated
+> behind `ANTHROPIC_API_KEY`, dormant and cost-free until set). See the
 > [integration guide](wesco-it-integration-guide.md) for connecting real systems.
 
 ## If something goes sideways

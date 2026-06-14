@@ -2,8 +2,8 @@ import { describe, it, expect } from "vitest";
 import { TOUR_STEPS } from "@/lib/product-finder-tour-content";
 
 describe("TOUR_STEPS", () => {
-  it("has exactly 8 steps", () => {
-    expect(TOUR_STEPS).toHaveLength(8);
+  it("has exactly 9 steps", () => {
+    expect(TOUR_STEPS).toHaveLength(9);
   });
 
   it("ids are unique and in the exact expected order", () => {
@@ -14,6 +14,7 @@ describe("TOUR_STEPS", () => {
       "nl-search",
       "filters",
       "alternatives",
+      "ask-meridian-ai",
       "job-wizard",
       "basket-quote",
       "insights",

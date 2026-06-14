@@ -65,6 +65,8 @@ describe("HELP_TOPICS", () => {
       "cross-explorer",
       "substitute-save",
       "saved-searches",
+      "ask-meridian-ai",
+      "mcp-server",
     ]) {
       expect(ids.has(required), required).toBe(true);
     }

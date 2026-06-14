@@ -72,10 +72,21 @@ export const TOUR_STEPS: readonly TourStep[] = [
     action: { kind: "nlSearch", label: "See a verified cross", query: "FRN-R-30" },
   },
   {
+    id: "ask-meridian-ai",
+    title: "Ask Meridian — the AI assistant",
+    body: [
+      "The green 💬 Ask Meridian button opens a chat that answers in plain English — grounded only in the real catalog and the source-backed cross dataset.",
+      "• “What do you stock that replaces a Bussmann FRN-R-30?” → it cross-references to the Mersen we stock, with the source document.",
+      "• Ask for specs, availability, or a quick search — it uses the same tools the MCP server exposes to agents, and never invents a part.",
+      "• It activates when an ANTHROPIC_API_KEY is on the deployment; until then it runs in a clearly-labeled preview mode at zero AI cost.",
+    ],
+    action: { kind: "nlSearch", label: "Try a search it can answer", query: "FRN-R-30" },
+  },
+  {
     id: "job-wizard",
     title: "Ask Meridian — the Job Wizard",
     body: [
-      "Don't build the basket part by part — describe the job and let the wizard do it.",
+      "Prefer a guided build? Describe the job and let the wizard do it — deterministic, zero-cost, always on.",
       "• Pick a job (200A service upgrade, network drops, LED retrofit, cameras, EV charger).",
       "• Every step resolves to a stocked, priced product from the catalog — swap alternates, adjust quantities, skip steps.",
       "• One click adds the whole bill of materials to the basket.",

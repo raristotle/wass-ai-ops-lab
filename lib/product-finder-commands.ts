@@ -15,7 +15,7 @@ export const QUICK_PICKS: readonly string[] = [
 
 export type CommandAction =
   | { kind: "navigate"; href: string }
-  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" }
+  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant" }
   | { kind: "tour" }
   | { kind: "role"; email: string }
   | { kind: "search"; query: string };
@@ -102,6 +102,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["competitor", "convert", "equivalents", "cross", "csv", "rfq"],
       action: { kind: "open", target: "bulk-cross" },
+    },
+    {
+      id: "open-assistant",
+      label: "Ask Meridian — AI assistant",
+      group: "Open",
+      keywords: ["ai", "chat", "ask", "assistant", "conversational", "question"],
+      action: { kind: "open", target: "assistant" },
     },
     {
       id: "open-jobwizard",
