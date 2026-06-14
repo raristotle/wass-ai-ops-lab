@@ -52,6 +52,7 @@ import {
 import { apiSearch, apiGetProduct, filtersToQuery } from "@/lib/product-finder-api";
 import { decodeFiltersFromQuery } from "@/lib/product-finder-url";
 import { summarizeFilters, type SavedSearch } from "@/lib/product-finder-saved-search";
+import { DEFAULT_BRAND_ID, isBrandId } from "@/lib/brand";
 import type { ProductSnapshot } from "@/features/product-finder/types";
 
 const MAX_RECENT = 12;
@@ -195,6 +196,9 @@ export interface ProductFinderState {
   setBulkCrossOpen: (v: boolean) => void;
   assistantOpen: boolean;
   setAssistantOpen: (v: boolean) => void;
+  /** Active white-label brand profile id (lib/brand). Persisted in localStorage. */
+  brandId: string;
+  setBrandId: (id: string) => void;
   submittalOpen: boolean;
   setSubmittalOpen: (v: boolean) => void;
 
@@ -687,6 +691,12 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setBulkCrossOpen(v) { set({ bulkCrossOpen: v }); },
   assistantOpen: false,
   setAssistantOpen(v) { set({ assistantOpen: v }); },
+  brandId: DEFAULT_BRAND_ID,
+  setBrandId(id) {
+    const next = isBrandId(id) ? id : DEFAULT_BRAND_ID;
+    if (typeof localStorage !== "undefined") localStorage.setItem("pf_brand", next);
+    set({ brandId: next });
+  },
   submittalOpen: false,
   setSubmittalOpen(v) { set({ submittalOpen: v }); },
 
@@ -1508,6 +1518,10 @@ export function hydrateSavedState() {
     searchHistory: readArr("pf_search_history"),
     savedBaskets: readBaskets("pf_saved_baskets"),
     savedSearches: readSavedSearches(),
+    brandId: (() => {
+      const v = localStorage.getItem("pf_brand");
+      return isBrandId(v) ? v : DEFAULT_BRAND_ID;
+    })(),
     jobTemplates: readTemplates(),
     quotes: readQuotes(),
     watches,

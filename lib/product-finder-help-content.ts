@@ -562,6 +562,16 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "white-label",
+    title: "White-label brand mode",
+    body: [
+      "The app's brand — name, logo lockup, and accent — is a swappable profile, so the same product re-skins to any distributor.",
+      "• Use the Brand switcher in the header to flip between profiles (Meridian and a Wesco demo profile). The header logo, login screen, quote PDF, and submittal package all re-skin instantly, and your choice is remembered.",
+      "• Real logo art and an exact brand palette drop into a profile (lib/brand.ts) without touching any component — point a deployment at a brand and it ships that way.",
+      "It's the \"imagine this with your name on it\" moment for a pitch — and the path to a per-customer branded deployment.",
+    ],
+  },
+  {
     id: "mcp-server",
     title: "MCP server — agentic procurement",
     body: [

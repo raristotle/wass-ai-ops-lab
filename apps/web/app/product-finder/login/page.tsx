@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { getBrand } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
 const DEMO_USERS = [
@@ -23,6 +24,15 @@ export default function LoginPage() {
   const router = useRouter();
   const login = useProductFinder((s) => s.login);
   const authError = useProductFinder((s) => s.authError);
+  const brand = getBrand(useProductFinder((s) => s.brandId));
+  const setBrandId = useProductFinder((s) => s.setBrandId);
+
+  // The login route is outside AuthGuard (which hydrates saved state), so pull
+  // the persisted white-label brand directly after mount.
+  useEffect(() => {
+    const saved = localStorage.getItem("pf_brand");
+    if (saved) setBrandId(saved);
+  }, [setBrandId]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,8 +54,11 @@ export default function LoginPage() {
       {/* Header */}
       <header className="w-full bg-[#1D252D] px-6 py-4 shadow-sm">
         <div className="mx-auto flex max-w-6xl items-center gap-3">
-          <span className="inline-flex h-9 w-20 items-center justify-center rounded bg-[#00AA13] px-2 text-sm font-bold tracking-widest text-white [font-family:var(--font-titillium,'Arial Bold',sans-serif)]">
-            MERIDIAN
+          <span
+            className="inline-flex h-9 min-w-20 items-center justify-center rounded px-2 text-sm font-bold tracking-widest text-white [font-family:var(--font-titillium,'Arial Bold',sans-serif)]"
+            style={{ backgroundColor: brand.accent }}
+          >
+            {brand.logoMark}
           </span>
           <span className="text-base font-medium text-[#B7C9D3]">
             AI Product Recommender

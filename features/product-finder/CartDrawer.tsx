@@ -29,6 +29,7 @@ import { marginGuidance } from "@/lib/product-finder-winloss";
 import { stockWarning } from "@/lib/product-finder-stock-warning";
 import { apiCrossSavings } from "@/lib/product-finder-api";
 import { bestCrossSaving, totalCrossSavings, type CrossCandidate, type CrossSaving } from "@/lib/catalog/cross-savings";
+import { getBrand } from "@/lib/brand";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -43,6 +44,7 @@ export function CartDrawer() {
   const cartCount = useProductFinder(selectCartCount);
   const cartTotal = useProductFinder(selectCartTotal);
   const user = useProductFinder((s) => s.user);
+  const brand = getBrand(useProductFinder((s) => s.brandId));
   const priceOverrides = useProductFinder((s) => s.priceOverrides);
   const setPriceOverride = useProductFinder((s) => s.setPriceOverride);
   const [editingPriceId, setEditingPriceId] = useState<string | null>(null);
@@ -1539,6 +1541,7 @@ export function CartDrawer() {
               packageNumber={quoteNum.replace(/^Q-/, "SUB-")}
               dateLabel={formatDisplayDate(quoteDate)}
               preparedBy={user ? `${user.name} · ${user.branch}` : undefined}
+              brand={brand}
             />
           </section>
         )}
@@ -1556,14 +1559,17 @@ export function CartDrawer() {
           >
             {/* ── Quote header ─────────────────────────────── */}
             <div className="flex items-start justify-between mb-6 print:mb-8">
-              {/* Meridian brand mark */}
+              {/* Brand mark — white-label config */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="inline-flex items-center justify-center rounded bg-[#00AA13] px-2 py-1 text-xs font-bold tracking-widest text-white">
-                    MERIDIAN
+                  <span
+                    className="inline-flex items-center justify-center rounded px-2 py-1 text-xs font-bold tracking-widest text-white"
+                    style={{ backgroundColor: brand.accent }}
+                  >
+                    {brand.logoMark}
                   </span>
                   <span className="text-xs font-semibold uppercase tracking-widest text-[#4F758B]">
-                    Supply Co.
+                    {brand.logoSub}
                   </span>
                 </div>
                 <h1 className="text-2xl font-bold text-[#1D252D] tracking-wide mt-1">

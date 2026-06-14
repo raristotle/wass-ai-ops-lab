@@ -20,6 +20,12 @@ Every SKU below is deterministic — it exists with the same data in every envir
     basket and quote, insights — and every step has a one-click 'try it' that runs
     the real feature. It shows once and never blocks the screen."* **Dismiss it**
     (it's re-launchable from the Help panel footer).
+1c. **(Opener for a Wesco audience.) Use the header "Brand:" switcher → Wesco.**
+    *"Before we go further — this is your app. One switch and the whole thing is
+    Wesco-branded: the logo, the login screen, the quote PDF, the submittal
+    package. Your real logo and palette drop straight in; a per-customer branded
+    deployment is a config away."* (Flip it back to Meridian, or leave it on
+    Wesco for the rest of the demo.)
 2. **Point at the header**: name + branch top-right, the **"Demo role:"** selector
    (*"swap between rep, manager, and admin instantly — no retyping credentials;
    we'll use it later"*), the **⌘K** palette button, the **🔔 notification bell**

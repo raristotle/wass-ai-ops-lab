@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useProductFinder, hydrateAuth, hydrateSavedState } from "@/lib/product-finder-store";
+import { getBrand } from "@/lib/brand";
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ interface AuthGuardProps {
 export function AuthGuard({ children }: AuthGuardProps) {
   const router = useRouter();
   const user = useProductFinder((s) => s.user);
+  const brand = getBrand(useProductFinder((s) => s.brandId));
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -30,11 +32,14 @@ export function AuthGuard({ children }: AuthGuardProps) {
       <div className="flex min-h-screen items-center justify-center bg-white">
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-[#00AA13] text-sm font-bold text-white">
-              M
+            <span
+              className="inline-flex h-9 w-9 items-center justify-center rounded text-sm font-bold text-white"
+              style={{ backgroundColor: brand.accent }}
+            >
+              {brand.logoMark.charAt(0)}
             </span>
             <span className="text-lg font-bold tracking-wide text-[#1D252D]">
-              MERIDIAN
+              {brand.logoMark}
             </span>
           </div>
           <div

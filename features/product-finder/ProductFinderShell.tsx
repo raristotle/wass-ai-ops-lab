@@ -15,9 +15,11 @@ import { AssistantPanel } from "@/features/product-finder/AssistantPanel";
 import { JobWizardModal } from "@/features/product-finder/JobWizardModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
+import { BrandSwitcher } from "@/features/product-finder/BrandSwitcher";
 import { NotificationBell } from "@/features/product-finder/NotificationBell";
 import { TourOverlay } from "@/features/product-finder/TourOverlay";
 import { CommandPalette } from "@/features/product-finder/CommandPalette";
+import { getBrand } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
 interface ProductFinderShellProps {
@@ -35,6 +37,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
   const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
   const orders = useProductFinder((s) => s.orders);
+  const brand = getBrand(useProductFinder((s) => s.brandId));
 
   // Clock read after mount keeps SSR and the first client render identical.
   const [now, setNow] = useState<number | null>(null);
@@ -54,13 +57,16 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <header className="z-30 flex shrink-0 items-center justify-between bg-[#1D252D] px-4 py-3 shadow-md sm:px-6 print:hidden">
         {/* Left: Logo + title */}
         <div className="flex items-center gap-3">
-          {/* MERIDIAN logo box */}
+          {/* Brand logo box — white-label config (lib/brand) */}
           <div className="flex flex-col items-center">
-            <span className="inline-flex items-center justify-center rounded bg-[#00AA13] px-2 py-1 text-xs font-bold tracking-widest text-white [font-family:var(--font-titillium,'Arial_Bold',sans-serif)] sm:text-sm">
-              MERIDIAN
+            <span
+              className="inline-flex items-center justify-center rounded px-2 py-1 text-xs font-bold tracking-widest text-white [font-family:var(--font-titillium,'Arial_Bold',sans-serif)] sm:text-sm"
+              style={{ backgroundColor: brand.accent }}
+            >
+              {brand.logoMark}
             </span>
             <span className="text-[9px] font-semibold uppercase tracking-widest text-[#B7C9D3]">
-              Supply Co.
+              {brand.logoSub}
             </span>
           </div>
 
@@ -80,6 +86,9 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
 
         {/* Right: role switcher + customer selector + user info + cart */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* White-label brand switcher */}
+          <BrandSwitcher />
+
           {/* Demo role switcher */}
           <RoleSwitcher />
 
