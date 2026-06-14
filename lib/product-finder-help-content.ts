@@ -658,6 +658,19 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "reliability-security",
+    title: "Reliability & security",
+    body: [
+      "The pilot is hardened for shared, real-world use, not just a happy-path demo:",
+      "• Write-heavy and AI endpoints are rate-limited per caller (the assistant at 20 requests/min) — bursts get a polite 429 with a Retry-After instead of running up cost or load.",
+      "• Every page response carries security headers (clickjacking, MIME-sniffing, referrer, and permissions policy, plus HSTS) set in one middleware.",
+      "• A /api/health endpoint reports which integrations are live (assistant, SSO, email, distributor APIs) as booleans — never any secret value — for uptime monitoring.",
+      "• Errors are logged server-side as structured JSON; API responses never leak internal messages or stack traces to the browser.",
+      "• The render-critical UI is covered by component tests (React Testing Library) on top of the full unit suite, so a broken control is caught before deploy.",
+      "Operator detail lives in docs/security.md; nothing here changes how you use the app day to day.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

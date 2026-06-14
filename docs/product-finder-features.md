@@ -136,3 +136,14 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 | **Mobile field-rep layout** | Phone-ready (390px+): full-width basket drawer, bottom-sheet filters, single-column For-you rail, viewport-anchored notifications, mobile-first customer quote page |
 | Favorites & recently viewed | Starred products and view history, persistent |
 | Print support | Quote, spec sheet, and comparison print as clean documents |
+
+## Platform reliability & security (Wave 3 hardening)
+
+| Feature | Summary |
+|---|---|
+| **API rate limiting** | Fixed-window per-caller limiter (`lib/server/rate-limit.ts`, tested) on the cost- and write-sensitive routes — `/api/assistant` (20/min), `/api/crosses/match` & `/api/crosses/savings` (60/min), `/api/auth/sso/start` (30/min). Over-limit returns `429` with `Retry-After` + `X-RateLimit-*` headers. In-memory per instance today; Upstash/Redis is the documented multi-instance upgrade |
+| **Security headers** | One middleware (`apps/web/middleware.ts`) sets `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `Strict-Transport-Security`, and `X-DNS-Prefetch-Control` on every response. Full CSP (per-route nonces) is the documented follow-up |
+| **Health endpoint** | `GET /api/health` → `{ status, service, integrations }` with **booleans only** (assistant / sso / resend / mouser / digikey configured), no secret values — an uptime-monitor and readiness probe target |
+| **Structured error logging** | `logApiError()` (`lib/server/log.ts`) emits one JSON line per server error (message + truncated stack); API responses never return internal messages or stack traces to the client |
+| **Component/render test net** | React Testing Library + jsdom render tests for the render-critical UI (brand switcher, saved-searches bar, assistant panel) guard the store-selector render-loop class of regression, on top of the full pure-logic unit suite |
+| **Security posture doc** | [docs/security.md](security.md) — headers, rate limiting, no-internal-leakage, XSS-via-React-escaping, CSV-injection guard, secrets handling, and the prioritized follow-up list |

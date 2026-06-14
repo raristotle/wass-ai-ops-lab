@@ -3,10 +3,12 @@
 How to use, manage, and extend the Product Finder's HTTP API.
 Catalog endpoints are **read-only GET** routes under `/api/products/*`, served by
 Next.js route handlers in `apps/web/app/api/products/`. They run against the
-in-memory deterministic catalog (`lib/catalog/`) — no database, no auth required,
-no rate limits beyond the platform's. Two routes reach outside the catalog:
+in-memory deterministic catalog (`lib/catalog/`) — no database, no auth required.
+The catalog GETs are not rate-limited; the cost- and write-sensitive routes are
+(see **Rate limiting** below). Two routes reach outside the catalog:
 `/api/products/[id]/live` (real distributor data) and `/api/quote-email`
-(real email via Resend) — both documented below.
+(real email via Resend) — both documented below. Operational endpoints:
+`/api/health` (readiness/integration status, below).
 
 Base URL (production): `https://app.raristotle.com`
 
@@ -129,6 +131,53 @@ The one **non-products, non-read-only** route: real quote email via Resend.
   client-side by the pure, tested `quoteEmailHtml()` in
   `lib/product-finder-email.ts`.
 
+### `GET /api/health`
+
+Readiness / integration-status probe. Returns booleans only — never any secret
+value — so it's safe to hit from an uptime monitor:
+
+```jsonc
+{
+  "status": "ok",
+  "service": "product-finder",
+  "integrations": {
+    "assistant": false,   // ANTHROPIC_API_KEY set?
+    "sso": false,         // SSO_* configured?
+    "resend": false,      // RESEND_API_KEY set?
+    "mouser": true,       // MOUSER_API_KEY set?
+    "digikey": false      // DIGIKEY_CLIENT_ID + _SECRET set?
+  }
+}
+```
+
+## Rate limiting
+
+Cost- and write-sensitive routes use a fixed-window per-caller limiter
+(`lib/server/rate-limit.ts`; caller = first `x-forwarded-for` hop):
+
+| Route | Limit |
+|---|---|
+| `POST /api/assistant` | 20 / min |
+| `POST /api/crosses/match` | 60 / min |
+| `POST /api/crosses/savings` | 60 / min |
+| `GET /api/auth/sso/start` | 30 / min |
+
+Over the limit returns `429` with `Retry-After` (seconds until the window
+resets), `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset`
+(epoch seconds when the window resets) headers.
+The store is in-memory **per server instance** — best-effort on multi-instance
+deployments; a shared Upstash/Redis store is the documented upgrade
+([docs/security.md](security.md)).
+
+## Security headers
+
+`apps/web/middleware.ts` sets `X-Frame-Options: SAMEORIGIN`,
+`X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`,
+`Permissions-Policy: camera=(), geolocation=(), microphone=(self)`,
+`Strict-Transport-Security`, and `X-DNS-Prefetch-Control: off` on every response.
+Errors are logged server-side as structured JSON (`logApiError`); responses never
+leak internal messages or stack traces. Full security posture: [docs/security.md](security.md).
+
 ## Managing the API
 
 ### Where things live
@@ -176,5 +225,7 @@ in `lib/catalog/search.test.ts`.
 - **Logs**: `vercel logs <deployment-url>` or the Vercel dashboard.
 - **Smoke test**:
   `curl "https://app.raristotle.com/api/products/search?q=QO115" | jq .total`
+- **Health check**:
+  `curl "https://app.raristotle.com/api/health" | jq .status`  → `"ok"`
 - The API serves synthetic data only — there are no secrets, tokens, or PII in
   any response.

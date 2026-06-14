@@ -154,6 +154,11 @@ describe("AC45 — zero new dependencies vs git HEAD", () => {
   // catches ACCIDENTAL deps; intentional ones are listed here with their reason.
   const ALLOWED_ADDED_DEPS = new Set([
     "@modelcontextprotocol/sdk", // Phase 2: the standalone MCP server (mcp/meridian-mcp-server.mjs)
+    // Wave 3 hardening: jsdom + React Testing Library for component/render tests.
+    "@testing-library/react",
+    "@testing-library/jest-dom",
+    "@testing-library/dom",
+    "jsdom",
   ]);
 
   it.each(["package.json", "apps/web/package.json"])("%s has no unreviewed added deps", (rel) => {

@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import { readSsoConfig, buildAuthorizeUrl } from "@/lib/auth/sso";
+import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 
 export const dynamic = "force-dynamic";
+
+const SSO_LIMIT = { limit: 30, windowMs: 60_000 };
 
 /**
  * Begins the OIDC authorization-code flow: redirects the browser to the
@@ -12,7 +15,10 @@ export const dynamic = "force-dynamic";
  * docs/sso.md — the claims→user mapping it uses (lib/auth/sso mapClaimsToUser)
  * is already built and tested.
  */
-export function GET() {
+export function GET(req: Request) {
+  const rl = rateLimit(req, SSO_LIMIT);
+  if (!rl.ok) return tooManyRequests(rl);
+
   const cfg = readSsoConfig();
   if (!cfg.enabled) {
     return NextResponse.redirect(new URL("/product-finder/login", process.env.APP_ORIGIN || "http://localhost:3000"));

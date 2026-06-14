@@ -22,9 +22,14 @@ import {
   resolveStocked,
   provenancedIndex,
 } from "@/lib/catalog/cross-runtime";
+import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
+import { logApiError } from "@/lib/server/log";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
+
+// The assistant calls a paid model per request — cap hard to protect the bill.
+const ASSISTANT_LIMIT = { limit: 20, windowMs: 60_000 };
 
 const totalStock = (p: CatalogProduct) =>
   p.branchStock.reduce((s, b) => s + b.quantity, 0) + p.dcStock.reduce((s, d) => s + d.quantity, 0);
@@ -169,6 +174,9 @@ async function runAnthropic(messages: AssistantTextMessage[], env: NodeJS.Proces
 }
 
 export async function POST(req: Request) {
+  const rl = rateLimit(req, ASSISTANT_LIMIT);
+  if (!rl.ok) return tooManyRequests(rl);
+
   const body = await req.json().catch(() => null);
   const messages = validateMessages(body);
   if (!messages) {
@@ -181,12 +189,12 @@ export async function POST(req: Request) {
     const { reply, toolsUsed } = await runAnthropic(messages, process.env);
     return NextResponse.json({ enabled: true, reply, toolsUsed });
   } catch (e) {
+    logApiError("/api/assistant", e);
     return NextResponse.json(
       {
         enabled: true,
         reply: "Sorry — Ask Meridian hit an error reaching the model. Try again in a moment.",
         toolsUsed: [],
-        error: e instanceof Error ? e.message : String(e),
       },
       { status: 200 }
     );

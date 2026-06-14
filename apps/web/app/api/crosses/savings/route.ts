@@ -2,9 +2,12 @@ import { NextResponse } from "next/server";
 import { resolvedCrossEntries, resolveStocked, provenancedIndex } from "@/lib/catalog/cross-runtime";
 import { verifiedCrossesFor } from "@/lib/catalog/verified-crosses";
 import { identifierKey } from "@/lib/catalog/identifiers";
+import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import type { CrossCandidate } from "@/lib/catalog/cross-savings";
 
 export const dynamic = "force-dynamic";
+
+const SAVINGS_LIMIT = { limit: 60, windowMs: 60_000 };
 
 const SKU_CAP = 200;
 
@@ -15,6 +18,9 @@ const SKU_CAP = 200;
  * (lib/catalog/cross-savings), so pricing stays consistent with the cart.
  */
 export async function POST(req: Request) {
+  const rl = rateLimit(req, SAVINGS_LIMIT);
+  if (!rl.ok) return tooManyRequests(rl);
+
   let body: unknown;
   try {
     body = await req.json();

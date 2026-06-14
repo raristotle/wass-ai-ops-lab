@@ -38,6 +38,9 @@ yarn-error.log*
 .vscode/settings.json
 .idea/
 
+# Local tooling (dev-server launch config, agent session data)
+.claude/
+
 .superpowers/
 
 # Word owner-lock files

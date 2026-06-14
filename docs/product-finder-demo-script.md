@@ -380,6 +380,17 @@ quote emails, every quote carrying its own audit trail with revisions instead
 of overwrites, customer health and demand forecasts rolling up to a manager
 bell and pipeline — and every screen two keystrokes away, desk or job site."*
 
+> **Built-for-production aside (for an IT/enterprise audience):** this is a
+> hardened pilot, not just a happy-path demo. Cost- and write-sensitive endpoints
+> are rate-limited (the AI assistant at 20/min) and return a polite `429` rather
+> than running up load; every response carries security headers (clickjacking,
+> MIME-sniffing, referrer, permissions policy, HSTS); a `/api/health` endpoint
+> reports integration status as booleans for uptime monitoring; errors log as
+> structured JSON and never leak internals to the browser; and the render-critical
+> UI is covered by component tests on top of the full unit suite. Full posture and
+> the prioritized follow-ups (CSP, shared rate-limit store, SSO token-exchange) are
+> in [docs/security.md](security.md).
+
 > **Demo honesty note:** customer accounts, contract pricing, inventory/ATP, PIM
 > provenance, and simulated-SKU cross-references run on **synthetic data behind
 > swap-in adapters** (`lib/integration/`). The REAL pieces: the live
