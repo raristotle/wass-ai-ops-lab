@@ -62,9 +62,14 @@ function env(name: string): string | null {
   return v ? v : null;
 }
 
+/**
+ * Resolve the Upstash REST URL + token. Accepts the Upstash-native names and the
+ * legacy "Vercel KV" names (`KV_REST_API_*`) that some Marketplace setups inject,
+ * so the limiter activates whichever provisioning path was used.
+ */
 function upstash(): { url: string; token: string } | null {
-  const url = env("UPSTASH_REDIS_REST_URL");
-  const token = env("UPSTASH_REDIS_REST_TOKEN");
+  const url = env("UPSTASH_REDIS_REST_URL") ?? env("KV_REST_API_URL");
+  const token = env("UPSTASH_REDIS_REST_TOKEN") ?? env("KV_REST_API_TOKEN");
   return url && token ? { url, token } : null;
 }
 

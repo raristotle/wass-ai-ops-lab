@@ -45,6 +45,30 @@ describe("rateLimiterConfigured", () => {
   it("is false when Upstash env vars are unset (dormant default)", () => {
     expect(rateLimiterConfigured()).toBe(false);
   });
+
+  it("activates on the Upstash-native names", () => {
+    const prev = { ...process.env };
+    try {
+      process.env.UPSTASH_REDIS_REST_URL = "https://x.upstash.io";
+      process.env.UPSTASH_REDIS_REST_TOKEN = "tok";
+      expect(rateLimiterConfigured()).toBe(true);
+    } finally {
+      process.env = prev;
+    }
+  });
+
+  it("also activates on the legacy KV_REST_API_* names", () => {
+    const prev = { ...process.env };
+    try {
+      delete process.env.UPSTASH_REDIS_REST_URL;
+      delete process.env.UPSTASH_REDIS_REST_TOKEN;
+      process.env.KV_REST_API_URL = "https://x.upstash.io";
+      process.env.KV_REST_API_TOKEN = "tok";
+      expect(rateLimiterConfigured()).toBe(true);
+    } finally {
+      process.env = prev;
+    }
+  });
 });
 
 describe("rateLimit (route helper, Upstash unconfigured)", () => {

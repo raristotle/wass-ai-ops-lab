@@ -18,9 +18,27 @@ function env(name: string): string | null {
   return v ? v : null;
 }
 
+/**
+ * Candidate env vars that may carry a Postgres connection string, in priority
+ * order. The Vercel↔Neon Marketplace integration injects `POSTGRES_URL` (pooled)
+ * among several names; a hand setup may set only `POSTGRES_URL`. `DATABASE_URL`
+ * is accepted too, but only when it is a real Postgres URL — in this repo it
+ * defaults to a SQLite `file:` URL, so the scheme guard skips that automatically.
+ */
+const POSTGRES_URL_VARS = ["POSTGRES_URL", "DATABASE_URL", "POSTGRES_URL_NON_POOLING", "POSTGRES_PRISMA_URL"];
+
+/** First configured env var that holds a Postgres-scheme connection string, else null. */
+export function postgresUrl(): string | null {
+  for (const name of POSTGRES_URL_VARS) {
+    const v = env(name);
+    if (v && /^postgres(ql)?:\/\//i.test(v)) return v;
+  }
+  return null;
+}
+
 /** True when a Postgres URL is configured (the Neon store is active). */
 export function persistenceConfigured(): boolean {
-  return Boolean(env("POSTGRES_URL"));
+  return postgresUrl() !== null;
 }
 
 export interface KvStore {
@@ -132,7 +150,7 @@ const g = globalThis as unknown as { __kvStore?: KvStore };
  */
 export function getStore(): KvStore {
   if (g.__kvStore) return g.__kvStore;
-  const url = env("POSTGRES_URL");
+  const url = postgresUrl();
   g.__kvStore = url ? new NeonStore(url) : new MemoryStore();
   return g.__kvStore;
 }

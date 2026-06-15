@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { MemoryStore, getStore, persistenceConfigured } from "@/lib/server/persistence";
+import { MemoryStore, getStore, persistenceConfigured, postgresUrl } from "@/lib/server/persistence";
 import { InlineQueue } from "@/lib/server/queue";
 
 describe("MemoryStore", () => {
@@ -47,6 +47,36 @@ describe("getStore", () => {
     await store.put("rfq-intake", rec.id, rec);
     expect(await store.get("rfq-intake", "Q-TEST-1")).toEqual(rec);
     await store.delete("rfq-intake", "Q-TEST-1");
+  });
+});
+
+describe("postgresUrl resolution", () => {
+  it("only accepts a Postgres-scheme URL — a SQLite file: DATABASE_URL is ignored", () => {
+    const prev = { ...process.env };
+    try {
+      delete process.env.POSTGRES_URL;
+      delete process.env.POSTGRES_URL_NON_POOLING;
+      delete process.env.POSTGRES_PRISMA_URL;
+      process.env.DATABASE_URL = "file:./dev.db"; // this repo's local default
+      expect(postgresUrl()).toBeNull();
+      expect(persistenceConfigured()).toBe(false);
+    } finally {
+      process.env = prev;
+    }
+  });
+
+  it("resolves POSTGRES_URL, or a Postgres-scheme DATABASE_URL as fallback", () => {
+    const prev = { ...process.env };
+    try {
+      delete process.env.DATABASE_URL;
+      process.env.POSTGRES_URL = "postgresql://u:p@ep-x-pooler.neon.tech/db?sslmode=require";
+      expect(postgresUrl()).toContain("neon.tech");
+      delete process.env.POSTGRES_URL;
+      process.env.DATABASE_URL = "postgres://u:p@host/db";
+      expect(postgresUrl()).toBe("postgres://u:p@host/db");
+    } finally {
+      process.env = prev;
+    }
   });
 });
 
