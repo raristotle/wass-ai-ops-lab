@@ -236,6 +236,18 @@ the known ones; all-unknown is a 400). A `jobId` rolls the order onto that Job's
 value rollup. `GET` lists recent orders (`?id=` fetches one by order id or
 clientRef). Persists to Neon when configured. POST 30/min, GET 60/min.
 
+### `GET /api/vmi` · `POST /api/vmi` · `DELETE /api/vmi`
+
+**Vendor-managed inventory** — durable per-SKU min/max policies + a live
+replenishment view. `POST` upserts a policy `{ sku, min, max, customerId?,
+branchId? }` (SKU validated against the catalog). `GET` returns one `ReorderLine`
+per policy pairing **on-hand stock** (catalog) with **projected 30-day demand**
+(summed from the durable `orders` namespace) to compute `available` and a
+recommended `reorderQty` that restocks to `max`, with status `ok | reorder |
+critical` (worst first). `DELETE ?id=` removes a policy. The reorder math is a
+pure tested lib (`lib/product-finder-vmi.ts`); a flagged line drafts a
+replenishment through `POST /api/orders`. All verbs 60/min.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter
@@ -250,6 +262,7 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `POST /api/rfq` | 60 / min |
 | `GET/POST/DELETE /api/jobs` | 60 / min |
 | `POST /api/orders` | 30 / min |
+| `GET/POST/DELETE /api/vmi` | 60 / min |
 | `GET /api/commodity` | 30 / min |
 | `GET /api/rfq` | 30 / min |
 | `GET /api/auth/sso/start` | 30 / min |

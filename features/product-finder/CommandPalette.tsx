@@ -70,6 +70,7 @@ export function CommandPalette() {
         s.rfqOpen ||
         s.bomIqOpen ||
         s.jobsOpen ||
+        s.vmiOpen ||
         s.returnModalOrderId !== null ||
         s.detailModalProduct !== null
       ) {

@@ -6,6 +6,7 @@ import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
 import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
 import { JobsModal } from "@/features/product-finder/JobsModal";
+import { VmiModal } from "@/features/product-finder/VmiModal";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
@@ -35,7 +36,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   });
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, orders: [], cart: {} });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, orders: [], cart: {} });
   });
 
   it("Guided selectors modal", async () => {
@@ -70,12 +71,18 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
     const { container } = render(<JobsModal />);
     await expectNoViolations(container);
   });
+
+  it("VMI modal (no policies)", async () => {
+    useProductFinder.setState({ vmiOpen: true });
+    const { container } = render(<VmiModal />);
+    await expectNoViolations(container);
+  });
 });
 
 describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, orders: [] });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, orders: [] });
   });
 
   it("Escape closes the Guided selectors modal", () => {
@@ -110,5 +117,14 @@ describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
     expect(useProductFinder.getState().jobsOpen).toBe(true);
     fireEvent.keyDown(document.body, { key: "Escape" });
     expect(useProductFinder.getState().jobsOpen).toBe(false);
+  });
+
+  it("Escape closes the VMI modal", () => {
+    vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, json: async () => ({ lines: [], backend: "memory" }) })));
+    useProductFinder.setState({ vmiOpen: true });
+    render(<VmiModal />);
+    expect(useProductFinder.getState().vmiOpen).toBe(true);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().vmiOpen).toBe(false);
   });
 });

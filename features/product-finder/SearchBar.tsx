@@ -246,6 +246,7 @@ interface SingleSearchPanelProps {
   onOpenRfq: () => void;
   onOpenBomIq: () => void;
   onOpenJobs: () => void;
+  onOpenVmi: () => void;
   onOpenAssistant: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
@@ -274,6 +275,7 @@ function SingleSearchPanel({
   onOpenRfq,
   onOpenBomIq,
   onOpenJobs,
+  onOpenVmi,
   onOpenAssistant,
   onVoiceInterim,
   onVoiceFinal,
@@ -496,6 +498,21 @@ function SingleSearchPanel({
           Jobs
         </button>
 
+        {/* VMI — vendor-managed inventory min/max + replenishment */}
+        <button
+          type="button"
+          onClick={onOpenVmi}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#00573F]/50 px-3 py-1 text-xs font-medium text-[#00573F]",
+            "hover:border-[#00573F] hover:bg-[#00573F]/5",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00573F]"
+          )}
+          aria-label="Vendor-managed inventory"
+        >
+          <span aria-hidden="true">📦</span>
+          VMI
+        </button>
+
         {/* Cross-reference — paste a competitor/legacy part number */}
         <button
           type="button"
@@ -581,6 +598,7 @@ export function SearchBar() {
     setRfqOpen,
     setBomIqOpen,
     setJobsOpen,
+    setVmiOpen,
     setAssistantOpen,
   } = useProductFinder();
 
@@ -722,6 +740,7 @@ export function SearchBar() {
             onOpenRfq={() => setRfqOpen(true)}
             onOpenBomIq={() => setBomIqOpen(true)}
             onOpenJobs={() => setJobsOpen(true)}
+            onOpenVmi={() => setVmiOpen(true)}
             onOpenAssistant={() => setAssistantOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}

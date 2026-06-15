@@ -312,6 +312,10 @@ export interface ProductFinderState {
   jobsOpen: boolean;
   setJobsOpen: (v: boolean) => void;
 
+  // VMI (vendor-managed inventory) — min/max + replenishment
+  vmiOpen: boolean;
+  setVmiOpen: (v: boolean) => void;
+
   // Watches (notify-when-available)
   watches: WatchEntry[];
   toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
@@ -1395,6 +1399,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Job (project) workspace ───────────────────────────────
   jobsOpen: false,
   setJobsOpen(v) { set({ jobsOpen: v }); },
+
+  // ── VMI (vendor-managed inventory) ────────────────────────
+  vmiOpen: false,
+  setVmiOpen(v) { set({ vmiOpen: v }); },
 
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
