@@ -665,6 +665,7 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• Every line gets an A/B/C health grade across lifecycle, stock depth, single-source risk, and substitute availability — with a rollup: worst grade, average score, and how many lines need a look.",
       "• Each flagged line gets a recommended fix: swap to the active successor, qualify a second source, or take a cheaper documented cross.",
       "• The landed-cost optimizer scores each line's options — the current part, stocked crosses, and the active successor — by list price + estimated freight + a lead-time carrying penalty, and recommends the best award with the savings and the reasoning.",
+      "• Compliance enrichment flags each line — UL listing, RoHS/REACH/Prop 65, country-of-origin, and Section 301 tariff exposure — with a BOM rollup (lines flagged, tariff-exposed) for bid-grade submittals. Derived attributes today; a real UL/manufacturer feed is the upgrade.",
       "Deterministic — no AI key needed. Make the actual swaps from each line's detail view.",
     ],
   },

@@ -145,22 +145,31 @@ export interface BomAnalyzeRow {
     best: { id: string; label: string; kind: string; landedUnit: number };
     currentLandedUnit: number;
   } | null;
+  compliance: { flags: string[]; countryOfOrigin: string; section301: boolean; ulListed: boolean } | null;
 }
+
+export interface BomAnalysis {
+  rows: BomAnalyzeRow[];
+  compliance: import("@/lib/catalog/compliance").BomCompliance;
+}
+
+const EMPTY_COMPLIANCE = { lines: 0, ulListed: 0, notUlListed: 0, rohsIssues: 0, prop65: 0, tariffExposed: 0, flagged: 0 };
 
 export async function apiBomAnalyze(
   items: { sku: string; qty: number }[],
   branchId?: string,
-): Promise<BomAnalyzeRow[]> {
+): Promise<BomAnalysis> {
   try {
     const res = await fetch("/api/bom/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items, branchId }),
     });
-    if (!res.ok) return [];
-    return (await res.json()).rows as BomAnalyzeRow[];
+    if (!res.ok) return { rows: [], compliance: EMPTY_COMPLIANCE };
+    const data = await res.json();
+    return { rows: data.rows as BomAnalyzeRow[], compliance: data.compliance ?? EMPTY_COMPLIANCE };
   } catch {
-    return [];
+    return { rows: [], compliance: EMPTY_COMPLIANCE };
   }
 }
 

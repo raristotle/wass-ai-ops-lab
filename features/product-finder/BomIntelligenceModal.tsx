@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { apiBomAnalyze, type BomAnalyzeRow } from "@/lib/product-finder-api";
+import { apiBomAnalyze, type BomAnalysis } from "@/lib/product-finder-api";
 import { rollupHealth, type LineHealth, type HealthGrade } from "@/lib/catalog/bom-health";
 import { cn } from "@/lib/utils";
 
@@ -18,25 +18,25 @@ export function BomIntelligenceModal() {
   const cart = useProductFinder((s) => s.cart);
   const branchId = useProductFinder((s) => s.user?.branchId);
 
-  const [rows, setRows] = useState<BomAnalyzeRow[] | null>(null);
+  const [analysis, setAnalysis] = useState<BomAnalysis | null>(null);
   const [busy, setBusy] = useState(false);
 
   const items = Object.values(cart).map(({ product, qty }) => ({ sku: product.sku, qty }));
 
   useEffect(() => {
     if (!open) {
-      setRows(null);
+      setAnalysis(null);
       return;
     }
     if (items.length === 0) {
-      setRows([]);
+      setAnalysis({ rows: [], compliance: { lines: 0, ulListed: 0, notUlListed: 0, rohsIssues: 0, prop65: 0, tariffExposed: 0, flagged: 0 } });
       return;
     }
     let cancelled = false;
     setBusy(true);
     void apiBomAnalyze(items, branchId)
-      .then((r) => {
-        if (!cancelled) setRows(r);
+      .then((a) => {
+        if (!cancelled) setAnalysis(a);
       })
       .finally(() => {
         if (!cancelled) setBusy(false);
@@ -49,9 +49,11 @@ export function BomIntelligenceModal() {
 
   if (!open) return null;
 
+  const rows = analysis?.rows ?? null;
   const grades = (rows ?? []).map((r) => r.health).filter((h): h is LineHealth => h !== null);
   const roll = rollupHealth(grades);
   const totalSavings = (rows ?? []).reduce((s, r) => s + (r.award?.switch ? r.award.lineSavings : 0), 0);
+  const comp = analysis?.compliance;
 
   return (
     <div
@@ -89,7 +91,7 @@ export function BomIntelligenceModal() {
           {!busy && rows !== null && rows.length > 0 && (
             <>
               {/* Rollup */}
-              <div className="mb-4 grid grid-cols-3 gap-2">
+              <div className="mb-4 grid grid-cols-4 gap-2">
                 <div className="rounded-lg bg-[#F1EFE8] px-3 py-2">
                   <p className="text-[11px] text-[#4F758B]">BOM health</p>
                   <p className="text-lg font-semibold text-[#1D252D]">
@@ -107,6 +109,13 @@ export function BomIntelligenceModal() {
                   <p className="text-[11px] text-[#4F758B]">Landed savings found</p>
                   <p className="text-lg font-semibold text-[#00573F]">${totalSavings.toFixed(2)}</p>
                   <p className="text-[11px] text-[#4F758B]">across better awards</p>
+                </div>
+                <div className="rounded-lg bg-[#F1EFE8] px-3 py-2">
+                  <p className="text-[11px] text-[#4F758B]">Compliance</p>
+                  <p className="text-lg font-semibold text-[#1D252D]">{comp?.flagged ?? 0}</p>
+                  <p className="text-[11px] text-[#4F758B]">
+                    {(comp?.tariffExposed ?? 0) > 0 ? `${comp!.tariffExposed} tariff-exposed` : "lines flagged"}
+                  </p>
                 </div>
               </div>
 
@@ -132,6 +141,12 @@ export function BomIntelligenceModal() {
                     )}
                     {r.award?.switch && (
                       <p className="mt-0.5 text-[11px] text-[#00573F]">💰 {r.award.rationale}</p>
+                    )}
+                    {r.compliance && (r.compliance.flags.length > 0 || r.compliance.countryOfOrigin) && (
+                      <p className="mt-0.5 text-[10px] text-[#854F0B]">
+                        ⚖ {r.compliance.countryOfOrigin}
+                        {r.compliance.flags.length > 0 ? ` · ${r.compliance.flags.join(" · ")}` : " · compliant"}
+                      </p>
                     )}
                   </li>
                 ))}

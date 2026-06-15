@@ -8,6 +8,7 @@ import { resolvedCrossEntries, resolveStocked } from "@/lib/catalog/cross-runtim
 import { identifierKey } from "@/lib/catalog/identifiers";
 import { gradeLine } from "@/lib/catalog/bom-health";
 import { bestAward, estimateFreightPerUnit, type SupplyOption } from "@/lib/catalog/landed-cost";
+import { complianceForProduct, complianceFlags, rollupCompliance, type Compliance } from "@/lib/catalog/compliance";
 import { lineEtaDays } from "@/lib/product-finder-delivery";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { logApiError } from "@/lib/server/log";
@@ -41,10 +42,14 @@ export async function POST(req: Request) {
     const branchId = body.branchId?.trim() || undefined;
     const entries = resolvedCrossEntries();
 
+    const complianceItems: Compliance[] = [];
     const rows = items.map(({ sku, qty }) => {
       const need = Math.max(1, Math.floor(qty ?? 1));
       const product = resolveBySku(sku);
-      if (!product) return { sku, qty: need, product: null, health: null, award: null };
+      if (!product) return { sku, qty: need, product: null, health: null, award: null, compliance: null };
+
+      const compliance = complianceForProduct(product);
+      complianceItems.push(compliance);
 
       const equivalents = findEquivalents(product, 8, branchId);
       const successor = pickActiveSuccessor(product, equivalents);
@@ -96,10 +101,16 @@ export async function POST(req: Request) {
           best: { id: award.best.id, label: award.best.label, kind: award.best.kind, landedUnit: award.bestLanded.unit },
           currentLandedUnit: award.currentLanded.unit,
         },
+        compliance: {
+          flags: complianceFlags(compliance),
+          countryOfOrigin: compliance.countryOfOrigin,
+          section301: compliance.section301,
+          ulListed: compliance.ulListed,
+        },
       };
     });
 
-    return NextResponse.json({ rows });
+    return NextResponse.json({ rows, compliance: rollupCompliance(complianceItems) });
   } catch (e) {
     logApiError("/api/bom/analyze", e);
     return NextResponse.json({ error: "Could not analyze the BOM." }, { status: 400 });

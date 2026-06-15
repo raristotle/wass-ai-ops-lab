@@ -159,6 +159,7 @@ describe("AC45 — zero new dependencies vs git HEAD", () => {
     "@testing-library/jest-dom",
     "@testing-library/dom",
     "jsdom",
+    "vitest-axe", // Wave 4: automated WCAG 2.2 AA checks on the render-test net
   ]);
 
   it.each(["package.json", "apps/web/package.json"])("%s has no unreviewed added deps", (rel) => {

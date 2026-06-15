@@ -185,12 +185,14 @@ Body `{ items: [{ sku, qty }], branchId? }` (≤200 items). Returns one row per 
   "sourcingScore": 1,
   "health": { "grade": "A|B|C", "score": 0-100, "flags": [...], "action"? },
   "award": { "switch": bool, "lineSavings", "rationale",
-             "best": { id, label, kind, landedUnit }, "currentLandedUnit" }
-} ] }
+             "best": { id, label, kind, landedUnit }, "currentLandedUnit" },
+  "compliance": { "flags": [...], "countryOfOrigin", "section301": bool, "ulListed": bool }
+} ], "compliance": { lines, ulListed, notUlListed, rohsIssues, prop65, tariffExposed, flagged } }
 ```
 
-Composes the lifecycle, coverage, successor, and cross engines (`lib/catalog/
-bom-health.ts`, `landed-cost.ts`). Deterministic; rate-limited 60/min.
+Composes the lifecycle, coverage, successor, cross, and compliance engines
+(`lib/catalog/bom-health.ts`, `landed-cost.ts`, `compliance.ts`). Deterministic;
+rate-limited 60/min.
 
 ## Rate limiting
 

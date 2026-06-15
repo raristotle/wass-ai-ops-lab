@@ -214,6 +214,12 @@ Every SKU below is deterministic — it exists with the same data in every envir
     by price plus freight plus a lead-time carrying penalty, and tells you the
     cheapest compliant award with the dollars and the reasoning. That's the
     sell-side version of a Coupa bid comparison, pointed at our own inventory."*
+    **Point at the Compliance card and the per-line ⚖ flags.** *"And it's
+    bid-grade: every line carries UL listing, RoHS and Prop 65, country-of-origin,
+    and — the 2026 one everyone's asking about — Section 301 tariff exposure, with
+    a rollup of how many lines are flagged or tariff-exposed. That's what a
+    government, AHJ, or MRO submittal gates on. Derived data here; a real UL feed
+    drops in behind it."*
 10a. **Click ✎ price on the line and type something absurdly low** (e.g. `1.00`),
     **Apply.** *"Price-matching a competitor? I can override the line price — but
     watch: it snapped to the floor. The guardrails won't let me sell above list or
