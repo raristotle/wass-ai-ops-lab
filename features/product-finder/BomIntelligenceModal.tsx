@@ -154,6 +154,10 @@ export function BomIntelligenceModal() {
               <p className="mt-3 text-[10px] leading-snug text-[#4F758B]">
                 Health composes lifecycle, stock depth, single-source risk, and substitute availability. Landed cost =
                 list price + estimated freight + a lead-time carrying penalty; swap via each line&apos;s detail view.
+                <br />
+                <span className="text-[#854F0B]">⚖ Compliance attributes are derived demo data</span> — shown only for
+                synthetic SKUs, never for verified/curated real parts — and are not a substitute for the
+                manufacturer&apos;s declaration or UL Product iQ.
               </p>
             </>
           )}

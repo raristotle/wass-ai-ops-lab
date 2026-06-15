@@ -1,15 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { render } from "@testing-library/react";
 import { axe } from "vitest-axe";
-import * as axeMatchers from "vitest-axe/matchers";
 import { GuidedSelectorsModal } from "@/features/product-finder/GuidedSelectorsModal";
 import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
 import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
-
-expect.extend(axeMatchers);
 
 function prod(id: string): CatalogProduct {
   return {
@@ -25,6 +22,12 @@ function prod(id: string): CatalogProduct {
  * has no layout; contrast is governed by the brand palette in CLAUDE.md). This
  * is the CI-enforced accessibility bar for the new feature surfaces.
  */
+async function expectNoViolations(container: HTMLElement) {
+  const results = await axe(container);
+  const summary = results.violations.map((v) => `${v.id} x${v.nodes.length}`).join(", ");
+  expect(results.violations, `axe violations: ${summary}`).toHaveLength(0);
+}
+
 describe("accessibility (axe) — feature modals have no WCAG violations", () => {
   beforeEach(() => {
     vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, json: async () => ({ rows: [], items: [] }) })));
@@ -37,13 +40,13 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   it("Guided selectors modal", async () => {
     useProductFinder.setState({ guidedOpen: true });
     const { container } = render(<GuidedSelectorsModal />);
-    expect(await axe(container)).toHaveNoViolations();
+    await expectNoViolations(container);
   });
 
   it("Inbound RFQ modal", async () => {
     useProductFinder.setState({ rfqOpen: true });
     const { container } = render(<RfqImportModal />);
-    expect(await axe(container)).toHaveNoViolations();
+    await expectNoViolations(container);
   });
 
   it("Returns / RMA modal", async () => {
@@ -52,12 +55,12 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
       returnModalOrderId: "o1",
     });
     const { container } = render(<ReturnModal />);
-    expect(await axe(container)).toHaveNoViolations();
+    await expectNoViolations(container);
   });
 
   it("BOM intelligence modal (empty basket)", async () => {
     useProductFinder.setState({ bomIqOpen: true, cart: {} });
     const { container } = render(<BomIntelligenceModal />);
-    expect(await axe(container)).toHaveNoViolations();
+    await expectNoViolations(container);
   });
 });

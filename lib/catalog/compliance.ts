@@ -4,14 +4,20 @@
  * government/MRO bids gate on UL listing and RoHS/Prop 65, and 2026 sourcing
  * decisions hinge on country-of-origin + Section 301 tariff exposure.
  *
- * Like the lifecycle and UNSPSC attributes, these are derived DETERMINISTICALLY
- * from the product id (a stable hash — NOT the catalog generator's PRNG, so
- * nothing else shifts) and labelled honestly as seeded: a real UL Product iQ /
- * manufacturer-declaration feed is the env-gated upgrade. Curated/verified real
- * products can carry explicit values later; absent → derived.
+ * Like the lifecycle and UNSPSC attributes, the values for SYNTHETIC catalog
+ * products are derived DETERMINISTICALLY from the product id (a stable hash —
+ * NOT the catalog generator's PRNG, so nothing else shifts) and must be labelled
+ * as derived demo data wherever shown.
+ *
+ * CRITICAL CARVE-OUT: real parts (dataSource "verified"/"curated") are NEVER
+ * hash-fabricated — `complianceForProduct` returns null for them, exactly as the
+ * lifecycle feature keeps real parts out of the hash. Stamping a fake
+ * country-of-origin / Section 301 / "Not UL listed" on a named real part would
+ * be a false, bid-disqualifying claim. A real UL Product iQ /
+ * manufacturer-declaration feed is the planned source for real parts.
  */
 
-import type { ProductCategory } from "@/features/product-finder/types";
+import type { ProductCategory, ProductDataSource } from "@/features/product-finder/types";
 
 export type RohsStatus = "compliant" | "exempt" | "non-compliant";
 
@@ -76,8 +82,17 @@ function htsFor(id: string, category: ProductCategory): string {
   return `${head}${suffix}`;
 }
 
-/** Derived compliance attributes for a product. */
-export function complianceForProduct(product: { id: string; category: ProductCategory }): Compliance {
+/**
+ * Derived compliance for a SYNTHETIC product, or `null` for real
+ * (verified/curated) parts — we never fabricate compliance claims on a named
+ * real part; that requires a real manufacturer/UL feed.
+ */
+export function complianceForProduct(product: {
+  id: string;
+  category: ProductCategory;
+  dataSource?: ProductDataSource;
+}): Compliance | null {
+  if (product.dataSource === "verified" || product.dataSource === "curated") return null;
   const { id, category } = product;
   const coo = originFor(id);
   // Most electrical gear is UL listed; a realistic minority isn't (imports/commodity).

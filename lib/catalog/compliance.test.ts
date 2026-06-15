@@ -1,20 +1,37 @@
 import { describe, it, expect } from "vitest";
 import { complianceForProduct, complianceFlags, rollupCompliance } from "@/lib/catalog/compliance";
 import { getCatalog } from "@/lib/catalog/index";
+import { isActiveLifecycle } from "@/lib/catalog/lifecycle";
 import type { ProductCategory } from "@/features/product-finder/types";
 
-const p = (id: string, category: ProductCategory = "electrical") => ({ id, category });
+// Synthetic (no dataSource) — derives. Asserts non-null for the derive path.
+function derive(id: string, category: ProductCategory = "electrical") {
+  const c = complianceForProduct({ id, category });
+  expect(c).not.toBeNull();
+  return c!;
+}
 
-describe("complianceForProduct", () => {
+describe("complianceForProduct — real-parts carve-out", () => {
+  it("returns null for verified and curated real parts (never fabricates claims)", () => {
+    expect(complianceForProduct({ id: "REAL-BUSS-FRN-R-30", category: "electrical", dataSource: "verified" })).toBeNull();
+    expect(complianceForProduct({ id: "CB-SQD-QO115", category: "electrical", dataSource: "curated" })).toBeNull();
+  });
+
+  it("derives for synthetic/simulated products", () => {
+    expect(complianceForProduct({ id: "GEN-CB001", category: "electrical", dataSource: "simulated" })).not.toBeNull();
+    expect(complianceForProduct({ id: "GEN-CB001", category: "electrical" })).not.toBeNull();
+  });
+});
+
+describe("complianceForProduct (synthetic derivation)", () => {
   it("is deterministic for the same id", () => {
-    expect(complianceForProduct(p("GEN-A"))).toEqual(complianceForProduct(p("GEN-A")));
+    expect(derive("GEN-A")).toEqual(derive("GEN-A"));
   });
 
   it("ties Section 301 exposure to a China country-of-origin", () => {
-    // Scan synthetic ids until we find a CN-origin one and confirm the 301 flag.
     let cn = 0, nonCn = 0;
     for (let i = 0; i < 500 && (cn === 0 || nonCn === 0); i++) {
-      const c = complianceForProduct(p(`GEN-S${i}`));
+      const c = derive(`GEN-S${i}`);
       if (c.countryOfOrigin === "CN") { expect(c.section301).toBe(true); cn++; }
       else { expect(c.section301).toBe(false); nonCn++; }
     }
@@ -23,14 +40,14 @@ describe("complianceForProduct", () => {
   });
 
   it("emits a valid 10-digit HTS code", () => {
-    expect(complianceForProduct(p("GEN-A")).htsCode).toMatch(/^\d{10}$/);
+    expect(derive("GEN-A").htsCode).toMatch(/^\d{10}$/);
   });
 
   it("keeps most products UL-listed and RoHS-compliant (realistic majority)", () => {
     let ul = 0, rohs = 0;
     const N = 2000;
     for (let i = 0; i < N; i++) {
-      const c = complianceForProduct(p(`GEN-U${i}`));
+      const c = derive(`GEN-U${i}`);
       if (c.ulListed) ul++;
       if (c.rohs === "compliant") rohs++;
     }
@@ -61,7 +78,7 @@ describe("complianceFlags", () => {
 describe("rollupCompliance", () => {
   it("counts UL gaps, tariff exposure, and flagged lines", () => {
     const items = [
-      complianceForProduct(p("GEN-A")),
+      derive("GEN-A"),
       { ulListed: false, rohs: "compliant" as const, reachSvhc: false, prop65: false, countryOfOrigin: "CN", htsCode: "8536100012", section301: true },
     ];
     const r = rollupCompliance(items);
@@ -73,13 +90,24 @@ describe("rollupCompliance", () => {
 });
 
 describe("catalog-wide compliance", () => {
-  it("derives valid compliance for a sample across the catalog", () => {
+  it("real parts get null compliance; synthetic parts get valid derived data", () => {
     const { products } = getCatalog();
     const step = Math.max(1, Math.floor(products.length / 1500));
+    let checkedReal = 0;
     for (let i = 0; i < products.length; i += step) {
-      const c = complianceForProduct(products[i]);
-      expect(c.htsCode).toMatch(/^\d{10}$/);
-      expect(c.countryOfOrigin.length).toBe(2);
+      const p = products[i];
+      const c = complianceForProduct(p);
+      if (p.dataSource === "verified" || p.dataSource === "curated") {
+        expect(c).toBeNull(); // never fabricate compliance on real parts
+        // ...and real parts also stay Active lifecycle (consistency with the carve-out)
+        expect(isActiveLifecycle(p.lifecycleStatus)).toBe(true);
+        checkedReal++;
+      } else {
+        expect(c).not.toBeNull();
+        expect(c!.htsCode).toMatch(/^\d{10}$/);
+        expect(c!.countryOfOrigin.length).toBe(2);
+      }
     }
+    expect(checkedReal).toBeGreaterThan(0);
   });
 });

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { searchCatalog } from "@/lib/catalog/search";
+import { z } from "zod";
+import { getCatalog } from "@/lib/catalog/index";
 import { findEquivalents } from "@/lib/catalog/equivalents";
 import { sourcingForProduct } from "@/lib/catalog/coverage-score";
 import { pickActiveSuccessor } from "@/lib/catalog/successor";
@@ -16,17 +17,38 @@ import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
 
-const ITEM_CAP = 200;
+// This route runs catalog-scanning work per line (equivalents + sourcing), so the
+// cap is deliberately small — a basket/BOM analysis, not a bulk feed. Zod rejects
+// malformed input before any catalog work; SKU resolution is O(1) via a cached index.
+const ITEM_CAP = 40;
+
+const BodySchema = z.object({
+  items: z
+    .array(z.object({ sku: z.string().trim().min(1).max(64), qty: z.number().int().positive().max(100_000).optional() }))
+    .max(ITEM_CAP),
+  branchId: z.string().trim().max(32).optional(),
+});
 
 function stockQtyOf(p: CatalogProduct): number {
   return p.branchStock.reduce((s, b) => s + b.quantity, 0) + p.dcStock.reduce((s, d) => s + d.quantity, 0);
 }
 const isStocked = (p: CatalogProduct) => stockQtyOf(p) > 0;
 
+// SKU → product index, built once and cached on globalThis (like the catalog), so
+// each line resolves in O(1) instead of a full 200k-product search scan per item.
+const g = globalThis as unknown as { __bomSkuIndex?: Map<string, CatalogProduct> };
+function skuIndex(): Map<string, CatalogProduct> {
+  if (g.__bomSkuIndex) return g.__bomSkuIndex;
+  const m = new Map<string, CatalogProduct>();
+  for (const p of getCatalog().products) {
+    const k = identifierKey(p.sku);
+    if (!m.has(k)) m.set(k, p);
+  }
+  g.__bomSkuIndex = m;
+  return m;
+}
 function resolveBySku(sku: string): CatalogProduct | null {
-  const key = identifierKey(sku);
-  const res = searchCatalog({ text: sku, pageSize: 10 });
-  return res.items.find((p) => identifierKey(p.sku) === key) ?? res.items[0] ?? null;
+  return skuIndex().get(identifierKey(sku)) ?? null;
 }
 
 function slim(p: CatalogProduct) {
@@ -37,9 +59,12 @@ export async function POST(req: Request) {
   const rl = rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
   try {
-    const body = (await req.json()) as { items?: { sku: string; qty?: number }[]; branchId?: string };
-    const items = (body.items ?? []).slice(0, ITEM_CAP);
-    const branchId = body.branchId?.trim() || undefined;
+    const parsed = BodySchema.safeParse(await req.json());
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+    }
+    const items = parsed.data.items;
+    const branchId = parsed.data.branchId || undefined;
     const entries = resolvedCrossEntries();
 
     const complianceItems: Compliance[] = [];
@@ -48,8 +73,9 @@ export async function POST(req: Request) {
       const product = resolveBySku(sku);
       if (!product) return { sku, qty: need, product: null, health: null, award: null, compliance: null };
 
+      // Real (verified/curated) parts return null — we never fabricate compliance.
       const compliance = complianceForProduct(product);
-      complianceItems.push(compliance);
+      if (compliance) complianceItems.push(compliance);
 
       const equivalents = findEquivalents(product, 8, branchId);
       const successor = pickActiveSuccessor(product, equivalents);
@@ -101,7 +127,7 @@ export async function POST(req: Request) {
           best: { id: award.best.id, label: award.best.label, kind: award.best.kind, landedUnit: award.bestLanded.unit },
           currentLandedUnit: award.currentLanded.unit,
         },
-        compliance: {
+        compliance: compliance && {
           flags: complianceFlags(compliance),
           countryOfOrigin: compliance.countryOfOrigin,
           section301: compliance.section301,
