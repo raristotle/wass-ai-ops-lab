@@ -132,6 +132,38 @@ export async function apiCrossMatch(
   }
 }
 
+export interface BomAnalyzeRow {
+  sku: string;
+  qty: number;
+  product: { id: string; sku: string; name: string; brand: string; unitPrice: number; lifecycleStatus?: string } | null;
+  sourcingScore?: number;
+  health: import("@/lib/catalog/bom-health").LineHealth | null;
+  award: {
+    switch: boolean;
+    lineSavings: number;
+    rationale: string;
+    best: { id: string; label: string; kind: string; landedUnit: number };
+    currentLandedUnit: number;
+  } | null;
+}
+
+export async function apiBomAnalyze(
+  items: { sku: string; qty: number }[],
+  branchId?: string,
+): Promise<BomAnalyzeRow[]> {
+  try {
+    const res = await fetch("/api/bom/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items, branchId }),
+    });
+    if (!res.ok) return [];
+    return (await res.json()).rows as BomAnalyzeRow[];
+  } catch {
+    return [];
+  }
+}
+
 export async function apiGoesWith(id: string): Promise<import("@/features/product-finder/types").CatalogProduct[]> {
   const res = await fetch(`/api/products/${encodeURIComponent(id)}/goeswith`);
   if (!res.ok) return [];

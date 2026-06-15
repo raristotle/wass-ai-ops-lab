@@ -174,6 +174,24 @@ prices from FRED converted to $/lb, cited by observation date:
 Without a key: `{ "enabled": false, "reason": "no-keys" }` — the landing-view
 strip then renders the deterministic simulation (labeled). Rate-limited 30/min.
 
+### `POST /api/bom/analyze`
+
+BOM intelligence — grades each line and recommends the best landed-cost award.
+Body `{ items: [{ sku, qty }], branchId? }` (≤200 items). Returns one row per item:
+
+```jsonc
+{ "rows": [ {
+  "sku", "qty", "product": { id, sku, name, brand, unitPrice, lifecycleStatus },
+  "sourcingScore": 1,
+  "health": { "grade": "A|B|C", "score": 0-100, "flags": [...], "action"? },
+  "award": { "switch": bool, "lineSavings", "rationale",
+             "best": { id, label, kind, landedUnit }, "currentLandedUnit" }
+} ] }
+```
+
+Composes the lifecycle, coverage, successor, and cross engines (`lib/catalog/
+bom-health.ts`, `landed-cost.ts`). Deterministic; rate-limited 60/min.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter

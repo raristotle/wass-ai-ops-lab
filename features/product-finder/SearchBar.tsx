@@ -244,6 +244,7 @@ interface SingleSearchPanelProps {
   onOpenJobWizard: () => void;
   onOpenGuided: () => void;
   onOpenRfq: () => void;
+  onOpenBomIq: () => void;
   onOpenAssistant: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
@@ -270,6 +271,7 @@ function SingleSearchPanel({
   onOpenJobWizard,
   onOpenGuided,
   onOpenRfq,
+  onOpenBomIq,
   onOpenAssistant,
   onVoiceInterim,
   onVoiceFinal,
@@ -462,6 +464,21 @@ function SingleSearchPanel({
           RFQ → Quote
         </button>
 
+        {/* BOM intelligence — health grade + landed-cost award for the basket */}
+        <button
+          type="button"
+          onClick={onOpenBomIq}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#004986]/50 px-3 py-1 text-xs font-medium text-[#004986]",
+            "hover:border-[#004986] hover:bg-[#004986]/5",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004986]"
+          )}
+          aria-label="BOM intelligence"
+        >
+          <span aria-hidden="true">🩺</span>
+          BOM Health
+        </button>
+
         {/* Cross-reference — paste a competitor/legacy part number */}
         <button
           type="button"
@@ -545,6 +562,7 @@ export function SearchBar() {
     setJobWizardOpen,
     setGuidedOpen,
     setRfqOpen,
+    setBomIqOpen,
     setAssistantOpen,
   } = useProductFinder();
 
@@ -684,6 +702,7 @@ export function SearchBar() {
             onOpenJobWizard={() => setJobWizardOpen(true)}
             onOpenGuided={() => setGuidedOpen(true)}
             onOpenRfq={() => setRfqOpen(true)}
+            onOpenBomIq={() => setBomIqOpen(true)}
             onOpenAssistant={() => setAssistantOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}

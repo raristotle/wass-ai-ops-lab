@@ -658,6 +658,17 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "bom-intelligence",
+    title: "BOM intelligence — health & landed cost",
+    body: [
+      "Click 🩺 BOM Health by the search bar (or Ctrl/Cmd-K → \"BOM intelligence\") to grade your current basket.",
+      "• Every line gets an A/B/C health grade across lifecycle, stock depth, single-source risk, and substitute availability — with a rollup: worst grade, average score, and how many lines need a look.",
+      "• Each flagged line gets a recommended fix: swap to the active successor, qualify a second source, or take a cheaper documented cross.",
+      "• The landed-cost optimizer scores each line's options — the current part, stocked crosses, and the active successor — by list price + estimated freight + a lead-time carrying penalty, and recommends the best award with the savings and the reasoning.",
+      "Deterministic — no AI key needed. Make the actual swaps from each line's detail view.",
+    ],
+  },
+  {
     id: "rfq-auto-quote",
     title: "Inbound RFQ → draft quote",
     body: [

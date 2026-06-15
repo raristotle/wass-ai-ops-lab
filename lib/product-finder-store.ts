@@ -304,6 +304,10 @@ export interface ProductFinderState {
   rfqOpen: boolean;
   setRfqOpen: (v: boolean) => void;
 
+  // BOM intelligence (health + landed-cost optimizer)
+  bomIqOpen: boolean;
+  setBomIqOpen: (v: boolean) => void;
+
   // Watches (notify-when-available)
   watches: WatchEntry[];
   toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
@@ -1373,6 +1377,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Inbound RFQ auto-quote ────────────────────────────────
   rfqOpen: false,
   setRfqOpen(v) { set({ rfqOpen: v }); },
+
+  // ── BOM intelligence (health + landed-cost) ───────────────
+  bomIqOpen: false,
+  setBomIqOpen(v) { set({ bomIqOpen: v }); },
 
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],

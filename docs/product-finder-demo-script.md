@@ -204,6 +204,16 @@ Every SKU below is deterministic — it exists with the same data in every envir
     whole order. One click swaps it in, cited."* **Click "Swap & save"** on one.
     (Reliable demo line: add `Bussmann FRN-R-30`, then a line whose stocked cross
     is cheaper surfaces the swap.)
+10u. **With a few lines in the basket, click 🩺 BOM Health.** *"Here's the BOM
+    platform layer procurement teams pay for — Octopart, Arrow, Z2Data. Every
+    line graded A/B/C on lifecycle, stock depth, single-source risk, and whether
+    a substitute exists, with a worklist: 'these N lines need a look,' and the
+    fix for each — swap the end-of-life part to its active successor, qualify a
+    second source on the single-sourced line. And the landed-cost optimizer
+    scores each line's options — the part, its stocked crosses, the successor —
+    by price plus freight plus a lead-time carrying penalty, and tells you the
+    cheapest compliant award with the dollars and the reasoning. That's the
+    sell-side version of a Coupa bid comparison, pointed at our own inventory."*
 10a. **Click ✎ price on the line and type something absurdly low** (e.g. `1.00`),
     **Apply.** *"Price-matching a competitor? I can override the line price — but
     watch: it snapped to the floor. The guardrails won't let me sell above list or

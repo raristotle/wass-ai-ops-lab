@@ -36,6 +36,7 @@ export function CommandPalette() {
   const setJobWizardOpen = useProductFinder((s) => s.setJobWizardOpen);
   const setGuidedOpen = useProductFinder((s) => s.setGuidedOpen);
   const setRfqOpen = useProductFinder((s) => s.setRfqOpen);
+  const setBomIqOpen = useProductFinder((s) => s.setBomIqOpen);
   const pageSize = useProductFinder((s) => s.pageSize);
   const router = useRouter();
 
@@ -110,6 +111,7 @@ export function CommandPalette() {
         else if (action.target === "assistant") setAssistantOpen(true);
         else if (action.target === "guided") setGuidedOpen(true);
         else if (action.target === "rfq") setRfqOpen(true);
+        else if (action.target === "bomiq") setBomIqOpen(true);
         else setBulkModalOpen(true);
         break;
       case "tour":

@@ -15,7 +15,7 @@ export const QUICK_PICKS: readonly string[] = [
 
 export type CommandAction =
   | { kind: "navigate"; href: string }
-  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant" | "guided" | "rfq" }
+  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant" | "guided" | "rfq" | "bomiq" }
   | { kind: "tour" }
   | { kind: "role"; email: string }
   | { kind: "search"; query: string };
@@ -130,6 +130,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["rfq", "takeoff", "bom", "draft quote", "auto quote", "request for quote", "paste"],
       action: { kind: "open", target: "rfq" },
+    },
+    {
+      id: "open-bomiq",
+      label: "BOM intelligence — health + landed cost",
+      group: "Open",
+      keywords: ["bom health", "risk", "landed cost", "bid award", "sourcing", "optimize", "single source"],
+      action: { kind: "open", target: "bomiq" },
     },
     {
       id: "tour-restart",
