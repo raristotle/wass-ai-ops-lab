@@ -34,6 +34,7 @@ export function CommandPalette() {
   const setBulkCrossOpen = useProductFinder((s) => s.setBulkCrossOpen);
   const setAssistantOpen = useProductFinder((s) => s.setAssistantOpen);
   const setJobWizardOpen = useProductFinder((s) => s.setJobWizardOpen);
+  const setGuidedOpen = useProductFinder((s) => s.setGuidedOpen);
   const pageSize = useProductFinder((s) => s.pageSize);
   const router = useRouter();
 
@@ -106,6 +107,7 @@ export function CommandPalette() {
         else if (action.target === "bulk-cross") setBulkCrossOpen(true);
         else if (action.target === "jobwizard") setJobWizardOpen(true);
         else if (action.target === "assistant") setAssistantOpen(true);
+        else if (action.target === "guided") setGuidedOpen(true);
         else setBulkModalOpen(true);
         break;
       case "tour":

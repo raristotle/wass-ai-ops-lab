@@ -165,6 +165,14 @@ Every SKU below is deterministic — it exists with the same data in every envir
     view procurement teams ask for: how many stocked, interchangeable options can
     actually fill this line."*
 
+9g. **Click the 📐 Selectors button** by the search bar. **Pick "Wire size",
+    enter 40 A, 250 ft, 240 V, single-phase, copper, Calculate.** *"Manufacturers
+    publish NEC calculators as lead-gen — but they dead-end at a generic spec.
+    Ours doesn't: it sizes the conductor for both ampacity and voltage drop,
+    tells you which one governs, and then lands on the actual wire we stock at
+    this customer's price — one click into the basket. Conduit fill and breaker
+    sizing work the same way. That's engineering intent captured as an order."*
+
 ## Act 4 — From basket to deliverables (5 min)
 
 9b. **Click the 🧰 Job Wizard button** by the search bar. **Pick "200A

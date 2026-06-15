@@ -15,7 +15,7 @@ export const QUICK_PICKS: readonly string[] = [
 
 export type CommandAction =
   | { kind: "navigate"; href: string }
-  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant" }
+  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant" | "guided" }
   | { kind: "tour" }
   | { kind: "role"; email: string }
   | { kind: "search"; query: string };
@@ -116,6 +116,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["job wizard", "ask meridian", "bill of materials", "guided", "build"],
       action: { kind: "open", target: "jobwizard" },
+    },
+    {
+      id: "open-guided",
+      label: "Guided selectors — conduit / wire / breaker",
+      group: "Open",
+      keywords: ["nec", "conduit fill", "wire size", "voltage drop", "breaker", "ocpd", "calculator", "size"],
+      action: { kind: "open", target: "guided" },
     },
     {
       id: "tour-restart",

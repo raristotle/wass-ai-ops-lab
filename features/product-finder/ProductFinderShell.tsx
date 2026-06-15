@@ -13,6 +13,7 @@ import { BulkQuoteModal } from "@/features/product-finder/BulkQuoteModal";
 import { BulkCrossModal } from "@/features/product-finder/BulkCrossModal";
 import { AssistantPanel } from "@/features/product-finder/AssistantPanel";
 import { JobWizardModal } from "@/features/product-finder/JobWizardModal";
+import { GuidedSelectorsModal } from "@/features/product-finder/GuidedSelectorsModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
 import { BrandSwitcher } from "@/features/product-finder/BrandSwitcher";
@@ -235,6 +236,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <BulkCrossModal />
       <AssistantPanel />
       <JobWizardModal />
+      <GuidedSelectorsModal />
       <HelpPanel />
       <TourOverlay />
       <CommandPalette />

@@ -658,6 +658,18 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "guided-selectors",
+    title: "Guided engineering selectors (conduit / wire / breaker)",
+    body: [
+      "Open the 📐 Selectors button by the search bar (or Ctrl/Cmd-K → \"Guided selectors\") to size a run and land on a stocked part.",
+      "• Conduit fill — pick conductor size, count, and EMT or PVC; get the smallest trade size within NEC fill limits.",
+      "• Wire size — enter load, length, voltage, phase, and copper/aluminum; get the conductor that satisfies BOTH ampacity and your voltage-drop target (3% default), whichever governs.",
+      "• Breaker sizing — enter the load and whether it's continuous; get the next standard OCPD (NEC 240.6), sized at 125% for continuous loads.",
+      "Each answer resolves to an active, in-stock catalog product you can add to the basket in one click.",
+      "Guidance from a compact NEC subset (copper THHN assumed) — verify against the full code and the AHJ before installation.",
+    ],
+  },
+  {
     id: "lifecycle-eol",
     title: "Lifecycle status & designing out obsolete parts",
     body: [

@@ -279,6 +279,10 @@ export interface ProductFinderState {
   jobWizardOpen: boolean;
   setJobWizardOpen: (v: boolean) => void;
 
+  // Guided engineering selectors (NEC calculators)
+  guidedOpen: boolean;
+  setGuidedOpen: (v: boolean) => void;
+
   // Watches (notify-when-available)
   watches: WatchEntry[];
   toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
@@ -1292,6 +1296,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Job wizard (Ask Meridian) ─────────────────────────────
   jobWizardOpen: false,
   setJobWizardOpen(v) { set({ jobWizardOpen: v }); },
+
+  // ── Guided engineering selectors (NEC calculators) ────────
+  guidedOpen: false,
+  setGuidedOpen(v) { set({ guidedOpen: v }); },
 
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],

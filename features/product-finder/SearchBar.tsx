@@ -242,6 +242,7 @@ interface SingleSearchPanelProps {
   onOpenBulkCross: () => void;
   onOpenBulk: () => void;
   onOpenJobWizard: () => void;
+  onOpenGuided: () => void;
   onOpenAssistant: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
@@ -266,6 +267,7 @@ function SingleSearchPanel({
   onOpenBulkCross,
   onOpenBulk,
   onOpenJobWizard,
+  onOpenGuided,
   onOpenAssistant,
   onVoiceInterim,
   onVoiceFinal,
@@ -413,6 +415,21 @@ function SingleSearchPanel({
           </span>
         </button>
 
+        {/* Guided engineering selectors — NEC conduit/wire/breaker calculators */}
+        <button
+          type="button"
+          onClick={onOpenGuided}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#004986]/50 px-3 py-1 text-xs font-medium text-[#004986]",
+            "hover:border-[#004986] hover:bg-[#004986]/5",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004986]"
+          )}
+          aria-label="Guided engineering selectors"
+        >
+          <span aria-hidden="true">📐</span>
+          Selectors
+        </button>
+
         {/* Import List / BOM — secondary action aligned with quick-picks */}
         <button
           type="button"
@@ -509,6 +526,7 @@ export function SearchBar() {
     setBulkModalOpen,
     setBulkCrossOpen,
     setJobWizardOpen,
+    setGuidedOpen,
     setAssistantOpen,
   } = useProductFinder();
 
@@ -646,6 +664,7 @@ export function SearchBar() {
             onOpenBulkCross={() => setBulkCrossOpen(true)}
             onOpenBulk={() => setBulkModalOpen(true)}
             onOpenJobWizard={() => setJobWizardOpen(true)}
+            onOpenGuided={() => setGuidedOpen(true)}
             onOpenAssistant={() => setAssistantOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}
