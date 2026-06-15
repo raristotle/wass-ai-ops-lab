@@ -182,3 +182,11 @@ the [API guide](product-finder-api.md); for a presenter walkthrough see the
 |---|---|
 | **Compliance & trade enrichment** | Every product carries derived compliance attributes — UL listing, RoHS / REACH-SVHC / Prop 65, country-of-origin, 10-digit HTS code, and **USTR Section 301 tariff exposure** (`lib/catalog/compliance.ts`, same deterministic-seed discipline as lifecycle/UNSPSC). The BOM Intelligence analysis (`/api/bom/analyze`) adds a per-line compliance flag set and a BOM rollup (lines flagged, tariff-exposed count) — the attribute set that makes the recommender bid-grade for submittals, AHJ approvals, and government/MRO work, with the 2026-relevant tariff lens. A real UL Product iQ / manufacturer-declaration feed is the env-gated upgrade. |
 | **WCAG 2.2 AA conformance (CI-enforced)** | axe-core (via `vitest-axe`) runs over the render-critical feature modals on the jsdom test net — a structural WCAG violation fails the suite, the same gate every change passes. Conformance practices (dialog semantics, control labels, keyboard/Escape, colour-plus-text status, 24px targets) and the Lighthouse-CI / INP follow-ups are documented in [docs/accessibility.md](accessibility.md). The procurement gate for public-sector, utility, and enterprise accounts. |
+
+## Job & project workspace (Backlog Wave 4 — persistence-activated)
+
+These items were unblocked once durable persistence (Neon) went live. See [docs/persistence.md](persistence.md).
+
+| Feature | Summary |
+|---|---|
+| **Job workspace** | A server-persisted **Job (project)** container (🗂️ Jobs toolbar / Ctrl+K) that groups the quotes, orders, and inbound RFQs for one jobsite under a single named project, with a live value rollup (quoted vs booked, counts per kind) and an open/won/closed status. The first durable *entity* the app owns: `POST/GET/DELETE /api/jobs` over the Neon-backed KvStore, with the model + rollup in the pure lib `lib/product-finder-job-workspace.ts`. Quotes/orders still live in the client store and are linked as denormalized snapshots, so the rollup stays correct and viewable server-side across instances. The container the transactional-MCP checkout and supplier portal build on. |

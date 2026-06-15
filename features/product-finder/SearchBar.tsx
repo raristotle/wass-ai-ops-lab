@@ -245,6 +245,7 @@ interface SingleSearchPanelProps {
   onOpenGuided: () => void;
   onOpenRfq: () => void;
   onOpenBomIq: () => void;
+  onOpenJobs: () => void;
   onOpenAssistant: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
@@ -272,6 +273,7 @@ function SingleSearchPanel({
   onOpenGuided,
   onOpenRfq,
   onOpenBomIq,
+  onOpenJobs,
   onOpenAssistant,
   onVoiceInterim,
   onVoiceFinal,
@@ -479,6 +481,21 @@ function SingleSearchPanel({
           BOM Health
         </button>
 
+        {/* Job workspace — group quotes/orders/RFQs under one project (server-persisted) */}
+        <button
+          type="button"
+          onClick={onOpenJobs}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#DB6B30]/50 px-3 py-1 text-xs font-medium text-[#DB6B30]",
+            "hover:border-[#DB6B30] hover:bg-[#DB6B30]/5",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DB6B30]"
+          )}
+          aria-label="Job workspace"
+        >
+          <span aria-hidden="true">🗂️</span>
+          Jobs
+        </button>
+
         {/* Cross-reference — paste a competitor/legacy part number */}
         <button
           type="button"
@@ -563,6 +580,7 @@ export function SearchBar() {
     setGuidedOpen,
     setRfqOpen,
     setBomIqOpen,
+    setJobsOpen,
     setAssistantOpen,
   } = useProductFinder();
 
@@ -703,6 +721,7 @@ export function SearchBar() {
             onOpenGuided={() => setGuidedOpen(true)}
             onOpenRfq={() => setRfqOpen(true)}
             onOpenBomIq={() => setBomIqOpen(true)}
+            onOpenJobs={() => setJobsOpen(true)}
             onOpenAssistant={() => setAssistantOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}

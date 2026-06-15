@@ -211,6 +211,17 @@ consumer of the persistence seam. `POST` records one intake
 RFQ→draft-quote modal posts best-effort; the draft is saved client-side
 regardless, so a persistence outage never blocks the rep. POST 60/min, GET 30/min.
 
+### `GET /api/jobs` · `POST /api/jobs` · `DELETE /api/jobs`
+
+Server-persisted **Job (project) workspace** — the first durable entity the app
+owns. A Job groups quotes, orders, and RFQs for one jobsite under a named project,
+with a value rollup. `GET` lists jobs (`?id=` fetches one); `POST` upserts a
+Zod-validated Job; `DELETE ?id=` removes one. Persists to Neon when `POSTGRES_URL`
+is set (`backend: "postgres"`), per-instance memory otherwise. Job model + rollup
+live in the pure lib (`lib/product-finder-job-workspace.ts`); the route stays thin.
+Linked quotes/orders are denormalized snapshots, so the rollup is durable
+server-side without the client store. All verbs rate-limited 60/min.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter
@@ -223,6 +234,7 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `POST /api/crosses/savings` | 60 / min |
 | `POST /api/bom/analyze` | 60 / min |
 | `POST /api/rfq` | 60 / min |
+| `GET/POST/DELETE /api/jobs` | 60 / min |
 | `GET /api/commodity` | 30 / min |
 | `GET /api/rfq` | 30 / min |
 | `GET /api/auth/sso/start` | 30 / min |

@@ -5,6 +5,7 @@ import { GuidedSelectorsModal } from "@/features/product-finder/GuidedSelectorsM
 import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
 import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
+import { JobsModal } from "@/features/product-finder/JobsModal";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
@@ -34,7 +35,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   });
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, orders: [], cart: {} });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, orders: [], cart: {} });
   });
 
   it("Guided selectors modal", async () => {
@@ -63,11 +64,18 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
     const { container } = render(<BomIntelligenceModal />);
     await expectNoViolations(container);
   });
+
+  it("Job workspace modal (no jobs)", async () => {
+    useProductFinder.setState({ jobsOpen: true });
+    const { container } = render(<JobsModal />);
+    await expectNoViolations(container);
+  });
 });
 
 describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
   afterEach(() => {
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, orders: [] });
+    vi.unstubAllGlobals();
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, orders: [] });
   });
 
   it("Escape closes the Guided selectors modal", () => {
@@ -93,5 +101,14 @@ describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
     render(<ReturnModal />);
     fireEvent.keyDown(document.body, { key: "Escape" });
     expect(useProductFinder.getState().returnModalOrderId).toBeNull();
+  });
+
+  it("Escape closes the Job workspace modal", () => {
+    vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, json: async () => ({ jobs: [], backend: "memory" }) })));
+    useProductFinder.setState({ jobsOpen: true });
+    render(<JobsModal />);
+    expect(useProductFinder.getState().jobsOpen).toBe(true);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().jobsOpen).toBe(false);
   });
 });

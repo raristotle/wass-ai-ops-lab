@@ -308,6 +308,10 @@ export interface ProductFinderState {
   bomIqOpen: boolean;
   setBomIqOpen: (v: boolean) => void;
 
+  // Job (project) workspace — server-persisted job container
+  jobsOpen: boolean;
+  setJobsOpen: (v: boolean) => void;
+
   // Watches (notify-when-available)
   watches: WatchEntry[];
   toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
@@ -1387,6 +1391,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── BOM intelligence (health + landed-cost) ───────────────
   bomIqOpen: false,
   setBomIqOpen(v) { set({ bomIqOpen: v }); },
+
+  // ── Job (project) workspace ───────────────────────────────
+  jobsOpen: false,
+  setJobsOpen(v) { set({ jobsOpen: v }); },
 
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
