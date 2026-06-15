@@ -37,14 +37,24 @@ build and the dormant path never load it.
 
 ## Activate Neon Postgres (durable store)
 
-1. Create a free project at **neon.tech** (free tier is ample for a pilot).
-2. Copy the **pooled** connection string (Neon dashboard → *Connection Details* →
-   "Pooled connection"). It looks like
-   `postgresql://USER:PASSWORD@ep-xxx-pooler.REGION.aws.neon.tech/neondb?sslmode=require`.
-3. In **Vercel → project → Settings → Environment Variables**, add
-   `POSTGRES_URL` = that string, for **Production** (and Preview if you want).
-4. Redeploy (any new deploy picks up the var). **No migration step** — the
-   `PersistedRecord` table is created on first write (`CREATE TABLE IF NOT EXISTS`).
+**Easiest — via the Vercel Marketplace (no separate Neon login, no copy/paste):**
+
+1. Vercel dashboard → your project → **Storage** tab → **Create Database** →
+   pick **Neon** (Postgres). (Equivalent: sidebar **Integrations → Browse
+   Marketplace → Neon → Install**.)
+2. Choose the free plan + a region, name the database, **Create**, and connect it
+   to this project.
+3. Vercel auto-injects the connection vars — including **`POSTGRES_URL`** (the
+   pooled string) and `DATABASE_URL`. The app reads either, so nothing to copy.
+4. **Redeploy** — Vercel does *not* apply new env vars to the already-live
+   deployment. Click the "Redeploy" prompt Vercel shows, or use the Deployments
+   tab → latest → **Redeploy**. (No migration step — the `PersistedRecord` table
+   is created on first write, `CREATE TABLE IF NOT EXISTS`.)
+
+**Or bring your own Neon project:** create one at **neon.tech**, copy the
+**pooled** connection string (`...-pooler...neon.tech/...?sslmode=require`), and
+in **Vercel → Settings → Environment Variables** add `POSTGRES_URL` = that string
+for **Production**, then redeploy.
 
 Verify:
 
@@ -59,11 +69,19 @@ In Neon's SQL editor you can also confirm rows landed:
 
 ## Activate Upstash Redis (global rate limiter)
 
-1. Create a free database at **upstash.com** (Redis, free tier).
-2. From the database page, copy the **REST API** values: `UPSTASH_REDIS_REST_URL`
-   and `UPSTASH_REDIS_REST_TOKEN` (the REST URL/token, *not* the `redis://` URL).
-3. In Vercel, add both env vars for Production.
-4. Redeploy.
+**Easiest — via the Vercel Marketplace:**
+
+1. Vercel dashboard → your project → **Storage** tab → **Create Database** →
+   pick **Upstash** (Redis). Choose the free plan + region, **Create**, connect to
+   this project.
+2. Vercel auto-injects **`KV_REST_API_URL`** and **`KV_REST_API_TOKEN`** (the
+   Upstash integration uses the `KV_REST_API_*` names, *not* `UPSTASH_*`). The
+   limiter reads both name sets, so it activates either way.
+3. **Redeploy** (same as above — new env vars need a fresh deployment).
+
+**Or bring your own Upstash database:** create one at **upstash.com**, copy the
+**REST API** URL + token (*not* the `redis://` URL), and in Vercel add
+`UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` for Production, then redeploy.
 
 Verify:
 
