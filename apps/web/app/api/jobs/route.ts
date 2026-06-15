@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { getStore } from "@/lib/server/persistence";
+import { getStore, forTenant } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
-import { requireApiAuth } from "@/lib/server/api-auth";
+import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 
 export const dynamic = "force-dynamic";
@@ -44,7 +44,7 @@ export async function GET(req: Request) {
   const denied = requireApiAuth(req);
   if (denied) return denied;
   try {
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     const id = new URL(req.url).searchParams.get("id");
     if (id) {
       const job = await store.get<Job>(NS, id);
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
   try {
     const parsed = JobSchema.safeParse(await req.json());
     if (!parsed.success) return NextResponse.json({ error: "Invalid job." }, { status: 400 });
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     await store.put(NS, parsed.data.id, parsed.data);
     return NextResponse.json({ ok: true, id: parsed.data.id, persisted: store.backend });
   } catch (e) {
@@ -84,7 +84,7 @@ export async function DELETE(req: Request) {
   try {
     const id = new URL(req.url).searchParams.get("id");
     if (!id) return NextResponse.json({ error: "Missing id." }, { status: 400 });
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     await store.delete(NS, id);
     return NextResponse.json({ ok: true, id });
   } catch (e) {

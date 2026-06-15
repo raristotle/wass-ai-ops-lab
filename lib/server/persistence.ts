@@ -243,6 +243,25 @@ export class NeonStore implements KvStore {
   }
 }
 
+/**
+ * Wrap a store so every operation is confined to one tenant's namespace prefix —
+ * hard per-tenant isolation (one tenant literally cannot name another's keys).
+ * `tenantId` null returns the store unwrapped (the pre-tenancy / pilot behavior).
+ */
+export function forTenant(store: KvStore, tenantId: string | null): KvStore {
+  if (!tenantId) return store;
+  const scope = (ns: string) => `t:${tenantId}::${ns}`;
+  return {
+    backend: store.backend,
+    put: (ns, k, v) => store.put(scope(ns), k, v),
+    get: (ns, k) => store.get(scope(ns), k),
+    list: (ns, opts) => store.list(scope(ns), opts),
+    delete: (ns, k) => store.delete(scope(ns), k),
+    getVersioned: (ns, k) => store.getVersioned(scope(ns), k),
+    compareAndPut: (ns, k, v, ev) => store.compareAndPut(scope(ns), k, v, ev),
+  };
+}
+
 const g = globalThis as unknown as { __kvStore?: KvStore };
 
 /**

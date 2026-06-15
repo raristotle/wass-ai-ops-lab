@@ -1,41 +1,65 @@
+import { readSession, sessionsEnabled, type Session } from "@/lib/server/session";
+
 /**
- * Write/read gate for the durable business endpoints (jobs, orders, vmi, rfq,
- * rfq-responses) — the records that carry customer/order/bid data.
+ * Auth + tenancy gate for the durable business endpoints (jobs, orders, vmi, rfq,
+ * rfq-responses).
  *
- * Two accepted callers, everything else gets 401:
- *  1. **Same-origin browser requests** — the app's own UI. Browsers send `Origin`
- *     on POST/DELETE (and we accept it on GET too); we allow it when the Origin's
- *     host matches the request Host. This keeps the in-app modals working with no
- *     secret in the client.
- *  2. **Bearer token** (`Authorization: Bearer <WRITE_API_TOKEN>`) — server-to-
- *     server / agent callers (the MCP server). Only available when WRITE_API_TOKEN
- *     is configured.
+ * Two modes, by whether SESSION_SECRET is configured:
  *
- * This closes the "any anonymous script can read/forge/delete every record" hole
- * the review flagged, without a per-user model. It is a pilot-grade control, NOT
- * a substitute for real per-tenant SSO (a determined caller can still forge an
- * Origin header) — the dormant SSO seam remains the path to true multi-tenant auth.
- * The public procurement endpoints (CIF / PunchOut) are intentionally NOT gated:
- * they are external B2B integration surfaces and expose no other-tenant data.
+ *  • **Sessions ON** (per-tenant SSO active): a request must carry a valid signed
+ *    **session cookie** (the browser UI, after login) OR `Authorization: Bearer
+ *    <WRITE_API_TOKEN>` (server-to-server / agent → a "service" tenant). The
+ *    session's `tenantId` scopes all data; everything else gets 401.
+ *
+ *  • **Sessions OFF** (pilot): the prior same-origin-or-token gate, single shared
+ *    data space (tenantId null). Closes anonymous abuse without per-tenant split.
+ *
+ * Use `requireApiAuth` for the allow/deny decision and `tenantForRequest` for the
+ * tenant to scope the store to (see `forTenant`). Procurement (CIF/PunchOut) is
+ * intentionally NOT gated — external B2B surfaces with no tenant data.
  */
-export function requireApiAuth(req: Request): Response | null {
+
+type Outcome = { allowed: true; tenantId: string | null; session: Session | null } | { allowed: false };
+
+function tokenOk(req: Request): boolean {
   const token = process.env.WRITE_API_TOKEN?.trim();
-  if (token && req.headers.get("authorization") === `Bearer ${token}`) return null;
+  return Boolean(token) && req.headers.get("authorization") === `Bearer ${token}`;
+}
 
+function sameOrigin(req: Request): boolean {
   const origin = req.headers.get("origin");
-  if (origin) {
-    try {
-      // Same-origin when the Origin's host matches the deployment host (req.url is
-      // absolute on Vercel/Next; the Host header is used as a fallback).
-      const host = new URL(req.url).host || req.headers.get("host");
-      if (host && new URL(origin).host === host) return null;
-    } catch {
-      /* malformed Origin/url — fall through to 401 */
-    }
+  if (!origin) return false;
+  try {
+    const host = new URL(req.url).host || req.headers.get("host");
+    return Boolean(host) && new URL(origin).host === host;
+  } catch {
+    return false;
   }
+}
 
+function evaluate(req: Request): Outcome {
+  if (sessionsEnabled()) {
+    const session = readSession(req, Date.now());
+    if (session) return { allowed: true, tenantId: session.tenantId, session };
+    if (tokenOk(req)) return { allowed: true, tenantId: "service", session: null };
+    return { allowed: false };
+  }
+  // Pilot mode: same-origin OR token, single shared space.
+  if (tokenOk(req) || sameOrigin(req)) return { allowed: true, tenantId: null, session: null };
+  return { allowed: false };
+}
+
+/** 401 Response when the caller isn't authorized, else null. */
+export function requireApiAuth(req: Request): Response | null {
+  if (evaluate(req).allowed) return null;
   return new Response(JSON.stringify({ error: "Unauthorized." }), {
     status: 401,
     headers: { "Content-Type": "application/json" },
   });
+}
+
+/** The tenant id to scope this request's store to (null = single shared space). */
+export function tenantForRequest(req: Request): string | null {
+  const out = evaluate(req);
+  return out.allowed ? out.tenantId : null;
 }

@@ -72,6 +72,20 @@ const MAX_SEARCH_HISTORY = 12;
 /** Shared demo password for every demo account. */
 export const DEMO_PASSWORD = "meridian2024";
 
+/**
+ * Best-effort: POST to /api/auth/login to mint the signed server-session cookie
+ * (carries the tenant for the durable API). Active only when SESSION_SECRET is
+ * configured server-side; a harmless no-op otherwise, so client auth still works.
+ */
+function establishServerSession(email: string, password: string, name: string): void {
+  if (typeof fetch === "undefined") return;
+  void fetch("/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password, name }),
+  }).catch(() => {});
+}
+
 const DEMO_USERS: Record<string, AuthUser & { password: string }> = {
   "sales@meridiansupply.com": {
     name: "Sarah Chen",
@@ -428,6 +442,9 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     if (typeof localStorage !== "undefined") {
       localStorage.setItem("pf_user", JSON.stringify(user));
     }
+    // Best-effort: also establish the signed server session (active only when
+    // SESSION_SECRET is set; a no-op otherwise). Carries the tenant for the API.
+    establishServerSession(email, password, user.name);
     return true;
   },
 
@@ -435,6 +452,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   loginWithSso(user) {
     set({ user, authError: null });
     if (typeof localStorage !== "undefined") localStorage.setItem("pf_user", JSON.stringify(user));
+    establishServerSession(user.email, DEMO_PASSWORD, user.name);
   },
 
   logout() {
@@ -446,6 +464,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       localStorage.removeItem("pf_user");
       localStorage.removeItem("pf_active_customer");
     }
+    // Clear the signed server session cookie too (no-op when sessions are off).
+    if (typeof fetch !== "undefined") void fetch("/api/auth/logout", { method: "POST" }).catch(() => {});
   },
 
   // ── Search ─────────────────────────────────────────────────

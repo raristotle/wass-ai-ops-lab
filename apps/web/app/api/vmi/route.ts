@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { getStore } from "@/lib/server/persistence";
+import { getStore, forTenant } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
-import { requireApiAuth } from "@/lib/server/api-auth";
+import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { resolveBySku } from "@/lib/catalog/sku-index";
 import {
@@ -62,7 +62,7 @@ export async function POST(req: Request) {
       max: d.max,
       updatedAt: Date.now(),
     };
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     await store.put(NS, policy.id, policy);
     return NextResponse.json({ ok: true, id: policy.id, persisted: store.backend });
   } catch (e) {
@@ -77,7 +77,7 @@ export async function GET(req: Request) {
   const denied = requireApiAuth(req);
   if (denied) return denied;
   try {
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     const policies = await store.list<VmiPolicy>(NS, { limit: 2000 });
     const orders = await store.list<PlacedOrder>(ORDERS_NS, { limit: 5000 });
     const now = Date.now();
@@ -114,7 +114,7 @@ export async function DELETE(req: Request) {
   try {
     const id = new URL(req.url).searchParams.get("id");
     if (!id) return NextResponse.json({ error: "Missing id." }, { status: 400 });
-    await getStore().delete(NS, id);
+    await forTenant(getStore(), tenantForRequest(req)).delete(NS, id);
     return NextResponse.json({ ok: true, id });
   } catch (e) {
     logApiError("/api/vmi:DELETE", e);

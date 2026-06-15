@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { getStore, mutate } from "@/lib/server/persistence";
+import { getStore, mutate, forTenant } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
-import { requireApiAuth } from "@/lib/server/api-auth";
+import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { resolveBySku } from "@/lib/catalog/sku-index";
 import { buildOrder, orderId, type PlacedOrder, type ResolvedLine } from "@/lib/product-finder-order-intake";
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     const parsed = BodySchema.safeParse(await req.json());
     if (!parsed.success) return NextResponse.json({ error: "Invalid order." }, { status: 400 });
     const { clientRef, items, customer, jobId, source } = parsed.data;
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
 
     // Idempotency: the same clientRef returns the already-placed order unchanged.
     const id = orderId(clientRef);
@@ -104,7 +104,7 @@ export async function DELETE(req: Request) {
     const idParam = new URL(req.url).searchParams.get("id");
     if (!idParam) return NextResponse.json({ error: "Missing id." }, { status: 400 });
     const key = idParam.startsWith("ord-") ? idParam : orderId(idParam);
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     // Unlink the cancelled order from its job so the rollup doesn't keep counting
     // it — atomic compare-and-set so a concurrent link/unlink can't clobber it.
     const order = await store.get<PlacedOrder>(NS, key);
@@ -127,7 +127,7 @@ export async function GET(req: Request) {
   const denied = requireApiAuth(req);
   if (denied) return denied;
   try {
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     // Accept either the order id ("ord-…") or the raw clientRef it was placed with.
     const idParam = new URL(req.url).searchParams.get("id");
     if (idParam) {

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { getStore } from "@/lib/server/persistence";
+import { getStore, forTenant } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
-import { requireApiAuth } from "@/lib/server/api-auth";
+import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 
 export const dynamic = "force-dynamic";
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   try {
     const parsed = IntakeSchema.safeParse(await req.json());
     if (!parsed.success) return NextResponse.json({ error: "Invalid RFQ intake." }, { status: 400 });
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     const record = { id: parsed.data.quoteNumber, ...parsed.data };
     await store.put(NS, record.id, record);
     return NextResponse.json({ ok: true, id: record.id, persisted: store.backend });
@@ -46,7 +46,7 @@ export async function GET(req: Request) {
   const denied = requireApiAuth(req);
   if (denied) return denied;
   try {
-    const store = getStore();
+    const store = forTenant(getStore(), tenantForRequest(req));
     const all = await store.list<{ at: number; quoteNumber?: string; lines?: number; matched?: number }>(NS, { limit: 200 });
     all.sort((a, b) => (b.at ?? 0) - (a.at ?? 0));
     // This endpoint backs the PUBLIC, unauthenticated supplier portal, so it must

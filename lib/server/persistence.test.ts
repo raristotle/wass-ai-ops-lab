@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { MemoryStore, getStore, mutate, persistenceConfigured, postgresUrl } from "@/lib/server/persistence";
+import { MemoryStore, getStore, mutate, forTenant, persistenceConfigured, postgresUrl } from "@/lib/server/persistence";
 import { InlineQueue } from "@/lib/server/queue";
 
 describe("MemoryStore", () => {
@@ -137,6 +137,28 @@ describe("mutate (atomic read-modify-write)", () => {
     });
     expect(out).toEqual({ items: ["concurrent", "mine"] });
     expect(await s.get("jobs", "j")).toEqual({ items: ["concurrent", "mine"] });
+  });
+});
+
+describe("forTenant (per-tenant isolation)", () => {
+  it("scopes a store so tenants cannot see each other's records (same key, different tenant)", async () => {
+    const base = new MemoryStore();
+    const a = forTenant(base, "acme");
+    const b = forTenant(base, "globex");
+    await a.put("jobs", "j1", { who: "acme" });
+    await b.put("jobs", "j1", { who: "globex" });
+    expect(await a.get("jobs", "j1")).toEqual({ who: "acme" });
+    expect(await b.get("jobs", "j1")).toEqual({ who: "globex" });
+    expect((await a.list("jobs")).length).toBe(1);
+    expect((await b.list("jobs")).length).toBe(1);
+    await a.delete("jobs", "j1");
+    expect(await a.get("jobs", "j1")).toBeNull();
+    expect(await b.get("jobs", "j1")).toEqual({ who: "globex" }); // b unaffected
+  });
+
+  it("forTenant(store, null) returns the store unwrapped (pilot behavior)", () => {
+    const base = new MemoryStore();
+    expect(forTenant(base, null)).toBe(base);
   });
 });
 

@@ -282,21 +282,29 @@ the StartPage **deep-links to that product** (`X-PunchOut-Level: 2`); otherwise 
 lands on the store home (Level 1). Parsing + response are a pure tested lib
 (`lib/procurement/punchout-setup.ts`). `GET` returns endpoint info. POST 30/min.
 
-## Auth on the durable endpoints
+## Auth & tenancy on the durable endpoints
 
 The durable business endpoints — `/api/jobs`, `/api/orders`, `/api/vmi`,
-`/api/rfq`, `/api/rfq-responses` (all verbs) — require one of:
-- a **same-origin** request (the app's own browser UI; allowed via the `Origin`
-  header matching the deployment host — no client secret), or
-- `Authorization: Bearer <WRITE_API_TOKEN>` for server-to-server / agent callers
-  (the MCP server sends this as `MERIDIAN_API_TOKEN`).
+`/api/rfq`, `/api/rfq-responses` (all verbs) — are gated by `lib/server/api-auth.ts`
+in one of two modes, by whether **`SESSION_SECRET`** is set:
 
-Anonymous, cross-origin, or tokenless callers get `401` (`lib/server/api-auth.ts`).
-This is a **pilot-grade** control that closes anonymous read/forge/delete of
-business records; it is not per-tenant auth (a determined caller can forge an
-`Origin`), for which the dormant SSO seam is the path. The public procurement
-endpoints (`/api/procurement/cif`, `/api/procurement/punchout`) are intentionally
-**not** gated — they are external B2B integration surfaces with no tenant data.
+**Sessions ON (per-tenant SSO).** A request must carry a valid **signed session
+cookie** (`meridian_session`, set by `/api/auth/login` or the OIDC
+`/api/auth/sso/callback`) **or** `Authorization: Bearer <WRITE_API_TOKEN>` (the MCP
+server's `MERIDIAN_API_TOKEN`). The session's **`tenantId`** scopes every read and
+write — records live under a tenant-prefixed namespace (`lib/server/persistence.ts`
+`forTenant`), so one tenant literally cannot see another's data. Everything else
+is `401`.
+
+**Sessions OFF (pilot).** The prior **same-origin OR token** gate, single shared
+space — closes anonymous read/forge/delete without per-tenant split.
+
+Auth routes: `POST /api/auth/login` (demo/password → session for the email's
+tenant), `POST /api/auth/logout`, `GET /api/auth/session`, `GET /api/auth/sso/start`
++ `GET /api/auth/sso/callback` (real OIDC; verifies the id_token via JWKS in
+`lib/server/oidc.ts`, tenant from the `tid`/`hd` claim). The public procurement
+endpoints (`/api/procurement/*`) are intentionally **not** gated — external B2B
+surfaces with no tenant data.
 
 ## Rate limiting
 

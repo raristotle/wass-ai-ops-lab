@@ -24,6 +24,10 @@ export interface SsoConfig {
   clientId?: string;
   authorizeUrl?: string;
   redirectUri?: string;
+  /** Token endpoint (authorization-code exchange) + JWKS (id_token verification). */
+  tokenUrl?: string;
+  jwksUrl?: string;
+  clientSecret?: string;
   scope: string;
 }
 
@@ -42,6 +46,9 @@ export function readSsoConfig(env: Record<string, string | undefined> = process.
     clientId,
     authorizeUrl,
     redirectUri,
+    tokenUrl: env.SSO_TOKEN_URL?.trim(),
+    jwksUrl: env.SSO_JWKS_URL?.trim(),
+    clientSecret: env.SSO_CLIENT_SECRET?.trim(),
     scope: env.SSO_SCOPE?.trim() || DEFAULT_SCOPE,
   };
 }
@@ -70,6 +77,8 @@ export interface IdpClaims {
   /** Optional branch mapping claim, when the IdP carries it. */
   branch?: string;
   branchId?: string;
+  /** Tenant/organization claim (Azure `tid`, Google `hd`, or a custom `tenant`). */
+  tid?: string;
 }
 
 const ROLE_GROUP = {
