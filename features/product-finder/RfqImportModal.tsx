@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
+import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { parseBomLines, matchBomScored, type ScoredBomLine } from "@/lib/product-finder-bom";
 import { apiSearch, apiCrossMatch } from "@/lib/product-finder-api";
 import { suggestCorrection } from "@/lib/product-finder-suggest-correction";
@@ -30,6 +31,7 @@ const TIER_BADGE: Record<string, string> = {
 export function RfqImportModal() {
   const open = useProductFinder((s) => s.rfqOpen);
   const setOpen = useProductFinder((s) => s.setRfqOpen);
+  const closeRef = useModalA11y(open, () => setOpen(false));
   const addToCart = useProductFinder((s) => s.addToCart);
   const saveQuote = useProductFinder((s) => s.saveQuote);
   const openCartAt = useProductFinder((s) => s.openCartAt);
@@ -115,6 +117,7 @@ export function RfqImportModal() {
             <p className="text-xs text-[#B7C9D3]">Paste or upload a customer&apos;s takeoff; we draft the quote.</p>
           </div>
           <button
+            ref={closeRef}
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close RFQ"

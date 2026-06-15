@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useProductFinder, selectActiveCustomer } from "@/lib/product-finder-store";
+import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { getPricingProvider } from "@/lib/integration/index";
 import {
   RETURN_REASONS,
@@ -27,6 +28,7 @@ export function ReturnModal() {
   const [selected, setSelected] = useState<Record<string, boolean>>({});
   const [reason, setReason] = useState<ReturnReason>(RETURN_REASONS[0]);
   const [note, setNote] = useState("");
+  const closeRef = useModalA11y(orderId !== null, () => setReturnModalOrder(null));
 
   if (!order) return null;
 
@@ -68,6 +70,7 @@ export function ReturnModal() {
             <p className="text-xs text-[#B7C9D3]">Order placed {new Date(order.placedAt).toLocaleDateString()}</p>
           </div>
           <button
+            ref={closeRef}
             type="button"
             onClick={() => setReturnModalOrder(null)}
             aria-label="Close return"
@@ -163,7 +166,7 @@ export function ReturnModal() {
             </Button>
           </div>
           <p className="mt-2 text-[10px] italic text-[#4F758B]">
-            Generates an RMA + return label and tracks the credit. With a Resend key, the customer gets an RMA email.
+            Generates an RMA + return label and tracks the credit through to the issued credit.
           </p>
         </div>
       </div>

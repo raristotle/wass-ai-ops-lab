@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import { GuidedSelectorsModal } from "@/features/product-finder/GuidedSelectorsModal";
 import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
@@ -62,5 +62,36 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
     useProductFinder.setState({ bomIqOpen: true, cart: {} });
     const { container } = render(<BomIntelligenceModal />);
     await expectNoViolations(container);
+  });
+});
+
+describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
+  afterEach(() => {
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, orders: [] });
+  });
+
+  it("Escape closes the Guided selectors modal", () => {
+    useProductFinder.setState({ guidedOpen: true });
+    render(<GuidedSelectorsModal />);
+    expect(useProductFinder.getState().guidedOpen).toBe(true);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().guidedOpen).toBe(false);
+  });
+
+  it("Escape closes the RFQ modal", () => {
+    useProductFinder.setState({ rfqOpen: true });
+    render(<RfqImportModal />);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().rfqOpen).toBe(false);
+  });
+
+  it("Escape closes the Returns/RMA modal", () => {
+    useProductFinder.setState({
+      orders: [{ id: "o1", placedAt: 1_700_000_000_000, lines: [{ product: prod("A"), qty: 2 }], total: 40, customerId: null, customerName: null }],
+      returnModalOrderId: "o1",
+    });
+    render(<ReturnModal />);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().returnModalOrderId).toBeNull();
   });
 });

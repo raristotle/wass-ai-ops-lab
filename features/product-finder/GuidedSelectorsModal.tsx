@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
+import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { apiSearch } from "@/lib/product-finder-api";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -67,6 +68,7 @@ const inputCls =
 export function GuidedSelectorsModal() {
   const open = useProductFinder((s) => s.guidedOpen);
   const setOpen = useProductFinder((s) => s.setGuidedOpen);
+  const closeRef = useModalA11y(open, () => setOpen(false));
   const addToCart = useProductFinder((s) => s.addToCart);
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
 
@@ -141,6 +143,7 @@ export function GuidedSelectorsModal() {
             <p className="text-xs text-[#B7C9D3]">NEC-grounded — resolves to a stocked, priced part.</p>
           </div>
           <button
+            ref={closeRef}
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close guided selectors"

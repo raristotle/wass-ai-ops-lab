@@ -55,15 +55,21 @@ export function CommandPalette() {
         s.setPaletteOpen(false);
         return;
       }
-      // Don't open over another overlay.
+      // Don't open over another overlay (includes the newer feature dialogs).
       if (
         s.cartOpen ||
         s.helpOpen ||
         s.bomModalOpen ||
         s.bulkModalOpen ||
+        s.bulkCrossOpen ||
         s.jobWizardOpen ||
         s.compareModalOpen ||
         s.submittalOpen ||
+        s.assistantOpen ||
+        s.guidedOpen ||
+        s.rfqOpen ||
+        s.bomIqOpen ||
+        s.returnModalOrderId !== null ||
         s.detailModalProduct !== null
       ) {
         return;

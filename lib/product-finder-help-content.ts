@@ -697,7 +697,7 @@ export const HELP_TOPICS: HelpTopic[] = [
       "Wrong item or over-ordered for the job? Click Start a return on any order in the cart's Orders list.",
       "• Tick the lines to send back, pick a reason, and Generate RMA — you get an RMA number and an estimated credit.",
       "• Track the return through Requested → Approved → In transit → Received → Credit issued; the 🔔 bell flags open RMAs until they're resolved.",
-      "With an email key configured, the customer gets an RMA confirmation email.",
+      "The RMA number and status are tracked in-app; emailing the customer an RMA confirmation is on the roadmap (the quote-email path already proves the Resend integration).",
     ],
   },
   {

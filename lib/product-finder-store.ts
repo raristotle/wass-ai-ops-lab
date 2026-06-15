@@ -430,8 +430,14 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   },
 
   logout() {
-    set({ user: null });
-    if (typeof localStorage !== "undefined") localStorage.removeItem("pf_user");
+    // Also clear the active customer — otherwise on a shared workstation the next
+    // rep inherits the previous rep's "Quoting for" selection (wrong pricing tier /
+    // contract attribution on their quotes and orders).
+    set({ user: null, activeCustomerId: null });
+    if (typeof localStorage !== "undefined") {
+      localStorage.removeItem("pf_user");
+      localStorage.removeItem("pf_active_customer");
+    }
   },
 
   // ── Search ─────────────────────────────────────────────────

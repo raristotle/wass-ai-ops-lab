@@ -2448,3 +2448,13 @@ describe("buildDemoQuotes", () => {
     expect(rate(low)).toBeGreaterThan(rate(high));
   });
 });
+
+describe("logout clears the active customer (shared-workstation safety)", () => {
+  it("resets user and activeCustomerId so the next rep doesn't inherit the selection", () => {
+    useProductFinder.setState({ activeCustomerId: "CUST-001" });
+    expect(useProductFinder.getState().activeCustomerId).toBe("CUST-001");
+    useProductFinder.getState().logout();
+    expect(useProductFinder.getState().user).toBeNull();
+    expect(useProductFinder.getState().activeCustomerId).toBeNull();
+  });
+});

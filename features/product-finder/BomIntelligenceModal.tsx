@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
+import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { apiBomAnalyze, type BomAnalysis } from "@/lib/product-finder-api";
 import { rollupHealth, type LineHealth, type HealthGrade } from "@/lib/catalog/bom-health";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,7 @@ const GRADE_BADGE: Record<HealthGrade, string> = {
 export function BomIntelligenceModal() {
   const open = useProductFinder((s) => s.bomIqOpen);
   const setOpen = useProductFinder((s) => s.setBomIqOpen);
+  const closeRef = useModalA11y(open, () => setOpen(false));
   const cart = useProductFinder((s) => s.cart);
   const branchId = useProductFinder((s) => s.user?.branchId);
 
@@ -72,6 +74,7 @@ export function BomIntelligenceModal() {
             <p className="text-xs text-[#B7C9D3]">Health grade + landed-cost award for your basket.</p>
           </div>
           <button
+            ref={closeRef}
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close BOM intelligence"
