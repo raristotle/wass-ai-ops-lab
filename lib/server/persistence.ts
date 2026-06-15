@@ -41,11 +41,16 @@ export function persistenceConfigured(): boolean {
   return postgresUrl() !== null;
 }
 
+export interface ListOptions {
+  /** Cap the number of records returned (most-recent first on the Postgres path). */
+  limit?: number;
+}
+
 export interface KvStore {
   readonly backend: "memory" | "postgres";
   put<T>(namespace: string, key: string, value: T): Promise<void>;
   get<T>(namespace: string, key: string): Promise<T | null>;
-  list<T>(namespace: string): Promise<T[]>;
+  list<T>(namespace: string, opts?: ListOptions): Promise<T[]>;
   delete(namespace: string, key: string): Promise<void>;
 }
 
@@ -74,8 +79,9 @@ export class MemoryStore implements KvStore {
     return v === undefined ? null : (JSON.parse(JSON.stringify(v)) as T);
   }
 
-  async list<T>(namespace: string): Promise<T[]> {
-    return [...this.ns(namespace).values()].map((v) => JSON.parse(JSON.stringify(v)) as T);
+  async list<T>(namespace: string, opts?: ListOptions): Promise<T[]> {
+    const all = [...this.ns(namespace).values()].map((v) => JSON.parse(JSON.stringify(v)) as T);
+    return opts?.limit ? all.slice(0, opts.limit) : all;
   }
 
   async delete(namespace: string, key: string): Promise<void> {
@@ -130,9 +136,13 @@ export class NeonStore implements KvStore {
     return rows[0] ? (JSON.parse(rows[0].json as string) as T) : null;
   }
 
-  async list<T>(namespace: string): Promise<T[]> {
+  async list<T>(namespace: string, opts?: ListOptions): Promise<T[]> {
     const sql = await this.init();
-    const rows = await sql`SELECT json FROM "PersistedRecord" WHERE namespace = ${namespace} ORDER BY "updatedAt" DESC`;
+    // Bound the scan when a limit is given (returns the most-recent N) so a large
+    // namespace can't be fetched in full on every request.
+    const rows = opts?.limit
+      ? await sql`SELECT json FROM "PersistedRecord" WHERE namespace = ${namespace} ORDER BY "updatedAt" DESC LIMIT ${opts.limit}`
+      : await sql`SELECT json FROM "PersistedRecord" WHERE namespace = ${namespace} ORDER BY "updatedAt" DESC`;
     // Skip (don't throw on) a corrupt row, so one bad record can't blank the
     // entire namespace listing.
     const out: T[] = [];

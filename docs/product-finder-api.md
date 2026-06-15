@@ -282,6 +282,22 @@ the StartPage **deep-links to that product** (`X-PunchOut-Level: 2`); otherwise 
 lands on the store home (Level 1). Parsing + response are a pure tested lib
 (`lib/procurement/punchout-setup.ts`). `GET` returns endpoint info. POST 30/min.
 
+## Auth on the durable endpoints
+
+The durable business endpoints — `/api/jobs`, `/api/orders`, `/api/vmi`,
+`/api/rfq`, `/api/rfq-responses` (all verbs) — require one of:
+- a **same-origin** request (the app's own browser UI; allowed via the `Origin`
+  header matching the deployment host — no client secret), or
+- `Authorization: Bearer <WRITE_API_TOKEN>` for server-to-server / agent callers
+  (the MCP server sends this as `MERIDIAN_API_TOKEN`).
+
+Anonymous, cross-origin, or tokenless callers get `401` (`lib/server/api-auth.ts`).
+This is a **pilot-grade** control that closes anonymous read/forge/delete of
+business records; it is not per-tenant auth (a determined caller can forge an
+`Origin`), for which the dormant SSO seam is the path. The public procurement
+endpoints (`/api/procurement/cif`, `/api/procurement/punchout`) are intentionally
+**not** gated — they are external B2B integration surfaces with no tenant data.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter

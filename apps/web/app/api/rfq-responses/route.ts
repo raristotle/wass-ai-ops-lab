@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getStore } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
+import { requireApiAuth } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import {
   responseId,
@@ -39,6 +40,8 @@ const BodySchema = z.object({
 export async function POST(req: Request) {
   const rl = await rateLimit(req, { limit: 30, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const parsed = BodySchema.safeParse(await req.json());
     if (!parsed.success) return NextResponse.json({ error: "Invalid supplier response." }, { status: 400 });
@@ -65,9 +68,11 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const store = getStore();
-    const all = await store.list<SupplierResponse>(NS);
+    const all = await store.list<SupplierResponse>(NS, { limit: 1000 });
     const rfqRef = new URL(req.url).searchParams.get("rfqRef");
     const scoped = rfqRef ? all.filter((r) => r.rfqRef === rfqRef) : all;
     return NextResponse.json({ backend: store.backend, count: scoped.length, responses: rankResponses(scoped) });
@@ -80,6 +85,8 @@ export async function GET(req: Request) {
 export async function DELETE(req: Request) {
   const rl = await rateLimit(req, { limit: 30, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const id = new URL(req.url).searchParams.get("id");
     if (!id) return NextResponse.json({ error: "Missing id." }, { status: 400 });

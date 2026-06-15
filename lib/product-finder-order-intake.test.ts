@@ -48,4 +48,10 @@ describe("buildOrder", () => {
     const b = buildOrder({ clientRef: "dup", resolved: [lines[0]], now: 2 });
     expect(a.id).toBe(b.id);
   });
+
+  it("rounds a half-cent line total up, not one cent low (IEEE-754 safe)", () => {
+    const o = buildOrder({ clientRef: "r", resolved: [{ sku: "x", name: "x", unitPrice: 1.005, qty: 1 }], now: 1 });
+    expect(o.lines[0].lineTotal).toBe(1.01);
+    expect(o.total).toBe(1.01);
+  });
 });

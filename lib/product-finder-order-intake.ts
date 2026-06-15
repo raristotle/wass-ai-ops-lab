@@ -44,7 +44,9 @@ export interface PlacedOrder {
 }
 
 function round2(n: number): number {
-  return Math.round(n * 100) / 100;
+  // toFixed(4) clears the IEEE-754 artifact at the half-cent before rounding, so
+  // e.g. round2(1.005) → 1.01 and round2(35.855) → 35.86 (not one cent low).
+  return Math.round(Number((n * 100).toFixed(4))) / 100;
 }
 
 /**

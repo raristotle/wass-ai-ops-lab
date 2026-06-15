@@ -21,11 +21,19 @@ import { ListToolsRequestSchema, CallToolRequestSchema } from "@modelcontextprot
 
 const API_BASE = (process.env.MERIDIAN_API_BASE ?? "https://app.raristotle.com").replace(/\/$/, "");
 const UA = "meridian-mcp-server/1.0";
+// Server-to-server bearer for the gated durable endpoints (jobs/orders/vmi/...).
+// Must match the deployment's WRITE_API_TOKEN. Read tools work without it; write
+// tools (create_job/place_order) require it when the deployment has the gate on.
+const API_TOKEN = process.env.MERIDIAN_API_TOKEN?.trim();
 
 async function api(path, init) {
   const res = await fetch(`${API_BASE}${path}`, {
     ...init,
-    headers: { "User-Agent": UA, ...(init?.headers ?? {}) },
+    headers: {
+      "User-Agent": UA,
+      ...(API_TOKEN ? { Authorization: `Bearer ${API_TOKEN}` } : {}),
+      ...(init?.headers ?? {}),
+    },
   });
   if (!res.ok) {
     // Surface the response body so callers see WHY (e.g. which SKUs were unresolved),

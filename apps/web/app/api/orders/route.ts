@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getStore } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
+import { requireApiAuth } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { resolveBySku } from "@/lib/catalog/sku-index";
 import { buildOrder, orderId, type PlacedOrder, type ResolvedLine } from "@/lib/product-finder-order-intake";
@@ -33,6 +34,8 @@ const BodySchema = z.object({
 export async function POST(req: Request) {
   const rl = await rateLimit(req, { limit: 30, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const parsed = BodySchema.safeParse(await req.json());
     if (!parsed.success) return NextResponse.json({ error: "Invalid order." }, { status: 400 });
@@ -93,6 +96,8 @@ export async function POST(req: Request) {
 export async function DELETE(req: Request) {
   const rl = await rateLimit(req, { limit: 30, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const idParam = new URL(req.url).searchParams.get("id");
     if (!idParam) return NextResponse.json({ error: "Missing id." }, { status: 400 });
@@ -115,6 +120,8 @@ export async function DELETE(req: Request) {
 export async function GET(req: Request) {
   const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const store = getStore();
     // Accept either the order id ("ord-…") or the raw clientRef it was placed with.
@@ -124,7 +131,7 @@ export async function GET(req: Request) {
       const order = await store.get<PlacedOrder>(NS, key);
       return NextResponse.json({ backend: store.backend, order });
     }
-    const orders = await store.list<PlacedOrder>(NS);
+    const orders = await store.list<PlacedOrder>(NS, { limit: 200 });
     orders.sort((a, b) => (b.placedAt ?? 0) - (a.placedAt ?? 0));
     return NextResponse.json({ backend: store.backend, count: orders.length, recent: orders.slice(0, 20) });
   } catch (e) {

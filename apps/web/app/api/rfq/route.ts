@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getStore } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
+import { requireApiAuth } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 
 export const dynamic = "force-dynamic";
@@ -24,6 +25,8 @@ const IntakeSchema = z.object({
 export async function POST(req: Request) {
   const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const parsed = IntakeSchema.safeParse(await req.json());
     if (!parsed.success) return NextResponse.json({ error: "Invalid RFQ intake." }, { status: 400 });
@@ -40,9 +43,11 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   const rl = await rateLimit(req, { limit: 30, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const store = getStore();
-    const all = await store.list<{ at: number; quoteNumber?: string; lines?: number; matched?: number }>(NS);
+    const all = await store.list<{ at: number; quoteNumber?: string; lines?: number; matched?: number }>(NS, { limit: 200 });
     all.sort((a, b) => (b.at ?? 0) - (a.at ?? 0));
     // This endpoint backs the PUBLIC, unauthenticated supplier portal, so it must
     // NOT disclose the distributor's customer/project identities — a bidding

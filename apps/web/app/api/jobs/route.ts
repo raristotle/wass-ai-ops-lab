@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getStore } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
+import { requireApiAuth } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 
 export const dynamic = "force-dynamic";
@@ -40,6 +41,8 @@ type Job = z.infer<typeof JobSchema>;
 export async function GET(req: Request) {
   const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const store = getStore();
     const id = new URL(req.url).searchParams.get("id");
@@ -47,7 +50,7 @@ export async function GET(req: Request) {
       const job = await store.get<Job>(NS, id);
       return NextResponse.json({ backend: store.backend, job });
     }
-    const jobs = await store.list<Job>(NS);
+    const jobs = await store.list<Job>(NS, { limit: 500 });
     jobs.sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0));
     return NextResponse.json({ backend: store.backend, count: jobs.length, jobs });
   } catch (e) {
@@ -59,6 +62,8 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const parsed = JobSchema.safeParse(await req.json());
     if (!parsed.success) return NextResponse.json({ error: "Invalid job." }, { status: 400 });
@@ -74,6 +79,8 @@ export async function POST(req: Request) {
 export async function DELETE(req: Request) {
   const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
   try {
     const id = new URL(req.url).searchParams.get("id");
     if (!id) return NextResponse.json({ error: "Missing id." }, { status: 400 });

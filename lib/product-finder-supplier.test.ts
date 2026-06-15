@@ -44,6 +44,9 @@ describe("responseTotal / responseLeadTime", () => {
   it("extends and rounds the total", () => {
     expect(responseTotal([line({ qty: 3, unitPrice: 4.333 }), line({ qty: 1, unitPrice: 2 })])).toBe(15); // 12.999→13 +2
   });
+  it("rounds a half-cent total up, not one cent low", () => {
+    expect(responseTotal([line({ qty: 1, unitPrice: 1.005 })])).toBe(1.01);
+  });
   it("takes the longest line lead time", () => {
     expect(responseLeadTime([line({ leadTimeDays: 2 }), line({ leadTimeDays: 9 }), line({ leadTimeDays: 5 })])).toBe(9);
     expect(responseLeadTime([])).toBe(0);

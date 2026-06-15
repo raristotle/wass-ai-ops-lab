@@ -31,6 +31,10 @@ persist to the durable store (Neon when configured) and target whatever
 actually transact. `place_order` is idempotent by `clientRef`: a retried call
 returns the existing order rather than duplicating it.
 
+When the deployment has the durable-endpoint auth gate enabled (its
+`WRITE_API_TOKEN` is set), set **`MERIDIAN_API_TOKEN`** to the same value so the
+write tools authenticate (`Authorization: Bearer …`). Read tools work regardless.
+
 ## Run
 
 ```bash
