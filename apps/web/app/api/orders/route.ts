@@ -1,0 +1,116 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { getStore } from "@/lib/server/persistence";
+import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
+import { logApiError } from "@/lib/server/log";
+import { resolveBySku } from "@/lib/catalog/sku-index";
+import { buildOrder, orderId, type PlacedOrder, type ResolvedLine } from "@/lib/product-finder-order-intake";
+import { withArtifact, type Job } from "@/lib/product-finder-job-workspace";
+
+export const dynamic = "force-dynamic";
+
+// Durable, idempotent order placement — the transactional surface behind agentic
+// checkout (the MCP server's place_order tool posts here). SKUs are resolved +
+// priced server-side against the catalog; the order is persisted to Neon when
+// configured. Idempotency is by clientRef (deterministic order id), so an agent
+// retry never double-places. The order model + pricing live in the pure lib.
+const NS = "orders";
+const JOBS_NS = "jobs";
+
+const BodySchema = z.object({
+  clientRef: z.string().trim().min(1).max(80),
+  items: z.array(z.object({ sku: z.string().trim().min(1).max(64), qty: z.number().int().positive().max(100_000) })).min(1).max(100),
+  customer: z.string().trim().max(120).optional(),
+  jobId: z.string().trim().max(120).optional(),
+  source: z.enum(["mcp", "api", "web"]).optional(),
+});
+
+export async function POST(req: Request) {
+  const rl = await rateLimit(req, { limit: 30, windowMs: 60_000 });
+  if (!rl.ok) return tooManyRequests(rl);
+  try {
+    const parsed = BodySchema.safeParse(await req.json());
+    if (!parsed.success) return NextResponse.json({ error: "Invalid order." }, { status: 400 });
+    const { clientRef, items, customer, jobId, source } = parsed.data;
+    const store = getStore();
+
+    // Idempotency: the same clientRef returns the already-placed order unchanged.
+    const id = orderId(clientRef);
+    const existing = await store.get<PlacedOrder>(NS, id);
+    if (existing) {
+      return NextResponse.json({ ok: true, idempotent: true, order: existing, persisted: store.backend });
+    }
+
+    // Resolve + price each SKU against the catalog; collect any we don't carry.
+    const resolved: ResolvedLine[] = [];
+    const unresolved: string[] = [];
+    for (const it of items) {
+      const p = resolveBySku(it.sku);
+      if (p) resolved.push({ sku: p.sku, name: p.name, unitPrice: p.unitPrice, qty: it.qty });
+      else unresolved.push(it.sku);
+    }
+    if (resolved.length === 0) {
+      return NextResponse.json({ error: "None of the SKUs are carried.", unresolved }, { status: 400 });
+    }
+
+    const order = buildOrder({ clientRef, resolved, customer, jobId: jobId ?? null, source, now: Date.now() });
+    await store.put(NS, id, order);
+
+    // Best-effort: link the order onto its job's rollup (the order is placed regardless).
+    if (jobId) {
+      const job = await store.get<Job>(JOBS_NS, jobId);
+      if (job) {
+        const linked = withArtifact(job, {
+          kind: "order",
+          ref: order.id,
+          label: `Order ${order.id} · ${order.customer}`,
+          value: order.total,
+          status: "placed",
+          at: order.placedAt,
+        });
+        await store.put(JOBS_NS, jobId, linked);
+      }
+    }
+
+    return NextResponse.json({ ok: true, idempotent: false, order, unresolved, persisted: store.backend });
+  } catch (e) {
+    logApiError("/api/orders:POST", e);
+    return NextResponse.json({ error: "Could not place the order." }, { status: 400 });
+  }
+}
+
+export async function DELETE(req: Request) {
+  const rl = await rateLimit(req, { limit: 30, windowMs: 60_000 });
+  if (!rl.ok) return tooManyRequests(rl);
+  try {
+    const idParam = new URL(req.url).searchParams.get("id");
+    if (!idParam) return NextResponse.json({ error: "Missing id." }, { status: 400 });
+    const key = idParam.startsWith("ord-") ? idParam : orderId(idParam);
+    await getStore().delete(NS, key);
+    return NextResponse.json({ ok: true, id: key });
+  } catch (e) {
+    logApiError("/api/orders:DELETE", e);
+    return NextResponse.json({ error: "Could not cancel the order." }, { status: 400 });
+  }
+}
+
+export async function GET(req: Request) {
+  const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
+  if (!rl.ok) return tooManyRequests(rl);
+  try {
+    const store = getStore();
+    // Accept either the order id ("ord-…") or the raw clientRef it was placed with.
+    const idParam = new URL(req.url).searchParams.get("id");
+    if (idParam) {
+      const key = idParam.startsWith("ord-") ? idParam : orderId(idParam);
+      const order = await store.get<PlacedOrder>(NS, key);
+      return NextResponse.json({ backend: store.backend, order });
+    }
+    const orders = await store.list<PlacedOrder>(NS);
+    orders.sort((a, b) => (b.placedAt ?? 0) - (a.placedAt ?? 0));
+    return NextResponse.json({ backend: store.backend, count: orders.length, recent: orders.slice(0, 20) });
+  } catch (e) {
+    logApiError("/api/orders:GET", e);
+    return NextResponse.json({ backend: "unknown", count: 0, recent: [] }, { status: 200 });
+  }
+}

@@ -168,6 +168,62 @@ const TOOLS = {
       verifiedProducts: c.products,
     });
   },
+
+  // ── Transactional (write) tools — agentic checkout over the durable store ────
+
+  async create_job({ name, customer }) {
+    if (!name) return fail("name is required");
+    const now = Date.now();
+    const slug = String(name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 32) || "job";
+    const job = {
+      id: `job-${slug}-${now}`,
+      name: String(name).trim(),
+      customer: customer ? String(customer).trim() : "—",
+      customerId: null,
+      status: "open",
+      artifacts: [],
+      createdAt: now,
+      updatedAt: now,
+    };
+    const res = await api(`/api/jobs`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(job),
+    });
+    return ok({ created: res.ok === true, jobId: job.id, persisted: res.persisted, job });
+  },
+
+  async list_jobs() {
+    const res = await api(`/api/jobs`);
+    return ok({
+      backend: res.backend,
+      count: res.count,
+      jobs: (res.jobs ?? []).map((j) => ({
+        id: j.id,
+        name: j.name,
+        customer: j.customer,
+        status: j.status,
+        artifacts: (j.artifacts ?? []).length,
+      })),
+    });
+  },
+
+  async place_order({ items, customer, jobId, clientRef }) {
+    if (!Array.isArray(items) || items.length === 0) return fail("items must be a non-empty array of { sku, qty }");
+    const body = {
+      clientRef: clientRef ? String(clientRef) : `mcp-${Date.now()}`,
+      items: items.map((i) => ({ sku: String(i.sku), qty: Math.max(1, Math.floor(Number(i.qty) || 1)) })),
+      source: "mcp",
+    };
+    if (customer) body.customer = String(customer);
+    if (jobId) body.jobId = String(jobId);
+    const res = await api(`/api/orders`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    return ok(res);
+  },
 };
 
 const TOOL_DEFS = [
@@ -227,6 +283,47 @@ const TOOL_DEFS = [
     name: "coverage_summary",
     description: "The cross-reference dataset coverage: source-backed pair counts, both-sides-stocked, pairs by category, and the source-workbook ingest-status breakdown. No arguments.",
     inputSchema: { type: "object", properties: {} },
+  },
+  {
+    name: "create_job",
+    description:
+      "Create a durable Job (project) workspace to group quotes/orders for one jobsite. Returns the jobId to pass to place_order. Persists server-side (Neon when configured).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: "Jobsite / project name, e.g. 'Acme Warehouse — Phase 2'." },
+        customer: { type: "string", description: "Customer / account name." },
+      },
+      required: ["name"],
+    },
+  },
+  {
+    name: "list_jobs",
+    description: "List the durable Job workspaces with their status and linked-artifact counts. No arguments.",
+    inputSchema: { type: "object", properties: {} },
+  },
+  {
+    name: "place_order",
+    description:
+      "Place a durable order for a list of { sku, qty } against the catalog (agentic checkout). SKUs are resolved + priced server-side; pass an optional jobId to roll the order into a Job. IDEMPOTENT by clientRef — pass a stable clientRef so a retry returns the same order instead of duplicating it.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        items: {
+          type: "array",
+          description: "Line items to order.",
+          items: {
+            type: "object",
+            properties: { sku: { type: "string" }, qty: { type: "number" } },
+            required: ["sku", "qty"],
+          },
+        },
+        customer: { type: "string", description: "Customer / account name." },
+        jobId: { type: "string", description: "Optional Job id (from create_job/list_jobs) to attach the order to." },
+        clientRef: { type: "string", description: "Idempotency key — a stable reference for this checkout. A repeat call with the same clientRef returns the existing order." },
+      },
+      required: ["items"],
+    },
   },
 ];
 

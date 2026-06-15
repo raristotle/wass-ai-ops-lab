@@ -222,6 +222,20 @@ live in the pure lib (`lib/product-finder-job-workspace.ts`); the route stays th
 Linked quotes/orders are denormalized snapshots, so the rollup is durable
 server-side without the client store. All verbs rate-limited 60/min.
 
+### `POST /api/orders` · `GET /api/orders`
+
+Durable, **idempotent** order placement — the transactional surface behind agentic
+checkout (the MCP `place_order` tool posts here). Body
+`{ clientRef, items:[{sku, qty}], customer?, jobId?, source? }`. SKUs are resolved
+and priced **server-side** against the catalog (`lib/catalog/sku-index.ts`); the
+order model + pricing live in the pure lib `lib/product-finder-order-intake.ts`.
+**Idempotency is by `clientRef`** — the order id is a deterministic function of it,
+so a retried checkout returns the existing order (`idempotent:true`) instead of
+double-placing. Unknown SKUs come back in `unresolved` (the order still places for
+the known ones; all-unknown is a 400). A `jobId` rolls the order onto that Job's
+value rollup. `GET` lists recent orders (`?id=` fetches one by order id or
+clientRef). Persists to Neon when configured. POST 30/min, GET 60/min.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter
@@ -235,6 +249,7 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `POST /api/bom/analyze` | 60 / min |
 | `POST /api/rfq` | 60 / min |
 | `GET/POST/DELETE /api/jobs` | 60 / min |
+| `POST /api/orders` | 30 / min |
 | `GET /api/commodity` | 30 / min |
 | `GET /api/rfq` | 30 / min |
 | `GET /api/auth/sso/start` | 30 / min |

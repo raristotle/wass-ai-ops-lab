@@ -20,9 +20,16 @@ no AI, no per-call cost.** Point it at any environment with `MERIDIAN_API_BASE`
 | `product_detail` | Specs, datasheet link, price, branch/DC stock, verified crosses, brand hierarchy |
 | `check_availability` | Branch + DC stock totals for a SKU |
 | `coverage_summary` | Source-backed pair counts, both-sides-stocked, pairs by category, source-workbook ingest status |
+| `create_job` | **(write)** Create a durable Job (project) workspace; returns a `jobId` |
+| `list_jobs` | List Job workspaces with status + linked-artifact counts |
+| `place_order` | **(write)** Place a durable, **idempotent** order (`{sku, qty}[]`) against the catalog — agentic checkout; optional `jobId`, dedup by `clientRef` |
 
 Only ≥95%-confidence, source-backed crosses are ever returned, each citing the
-document that states it.
+document that states it. The three **write** tools (`create_job`, `place_order`)
+persist to the durable store (Neon when configured) and target whatever
+`MERIDIAN_API_BASE` points at — so an agent can search, cross-reference, and then
+actually transact. `place_order` is idempotent by `clientRef`: a retried call
+returns the existing order rather than duplicating it.
 
 ## Run
 
