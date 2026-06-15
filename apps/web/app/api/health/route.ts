@@ -17,6 +17,9 @@ export function GET() {
   return NextResponse.json({
     status: "ok",
     service: "meridian-product-finder",
+    // Short SHA of the live deployment (Vercel sets VERCEL_GIT_COMMIT_SHA at
+    // build time) — lets a deploy be confirmed live without guessing on timing.
+    commit: process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? "local",
     integrations: {
       assistant: isAssistantEnabled(),
       sso: readSsoConfig().enabled,
