@@ -9,6 +9,8 @@
  * needs when a retry might double-fire.
  */
 
+import { fnv1aHex } from "@/lib/stable-id";
+
 export type OrderSource = "mcp" | "api" | "web";
 
 /** A SKU resolved against the catalog (name + price), ready to price into a line. */
@@ -45,15 +47,20 @@ function round2(n: number): number {
   return Math.round(n * 100) / 100;
 }
 
-/** Deterministic, idempotent order id from the caller's clientRef. */
+/**
+ * Deterministic, idempotent order id from the caller's clientRef. A readable
+ * slug prefix (capped) plus a hash of the FULL ref, so two distinct clientRefs
+ * can never collide even when their first 48 chars coincide — the truncated-slug
+ * collision would silently return the wrong order on a money-bearing checkout.
+ */
 export function orderId(clientRef: string): string {
   const slug =
     clientRef
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "")
-      .slice(0, 48) || "order";
-  return `ord-${slug}`;
+      .slice(0, 32) || "order";
+  return `ord-${slug}-${fnv1aHex(clientRef)}`;
 }
 
 /** Build a priced order from resolved lines. Pure; caller supplies `now`. */

@@ -90,7 +90,8 @@ export function jobRollup(job: Pick<Job, "artifacts">): JobRollup {
  */
 export function withArtifact(job: Job, artifact: JobArtifact): Job {
   const others = job.artifacts.filter((a) => !(a.kind === artifact.kind && a.ref === artifact.ref));
-  return { ...job, artifacts: [...others, artifact], updatedAt: artifact.at };
+  // Monotonic: re-linking a stale-timestamped artifact must not move updatedAt backwards.
+  return { ...job, artifacts: [...others, artifact], updatedAt: Math.max(job.updatedAt, artifact.at) };
 }
 
 /** Unlink an artifact by (kind, ref). Returns a new Job. */

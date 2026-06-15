@@ -29,9 +29,14 @@ const resp = (supplier: string, total: number, leadTimeDays: number): SupplierRe
 
 describe("responseId", () => {
   it("is deterministic per (rfqRef, supplier) so resubmits overwrite", () => {
-    expect(responseId("Q-20260615-0042", "Gulf Coast Supply")).toBe("resp-q-20260615-0042-gulf-coast-supply");
+    expect(responseId("Q-20260615-0042", "Gulf Coast Supply")).toMatch(/^resp-q-20260615-0042-gulf-coast-supply-[0-9a-f]{8}$/);
     expect(responseId("Q-1", "Acme")).toBe(responseId("Q-1", "Acme"));
     expect(responseId("Q-1", "Acme")).not.toBe(responseId("Q-2", "Acme"));
+  });
+  it("distinct suppliers sharing a long name prefix do NOT collide", () => {
+    const a = responseId("Q-1", "Northgate Electrical Distribution Company East");
+    const b = responseId("Q-1", "Northgate Electrical Distribution Company West");
+    expect(a).not.toBe(b);
   });
 });
 

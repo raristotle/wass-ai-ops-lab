@@ -36,6 +36,15 @@ describe("buildCif (CIF 3.0)", () => {
     expect(cif).toContain('"8.45"');
     expect(cif).toContain('Square D QO115 1-Pole 15A ""QO"" breaker'); // internal quotes doubled
   });
+
+  it("neutralizes spreadsheet formula injection in a leading =/+/-/@ field", () => {
+    const evil = buildCif({
+      supplierId: "0", supplierName: "M", timestamp: "t",
+      rows: [row({ description: "=HYPERLINK(\"http://evil\")", manufacturerName: "@SUM(A1:A9)" })],
+    });
+    expect(evil).toContain(`"'=HYPERLINK`); // prefixed with a single quote
+    expect(evil).toContain(`"'@SUM(A1:A9)"`);
+  });
 });
 
 describe("parsePunchOutSetupRequest — Level 1 vs Level 2", () => {
@@ -56,6 +65,16 @@ describe("parsePunchOutSetupRequest — Level 1 vs Level 2", () => {
     expect(p.level).toBe(2);
     expect(p.selectedItemId).toBe("QO115");
     expect(p.operation).toBe("edit");
+  });
+
+  it("tolerates attributes on the tags and a single-quoted operation (real cXML variation)", () => {
+    const xml = `<cXML><Request><PunchOutSetupRequest operation='edit'><BuyerCookie>c3</BuyerCookie>
+      <SelectedItem quantity="1"><ItemID><SupplierPartID lang="en">QO115</SupplierPartID></ItemID></SelectedItem>
+      </PunchOutSetupRequest></Request></cXML>`;
+    const p = parsePunchOutSetupRequest(xml);
+    expect(p.operation).toBe("edit"); // single quotes parsed
+    expect(p.level).toBe(2); // attribute on SupplierPartID no longer downgrades to L1
+    expect(p.selectedItemId).toBe("QO115");
   });
 });
 

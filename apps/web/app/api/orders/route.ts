@@ -5,9 +5,14 @@ import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { logApiError } from "@/lib/server/log";
 import { resolveBySku } from "@/lib/catalog/sku-index";
 import { buildOrder, orderId, type PlacedOrder, type ResolvedLine } from "@/lib/product-finder-order-intake";
-import { withArtifact, type Job } from "@/lib/product-finder-job-workspace";
+import { withArtifact, removeArtifact, type Job } from "@/lib/product-finder-job-workspace";
 
 export const dynamic = "force-dynamic";
+
+// A sanity ceiling so an erroneous/agentic call can't book an absurd order in a
+// single request. Generous for real procurement; well below the schema's
+// theoretical max (100 lines × 100k qty).
+const MAX_ORDER_TOTAL = 5_000_000;
 
 // Durable, idempotent order placement — the transactional surface behind agentic
 // checkout (the MCP server's place_order tool posts here). SKUs are resolved +
@@ -54,6 +59,12 @@ export async function POST(req: Request) {
     }
 
     const order = buildOrder({ clientRef, resolved, customer, jobId: jobId ?? null, source, now: Date.now() });
+    if (order.total > MAX_ORDER_TOTAL) {
+      return NextResponse.json(
+        { error: `Order total $${order.total.toLocaleString()} exceeds the $${MAX_ORDER_TOTAL.toLocaleString()} single-order limit — split it or place it through a rep.` },
+        { status: 400 },
+      );
+    }
     await store.put(NS, id, order);
 
     // Best-effort: link the order onto its job's rollup (the order is placed regardless).
@@ -86,7 +97,14 @@ export async function DELETE(req: Request) {
     const idParam = new URL(req.url).searchParams.get("id");
     if (!idParam) return NextResponse.json({ error: "Missing id." }, { status: 400 });
     const key = idParam.startsWith("ord-") ? idParam : orderId(idParam);
-    await getStore().delete(NS, key);
+    const store = getStore();
+    // Unlink the cancelled order from its job so the rollup doesn't keep counting it.
+    const order = await store.get<PlacedOrder>(NS, key);
+    if (order?.jobId) {
+      const job = await store.get<Job>(JOBS_NS, order.jobId);
+      if (job) await store.put(JOBS_NS, order.jobId, removeArtifact(job, "order", key, Date.now()));
+    }
+    await store.delete(NS, key);
     return NextResponse.json({ ok: true, id: key });
   } catch (e) {
     logApiError("/api/orders:DELETE", e);

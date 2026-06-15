@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { reorderSuggestion, demandFromOrders, vmiPolicyId, type VmiPolicy } from "@/lib/product-finder-vmi";
+import { reorderSuggestion, demandFromOrders, demandBySku, vmiPolicyId, type VmiPolicy } from "@/lib/product-finder-vmi";
 
 const policy = (over: Partial<VmiPolicy> = {}): VmiPolicy => ({
   id: "vmi-a",
@@ -14,9 +14,13 @@ const policy = (over: Partial<VmiPolicy> = {}): VmiPolicy => ({
 });
 
 describe("vmiPolicyId", () => {
-  it("is deterministic and scope-keyed", () => {
-    expect(vmiPolicyId("QO115", null, null)).toBe("vmi-qo115-any-any");
-    expect(vmiPolicyId("QO115", "cust1", "br2")).toBe("vmi-qo115-cust1-br2");
+  it("is deterministic, readable-prefixed, and scope-keyed", () => {
+    expect(vmiPolicyId("QO115", null, null)).toBe(vmiPolicyId("QO115", null, null));
+    expect(vmiPolicyId("QO115", null, null)).toMatch(/^vmi-qo115-[0-9a-f]{8}$/);
+    expect(vmiPolicyId("QO115", "cust1", "br2")).not.toBe(vmiPolicyId("QO115", null, null));
+  });
+  it("does not collide on the customer/branch delimiter boundary", () => {
+    expect(vmiPolicyId("QO115", "acme-west", "01")).not.toBe(vmiPolicyId("QO115", "acme", "west-01"));
   });
 });
 
@@ -64,5 +68,14 @@ describe("demandFromOrders", () => {
 
   it("is zero for an unseen SKU", () => {
     expect(demandFromOrders(orders, "ZZZ", NOW, 30)).toBe(0);
+  });
+
+  it("demandBySku builds the same per-SKU totals in one pass", () => {
+    const m = demandBySku(orders, NOW, 30);
+    expect(m.get("A-1")).toBe(7);
+    expect(m.get("B-2")).toBe(1);
+    expect(m.has("ZZZ")).toBe(false);
+    // window is respected — the 90-day-old order is excluded at 30 days
+    expect(demandBySku(orders, NOW, 365).get("A-1")).toBe(106);
   });
 });

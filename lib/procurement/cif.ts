@@ -44,9 +44,15 @@ const FIELDNAMES = [
   "Currency",
 ];
 
-/** Quote a CIF field — wrap in double quotes, double any internal quote. */
+/**
+ * Quote a CIF field — wrap in double quotes, double any internal quote, and
+ * neutralize spreadsheet formula injection (a leading = + - @ or tab/CR) since
+ * CIF files are routinely opened in Excel during onboarding (OWASP guidance).
+ */
 function q(s: string | number): string {
-  return `"${String(s).replace(/"/g, '""')}"`;
+  let v = String(s);
+  if (/^[=+\-@\t\r]/.test(v)) v = `'${v}`;
+  return `"${v.replace(/"/g, '""')}"`;
 }
 
 export function buildCif(opts: CifOptions): string {

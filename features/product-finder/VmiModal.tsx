@@ -71,6 +71,8 @@ export function VmiModal() {
         setSku("");
         await refresh();
       }
+    } catch {
+      setMsg("Network error — could not save the policy. Please retry.");
     } finally {
       setBusy(false);
     }
@@ -81,6 +83,8 @@ export function VmiModal() {
     try {
       await fetch(`/api/vmi?id=${encodeURIComponent(id)}`, { method: "DELETE" });
       await refresh();
+    } catch {
+      setMsg("Network error — could not remove the policy. Please retry.");
     } finally {
       setBusy(false);
     }
@@ -94,14 +98,18 @@ export function VmiModal() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          clientRef: `vmi-${line.sku}-${Date.now()}`,
+          // Stable ref (policy + current reorder qty) so a rapid double-click is
+          // idempotent rather than placing two replenishment orders.
+          clientRef: `vmi-${line.policyId}-${line.reorderQty}`,
           items: [{ sku: line.sku, qty: line.reorderQty }],
           customer: "VMI replenishment",
           source: "web",
         }),
       });
-      const data = (await res.json()) as { ok?: boolean; order?: { id: string; total: number } };
-      setMsg(data.ok && data.order ? `Drafted order ${data.order.id} — ${line.reorderQty} × ${line.sku}.` : "Could not draft the order.");
+      const data = (await res.json()) as { ok?: boolean; order?: { id: string; total: number }; error?: string };
+      setMsg(data.ok && data.order ? `Drafted order ${data.order.id} — ${line.reorderQty} × ${line.sku}.` : data.error ?? "Could not draft the order.");
+    } catch {
+      setMsg("Network error — could not draft the order. Please retry.");
     } finally {
       setBusy(false);
     }

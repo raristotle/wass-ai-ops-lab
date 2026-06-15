@@ -42,9 +42,19 @@ export async function GET(req: Request) {
   if (!rl.ok) return tooManyRequests(rl);
   try {
     const store = getStore();
-    const all = await store.list<{ at: number }>(NS);
+    const all = await store.list<{ at: number; quoteNumber?: string; lines?: number; matched?: number }>(NS);
     all.sort((a, b) => (b.at ?? 0) - (a.at ?? 0));
-    return NextResponse.json({ backend: store.backend, count: all.length, recent: all.slice(0, 20) });
+    // This endpoint backs the PUBLIC, unauthenticated supplier portal, so it must
+    // NOT disclose the distributor's customer/project identities — a bidding
+    // supplier only needs the RFQ number + size. (Full detail belongs behind a
+    // rep-authenticated endpoint once auth is wired.)
+    const recent = all.slice(0, 20).map((r) => ({
+      quoteNumber: r.quoteNumber,
+      lines: r.lines,
+      matched: r.matched,
+      at: r.at,
+    }));
+    return NextResponse.json({ backend: store.backend, count: all.length, recent });
   } catch (e) {
     logApiError("/api/rfq", e);
     return NextResponse.json({ backend: "unknown", count: 0, recent: [] }, { status: 200 });

@@ -222,7 +222,7 @@ live in the pure lib (`lib/product-finder-job-workspace.ts`); the route stays th
 Linked quotes/orders are denormalized snapshots, so the rollup is durable
 server-side without the client store. All verbs rate-limited 60/min.
 
-### `POST /api/orders` · `GET /api/orders`
+### `POST /api/orders` · `GET /api/orders` · `DELETE /api/orders`
 
 Durable, **idempotent** order placement — the transactional surface behind agentic
 checkout (the MCP `place_order` tool posts here). Body
@@ -234,7 +234,9 @@ so a retried checkout returns the existing order (`idempotent:true`) instead of
 double-placing. Unknown SKUs come back in `unresolved` (the order still places for
 the known ones; all-unknown is a 400). A `jobId` rolls the order onto that Job's
 value rollup. `GET` lists recent orders (`?id=` fetches one by order id or
-clientRef). Persists to Neon when configured. POST 30/min, GET 60/min.
+clientRef). `DELETE ?id=` cancels an order and unlinks it from its Job's rollup.
+Orders over a single-order value ceiling are rejected. Persists to Neon when
+configured. POST/DELETE 30/min, GET 60/min.
 
 ### `GET /api/vmi` · `POST /api/vmi` · `DELETE /api/vmi`
 
@@ -293,9 +295,11 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `POST /api/bom/analyze` | 60 / min |
 | `POST /api/rfq` | 60 / min |
 | `GET/POST/DELETE /api/jobs` | 60 / min |
-| `POST /api/orders` | 30 / min |
+| `POST/DELETE /api/orders` | 30 / min |
+| `GET /api/orders` | 60 / min |
 | `GET/POST/DELETE /api/vmi` | 60 / min |
-| `POST /api/rfq-responses` | 30 / min |
+| `POST/DELETE /api/rfq-responses` | 30 / min |
+| `GET /api/rfq-responses` | 60 / min |
 | `POST /api/procurement/punchout` | 30 / min |
 | `GET /api/procurement/cif` | 12 / min |
 | `GET /api/commodity` | 30 / min |

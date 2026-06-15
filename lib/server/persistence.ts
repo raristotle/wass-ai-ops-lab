@@ -133,7 +133,17 @@ export class NeonStore implements KvStore {
   async list<T>(namespace: string): Promise<T[]> {
     const sql = await this.init();
     const rows = await sql`SELECT json FROM "PersistedRecord" WHERE namespace = ${namespace} ORDER BY "updatedAt" DESC`;
-    return rows.map((r) => JSON.parse(r.json as string) as T);
+    // Skip (don't throw on) a corrupt row, so one bad record can't blank the
+    // entire namespace listing.
+    const out: T[] = [];
+    for (const r of rows) {
+      try {
+        out.push(JSON.parse(r.json as string) as T);
+      } catch {
+        console.error(JSON.stringify({ level: "error", scope: "NeonStore.list", namespace, message: "skipped unparseable row" }));
+      }
+    }
+    return out;
   }
 
   async delete(namespace: string, key: string): Promise<void> {

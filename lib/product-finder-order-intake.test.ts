@@ -7,12 +7,17 @@ const lines: ResolvedLine[] = [
 ];
 
 describe("orderId (idempotency key)", () => {
-  it("is a deterministic slug of the clientRef", () => {
-    expect(orderId("Cart #2026-06-15 / rep-7")).toBe("ord-cart-2026-06-15-rep-7");
+  it("is a deterministic, readable-prefix + full-ref-hash id", () => {
     expect(orderId("abc")).toBe(orderId("abc"));
+    expect(orderId("Cart #2026-06-15 / rep-7")).toMatch(/^ord-cart-2026-06-15-rep-7-[0-9a-f]{8}$/);
   });
-  it("falls back to 'order' for a ref with no alphanumerics", () => {
-    expect(orderId("///")).toBe("ord-order");
+  it("distinct refs sharing a long (>32 char) slug prefix do NOT collide", () => {
+    const a = orderId("PO-2026-06-15-acme-electric-warehouse-fitout-phase-1");
+    const b = orderId("PO-2026-06-15-acme-electric-warehouse-fitout-phase-2");
+    expect(a).not.toBe(b);
+  });
+  it("falls back to 'order' slug for a ref with no alphanumerics", () => {
+    expect(orderId("///")).toMatch(/^ord-order-[0-9a-f]{8}$/);
   });
 });
 
@@ -26,7 +31,7 @@ describe("buildOrder", () => {
     expect(o.status).toBe("placed");
     expect(o.source).toBe("mcp");
     expect(o.customer).toBe("Acme");
-    expect(o.id).toBe("ord-c1");
+    expect(o.id).toMatch(/^ord-c1-[0-9a-f]{8}$/);
     expect(o.placedAt).toBe(100);
     expect(o.jobId).toBeNull();
   });

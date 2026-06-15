@@ -45,6 +45,7 @@ export function JobsModal() {
   const [name, setName] = useState("");
   const [customer, setCustomer] = useState("");
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [err, setErr] = useState<string | null>(null);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -71,13 +72,17 @@ export function JobsModal() {
 
   async function saveJob(job: Job): Promise<void> {
     setBusy(true);
+    setErr(null);
     try {
-      await fetch("/api/jobs", {
+      const res = await fetch("/api/jobs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(job),
       });
+      if (!res.ok) setErr("Could not save the job. Please retry.");
       await refresh();
+    } catch {
+      setErr("Network error — could not save the job. Please retry.");
     } finally {
       setBusy(false);
     }
@@ -86,22 +91,28 @@ export function JobsModal() {
   async function handleCreate() {
     const trimmed = name.trim();
     if (!trimmed) return;
+    const customerName = customer.trim();
     const job = newJob({
       name: trimmed,
-      customer: customer.trim(),
-      customerId: activeCustomerId,
+      customer: customerName,
+      // Only bind the live customerId when the displayed name still matches the
+      // active customer — otherwise the id/name could disagree on the record.
+      customerId: customerName && customerName === activeCustomerName ? activeCustomerId : null,
       now: Date.now(),
     });
-    setName("");
     await saveJob(job);
+    setName("");
     setExpandedId(job.id);
   }
 
   async function handleDelete(id: string) {
     setBusy(true);
+    setErr(null);
     try {
       await fetch(`/api/jobs?id=${encodeURIComponent(id)}`, { method: "DELETE" });
       await refresh();
+    } catch {
+      setErr("Network error — could not delete the job. Please retry.");
     } finally {
       setBusy(false);
     }
@@ -187,6 +198,8 @@ export function JobsModal() {
               Create job
             </button>
           </div>
+
+          {err && <p className="mb-3 rounded bg-[#DB6B30]/10 px-3 py-1.5 text-xs text-[#DB6B30]">{err}</p>}
 
           {/* Jobs list */}
           {loading ? (

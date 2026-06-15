@@ -27,8 +27,28 @@ async function api(path, init) {
     ...init,
     headers: { "User-Agent": UA, ...(init?.headers ?? {}) },
   });
-  if (!res.ok) throw new Error(`${path} → HTTP ${res.status}`);
+  if (!res.ok) {
+    // Surface the response body so callers see WHY (e.g. which SKUs were unresolved),
+    // not just an opaque status code.
+    let detail = "";
+    try {
+      detail = (await res.text()).slice(0, 500);
+    } catch {
+      /* ignore */
+    }
+    throw new Error(`${path} → HTTP ${res.status}${detail ? `: ${detail}` : ""}`);
+  }
   return res.json();
+}
+
+/** Small deterministic hash for a content-derived idempotency key (mirrors lib/stable-id). */
+function fnv1aHex(input) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return (h >>> 0).toString(16).padStart(8, "0");
 }
 
 const ok = (data) => ({ content: [{ type: "text", text: JSON.stringify(data, null, 2) }] });
@@ -210,11 +230,23 @@ const TOOLS = {
 
   async place_order({ items, customer, jobId, clientRef }) {
     if (!Array.isArray(items) || items.length === 0) return fail("items must be a non-empty array of { sku, qty }");
-    const body = {
-      clientRef: clientRef ? String(clientRef) : `mcp-${Date.now()}`,
-      items: items.map((i) => ({ sku: String(i.sku), qty: Math.max(1, Math.floor(Number(i.qty) || 1)) })),
-      source: "mcp",
-    };
+    // Validate qty explicitly rather than silently coercing garbage to 1.
+    const norm = [];
+    for (const i of items) {
+      const sku = String(i?.sku ?? "").trim();
+      const qn = Number(i?.qty);
+      if (!sku) return fail("each item needs a sku");
+      if (!Number.isFinite(qn) || qn < 1) return fail(`invalid qty for ${sku}: ${i?.qty} (must be a positive number)`);
+      if (qn > 100000) return fail(`qty for ${sku} exceeds the 100000-per-line limit`);
+      norm.push({ sku, qty: Math.floor(qn) });
+    }
+    // Idempotency: when the caller does not thread a stable clientRef, derive one
+    // from the order CONTENT so a retry of the same basket collapses to one order
+    // instead of double-placing (a per-call timestamp would defeat idempotency).
+    const ref = clientRef
+      ? String(clientRef)
+      : `mcp-${fnv1aHex(JSON.stringify({ items: [...norm].sort((a, b) => (a.sku < b.sku ? -1 : 1)), customer: customer ?? null, jobId: jobId ?? null }))}`;
+    const body = { clientRef: ref, items: norm, source: "mcp" };
     if (customer) body.customer = String(customer);
     if (jobId) body.jobId = String(jobId);
     const res = await api(`/api/orders`, {
@@ -222,7 +254,11 @@ const TOOLS = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
-    return ok(res);
+    const out = { ...res };
+    if (Array.isArray(res.unresolved) && res.unresolved.length > 0) {
+      out.warning = `Order placed, but ${res.unresolved.length} requested SKU(s) are not carried and were OMITTED: ${res.unresolved.join(", ")}. Confirm the order covers what was intended.`;
+    }
+    return ok(out);
   },
 };
 
@@ -305,7 +341,7 @@ const TOOL_DEFS = [
   {
     name: "place_order",
     description:
-      "Place a durable order for a list of { sku, qty } against the catalog (agentic checkout). SKUs are resolved + priced server-side; pass an optional jobId to roll the order into a Job. IDEMPOTENT by clientRef — pass a stable clientRef so a retry returns the same order instead of duplicating it.",
+      "Place a durable order for a list of { sku, qty } against the catalog (agentic checkout). This is a REAL, money-moving action — confirm the basket and total with the user before calling. SKUs are resolved + priced server-side (any not-carried SKUs are omitted and reported in `unresolved`/`warning`); pass an optional jobId to roll the order into a Job. Idempotent: a stable `clientRef` makes a retry return the same order; if you omit it, a content hash of the basket is used so an identical retry still won't double-place. To preview pricing without booking, use search_products/product_detail first.",
     inputSchema: {
       type: "object",
       properties: {

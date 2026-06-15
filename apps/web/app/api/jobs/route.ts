@@ -22,7 +22,9 @@ const ArtifactSchema = z.object({
 });
 
 const JobSchema = z.object({
-  id: z.string().trim().min(1).max(120),
+  // Constrained charset so the store key is predictable + renderable (matches the
+  // slug discipline of the other entities); jobId() produces ids in this set.
+  id: z.string().trim().min(1).max(120).regex(/^[A-Za-z0-9._-]+$/),
   name: z.string().trim().min(1).max(120),
   customer: z.string().trim().max(120),
   customerId: z.string().trim().max(120).nullable(),

@@ -7,7 +7,7 @@ import { resolveBySku } from "@/lib/catalog/sku-index";
 import {
   vmiPolicyId,
   reorderSuggestion,
-  demandFromOrders,
+  demandBySku,
   type VmiPolicy,
   type ReorderLine,
 } from "@/lib/product-finder-vmi";
@@ -77,11 +77,13 @@ export async function GET(req: Request) {
     const orders = await store.list<PlacedOrder>(ORDERS_NS);
     const now = Date.now();
 
+    // One pass over orders → per-SKU 30-day demand, so scoring N policies is
+    // O(orders + policies), not O(policies × orders).
+    const demand = demandBySku(orders, now, 30);
     const lines: ReorderLine[] = policies.map((policy) => {
       const product = resolveBySku(policy.sku);
       const onHand = product ? onHandOf(product) : 0;
-      const projectedDemand = demandFromOrders(orders, policy.sku, now, 30);
-      return reorderSuggestion(policy, onHand, projectedDemand);
+      return reorderSuggestion(policy, onHand, demand.get(policy.sku) ?? 0);
     });
     // Worst status first so the action items surface at the top.
     const rank: Record<string, number> = { critical: 0, reorder: 1, ok: 2 };

@@ -29,12 +29,14 @@ function extract(re: RegExp, xml: string): string | null {
   return m ? m[1].trim() : null;
 }
 
-/** Parse a PunchOutSetupRequest, detecting a Level-2 item-level entry. */
+/** Parse a PunchOutSetupRequest, detecting a Level-2 item-level entry. Tolerant
+ *  of standards-valid cXML variation: attributes on the tags and either quote
+ *  style on the operation attribute. */
 export function parsePunchOutSetupRequest(xml: string): ParsedSetupRequest {
-  const operation = (extract(/<PunchOutSetupRequest[^>]*\boperation="([^"]+)"/, xml) ?? "create") as PunchOutOperation;
-  const buyerCookie = extract(/<BuyerCookie[^>]*>([\s\S]*?)<\/BuyerCookie>/, xml) ?? "";
+  const operation = (extract(/<PunchOutSetupRequest[^>]*\boperation=["']([^"']+)["']/, xml) ?? "create") as PunchOutOperation;
+  const buyerCookie = extract(/<BuyerCookie\b[^>]*>([\s\S]*?)<\/BuyerCookie>/, xml) ?? "";
   const selectedItemId = extract(
-    /<SelectedItem>[\s\S]*?<SupplierPartID>([\s\S]*?)<\/SupplierPartID>[\s\S]*?<\/SelectedItem>/,
+    /<SelectedItem\b[^>]*>[\s\S]*?<SupplierPartID\b[^>]*>([\s\S]*?)<\/SupplierPartID>[\s\S]*?<\/SelectedItem>/,
     xml,
   );
   const item = selectedItemId?.trim() || null;

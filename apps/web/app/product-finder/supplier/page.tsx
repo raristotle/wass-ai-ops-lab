@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
  * seam (Neon when configured).
  */
 
-type Rfq = { quoteNumber: string; customer?: string; project?: string; lines: number; matched: number; at: number };
+type Rfq = { quoteNumber: string; lines: number; matched: number; at: number };
 type RankedResponse = {
   id: string;
   rfqRef: string;
@@ -99,6 +99,8 @@ export default function SupplierPortalPage() {
         setLines([blankLine()]);
         await loadResponses(selected);
       }
+    } catch {
+      setMsg("Network error — could not submit your bid. Please retry.");
     } finally {
       setBusy(false);
     }
@@ -140,7 +142,7 @@ export default function SupplierPortalPage() {
                   >
                     <div className="font-semibold text-[#1D252D]">{r.quoteNumber}</div>
                     <div className="text-[#4F758B]">
-                      {r.customer ?? "—"} · {r.project ?? "—"} · {r.lines} line{r.lines === 1 ? "" : "s"}
+                      {r.lines} line{r.lines === 1 ? "" : "s"} · {r.matched} matched
                     </div>
                   </button>
                 </li>
@@ -181,6 +183,7 @@ export default function SupplierPortalPage() {
                           value={l.description}
                           onChange={(e) => setLine(i, { description: e.target.value })}
                           placeholder="20A 1-pole breaker"
+                          aria-label={`Item ${i + 1} description`}
                         />
                       </label>
                       <label className="text-[10px] font-medium text-[#4F758B]">
@@ -191,6 +194,7 @@ export default function SupplierPortalPage() {
                           className="mt-0.5 w-full rounded border border-[#B7C9D3] px-1.5 py-1 text-sm focus:border-[#00AA13] focus:outline-none"
                           value={l.qty}
                           onChange={(e) => setLine(i, { qty: e.target.value })}
+                          aria-label={`Item ${i + 1} quantity`}
                         />
                       </label>
                       <label className="text-[10px] font-medium text-[#4F758B]">
@@ -202,6 +206,7 @@ export default function SupplierPortalPage() {
                           className="mt-0.5 w-full rounded border border-[#B7C9D3] px-1.5 py-1 text-sm focus:border-[#00AA13] focus:outline-none"
                           value={l.unitPrice}
                           onChange={(e) => setLine(i, { unitPrice: e.target.value })}
+                          aria-label={`Item ${i + 1} unit price`}
                         />
                       </label>
                       <label className="text-[10px] font-medium text-[#4F758B]">
@@ -212,6 +217,7 @@ export default function SupplierPortalPage() {
                           className="mt-0.5 w-full rounded border border-[#B7C9D3] px-1.5 py-1 text-sm focus:border-[#00AA13] focus:outline-none"
                           value={l.leadTimeDays}
                           onChange={(e) => setLine(i, { leadTimeDays: e.target.value })}
+                          aria-label={`Item ${i + 1} lead time in days`}
                         />
                       </label>
                       <label className="flex items-center gap-1 pb-1.5 text-[10px] font-medium text-[#4F758B]">
