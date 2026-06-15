@@ -658,6 +658,39 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "lifecycle-eol",
+    title: "Lifecycle status & designing out obsolete parts",
+    body: [
+      "Every product now carries a manufacturer lifecycle status, so you never quote a dead part by accident.",
+      "• Result cards and the detail view flag obsolescent parts with a ⚠ badge — NRND (not recommended for new designs), Last buy, EOL, or Discontinued.",
+      "• Tick Active products only in the left sidebar (Product Lifecycle) to hide everything that isn't actively produced.",
+      "• Open an obsolescent part's details and the app surfaces the active equivalent we stock — one click adds the successor to the cart instead.",
+      "Verified real parts (the ones with live distributor pricing) are always Active.",
+    ],
+    tryQuery: "circuit breaker",
+  },
+  {
+    id: "second-source",
+    title: "Second-source / single-source risk",
+    body: [
+      "Open any product's details to see its sourcing grade — how many interchangeable, in-stock sources can fulfill it.",
+      "• Single-source (red) means only one stocked option — a supply risk worth a second source; Dual-source is amber; Multi/Well/Broadly-sourced are green.",
+      "• The count includes true functional equivalents plus documented verified cross-references we stock.",
+      "It's the same cross-reference engine you already use, reframed as the single-source risk view procurement teams ask for.",
+    ],
+    tryQuery: "FRN-R-30",
+  },
+  {
+    id: "procurement-readiness",
+    title: "UNSPSC codes, approval policy & live metals",
+    body: [
+      "Three procurement-readiness upgrades:",
+      "• UNSPSC classification — every line carries an 8-digit UNSPSC commodity code, emitted in the cXML PunchOut and EDI 850 exports (the code Ariba/Coupa require before a catalog goes live).",
+      "• Approval policy — quotes now route for sign-off on more than just thin margin: a large order (over $25k) or a deep discount (more than 25% off list) also trips Approval pending, and the reason is recorded in the quote's history.",
+      "• Live metals index — with a (free) FRED key configured, the landing-view metals strip shows REAL copper/aluminum prices cited by date instead of the simulated index; without a key it stays on the labeled simulation.",
+    ],
+  },
+  {
     id: "reliability-security",
     title: "Reliability & security",
     body: [

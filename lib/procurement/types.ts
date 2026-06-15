@@ -13,6 +13,8 @@ export interface ProcurementLine {
   qty: number;
   unitPrice: number;
   uom: string;
+  /** 8-digit UNSPSC commodity code (required by Ariba/Coupa before go-live). */
+  unspsc?: string;
 }
 
 export interface ProcurementOrder {

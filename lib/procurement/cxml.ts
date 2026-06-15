@@ -31,7 +31,7 @@ export function buildPunchOutCxml(order: ProcurementOrder): string {
         </UnitPrice>
         <Description xml:lang="en">${esc(l.name)}</Description>
         <UnitOfMeasure>${esc(l.uom)}</UnitOfMeasure>
-        <Classification domain="UNSPSC">39121700</Classification>
+        <Classification domain="UNSPSC">${esc(l.unspsc ?? "39120000")}</Classification>
         <ManufacturerName>${esc(l.brand)}</ManufacturerName>
       </ItemDetail>
     </ItemIn>`

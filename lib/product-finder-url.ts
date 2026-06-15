@@ -26,6 +26,7 @@ export function emptyFilterState(): FilterState {
     onlyBranchStock: false,
     onlyDCStock: false,
     onlyPreferred: false,
+    onlyActive: false,
     priceMin: null,
     priceMax: null,
     sortKey: "relevance",
@@ -65,6 +66,7 @@ export function decodeFiltersFromQuery(search: string): FilterState {
     onlyBranchStock: parsed.filters.onlyBranchStock,
     onlyDCStock: parsed.filters.onlyDCStock,
     onlyPreferred: parsed.filters.onlyPreferred,
+    onlyActive: parsed.filters.onlyActive,
     priceMin: parsed.filters.priceMin,
     priceMax: parsed.filters.priceMax,
     sortKey: parsed.sort,
@@ -81,7 +83,7 @@ export function hasFilterParams(search: string): boolean {
   const sp = new URLSearchParams(stripLeadingQuestionMark(search));
   const FILTER_KEYS = new Set([
     "q", "category", "subcategory", "brand",
-    "onlyBranchStock", "onlyDCStock", "onlyPreferred",
+    "onlyBranchStock", "onlyDCStock", "onlyPreferred", "onlyActive",
     "priceMin", "priceMax", "sort",
   ]);
   for (const [key] of sp.entries()) {

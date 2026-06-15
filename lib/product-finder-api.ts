@@ -20,6 +20,7 @@ export function filtersToQuery(
   if (filters.onlyBranchStock) sp.set("onlyBranchStock", "true");
   if (filters.onlyDCStock) sp.set("onlyDCStock", "true");
   if (filters.onlyPreferred) sp.set("onlyPreferred", "true");
+  if (filters.onlyActive) sp.set("onlyActive", "true");
   if (filters.priceMin != null) sp.set("priceMin", String(filters.priceMin));
   if (filters.priceMax != null) sp.set("priceMax", String(filters.priceMax));
   sp.set("sort", filters.sortKey);

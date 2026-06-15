@@ -40,7 +40,9 @@ Every SKU below is deterministic — it exists with the same data in every envir
     *"Distribution pricing lives on copper. The app tracks a daily metals index —
     when copper trends up, it nudges the rep to quote wire and cable now and lock
     the 30-day validity. Every quote cites the index date its pricing reflects.
-    Simulated here — a live feed is a drop-in."*
+    Simulated here — and with a free FRED key set it's REAL: live copper and
+    aluminum from the Federal Reserve's data service, in dollars per pound, cited
+    by observation date. The strip footer tells you which mode it's in."*
 2c. **Point at the seasonal banner** under the metals strip.
     *"And it knows the calendar: storm prep, heat advisories, construction season,
     quarter-end datacom budgets — a weekly demand signal with one-tap searches for
@@ -152,6 +154,17 @@ Every SKU below is deterministic — it exists with the same data in every envir
     > (`npm run mcp`) is live now regardless: connect Claude Desktop and ask it to
     > convert a competitor BOM to our stock.
 
+9f. **Search `circuit breaker` and look for a ⚠ badge** (NRND / EOL / Discontinued)
+    on a result card; **tick "Active products only"** in the sidebar (Product
+    Lifecycle). *"Every part now carries a manufacturer lifecycle status, so a
+    rep never quotes a dead part by accident. One toggle designs out everything
+    obsolete."* **Open an obsolescent part's details** — *"and when something IS
+    end-of-life, the app names the active equivalent we stock and adds it in one
+    click. Underneath, this sourcing chip — Single-source, Dual-source, Broadly
+    sourced — is our cross-reference engine reframed as the single-source risk
+    view procurement teams ask for: how many stocked, interchangeable options can
+    actually fill this line."*
+
 ## Act 4 — From basket to deliverables (5 min)
 
 9b. **Click the 🧰 Job Wizard button** by the search bar. **Pick "200A
@@ -201,9 +214,11 @@ Every SKU below is deterministic — it exists with the same data in every envir
     *"and one click bundles a full spec sheet for every line into an approval-ready
     submittal package — exactly what a GC needs, with our accurate cross-reference
     specs."* Then **Save Quote** — *"now it's tracked."* In **Saved Quotes**, **set
-    the status to Sent.** *"Draft → Sent → Won or Lost. And if I'd discounted below
-    our 20% margin floor, this quote would say 'Approval pending' and I couldn't
-    convert it until a manager signs off — discount governance built in."*
+    the status to Sent.** *"Draft → Sent → Won or Lost. And approval routing is now
+    a real policy, not one rule: below our 20% margin floor, OR a large order over
+    $25k, OR a discount deeper than 25% off list — any of those flags 'Approval
+    pending', records exactly why in the quote's history, and blocks conversion
+    until a manager signs off. Spend governance, Coupa-style, built in."*
     **Before saving, type a Note** ("Crane access required — call ahead") **and
     tick two Terms blocks** (Freight, Price escalation).
     *"The boring-but-critical fine print rides along: a note to the customer and
@@ -248,8 +263,10 @@ Every SKU below is deterministic — it exists with the same data in every envir
     *"And for an enterprise buyer this basket doesn't stop at a PDF: it exports
     the formats their purchasing system actually ingests — a cXML
     PunchOutOrderMessage for an Ariba or Coupa or SAP punchout, and an X12 850
-    purchase order for EDI. Real prices, real quantities, valid envelopes. That's
-    how a Meridian quote becomes a PO inside the customer's own ERP — no rekeying."*
+    purchase order for EDI. Real prices, real quantities, valid envelopes — and
+    every line now carries its 8-digit UNSPSC commodity code, the classification
+    Ariba and Coupa require before a catalog can even go live. That's how a
+    Meridian quote becomes a PO inside the customer's own ERP — no rekeying."*
 16. **Save the basket as a Job Template** ("Office buildout"). *"A reusable kit — next
     job, Add to Basket merges it in instead of rebuilding."*
 17. **Click Add to Order**, then expand **Order History**: *"every past order for

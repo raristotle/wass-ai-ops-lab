@@ -36,6 +36,7 @@ async function searchTop3(query: string): Promise<CatalogProduct[]> {
         onlyBranchStock: false,
         onlyDCStock: false,
         onlyPreferred: false,
+        onlyActive: false,
         priceMin: null,
         priceMax: null,
         sortKey: "relevance",

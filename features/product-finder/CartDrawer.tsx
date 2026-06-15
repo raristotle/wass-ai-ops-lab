@@ -14,6 +14,7 @@ import { basketCsv, downloadCsv, downloadText } from "@/lib/product-finder-csv";
 import { buildPunchOutCxml } from "@/lib/procurement/cxml";
 import { buildEdi850 } from "@/lib/procurement/edi850";
 import type { ProcurementOrder } from "@/lib/procurement/types";
+import { unspscCode } from "@/lib/catalog/unspsc";
 import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import { isInLocalMonth } from "@/lib/analytics";
 import {
@@ -176,6 +177,7 @@ export function CartDrawer() {
         qty,
         unitPrice: priceOverrides[product.id] ?? provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
         uom: product.uom,
+        unspsc: unspscCode(product),
       })),
     };
   }

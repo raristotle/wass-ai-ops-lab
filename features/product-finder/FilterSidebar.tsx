@@ -50,6 +50,7 @@ function hasActiveFilters(filters: FilterState): boolean {
     filters.onlyBranchStock ||
     filters.onlyDCStock ||
     filters.onlyPreferred ||
+    filters.onlyActive ||
     filters.priceMin !== null ||
     filters.priceMax !== null ||
     Object.keys(filters.specFilters ?? {}).length > 0 ||
@@ -173,6 +174,7 @@ export function FilterSidebar() {
   const setOnlyBranchStock = useProductFinder((s) => s.setOnlyBranchStock);
   const setOnlyDCStock = useProductFinder((s) => s.setOnlyDCStock);
   const setOnlyPreferred = useProductFinder((s) => s.setOnlyPreferred);
+  const setOnlyActive = useProductFinder((s) => s.setOnlyActive);
   const setPriceRange = useProductFinder((s) => s.setPriceRange);
   const clearFilters = useProductFinder((s) => s.clearFilters);
   const toggleSpecFilter = useProductFinder((s) => s.toggleSpecFilter);
@@ -273,6 +275,22 @@ export function FilterSidebar() {
           />
           Preferred Suppliers Only
         </label>
+      </SidebarSection>
+
+      {/* Product lifecycle — design out the obsolete */}
+      <SidebarSection title="Product Lifecycle">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-[#1D252D]">
+          <input
+            type="checkbox"
+            checked={filters.onlyActive}
+            onChange={(e) => setOnlyActive(e.target.checked)}
+            className="h-4 w-4 cursor-pointer rounded accent-[#00AA13]"
+          />
+          Active products only
+        </label>
+        <p className="mt-1 text-[11px] leading-snug text-[#4F758B]">
+          Hides parts flagged NRND, last-buy, end-of-life, or discontinued.
+        </p>
       </SidebarSection>
 
       {/* Subcategory */}
@@ -471,7 +489,8 @@ export function FilterSidebar() {
                 filters.brands.size +
                 (filters.onlyBranchStock ? 1 : 0) +
                 (filters.onlyDCStock ? 1 : 0) +
-                (filters.onlyPreferred ? 1 : 0)}
+                (filters.onlyPreferred ? 1 : 0) +
+                (filters.onlyActive ? 1 : 0)}
             </span>
           )}
         </button>

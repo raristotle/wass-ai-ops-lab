@@ -2,6 +2,7 @@ import type { CatalogProduct, ProductCategory, SortKey, SearchResponse } from "@
 import { getCatalog } from "@/lib/catalog/index";
 import { computeFacets } from "@/lib/catalog/facets";
 import { parseAttribute } from "@/lib/catalog/attributes";
+import { isActiveLifecycle } from "@/lib/catalog/lifecycle";
 
 export interface SearchFilters {
   categories?: ProductCategory[];
@@ -10,6 +11,8 @@ export interface SearchFilters {
   onlyBranchStock?: boolean;
   onlyDCStock?: boolean;
   onlyPreferred?: boolean;
+  /** "Design out the obsolete" — keep only Active-lifecycle parts. */
+  onlyActive?: boolean;
   priceMin?: number | null;
   priceMax?: number | null;
   /** spec name → selected values (OR within a name, AND across names) */
@@ -74,6 +77,7 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
     if (subSet && !subSet.has(p.subcategory)) continue;
     if (brandSet && !brandSet.has(p.brand)) continue;
     if (f.onlyPreferred && !p.preferred) continue;
+    if (f.onlyActive && !isActiveLifecycle(p.lifecycleStatus)) continue;
     if (f.onlyBranchStock && totalBranch(p) === 0) continue;
     if (f.onlyDCStock && p.dcStock.every((d) => d.quantity === 0)) continue;
     if (f.priceMin != null && p.unitPrice < f.priceMin) continue;

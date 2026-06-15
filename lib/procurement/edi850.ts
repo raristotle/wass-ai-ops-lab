@@ -44,9 +44,10 @@ export function buildEdi850(order: ProcurementOrder, controlNumber = 1): string 
   body.push(["N1", "SU", order.supplierName].join(EL));
   body.push(["N1", "BY", order.buyerName].join(EL));
   order.lines.forEach((l, i) => {
-    body.push(
-      ["PO1", String(i + 1), String(l.qty), l.uom, l.unitPrice.toFixed(2), "PE", "VP", l.sku, "MG", l.brand].join(EL)
-    );
+    // PO1 carries repeating product/service ID pairs; append UN (UNSPSC) when known.
+    const po1 = ["PO1", String(i + 1), String(l.qty), l.uom, l.unitPrice.toFixed(2), "PE", "VP", l.sku, "MG", l.brand];
+    if (l.unspsc) po1.push("UN", l.unspsc);
+    body.push(po1.join(EL));
     body.push(["PID", "F", "", "", "", l.name].join(EL));
   });
   body.push(["CTT", String(order.lines.length)].join(EL));

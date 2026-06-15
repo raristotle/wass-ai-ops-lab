@@ -36,7 +36,8 @@ import { emptyFilterState } from "@/lib/product-finder-url";
 import { NEAR_ZERO_RESULTS, suggestCorrection } from "@/lib/product-finder-suggest-correction";
 import { getPricingProvider } from "@/lib/integration/index";
 import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-finder-quotes";
-import { needsApproval, QUOTE_STATUS_LABEL, APPROVAL_LABEL, isSuperseded } from "@/lib/product-finder-quotes";
+import { QUOTE_STATUS_LABEL, APPROVAL_LABEL, isSuperseded } from "@/lib/product-finder-quotes";
+import { evaluateApproval } from "@/lib/product-finder-approval-policy";
 import { quoteNumber } from "@/lib/product-finder-quote";
 import { quoteEvent, appendEvent } from "@/lib/product-finder-quote-events";
 import { basketMargin } from "@/lib/product-finder-margin";
@@ -167,6 +168,7 @@ export interface ProductFinderState {
   setOnlyBranchStock: (v: boolean) => void;
   setOnlyDCStock: (v: boolean) => void;
   setOnlyPreferred: (v: boolean) => void;
+  setOnlyActive: (v: boolean) => void;
   setPriceRange: (min: number | null, max: number | null) => void;
   setSortKey: (k: SortKey) => void;
   setViewMode: (v: ViewMode) => void;
@@ -656,6 +658,11 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     get().runSearch();
   },
 
+  setOnlyActive(v) {
+    set((s) => ({ filters: { ...s.filters, onlyActive: v } }));
+    get().runSearch();
+  },
+
   setPriceRange(min, max) {
     set((s) => ({ filters: { ...s.filters, priceMin: min, priceMax: max } }));
     get().runSearch();
@@ -1069,10 +1076,22 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       ? state.quotes.find((q) => q.id === state.revisingQuoteId) ?? null
       : null;
 
-    const pending = needsApproval(margin.marginPct);
+    // Approval policy: margin floor + large-order + deep-discount rules.
+    const discountDepthPct = marginLines.reduce((max, l) => {
+      const list = l.product.unitPrice;
+      const depth = list > 0 ? (list - l.effectiveUnitPrice) / list : 0;
+      return depth > max ? depth : max;
+    }, 0);
+    const decision = evaluateApproval({
+      marginPct: margin.marginPct,
+      orderValue: total,
+      discountDepthPct,
+      categories: [...new Set(marginLines.map((l) => l.product.category))],
+    });
+    const pending = decision.required;
     let events = appendEvent(undefined, quoteEvent("created", `Quote ${number} saved`, ts, actor));
     if (pending) {
-      events = appendEvent(events, quoteEvent("approval", "Below-margin — approval pending", ts));
+      events = appendEvent(events, quoteEvent("approval", `${decision.reason} — approval pending`, ts));
     }
     if (revising) {
       events = appendEvent(events, quoteEvent("revised", `Revision of ${revising.number}`, ts, actor));

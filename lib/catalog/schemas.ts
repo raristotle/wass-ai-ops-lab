@@ -61,6 +61,7 @@ export function parseSearchQuery(sp: URLSearchParams) {
       onlyBranchStock: bool("onlyBranchStock"),
       onlyDCStock: bool("onlyDCStock"),
       onlyPreferred: bool("onlyPreferred"),
+      onlyActive: bool("onlyActive"),
       priceMin: num("priceMin"),
       priceMax: num("priceMax"),
       specFilters: Object.keys(specFilters).length > 0 ? specFilters : undefined,

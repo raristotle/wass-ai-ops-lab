@@ -1,3 +1,6 @@
+import type { LifecycleStatus } from "@/lib/catalog/lifecycle";
+export type { LifecycleStatus };
+
 export type ProductCategory =
   | "electrical"
   | "datacom"
@@ -87,6 +90,10 @@ export interface CatalogProduct {
   compatScore?: number;
   imageIcon: string;
   dataSource?: ProductDataSource;
+  /** Manufacturer lifecycle status (Active/NRND/LTB/EOL/Discontinued). Absent = Active. */
+  lifecycleStatus?: LifecycleStatus;
+  /** SKU of the documented active successor, when one is known (curated data may set it). */
+  replacedBySku?: string;
   /** Number of source-backed cross-reference pairs touching this SKU (search API attaches it for verified/curated results). */
   verifiedCrossCount?: number;
   /** Manufacturer spec sheet / datasheet URL (live-verified at build time for "verified" entries). */
@@ -122,6 +129,7 @@ export interface FilterState {
   onlyBranchStock: boolean;
   onlyDCStock: boolean;
   onlyPreferred: boolean;
+  onlyActive: boolean;
   priceMin: number | null;
   priceMax: number | null;
   sortKey: SortKey;

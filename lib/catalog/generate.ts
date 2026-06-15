@@ -1,6 +1,7 @@
 import type { CatalogProduct, ProductCategory, ProductSpec, BranchStock, DCStock, ExternalSource } from "@/features/product-finder/types";
 import { CATEGORIES, TAXONOMY, type SubcategoryTemplate } from "@/lib/catalog/taxonomy";
 import { makeRng, pick, randInt, round2 } from "@/lib/catalog/prng";
+import { lifecycleStatusForId } from "@/lib/catalog/lifecycle";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { REAL_PRODUCTS } from "@/lib/catalog/real";
 
@@ -88,6 +89,9 @@ function genOne(
     externalSources: inStock ? [] : makeExternal(rng, price, sku),
     imageIcon: sub.icon,
     dataSource: "simulated",
+    // Derived from the id hash (not the shared rng) so existing SKUs/specs/stock
+    // stay byte-identical; curated/verified real parts default to Active.
+    lifecycleStatus: lifecycleStatusForId(id),
   };
 }
 

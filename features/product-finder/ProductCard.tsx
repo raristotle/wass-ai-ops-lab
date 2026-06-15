@@ -14,6 +14,7 @@ import { ProductImage } from "@/features/product-finder/ProductImage";
 import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
 import { getPricingProvider } from "@/lib/integration/index";
 import { isFunctionalEquivalent } from "@/lib/catalog/equivalence";
+import { isObsolescent, LIFECYCLE_META } from "@/lib/catalog/lifecycle";
 
 interface ProductCardProps {
   product: CatalogProduct;
@@ -147,6 +148,20 @@ export function ProductCard({
                 onClick={() => setDetailModalProduct(product)}
               >
                 ⇄ {product.verifiedCrossCount} VERIFIED CROSS{product.verifiedCrossCount === 1 ? "" : "ES"}
+              </Badge>
+            )}
+            {isObsolescent(product.lifecycleStatus) && (
+              <Badge
+                variant="outline"
+                className={cn(
+                  "text-[10px] px-1.5 py-0 h-4 flex-shrink-0",
+                  LIFECYCLE_META[product.lifecycleStatus!].severity >= 3
+                    ? "bg-[#DB6B30] text-white border-[#DB6B30]"
+                    : "text-[#854F0B] border-[#EAAA00] bg-[#FAEEDA]"
+                )}
+                title={LIFECYCLE_META[product.lifecycleStatus!].blurb}
+              >
+                ⚠ {LIFECYCLE_META[product.lifecycleStatus!].short}
               </Badge>
             )}
             {(() => {

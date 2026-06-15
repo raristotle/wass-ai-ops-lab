@@ -81,8 +81,9 @@ Single product detail. Returns:
 
 ```jsonc
 {
-  "product": { /* CatalogProduct */ },
-  "equivalents": [ /* top-8 scored alternative CatalogProducts */ ]
+  "product": { /* CatalogProduct (incl. lifecycleStatus) */ },
+  "equivalents": [ /* top-8 scored alternative CatalogProducts */ ],
+  "coverage": { "sources", "score": 1-5, "label", "risk", "blurb" }  // second-source grade
 }
 ```
 
@@ -145,10 +146,25 @@ value — so it's safe to hit from an uptime monitor:
     "sso": false,         // SSO_* configured?
     "resend": false,      // RESEND_API_KEY set?
     "mouser": true,       // MOUSER_API_KEY set?
-    "digikey": false      // DIGIKEY_CLIENT_ID + _SECRET set?
+    "digikey": false,     // DIGIKEY_CLIENT_ID + _SECRET set?
+    "commodity": false    // FRED_API_KEY set? (live metals index)
   }
 }
 ```
+
+### `GET /api/commodity`
+
+Live metals index (REAL). With `FRED_API_KEY` set, returns real copper/aluminum
+prices from FRED converted to $/lb, cited by observation date:
+
+```jsonc
+{ "enabled": true, "source": "FRED (Federal Reserve Economic Data)",
+  "quotes": [ { "id", "label", "unit": "$/lb", "price", "change30d", "trend", "asOf" } ],
+  "fetchedAt": "2026-06-14T…" }
+```
+
+Without a key: `{ "enabled": false, "reason": "no-keys" }` — the landing-view
+strip then renders the deterministic simulation (labeled). Rate-limited 30/min.
 
 ## Rate limiting
 

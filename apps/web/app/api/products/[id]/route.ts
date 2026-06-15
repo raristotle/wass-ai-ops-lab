@@ -4,6 +4,7 @@ import { findEquivalents } from "@/lib/catalog/equivalents";
 import { verifiedCrossesFor } from "@/lib/catalog/verified-crosses";
 import { brandHierarchyFor } from "@/lib/catalog/brand-hierarchy";
 import { resolvedCrossEntries, resolveStocked } from "@/lib/catalog/cross-runtime";
+import { sourcingForProduct } from "@/lib/catalog/coverage-score";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +28,7 @@ export function GET(req: Request, ctx: { params: Promise<{ id: string }> }) {
       equivalents: findEquivalents(product, 8, branchId),
       verifiedCrosses,
       brandHierarchy: brandHierarchyFor(product.brand),
+      coverage: sourcingForProduct(product, branchId),
     });
   });
 }

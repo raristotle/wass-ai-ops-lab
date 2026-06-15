@@ -15,6 +15,9 @@ import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
 import { isInStock } from "@/lib/product-finder-leadtime";
 import { getPricingProvider, getInventoryProvider, getCrossReferenceProvider } from "@/lib/integration/index";
+import { isObsolescent, LIFECYCLE_META } from "@/lib/catalog/lifecycle";
+import { pickActiveSuccessor } from "@/lib/catalog/successor";
+import type { SourcingGrade } from "@/lib/catalog/coverage-score";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -96,6 +99,10 @@ export function ProductDetailModal() {
 
   // Goes-with cross-sell
   const [goesWithItems, setGoesWithItems] = useState<CatalogProduct[]>([]);
+  // Active successor for an obsolescent (EOL/discontinued/…) part
+  const [successor, setSuccessor] = useState<CatalogProduct | null>(null);
+  // Second-source / multi-sourcing coverage grade (single-source risk)
+  const [coverage, setCoverage] = useState<SourcingGrade | null>(null);
 
   // Reset qty and fetch goes-with each time a new product opens
   useEffect(() => {
@@ -112,6 +119,28 @@ export function ProductDetailModal() {
     void apiGoesWith(product.id).then((items) => {
       if (!cancelled) setGoesWithItems(items);
     });
+    return () => {
+      cancelled = true;
+    };
+  }, [product?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Fetch the detail endpoint (ranked equivalents + sourcing grade) so we can
+  // show the second-source coverage meter and, for obsolescent parts, the best
+  // Active successor to design in.
+  useEffect(() => {
+    setSuccessor(null);
+    setCoverage(null);
+    if (!product) return;
+    let cancelled = false;
+    const branchQ = repUser?.branchId ? `?branchId=${encodeURIComponent(repUser.branchId)}` : "";
+    void fetch(`/api/products/${encodeURIComponent(product.id)}${branchQ}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: { equivalents?: CatalogProduct[]; coverage?: SourcingGrade } | null) => {
+        if (cancelled || !data) return;
+        setCoverage(data.coverage ?? null);
+        setSuccessor(pickActiveSuccessor(product, data.equivalents ?? []));
+      })
+      .catch(() => {});
     return () => {
       cancelled = true;
     };
@@ -212,6 +241,30 @@ export function ProductDetailModal() {
                   Simulated demo item
                 </Badge>
               )}
+              {isObsolescent(product.lifecycleStatus) && (
+                <Badge
+                  className="w-fit text-xs bg-[#EAAA00] text-[#1D252D] border-0"
+                  title={LIFECYCLE_META[product.lifecycleStatus!].blurb}
+                >
+                  ⚠ {LIFECYCLE_META[product.lifecycleStatus!].label}
+                </Badge>
+              )}
+              {coverage && (
+                <Badge
+                  className={cn(
+                    "w-fit text-xs border-0",
+                    coverage.risk === "high"
+                      ? "bg-[#DB6B30] text-white"
+                      : coverage.risk === "moderate"
+                        ? "bg-[#EAAA00] text-[#1D252D]"
+                        : "bg-transparent text-[#64CCC9] border border-[#64CCC9]"
+                  )}
+                  title={coverage.blurb}
+                >
+                  ◆ {coverage.label}
+                  {coverage.sources > 1 ? ` · ${coverage.sources} sources` : ""}
+                </Badge>
+              )}
             </div>
           </div>
           <button
@@ -226,6 +279,38 @@ export function ProductDetailModal() {
 
         {/* ── Scrollable body (header above stays fixed) ───────── */}
         <div className="flex-1 overflow-y-auto print:overflow-visible print:flex-none">
+
+        {/* ── Active-successor callout for obsolescent parts ───── */}
+        {successor && (
+          <div className="print:hidden mx-6 mt-5 rounded-lg border border-[#EAAA00] bg-[#FAEEDA] px-4 py-3">
+            <p className="text-sm font-semibold text-[#854F0B]">
+              ⚠ {LIFECYCLE_META[product.lifecycleStatus!].label} — design in the active replacement
+            </p>
+            <p className="mt-0.5 text-xs text-[#1D252D]">
+              We stock an active equivalent:{" "}
+              <span className="font-semibold">{successor.brand} {successor.name}</span> · SKU {successor.sku}
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Button
+                size="sm"
+                className="h-7 bg-[#00AA13] text-white hover:bg-[#00880F]"
+                onClick={() => {
+                  addToCart(successor, qty);
+                }}
+              >
+                Use active part — add to cart
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                className="h-7 border-[#4F758B] text-[#1D252D]"
+                onClick={() => setDetailModal(successor)}
+              >
+                View successor
+              </Button>
+            </div>
+          </div>
+        )}
 
         {/* ── Top section: art + actions ───────────────────────── */}
         <div className="print:hidden flex flex-col sm:flex-row gap-6 px-6 py-5 border-b border-[#B7C9D3]/40">
