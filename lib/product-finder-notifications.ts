@@ -34,7 +34,8 @@ export type NotificationKind =
   | "restock-due"
   | "restock-eta"
   | "customer-risk"
-  | "saved-search";
+  | "saved-search"
+  | "rma";
 
 export interface PfNotification {
   /** Stable id (`kind:entityId`) — read state keys off this. */
@@ -51,6 +52,8 @@ export interface PfNotification {
   savedSearchId?: string;
   /** Deep-link hint for the cart drawer's quote section. */
   quoteStatus?: QuoteStatus;
+  /** Order id — RMA notifications deep-link to the orders section. */
+  orderId?: string;
 }
 
 /** The bell-relevant slice of a saved search (avoids importing the store type). */
@@ -70,8 +73,22 @@ export interface NotificationInput {
   customers: Pick<CustomerAccount, "id" | "name">[];
   /** Saved searches with alerts enabled — surface "new matches". */
   savedSearches?: SavedSearchSignal[];
+  /** Open returns — surface RMA status until refunded/rejected. */
+  returns?: ReturnSignal[];
   /** Approval requests are a manager/admin concern. */
   isManager: boolean;
+}
+
+/** Bell-relevant slice of a return (avoids importing the full store type). */
+export interface ReturnSignal {
+  id: string;
+  rma: string;
+  orderId: string;
+  status: string;
+  statusLabel: string;
+  refundAmount: number;
+  createdAt: number;
+  terminal: boolean;
 }
 
 /** Epoch ms when a watch's simulated restock window elapses. */
@@ -143,6 +160,18 @@ export function buildNotifications(input: NotificationInput, now: number): PfNot
       detail: "Your saved search picked up new results. Tap to view.",
       at: s.createdAt,
       savedSearchId: s.id,
+    });
+  }
+
+  for (const r of input.returns ?? []) {
+    if (r.terminal) continue;
+    out.push({
+      id: `rma:${r.id}`,
+      kind: "rma",
+      title: `Return ${r.rma} — ${r.statusLabel}`,
+      detail: `$${r.refundAmount.toFixed(2)} credit pending. Tap to view the order.`,
+      at: r.createdAt,
+      orderId: r.orderId,
     });
   }
 

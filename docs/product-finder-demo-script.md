@@ -280,6 +280,15 @@ Every SKU below is deterministic — it exists with the same data in every envir
 17. **Click Add to Order**, then expand **Order History**: *"every past order for
     Gulf Coast — click one open to see its lines — and Reorder puts it all back.
     Repeat business in two clicks."* **Click Reorder.**
+17a. **On an order, click Track order.** *"And the app no longer goes dark after
+    checkout: a status timeline from placed to delivered, with a promised date
+    off the stocking ETA — and one toggle flips it between jobsite delivery and
+    will-call pickup, relabeling the whole flow."* **Then click Start a return,
+    tick a line, pick a reason, Generate RMA.** *"Wrong item or over-ordered?
+    Self-service returns: pick the lines, get an RMA number and the credit
+    estimate, and track it from requested to credit-issued — the bell flags open
+    RMAs until they're resolved. That's the whole post-purchase loop the demo
+    used to be missing."*
 18a. **Click Bulk Price Check** and paste a mix of SKUs and a competitor part
     number (e.g. `QO115`, `CB-EAT-CH115`, `12x 20A breaker`). **Get Prices & Stock** →
     *"an instant RFQ response — every line priced, in stock, and cross-referenced.
@@ -332,6 +341,15 @@ Every SKU below is deterministic — it exists with the same data in every envir
     buyer, or add it all to the basket. That Burndy GRC58 ground clamp? Crosses
     to the Ilsco we stock, per ABB's own EZGround cross table."* **Export CSV**,
     then **Add crossed to basket.**
+18d. **Click 📥 RFQ → Quote, type a customer and project, paste a messy takeoff**
+    (e.g. `12x 20A 1-pole breaker`, `5 led troffer 2x4`, `10x 3/4" EMT`), **click
+    Match BOM.** *"This is the inbound side, automated: a customer emails a takeoff,
+    and instead of a rep retyping it line by line, the app drafts the quote — every
+    line matched and confidence-scored, competitor parts crossed to what we stock.
+    'N of M lines matched, K to review.'"* **Click Create draft quote.** *"One
+    click and it's a draft quote with the customer and project, sitting in the
+    pipeline for the rep to review and send. The highest-frequency inside-sales
+    task, handled."*
 
 ## Act 5 — The manager view (2 min)
 

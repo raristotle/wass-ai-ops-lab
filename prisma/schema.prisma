@@ -296,3 +296,19 @@ model AiUseCase {
   @@index([sbu])
   @@index([domain])
 }
+
+// ── Product Finder persistence seam ─────────────────────────────────────────
+// Namespaced JSON KV backing the env-gated server store (lib/server/persistence).
+// Lets RFQ intakes, RMAs, shipment overrides, quotes/orders persist durably when
+// POSTGRES_URL is configured, without bespoke tables per entity. The app falls
+// back to per-instance memory (and the browser keeps localStorage) until then.
+
+model PersistedRecord {
+  namespace String
+  key       String
+  json      String
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@id([namespace, key])
+  @@index([namespace])
+}

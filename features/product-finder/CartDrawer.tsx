@@ -15,6 +15,7 @@ import { buildPunchOutCxml } from "@/lib/procurement/cxml";
 import { buildEdi850 } from "@/lib/procurement/edi850";
 import type { ProcurementOrder } from "@/lib/procurement/types";
 import { unspscCode } from "@/lib/catalog/unspsc";
+import { OrderTracking } from "@/features/product-finder/OrderTracking";
 import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import { isInLocalMonth } from "@/lib/analytics";
 import {
@@ -1307,8 +1308,9 @@ export function CartDrawer() {
                 return (
                   <li
                     key={order.id}
-                    className="flex items-center gap-2 rounded border border-[#B7C9D3] bg-white px-3 py-2"
+                    className="rounded border border-[#B7C9D3] bg-white px-3 py-2"
                   >
+                    <div className="flex items-center gap-2">
                     {/* Date + meta + expandable line detail */}
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-semibold text-[#1D252D]">
@@ -1351,6 +1353,8 @@ export function CartDrawer() {
                     >
                       ✕
                     </button>
+                    </div>
+                    <OrderTracking order={order} />
                   </li>
                 );
               })}

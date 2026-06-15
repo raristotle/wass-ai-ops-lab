@@ -8,6 +8,7 @@ import {
   type PfNotification,
 } from "@/lib/product-finder-notifications";
 import { apiGetProduct } from "@/lib/product-finder-api";
+import { RETURN_STATUS_LABEL } from "@/lib/product-finder-returns";
 import { cn } from "@/lib/utils";
 
 const KIND_ICON: Record<PfNotification["kind"], string> = {
@@ -18,6 +19,7 @@ const KIND_ICON: Record<PfNotification["kind"], string> = {
   "restock-eta": "👁️",
   "customer-risk": "📉",
   "saved-search": "🔎",
+  rma: "🧾",
 };
 
 export function NotificationBell() {
@@ -25,6 +27,7 @@ export function NotificationBell() {
   const quotes = useProductFinder((s) => s.quotes);
   const watches = useProductFinder((s) => s.watches);
   const orders = useProductFinder((s) => s.orders);
+  const returns = useProductFinder((s) => s.returns);
   const customers = useProductFinder((s) => s.customers);
   const savedSearches = useProductFinder((s) => s.savedSearches);
   const runSavedSearch = useProductFinder((s) => s.runSavedSearch);
@@ -65,10 +68,20 @@ export function NotificationBell() {
                 alertsOn: s.alertsOn,
                 newMatches: s.newMatches,
               })),
+              returns: returns.map((r) => ({
+                id: r.id,
+                rma: r.rma,
+                orderId: r.orderId,
+                status: r.status,
+                statusLabel: RETURN_STATUS_LABEL[r.status],
+                refundAmount: r.refundAmount,
+                createdAt: r.createdAt,
+                terminal: r.status === "refunded" || r.status === "rejected",
+              })),
             },
             now
           ),
-    [quotes, watches, orders, customers, isManager, savedSearches, now]
+    [quotes, watches, orders, returns, customers, isManager, savedSearches, now]
   );
   const unread = unreadCount(notifications, notifReads);
 
@@ -84,6 +97,8 @@ export function NotificationBell() {
       openCartAt("orders");
     } else if (n.kind === "saved-search" && n.savedSearchId) {
       void runSavedSearch(n.savedSearchId);
+    } else if (n.kind === "rma") {
+      openCartAt("orders");
     } else if (n.productId) {
       try {
         const detail = await apiGetProduct(n.productId);

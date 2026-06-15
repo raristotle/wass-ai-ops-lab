@@ -147,10 +147,18 @@ value — so it's safe to hit from an uptime monitor:
     "resend": false,      // RESEND_API_KEY set?
     "mouser": true,       // MOUSER_API_KEY set?
     "digikey": false,     // DIGIKEY_CLIENT_ID + _SECRET set?
-    "commodity": false    // FRED_API_KEY set? (live metals index)
+    "commodity": false,   // FRED_API_KEY set? (live metals index)
+    "database": false,    // POSTGRES_URL set? (durable server persistence)
+    "queue": false        // REDIS_URL set? (BullMQ worker activatable)
   }
 }
 ```
+
+`database`/`queue` are **readiness flags** for the env-gated persistence + job-queue
+seam (`lib/server/persistence.ts`, `lib/server/queue.ts`). Unset = the app uses
+per-instance memory server-side and localStorage in the browser; setting
+`POSTGRES_URL` (Prisma `PersistedRecord` table) and adding a BullMQ worker for
+`REDIS_URL` activates durable storage + background jobs. Ships dormant at zero cost.
 
 ### `GET /api/commodity`
 

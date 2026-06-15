@@ -243,6 +243,7 @@ interface SingleSearchPanelProps {
   onOpenBulk: () => void;
   onOpenJobWizard: () => void;
   onOpenGuided: () => void;
+  onOpenRfq: () => void;
   onOpenAssistant: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
@@ -268,6 +269,7 @@ function SingleSearchPanel({
   onOpenBulk,
   onOpenJobWizard,
   onOpenGuided,
+  onOpenRfq,
   onOpenAssistant,
   onVoiceInterim,
   onVoiceFinal,
@@ -445,6 +447,21 @@ function SingleSearchPanel({
           Import List / BOM
         </button>
 
+        {/* Inbound RFQ — auto-draft a quote from a customer takeoff */}
+        <button
+          type="button"
+          onClick={onOpenRfq}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#00573F]/50 px-3 py-1 text-xs font-medium text-[#00573F]",
+            "hover:border-[#00573F] hover:bg-[#00573F]/5",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00573F]"
+          )}
+          aria-label="Inbound RFQ auto-quote"
+        >
+          <span aria-hidden="true">📥</span>
+          RFQ → Quote
+        </button>
+
         {/* Cross-reference — paste a competitor/legacy part number */}
         <button
           type="button"
@@ -527,6 +544,7 @@ export function SearchBar() {
     setBulkCrossOpen,
     setJobWizardOpen,
     setGuidedOpen,
+    setRfqOpen,
     setAssistantOpen,
   } = useProductFinder();
 
@@ -665,6 +683,7 @@ export function SearchBar() {
             onOpenBulk={() => setBulkModalOpen(true)}
             onOpenJobWizard={() => setJobWizardOpen(true)}
             onOpenGuided={() => setGuidedOpen(true)}
+            onOpenRfq={() => setRfqOpen(true)}
             onOpenAssistant={() => setAssistantOpen(true)}
             onVoiceInterim={handleVoiceInterim}
             onVoiceFinal={handleVoiceFinal}

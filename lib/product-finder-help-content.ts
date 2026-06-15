@@ -658,6 +658,37 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "rfq-auto-quote",
+    title: "Inbound RFQ → draft quote",
+    body: [
+      "Got a customer's bill of materials by email? Click 📥 RFQ → Quote by the search bar (or Ctrl/Cmd-K → \"Inbound RFQ\").",
+      "• Paste the takeoff or upload a .csv/.txt; the app parses quantities, fuzzy-matches every line to the catalog with a confidence score, and crosses competitor parts to the equivalents we stock.",
+      "• You see \"N of M lines matched · K to review\" — eyeball the low-confidence lines, then click Create draft quote.",
+      "• It adds the matched lines to the basket and saves a draft quote with the customer and project you entered — ready to review and send.",
+      "Deterministic, no AI key needed. With an Anthropic key configured, an LLM step can read messier formats; the rep always reviews before sending.",
+    ],
+  },
+  {
+    id: "order-tracking",
+    title: "Order tracking, delivery & will-call",
+    body: [
+      "The app no longer goes dark after checkout. In the cart's Orders list, click Track order on any order:",
+      "• A status timeline — Placed → Confirmed → Processing → Shipped → Out for delivery → Delivered — with a promised date from the stocking ETA.",
+      "• Toggle Jobsite delivery vs Will-call pickup; the timeline re-labels (Staged for pickup → Ready for pickup → Picked up).",
+      "Simulated from the order date and ETA today — a real carrier/WMS feed drops in behind the same adapter.",
+    ],
+  },
+  {
+    id: "returns-rma",
+    title: "Self-service returns (RMA)",
+    body: [
+      "Wrong item or over-ordered for the job? Click Start a return on any order in the cart's Orders list.",
+      "• Tick the lines to send back, pick a reason, and Generate RMA — you get an RMA number and an estimated credit.",
+      "• Track the return through Requested → Approved → In transit → Received → Credit issued; the 🔔 bell flags open RMAs until they're resolved.",
+      "With an email key configured, the customer gets an RMA confirmation email.",
+    ],
+  },
+  {
     id: "guided-selectors",
     title: "Guided engineering selectors (conduit / wire / breaker)",
     body: [

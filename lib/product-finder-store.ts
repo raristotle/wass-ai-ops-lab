@@ -38,6 +38,14 @@ import { getPricingProvider } from "@/lib/integration/index";
 import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-finder-quotes";
 import { QUOTE_STATUS_LABEL, APPROVAL_LABEL, isSuperseded } from "@/lib/product-finder-quotes";
 import { evaluateApproval } from "@/lib/product-finder-approval-policy";
+import type { FulfillmentMethod } from "@/lib/product-finder-tracking";
+import {
+  createReturn,
+  nextReturnStatus,
+  type ReturnRequest,
+  type ReturnLine,
+  type ReturnReason,
+} from "@/lib/product-finder-returns";
 import { quoteNumber } from "@/lib/product-finder-quote";
 import { quoteEvent, appendEvent } from "@/lib/product-finder-quote-events";
 import { basketMargin } from "@/lib/product-finder-margin";
@@ -249,6 +257,15 @@ export interface ProductFinderState {
   reorder: (id: string) => void;
   deleteOrder: (id: string) => void;
 
+  // Post-purchase: fulfillment method (tracking) + returns/RMA
+  orderFulfillment: Record<string, FulfillmentMethod>;
+  setOrderFulfillment: (orderId: string, method: FulfillmentMethod) => void;
+  returns: ReturnRequest[];
+  createReturnRequest: (input: { orderId: string; lines: ReturnLine[]; reason: ReturnReason; note?: string; now?: number }) => void;
+  advanceReturnStatus: (id: string, now?: number) => void;
+  returnModalOrderId: string | null;
+  setReturnModalOrder: (orderId: string | null) => void;
+
   // Job templates (reusable BOM kits — applied by merging into the cart)
   jobTemplates: JobTemplate[];
   saveTemplate: (name: string, now?: number) => void;
@@ -282,6 +299,10 @@ export interface ProductFinderState {
   // Guided engineering selectors (NEC calculators)
   guidedOpen: boolean;
   setGuidedOpen: (v: boolean) => void;
+
+  // Inbound RFQ auto-quote
+  rfqOpen: boolean;
+  setRfqOpen: (v: boolean) => void;
 
   // Watches (notify-when-available)
   watches: WatchEntry[];
@@ -937,6 +958,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   // ── Order history ─────────────────────────────────────────
   orders: [],
+  orderFulfillment: {},
+  returns: [],
+  returnModalOrderId: null,
+  setReturnModalOrder(orderId) { set({ returnModalOrderId: orderId }); },
 
   placeOrder(now, id) {
     const cart = get().cart;
@@ -987,6 +1012,50 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       };
     }
     set({ cart: newCart, priceOverrides: {}, revisingQuoteId: null });
+  },
+
+  setOrderFulfillment(orderId, method) {
+    set((s) => {
+      const orderFulfillment = { ...s.orderFulfillment, [orderId]: method };
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_order_fulfillment", JSON.stringify(orderFulfillment));
+      }
+      return { orderFulfillment };
+    });
+  },
+
+  createReturnRequest({ orderId, lines, reason, note, now }) {
+    const ts = now ?? Date.now();
+    const order = get().orders.find((o) => o.id === orderId);
+    const entry = createReturn({
+      orderId,
+      customerId: order?.customerId ?? null,
+      lines,
+      reason,
+      now: ts,
+      ...(note ? { note } : {}),
+    });
+    set((s) => {
+      const returns = [entry, ...s.returns];
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_returns", JSON.stringify(returns));
+      }
+      return { returns };
+    });
+  },
+
+  advanceReturnStatus(id) {
+    set((s) => {
+      const returns = s.returns.map((r) => {
+        if (r.id !== id) return r;
+        const next = nextReturnStatus(r.status);
+        return next ? { ...r, status: next } : r;
+      });
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("pf_returns", JSON.stringify(returns));
+      }
+      return { returns };
+    });
   },
 
   deleteOrder(id) {
@@ -1301,6 +1370,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   guidedOpen: false,
   setGuidedOpen(v) { set({ guidedOpen: v }); },
 
+  // ── Inbound RFQ auto-quote ────────────────────────────────
+  rfqOpen: false,
+  setRfqOpen(v) { set({ rfqOpen: v }); },
+
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
 
@@ -1561,8 +1634,23 @@ export function hydrateSavedState() {
     watches,
     notifReads: readReads(),
     orders: readOrders(),
+    orderFulfillment: readJson<Record<string, FulfillmentMethod>>("pf_order_fulfillment", {}),
+    returns: readJson<ReturnRequest[]>("pf_returns", []),
     activeCustomerId: readActiveCustomer(),
   });
+}
+
+/** Tolerant JSON read with a typed fallback (drops corrupt values). */
+function readJson<T>(key: string, fallback: T): T {
+  if (typeof localStorage === "undefined") return fallback;
+  const raw = localStorage.getItem(key);
+  if (!raw) return fallback;
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    localStorage.removeItem(key);
+    return fallback;
+  }
 }
 
 /**
