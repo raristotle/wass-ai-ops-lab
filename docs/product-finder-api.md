@@ -260,6 +260,26 @@ returns all. Totals/lead time + ranking are a pure tested lib
 **[supplier portal](/product-finder/supplier)** page. Persists to Neon when
 configured. POST/DELETE 30/min, GET 60/min.
 
+### `GET /api/procurement/cif`
+
+**CIF 3.0 catalog export** for Ariba / SAP — the static flat-file catalog a buyer
+loads so Meridian items appear in their procurement system without a live
+punchout. Returns `text/plain` (`meridian-catalog.cif`) with the standard
+`CIF_I_V3.0` header + quoted DATA rows (SKU, MPN, description, UNSPSC, price, UOM,
+lead time, manufacturer, **item-level Supplier URL**). `?limit=` caps the sample
+(default 200, max 1000). Generator is a pure tested lib (`lib/procurement/cif.ts`).
+12/min.
+
+### `POST /api/procurement/punchout` · `GET /api/procurement/punchout`
+
+**cXML PunchOut setup** endpoint (the entry handshake, distinct from the
+cart-return PunchOutOrderMessage). `POST` a `PunchOutSetupRequest`; we answer with
+a `PunchOutSetupResponse` whose StartPage URL the buyer's browser opens.
+**Level 2:** when the request carries a `<SelectedItem>` with a `SupplierPartID`,
+the StartPage **deep-links to that product** (`X-PunchOut-Level: 2`); otherwise it
+lands on the store home (Level 1). Parsing + response are a pure tested lib
+(`lib/procurement/punchout-setup.ts`). `GET` returns endpoint info. POST 30/min.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter
@@ -276,6 +296,8 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `POST /api/orders` | 30 / min |
 | `GET/POST/DELETE /api/vmi` | 60 / min |
 | `POST /api/rfq-responses` | 30 / min |
+| `POST /api/procurement/punchout` | 30 / min |
+| `GET /api/procurement/cif` | 12 / min |
 | `GET /api/commodity` | 30 / min |
 | `GET /api/rfq` | 30 / min |
 | `GET /api/auth/sso/start` | 30 / min |
