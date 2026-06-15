@@ -52,14 +52,47 @@ export interface KvStore {
   get<T>(namespace: string, key: string): Promise<T | null>;
   list<T>(namespace: string, opts?: ListOptions): Promise<T[]>;
   delete(namespace: string, key: string): Promise<void>;
+  /** Read the value together with its current version (for compare-and-set). */
+  getVersioned<T>(namespace: string, key: string): Promise<{ value: T; version: number } | null>;
+  /**
+   * Compare-and-set: write `value` only if the record's current version equals
+   * `expectedVersion` (use 0 to mean "must not exist yet" — a create). Returns
+   * true on success, false if another writer changed it first. Every successful
+   * write (including plain `put`) bumps the version, so a stale writer is detected.
+   */
+  compareAndPut<T>(namespace: string, key: string, value: T, expectedVersion: number): Promise<boolean>;
 }
 
-/** Per-instance in-memory store — the dormant default. */
+/**
+ * Atomic read-modify-write via compare-and-set with retry. Reads the current
+ * value + version, applies `updater`, and CAS-writes; on a version conflict it
+ * re-reads and retries. `updater` returning null aborts the write (e.g. the
+ * record was deleted). Use this instead of get→modify→put when concurrent writers
+ * could touch the same key (e.g. linking orders onto a Job's rollup).
+ */
+export async function mutate<T>(
+  store: KvStore,
+  namespace: string,
+  key: string,
+  updater: (current: T | null) => T | null,
+  retries = 5,
+): Promise<T | null> {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const cur = await store.getVersioned<T>(namespace, key);
+    const next = updater(cur?.value ?? null);
+    if (next === null) return null;
+    if (await store.compareAndPut(namespace, key, next, cur?.version ?? 0)) return next;
+  }
+  throw new Error(`mutate: too much write contention on ${namespace}/${key}`);
+}
+
+/** Per-instance in-memory store — the dormant default. Each record carries a
+ *  version so compare-and-set works the same as on the Postgres path. */
 export class MemoryStore implements KvStore {
   readonly backend = "memory" as const;
-  private readonly data = new Map<string, Map<string, unknown>>();
+  private readonly data = new Map<string, Map<string, { value: unknown; version: number }>>();
 
-  private ns(namespace: string): Map<string, unknown> {
+  private ns(namespace: string): Map<string, { value: unknown; version: number }> {
     let m = this.data.get(namespace);
     if (!m) {
       m = new Map();
@@ -68,19 +101,38 @@ export class MemoryStore implements KvStore {
     return m;
   }
 
+  // Clone through JSON so callers can't mutate the stored copy by reference
+  // (mirrors the round-trip a real DB would do).
+  private clone<T>(v: T): T {
+    return JSON.parse(JSON.stringify(v)) as T;
+  }
+
   async put<T>(namespace: string, key: string, value: T): Promise<void> {
-    // Clone through JSON so callers can't mutate the stored copy by reference
-    // (mirrors the round-trip a real DB would do).
-    this.ns(namespace).set(key, JSON.parse(JSON.stringify(value)));
+    const m = this.ns(namespace);
+    const version = (m.get(key)?.version ?? 0) + 1;
+    m.set(key, { value: this.clone(value), version });
   }
 
   async get<T>(namespace: string, key: string): Promise<T | null> {
-    const v = this.ns(namespace).get(key);
-    return v === undefined ? null : (JSON.parse(JSON.stringify(v)) as T);
+    const rec = this.ns(namespace).get(key);
+    return rec === undefined ? null : this.clone(rec.value as T);
+  }
+
+  async getVersioned<T>(namespace: string, key: string): Promise<{ value: T; version: number } | null> {
+    const rec = this.ns(namespace).get(key);
+    return rec === undefined ? null : { value: this.clone(rec.value as T), version: rec.version };
+  }
+
+  async compareAndPut<T>(namespace: string, key: string, value: T, expectedVersion: number): Promise<boolean> {
+    const m = this.ns(namespace);
+    const current = m.get(key)?.version ?? 0;
+    if (current !== expectedVersion) return false;
+    m.set(key, { value: this.clone(value), version: current + 1 });
+    return true;
   }
 
   async list<T>(namespace: string, opts?: ListOptions): Promise<T[]> {
-    const all = [...this.ns(namespace).values()].map((v) => JSON.parse(JSON.stringify(v)) as T);
+    const all = [...this.ns(namespace).values()].map((r) => this.clone(r.value as T));
     return opts?.limit ? all.slice(0, opts.limit) : all;
   }
 
@@ -114,8 +166,11 @@ export class NeonStore implements KvStore {
           key text NOT NULL,
           json text NOT NULL,
           "updatedAt" timestamptz NOT NULL DEFAULT now(),
+          version integer NOT NULL DEFAULT 1,
           PRIMARY KEY (namespace, key)
         )`;
+        // Idempotent: add the version column for tables created before CAS shipped.
+        await this.sql`ALTER TABLE "PersistedRecord" ADD COLUMN IF NOT EXISTS version integer NOT NULL DEFAULT 1`;
       })();
     }
     await this.ready;
@@ -125,15 +180,41 @@ export class NeonStore implements KvStore {
   async put<T>(namespace: string, key: string, value: T): Promise<void> {
     const sql = await this.init();
     const json = JSON.stringify(value);
-    await sql`INSERT INTO "PersistedRecord" (namespace, key, json, "updatedAt")
-      VALUES (${namespace}, ${key}, ${json}, now())
-      ON CONFLICT (namespace, key) DO UPDATE SET json = ${json}, "updatedAt" = now()`;
+    // Every write bumps the version so a concurrent compare-and-set detects it.
+    await sql`INSERT INTO "PersistedRecord" (namespace, key, json, "updatedAt", version)
+      VALUES (${namespace}, ${key}, ${json}, now(), 1)
+      ON CONFLICT (namespace, key) DO UPDATE SET json = ${json}, "updatedAt" = now(), version = "PersistedRecord".version + 1`;
   }
 
   async get<T>(namespace: string, key: string): Promise<T | null> {
     const sql = await this.init();
     const rows = await sql`SELECT json FROM "PersistedRecord" WHERE namespace = ${namespace} AND key = ${key} LIMIT 1`;
     return rows[0] ? (JSON.parse(rows[0].json as string) as T) : null;
+  }
+
+  async getVersioned<T>(namespace: string, key: string): Promise<{ value: T; version: number } | null> {
+    const sql = await this.init();
+    const rows = await sql`SELECT json, version FROM "PersistedRecord" WHERE namespace = ${namespace} AND key = ${key} LIMIT 1`;
+    if (!rows[0]) return null;
+    return { value: JSON.parse(rows[0].json as string) as T, version: Number(rows[0].version) };
+  }
+
+  async compareAndPut<T>(namespace: string, key: string, value: T, expectedVersion: number): Promise<boolean> {
+    const sql = await this.init();
+    const json = JSON.stringify(value);
+    if (expectedVersion === 0) {
+      // Create-only: succeeds iff the row does not already exist.
+      const rows = await sql`INSERT INTO "PersistedRecord" (namespace, key, json, "updatedAt", version)
+        VALUES (${namespace}, ${key}, ${json}, now(), 1)
+        ON CONFLICT (namespace, key) DO NOTHING RETURNING version`;
+      return rows.length > 0;
+    }
+    // Update-only: succeeds iff the current version still matches.
+    const rows = await sql`UPDATE "PersistedRecord"
+      SET json = ${json}, "updatedAt" = now(), version = version + 1
+      WHERE namespace = ${namespace} AND key = ${key} AND version = ${expectedVersion}
+      RETURNING version`;
+    return rows.length > 0;
   }
 
   async list<T>(namespace: string, opts?: ListOptions): Promise<T[]> {

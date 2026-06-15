@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { getStore } from "@/lib/server/persistence";
+import { getStore, mutate } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { requireApiAuth } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
@@ -70,20 +70,22 @@ export async function POST(req: Request) {
     }
     await store.put(NS, id, order);
 
-    // Best-effort: link the order onto its job's rollup (the order is placed regardless).
+    // Best-effort: link the order onto its job's rollup (the order is placed
+    // regardless). Atomic compare-and-set with retry so two orders linking the
+    // same job concurrently can't lose each other's update.
     if (jobId) {
-      const job = await store.get<Job>(JOBS_NS, jobId);
-      if (job) {
-        const linked = withArtifact(job, {
-          kind: "order",
-          ref: order.id,
-          label: `Order ${order.id} · ${order.customer}`,
-          value: order.total,
-          status: "placed",
-          at: order.placedAt,
-        });
-        await store.put(JOBS_NS, jobId, linked);
-      }
+      await mutate<Job>(store, JOBS_NS, jobId, (job) =>
+        job
+          ? withArtifact(job, {
+              kind: "order",
+              ref: order.id,
+              label: `Order ${order.id} · ${order.customer}`,
+              value: order.total,
+              status: "placed",
+              at: order.placedAt,
+            })
+          : null,
+      );
     }
 
     return NextResponse.json({ ok: true, idempotent: false, order, unresolved, persisted: store.backend });
@@ -103,11 +105,13 @@ export async function DELETE(req: Request) {
     if (!idParam) return NextResponse.json({ error: "Missing id." }, { status: 400 });
     const key = idParam.startsWith("ord-") ? idParam : orderId(idParam);
     const store = getStore();
-    // Unlink the cancelled order from its job so the rollup doesn't keep counting it.
+    // Unlink the cancelled order from its job so the rollup doesn't keep counting
+    // it — atomic compare-and-set so a concurrent link/unlink can't clobber it.
     const order = await store.get<PlacedOrder>(NS, key);
     if (order?.jobId) {
-      const job = await store.get<Job>(JOBS_NS, order.jobId);
-      if (job) await store.put(JOBS_NS, order.jobId, removeArtifact(job, "order", key, Date.now()));
+      await mutate<Job>(store, JOBS_NS, order.jobId, (job) =>
+        job ? removeArtifact(job, "order", key, Date.now()) : null,
+      );
     }
     await store.delete(NS, key);
     return NextResponse.json({ ok: true, id: key });

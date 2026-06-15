@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { MemoryStore, getStore, persistenceConfigured, postgresUrl } from "@/lib/server/persistence";
+import { MemoryStore, getStore, mutate, persistenceConfigured, postgresUrl } from "@/lib/server/persistence";
 import { InlineQueue } from "@/lib/server/queue";
 
 describe("MemoryStore", () => {
@@ -77,6 +77,66 @@ describe("postgresUrl resolution", () => {
     } finally {
       process.env = prev;
     }
+  });
+});
+
+describe("compare-and-set (MemoryStore)", () => {
+  it("getVersioned returns value + a version that bumps on every put", async () => {
+    const s = new MemoryStore();
+    expect(await s.getVersioned("ns", "k")).toBeNull();
+    await s.put("ns", "k", { n: 1 });
+    expect(await s.getVersioned<{ n: number }>("ns", "k")).toEqual({ value: { n: 1 }, version: 1 });
+    await s.put("ns", "k", { n: 2 });
+    expect((await s.getVersioned<{ n: number }>("ns", "k"))?.version).toBe(2);
+  });
+
+  it("create-only (expected 0) succeeds when absent, fails when present", async () => {
+    const s = new MemoryStore();
+    expect(await s.compareAndPut("ns", "k", { n: 1 }, 0)).toBe(true);
+    expect(await s.compareAndPut("ns", "k", { n: 9 }, 0)).toBe(false);
+    expect(await s.get("ns", "k")).toEqual({ n: 1 });
+  });
+
+  it("update succeeds on a matching version and rejects a stale one", async () => {
+    const s = new MemoryStore();
+    await s.put("ns", "k", { n: 1 }); // version 1
+    expect(await s.compareAndPut("ns", "k", { n: 2 }, 1)).toBe(true); // -> version 2
+    expect(await s.compareAndPut("ns", "k", { n: 3 }, 1)).toBe(false); // stale
+    expect(await s.get("ns", "k")).toEqual({ n: 2 });
+  });
+});
+
+describe("mutate (atomic read-modify-write)", () => {
+  it("applies the updater and persists", async () => {
+    const s = new MemoryStore();
+    await s.put("jobs", "j", { items: [] as string[] });
+    const out = await mutate<{ items: string[] }>(s, "jobs", "j", (j) => (j ? { items: [...j.items, "a"] } : null));
+    expect(out).toEqual({ items: ["a"] });
+    expect(await s.get("jobs", "j")).toEqual({ items: ["a"] });
+  });
+
+  it("aborts (returns null, no write) when the updater returns null", async () => {
+    const s = new MemoryStore();
+    const out = await mutate<{ x: number }>(s, "jobs", "missing", (j) => (j ? j : null));
+    expect(out).toBeNull();
+    expect(await s.get("jobs", "missing")).toBeNull();
+  });
+
+  it("retries on a concurrent write and preserves BOTH updates (no lost update)", async () => {
+    const s = new MemoryStore();
+    await s.put("jobs", "j", { items: [] as string[] });
+    let injected = false;
+    const out = await mutate<{ items: string[] }>(s, "jobs", "j", (j) => {
+      // First pass only: simulate another writer committing between our read and CAS,
+      // which bumps the version so our compare-and-set misses and we retry.
+      if (!injected) {
+        injected = true;
+        void s.put("jobs", "j", { items: ["concurrent"] });
+      }
+      return j ? { items: [...j.items, "mine"] } : null;
+    });
+    expect(out).toEqual({ items: ["concurrent", "mine"] });
+    expect(await s.get("jobs", "j")).toEqual({ items: ["concurrent", "mine"] });
   });
 });
 
