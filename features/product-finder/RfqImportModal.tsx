@@ -226,7 +226,12 @@ export function RfqImportModal() {
 
           <p className="mt-3 text-[10px] leading-snug text-[#4F758B]">
             Deterministic matching — no AI key required. With an Anthropic key configured, an LLM extraction
-            step can read more unstructured formats; the rep always reviews the draft before sending.
+            step can read more unstructured formats; the rep always reviews the draft before sending.{" "}
+            Suppliers bid on logged RFQs at the{" "}
+            <a href="/product-finder/supplier" target="_blank" rel="noopener noreferrer" className="text-[#004986] underline">
+              supplier portal
+            </a>
+            .
           </p>
         </div>
       </div>

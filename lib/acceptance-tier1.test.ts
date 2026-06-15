@@ -103,16 +103,18 @@ describe("AC18 — buildVocabulary input boundary", () => {
 // AC38 (filesystem half): the dashboard wires into EXISTING surfaces — no new
 // route directories under apps/web/app/product-finder, api routes unchanged.
 describe("AC38 (partial) — route surface is frozen", () => {
-  it("apps/web/app/product-finder contains exactly the 5 known pages + layout", () => {
+  it("apps/web/app/product-finder contains exactly the known pages + layout", () => {
     const dir = path.join(ROOT, "apps/web/app/product-finder");
     const entries = readdirSync(dir).sort();
     // "quote" was added by the Tier 2 update (customer-facing acceptance page);
-    // "crosses" is the Cross-Reference Explorer.
-    expect(entries).toEqual(["crosses", "dashboard", "layout.tsx", "login", "page.tsx", "quote"]);
+    // "crosses" is the Cross-Reference Explorer; "supplier" is the Wave-4 supplier
+    // collaboration portal (reviewed addition).
+    expect(entries).toEqual(["crosses", "dashboard", "layout.tsx", "login", "page.tsx", "quote", "supplier"]);
     expect(readdirSync(path.join(dir, "crosses"))).toEqual(["page.tsx"]);
     expect(readdirSync(path.join(dir, "dashboard"))).toEqual(["page.tsx"]);
     expect(readdirSync(path.join(dir, "login"))).toEqual(["page.tsx"]);
     expect(readdirSync(path.join(dir, "quote"))).toEqual(["page.tsx"]);
+    expect(readdirSync(path.join(dir, "supplier"))).toEqual(["page.tsx"]);
     expect(statSync(path.join(dir, "page.tsx")).isFile()).toBe(true);
   });
 

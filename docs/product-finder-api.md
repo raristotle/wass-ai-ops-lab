@@ -248,6 +248,18 @@ critical` (worst first). `DELETE ?id=` removes a policy. The reorder math is a
 pure tested lib (`lib/product-finder-vmi.ts`); a flagged line drafts a
 replenishment through `POST /api/orders`. All verbs 60/min.
 
+### `GET /api/rfq-responses` · `POST /api/rfq-responses` · `DELETE /api/rfq-responses`
+
+**Supplier collaboration** — a supplier's priced, lead-timed bid against an RFQ
+(referenced by its quote number). `POST` upserts a bid `{ rfqRef, supplier,
+lines:[{description, qty, unitPrice, leadTimeDays, inStock}], note? }` — one bid
+per `(rfqRef, supplier)`, so resubmitting revises it. `GET ?rfqRef=` returns that
+RFQ's bids **ranked best-first** (lowest total, lead time breaks ties); `GET`
+returns all. Totals/lead time + ranking are a pure tested lib
+(`lib/product-finder-supplier.ts`). The sell-side surface is the
+**[supplier portal](/product-finder/supplier)** page. Persists to Neon when
+configured. POST/DELETE 30/min, GET 60/min.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter
@@ -263,6 +275,7 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `GET/POST/DELETE /api/jobs` | 60 / min |
 | `POST /api/orders` | 30 / min |
 | `GET/POST/DELETE /api/vmi` | 60 / min |
+| `POST /api/rfq-responses` | 30 / min |
 | `GET /api/commodity` | 30 / min |
 | `GET /api/rfq` | 30 / min |
 | `GET /api/auth/sso/start` | 30 / min |
