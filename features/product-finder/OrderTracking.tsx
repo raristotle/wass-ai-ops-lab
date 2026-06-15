@@ -31,6 +31,7 @@ export function OrderTracking({ order }: { order: Order }) {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
           className="rounded border border-[#004986]/40 px-2 py-0.5 text-[11px] font-medium text-[#004986] hover:bg-[#004986]/5"
         >
           {open ? "Hide tracking" : "Track order"}

@@ -1648,24 +1648,35 @@ export function hydrateSavedState() {
     watches,
     notifReads: readReads(),
     orders: readOrders(),
-    orderFulfillment: readJson<Record<string, FulfillmentMethod>>("pf_order_fulfillment", {}),
-    returns: readJson<ReturnRequest[]>("pf_returns", []),
+    orderFulfillment: readJson<Record<string, FulfillmentMethod>>("pf_order_fulfillment", {}, isPlainObject),
+    returns: readJson<ReturnRequest[]>("pf_returns", [], Array.isArray),
     activeCustomerId: readActiveCustomer(),
   });
 }
 
-/** Tolerant JSON read with a typed fallback (drops corrupt values). */
-function readJson<T>(key: string, fallback: T): T {
+/**
+ * Tolerant JSON read with a typed fallback. Drops values that fail to parse OR
+ * fail the optional shape guard (legacy/foreign/tampered data of the wrong shape
+ * would otherwise crash the consuming feature on first use).
+ */
+function readJson<T>(key: string, fallback: T, valid?: (v: unknown) => boolean): T {
   if (typeof localStorage === "undefined") return fallback;
   const raw = localStorage.getItem(key);
   if (!raw) return fallback;
   try {
-    return JSON.parse(raw) as T;
+    const parsed: unknown = JSON.parse(raw);
+    if (valid && !valid(parsed)) {
+      localStorage.removeItem(key);
+      return fallback;
+    }
+    return parsed as T;
   } catch {
     localStorage.removeItem(key);
     return fallback;
   }
 }
+
+const isPlainObject = (v: unknown): boolean => v !== null && typeof v === "object" && !Array.isArray(v);
 
 /**
  * Demo saved searches, seeded once when pf_saved_searches has never been written.

@@ -103,7 +103,7 @@ export function conduitFill(input: ConduitFillInput): SelectorResult {
       };
     }
   }
-  return fail(`More than ${count} × ${conductorAwg} AWG exceeds 3" ${conduitType} — split the run or size up the calculator scope.`);
+  return fail(`${count} × ${conductorAwg} AWG exceeds 3" ${conduitType} capacity — split the run or size up.`);
 }
 
 // ── Voltage drop → wire size ─────────────────────────────────────────────────

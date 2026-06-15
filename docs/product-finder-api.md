@@ -83,6 +83,8 @@ Single product detail. Returns:
 {
   "product": { /* CatalogProduct (incl. lifecycleStatus) */ },
   "equivalents": [ /* top-8 scored alternative CatalogProducts */ ],
+  "verifiedCrosses": [ /* source-backed cross results (verified/curated only) */ ],
+  "brandHierarchy": { /* BrandNode: parent/division/sourceUrl, when known */ },
   "coverage": { "sources", "score": 1-5, "label", "risk", "blurb" }  // second-source grade
 }
 ```
@@ -140,7 +142,7 @@ value — so it's safe to hit from an uptime monitor:
 ```jsonc
 {
   "status": "ok",
-  "service": "product-finder",
+  "service": "meridian-product-finder",
   "integrations": {
     "assistant": false,   // ANTHROPIC_API_KEY set?
     "sso": false,         // SSO_* configured?
