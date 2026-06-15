@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { MemoryStore } from "@/lib/server/persistence";
+import { MemoryStore, getStore, persistenceConfigured } from "@/lib/server/persistence";
 import { InlineQueue } from "@/lib/server/queue";
 
 describe("MemoryStore", () => {
@@ -32,6 +32,21 @@ describe("MemoryStore", () => {
   it("returns null for a missing key", async () => {
     const s = new MemoryStore();
     expect(await s.get("ns", "nope")).toBeNull();
+  });
+});
+
+describe("getStore", () => {
+  it("returns the in-memory store when POSTGRES_URL is unset (dormant default)", () => {
+    expect(persistenceConfigured()).toBe(false);
+    expect(getStore().backend).toBe("memory");
+  });
+
+  it("round-trips an RFQ intake through the process store", async () => {
+    const store = getStore();
+    const rec = { id: "Q-TEST-1", customer: "Acme", lines: 5, matched: 4, at: 1 };
+    await store.put("rfq-intake", rec.id, rec);
+    expect(await store.get("rfq-intake", "Q-TEST-1")).toEqual(rec);
+    await store.delete("rfq-intake", "Q-TEST-1");
   });
 });
 

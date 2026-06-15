@@ -2,15 +2,15 @@
  * Server-side persistence seam (env-gated, dormant by default).
  *
  * In-memory (per-instance) namespaced KV by default; a Postgres-backed store
- * (via Prisma's PersistedRecord model) is the drop-in when POSTGRES_URL is set.
+ * (NeonStore, over the PersistedRecord table) activates when POSTGRES_URL is set.
  * A namespaced JSON KV lets any entity (RFQ intakes, RMAs, shipment overrides)
- * persist without bespoke tables during the dormant phase. `persistenceConfigured()`
- * reports infra readiness (POSTGRES_URL present); wiring the Prisma adapter +
- * `prisma migrate` is the activation step.
+ * persist without bespoke tables. `persistenceConfigured()` reports infra
+ * readiness (POSTGRES_URL present); setting that one env var IS the activation —
+ * the table is created on first write (CREATE TABLE IF NOT EXISTS), no migration.
  *
- * The interface + MemoryStore are pure and fully testable; the Postgres adapter
- * is a documented lazy drop-in (not imported until configured, so the build
- * never depends on a generated Prisma client).
+ * The interface + MemoryStore are pure and fully testable; the Neon adapter uses
+ * the @neondatabase/serverless HTTP driver, lazily imported so it is never pulled
+ * into the memory path or any client bundle, and the build never depends on it.
  */
 
 function env(name: string): string | null {
@@ -18,7 +18,7 @@ function env(name: string): string | null {
   return v ? v : null;
 }
 
-/** True when a Postgres URL is configured (the Prisma adapter can be activated). */
+/** True when a Postgres URL is configured (the Neon store is active). */
 export function persistenceConfigured(): boolean {
   return Boolean(env("POSTGRES_URL"));
 }
@@ -65,13 +65,74 @@ export class MemoryStore implements KvStore {
   }
 }
 
+/** Minimal structural type for the Neon tagged-template SQL function. */
+type NeonSql = (strings: TemplateStringsArray, ...values: unknown[]) => Promise<Record<string, unknown>[]>;
+
+/**
+ * Postgres-backed store over the PersistedRecord table, using Neon's serverless
+ * driver (HTTP — works on Vercel functions, no connection pool). The driver is
+ * lazily imported so the memory path (and any client bundle) never pulls it in.
+ */
+export class NeonStore implements KvStore {
+  readonly backend = "postgres" as const;
+  private sql: NeonSql | null = null;
+  private ready: Promise<void> | null = null;
+
+  constructor(private readonly url: string) {}
+
+  private async init(): Promise<NeonSql> {
+    if (!this.ready) {
+      this.ready = (async () => {
+        const { neon } = await import("@neondatabase/serverless");
+        this.sql = neon(this.url) as unknown as NeonSql;
+        await this.sql`CREATE TABLE IF NOT EXISTS "PersistedRecord" (
+          namespace text NOT NULL,
+          key text NOT NULL,
+          json text NOT NULL,
+          "updatedAt" timestamptz NOT NULL DEFAULT now(),
+          PRIMARY KEY (namespace, key)
+        )`;
+      })();
+    }
+    await this.ready;
+    return this.sql as NeonSql;
+  }
+
+  async put<T>(namespace: string, key: string, value: T): Promise<void> {
+    const sql = await this.init();
+    const json = JSON.stringify(value);
+    await sql`INSERT INTO "PersistedRecord" (namespace, key, json, "updatedAt")
+      VALUES (${namespace}, ${key}, ${json}, now())
+      ON CONFLICT (namespace, key) DO UPDATE SET json = ${json}, "updatedAt" = now()`;
+  }
+
+  async get<T>(namespace: string, key: string): Promise<T | null> {
+    const sql = await this.init();
+    const rows = await sql`SELECT json FROM "PersistedRecord" WHERE namespace = ${namespace} AND key = ${key} LIMIT 1`;
+    return rows[0] ? (JSON.parse(rows[0].json as string) as T) : null;
+  }
+
+  async list<T>(namespace: string): Promise<T[]> {
+    const sql = await this.init();
+    const rows = await sql`SELECT json FROM "PersistedRecord" WHERE namespace = ${namespace} ORDER BY "updatedAt" DESC`;
+    return rows.map((r) => JSON.parse(r.json as string) as T);
+  }
+
+  async delete(namespace: string, key: string): Promise<void> {
+    const sql = await this.init();
+    await sql`DELETE FROM "PersistedRecord" WHERE namespace = ${namespace} AND key = ${key}`;
+  }
+}
+
 const g = globalThis as unknown as { __kvStore?: KvStore };
 
 /**
- * The process persistence store. Memory today; with POSTGRES_URL set, swap this
- * factory to return the Prisma-backed adapter (same KvStore interface over the
- * PersistedRecord table). Cached on globalThis so warm invocations reuse it.
+ * The process persistence store: Neon Postgres when POSTGRES_URL is set,
+ * per-instance memory otherwise. Cached on globalThis so warm invocations reuse it.
  */
 export function getStore(): KvStore {
-  return (g.__kvStore ??= new MemoryStore());
+  if (g.__kvStore) return g.__kvStore;
+  const url = env("POSTGRES_URL");
+  g.__kvStore = url ? new NeonStore(url) : new MemoryStore();
+  return g.__kvStore;
 }

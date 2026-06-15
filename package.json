@@ -28,6 +28,7 @@
     "seed": "npx tsx prisma/seed.ts"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0"
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@neondatabase/serverless": "^0.10.4"
   }
 }

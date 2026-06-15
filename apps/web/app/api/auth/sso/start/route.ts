@@ -15,8 +15,8 @@ const SSO_LIMIT = { limit: 30, windowMs: 60_000 };
  * docs/sso.md — the claims→user mapping it uses (lib/auth/sso mapClaimsToUser)
  * is already built and tested.
  */
-export function GET(req: Request) {
-  const rl = rateLimit(req, SSO_LIMIT);
+export async function GET(req: Request) {
+  const rl = await rateLimit(req, SSO_LIMIT);
   if (!rl.ok) return tooManyRequests(rl);
 
   const cfg = readSsoConfig();

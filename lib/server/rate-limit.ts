@@ -3,12 +3,14 @@
  *
  * A fixed-window counter keyed by client IP. The pure core (`checkRateLimit`)
  * takes an injected store + clock so it is fully unit-testable; the route helper
- * (`rateLimit`) wires it to a per-process store and the request headers.
+ * (`rateLimit`) picks the backend per request.
  *
- * The store is in-memory, so on serverless it is per-instance (best-effort) —
- * still a meaningful cap on per-instance abuse, which matters most for the
- * cost-bearing assistant route. A shared store (Upstash/Redis) is the drop-in
- * upgrade for a strict global limit.
+ * Two backends: when UPSTASH_REDIS_REST_URL/_TOKEN are set, requests count
+ * through Upstash Redis over REST — a true GLOBAL cap across serverless instances
+ * (one INCR/PEXPIRE/PTTL pipeline per request). Otherwise an in-memory per-process
+ * store (best-effort per-instance cap, which still matters most for the
+ * cost-bearing assistant route). An Upstash error falls back to in-memory, so a
+ * Redis blip never takes a route down.
  */
 
 export interface RateLimitOptions {
@@ -55,6 +57,22 @@ function rateStore(): Map<string, RateState> {
   return (g.__rateStore ??= new Map());
 }
 
+function env(name: string): string | null {
+  const v = process.env[name]?.trim();
+  return v ? v : null;
+}
+
+function upstash(): { url: string; token: string } | null {
+  const url = env("UPSTASH_REDIS_REST_URL");
+  const token = env("UPSTASH_REDIS_REST_TOKEN");
+  return url && token ? { url, token } : null;
+}
+
+/** True when a shared (global, cross-instance) Upstash rate-limit store is configured. */
+export function rateLimiterConfigured(): boolean {
+  return upstash() !== null;
+}
+
 /** Best-effort client key from proxy headers. */
 export function clientKey(req: Request): string {
   const xff = req.headers.get("x-forwarded-for");
@@ -62,9 +80,46 @@ export function clientKey(req: Request): string {
   return req.headers.get("x-real-ip") || "anon";
 }
 
-/** Route helper: rate-limit this request against the per-process store. */
-export function rateLimit(req: Request, opts: RateLimitOptions): RateLimitResult {
-  return checkRateLimit(rateStore(), `${new URL(req.url).pathname}:${clientKey(req)}`, Date.now(), opts);
+/** Shared fixed-window via Upstash REST: INCR + (NX) PEXPIRE + PTTL in one pipeline. */
+async function upstashCheck(cfg: { url: string; token: string }, key: string, opts: RateLimitOptions): Promise<RateLimitResult> {
+  const res = await fetch(`${cfg.url}/pipeline`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${cfg.token}`, "Content-Type": "application/json" },
+    body: JSON.stringify([
+      ["INCR", key],
+      ["PEXPIRE", key, String(opts.windowMs), "NX"],
+      ["PTTL", key],
+    ]),
+  });
+  if (!res.ok) throw new Error(`upstash ${res.status}`);
+  const data = (await res.json()) as { result?: number }[];
+  const count = Number(data[0]?.result ?? 1);
+  const pttl = Number(data[2]?.result ?? opts.windowMs);
+  return {
+    ok: count <= opts.limit,
+    remaining: Math.max(0, opts.limit - count),
+    resetAt: Date.now() + (pttl > 0 ? pttl : opts.windowMs),
+    limit: opts.limit,
+  };
+}
+
+/**
+ * Route helper: rate-limit this request. Uses the shared Upstash store when
+ * configured (a true GLOBAL cap across serverless instances); otherwise the
+ * per-instance in-memory store (best-effort). Falls back to in-memory if Upstash
+ * errors, so a Redis blip never takes the route down.
+ */
+export async function rateLimit(req: Request, opts: RateLimitOptions): Promise<RateLimitResult> {
+  const key = `rl:${new URL(req.url).pathname}:${clientKey(req)}`;
+  const cfg = upstash();
+  if (cfg) {
+    try {
+      return await upstashCheck(cfg, key, opts);
+    } catch {
+      // fall through to the in-memory limiter on any Upstash error
+    }
+  }
+  return checkRateLimit(rateStore(), key, Date.now(), opts);
 }
 
 /** Build a 429 response with a Retry-After header from a limit result. */

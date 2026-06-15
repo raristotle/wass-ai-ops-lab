@@ -4,6 +4,7 @@ import { readSsoConfig } from "@/lib/auth/sso";
 import { commodityConfigured } from "@/lib/integration/commodity-live";
 import { persistenceConfigured } from "@/lib/server/persistence";
 import { queueConfigured } from "@/lib/server/queue";
+import { rateLimiterConfigured } from "@/lib/server/rate-limit";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,7 @@ export function GET() {
       commodity: commodityConfigured(),
       database: persistenceConfigured(),
       queue: queueConfigured(),
+      ratelimit: rateLimiterConfigured(),
     },
   });
 }

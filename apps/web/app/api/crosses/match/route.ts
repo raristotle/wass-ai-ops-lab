@@ -16,7 +16,7 @@ const QUERY_CAP = 200; // matches BOM_LINE_CAP
  * states the cross and carries the stocked equivalent product.
  */
 export async function POST(req: Request) {
-  const rl = rateLimit(req, CROSS_LIMIT);
+  const rl = await rateLimit(req, CROSS_LIMIT);
   if (!rl.ok) return tooManyRequests(rl);
 
   let body: unknown;

@@ -18,7 +18,7 @@ const SKU_CAP = 200;
  * (lib/catalog/cross-savings), so pricing stays consistent with the cart.
  */
 export async function POST(req: Request) {
-  const rl = rateLimit(req, SAVINGS_LIMIT);
+  const rl = await rateLimit(req, SAVINGS_LIMIT);
   if (!rl.ok) return tooManyRequests(rl);
 
   let body: unknown;

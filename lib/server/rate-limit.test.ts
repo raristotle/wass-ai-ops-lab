@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { checkRateLimit, clientKey, tooManyRequests } from "@/lib/server/rate-limit";
+import { checkRateLimit, clientKey, tooManyRequests, rateLimiterConfigured, rateLimit } from "@/lib/server/rate-limit";
 
 describe("checkRateLimit", () => {
   it("allows up to the limit, then blocks within the window", () => {
@@ -38,6 +38,23 @@ describe("clientKey", () => {
   it("falls back to x-real-ip then anon", () => {
     expect(clientKey(new Request("https://x/api", { headers: { "x-real-ip": "9.9.9.9" } }))).toBe("9.9.9.9");
     expect(clientKey(new Request("https://x/api"))).toBe("anon");
+  });
+});
+
+describe("rateLimiterConfigured", () => {
+  it("is false when Upstash env vars are unset (dormant default)", () => {
+    expect(rateLimiterConfigured()).toBe(false);
+  });
+});
+
+describe("rateLimit (route helper, Upstash unconfigured)", () => {
+  it("falls back to the in-memory limiter and enforces the limit per client", async () => {
+    const headers = { "x-forwarded-for": "203.0.113.7" };
+    const url = "https://x/api/unique-test-path";
+    const opts = { limit: 2, windowMs: 60_000 };
+    expect((await rateLimit(new Request(url, { headers }), opts)).ok).toBe(true); // 1
+    expect((await rateLimit(new Request(url, { headers }), opts)).ok).toBe(true); // 2
+    expect((await rateLimit(new Request(url, { headers }), opts)).ok).toBe(false); // 3 → blocked
   });
 });
 

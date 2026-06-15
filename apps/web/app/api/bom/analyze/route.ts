@@ -56,7 +56,7 @@ function slim(p: CatalogProduct) {
 }
 
 export async function POST(req: Request) {
-  const rl = rateLimit(req, { limit: 60, windowMs: 60_000 });
+  const rl = await rateLimit(req, { limit: 60, windowMs: 60_000 });
   if (!rl.ok) return tooManyRequests(rl);
   try {
     const parsed = BodySchema.safeParse(await req.json());

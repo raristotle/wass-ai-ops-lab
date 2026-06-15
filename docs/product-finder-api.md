@@ -150,17 +150,22 @@ value — so it's safe to hit from an uptime monitor:
     "mouser": true,       // MOUSER_API_KEY set?
     "digikey": false,     // DIGIKEY_CLIENT_ID + _SECRET set?
     "commodity": false,   // FRED_API_KEY set? (live metals index)
-    "database": false,    // POSTGRES_URL set? (durable server persistence)
-    "queue": false        // REDIS_URL set? (BullMQ worker activatable)
+    "database": false,    // POSTGRES_URL set? (Neon durable server persistence)
+    "queue": false,       // REDIS_URL set? (BullMQ worker activatable, separate host)
+    "ratelimit": false    // UPSTASH_REDIS_REST_URL + _TOKEN set? (global limiter)
   }
 }
 ```
 
-`database`/`queue` are **readiness flags** for the env-gated persistence + job-queue
-seam (`lib/server/persistence.ts`, `lib/server/queue.ts`). Unset = the app uses
-per-instance memory server-side and localStorage in the browser; setting
-`POSTGRES_URL` (Prisma `PersistedRecord` table) and adding a BullMQ worker for
-`REDIS_URL` activates durable storage + background jobs. Ships dormant at zero cost.
+`database`/`ratelimit`/`queue` are **readiness flags** for the env-gated infra seams
+(`lib/server/persistence.ts`, `lib/server/rate-limit.ts`, `lib/server/queue.ts`).
+Unset = the app uses per-instance memory server-side and localStorage in the
+browser. Setting `POSTGRES_URL` activates the **Neon** durable store (the
+`PersistedRecord` table, created on first write — no migration step); setting
+`UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` switches the rate limiter to a
+**global** cross-instance cap. `REDIS_URL` only *signals* that a BullMQ worker could
+run on a separate host (Vercel functions can't host one); no worker ships in-app.
+All ship dormant at zero cost. See [docs/persistence.md](persistence.md) to activate.
 
 ### `GET /api/commodity`
 
@@ -196,6 +201,16 @@ Composes the lifecycle, coverage, successor, cross, and compliance engines
 (`lib/catalog/bom-health.ts`, `landed-cost.ts`, `compliance.ts`). Deterministic;
 rate-limited 60/min.
 
+### `POST /api/rfq` · `GET /api/rfq`
+
+Durable server-side log of inbound RFQs the rep drafted — the first concrete
+consumer of the persistence seam. `POST` records one intake
+(`{ customer?, project?, lines, matched, quoteNumber, at }`, Zod-validated);
+`GET` returns `{ backend, count, recent }` (most-recent 20). `backend` is
+`"postgres"` when `POSTGRES_URL` is set, else `"memory"` (per-instance). The
+RFQ→draft-quote modal posts best-effort; the draft is saved client-side
+regardless, so a persistence outage never blocks the rep. POST 60/min, GET 30/min.
+
 ## Rate limiting
 
 Cost- and write-sensitive routes use a fixed-window per-caller limiter
@@ -206,14 +221,21 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `POST /api/assistant` | 20 / min |
 | `POST /api/crosses/match` | 60 / min |
 | `POST /api/crosses/savings` | 60 / min |
+| `POST /api/bom/analyze` | 60 / min |
+| `POST /api/rfq` | 60 / min |
+| `GET /api/commodity` | 30 / min |
+| `GET /api/rfq` | 30 / min |
 | `GET /api/auth/sso/start` | 30 / min |
 
 Over the limit returns `429` with `Retry-After` (seconds until the window
 resets), `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset`
 (epoch seconds when the window resets) headers.
-The store is in-memory **per server instance** — best-effort on multi-instance
-deployments; a shared Upstash/Redis store is the documented upgrade
-([docs/security.md](security.md)).
+The backend is selected per request: with `UPSTASH_REDIS_REST_URL` +
+`UPSTASH_REDIS_REST_TOKEN` set, counting goes through **Upstash Redis** over REST —
+a true **global** cap across serverless instances (one `INCR`/`PEXPIRE`/`PTTL`
+pipeline per request). Unset, it falls back to an in-memory **per-instance** store
+(best-effort); an Upstash error also falls back, so a Redis blip never 500s a route.
+See [docs/persistence.md](persistence.md).
 
 ## Security headers
 

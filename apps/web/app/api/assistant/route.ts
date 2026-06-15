@@ -174,7 +174,7 @@ async function runAnthropic(messages: AssistantTextMessage[], env: NodeJS.Proces
 }
 
 export async function POST(req: Request) {
-  const rl = rateLimit(req, ASSISTANT_LIMIT);
+  const rl = await rateLimit(req, ASSISTANT_LIMIT);
   if (!rl.ok) return tooManyRequests(rl);
 
   const body = await req.json().catch(() => null);

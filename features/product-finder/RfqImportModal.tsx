@@ -78,14 +78,31 @@ export function RfqImportModal() {
     const draft = rfqDraftLines(matched);
     if (draft.length === 0) return;
     for (const { product, qty } of draft) addToCart(product, qty);
+    const number = quoteNumber(new Date());
+    const customerName = customer.trim() || "RFQ customer";
+    const projectName = project.trim() || "Inbound RFQ";
     saveQuote({
-      number: quoteNumber(new Date()),
-      customer: customer.trim() || "RFQ customer",
-      project: project.trim() || "Inbound RFQ",
+      number,
+      customer: customerName,
+      project: projectName,
       status: "draft",
       now: Date.now(),
       note: note.trim() || undefined,
     });
+    // Best-effort durable intake log (persists to Postgres when configured).
+    // Fire-and-forget: the draft is already saved client-side regardless.
+    void fetch("/api/rfq", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        customer: customerName,
+        project: projectName,
+        lines: matched.length,
+        matched: draft.length,
+        quoteNumber: number,
+        at: Date.now(),
+      }),
+    }).catch(() => {});
     reset();
     setOpen(false);
     openCartAt("quotes");

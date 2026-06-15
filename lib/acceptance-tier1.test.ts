@@ -160,6 +160,7 @@ describe("AC45 — zero new dependencies vs git HEAD", () => {
     "@testing-library/dom",
     "jsdom",
     "vitest-axe", // Wave 4: automated WCAG 2.2 AA checks on the render-test net
+    "@neondatabase/serverless", // Persistence: Neon HTTP driver for the Postgres KvStore (lazy-imported, dormant until POSTGRES_URL)
   ]);
 
   it.each(["package.json", "apps/web/package.json"])("%s has no unreviewed added deps", (rel) => {
