@@ -5,6 +5,7 @@ import { commodityConfigured } from "@/lib/integration/commodity-live";
 import { persistenceConfigured } from "@/lib/server/persistence";
 import { queueConfigured } from "@/lib/server/queue";
 import { rateLimiterConfigured } from "@/lib/server/rate-limit";
+import { stripeTaxConfigured } from "@/lib/integration/stripe-tax";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,10 @@ export function GET() {
       database: persistenceConfigured(),
       queue: queueConfigured(),
       ratelimit: rateLimiterConfigured(),
+      stripeTax: stripeTaxConfigured(),
+      // Inlined (booleans only) so the health route never imports the PostHog/Sentry SDKs.
+      analytics: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.POSTHOG_KEY),
+      sentry: Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN),
     },
   });
 }

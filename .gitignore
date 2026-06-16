@@ -20,6 +20,10 @@ dist/
 .env.local
 .env.*.local
 
+# Sentry (source-map upload auth token / CLI config — never commit)
+.env.sentry-build-plugin
+.sentryclirc
+
 # Prisma generated client
 node_modules/.prisma/
 

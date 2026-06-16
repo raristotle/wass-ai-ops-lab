@@ -77,3 +77,10 @@ claude mcp add meridian -- node C:\\Users\\raris\\wass-ai-ops-lab\\mcp\\meridian
 
 > On Windows, register stdio MCP servers with the **absolute** path to `node`
 > and the script; a bare command can fail to connect.
+
+## Other MCP servers
+
+Two dev-tooling MCP servers ship alongside this one — a **read-only Postgres**
+server (DBHub → Neon) and the **Vercel** hosted server (deploy health / logs).
+They are registered in a repo-root `.mcp.json` and documented in
+[docs/mcp-servers.md](../docs/mcp-servers.md). All three can run together.

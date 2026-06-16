@@ -163,6 +163,9 @@ describe("AC45 — zero new dependencies vs git HEAD", () => {
     "jsdom",
     "vitest-axe", // Wave 4: automated WCAG 2.2 AA checks on the render-test net
     "@neondatabase/serverless", // Persistence: Neon HTTP driver for the Postgres KvStore (lazy-imported, dormant until POSTGRES_URL)
+    "@sentry/nextjs", // Sprint 1 #5: error monitoring + Session Replay (dormant until SENTRY_DSN)
+    "posthog-js", // Sprint 1 #3: analytics + flags + surveys (client; dynamic-imported, dormant until NEXT_PUBLIC_POSTHOG_KEY)
+    "posthog-node", // Sprint 1 #3: server-side feature flags (dormant until POSTHOG_KEY)
   ]);
 
   it.each(["package.json", "apps/web/package.json"])("%s has no unreviewed added deps", (rel) => {

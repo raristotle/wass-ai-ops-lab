@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Titillium_Web, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { PostHogProvider } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${inter.className} ${titilliumWeb.variable} ${sourceSans.variable}`}
       >
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
   );
