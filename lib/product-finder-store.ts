@@ -330,6 +330,10 @@ export interface ProductFinderState {
   vmiOpen: boolean;
   setVmiOpen: (v: boolean) => void;
 
+  // Quick-Order Pad — exact-SKU rapid entry + recall
+  quickOrderOpen: boolean;
+  setQuickOrderOpen: (v: boolean) => void;
+
   // Watches (notify-when-available)
   watches: WatchEntry[];
   toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
@@ -1423,6 +1427,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── VMI (vendor-managed inventory) ────────────────────────
   vmiOpen: false,
   setVmiOpen(v) { set({ vmiOpen: v }); },
+
+  // ── Quick-Order Pad ───────────────────────────────────────
+  quickOrderOpen: false,
+  setQuickOrderOpen(v) { set({ quickOrderOpen: v }); },
 
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],

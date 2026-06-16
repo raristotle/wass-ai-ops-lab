@@ -1,0 +1,230 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { useProductFinder } from "@/lib/product-finder-store";
+import { useModalA11y } from "@/features/product-finder/useModalA11y";
+import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
+import {
+  parseQuickOrderLines,
+  resolveQuickOrder,
+  exactSkuResolver,
+  type ResolvedQuickLine,
+} from "@/lib/product-finder-quick-order";
+
+/** A resolved line plus the raw qty-field string (cleared/retyped freely; clamped at add-time). */
+type UiLine = ResolvedQuickLine & { qtyStr: string };
+
+/**
+ * Quick-Order Pad — Amazon-Business-style rapid entry. Paste/type KNOWN SKUs (one
+ * per line, optional qty: "QO115 10", "QO115,10", "QO115 x 10") and add the whole
+ * list to the cart in one action. Plus one-click recall of the last order and any
+ * saved basket. Exact-SKU resolution against the catalog; unmatched lines are
+ * flagged so nothing is silently dropped. Reuses the cart / reorder / loadBasket
+ * store actions; the parsing/resolution live in the pure, unit-tested lib.
+ */
+export function QuickOrderModal() {
+  const open = useProductFinder((s) => s.quickOrderOpen);
+  const setOpen = useProductFinder((s) => s.setQuickOrderOpen);
+  const addToCart = useProductFinder((s) => s.addToCart);
+  const reorder = useProductFinder((s) => s.reorder);
+  const orders = useProductFinder((s) => s.orders);
+  const savedBaskets = useProductFinder((s) => s.savedBaskets);
+  const loadBasket = useProductFinder((s) => s.loadBasket);
+  const setCartOpen = useProductFinder((s) => s.setCartOpen);
+  const closeRef = useModalA11y(open, () => setOpen(false));
+
+  const [text, setText] = useState("");
+  const [lines, setLines] = useState<UiLine[] | null>(null);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  const resolver = useMemo(() => exactSkuResolver(CATALOG_PRODUCTS), []);
+
+  function resolveList() {
+    const parsed = parseQuickOrderLines(text);
+    if (parsed.length === 0) {
+      setMsg("Paste at least one SKU.");
+      setLines(null);
+      return;
+    }
+    setMsg(null);
+    setLines(resolveQuickOrder(parsed, resolver).map((l) => ({ ...l, qtyStr: String(l.qty) })));
+  }
+
+  // The qty field holds a raw string so it can be cleared/retyped freely; the
+  // numeric value is parsed + clamped to [1, 100000] (the order schema's per-line
+  // ceiling) only at add-time, so an over-cap value can't reach checkout.
+  function setQtyStr(i: number, v: string) {
+    setLines((prev) => (prev ? prev.map((l, idx) => (idx === i ? { ...l, qtyStr: v } : l)) : prev));
+  }
+  function lineQty(l: UiLine): number {
+    const n = parseInt(l.qtyStr, 10);
+    return Number.isFinite(n) && n >= 1 ? Math.min(n, 100_000) : 1;
+  }
+
+  if (!open) return null;
+
+  const matched = lines?.filter((l) => l.product) ?? [];
+  const unmatched = lines?.filter((l) => !l.product) ?? [];
+  const total = matched.reduce((sum, l) => sum + (l.product ? l.product.unitPrice * lineQty(l) : 0), 0);
+  const lastOrder = orders[0] ?? null;
+
+  function addAll() {
+    for (const l of matched) {
+      if (l.product) addToCart(l.product, lineQty(l));
+    }
+    setOpen(false);
+    setCartOpen(true);
+  }
+
+  function recallOrder(id: string) {
+    reorder(id);
+    setOpen(false);
+    setCartOpen(true);
+  }
+
+  function recallBasket(id: string) {
+    loadBasket(id);
+    setOpen(false);
+    setCartOpen(true);
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Quick-Order Pad"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) setOpen(false);
+      }}
+    >
+      <div className="relative my-8 w-full max-w-2xl rounded-xl bg-white shadow-2xl">
+        <div className="flex items-start justify-between rounded-t-xl bg-[#1D252D] px-5 py-4">
+          <div>
+            <h2 className="text-base font-semibold text-white">Quick-Order Pad</h2>
+            <p className="text-xs text-[#B7C9D3]">Paste known SKUs and add the whole list to the cart — or recall a recent order.</p>
+          </div>
+          <button
+            ref={closeRef}
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="Close Quick-Order Pad"
+            className="text-2xl font-light leading-none text-white/80 hover:text-white"
+          >
+            &#x2715;
+          </button>
+        </div>
+
+        <div className="px-5 py-4">
+          <label htmlFor="qo-input" className="mb-1 block text-xs font-medium text-[#1D252D]">
+            SKUs — one per line, optional quantity (e.g. <code>QO115 10</code>, <code>QO115,10</code>, <code>QO115 x 10</code>)
+          </label>
+          <textarea
+            id="qo-input"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            rows={5}
+            placeholder={"QO115 10\nCAT6-PL-1000 4\nEKL-1591"}
+            className="w-full rounded border border-[#B7C9D3] px-2 py-1.5 font-mono text-sm focus:border-[#00AA13] focus:outline-none"
+          />
+          <div className="mt-2 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={resolveList}
+              disabled={!text.trim()}
+              className="rounded bg-[#00AA13] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#009911] disabled:opacity-50"
+            >
+              Resolve list
+            </button>
+            {msg && <span className="text-xs text-[#DB6B30]">{msg}</span>}
+          </div>
+
+          {lines && (
+            <div className="mt-4" aria-live="polite">
+              {matched.length > 0 && (
+                <ul className="space-y-1.5">
+                  {lines.map((l, i) =>
+                    l.product ? (
+                      <li key={i} className="flex items-center gap-2 rounded-lg border border-[#B7C9D3]/70 px-3 py-2">
+                        <span className="text-[#00AA13]" aria-hidden="true">&#x2713;</span>
+                        <span className="flex-1 truncate text-sm">
+                          <b className="text-[#1D252D]">{l.product.sku}</b>
+                          <span className="ml-1.5 text-[#4F758B]">{l.product.name}</span>
+                        </span>
+                        <span className="text-xs text-[#4F758B]">${l.product.unitPrice.toFixed(2)}</span>
+                        <label className="sr-only" htmlFor={`qo-qty-${i}`}>Quantity for {l.product.sku}</label>
+                        <input
+                          id={`qo-qty-${i}`}
+                          type="number"
+                          min={1}
+                          inputMode="numeric"
+                          value={l.qtyStr}
+                          onChange={(e) => setQtyStr(i, e.target.value)}
+                          className="w-16 rounded border border-[#B7C9D3] px-2 py-1 text-sm focus:border-[#00AA13] focus:outline-none"
+                        />
+                      </li>
+                    ) : null,
+                  )}
+                </ul>
+              )}
+
+              {unmatched.length > 0 && (
+                <div className="mt-2 rounded-lg border border-[#DB6B30]/40 bg-[#DB6B30]/5 px-3 py-2 text-xs text-[#993C1D]">
+                  <b>{unmatched.length} not found:</b> {unmatched.map((l) => l.sku).join(", ")} — check the SKU or search the catalog.
+                </div>
+              )}
+
+              {matched.length > 0 ? (
+                <button
+                  type="button"
+                  onClick={addAll}
+                  className="mt-3 w-full rounded bg-[#00573F] px-3 py-2 text-sm font-semibold text-white hover:bg-[#00684a]"
+                >
+                  Add {matched.length} item{matched.length === 1 ? "" : "s"} to cart · ${total.toFixed(2)}
+                </button>
+              ) : (
+                <p className="mt-2 text-xs text-[#4F758B]">No SKUs matched the catalog.</p>
+              )}
+            </div>
+          )}
+
+          {(lastOrder || savedBaskets.length > 0) && (
+            <div className="mt-5 border-t border-[#B7C9D3]/60 pt-3">
+              <h3 className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-[#4F758B]">Recall</h3>
+              <div className="space-y-1.5">
+                {lastOrder && (
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="flex-1 truncate text-[#1D252D]">
+                      Last order · {lastOrder.lines.length} line{lastOrder.lines.length === 1 ? "" : "s"} · ${lastOrder.total.toFixed(2)}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => recallOrder(lastOrder.id)}
+                      className="rounded border border-[#00573F]/50 px-2 py-0.5 text-xs font-medium text-[#00573F] hover:bg-[#00573F]/5"
+                    >
+                      Reorder
+                    </button>
+                  </div>
+                )}
+                {savedBaskets.slice(0, 5).map((b) => (
+                  <div key={b.id} className="flex items-center gap-2 text-sm">
+                    <span className="flex-1 truncate text-[#1D252D]">
+                      {b.name} · {b.lines.length} line{b.lines.length === 1 ? "" : "s"}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => recallBasket(b.id)}
+                      className="rounded border border-[#004986]/40 px-2 py-0.5 text-xs font-medium text-[#004986] hover:bg-[#004986]/5"
+                    >
+                      Load
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -18,6 +18,7 @@ import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
 import { JobsModal } from "@/features/product-finder/JobsModal";
 import { VmiModal } from "@/features/product-finder/VmiModal";
+import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
 import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
@@ -246,6 +247,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <BomIntelligenceModal />
       <JobsModal />
       <VmiModal />
+      <QuickOrderModal />
       <ReturnModal />
       <HelpPanel />
       <TourOverlay />

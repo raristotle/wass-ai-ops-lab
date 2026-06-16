@@ -7,6 +7,8 @@ import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
 import { JobsModal } from "@/features/product-finder/JobsModal";
 import { VmiModal } from "@/features/product-finder/VmiModal";
+import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
+import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
@@ -36,7 +38,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   });
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, orders: [], cart: {} });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], cart: {} });
   });
 
   it("Guided selectors modal", async () => {
@@ -77,12 +79,31 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
     const { container } = render(<VmiModal />);
     await expectNoViolations(container);
   });
+
+  it("Quick-Order Pad modal (empty)", async () => {
+    useProductFinder.setState({ quickOrderOpen: true, orders: [], savedBaskets: [] });
+    const { container } = render(<QuickOrderModal />);
+    await expectNoViolations(container);
+  });
+
+  it("Quick-Order Pad modal (resolved list + recall, populated)", async () => {
+    const realSku = CATALOG_PRODUCTS[0].sku;
+    useProductFinder.setState({
+      quickOrderOpen: true,
+      orders: [{ id: "o1", placedAt: 1_700_000_000_000, lines: [{ product: prod("A"), qty: 2 }], total: 40, customerId: null, customerName: null }],
+      savedBaskets: [{ id: "b1", name: "Standard kit", lines: [{ product: prod("A"), qty: 1 }], savedAt: 1_700_000_000_000 }],
+    });
+    const { container, getByLabelText, getByText } = render(<QuickOrderModal />);
+    fireEvent.change(getByLabelText(/SKUs/i), { target: { value: `${realSku} 3\nNOPE-XYZ 1` } });
+    fireEvent.click(getByText("Resolve list"));
+    await expectNoViolations(container);
+  });
 });
 
 describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, orders: [] });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [] });
   });
 
   it("Escape closes the Guided selectors modal", () => {
@@ -126,5 +147,13 @@ describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
     expect(useProductFinder.getState().vmiOpen).toBe(true);
     fireEvent.keyDown(document.body, { key: "Escape" });
     expect(useProductFinder.getState().vmiOpen).toBe(false);
+  });
+
+  it("Escape closes the Quick-Order Pad", () => {
+    useProductFinder.setState({ quickOrderOpen: true });
+    render(<QuickOrderModal />);
+    expect(useProductFinder.getState().quickOrderOpen).toBe(true);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().quickOrderOpen).toBe(false);
   });
 });

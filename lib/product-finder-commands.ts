@@ -19,7 +19,7 @@ export type CommandAction =
       kind: "open";
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
-        | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi";
+        | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -87,6 +87,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["basket", "quote", "orders"],
       action: { kind: "open", target: "cart" },
+    },
+    {
+      id: "open-quickorder",
+      label: "Quick-Order Pad — paste SKUs",
+      group: "Open",
+      keywords: ["quick order", "paste", "sku", "rapid", "reorder", "recall", "bulk add", "pad"],
+      action: { kind: "open", target: "quickorder" },
     },
     {
       id: "open-help",

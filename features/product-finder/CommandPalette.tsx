@@ -41,6 +41,7 @@ export function CommandPalette() {
   const setSubmittalOpen = useProductFinder((s) => s.setSubmittalOpen);
   const setJobsOpen = useProductFinder((s) => s.setJobsOpen);
   const setVmiOpen = useProductFinder((s) => s.setVmiOpen);
+  const setQuickOrderOpen = useProductFinder((s) => s.setQuickOrderOpen);
   const clearFilters = useProductFinder((s) => s.clearFilters);
   const reorder = useProductFinder((s) => s.reorder);
   const pageSize = useProductFinder((s) => s.pageSize);
@@ -77,6 +78,7 @@ export function CommandPalette() {
         s.bomIqOpen ||
         s.jobsOpen ||
         s.vmiOpen ||
+        s.quickOrderOpen ||
         s.returnModalOrderId !== null ||
         s.detailModalProduct !== null
       ) {
@@ -130,6 +132,7 @@ export function CommandPalette() {
         else if (action.target === "submittal") setSubmittalOpen(true);
         else if (action.target === "jobs") setJobsOpen(true);
         else if (action.target === "vmi") setVmiOpen(true);
+        else if (action.target === "quickorder") setQuickOrderOpen(true);
         else setBulkModalOpen(true);
         break;
       case "exec":
