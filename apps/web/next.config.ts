@@ -9,6 +9,22 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        // OAuth 2.1 discovery (RFC 8414 §3.1): SignalDesk's issuer is the
+        // path-bearing https://app.raristotle.com/signaldesk, so a strict MCP
+        // client derives the authorization-server (and protected-resource)
+        // metadata at the APEX insertion path /.well-known/<doc>/signaldesk —
+        // which lands on THIS gateway, not SignalDesk. Forward those apex paths
+        // to SignalDesk's basePath-served append-form routes so the connector
+        // resolves them. (SDK clients also try the append form SignalDesk already
+        // serves; this covers strict, insertion-only clients.)
+        {
+          source: "/.well-known/oauth-authorization-server/signaldesk",
+          destination: "https://signaldesk-mike-w-s-projects.vercel.app/signaldesk/.well-known/oauth-authorization-server",
+        },
+        {
+          source: "/.well-known/oauth-protected-resource/signaldesk",
+          destination: "https://signaldesk-mike-w-s-projects.vercel.app/signaldesk/.well-known/oauth-protected-resource",
+        },
         {
           source: "/signaldesk",
           destination: "https://signaldesk-mike-w-s-projects.vercel.app/signaldesk",
