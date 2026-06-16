@@ -249,6 +249,41 @@ export function SpecCompareModal() {
                 })}
               </tr>
 
+              {/* Lifecycle row (#12) — EOL risk informs the substitution decision */}
+              <tr className="border-b border-gray-100">
+                <td className="px-4 py-3 text-[#4F758B] font-medium border-r border-gray-200 align-middle">
+                  Lifecycle
+                </td>
+                {compareProducts.map((product) => {
+                  const ls = product.lifecycleStatus ?? "Active";
+                  return (
+                    <td
+                      key={product.id}
+                      className="px-4 py-3 border-r border-gray-100 last:border-r-0 align-middle"
+                    >
+                      <span className={cn("text-xs", ls !== "Active" ? "text-[#DB6B30] font-semibold" : "text-[#1D252D]")}>
+                        {ls}
+                      </span>
+                    </td>
+                  );
+                })}
+              </tr>
+
+              {/* Documented crosses row (#12) — second-source depth */}
+              <tr className="border-b border-gray-100">
+                <td className="px-4 py-3 text-[#4F758B] font-medium border-r border-gray-200 align-middle">
+                  Documented crosses
+                </td>
+                {compareProducts.map((product) => (
+                  <td
+                    key={product.id}
+                    className="px-4 py-3 border-r border-gray-100 last:border-r-0 align-middle text-xs text-[#1D252D]"
+                  >
+                    {product.verifiedCrossCount ?? 0}
+                  </td>
+                ))}
+              </tr>
+
               {/* Spec rows */}
               {specOrder.map((spec) => {
                 const values = compareProducts.map((p) => getSpecValue(p, spec.name));

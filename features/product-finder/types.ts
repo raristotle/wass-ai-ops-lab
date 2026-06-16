@@ -118,7 +118,7 @@ export interface SearchResult {
   upsells: CatalogProduct[];
 }
 
-export type ViewMode = "list" | "grid";
+export type ViewMode = "list" | "grid" | "table";
 export type SortKey = "relevance" | "preferred" | "branchStock" | "priceLow" | "priceHigh" | "brand";
 
 export interface FilterState {

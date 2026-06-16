@@ -8,6 +8,7 @@ import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceM
 import { JobsModal } from "@/features/product-finder/JobsModal";
 import { VmiModal } from "@/features/product-finder/VmiModal";
 import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
+import { ResultsTable } from "@/features/product-finder/ResultsTable";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
@@ -96,6 +97,12 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
     const { container, getByLabelText, getByText } = render(<QuickOrderModal />);
     fireEvent.change(getByLabelText(/SKUs/i), { target: { value: `${realSku} 3\nNOPE-XYZ 1` } });
     fireEvent.click(getByText("Resolve list"));
+    await expectNoViolations(container);
+  });
+
+  it("Dense results table (#11)", async () => {
+    const { container, getByText } = render(<ResultsTable products={[prod("A"), prod("B")]} />);
+    fireEvent.click(getByText(/Columns/)); // open the column menu so it is axe-scanned too
     await expectNoViolations(container);
   });
 });

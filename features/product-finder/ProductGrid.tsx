@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
+import { ResultsTable } from "@/features/product-finder/ResultsTable";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { searchResultsCsv, downloadCsv } from "@/lib/product-finder-csv";
 import type { CatalogProduct, SortKey } from "@/features/product-finder/types";
@@ -192,6 +193,20 @@ export function ProductGrid({
             >
               ⊞
             </button>
+            <button
+              type="button"
+              aria-label="Table view"
+              aria-pressed={viewMode === "table"}
+              onClick={() => setViewMode("table")}
+              className={cn(
+                "px-2.5 py-1.5 text-xs border-l border-[#B7C9D3]",
+                viewMode === "table"
+                  ? "bg-[#1D252D] text-white"
+                  : "bg-white text-[#4F758B] hover:bg-[#B7C9D3]/20"
+              )}
+            >
+              ▦
+            </button>
           </div>
         </div>
       </div>
@@ -212,24 +227,27 @@ export function ProductGrid({
       )}
 
       {/* ── Product list or grid ─────────────────────────────────── */}
-      {products.length > 0 && (
-        <div
-          className={cn(
-            viewMode === "list"
-              ? "flex flex-col gap-3"
-              : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          )}
-        >
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              referenceProduct={referenceProduct ?? undefined}
-              substitute={substitutes[product.id]}
-            />
-          ))}
-        </div>
-      )}
+      {products.length > 0 &&
+        (viewMode === "table" ? (
+          <ResultsTable products={products} />
+        ) : (
+          <div
+            className={cn(
+              viewMode === "list"
+                ? "flex flex-col gap-3"
+                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            )}
+          >
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                referenceProduct={referenceProduct ?? undefined}
+                substitute={substitutes[product.id]}
+              />
+            ))}
+          </div>
+        ))}
 
       {/* ── Load more ────────────────────────────────────────────── */}
       {results.length < total && (
