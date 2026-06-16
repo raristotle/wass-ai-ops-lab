@@ -19,7 +19,7 @@ export type CommandAction =
       kind: "open";
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
-        | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder";
+        | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -94,6 +94,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["quick order", "paste", "sku", "rapid", "reorder", "recall", "bulk add", "pad"],
       action: { kind: "open", target: "quickorder" },
+    },
+    {
+      id: "open-barcode",
+      label: "Scan barcode",
+      group: "Open",
+      keywords: ["scan", "barcode", "qr", "camera", "lookup", "part number"],
+      action: { kind: "open", target: "barcode" },
     },
     {
       id: "open-help",

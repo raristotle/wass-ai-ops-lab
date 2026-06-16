@@ -1,0 +1,14 @@
+{
+  "name": "Meridian Product Finder",
+  "short_name": "Meridian",
+  "description": "AI product recommender for electrical distributors — search, cross-reference, and quote in the field, online or off.",
+  "start_url": "/product-finder",
+  "scope": "/product-finder",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#00AA13",
+  "icons": [
+    { "src": "/icon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any maskable" }
+  ]
+}

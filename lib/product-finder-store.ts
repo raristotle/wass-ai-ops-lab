@@ -336,6 +336,10 @@ export interface ProductFinderState {
   quickOrderOpen: boolean;
   setQuickOrderOpen: (v: boolean) => void;
 
+  // Barcode scanner (#20 PWA — camera part lookup)
+  barcodeOpen: boolean;
+  setBarcodeOpen: (v: boolean) => void;
+
   // Watches (notify-when-available)
   watches: WatchEntry[];
   toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
@@ -1441,6 +1445,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Quick-Order Pad ───────────────────────────────────────
   quickOrderOpen: false,
   setQuickOrderOpen(v) { set({ quickOrderOpen: v }); },
+
+  // ── Barcode scanner (#20) ─────────────────────────────────
+  barcodeOpen: false,
+  setBarcodeOpen(v) { set({ barcodeOpen: v }); },
 
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],
