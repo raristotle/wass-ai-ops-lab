@@ -7,6 +7,7 @@ import { logApiError } from "@/lib/server/log";
 import { resolveBySku } from "@/lib/catalog/sku-index";
 import { buildOrder, orderId, type PlacedOrder, type ResolvedLine } from "@/lib/product-finder-order-intake";
 import { withArtifact, removeArtifact, type Job } from "@/lib/product-finder-job-workspace";
+import { slackConfigured, sendSlackAlert, buildAlert } from "@/lib/integration/slack-alerts";
 
 export const dynamic = "force-dynamic";
 
@@ -69,6 +70,24 @@ export async function POST(req: Request) {
       );
     }
     await store.put(NS, id, order);
+
+    // Best-effort high-signal Slack alert (dormant until SLACK_WEBHOOK_URL is set).
+    // Fire-and-forget so a slow/refused Slack endpoint never adds latency to checkout.
+    if (slackConfigured()) {
+      void sendSlackAlert(
+        buildAlert({
+          title: `New order ${order.id}`,
+          text: `New order ${order.id} — ${order.customer} ($${order.total.toLocaleString()})`,
+          fields: [
+            { label: "Customer", value: order.customer },
+            { label: "Lines", value: String(order.lines.length) },
+            { label: "Total", value: `$${order.total.toLocaleString()}` },
+            { label: "Source", value: order.source },
+          ],
+          context: "meridian • order.placed",
+        }),
+      );
+    }
 
     // Best-effort: link the order onto its job's rollup (the order is placed
     // regardless). Atomic compare-and-set with retry so two orders linking the

@@ -15,10 +15,16 @@ export const QUICK_PICKS: readonly string[] = [
 
 export type CommandAction =
   | { kind: "navigate"; href: string }
-  | { kind: "open"; target: "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant" | "guided" | "rfq" | "bomiq" }
+  | {
+      kind: "open";
+      target:
+        | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
+        | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi";
+    }
   | { kind: "tour" }
   | { kind: "role"; email: string }
-  | { kind: "search"; query: string };
+  | { kind: "search"; query: string }
+  | { kind: "exec"; op: "clear-filters" | "reorder-last" | "print" };
 
 export interface CommandItem {
   id: string;
@@ -65,6 +71,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
     group: "Navigate",
     keywords: ["cross", "crosses", "xref", "substitutes", "sources", "registry"],
     action: { kind: "navigate", href: "/product-finder/crosses" },
+  });
+  items.push({
+    id: "nav-supplier",
+    label: "Open supplier portal",
+    group: "Navigate",
+    keywords: ["supplier", "vendor", "bid", "rfq response", "portal"],
+    action: { kind: "navigate", href: "/product-finder/supplier" },
   });
 
   items.push(
@@ -137,6 +150,55 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["bom health", "risk", "landed cost", "bid award", "sourcing", "optimize", "single source"],
       action: { kind: "open", target: "bomiq" },
+    },
+    {
+      id: "open-compare",
+      label: "Compare selected products",
+      group: "Open",
+      keywords: ["compare", "side by side", "matrix", "versus", "vs"],
+      action: { kind: "open", target: "compare" },
+    },
+    {
+      id: "open-submittal",
+      label: "Submittal package",
+      group: "Open",
+      keywords: ["submittal", "spec sheet", "cut sheet", "package", "pdf"],
+      action: { kind: "open", target: "submittal" },
+    },
+    {
+      id: "open-jobs",
+      label: "Jobs workspace",
+      group: "Open",
+      keywords: ["job", "project", "workspace", "rollup"],
+      action: { kind: "open", target: "jobs" },
+    },
+    {
+      id: "open-vmi",
+      label: "VMI — inventory replenishment",
+      group: "Open",
+      keywords: ["vmi", "vendor managed inventory", "min max", "reorder", "replenish", "stock"],
+      action: { kind: "open", target: "vmi" },
+    },
+    {
+      id: "exec-clear-filters",
+      label: "Clear all filters",
+      group: "Actions",
+      keywords: ["reset", "clear", "filters", "facets"],
+      action: { kind: "exec", op: "clear-filters" },
+    },
+    {
+      id: "exec-reorder-last",
+      label: "Reorder last order",
+      group: "Actions",
+      keywords: ["reorder", "repeat", "again", "last order", "recall"],
+      action: { kind: "exec", op: "reorder-last" },
+    },
+    {
+      id: "exec-print",
+      label: "Print this page",
+      group: "Actions",
+      keywords: ["print", "pdf", "export"],
+      action: { kind: "exec", op: "print" },
     },
     {
       id: "tour-restart",

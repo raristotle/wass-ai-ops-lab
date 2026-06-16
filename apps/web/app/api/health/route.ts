@@ -6,6 +6,8 @@ import { persistenceConfigured } from "@/lib/server/persistence";
 import { queueConfigured } from "@/lib/server/queue";
 import { rateLimiterConfigured } from "@/lib/server/rate-limit";
 import { stripeTaxConfigured } from "@/lib/integration/stripe-tax";
+import { rerankConfigured } from "@/lib/integration/rerank-live";
+import { slackConfigured } from "@/lib/integration/slack-alerts";
 
 export const dynamic = "force-dynamic";
 
@@ -32,6 +34,8 @@ export function GET() {
       queue: queueConfigured(),
       ratelimit: rateLimiterConfigured(),
       stripeTax: stripeTaxConfigured(),
+      rerank: rerankConfigured(),
+      slack: slackConfigured(),
       // Inlined (booleans only) so the health route never imports the PostHog/Sentry SDKs.
       analytics: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.POSTHOG_KEY),
       sentry: Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN),

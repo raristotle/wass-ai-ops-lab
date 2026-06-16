@@ -37,6 +37,12 @@ export function CommandPalette() {
   const setGuidedOpen = useProductFinder((s) => s.setGuidedOpen);
   const setRfqOpen = useProductFinder((s) => s.setRfqOpen);
   const setBomIqOpen = useProductFinder((s) => s.setBomIqOpen);
+  const setCompareModalOpen = useProductFinder((s) => s.setCompareModalOpen);
+  const setSubmittalOpen = useProductFinder((s) => s.setSubmittalOpen);
+  const setJobsOpen = useProductFinder((s) => s.setJobsOpen);
+  const setVmiOpen = useProductFinder((s) => s.setVmiOpen);
+  const clearFilters = useProductFinder((s) => s.clearFilters);
+  const reorder = useProductFinder((s) => s.reorder);
   const pageSize = useProductFinder((s) => s.pageSize);
   const router = useRouter();
 
@@ -120,7 +126,26 @@ export function CommandPalette() {
         else if (action.target === "guided") setGuidedOpen(true);
         else if (action.target === "rfq") setRfqOpen(true);
         else if (action.target === "bomiq") setBomIqOpen(true);
+        else if (action.target === "compare") setCompareModalOpen(true);
+        else if (action.target === "submittal") setSubmittalOpen(true);
+        else if (action.target === "jobs") setJobsOpen(true);
+        else if (action.target === "vmi") setVmiOpen(true);
         else setBulkModalOpen(true);
+        break;
+      case "exec":
+        setPaletteOpen(false);
+        if (action.op === "clear-filters") {
+          clearFilters();
+        } else if (action.op === "print") {
+          if (typeof window !== "undefined") window.print();
+        } else if (action.op === "reorder-last") {
+          // Most-recent order first (the store unshifts new orders).
+          const last = useProductFinder.getState().orders[0];
+          if (last) {
+            reorder(last.id);
+            setCartOpen(true);
+          }
+        }
         break;
       case "tour":
         setPaletteOpen(false);

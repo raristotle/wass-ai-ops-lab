@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "neon-readonly": {
+      "command": "npx",
+      "args": ["-y", "@bytebase/dbhub@latest", "--transport", "stdio", "--readonly", "--dsn", "${POSTGRES_RO_URL}"]
+    },
+    "vercel": {
+      "type": "http",
+      "url": "https://mcp.vercel.com/mike-w-s-projects/web"
+    }
+  }
+}
