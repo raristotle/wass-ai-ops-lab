@@ -9,6 +9,7 @@ import {
   type QuoteSharePayload,
 } from "@/lib/product-finder-quote-share";
 import { formatDisplayDate } from "@/lib/product-finder-quote";
+import { IndicativeFxTotal } from "@/features/product-finder/IndicativeFxTotal";
 import { Button } from "@/components/ui/button";
 
 /** Customer decision recorded in this browser (works even without the rep's quote data). */
@@ -264,6 +265,9 @@ export default function QuoteAcceptancePage() {
               </tfoot>
             </table>
           </div>
+
+          {/* Indicative secondary-currency total (dormant unless FX_QUOTE_CURRENCIES is set). */}
+          <IndicativeFxTotal amountUsd={payload.total} />
 
           {/* Rep note + terms & conditions */}
           {payload.note && (

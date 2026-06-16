@@ -3,9 +3,9 @@ import { ALL_SUBCATEGORIES } from "@/lib/catalog/taxonomy";
 import { SYNONYMS, applySynonyms } from "@/lib/product-finder-synonyms";
 
 describe("SYNONYMS data", () => {
-  it("has between 25 and 40 entries", () => {
-    expect(SYNONYMS.length).toBeGreaterThanOrEqual(25);
-    expect(SYNONYMS.length).toBeLessThanOrEqual(40);
+  it("has between 50 and 90 entries", () => {
+    expect(SYNONYMS.length).toBeGreaterThanOrEqual(50);
+    expect(SYNONYMS.length).toBeLessThanOrEqual(90);
   });
 
   it("terms are lowercase and unique", () => {
@@ -33,6 +33,10 @@ describe("SYNONYMS data", () => {
     expect(byTerm.get("cat 6")).toMatchObject({ text: "Cat6" });
     expect(byTerm.get("cat6")).toMatchObject({ text: "Cat6" });
     expect(byTerm.get("emt")).toMatchObject({ text: "EMT", subcategory: "Conduit" });
+    // Expanded electrical-shorthand coverage (2026-06 refresh).
+    expect(byTerm.get("disco")).toMatchObject({ text: "disconnect" });
+    expect(byTerm.get("mc cable")).toMatchObject({ text: "MC Metal-Clad", subcategory: "Wire & Cable" });
+    expect(byTerm.get("vfd")).toMatchObject({ text: "Variable Frequency Drive" });
   });
 });
 

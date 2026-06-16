@@ -32,6 +32,18 @@ export interface ResolvedQuickLine extends ParsedQuickLine {
   product: CatalogProduct | null;
 }
 
+/** How a pasted line was matched to a catalog product. */
+export type QuickMatchKind = "exact" | "cross" | "none";
+
+export interface SmartResolvedQuickLine extends ParsedQuickLine {
+  /** The catalog product (exact OR cross-referenced), else null (unmatched). */
+  product: CatalogProduct | null;
+  /** Which resolver produced the match. */
+  matchKind: QuickMatchKind;
+  /** When matched via cross-reference, the competitor/legacy SKU that resolved. */
+  via?: string;
+}
+
 /**
  * Parse a paste list into { sku, qty } lines. The SKU is the FIRST whitespace/
  * comma/tab-delimited token; the quantity is the LAST token when it is a pure
@@ -75,4 +87,47 @@ export function resolveQuickOrder(
   resolve: (sku: string) => CatalogProduct | null,
 ): ResolvedQuickLine[] {
   return parsed.map((line) => ({ ...line, product: resolve(line.sku) }));
+}
+
+/**
+ * Collapse duplicate SKUs into one line, SUMMING their quantities (case-
+ * insensitive on the SKU), preserving first-seen order. So pasting "QO115 5"
+ * then "qo115 3" yields a single "QO115" line at qty 8 — the review list and the
+ * add-to-cart total then reflect the true ask instead of two stray rows.
+ * Pure; the summed qty is clamped to the per-line ceiling.
+ */
+export function aggregateQuickLines(parsed: ParsedQuickLine[]): ParsedQuickLine[] {
+  const out: ParsedQuickLine[] = [];
+  const indexBySku = new Map<string, number>();
+  for (const line of parsed) {
+    const key = line.sku.trim().toLowerCase();
+    const at = indexBySku.get(key);
+    if (at === undefined) {
+      indexBySku.set(key, out.length);
+      out.push({ ...line });
+    } else {
+      out[at].qty = Math.min(out[at].qty + line.qty, MAX_QTY);
+    }
+  }
+  return out;
+}
+
+/**
+ * Resolve each line by EXACT SKU first, then fall back to the cross-reference
+ * resolver (competitor/legacy part number → Wesco product). So a customer can
+ * paste their existing BOM — a mix of Wesco SKUs and competitor part numbers —
+ * and get a single resolved cart. Pure; both resolvers injected.
+ */
+export function resolveQuickOrderSmart(
+  parsed: ParsedQuickLine[],
+  exact: (sku: string) => CatalogProduct | null,
+  cross: (sku: string) => CatalogProduct | null,
+): SmartResolvedQuickLine[] {
+  return parsed.map((line) => {
+    const direct = exact(line.sku);
+    if (direct) return { ...line, product: direct, matchKind: "exact" };
+    const crossed = cross(line.sku);
+    if (crossed) return { ...line, product: crossed, matchKind: "cross", via: line.sku };
+    return { ...line, product: null, matchKind: "none" };
+  });
 }

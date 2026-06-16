@@ -9,6 +9,8 @@ import { JobsModal } from "@/features/product-finder/JobsModal";
 import { VmiModal } from "@/features/product-finder/VmiModal";
 import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
 import { ResultsTable } from "@/features/product-finder/ResultsTable";
+import { CompareTray } from "@/features/product-finder/CompareTray";
+import { KeyboardHelpModal } from "@/features/product-finder/KeyboardHelpModal";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
@@ -39,7 +41,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   });
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], cart: {} });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], cart: {}, compareIds: new Set(), keyboardHelpOpen: false, results: [] });
   });
 
   it("Guided selectors modal", async () => {
@@ -89,14 +91,29 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
 
   it("Quick-Order Pad modal (resolved list + recall, populated)", async () => {
     const realSku = CATALOG_PRODUCTS[0].sku;
+    // The pad now resolves server-side; stub the batch resolve so a matched +
+    // an unmatched line both render for the axe scan.
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => ({
+        ok: true,
+        json: async () => ({
+          resolved: [
+            { sku: realSku, matchKind: "exact", via: null, product: CATALOG_PRODUCTS[0] },
+            { sku: "NOPE-XYZ", matchKind: "none", via: null, product: null },
+          ],
+        }),
+      })),
+    );
     useProductFinder.setState({
       quickOrderOpen: true,
       orders: [{ id: "o1", placedAt: 1_700_000_000_000, lines: [{ product: prod("A"), qty: 2 }], total: 40, customerId: null, customerName: null }],
       savedBaskets: [{ id: "b1", name: "Standard kit", lines: [{ product: prod("A"), qty: 1 }], savedAt: 1_700_000_000_000 }],
     });
-    const { container, getByLabelText, getByText } = render(<QuickOrderModal />);
+    const { container, getByLabelText, getByText, findByText } = render(<QuickOrderModal />);
     fireEvent.change(getByLabelText(/SKUs/i), { target: { value: `${realSku} 3\nNOPE-XYZ 1` } });
     fireEvent.click(getByText("Resolve list"));
+    await findByText(/not found/i); // wait for the async resolve to populate the list
     await expectNoViolations(container);
   });
 
@@ -105,12 +122,24 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
     fireEvent.click(getByText(/Columns/)); // open the column menu so it is axe-scanned too
     await expectNoViolations(container);
   });
+
+  it("Sticky compare tray (#3)", async () => {
+    useProductFinder.setState({ results: [prod("A"), prod("B")], compareIds: new Set(["A", "B"]) });
+    const { container } = render(<CompareTray />);
+    await expectNoViolations(container);
+  });
+
+  it("Keyboard shortcuts modal (#13)", async () => {
+    useProductFinder.setState({ keyboardHelpOpen: true });
+    const { container } = render(<KeyboardHelpModal />);
+    await expectNoViolations(container);
+  });
 });
 
 describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [] });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], keyboardHelpOpen: false });
   });
 
   it("Escape closes the Guided selectors modal", () => {
@@ -162,5 +191,13 @@ describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
     expect(useProductFinder.getState().quickOrderOpen).toBe(true);
     fireEvent.keyDown(document.body, { key: "Escape" });
     expect(useProductFinder.getState().quickOrderOpen).toBe(false);
+  });
+
+  it("Escape closes the Keyboard shortcuts modal", () => {
+    useProductFinder.setState({ keyboardHelpOpen: true });
+    render(<KeyboardHelpModal />);
+    expect(useProductFinder.getState().keyboardHelpOpen).toBe(true);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().keyboardHelpOpen).toBe(false);
   });
 });

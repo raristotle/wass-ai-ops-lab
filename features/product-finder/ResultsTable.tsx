@@ -31,6 +31,7 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
   const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
   const compareIds = useProductFinder((s) => s.compareIds);
   const toggleCompare = useProductFinder((s) => s.toggleCompare);
+  const activeResultIndex = useProductFinder((s) => s.activeResultIndex);
 
   const [vis, setVis] = useState<Record<ColumnId, boolean>>(loadVisibility);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -117,8 +118,15 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
             </tr>
           </thead>
           <tbody>
-            {products.map((p) => (
-              <tr key={p.id} className="border-b border-[#B7C9D3]/40 hover:bg-[#00AA13]/[0.03]">
+            {products.map((p, i) => (
+              <tr
+                key={p.id}
+                data-result-index={i}
+                aria-selected={activeResultIndex === i || undefined}
+                className={`border-b border-[#B7C9D3]/40 hover:bg-[#00AA13]/[0.03] ${
+                  activeResultIndex === i ? "bg-[#00AA13]/[0.06] outline outline-2 -outline-offset-2 outline-[#00AA13]" : ""
+                }`}
+              >
                 <td className="px-2 py-1.5">
                   <input
                     type="checkbox"

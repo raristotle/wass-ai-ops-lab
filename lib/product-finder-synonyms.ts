@@ -61,6 +61,50 @@ export const SYNONYMS: readonly SynonymEntry[] = [
   { term: "lockout", text: "lockout", subcategory: "Lockout/Tagout" },
   { term: "ear plugs", text: "Earplugs", subcategory: "Hearing Protection" },
   { term: "safety vest", text: "Vest", subcategory: "Hi-Vis Apparel" },
+  // More wire, cable & raceway
+  { term: "mc cable", text: "MC Metal-Clad", subcategory: "Wire & Cable" },
+  { term: "bx", text: "AC Armored", subcategory: "Wire & Cable" },
+  { term: "ser", text: "SER", subcategory: "Wire & Cable" },
+  { term: "pv wire", text: "PV Wire", subcategory: "Wire & Cable" },
+  { term: "greenfield", text: "FMC Flexible", subcategory: "Flexible Conduit & Liquidtight" },
+  { term: "flex conduit", text: "Flexible Conduit", subcategory: "Flexible Conduit & Liquidtight" },
+  { term: "condulet", text: "Conduit Body" },
+  { term: "strut", text: "Strut Channel" },
+  { term: "unistrut", text: "Strut Channel" },
+  { term: "all thread", text: "Threaded Rod" },
+  { term: "allthread", text: "Threaded Rod" },
+  // Overcurrent & distribution
+  { term: "ocpd", text: "circuit breaker" },
+  { term: "mlo", text: "Main Lug" },
+  { term: "mcb", text: "Main Breaker" },
+  { term: "afci", text: "AFCI" },
+  { term: "disco", text: "disconnect" },
+  { term: "safety switch", text: "Disconnect" },
+  { term: "meter base", text: "Meter Socket" },
+  { term: "meter can", text: "Meter Socket" },
+  { term: "weatherhead", text: "Service Entrance" },
+  // Motor control
+  { term: "vfd", text: "Variable Frequency Drive" },
+  { term: "asd", text: "Variable Frequency Drive" },
+  { term: "soft starter", text: "Soft Starter" },
+  // Devices & boxes
+  { term: "recept", text: "Receptacle" },
+  { term: "twistlock", text: "Locking" },
+  { term: "j box", text: "Junction Box" },
+  { term: "jbox", text: "Junction Box" },
+  { term: "mud ring", text: "Plaster Ring" },
+  // Grounding & solar
+  { term: "ground rod", text: "Ground Rod" },
+  { term: "mc4", text: "MC4 Solar Connector" },
+  { term: "evse", text: "EV Charging Station", subcategory: "EV Charging Stations" },
+  // Connectors & misc
+  { term: "wago", text: "Lever Connector", subcategory: "Lugs & Wire Connectors" },
+  { term: "zip tie", text: "Cable Tie" },
+  { term: "zip ties", text: "Cable Tie" },
+  { term: "ty wrap", text: "Cable Tie" },
+  // Test & tools
+  { term: "megger", text: "Insulation Tester" },
+  { term: "fish tape", text: "Fish Tape" },
 ];
 
 export interface AppliedSynonym {

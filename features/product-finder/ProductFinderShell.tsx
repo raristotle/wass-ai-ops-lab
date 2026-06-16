@@ -20,6 +20,8 @@ import { JobsModal } from "@/features/product-finder/JobsModal";
 import { VmiModal } from "@/features/product-finder/VmiModal";
 import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
 import { BarcodeScannerModal } from "@/features/product-finder/BarcodeScannerModal";
+import { CompareTray } from "@/features/product-finder/CompareTray";
+import { KeyboardHelpModal } from "@/features/product-finder/KeyboardHelpModal";
 import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
@@ -45,6 +47,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
   const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
   const orders = useProductFinder((s) => s.orders);
+  const compareCount = useProductFinder((s) => s.compareIds.size);
   const brand = getBrand(useProductFinder((s) => s.brandId));
 
   // Clock read after mount keeps SSR and the first client render identical.
@@ -228,15 +231,18 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
         {/* Filter sidebar (desktop only — mobile is handled by FilterSidebar's FAB) */}
         <FilterSidebar />
 
-        {/* Main scrollable content */}
-        <main className="flex-1 overflow-y-auto print:overflow-visible print:h-auto">
+        {/* Main scrollable content — reserve room for the fixed CompareTray on
+            every Shell page when the compare set is non-empty. */}
+        <main className={cn("flex-1 overflow-y-auto print:overflow-visible print:h-auto", compareCount > 0 && "pb-16")}>
           {children}
         </main>
       </div>
 
       {/* ── Overlays (always in DOM) ─────────────────────────────────────────── */}
       <CartDrawer />
+      <CompareTray />
       <SpecCompareModal />
+      <KeyboardHelpModal />
       <ProductDetailModal />
       <BomImportModal />
       <BulkQuoteModal />

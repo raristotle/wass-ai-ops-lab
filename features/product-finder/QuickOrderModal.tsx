@@ -1,18 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { useModalA11y } from "@/features/product-finder/useModalA11y";
-import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import {
   parseQuickOrderLines,
-  resolveQuickOrder,
-  exactSkuResolver,
-  type ResolvedQuickLine,
+  aggregateQuickLines,
+  type SmartResolvedQuickLine,
 } from "@/lib/product-finder-quick-order";
 
 /** A resolved line plus the raw qty-field string (cleared/retyped freely; clamped at add-time). */
-type UiLine = ResolvedQuickLine & { qtyStr: string };
+type UiLine = SmartResolvedQuickLine & { qtyStr: string };
 
 /**
  * Quick-Order Pad — Amazon-Business-style rapid entry. Paste/type KNOWN SKUs (one
@@ -36,18 +34,50 @@ export function QuickOrderModal() {
   const [text, setText] = useState("");
   const [lines, setLines] = useState<UiLine[] | null>(null);
   const [msg, setMsg] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
 
-  const resolver = useMemo(() => exactSkuResolver(CATALOG_PRODUCTS), []);
-
-  function resolveList() {
-    const parsed = parseQuickOrderLines(text);
+  // Resolve the pasted SKUs against the FULL catalog server-side (exact SKU then
+  // canonical cross-reference) — so real Wesco SKUs and competitor BOMs resolve,
+  // not just the curated demo subset. Parsing/aggregation stay pure + client-side.
+  async function resolveList() {
+    const parsed = aggregateQuickLines(parseQuickOrderLines(text));
     if (parsed.length === 0) {
       setMsg("Paste at least one SKU.");
       setLines(null);
       return;
     }
     setMsg(null);
-    setLines(resolveQuickOrder(parsed, resolver).map((l) => ({ ...l, qtyStr: String(l.qty) })));
+    setBusy(true);
+    try {
+      const res = await fetch("/api/products/quick-resolve", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skus: parsed.map((p) => p.sku) }),
+      });
+      const data: unknown = await res.json().catch(() => null);
+      const resolved = Array.isArray((data as { resolved?: unknown })?.resolved)
+        ? (data as { resolved: SmartResolvedQuickLine[] }).resolved
+        : [];
+      // The route resolves input order 1:1, so zip by index; qty stays client-side.
+      setLines(
+        parsed.map((p, i) => {
+          const r = resolved[i];
+          return {
+            raw: p.raw,
+            sku: p.sku,
+            qty: p.qty,
+            matchKind: r?.matchKind ?? "none",
+            product: r?.product ?? null,
+            via: r?.via,
+            qtyStr: String(p.qty),
+          };
+        }),
+      );
+    } catch {
+      setMsg("Could not resolve SKUs — please try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   // The qty field holds a raw string so it can be cleared/retyped freely; the
@@ -57,8 +87,9 @@ export function QuickOrderModal() {
     setLines((prev) => (prev ? prev.map((l, idx) => (idx === i ? { ...l, qtyStr: v } : l)) : prev));
   }
   function lineQty(l: UiLine): number {
-    const n = parseInt(l.qtyStr, 10);
-    return Number.isFinite(n) && n >= 1 ? Math.min(n, 100_000) : 1;
+    const s = l.qtyStr.trim();
+    if (!/^\d+$/.test(s)) return 1; // mirror the parse lib: only a clean positive integer counts
+    return Math.min(parseInt(s, 10), 100_000);
   }
 
   if (!open) return null;
@@ -102,7 +133,7 @@ export function QuickOrderModal() {
         <div className="flex items-start justify-between rounded-t-xl bg-[#1D252D] px-5 py-4">
           <div>
             <h2 className="text-base font-semibold text-white">Quick-Order Pad</h2>
-            <p className="text-xs text-[#B7C9D3]">Paste known SKUs and add the whole list to the cart — or recall a recent order.</p>
+            <p className="text-xs text-[#B7C9D3]">Paste Wesco or competitor SKUs — duplicates merge, competitor parts auto cross-reference — and add the whole list to the cart.</p>
           </div>
           <button
             ref={closeRef}
@@ -130,11 +161,11 @@ export function QuickOrderModal() {
           <div className="mt-2 flex items-center gap-2">
             <button
               type="button"
-              onClick={resolveList}
-              disabled={!text.trim()}
+              onClick={() => void resolveList()}
+              disabled={!text.trim() || busy}
               className="rounded bg-[#00AA13] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#009911] disabled:opacity-50"
             >
-              Resolve list
+              {busy ? "Resolving…" : "Resolve list"}
             </button>
             {msg && <span className="text-xs text-[#DB6B30]">{msg}</span>}
           </div>
@@ -150,6 +181,14 @@ export function QuickOrderModal() {
                         <span className="flex-1 truncate text-sm">
                           <b className="text-[#1D252D]">{l.product.sku}</b>
                           <span className="ml-1.5 text-[#4F758B]">{l.product.name}</span>
+                          {l.matchKind === "cross" && l.via && (
+                            <span
+                              className="ml-1.5 whitespace-nowrap rounded bg-[#004986]/10 px-1.5 py-0.5 text-[10px] font-medium text-[#004986]"
+                              title={`Cross-referenced from competitor/legacy part ${l.via}`}
+                            >
+                              &#x2194; cross-ref {l.via}
+                            </span>
+                          )}
                         </span>
                         <span className="text-xs text-[#4F758B]">${l.product.unitPrice.toFixed(2)}</span>
                         <label className="sr-only" htmlFor={`qo-qty-${i}`}>Quantity for {l.product.sku}</label>

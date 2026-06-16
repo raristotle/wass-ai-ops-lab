@@ -118,7 +118,7 @@ describe("AC38 (partial) — route surface is frozen", () => {
     expect(statSync(path.join(dir, "page.tsx")).isFile()).toBe(true);
   });
 
-  it("the api/products route files are exactly the 6 known routes", () => {
+  it("the api/products route files are exactly the 7 known routes", () => {
     const apiDir = path.join(ROOT, "apps/web/app/api/products");
     const files: string[] = [];
     const walk = (d: string) => {
@@ -133,6 +133,7 @@ describe("AC38 (partial) — route surface is frozen", () => {
       "[id]/goeswith/route.ts",
       "[id]/live/route.ts",
       "[id]/route.ts",
+      "quick-resolve/route.ts",
       "resolve/route.ts",
       "search/route.ts",
       "suggest/route.ts",

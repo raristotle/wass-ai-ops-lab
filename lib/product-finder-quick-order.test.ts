@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import {
   parseQuickOrderLines,
   resolveQuickOrder,
+  resolveQuickOrderSmart,
+  aggregateQuickLines,
   exactSkuResolver,
   QUICK_ORDER_CAP,
 } from "@/lib/product-finder-quick-order";
@@ -60,5 +62,51 @@ describe("exactSkuResolver + resolveQuickOrder", () => {
     expect(lines[0].product?.sku).toBe("QO115");
     expect(lines[0].qty).toBe(5);
     expect(lines[1].product).toBeNull();
+  });
+});
+
+describe("aggregateQuickLines", () => {
+  it("sums quantities for duplicate SKUs (case-insensitive), preserving first-seen order", () => {
+    const out = aggregateQuickLines([
+      { raw: "QO115 5", sku: "QO115", qty: 5 },
+      { raw: "CAT6 2", sku: "CAT6", qty: 2 },
+      { raw: "qo115 3", sku: "qo115", qty: 3 },
+    ]);
+    expect(out).toEqual([
+      { raw: "QO115 5", sku: "QO115", qty: 8 },
+      { raw: "CAT6 2", sku: "CAT6", qty: 2 },
+    ]);
+  });
+
+  it("clamps a summed quantity to the per-line ceiling", () => {
+    const out = aggregateQuickLines([
+      { raw: "QO1 60000", sku: "QO1", qty: 60_000 },
+      { raw: "QO1 60000", sku: "QO1", qty: 60_000 },
+    ]);
+    expect(out).toHaveLength(1);
+    expect(out[0].qty).toBe(100_000);
+  });
+});
+
+describe("resolveQuickOrderSmart", () => {
+  const catalog = [prod("QO115")];
+  const exact = exactSkuResolver(catalog);
+  // A trivial cross resolver: "GRN-OLD" → QO115.
+  const cross = (sku: string) => (sku.trim().toUpperCase() === "GRN-OLD" ? catalog[0] : null);
+
+  it("prefers exact SKU, falls back to cross-reference, then flags unmatched", () => {
+    const lines = resolveQuickOrderSmart(
+      [
+        { raw: "QO115 1", sku: "QO115", qty: 1 },
+        { raw: "GRN-OLD 4", sku: "GRN-OLD", qty: 4 },
+        { raw: "ZZZ", sku: "ZZZ", qty: 1 },
+      ],
+      exact,
+      cross,
+    );
+    expect(lines[0]).toMatchObject({ matchKind: "exact", product: { sku: "QO115" } });
+    expect(lines[0].via).toBeUndefined();
+    expect(lines[1]).toMatchObject({ matchKind: "cross", via: "GRN-OLD", product: { sku: "QO115" } });
+    expect(lines[2]).toMatchObject({ matchKind: "none", product: null });
   });
 });

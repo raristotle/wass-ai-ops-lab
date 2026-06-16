@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
 import { ResultsTable } from "@/features/product-finder/ResultsTable";
+import { useResultsKeyboard } from "@/features/product-finder/useResultsKeyboard";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { searchResultsCsv, downloadCsv } from "@/lib/product-finder-csv";
 import type { CatalogProduct, SortKey } from "@/features/product-finder/types";
@@ -35,10 +36,12 @@ export function ProductGrid({
   const total = useProductFinder((s) => s.total);
   const results = useProductFinder((s) => s.results);
   const loadMore = useProductFinder((s) => s.loadMore);
-  const compareIds = useProductFinder((s) => s.compareIds);
-  const clearCompare = useProductFinder((s) => s.clearCompare);
-  const setCompareModalOpen = useProductFinder((s) => s.setCompareModalOpen);
   const substitutes = useProductFinder((s) => s.substitutes);
+  const activeResultIndex = useProductFinder((s) => s.activeResultIndex);
+  const setKeyboardHelpOpen = useProductFinder((s) => s.setKeyboardHelpOpen);
+
+  // Keyboard-first power layer over the rendered results (j/k/a/c/Enter/?).
+  useResultsKeyboard(products);
 
   function handleSortChange(e: React.ChangeEvent<HTMLSelectElement>) {
     setSortKey(e.target.value as SortKey);
@@ -87,29 +90,6 @@ export function ProductGrid({
 
   return (
     <div className="flex flex-col gap-3">
-      {/* ── Compare bar ─────────────────────────────────────────── */}
-      {compareIds.size > 0 && (
-        <div className="flex items-center gap-3 rounded-lg border border-[#004986]/30 bg-[#004986]/5 px-4 py-2.5">
-          <span className="text-sm text-[#004986] font-medium">
-            Comparing {compareIds.size} product{compareIds.size !== 1 ? "s" : ""}
-          </span>
-          <Button
-            size="sm"
-            className="bg-[#004986] hover:bg-[#004986]/90 text-white border-0 ml-auto"
-            onClick={() => setCompareModalOpen(true)}
-          >
-            Compare Specs
-          </Button>
-          <button
-            type="button"
-            onClick={clearCompare}
-            className="text-xs text-[#4F758B] hover:text-[#1D252D] underline"
-          >
-            Clear
-          </button>
-        </div>
-      )}
-
       {/* ── Results bar ─────────────────────────────────────────── */}
       <div className="flex flex-wrap items-center gap-2">
         <span
@@ -120,6 +100,17 @@ export function ProductGrid({
         >
           {total} product{total !== 1 ? "s" : ""} found
         </span>
+        {/* Keyboard power-layer hint (desktop only) */}
+        {total > 0 && (
+          <button
+            type="button"
+            onClick={() => setKeyboardHelpOpen(true)}
+            className="hidden text-[11px] text-[#4F758B] underline decoration-dotted underline-offset-2 hover:text-[#1D252D] sm:inline"
+            aria-label="Show keyboard shortcuts"
+          >
+            Press ? for shortcuts
+          </button>
+        )}
 
         <div className="flex items-center gap-2 ml-auto">
           {/* Copy shareable link */}
@@ -238,13 +229,22 @@ export function ProductGrid({
                 : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             )}
           >
-            {products.map((product) => (
-              <ProductCard
+            {products.map((product, i) => (
+              <div
                 key={product.id}
-                product={product}
-                referenceProduct={referenceProduct ?? undefined}
-                substitute={substitutes[product.id]}
-              />
+                data-result-index={i}
+                aria-current={activeResultIndex === i ? "true" : undefined}
+                className={cn(
+                  "rounded-xl",
+                  activeResultIndex === i && "ring-2 ring-[#00AA13] ring-offset-2 ring-offset-[#F8FAFB]"
+                )}
+              >
+                <ProductCard
+                  product={product}
+                  referenceProduct={referenceProduct ?? undefined}
+                  substitute={substitutes[product.id]}
+                />
+              </div>
             ))}
           </div>
         ))}

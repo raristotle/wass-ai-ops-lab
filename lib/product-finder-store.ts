@@ -208,6 +208,13 @@ export interface ProductFinderState {
   compareModalOpen: boolean;
   setCompareModalOpen: (v: boolean) => void;
 
+  // Keyboard power layer (results surface): the highlighted result row + the
+  // shortcuts help overlay.
+  activeResultIndex: number;
+  setActiveResultIndex: (n: number) => void;
+  keyboardHelpOpen: boolean;
+  setKeyboardHelpOpen: (v: boolean) => void;
+
   // Detail modal
   detailModalProduct: CatalogProduct | null;
   setDetailModalProduct: (p: CatalogProduct | null) => void;
@@ -801,6 +808,12 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   },
 
   setCompareModalOpen(v) { set({ compareModalOpen: v }); },
+
+  // ── Keyboard power layer ──────────────────────────────────
+  activeResultIndex: -1,
+  setActiveResultIndex(n) { set({ activeResultIndex: n }); },
+  keyboardHelpOpen: false,
+  setKeyboardHelpOpen(v) { set({ keyboardHelpOpen: v }); },
 
   // ── Cart ──────────────────────────────────────────────────
   cart: {},
