@@ -7,6 +7,7 @@ import {
   favoritePicks,
   type ReorderSuggestion,
 } from "@/lib/product-finder-foryou";
+import { alsoBought } from "@/lib/product-finder-recommendations";
 import { apiGetProduct, apiGoesWith } from "@/lib/product-finder-api";
 import type { CatalogProduct, ProductSnapshot } from "@/features/product-finder/types";
 
@@ -156,6 +157,15 @@ export function ForYouRail() {
     [goesWith, cartIds, suggestions]
   );
 
+  // Data-driven "also bought" (count-based CF over real order co-occurrence),
+  // seeded by the top reorder suggestion. Preferred over the curated cross-sell
+  // when the order history actually supports it.
+  const alsoBoughtItems = useMemo(() => {
+    if (!topSuggestionId) return [];
+    const exclude = new Set([...cartIds, ...suggestions.map((s) => s.product.id)]);
+    return alsoBought(scopedOrders, topSuggestionId, { excludeIds: exclude, k: 3 });
+  }, [scopedOrders, topSuggestionId, cartIds, suggestions]);
+
   const handleAddFavorite = async (id: string) => {
     try {
       const detail = await apiGetProduct(id, user?.branchId);
@@ -228,22 +238,40 @@ export function ForYouRail() {
           </div>
         )}
 
-        {visibleGoesWith.length > 0 && (
+        {alsoBoughtItems.length > 0 ? (
           <div>
-            <SectionHeading icon="🧩" title="Goes well with your orders" />
+            <SectionHeading icon="🛒" title="Frequently ordered together" />
             <div className="space-y-2">
-              {visibleGoesWith.map((p) => (
+              {alsoBoughtItems.map((a) => (
                 <ProductMiniCard
-                  key={p.id}
-                  name={p.name}
-                  sub={`${p.subcategory} · $${p.unitPrice.toFixed(2)}/${p.uom}`}
-                  icon={p.imageIcon}
-                  onAdd={() => addToCart(p, 1)}
-                  onView={() => setDetailModalProduct(p)}
+                  key={a.product.id}
+                  name={a.product.name}
+                  sub={`ordered together ${a.coOrders}×`}
+                  icon={a.product.imageIcon}
+                  onAdd={() => addToCart(a.product, 1)}
+                  onView={() => setDetailModalProduct(a.product)}
                 />
               ))}
             </div>
           </div>
+        ) : (
+          visibleGoesWith.length > 0 && (
+            <div>
+              <SectionHeading icon="🧩" title="Goes well with your orders" />
+              <div className="space-y-2">
+                {visibleGoesWith.map((p) => (
+                  <ProductMiniCard
+                    key={p.id}
+                    name={p.name}
+                    sub={`${p.subcategory} · $${p.unitPrice.toFixed(2)}/${p.uom}`}
+                    icon={p.imageIcon}
+                    onAdd={() => addToCart(p, 1)}
+                    onView={() => setDetailModalProduct(p)}
+                  />
+                ))}
+              </div>
+            </div>
+          )
         )}
       </div>
     </section>

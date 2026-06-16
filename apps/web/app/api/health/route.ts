@@ -8,6 +8,7 @@ import { rateLimiterConfigured } from "@/lib/server/rate-limit";
 import { stripeTaxConfigured } from "@/lib/integration/stripe-tax";
 import { rerankConfigured } from "@/lib/integration/rerank-live";
 import { slackConfigured } from "@/lib/integration/slack-alerts";
+import { nexarConfigured } from "@/lib/integration/nexar-live";
 
 export const dynamic = "force-dynamic";
 
@@ -36,6 +37,7 @@ export function GET() {
       stripeTax: stripeTaxConfigured(),
       rerank: rerankConfigured(),
       slack: slackConfigured(),
+      nexar: nexarConfigured(),
       // Inlined (booleans only) so the health route never imports the PostHog/Sentry SDKs.
       analytics: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.POSTHOG_KEY),
       sentry: Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN),
