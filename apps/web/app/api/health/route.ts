@@ -9,6 +9,9 @@ import { stripeTaxConfigured } from "@/lib/integration/stripe-tax";
 import { rerankConfigured } from "@/lib/integration/rerank-live";
 import { slackConfigured } from "@/lib/integration/slack-alerts";
 import { nexarConfigured } from "@/lib/integration/nexar-live";
+import { shippingConfigured } from "@/lib/integration/shipping-live";
+import { hubspotConfigured } from "@/lib/integration/hubspot-live";
+import { smsConfigured } from "@/lib/integration/sms-live";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +41,9 @@ export function GET() {
       rerank: rerankConfigured(),
       slack: slackConfigured(),
       nexar: nexarConfigured(),
+      shipping: shippingConfigured(),
+      hubspot: hubspotConfigured(),
+      sms: smsConfigured(),
       // Inlined (booleans only) so the health route never imports the PostHog/Sentry SDKs.
       analytics: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.POSTHOG_KEY),
       sentry: Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN),
