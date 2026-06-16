@@ -47,6 +47,7 @@ import {
 import { quotePipeline } from "@/lib/product-finder-quote-pipeline";
 import { QUOTE_STATUS_LABEL, QUOTE_STATUS_COLOR } from "@/lib/product-finder-quotes";
 import { winLossByBand, winLossSummary } from "@/lib/product-finder-winloss";
+import { lostReasonBreakdown, winLossByCustomer } from "@/lib/product-finder-forensics";
 import { allCustomerHealth, HEALTH_COLOR, HEALTH_LABEL } from "@/lib/product-finder-customer-health";
 import { demandForecast, WINDOW_DAYS } from "@/lib/product-finder-forecast";
 import { CrossCoveragePanel } from "@/features/product-finder/CrossCoveragePanel";
@@ -147,6 +148,8 @@ function DashboardContent() {
   const pipeline = useMemo(() => quotePipeline(quotes, now), [quotes, now]);
   const winLossBands = useMemo(() => winLossByBand(quotes), [quotes]);
   const wlSummary = useMemo(() => winLossSummary(quotes), [quotes]);
+  const customerCohorts = useMemo(() => winLossByCustomer(quotes), [quotes]);
+  const lostReasons = useMemo(() => lostReasonBreakdown(quotes), [quotes]);
   const customerHealthList = useMemo(
     () => allCustomerHealth(orders, customers, now),
     [orders, customers, now]
@@ -536,6 +539,79 @@ function DashboardContent() {
           )}
         </section>
       </div>
+
+      {/* ── Deal forensics (#15) ──────────────────────────────────────────────── */}
+      {wlSummary.decided > 0 && (
+        <div className="grid gap-4 lg:grid-cols-2">
+          {/* Win/loss by customer cohort */}
+          <section
+            aria-label="Win/loss by customer"
+            className="rounded-xl border border-[#B7C9D3]/40 bg-white p-4 shadow-sm"
+          >
+            <h2 className="mb-1 text-sm font-semibold text-[#1D252D]">
+              Deal Forensics
+              <span className="ml-1 text-xs font-normal text-[#4F758B]">(win rate by customer)</span>
+            </h2>
+            {customerCohorts.length === 0 ? (
+              <p className="py-8 text-center text-xs text-[#4F758B]">
+                Not enough decided quotes per customer yet.
+              </p>
+            ) : (
+              <ul className="space-y-1.5">
+                {customerCohorts.map((c) => (
+                  <li key={c.cohort} className="flex items-center gap-2">
+                    <span className="min-w-0 flex-1 truncate text-xs font-medium text-[#1D252D]">{c.cohort}</span>
+                    <div className="h-3 w-28 shrink-0 overflow-hidden rounded bg-[#B7C9D3]/30">
+                      <div
+                        className="h-full rounded"
+                        style={{ width: `${Math.round(c.winRate * 100)}%`, backgroundColor: c.winRate >= 0.5 ? "#00AA13" : "#DB6B30" }}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <span className="w-20 shrink-0 text-right text-xs text-[#4F758B]">
+                      <span className="font-semibold text-[#1D252D]">{Math.round(c.winRate * 100)}%</span> ({c.won}W/{c.lost}L)
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p className="mt-3 text-[10px] italic text-[#4F758B]">
+              Top = where you win; bottom = where you are losing. Decided quotes only — simulated history.
+            </p>
+          </section>
+
+          {/* Lost-reason breakdown */}
+          <section
+            aria-label="Lost-reason breakdown"
+            className="rounded-xl border border-[#B7C9D3]/40 bg-white p-4 shadow-sm"
+          >
+            <h2 className="mb-1 text-sm font-semibold text-[#1D252D]">
+              Why deals are lost
+              <span className="ml-1 text-xs font-normal text-[#4F758B]">(lost-reason mix)</span>
+            </h2>
+            {lostReasons.length === 0 ? (
+              <p className="py-8 text-center text-xs text-[#4F758B]">No lost quotes yet.</p>
+            ) : (
+              <ul className="space-y-1.5">
+                {lostReasons.map((r) => (
+                  <li key={r.reason} className="flex items-center gap-2">
+                    <span className="min-w-0 flex-1 truncate text-xs text-[#1D252D]">{r.label}</span>
+                    <div className="h-3 w-28 shrink-0 overflow-hidden rounded bg-[#B7C9D3]/30">
+                      <div className="h-full rounded bg-[#DB6B30]" style={{ width: `${Math.round(r.pct * 100)}%` }} aria-hidden="true" />
+                    </div>
+                    <span className="w-16 shrink-0 text-right text-xs text-[#4F758B]">
+                      <span className="font-semibold text-[#1D252D]">{Math.round(r.pct * 100)}%</span> ({r.count})
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p className="mt-3 text-[10px] italic text-[#4F758B]">
+              Captured when a quote is marked lost; uncaptured lost quotes show as “Other”.
+            </p>
+          </section>
+        </div>
+      )}
 
       {/* ── Branch demand forecast ─────────────────────────────────────────────── */}
       <section

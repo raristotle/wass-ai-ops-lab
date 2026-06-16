@@ -68,6 +68,8 @@ export interface SavedQuote {
   convertedAt?: number;
   /** Customer pushed back via the acceptance page ("Request changes"). */
   counterOffer?: { note: string; at: number };
+  /** Captured reason a quote was lost (forensics taxonomy — see product-finder-forensics). */
+  lostReason?: string;
   /** Free-text note printed on the quote and shown on the customer page. */
   note?: string;
   /** Selected terms-block ids (lib/product-finder-terms). */

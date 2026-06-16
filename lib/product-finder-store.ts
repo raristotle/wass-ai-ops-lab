@@ -290,6 +290,8 @@ export interface ProductFinderState {
   quotes: SavedQuote[];
   saveQuote: (input: { number: string; customer: string; project: string; status?: QuoteStatus; now?: number; note?: string; termsIds?: string[] }) => void;
   setQuoteStatus: (id: string, status: QuoteStatus) => void;
+  /** Capture a lost-reason for forensics (see product-finder-forensics). */
+  setQuoteLostReason: (id: string, reason: string) => void;
   setQuoteApproval: (id: string, status: ApprovalStatus) => void;
   loadQuoteToCart: (id: string) => void;
   deleteQuote: (id: string) => void;
@@ -1270,6 +1272,14 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       if (typeof localStorage !== "undefined") {
         localStorage.setItem("pf_quotes", JSON.stringify(quotes));
       }
+      return { quotes };
+    });
+  },
+
+  setQuoteLostReason(id, reason) {
+    set((s) => {
+      const quotes = s.quotes.map((q) => (q.id === id ? { ...q, lostReason: reason } : q));
+      if (typeof localStorage !== "undefined") localStorage.setItem("pf_quotes", JSON.stringify(quotes));
       return { quotes };
     });
   },
