@@ -56,6 +56,8 @@ export function GET() {
       shipping: shippingConfigured(),
       hubspot: hubspotConfigured(),
       sms: smsConfigured(),
+      pdf: pdfConfigured(),
+      webpush: webPushConfigured(),
       // Inlined (booleans only) so the health route never imports the PostHog/Sentry SDKs.
       analytics: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.POSTHOG_KEY),
       sentry: Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN),
