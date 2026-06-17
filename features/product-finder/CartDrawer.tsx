@@ -30,6 +30,7 @@ import { isValidEmail, guessRecipient, defaultQuoteSubject, quoteEmailHtml } fro
 import {
   estimatedUnitCost, marginPct, marginTier, MARGIN_TIER_COLOR, basketMargin,
 } from "@/lib/product-finder-margin";
+import { optimizeMargin } from "@/lib/product-finder-margin-optimizer";
 import { marginGuidance } from "@/lib/product-finder-winloss";
 import { stockWarning } from "@/lib/product-finder-stock-warning";
 import { apiCrossSavings } from "@/lib/product-finder-api";
@@ -54,6 +55,7 @@ export function CartDrawer() {
   const setPriceOverride = useProductFinder((s) => s.setPriceOverride);
   const [editingPriceId, setEditingPriceId] = useState<string | null>(null);
   const [priceDraft, setPriceDraft] = useState("");
+  const [optimizerOpen, setOptimizerOpen] = useState(false);
 
   const savedBaskets = useProductFinder((s) => s.savedBaskets);
   const saveCurrentBasket = useProductFinder((s) => s.saveCurrentBasket);
@@ -260,6 +262,35 @@ export function CartDrawer() {
     }));
     return basketMargin(lines);
   }, [items, activeCustomer, priceOverrides]);
+
+  // Whole-basket margin optimizer (#14): flag low-margin lines + suggest the best
+  // higher-margin spec-equivalent swap (from the same crosses the substitute-&-
+  // save panel fetches), with the blended before/after impact.
+  const optimization = useMemo(() => {
+    if (items.length === 0) return null;
+    const provider = getPricingProvider();
+    const eff = (p: CatalogProduct, qty: number) =>
+      priceOverrides[p.id] ?? provider.getPricing(p, { customer: activeCustomer, qty }).effectiveUnitPrice;
+    return optimizeMargin(
+      items.map(({ product, qty }) => ({
+        product,
+        qty,
+        effectiveUnitPrice: eff(product, qty),
+        candidates: (savingsCandidates[product.sku] ?? []).map((c) => ({
+          product: c.product,
+          effectiveUnitPrice: eff(c.product, qty),
+          relation: c.relation,
+        })),
+      })),
+    );
+  }, [items, activeCustomer, priceOverrides, savingsCandidates]);
+
+  function applyAllMarginSwaps() {
+    if (!optimization) return;
+    for (const l of optimization.lines) {
+      if (l.bestSwap) swapToCross(l.product.id, l.bestSwap.to, l.qty);
+    }
+  }
 
   // ── Email-quote state ──────────────────────────────────────────────────────
   const [emailOpen, setEmailOpen] = useState(false);
@@ -878,6 +909,92 @@ export function CartDrawer() {
             </>
           )}
         </div>
+
+        {/* ── Margin optimizer (#14) — internal; flag low-margin lines + higher-margin swaps ── */}
+        {optimization && (optimization.flaggedCount > 0 || optimization.swapCount > 0) && (
+          <div className="shrink-0 border-t border-[#B7C9D3] bg-[#EAAA00]/[0.07] px-5 py-4 print:hidden">
+            <button
+              type="button"
+              onClick={() => setOptimizerOpen((o) => !o)}
+              aria-expanded={optimizerOpen}
+              aria-controls="margin-optimizer-body"
+              className="flex w-full items-center justify-between gap-2 text-left"
+            >
+              <span className="text-xs font-semibold uppercase tracking-wide text-[#854F0B]">Margin optimizer</span>
+              <span className="text-[11px] text-[#4F758B]">
+                {optimization.flaggedCount > 0 && `${optimization.flaggedCount} low-margin · `}
+                {optimization.swapCount > 0 ? `+$${optimization.totalMarginGain.toFixed(2)} available` : "no swaps"}
+                <span className="ml-1" aria-hidden="true">{optimizerOpen ? "▾" : "▸"}</span>
+              </span>
+            </button>
+            {optimizerOpen && (
+              <div className="mt-2" id="margin-optimizer-body">
+                <p className="mb-2 text-xs text-[#1D252D]">
+                  Basket margin <b>{(optimization.current.marginPct * 100).toFixed(1)}%</b>
+                  {optimization.swapCount > 0 && (
+                    <>
+                      {" → "}
+                      <b className="text-[#00573F]">{(optimization.optimized.marginPct * 100).toFixed(1)}%</b> if you apply{" "}
+                      {optimization.swapCount} swap{optimization.swapCount === 1 ? "" : "s"}
+                    </>
+                  )}
+                </p>
+                <ul className="space-y-1.5">
+                  {optimization.lines
+                    .filter((l) => l.flagged || l.bestSwap)
+                    .map((l) => {
+                      const swap = l.bestSwap;
+                      return (
+                        <li key={l.product.id} className="rounded border border-[#B7C9D3]/60 bg-white px-3 py-2 text-xs">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="truncate">
+                              <b className="text-[#1D252D]">{l.product.sku}</b>{" "}
+                              <span className="text-[#4F758B]">{l.product.name}</span>
+                            </span>
+                            <span className="whitespace-nowrap font-medium" style={{ color: MARGIN_TIER_COLOR[l.tier] }}>
+                              {(l.currentMarginPct * 100).toFixed(0)}%
+                            </span>
+                          </div>
+                          {swap && (
+                            <div className="mt-1 flex items-center justify-between gap-2">
+                              <span className="truncate text-[#4F758B]">
+                                &#x2194; {swap.to.sku} · +{(swap.marginLiftPct * 100).toFixed(0)} pts
+                                {swap.customerPriceDeltaUnit !== 0 && (
+                                  <span className={swap.customerPriceDeltaUnit > 0 ? "text-[#DB6B30]" : "text-[#00573F]"}>
+                                    {" "}· cust {swap.customerPriceDeltaUnit > 0 ? "+" : "−"}$
+                                    {Math.abs(swap.customerPriceDeltaUnit).toFixed(2)}/ea
+                                  </span>
+                                )}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => swapToCross(l.product.id, swap.to, l.qty)}
+                                className="shrink-0 rounded bg-[#854F0B] px-2 py-0.5 font-semibold text-white hover:bg-[#6b3f08]"
+                              >
+                                Swap
+                              </button>
+                            </div>
+                          )}
+                        </li>
+                      );
+                    })}
+                </ul>
+                {optimization.swapCount > 1 && (
+                  <button
+                    type="button"
+                    onClick={applyAllMarginSwaps}
+                    className="mt-2 w-full rounded bg-[#854F0B] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#6b3f08]"
+                  >
+                    Apply all {optimization.swapCount} swaps (+${optimization.totalMarginGain.toFixed(2)} margin)
+                  </button>
+                )}
+                <p className="mt-1 text-[10px] text-[#4F758B]">
+                  Internal margin guidance — never shown on customer quotes. Spec-equivalent crosses; confirm fit before swapping.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* ── Complete this job — basket cross-sell ─────────────────────────── */}
         {completions.length > 0 && (

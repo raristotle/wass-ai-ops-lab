@@ -11,6 +11,7 @@ import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
 import { ResultsTable } from "@/features/product-finder/ResultsTable";
 import { CompareTray } from "@/features/product-finder/CompareTray";
 import { KeyboardHelpModal } from "@/features/product-finder/KeyboardHelpModal";
+import { BuyAgainRail } from "@/features/product-finder/BuyAgainRail";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
@@ -132,6 +133,18 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   it("Keyboard shortcuts modal (#13)", async () => {
     useProductFinder.setState({ keyboardHelpOpen: true });
     const { container } = render(<KeyboardHelpModal />);
+    await expectNoViolations(container);
+  });
+
+  it("Buy-it-again rail (#6)", async () => {
+    useProductFinder.setState({
+      activeCustomerId: null,
+      cart: {},
+      orders: [
+        { id: "o1", placedAt: 1_700_000_000_000, lines: [{ product: prod("A"), qty: 3 }], total: 60, customerId: null, customerName: null },
+      ],
+    });
+    const { container } = render(<BuyAgainRail />);
     await expectNoViolations(container);
   });
 });

@@ -6,6 +6,7 @@ import { fxConfigured } from "@/lib/integration/fx-live";
 import { geocodingConfigured } from "@/lib/integration/geocoding-live";
 import { addressVerifyConfigured } from "@/lib/integration/address-verify-live";
 import { groundingFetchConfigured } from "@/lib/integration/grounding-fetch";
+import { ocrConfigured } from "@/lib/integration/ocr-live";
 import { persistenceConfigured } from "@/lib/server/persistence";
 import { queueConfigured } from "@/lib/server/queue";
 import { rateLimiterConfigured } from "@/lib/server/rate-limit";
@@ -42,6 +43,7 @@ export function GET() {
       geocoding: geocodingConfigured(),
       addressVerify: addressVerifyConfigured(),
       grounding: groundingFetchConfigured(),
+      ocr: ocrConfigured(),
       database: persistenceConfigured(),
       queue: queueConfigured(),
       ratelimit: rateLimiterConfigured(),

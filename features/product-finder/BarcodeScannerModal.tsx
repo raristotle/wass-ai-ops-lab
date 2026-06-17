@@ -29,6 +29,9 @@ export function BarcodeScannerModal() {
   const [manual, setManual] = useState("");
   const [scanning, setScanning] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [ocrEnabled, setOcrEnabled] = useState(false);
+  const [ocrBusy, setOcrBusy] = useState(false);
+  const [ocrError, setOcrError] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const openRef = useRef(open);
@@ -119,6 +122,51 @@ export function BarcodeScannerModal() {
     return () => stopCamera();
   }, [open, stopCamera]);
 
+  // Is nameplate OCR configured? (dormant — the option is hidden otherwise.)
+  useEffect(() => {
+    if (!open) return;
+    let alive = true;
+    fetch("/api/ocr/nameplate")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (alive && d && d.configured) setOcrEnabled(true);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [open]);
+
+  // Photograph a nameplate → OCR → parse → run the catalog search (reuses submit).
+  function onNameplateFile(file: File) {
+    setOcrError(null);
+    setOcrBusy(true);
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const image = String(reader.result ?? "");
+        const res = await fetch("/api/ocr/nameplate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ image }),
+        });
+        const data: unknown = await res.json().catch(() => null);
+        const query = data && typeof (data as { query?: unknown }).query === "string" ? (data as { query: string }).query.trim() : "";
+        if (query) submit(query);
+        else setOcrError("Could not read the nameplate — try a clearer photo or type the part number.");
+      } catch {
+        setOcrError("Could not read the nameplate — try again.");
+      } finally {
+        setOcrBusy(false);
+      }
+    };
+    reader.onerror = () => {
+      setOcrError("Could not read that image.");
+      setOcrBusy(false);
+    };
+    reader.readAsDataURL(file);
+  }
+
   if (!open) return null;
 
   return (
@@ -204,6 +252,36 @@ export function BarcodeScannerModal() {
               </button>
             </div>
           </form>
+
+          {ocrEnabled && (
+            <div className="mt-3 border-t border-[#B7C9D3]/50 pt-3">
+              <label htmlFor="bc-nameplate" className="mb-1 block text-xs font-medium text-[#1D252D]">
+                Or photograph a nameplate / label
+              </label>
+              <input
+                id="bc-nameplate"
+                type="file"
+                accept="image/*"
+                capture="environment"
+                disabled={ocrBusy}
+                onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  if (f) onNameplateFile(f);
+                }}
+                className="block w-full text-xs text-[#4F758B] file:mr-2 file:rounded file:border-0 file:bg-[#004986] file:px-2 file:py-1 file:font-semibold file:text-white"
+              />
+              {ocrBusy && (
+                <p className="mt-1 text-xs text-[#4F758B]" role="status">
+                  Reading nameplate…
+                </p>
+              )}
+              {ocrError && (
+                <p className="mt-1 text-xs text-[#DB6B30]" role="status">
+                  {ocrError}
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
