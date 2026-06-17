@@ -12,9 +12,14 @@ import { ResultsTable } from "@/features/product-finder/ResultsTable";
 import { CompareTray } from "@/features/product-finder/CompareTray";
 import { KeyboardHelpModal } from "@/features/product-finder/KeyboardHelpModal";
 import { BuyAgainRail } from "@/features/product-finder/BuyAgainRail";
+import { SpecMatchModal } from "@/features/product-finder/SpecMatchModal";
+import { RiskSweepModal } from "@/features/product-finder/RiskSweepModal";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { useProductFinder } from "@/lib/product-finder-store";
 import type { CatalogProduct } from "@/features/product-finder/types";
+
+// RiskSweepModal uses next/navigation's useRouter — mock it so it renders in jsdom.
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
 
 function prod(id: string): CatalogProduct {
   return {
@@ -145,6 +150,18 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
       ],
     });
     const { container } = render(<BuyAgainRail />);
+    await expectNoViolations(container);
+  });
+
+  it("Spec-match modal (#20)", async () => {
+    useProductFinder.setState({ specMatchOpen: true });
+    const { container } = render(<SpecMatchModal />);
+    await expectNoViolations(container);
+  });
+
+  it("Risk-sweep modal (#7)", async () => {
+    useProductFinder.setState({ riskSweepOpen: true });
+    const { container } = render(<RiskSweepModal />);
     await expectNoViolations(container);
   });
 });

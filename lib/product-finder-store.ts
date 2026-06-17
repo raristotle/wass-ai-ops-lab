@@ -215,6 +215,12 @@ export interface ProductFinderState {
   keyboardHelpOpen: boolean;
   setKeyboardHelpOpen: (v: boolean) => void;
 
+  // Sprint-4 agents (#20 spec-match, #7 risk sweep)
+  specMatchOpen: boolean;
+  setSpecMatchOpen: (v: boolean) => void;
+  riskSweepOpen: boolean;
+  setRiskSweepOpen: (v: boolean) => void;
+
   // Detail modal
   detailModalProduct: CatalogProduct | null;
   setDetailModalProduct: (p: CatalogProduct | null) => void;
@@ -814,6 +820,12 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setActiveResultIndex(n) { set({ activeResultIndex: n }); },
   keyboardHelpOpen: false,
   setKeyboardHelpOpen(v) { set({ keyboardHelpOpen: v }); },
+
+  // ── Sprint-4 agents ───────────────────────────────────────
+  specMatchOpen: false,
+  setSpecMatchOpen(v) { set({ specMatchOpen: v }); },
+  riskSweepOpen: false,
+  setRiskSweepOpen(v) { set({ riskSweepOpen: v }); },
 
   // ── Cart ──────────────────────────────────────────────────
   cart: {},

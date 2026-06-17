@@ -6,6 +6,7 @@ import { apiCrossMatch } from "@/lib/product-finder-api";
 import { crossRefCsv, downloadCsv, type CrossCsvRow } from "@/lib/product-finder-csv";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { confidenceBand, BAND_META } from "@/lib/product-finder-cross-confidence";
 import type { BomCrossSuggestion } from "@/lib/catalog/bom-cross";
 
 /** Hard cap on bulk cross lines. */
@@ -234,7 +235,9 @@ export function BulkCrossModal() {
                   </tr>
                 </thead>
                 <tbody>
-                  {rows.map((r, i) => (
+                  {rows.map((r, i) => {
+                    const meta = r.suggestion ? BAND_META[confidenceBand(r.suggestion.confidence)] : null;
+                    return (
                     <tr key={i} className="border-b border-[#B7C9D3]/30 align-top last:border-0">
                       <td className="px-3 py-2 font-mono text-xs text-[#1D252D]">{r.input}</td>
                       <td className="px-3 py-2">
@@ -244,7 +247,13 @@ export function BulkCrossModal() {
                             <p className="text-xs text-[#4F758B]">
                               {r.suggestion.product.brand} · ${r.suggestion.product.unitPrice.toFixed(2)}/
                               {r.suggestion.product.uom} ·{" "}
-                              <span className="font-semibold text-[#00573F]">{r.suggestion.confidence}%</span>{" "}
+                              <span
+                                className="rounded px-1.5 py-0.5 text-[10px] font-semibold text-white"
+                                style={{ backgroundColor: meta?.color }}
+                                title={meta?.blurb}
+                              >
+                                {meta?.label} {r.suggestion.confidence}%
+                              </span>{" "}
                               {r.suggestion.relation === "equivalent" ? "equivalent" : "substitute"}
                             </p>
                           </div>
@@ -287,7 +296,8 @@ export function BulkCrossModal() {
                         )}
                       </td>
                     </tr>
-                  ))}
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

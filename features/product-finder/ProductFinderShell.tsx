@@ -22,6 +22,8 @@ import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
 import { BarcodeScannerModal } from "@/features/product-finder/BarcodeScannerModal";
 import { CompareTray } from "@/features/product-finder/CompareTray";
 import { KeyboardHelpModal } from "@/features/product-finder/KeyboardHelpModal";
+import { SpecMatchModal } from "@/features/product-finder/SpecMatchModal";
+import { RiskSweepModal } from "@/features/product-finder/RiskSweepModal";
 import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
@@ -256,6 +258,8 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <VmiModal />
       <QuickOrderModal />
       <BarcodeScannerModal />
+      <SpecMatchModal />
+      <RiskSweepModal />
       <ReturnModal />
       <HelpPanel />
       <TourOverlay />

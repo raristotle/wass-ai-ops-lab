@@ -19,7 +19,8 @@ export type CommandAction =
       kind: "open";
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
-        | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode";
+        | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode"
+        | "spec-match" | "risk-sweep";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -150,6 +151,20 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["nec", "conduit fill", "wire size", "voltage drop", "breaker", "ocpd", "calculator", "size"],
       action: { kind: "open", target: "guided" },
+    },
+    {
+      id: "open-spec-match",
+      label: "Spec match — find compliant SKUs",
+      group: "Open",
+      keywords: ["spec", "nema", "sccr", "aic", "requirement", "compliant", "engineering", "match", "pass fail"],
+      action: { kind: "open", target: "spec-match" },
+    },
+    {
+      id: "open-risk-sweep",
+      label: "Risk sweep — EOL & supply risks",
+      group: "Open",
+      keywords: ["eol", "end of life", "obsolete", "discontinued", "single source", "supply risk", "substitution", "sweep"],
+      action: { kind: "open", target: "risk-sweep" },
     },
     {
       id: "open-rfq",

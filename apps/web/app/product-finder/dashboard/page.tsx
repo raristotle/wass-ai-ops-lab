@@ -51,6 +51,7 @@ import { lostReasonBreakdown, winLossByCustomer } from "@/lib/product-finder-for
 import { allCustomerHealth, HEALTH_COLOR, HEALTH_LABEL } from "@/lib/product-finder-customer-health";
 import { demandForecast, WINDOW_DAYS } from "@/lib/product-finder-forecast";
 import { CrossCoveragePanel } from "@/features/product-finder/CrossCoveragePanel";
+import { CoverageGapsCard } from "@/features/product-finder/CoverageGapsCard";
 import { subcategoryShareQuery } from "@/lib/product-finder-url";
 import { categoryShareQuery } from "@/lib/product-finder-url";
 import { apiGetProduct } from "@/lib/product-finder-api";
@@ -675,6 +676,7 @@ function DashboardContent() {
 
       {/* ── Cross-reference coverage ───────────────────────────────────────────── */}
       <CrossCoveragePanel />
+      <CoverageGapsCard />
 
       {/* ── Charts row: Top categories + Orders over time ──────────────────────── */}
       <div className="grid gap-4 lg:grid-cols-2">

@@ -43,6 +43,8 @@ export function CommandPalette() {
   const setVmiOpen = useProductFinder((s) => s.setVmiOpen);
   const setQuickOrderOpen = useProductFinder((s) => s.setQuickOrderOpen);
   const setBarcodeOpen = useProductFinder((s) => s.setBarcodeOpen);
+  const setSpecMatchOpen = useProductFinder((s) => s.setSpecMatchOpen);
+  const setRiskSweepOpen = useProductFinder((s) => s.setRiskSweepOpen);
   const clearFilters = useProductFinder((s) => s.clearFilters);
   const reorder = useProductFinder((s) => s.reorder);
   const pageSize = useProductFinder((s) => s.pageSize);
@@ -81,6 +83,8 @@ export function CommandPalette() {
         s.vmiOpen ||
         s.quickOrderOpen ||
         s.barcodeOpen ||
+        s.specMatchOpen ||
+        s.riskSweepOpen ||
         s.returnModalOrderId !== null ||
         s.detailModalProduct !== null
       ) {
@@ -136,6 +140,8 @@ export function CommandPalette() {
         else if (action.target === "vmi") setVmiOpen(true);
         else if (action.target === "quickorder") setQuickOrderOpen(true);
         else if (action.target === "barcode") setBarcodeOpen(true);
+        else if (action.target === "spec-match") setSpecMatchOpen(true);
+        else if (action.target === "risk-sweep") setRiskSweepOpen(true);
         else setBulkModalOpen(true);
         break;
       case "exec":
