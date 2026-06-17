@@ -3,6 +3,9 @@ import { isAssistantEnabled } from "@/lib/product-finder-assistant";
 import { readSsoConfig } from "@/lib/auth/sso";
 import { commodityConfigured } from "@/lib/integration/commodity-live";
 import { fxConfigured } from "@/lib/integration/fx-live";
+import { geocodingConfigured } from "@/lib/integration/geocoding-live";
+import { addressVerifyConfigured } from "@/lib/integration/address-verify-live";
+import { groundingFetchConfigured } from "@/lib/integration/grounding-fetch";
 import { persistenceConfigured } from "@/lib/server/persistence";
 import { queueConfigured } from "@/lib/server/queue";
 import { rateLimiterConfigured } from "@/lib/server/rate-limit";
@@ -36,6 +39,9 @@ export function GET() {
       digikey: Boolean(process.env.DIGIKEY_CLIENT_ID && process.env.DIGIKEY_CLIENT_SECRET),
       commodity: commodityConfigured(),
       fx: fxConfigured(),
+      geocoding: geocodingConfigured(),
+      addressVerify: addressVerifyConfigured(),
+      grounding: groundingFetchConfigured(),
       database: persistenceConfigured(),
       queue: queueConfigured(),
       ratelimit: rateLimiterConfigured(),

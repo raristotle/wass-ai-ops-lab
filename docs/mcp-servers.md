@@ -120,3 +120,35 @@ completes the OAuth approval.
   *never log raw payment payloads*, make sure the app never logs sensitive data in the
   first place.
 - Beta; only Vercel-approved clients (Claude Code is one) may connect.
+
+---
+
+## 3. `fetch` — free web-grounding source (Sprint 2 · #12)
+
+The reference **Fetch MCP** (`@modelcontextprotocol/server-fetch`, MIT, stdio) fetches a URL and
+returns it as markdown — the **$0, no-key** way to ground Ask Meridian / datasheet-RAG answers on a
+specific manufacturer bulletin or UL listing. We adopt it as the default web-grounding source
+**deliberately over the Brave Search API**, which dropped its free tier (Feb 2026, now ~$5/1,000 with
+a mandatory card) — choosing `fetch` is a cost-guardrail decision, not just a feature.
+
+Add it to the repo-root `.mcp.json` (apply deliberately, like the others):
+
+```json
+"fetch": {
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-fetch"]
+}
+```
+
+> **Windows / stdio:** if it fails to connect, point `command` at the absolute `npx`/`node` path or
+> wrap as `"command": "cmd", "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-fetch"]`.
+
+### App-side grounding seam — `lib/integration/grounding-fetch.ts`
+
+So the app itself (not just an agent's Claude session) can ground on a URL, there is a dormant,
+SSRF-hardened server seam: https-only, literal-IP / `localhost` / `*.local` / `*.internal` refused,
+and **only** hosts on an explicit operator allow-list are fetchable. It is dormant until
+`FETCH_GROUNDING_DOMAINS` is set (a comma list of trusted hostname suffixes, e.g.
+`ul.com,intertek.com,schneider-electric.com`); responses are size-capped and tag-stripped to a text
+snippet. Health flag `grounding`. Only add domains you trust.
+
