@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 /**
  * Keyboard/focus a11y for a modal dialog (WCAG 2.2 2.1.2 / 2.4.3 + ARIA APG):
  * - moves focus to the close control once, on open (so focus enters the dialog),
+ * - RESTORES focus to the triggering element when the dialog closes (or unmounts),
  * - closes on Escape,
  * - traps Tab/Shift+Tab within the dialog so focus can't escape to the page
  *   behind an `aria-modal` overlay.
@@ -17,7 +18,19 @@ export function useModalA11y(open: boolean, onClose: () => void) {
   onCloseRef.current = onClose;
 
   useEffect(() => {
-    if (open) closeRef.current?.focus();
+    if (!open) return;
+    // Remember what had focus before the dialog took it, so we can return focus
+    // there on close (WCAG 2.4.3). Skip <body> — there's nothing to restore to.
+    const active = document.activeElement as HTMLElement | null;
+    const trigger = active && active !== document.body ? active : null;
+    closeRef.current?.focus();
+    // Cleanup runs when `open` flips false OR the modal unmounts → restore focus,
+    // covering both always-mounted (returns null) and conditionally-mounted modals.
+    return () => {
+      if (trigger && document.contains(trigger) && typeof trigger.focus === "function") {
+        trigger.focus();
+      }
+    };
   }, [open]);
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { rowIsShared, diffFlags, countSharedRows } from "@/lib/product-finder-compare-diff";
+import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 
 // ─── Print date helper ────────────────────────────────────────────────────────
@@ -66,6 +67,8 @@ export function SpecCompareModal() {
   const { compareIds, compareModalOpen, setCompareModalOpen, clearCompare, addToCart, results, user } =
     useProductFinder();
   const [differencesOnly, setDifferencesOnly] = useState(false);
+  // Focus-in on open, focus-return to the trigger on close, Escape, and Tab-trap.
+  const closeRef = useModalA11y(compareModalOpen, () => setCompareModalOpen(false));
 
   const handlePrint = () => {
     window.print();
@@ -118,6 +121,7 @@ export function SpecCompareModal() {
             Compare Products ({compareProducts.length} selected)
           </h2>
           <button
+            ref={closeRef}
             onClick={() => setCompareModalOpen(false)}
             className="text-white/80 hover:text-white transition-colors text-2xl leading-none font-light"
             aria-label="Close compare modal"

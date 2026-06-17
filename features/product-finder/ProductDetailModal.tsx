@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { useProductFinder, selectActiveCustomer } from "@/lib/product-finder-store";
 import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import { externalSearchLinks } from "@/lib/product-finder-links";
@@ -18,6 +18,7 @@ import { isInStock } from "@/lib/product-finder-leadtime";
 import { getPricingProvider, getInventoryProvider, getCrossReferenceProvider } from "@/lib/integration/index";
 import { isObsolescent, LIFECYCLE_META } from "@/lib/catalog/lifecycle";
 import { pickActiveSuccessor } from "@/lib/catalog/successor";
+import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import type { SourcingGrade } from "@/lib/catalog/coverage-score";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
@@ -96,7 +97,8 @@ export function ProductDetailModal() {
   const repUser        = useProductFinder((s) => s.user);
 
   const [qty, setQty] = useState(1);
-  const closeRef = useRef<HTMLButtonElement>(null);
+  // Focus-in on open, focus-return to the trigger on close, Escape, and Tab-trap.
+  const closeRef = useModalA11y(!!product, () => setDetailModal(null));
 
   // Goes-with cross-sell
   const [goesWithItems, setGoesWithItems] = useState<CatalogProduct[]>([]);
@@ -145,21 +147,6 @@ export function ProductDetailModal() {
       cancelled = true;
     };
   }, [product?.id]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Escape closes
-  useEffect(() => {
-    if (!product) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setDetailModal(null);
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [product, setDetailModal]);
-
-  // Focus ✕ on open
-  useEffect(() => {
-    if (product) closeRef.current?.focus();
-  }, [product]);
 
   if (!product) return null;
 
