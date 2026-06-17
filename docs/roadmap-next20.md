@@ -8,6 +8,12 @@ strategy), averaged → ranked by value ÷ cost → clustered into dependency-or
 Every external integration ships **env-gated dormant** ($0, no network until a key is set), no cron,
 secrets server-only — the same constraints that held across the first 20.
 
+> **Status (2026-06-17): ✅ ALL 5 SPRINTS SHIPPED — the entire refreshed top-20 is live in production.**
+> Sprint 1 (`ed2c4bc`), Sprint 2 (`8065882`), Sprint 3 (`98925b0`), Sprint 4 (`8985b50`), Sprint 5
+> (outbound integrations). Each shipped with: deterministic core + dormant gating, an adversarial
+> Workflow review with findings fixed, gates green (typecheck/test/build), and live `/api/health`
+> verification that every new integration reads dormant (`false`) until a key is provisioned.
+
 ## Ranked top-20 (value ÷ cost)
 
 Value/Cost are 1-10 dual-lens averages (cost: 10 = most expensive/hardest).

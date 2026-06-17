@@ -1910,7 +1910,10 @@ export function buildDemoQuotes(now: number): SavedQuote[] {
   const DAY = 86_400_000;
   const p1 = CATALOG_PRODUCTS.find((p) => p.id === "CB-SQD-QO115");
   const p2 = CATALOG_PRODUCTS.find((p) => p.id === "CB-EAT-CH115");
-  if (!p1 || !p2) return [];
+  // A different-subcategory line (Wire & Cable vs Circuit Breakers) so some quotes
+  // count as cross-sell in the rep scorecard (#18).
+  const p3 = CATALOG_PRODUCTS.find((p) => p.id === "WC-SOA-12THHN-BLK");
+  if (!p1 || !p2 || !p3) return [];
 
   type Seed = {
     daysAgo: number;
@@ -1948,22 +1951,38 @@ export function buildDemoQuotes(now: number): SavedQuote[] {
     { daysAgo: 1, status: "draft", marginPct: 0.12, customerId: null, customer: "Bayou Contracting", qty: 80, approvalStatus: "pending" },
   ];
 
+  // Distinct reps so the manager scorecard (#18) shows real per-rep differentiation
+  // instead of a single "Unknown" row. Rep is carried on the quote's created event
+  // (the scorecard reads the audit-trail author).
+  const REPS = ["Sarah Chen", "Marcus Rivera", "Devin Park"];
+
   return seeds.map((s, i) => {
     const ts = now - s.daysAgo * DAY;
     const product = i % 2 === 0 ? p1 : p2;
     const unitPrice = product.unitPrice;
-    const total = Math.round(unitPrice * s.qty * 100) / 100;
+    const rep = REPS[i % REPS.length];
+    // Attach a second (wire) line to a varied subset so cross-sell attach differs
+    // per rep (Marcus ~100%, Sarah ~33%, Devin ~20%) rather than a flat 0%.
+    const crossSell = i % 3 === 1 || i % 5 === 0;
+    const lines = crossSell
+      ? [{ product, qty: s.qty, unitPrice }, { product: p3, qty: 8, unitPrice: p3.unitPrice }]
+      : [{ product, qty: s.qty, unitPrice }];
+    const total = Math.round(lines.reduce((sum, l) => sum + l.unitPrice * l.qty, 0) * 100) / 100;
     const quote: SavedQuote = {
       id: `demo-quote-${String(i + 1).padStart(3, "0")}`,
       number: quoteNumber(new Date(ts), 9000 + i),
       customer: s.customer,
       project: "",
-      lines: [{ product, qty: s.qty, unitPrice }],
+      lines,
       total,
       status: s.status,
       createdAt: ts,
       customerId: s.customerId,
       marginPct: s.marginPct,
+      events: [quoteEvent("created", "Quote created", ts, rep)],
+      // Won quotes record when they converted, so the scorecard's cycle-time metric
+      // has data (varied 2–5 days; all seeds are ≥12 days old, so still in the past).
+      ...(s.status === "won" ? { convertedAt: ts + (2 + (i % 4)) * DAY } : {}),
       ...(s.approvalStatus ? { approvalStatus: s.approvalStatus } : {}),
     };
     return quote;

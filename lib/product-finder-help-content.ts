@@ -759,6 +759,18 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "outbound-alerts",
+    title: "Outbound alerts & rep scorecard",
+    body: [
+      "Sprint 5 connects Meridian to the channels your team already lives in — all dormant and $0 until an operator turns each on:",
+      "• Push alerts — when a workspace enables web push, an Enable alerts button appears in the header. One tap and a quote/approval/order ping reaches you even when the Meridian app is closed. (iPhone: add Meridian to your Home Screen first.)",
+      "• Slack — high-signal events (a quote accepted, an inbound RFQ matched, an approval needed) can post to a Slack channel automatically, so nothing waits in an inbox.",
+      "• Branded PDFs — quotes can render to a polished, white-label PDF server-side, identical to the emailed version, ready to attach to a PO.",
+      "• Rep scorecard — the dashboard shows a manager table of volume, win rate, average margin, cross-sell attach, and average cycle time per rep, built from your own quote history.",
+      "• Procurement networks — Meridian is ready to punch out to SAP Business Network (Ariba) and Coupa using their free supplier accounts.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

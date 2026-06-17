@@ -29,6 +29,7 @@ import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
 import { BrandSwitcher } from "@/features/product-finder/BrandSwitcher";
 import { NotificationBell } from "@/features/product-finder/NotificationBell";
+import { PushSubscribeButton } from "@/features/product-finder/PushSubscribeButton";
 import { TourOverlay } from "@/features/product-finder/TourOverlay";
 import { CommandPalette } from "@/features/product-finder/CommandPalette";
 import { getBrand } from "@/lib/brand";
@@ -178,6 +179,9 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
           >
             ⌘K
           </button>
+
+          {/* Push opt-in (hidden unless VAPID is configured + browser supports it) */}
+          <PushSubscribeButton />
 
           {/* Notifications */}
           <NotificationBell />

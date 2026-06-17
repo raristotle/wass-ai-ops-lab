@@ -4,6 +4,7 @@ import { getStore, forTenant } from "@/lib/server/persistence";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
+import { slackConfigured, buildAlert, sendSlackAlert } from "@/lib/integration/slack-alerts";
 
 export const dynamic = "force-dynamic";
 
@@ -33,6 +34,25 @@ export async function POST(req: Request) {
     const store = forTenant(getStore(), tenantForRequest(req));
     const record = { id: parsed.data.quoteNumber, ...parsed.data };
     await store.put(NS, record.id, record);
+
+    // Best-effort Slack heads-up (dormant unless SLACK_WEBHOOK_URL is set).
+    // Fire-and-forget: the RFQ is already persisted, so a slow/refused Slack
+    // endpoint must not add latency to (or fail) this response.
+    if (slackConfigured()) {
+      const d = parsed.data;
+      void sendSlackAlert(
+        buildAlert({
+          title: `Inbound RFQ — ${d.quoteNumber}`,
+          text: `New RFQ drafted: ${d.matched}/${d.lines} lines matched`,
+          fields: [
+            ...(d.customer ? [{ label: "Customer", value: d.customer }] : []),
+            { label: "Lines matched", value: `${d.matched} / ${d.lines}` },
+          ],
+          context: "meridian • rfq.received",
+        }),
+      ).catch(() => {});
+    }
+
     return NextResponse.json({ ok: true, id: record.id, persisted: store.backend });
   } catch (e) {
     logApiError("/api/rfq", e);

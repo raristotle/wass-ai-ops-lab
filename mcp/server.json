@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.json",
+  "name": "io.github.raristotle/meridian-product-finder",
+  "description": "AI product recommender for electrical distributors — search, cross-reference, product detail, availability, jobs, and ordering tools over the Meridian/Wesco catalog. Read tools are free; create_job/place_order are write tools gated by the deployment's API token.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/raristotle/wass-ai-ops-lab",
+    "source": "github"
+  },
+  "websiteUrl": "https://app.raristotle.com/product-finder",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@wass/meridian-mcp-server",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "MERIDIAN_API_BASE",
+          "description": "Meridian API base URL.",
+          "isRequired": false,
+          "default": "https://app.raristotle.com"
+        },
+        {
+          "name": "MERIDIAN_API_TOKEN",
+          "description": "Bearer token required for the write tools when the deployment's WRITE_API_TOKEN gate is enabled.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

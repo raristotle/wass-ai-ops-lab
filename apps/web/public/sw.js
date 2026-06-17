@@ -93,3 +93,39 @@ self.addEventListener("fetch", (event) => {
 
   // Everything else (hashed static chunks, etc.) → pass through to the network.
 });
+
+// Web push (#17): a no-payload "tickle" wakes the SW; show a generic alert that
+// opens the product finder. (We deliberately don't send payloads, so there's no
+// sensitive data in the push and no payload encryption.)
+self.addEventListener("push", (event) => {
+  let body = "You have a new Meridian alert. Open the app to view it.";
+  try {
+    if (event.data) {
+      const d = event.data.json();
+      if (d && typeof d.body === "string") body = d.body;
+    }
+  } catch {
+    /* no/!JSON payload — use the generic message */
+  }
+  event.waitUntil(
+    self.registration.showNotification("Meridian", {
+      body,
+      icon: "/icon.svg",
+      badge: "/icon.svg",
+      tag: "meridian-alert",
+    }),
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const url = "/product-finder";
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
+      for (const client of list) {
+        if (client.url.includes("/product-finder") && "focus" in client) return client.focus();
+      }
+      return self.clients.openWindow ? self.clients.openWindow(url) : undefined;
+    }),
+  );
+});

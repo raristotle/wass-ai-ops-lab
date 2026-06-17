@@ -17,6 +17,8 @@ import { nexarConfigured } from "@/lib/integration/nexar-live";
 import { shippingConfigured } from "@/lib/integration/shipping-live";
 import { hubspotConfigured } from "@/lib/integration/hubspot-live";
 import { smsConfigured } from "@/lib/integration/sms-live";
+import { pdfConfigured } from "@/lib/integration/pdf-live";
+import { webPushConfigured } from "@/lib/server/web-push";
 
 export const dynamic = "force-dynamic";
 
