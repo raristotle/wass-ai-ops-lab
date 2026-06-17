@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { priceTiers, tierUnitPrice } from "@/lib/product-finder-pricing";
+import { priceTiers, tierUnitPrice, volumeTierHint } from "@/lib/product-finder-pricing";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 // ─── Minimal product fixture ──────────────────────────────────────────────────
@@ -165,5 +165,39 @@ describe("tierUnitPrice", () => {
     expect(tierUnitPrice(p, 50)).toBe(33.74);
     // qty 100 → 15% off $37.49 = $31.87
     expect(tierUnitPrice(p, 100)).toBe(31.87);
+  });
+});
+
+// ─── volumeTierHint ─────────────────────────────────────────────────────────
+
+describe("volumeTierHint", () => {
+  const product = makeProduct(100);
+
+  it("at qty 1: base tier, 0% saved, points at the 10+ break needing 9 more", () => {
+    expect(volumeTierHint(product, 1)).toEqual({
+      unitPrice: 100,
+      appliedMinQty: 1,
+      savedPct: 0,
+      next: { minQty: 10, unitPrice: 95, addQty: 9 },
+    });
+  });
+
+  it("at qty 10: 5% tier applied, next break is 50+ needing 40 more", () => {
+    const h = volumeTierHint(product, 10);
+    expect(h.appliedMinQty).toBe(10);
+    expect(h.unitPrice).toBe(95);
+    expect(h.savedPct).toBe(5);
+    expect(h.next).toEqual({ minQty: 50, unitPrice: 90, addQty: 40 });
+  });
+
+  it("at the top tier (>=100): 15% saved, no next break", () => {
+    const h = volumeTierHint(product, 120);
+    expect(h.appliedMinQty).toBe(100);
+    expect(h.savedPct).toBe(15);
+    expect(h.next).toBeNull();
+  });
+
+  it("qty < 1 is treated as 1", () => {
+    expect(volumeTierHint(product, 0).appliedMinQty).toBe(1);
   });
 });

@@ -1,11 +1,12 @@
 "use client";
 
-import type { MouseEvent } from "react";
+import { useState, type MouseEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { PRODUCT_MAP, getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-products";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { rowIsShared, diffFlags, countSharedRows } from "@/lib/product-finder-compare-diff";
 import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 
 // ─── Print date helper ────────────────────────────────────────────────────────
@@ -51,12 +52,6 @@ function getSpecValue(product: CatalogProduct, specName: string): string | null 
   return found ? found.value : null;
 }
 
-function allSame(values: (string | null)[]): boolean {
-  const filled = values.filter((v): v is string => v !== null);
-  if (filled.length <= 1) return true;
-  return filled.every((v) => v === filled[0]);
-}
-
 function cheapestIndex(products: CatalogProduct[]): number {
   let minIdx = 0;
   for (let i = 1; i < products.length; i++) {
@@ -70,6 +65,7 @@ function cheapestIndex(products: CatalogProduct[]): number {
 export function SpecCompareModal() {
   const { compareIds, compareModalOpen, setCompareModalOpen, clearCompare, addToCart, results, user } =
     useProductFinder();
+  const [differencesOnly, setDifferencesOnly] = useState(false);
 
   const handlePrint = () => {
     window.print();
@@ -87,6 +83,14 @@ export function SpecCompareModal() {
 
   const specOrder = buildSpecOrder(compareProducts);
   const cheapest = cheapestIndex(compareProducts);
+
+  // Spec rows + their per-product values; "differences only" hides shared rows.
+  const specRows = specOrder.map((spec) => ({
+    spec,
+    values: compareProducts.map((p) => getSpecValue(p, spec.name)),
+  }));
+  const sharedSpecCount = countSharedRows(specRows.map((r) => r.values));
+  const visibleSpecRows = differencesOnly ? specRows.filter((r) => !rowIsShared(r.values)) : specRows;
 
   const handleOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) setCompareModalOpen(false);
@@ -122,6 +126,24 @@ export function SpecCompareModal() {
           </button>
         </div>
 
+        {/* Differences-only toggle — screen only */}
+        <div className="print:hidden flex items-center gap-3 border-b border-gray-200 bg-white px-6 py-2">
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-[#1D252D]">
+            <input
+              type="checkbox"
+              checked={differencesOnly}
+              onChange={(e) => setDifferencesOnly(e.target.checked)}
+            />
+            Show differences only
+          </label>
+          {sharedSpecCount > 0 && (
+            <span className="text-xs text-[#4F758B]">
+              {sharedSpecCount} shared spec{sharedSpecCount === 1 ? "" : "s"}
+              {differencesOnly ? " hidden" : ""}
+            </span>
+          )}
+        </div>
+
         {/* Print-only header */}
         <div className="hidden print:block px-0 pb-4 border-b border-[#B7C9D3]/60 mb-4">
           <h1 className="text-lg font-bold text-[#1D252D]">Product Comparison</h1>
@@ -143,13 +165,13 @@ export function SpecCompareModal() {
             <thead>
               <tr className="border-b border-gray-200">
                 {/* Spec label column */}
-                <th className="w-40 min-w-[160px] text-left px-4 py-4 text-[#4F758B] font-medium align-bottom bg-gray-50 border-r border-gray-200">
+                <th className="w-40 min-w-[160px] text-left px-4 py-4 text-[#4F758B] font-medium align-bottom bg-gray-50 border-r border-gray-200 sticky top-0 z-20 print:static">
                   Specification
                 </th>
                 {compareProducts.map((product) => (
                   <th
                     key={product.id}
-                    className="px-4 py-4 align-top text-left min-w-[200px] border-r border-gray-100 last:border-r-0"
+                    className="px-4 py-4 align-top text-left min-w-[200px] border-r border-gray-100 last:border-r-0 bg-white sticky top-0 z-10 print:static"
                   >
                     <div className="flex flex-col gap-2">
                       {/* Icon + name */}
@@ -284,10 +306,10 @@ export function SpecCompareModal() {
                 ))}
               </tr>
 
-              {/* Spec rows */}
-              {specOrder.map((spec) => {
-                const values = compareProducts.map((p) => getSpecValue(p, spec.name));
-                const same = allSame(values);
+              {/* Spec rows (collapsed to differences when the toggle is on) */}
+              {visibleSpecRows.map(({ spec, values }) => {
+                const same = rowIsShared(values);
+                const flags = diffFlags(values);
                 return (
                   <tr
                     key={spec.name}
@@ -311,7 +333,9 @@ export function SpecCompareModal() {
                         key={compareProducts[idx].id}
                         className={cn(
                           "px-4 py-2.5 border-r border-gray-100 last:border-r-0 align-middle",
-                          same ? "text-gray-400" : "text-[#1D252D]"
+                          same ? "text-gray-400" : "text-[#1D252D]",
+                          // Highlight the specific cells that differ from the others.
+                          flags[idx] && "bg-[#EAAA00]/25 font-semibold print:bg-transparent"
                         )}
                       >
                         {val ?? (
@@ -324,6 +348,16 @@ export function SpecCompareModal() {
                   </tr>
                 );
               })}
+              {differencesOnly && visibleSpecRows.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={compareProducts.length + 1}
+                    className="px-4 py-6 text-center text-sm text-[#4F758B]"
+                  >
+                    These products share all listed specifications.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

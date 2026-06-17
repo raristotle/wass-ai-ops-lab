@@ -6,6 +6,7 @@ import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-produc
 import { externalSearchLinks } from "@/lib/product-finder-links";
 import { priceTiers } from "@/lib/product-finder-pricing";
 import { apiGoesWith } from "@/lib/product-finder-api";
+import { fetchProductDetailCached } from "@/lib/product-finder-prefetch";
 import { ProductImage } from "@/features/product-finder/ProductImage";
 import { LiveDistributorPanel } from "@/features/product-finder/LiveDistributorPanel";
 import { VerifiedCrossPanel } from "@/features/product-finder/VerifiedCrossPanel";
@@ -132,15 +133,14 @@ export function ProductDetailModal() {
     setCoverage(null);
     if (!product) return;
     let cancelled = false;
-    const branchQ = repUser?.branchId ? `?branchId=${encodeURIComponent(repUser.branchId)}` : "";
-    void fetch(`/api/products/${encodeURIComponent(product.id)}${branchQ}`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data: { equivalents?: CatalogProduct[]; coverage?: SourcingGrade } | null) => {
-        if (cancelled || !data) return;
-        setCoverage(data.coverage ?? null);
-        setSuccessor(pickActiveSuccessor(product, data.equivalents ?? []));
-      })
-      .catch(() => {});
+    // Reuses any hover/focus-warmed entry from the intent-prefetch cache, so the
+    // detail opens instantly when prefetched (else fetches now). Fail-soft (null).
+    void fetchProductDetailCached(product.id, repUser?.branchId).then((data) => {
+      if (cancelled || !data) return;
+      const d = data as { equivalents?: CatalogProduct[]; coverage?: SourcingGrade };
+      setCoverage(d.coverage ?? null);
+      setSuccessor(pickActiveSuccessor(product, d.equivalents ?? []));
+    });
     return () => {
       cancelled = true;
     };

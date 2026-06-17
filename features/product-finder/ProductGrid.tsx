@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
 import { ResultsTable } from "@/features/product-finder/ResultsTable";
+import { AppliedFiltersBar } from "@/features/product-finder/AppliedFiltersBar";
 import { useResultsKeyboard } from "@/features/product-finder/useResultsKeyboard";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { searchResultsCsv, downloadCsv } from "@/lib/product-finder-csv";
@@ -201,6 +202,9 @@ export function ProductGrid({
           </div>
         </div>
       </div>
+
+      {/* ── Applied-filters overview bar (#2) ────────────────────── */}
+      <AppliedFiltersBar />
 
       {/* ── Empty state ──────────────────────────────────────────── */}
       {products.length === 0 && (

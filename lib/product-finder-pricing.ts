@@ -49,3 +49,43 @@ export function tierUnitPrice(product: CatalogProduct, qty: number): number {
   }
   return result;
 }
+
+// ─── volumeTierHint ───────────────────────────────────────────────────────────
+
+export interface TierHint {
+  /** Effective unit price at the current quantity. */
+  unitPrice: number;
+  /** minQty of the tier currently applied (1 = base, no discount). */
+  appliedMinQty: number;
+  /** % saved off the base (tier-1) unit price at the current quantity. */
+  savedPct: number;
+  /** The next break the buyer could reach, or null if already at the top tier. */
+  next: { minQty: number; unitPrice: number; addQty: number } | null;
+}
+
+/**
+ * Inline volume-pricing hint for a result row (v3-S1 #3): the tier that applies
+ * at `qty`, the % saved vs. the base price, and the next break (with how many
+ * more units reach it). Pure — drives the "Vol. $X ea · save Y%  +N more → $Z"
+ * affordance on result cards and the table.
+ */
+export function volumeTierHint(product: CatalogProduct, qty: number): TierHint {
+  const tiers = priceTiers(product);
+  const effectiveQty = Math.max(1, qty);
+  const base = tiers[0].unitPrice;
+
+  let applied = tiers[0];
+  for (const tier of tiers) {
+    if (effectiveQty >= tier.minQty) applied = tier;
+  }
+  const nextTier = tiers.find((t) => t.minQty > effectiveQty) ?? null;
+
+  return {
+    unitPrice: applied.unitPrice,
+    appliedMinQty: applied.minQty,
+    savedPct: base > 0 ? Math.round((1 - applied.unitPrice / base) * 100) : 0,
+    next: nextTier
+      ? { minQty: nextTier.minQty, unitPrice: nextTier.unitPrice, addQty: nextTier.minQty - effectiveQty }
+      : null,
+  };
+}

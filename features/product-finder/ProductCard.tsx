@@ -11,6 +11,8 @@ import { getTotalBranchStock, getTotalDCStock } from "@/data/mock/catalog-produc
 import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 import { RecommendationExplanation } from "@/features/product-finder/RecommendationExplanation";
 import { ProductImage } from "@/features/product-finder/ProductImage";
+import { useIntentPrefetch } from "@/features/product-finder/useIntentPrefetch";
+import { volumeTierHint } from "@/lib/product-finder-pricing";
 import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
 import { getPricingProvider } from "@/lib/integration/index";
 import { isFunctionalEquivalent } from "@/lib/catalog/equivalence";
@@ -72,6 +74,9 @@ export function ProductCard({
   const toggleWatch = useProductFinder((s) => s.toggleWatch);
   const activeCustomer = useProductFinder(selectActiveCustomer);
 
+  // Warm the detail endpoint on hover/focus/touch so View Details opens instantly.
+  const intentPrefetch = useIntentPrefetch(product.id, user?.branchId);
+
   const branchQty = getTotalBranchStock(product);
   const dcQty = getTotalDCStock(product);
   const isComparing = compareIds.has(product.id);
@@ -101,6 +106,7 @@ export function ProductCard({
 
   return (
     <div
+      {...intentPrefetch}
       className={cn(
         "relative flex flex-col bg-white rounded-lg border shadow-sm overflow-hidden",
         product.preferred
@@ -456,6 +462,26 @@ export function ProductCard({
               Add to Basket
             </Button>
           </div>
+
+          {/* Inline volume-pricing tier hint — appears as qty crosses a break */}
+          {(() => {
+            const hint = volumeTierHint(product, qty);
+            if (hint.appliedMinQty === 1 && !hint.next) return null;
+            return (
+              <p className="text-[10px] text-[#4F758B] leading-tight">
+                {hint.appliedMinQty > 1 && (
+                  <span className="font-semibold text-[#00573F]">
+                    Vol. ${hint.unitPrice.toFixed(2)} ea · save {hint.savedPct}%
+                  </span>
+                )}
+                {hint.next && (
+                  <span className={hint.appliedMinQty > 1 ? "ml-1.5" : ""}>
+                    +{hint.next.addQty} more → ${hint.next.unitPrice.toFixed(2)} ea at {hint.next.minQty}+
+                  </span>
+                )}
+              </p>
+            );
+          })()}
 
           {/* Compare + Find Alternatives + View Details */}
           <div className="flex items-center gap-2">

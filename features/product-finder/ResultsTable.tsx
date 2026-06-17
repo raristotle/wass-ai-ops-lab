@@ -3,7 +3,68 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { COLUMNS, defaultVisibility, visibleColumns, type ColumnId } from "@/lib/product-finder-columns";
+import { prefetchProductDetail } from "@/lib/product-finder-prefetch";
+import { volumeTierHint } from "@/lib/product-finder-pricing";
 import type { CatalogProduct } from "@/features/product-finder/types";
+
+/**
+ * Known-item fast path (v3-S1 #3): a compact qty stepper + Add directly on each
+ * table row, so a buyer who knows the SKU never opens the detail page. The Add
+ * button's title surfaces the volume-pricing tier that applies at the chosen qty.
+ */
+function RowAddToCart({ product }: { product: CatalogProduct }) {
+  const addToCart = useProductFinder((s) => s.addToCart);
+  const [qty, setQty] = useState(1);
+  const clamp = (n: number) => setQty(Math.max(1, n));
+  const hint = volumeTierHint(product, qty);
+  const tierTitle =
+    hint.appliedMinQty > 1
+      ? `Volume price $${hint.unitPrice.toFixed(2)} ea (save ${hint.savedPct}%)`
+      : hint.next
+        ? `Add ${hint.next.addQty} more for $${hint.next.unitPrice.toFixed(2)} ea at ${hint.next.minQty}+`
+        : undefined;
+
+  return (
+    <div className="flex items-center justify-end gap-1.5">
+      <div className="flex items-center rounded border border-[#B7C9D3]">
+        <button
+          type="button"
+          aria-label={`Decrease quantity of ${product.name}`}
+          onClick={() => clamp(qty - 1)}
+          className="px-1.5 text-[#4F758B] hover:bg-[#B7C9D3]/20 text-sm font-semibold"
+        >
+          −
+        </button>
+        <input
+          type="number"
+          min="1"
+          value={qty}
+          onChange={(e) => clamp(parseInt(e.target.value, 10) || 1)}
+          className="w-9 border-x border-[#B7C9D3] py-0.5 text-center text-xs text-[#1D252D] focus:outline-none"
+          aria-label={`Quantity of ${product.name}`}
+        />
+        <button
+          type="button"
+          aria-label={`Increase quantity of ${product.name}`}
+          onClick={() => clamp(qty + 1)}
+          className="px-1.5 text-[#4F758B] hover:bg-[#B7C9D3]/20 text-sm font-semibold"
+        >
+          +
+        </button>
+      </div>
+      <button
+        type="button"
+        onClick={() => addToCart(product, qty)}
+        title={tierTitle}
+        className="rounded bg-[#00AA13] px-2 py-1 text-[11px] font-semibold text-white transition-colors hover:bg-[#009911]"
+        // Fold the tier hint into the accessible name — `title` alone is skipped by many SRs.
+        aria-label={`Add ${qty} ${product.name} to basket${tierTitle ? ` — ${tierTitle}` : ""}`}
+      >
+        Add
+      </button>
+    </div>
+  );
+}
 
 /**
  * Dense results table (#11) — a scannable, Linear-style view of the catalog's
@@ -32,6 +93,7 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
   const compareIds = useProductFinder((s) => s.compareIds);
   const toggleCompare = useProductFinder((s) => s.toggleCompare);
   const activeResultIndex = useProductFinder((s) => s.activeResultIndex);
+  const branchId = useProductFinder((s) => s.user?.branchId);
 
   const [vis, setVis] = useState<Record<ColumnId, boolean>>(loadVisibility);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -115,6 +177,9 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
                   {c.label}
                 </th>
               ))}
+              <th scope="col" className="px-3 py-2 text-right font-semibold text-[#4F758B]">
+                Add
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -123,6 +188,8 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
                 key={p.id}
                 data-result-index={i}
                 aria-selected={activeResultIndex === i || undefined}
+                onMouseEnter={() => prefetchProductDetail(p.id, branchId)}
+                onFocus={() => prefetchProductDetail(p.id, branchId)}
                 className={`border-b border-[#B7C9D3]/40 hover:bg-[#00AA13]/[0.03] ${
                   activeResultIndex === i ? "bg-[#00AA13]/[0.06] outline outline-2 -outline-offset-2 outline-[#00AA13]" : ""
                 }`}
@@ -154,6 +221,9 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
                     )}
                   </td>
                 ))}
+                <td className="px-3 py-1.5">
+                  <RowAddToCart product={p} />
+                </td>
               </tr>
             ))}
           </tbody>

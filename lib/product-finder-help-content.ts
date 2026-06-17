@@ -759,6 +759,17 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "speed-and-filters",
+    title: "Faster browsing: filters bar, quick-add & compare",
+    body: [
+      "A set of speed touches make everyday browsing quicker:",
+      "• Active filters bar — every facet you've applied (category, brand, stock, price, specs…) now shows as a removable chip above the results. Click any chip's ✕ to drop just that filter, or Clear all to reset.",
+      "• Instant detail — hovering or tabbing to a product quietly pre-loads it, so View Details opens with no wait.",
+      "• Quick add from the table — the dense Table view (▦) now has a quantity stepper and Add on every row, so a known SKU goes straight to the basket. As the quantity crosses a volume break, the better tier price is shown inline.",
+      "• Compare differences only — in the compare view, toggle “Show differences only” to hide specs every product shares and highlight just the cells that differ; the product header stays pinned as you scroll.",
+    ],
+  },
+  {
     id: "outbound-alerts",
     title: "Outbound alerts & rep scorecard",
     body: [
