@@ -62,7 +62,11 @@ later feature lands on a tighter UI. Live: intent-prefetch (bounded/capped detai
 bar, table quick-add + volume-tier hint, compare differences-only. Adversarial-reviewed; 1667 tests;
 First Load JS held at 103 kB. See [docs/instant-feel-ux.md](instant-feel-ux.md).
 
-### Sprint 2 · Faceting foundation — see-it / filter-it / refine-it  (#6, 4, 8)
+### Sprint 2 · Faceting foundation — see-it / filter-it / refine-it  (#6, 4, 8) — ✅ SHIPPED 2026-06-17 (commit 7c45953)
+Live: sortable Table column headers + `onlyWithCrosses` filter (#6), refine-by-filter chips from the
+result-set facet distribution (#4), and the scoped "search only in {X}" autocomplete row (#8).
+Adversarial-reviewed; 1692 tests; First Load JS held at 103 kB. See [docs/faceting-foundation.md](faceting-foundation.md). Original plan:
+
 Shared FOUNDATION: the per-result-set facet-distribution engine. Ship **#6 "facets for every Table
 column"** first (the producer — guarantees every shown attribute is a real, filterable facet), then
 **#4 post-query refinement** (the direct consumer — ranks the highest-signal facet values from that
