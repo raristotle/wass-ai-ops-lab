@@ -54,11 +54,13 @@ Sequencing rules: front-load the lowest-hanging fruit (highest V/C, no new scaff
 shared foundations before their consumers; group items that share data/plumbing; concentrate
 external-account and cost-exposure work last.
 
-### Sprint 1 · Instant-feel UX on shipped surfaces  (#1, 2, 3, 5)
+### Sprint 1 · Instant-feel UX on shipped surfaces  (#1, 2, 3, 5) — ✅ SHIPPED 2026-06-17 (commit e1022be)
 Highest value/cost ratios, each pure client-side polish over the already-shipped PWA cache, NL chips,
 detail route, volume-pricing tiers, and 4-product compare. No new facet plumbing, no external accounts,
 $0. Independent of everything else — banks immediate perceived-speed and task-completion wins so every
-later feature lands on a tighter UI.
+later feature lands on a tighter UI. Live: intent-prefetch (bounded/capped detail cache), applied-filters
+bar, table quick-add + volume-tier hint, compare differences-only. Adversarial-reviewed; 1667 tests;
+First Load JS held at 103 kB. See [docs/instant-feel-ux.md](instant-feel-ux.md).
 
 ### Sprint 2 · Faceting foundation — see-it / filter-it / refine-it  (#6, 4, 8)
 Shared FOUNDATION: the per-result-set facet-distribution engine. Ship **#6 "facets for every Table
