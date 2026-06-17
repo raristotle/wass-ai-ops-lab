@@ -119,7 +119,21 @@ export interface SearchResult {
 }
 
 export type ViewMode = "list" | "grid" | "table";
-export type SortKey = "relevance" | "preferred" | "branchStock" | "priceLow" | "priceHigh" | "brand";
+export type SortKey =
+  | "relevance"
+  | "preferred"
+  | "branchStock"
+  | "priceLow"
+  | "priceHigh"
+  | "brand"
+  // v3-S2 #6 — a sort for every Table column the user can click a header on.
+  | "nameAsc"
+  | "skuAsc"
+  | "dcStock"
+  | "crosses"
+  | "subcatAsc"
+  | "uomAsc"
+  | "lifecycleActive";
 
 export interface FilterState {
   query: string;
@@ -130,6 +144,8 @@ export interface FilterState {
   onlyDCStock: boolean;
   onlyPreferred: boolean;
   onlyActive: boolean;
+  /** v3-S2 #6 — narrow to parts that carry source-backed cross-references. */
+  onlyWithCrosses: boolean;
   priceMin: number | null;
   priceMax: number | null;
   sortKey: SortKey;
@@ -215,6 +231,12 @@ export interface SearchResponse {
   page: number;
   pageSize: number;
   facets: Facet[];
+  /**
+   * v3-S2 #4 — non-spec enum facets (Brand, Subcategory) over the matched set,
+   * with full-set counts, used to suggest the highest-signal refinements. Kept
+   * separate from `facets` so the sidebar (which renders `facets`) is unchanged.
+   */
+  refineFacets?: EnumFacet[];
   /** Best in-stock substitute per out-of-stock item id (attached by the search route). */
   substitutes?: Record<string, CatalogProduct>;
 }

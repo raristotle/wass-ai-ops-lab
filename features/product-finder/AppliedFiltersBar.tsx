@@ -20,6 +20,7 @@ export function AppliedFiltersBar() {
   const setOnlyDCStock = useProductFinder((s) => s.setOnlyDCStock);
   const setOnlyPreferred = useProductFinder((s) => s.setOnlyPreferred);
   const setOnlyActive = useProductFinder((s) => s.setOnlyActive);
+  const setOnlyWithCrosses = useProductFinder((s) => s.setOnlyWithCrosses);
   const setPriceRange = useProductFinder((s) => s.setPriceRange);
   const toggleSpecFilter = useProductFinder((s) => s.toggleSpecFilter);
   const setSpecRange = useProductFinder((s) => s.setSpecRange);
@@ -50,6 +51,9 @@ export function AppliedFiltersBar() {
         break;
       case "active":
         setOnlyActive(false);
+        break;
+      case "withCrosses":
+        setOnlyWithCrosses(false);
         break;
       case "price":
         setPriceRange(null, null);

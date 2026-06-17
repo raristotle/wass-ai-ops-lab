@@ -6,7 +6,7 @@
  * owns the persisted visibility state.
  */
 
-import type { CatalogProduct } from "@/features/product-finder/types";
+import type { CatalogProduct, SortKey } from "@/features/product-finder/types";
 
 export type ColumnId =
   | "sku"
@@ -28,6 +28,8 @@ export interface ColumnDef {
   numeric: boolean;
   /** Display value for a product (already formatted). */
   value: (p: CatalogProduct) => string;
+  /** Server-side sort applied when this column's header is clicked (v3-S2 #6). */
+  sort?: SortKey;
 }
 
 function branchTotal(p: CatalogProduct): number {
@@ -38,17 +40,17 @@ function dcTotal(p: CatalogProduct): number {
 }
 
 export const COLUMNS: ColumnDef[] = [
-  { id: "sku", label: "SKU", defaultVisible: true, numeric: false, value: (p) => p.sku },
-  { id: "name", label: "Product", defaultVisible: true, numeric: false, value: (p) => p.name },
-  { id: "brand", label: "Brand", defaultVisible: true, numeric: false, value: (p) => p.brand },
-  { id: "price", label: "Price", defaultVisible: true, numeric: true, value: (p) => `$${p.unitPrice.toFixed(2)}` },
-  { id: "branchStock", label: "Branch", defaultVisible: true, numeric: true, value: (p) => String(branchTotal(p)) },
-  { id: "dcStock", label: "DC", defaultVisible: false, numeric: true, value: (p) => String(dcTotal(p)) },
-  { id: "lifecycle", label: "Lifecycle", defaultVisible: true, numeric: false, value: (p) => p.lifecycleStatus ?? "Active" },
-  { id: "crosses", label: "Crosses", defaultVisible: false, numeric: true, value: (p) => String(p.verifiedCrossCount ?? 0) },
-  { id: "preferred", label: "Preferred", defaultVisible: false, numeric: false, value: (p) => (p.preferred ? "Yes" : "—") },
-  { id: "category", label: "Category", defaultVisible: false, numeric: false, value: (p) => p.subcategory },
-  { id: "uom", label: "UoM", defaultVisible: false, numeric: false, value: (p) => p.uom },
+  { id: "sku", label: "SKU", defaultVisible: true, numeric: false, value: (p) => p.sku, sort: "skuAsc" },
+  { id: "name", label: "Product", defaultVisible: true, numeric: false, value: (p) => p.name, sort: "nameAsc" },
+  { id: "brand", label: "Brand", defaultVisible: true, numeric: false, value: (p) => p.brand, sort: "brand" },
+  { id: "price", label: "Price", defaultVisible: true, numeric: true, value: (p) => `$${p.unitPrice.toFixed(2)}`, sort: "priceLow" },
+  { id: "branchStock", label: "Branch", defaultVisible: true, numeric: true, value: (p) => String(branchTotal(p)), sort: "branchStock" },
+  { id: "dcStock", label: "DC", defaultVisible: false, numeric: true, value: (p) => String(dcTotal(p)), sort: "dcStock" },
+  { id: "lifecycle", label: "Lifecycle", defaultVisible: true, numeric: false, value: (p) => p.lifecycleStatus ?? "Active", sort: "lifecycleActive" },
+  { id: "crosses", label: "Crosses", defaultVisible: false, numeric: true, value: (p) => String(p.verifiedCrossCount ?? 0), sort: "crosses" },
+  { id: "preferred", label: "Preferred", defaultVisible: false, numeric: false, value: (p) => (p.preferred ? "Yes" : "—"), sort: "preferred" },
+  { id: "category", label: "Category", defaultVisible: false, numeric: false, value: (p) => p.subcategory, sort: "subcatAsc" },
+  { id: "uom", label: "UoM", defaultVisible: false, numeric: false, value: (p) => p.uom, sort: "uomAsc" },
 ];
 
 /** The default visibility map (each column's defaultVisible). */

@@ -1,8 +1,9 @@
-import type { CatalogProduct, ProductCategory, SortKey, SearchResponse } from "@/features/product-finder/types";
+import type { CatalogProduct, ProductCategory, SortKey, SearchResponse, EnumFacet } from "@/features/product-finder/types";
 import { getCatalog } from "@/lib/catalog/index";
 import { computeFacets } from "@/lib/catalog/facets";
 import { parseAttribute } from "@/lib/catalog/attributes";
 import { isActiveLifecycle } from "@/lib/catalog/lifecycle";
+import { crossCountForSku } from "@/lib/catalog/cross-runtime";
 
 export interface SearchFilters {
   categories?: ProductCategory[];
@@ -13,6 +14,8 @@ export interface SearchFilters {
   onlyPreferred?: boolean;
   /** "Design out the obsolete" — keep only Active-lifecycle parts. */
   onlyActive?: boolean;
+  /** Keep only parts that carry source-backed cross-references (v3-S2 #6). */
+  onlyWithCrosses?: boolean;
   priceMin?: number | null;
   priceMax?: number | null;
   /** spec name → selected values (OR within a name, AND across names) */
@@ -33,6 +36,10 @@ function totalBranch(p: CatalogProduct): number {
   return p.branchStock.reduce((s, b) => s + b.quantity, 0);
 }
 
+function totalDc(p: CatalogProduct): number {
+  return p.dcStock.reduce((s, d) => s + d.quantity, 0);
+}
+
 function sortItems(items: CatalogProduct[], sort: SortKey): CatalogProduct[] {
   const arr = [...items];
   switch (sort) {
@@ -41,8 +48,41 @@ function sortItems(items: CatalogProduct[], sort: SortKey): CatalogProduct[] {
     case "priceLow": return arr.sort((a, b) => a.unitPrice - b.unitPrice);
     case "priceHigh": return arr.sort((a, b) => b.unitPrice - a.unitPrice);
     case "brand": return arr.sort((a, b) => a.brand.localeCompare(b.brand));
+    // v3-S2 #6 — one sort per Table column so any header is clickable.
+    case "nameAsc": return arr.sort((a, b) => a.name.localeCompare(b.name));
+    case "skuAsc": return arr.sort((a, b) => a.sku.localeCompare(b.sku));
+    case "dcStock": return arr.sort((a, b) => totalDc(b) - totalDc(a));
+    case "crosses": return arr.sort((a, b) => crossCountForSku(b.sku) - crossCountForSku(a.sku));
+    case "subcatAsc": return arr.sort((a, b) => a.subcategory.localeCompare(b.subcategory));
+    case "uomAsc": return arr.sort((a, b) => a.uom.localeCompare(b.uom));
+    case "lifecycleActive":
+      return arr.sort(
+        (a, b) => (isActiveLifecycle(b.lifecycleStatus) ? 1 : 0) - (isActiveLifecycle(a.lifecycleStatus) ? 1 : 0),
+      );
     default: return arr.sort((a, b) => (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0));
   }
+}
+
+/**
+ * Non-spec enum facets (Brand, Subcategory) over the matched set with full-set
+ * counts (v3-S2 #4). Kept out of computeFacets so the sidebar stays unchanged;
+ * the refine-by-filter bar consumes these alongside the spec facets.
+ */
+function computeRefineFacets(products: CatalogProduct[], maxValues = 8): EnumFacet[] {
+  const brand = new Map<string, number>();
+  const subcat = new Map<string, number>();
+  for (const p of products) {
+    brand.set(p.brand, (brand.get(p.brand) ?? 0) + 1);
+    subcat.set(p.subcategory, (subcat.get(p.subcategory) ?? 0) + 1);
+  }
+  const toFacet = (name: string, counts: Map<string, number>): EnumFacet | null => {
+    const values = [...counts.entries()]
+      .map(([value, count]) => ({ value, count }))
+      .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value))
+      .slice(0, maxValues);
+    return values.length >= 2 ? { type: "enum", name, values } : null;
+  };
+  return [toFacet("Brand", brand), toFacet("Subcategory", subcat)].filter((f): f is EnumFacet => f !== null);
 }
 
 export function searchCatalog(params: SearchParams = {}): SearchResponse {
@@ -80,6 +120,7 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
     if (f.onlyActive && !isActiveLifecycle(p.lifecycleStatus)) continue;
     if (f.onlyBranchStock && totalBranch(p) === 0) continue;
     if (f.onlyDCStock && p.dcStock.every((d) => d.quantity === 0)) continue;
+    if (f.onlyWithCrosses && crossCountForSku(p.sku) === 0) continue;
     if (f.priceMin != null && p.unitPrice < f.priceMin) continue;
     if (f.priceMax != null && p.unitPrice > f.priceMax) continue;
     baseMatched.push(p);
@@ -87,6 +128,7 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
 
   // Compute facets over the base matched set (before spec narrowing — standard faceted search)
   const facets = computeFacets(baseMatched);
+  const refineFacets = computeRefineFacets(baseMatched);
 
   // Phase 2: apply specFilters (AND across names, OR within a name's values)
   const afterSpecFilters: CatalogProduct[] =
@@ -120,5 +162,5 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
 
   const sorted = sortItems(matched, params.sort ?? "relevance");
   const start = page * pageSize;
-  return { items: sorted.slice(start, start + pageSize), total: matched.length, page, pageSize, facets };
+  return { items: sorted.slice(start, start + pageSize), total: matched.length, page, pageSize, facets, refineFacets };
 }

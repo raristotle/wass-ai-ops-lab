@@ -3,7 +3,10 @@ import { z } from "zod";
 const csv = (v: string | null): string[] | undefined =>
   v ? v.split(",").map((s) => s.trim()).filter(Boolean) : undefined;
 
-export const SortKeySchema = z.enum(["relevance", "preferred", "branchStock", "priceLow", "priceHigh", "brand"]);
+export const SortKeySchema = z.enum([
+  "relevance", "preferred", "branchStock", "priceLow", "priceHigh", "brand",
+  "nameAsc", "skuAsc", "dcStock", "crosses", "subcatAsc", "uomAsc", "lifecycleActive",
+]);
 
 export function parseSearchQuery(sp: URLSearchParams) {
   const num = (k: string) => {
@@ -62,6 +65,7 @@ export function parseSearchQuery(sp: URLSearchParams) {
       onlyDCStock: bool("onlyDCStock"),
       onlyPreferred: bool("onlyPreferred"),
       onlyActive: bool("onlyActive"),
+      onlyWithCrosses: bool("onlyWithCrosses"),
       priceMin: num("priceMin"),
       priceMax: num("priceMax"),
       specFilters: Object.keys(specFilters).length > 0 ? specFilters : undefined,

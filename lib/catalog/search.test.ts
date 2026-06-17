@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { searchCatalog } from "@/lib/catalog/search";
-import type { RangeFacet } from "@/features/product-finder/types";
+import { isActiveLifecycle } from "@/lib/catalog/lifecycle";
+import { crossCountForSku } from "@/lib/catalog/cross-runtime";
+import type { RangeFacet, CatalogProduct } from "@/features/product-finder/types";
 
 describe("searchCatalog", () => {
   it("paginates: total reflects all matches, items is one page", () => {
@@ -293,5 +295,77 @@ describe("searchCatalog – specRanges", () => {
       pageSize: 500,
     });
     expect(noNarrow.total).toBe(base.total);
+  });
+});
+
+// ─── v3-S2 #6: per-column sorts + onlyWithCrosses + #4 refineFacets ────────────
+
+const dcTotal = (p: CatalogProduct) => p.dcStock.reduce((s, d) => s + d.quantity, 0);
+
+describe("searchCatalog – new column sorts", () => {
+  it("nameAsc sorts A→Z by product name", () => {
+    const r = searchCatalog({ sort: "nameAsc", pageSize: 40 });
+    for (let i = 1; i < r.items.length; i++) {
+      expect(r.items[i].name.localeCompare(r.items[i - 1].name)).toBeGreaterThanOrEqual(0);
+    }
+  });
+
+  it("skuAsc sorts A→Z by SKU", () => {
+    const r = searchCatalog({ sort: "skuAsc", pageSize: 40 });
+    for (let i = 1; i < r.items.length; i++) {
+      expect(r.items[i].sku.localeCompare(r.items[i - 1].sku)).toBeGreaterThanOrEqual(0);
+    }
+  });
+
+  it("subcatAsc sorts A→Z by subcategory", () => {
+    const r = searchCatalog({ sort: "subcatAsc", pageSize: 40 });
+    for (let i = 1; i < r.items.length; i++) {
+      expect(r.items[i].subcategory.localeCompare(r.items[i - 1].subcategory)).toBeGreaterThanOrEqual(0);
+    }
+  });
+
+  it("dcStock sorts DC stock high→low", () => {
+    const r = searchCatalog({ sort: "dcStock", pageSize: 40 });
+    for (let i = 1; i < r.items.length; i++) {
+      expect(dcTotal(r.items[i])).toBeLessThanOrEqual(dcTotal(r.items[i - 1]));
+    }
+  });
+
+  it("lifecycleActive puts active-lifecycle parts first", () => {
+    const r = searchCatalog({ sort: "lifecycleActive", pageSize: 100 });
+    let seenNonActive = false;
+    for (const p of r.items) {
+      if (!isActiveLifecycle(p.lifecycleStatus)) seenNonActive = true;
+      else expect(seenNonActive).toBe(false); // no active part after a non-active one
+    }
+  });
+
+  it("crosses sorts documented-cross count high→low", () => {
+    const r = searchCatalog({ sort: "crosses", pageSize: 40 });
+    for (let i = 1; i < r.items.length; i++) {
+      expect(crossCountForSku(r.items[i].sku)).toBeLessThanOrEqual(crossCountForSku(r.items[i - 1].sku));
+    }
+  });
+});
+
+describe("searchCatalog – onlyWithCrosses + refineFacets", () => {
+  it("onlyWithCrosses keeps only parts that carry source-backed crosses", () => {
+    const r = searchCatalog({ filters: { onlyWithCrosses: true }, pageSize: 50 });
+    expect(r.total).toBeGreaterThan(0);
+    expect(r.items.every((p) => crossCountForSku(p.sku) > 0)).toBe(true);
+  });
+
+  it("returns Brand + Subcategory refineFacets with full-set counts", () => {
+    const r = searchCatalog({ filters: { categories: ["electrical"] }, pageSize: 10 });
+    const names = (r.refineFacets ?? []).map((f) => f.name);
+    expect(names).toContain("Brand");
+    expect(names).toContain("Subcategory");
+    const brand = r.refineFacets!.find((f) => f.name === "Brand")!;
+    expect(brand.values.length).toBeGreaterThanOrEqual(2);
+    expect(brand.values.every((v) => v.count > 0)).toBe(true);
+    // Counts are over the matched set, sorted desc.
+    for (let i = 1; i < brand.values.length; i++) {
+      expect(brand.values[i].count).toBeLessThanOrEqual(brand.values[i - 1].count);
+    }
   });
 });

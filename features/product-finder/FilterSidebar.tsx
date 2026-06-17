@@ -51,6 +51,7 @@ function hasActiveFilters(filters: FilterState): boolean {
     filters.onlyDCStock ||
     filters.onlyPreferred ||
     filters.onlyActive ||
+    filters.onlyWithCrosses ||
     filters.priceMin !== null ||
     filters.priceMax !== null ||
     Object.keys(filters.specFilters ?? {}).length > 0 ||
@@ -175,6 +176,7 @@ export function FilterSidebar() {
   const setOnlyDCStock = useProductFinder((s) => s.setOnlyDCStock);
   const setOnlyPreferred = useProductFinder((s) => s.setOnlyPreferred);
   const setOnlyActive = useProductFinder((s) => s.setOnlyActive);
+  const setOnlyWithCrosses = useProductFinder((s) => s.setOnlyWithCrosses);
   const setPriceRange = useProductFinder((s) => s.setPriceRange);
   const clearFilters = useProductFinder((s) => s.clearFilters);
   const toggleSpecFilter = useProductFinder((s) => s.toggleSpecFilter);
@@ -290,6 +292,22 @@ export function FilterSidebar() {
         </label>
         <p className="mt-1 text-[11px] leading-snug text-[#4F758B]">
           Hides parts flagged NRND, last-buy, end-of-life, or discontinued.
+        </p>
+      </SidebarSection>
+
+      {/* Cross-references — the "Crosses" table column, now filterable (v3-S2 #6) */}
+      <SidebarSection title="Cross-References">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-[#1D252D]">
+          <input
+            type="checkbox"
+            checked={filters.onlyWithCrosses}
+            onChange={(e) => setOnlyWithCrosses(e.target.checked)}
+            className="h-4 w-4 cursor-pointer rounded accent-[#00AA13]"
+          />
+          Documented crosses only
+        </label>
+        <p className="mt-1 text-[11px] leading-snug text-[#4F758B]">
+          Keeps only parts that carry source-backed cross-references.
         </p>
       </SidebarSection>
 

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product-finder/ProductCard";
 import { ResultsTable } from "@/features/product-finder/ResultsTable";
 import { AppliedFiltersBar } from "@/features/product-finder/AppliedFiltersBar";
+import { RefineByBar } from "@/features/product-finder/RefineByBar";
 import { useResultsKeyboard } from "@/features/product-finder/useResultsKeyboard";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { searchResultsCsv, downloadCsv } from "@/lib/product-finder-csv";
@@ -20,9 +21,16 @@ const SORT_OPTIONS: { value: SortKey; label: string }[] = [
   { value: "relevance", label: "Relevance" },
   { value: "preferred", label: "Preferred Suppliers First" },
   { value: "branchStock", label: "Local Stock High→Low" },
+  { value: "dcStock", label: "DC Stock High→Low" },
   { value: "priceLow", label: "Price: Low→High" },
   { value: "priceHigh", label: "Price: High→Low" },
   { value: "brand", label: "Brand A–Z" },
+  { value: "nameAsc", label: "Product A–Z" },
+  { value: "skuAsc", label: "SKU A–Z" },
+  { value: "subcatAsc", label: "Category A–Z" },
+  { value: "uomAsc", label: "UoM A–Z" },
+  { value: "crosses", label: "Most Cross-References" },
+  { value: "lifecycleActive", label: "Active Lifecycle First" },
 ];
 
 export function ProductGrid({
@@ -205,6 +213,9 @@ export function ProductGrid({
 
       {/* ── Applied-filters overview bar (#2) ────────────────────── */}
       <AppliedFiltersBar />
+
+      {/* ── Refine-by-filter suggestions (v3-S2 #4) ───────────────── */}
+      <RefineByBar />
 
       {/* ── Empty state ──────────────────────────────────────────── */}
       {products.length === 0 && (

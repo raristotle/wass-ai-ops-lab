@@ -21,6 +21,7 @@ export function filtersToQuery(
   if (filters.onlyDCStock) sp.set("onlyDCStock", "true");
   if (filters.onlyPreferred) sp.set("onlyPreferred", "true");
   if (filters.onlyActive) sp.set("onlyActive", "true");
+  if (filters.onlyWithCrosses) sp.set("onlyWithCrosses", "true");
   if (filters.priceMin != null) sp.set("priceMin", String(filters.priceMin));
   if (filters.priceMax != null) sp.set("priceMax", String(filters.priceMax));
   sp.set("sort", filters.sortKey);

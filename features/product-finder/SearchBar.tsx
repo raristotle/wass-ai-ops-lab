@@ -18,7 +18,8 @@ import { QUICK_PICKS } from "@/lib/product-finder-commands";
 import { normalizeTranscript } from "@/lib/product-finder-voice";
 import { VoiceSearchButton } from "@/features/product-finder/VoiceSearchButton";
 import { SavedSearchesBar } from "@/features/product-finder/SavedSearchesBar";
-import type { SuggestItem, ParsedFilter } from "@/features/product-finder/types";
+import type { SuggestItem, ParsedFilter, ProductCategory } from "@/features/product-finder/types";
+import { scopeSuggestion, type ScopeMatch } from "@/lib/product-finder-scope-suggest";
 
 // ─── Cross-reference icon ─────────────────────────────────────────────────────
 
@@ -203,6 +204,8 @@ function SuggestionRow({
   return (
     <button
       type="button"
+      role="option"
+      aria-selected={false}
       className="flex w-full items-center gap-3 px-4 py-2 text-left hover:bg-[#B7C9D3]/20 focus-visible:bg-[#B7C9D3]/20 focus-visible:outline-none"
       onClick={() => onSelect(product)}
     >
@@ -234,6 +237,9 @@ interface SingleSearchPanelProps {
   onClear: () => void;
   onSearch: () => void;
   onSelectSuggestion: (item: SuggestItem) => void;
+  /** Scoped "search only in {label}" suggestion (v3-S2 #8), or null. */
+  scope: ScopeMatch | null;
+  onSelectScope: () => void;
   onQuickPick: (chip: string) => void;
   appliedNlFilters: ParsedFilter[];
   onRemoveFilter: (id: string) => void;
@@ -263,6 +269,8 @@ function SingleSearchPanel({
   onClear,
   onSearch,
   onSelectSuggestion,
+  scope,
+  onSelectScope,
   onQuickPick,
   appliedNlFilters,
   onRemoveFilter,
@@ -349,6 +357,20 @@ function SingleSearchPanel({
               role="listbox"
               className="absolute left-0 right-0 top-full z-50 mt-1 rounded-lg border border-[#B7C9D3] bg-white py-1 shadow-lg"
             >
+              {scope && (
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={false}
+                  onClick={onSelectScope}
+                  className="flex w-full items-center gap-2 border-b border-[#B7C9D3]/50 px-3 py-2 text-left text-sm text-[#00573F] hover:bg-[#00AA13]/10"
+                >
+                  <span aria-hidden="true">🔍</span>
+                  <span>
+                    Search only in <span className="font-semibold">{scope.label}</span>
+                  </span>
+                </button>
+              )}
               {suggestions.map((product) => (
                 <SuggestionRow
                   key={product.id}
@@ -590,6 +612,9 @@ export function SearchBar() {
     runNlSearch,
     removeNlFilter,
     appliedNlFilters,
+    filters,
+    toggleCategory,
+    toggleSubcategory,
     setBomModalOpen,
     setBulkModalOpen,
     setBulkCrossOpen,
@@ -642,6 +667,27 @@ export function SearchBar() {
     setSuggestions([]);
     setShowSuggestions(false);
     runNlSearch(item.name);
+  };
+
+  // Scoped "search only in {category}" suggestion (v3-S2 #8) — hidden once that
+  // scope is already applied. Applying it adds the removable scope chip (via the
+  // applied-filters bar) and clears the box to type within the scope.
+  const scopeMatch = scopeSuggestion(query);
+  const scope: ScopeMatch | null =
+    scopeMatch &&
+    !(scopeMatch.kind === "subcategory"
+      ? filters.subcategories.has(scopeMatch.value)
+      : filters.categories.has(scopeMatch.value as ProductCategory))
+      ? scopeMatch
+      : null;
+
+  const handleSelectScope = () => {
+    if (!scope) return;
+    if (scope.kind === "subcategory") toggleSubcategory(scope.value);
+    else toggleCategory(scope.value as ProductCategory);
+    setQuery("");
+    setSuggestions([]);
+    setShowSuggestions(false);
   };
 
   const handleSearch = () => {
@@ -728,6 +774,8 @@ export function SearchBar() {
             onClear={handleClear}
             onSearch={handleSearch}
             onSelectSuggestion={handleSelectSuggestion}
+            scope={scope}
+            onSelectScope={handleSelectScope}
             onQuickPick={handleQuickPick}
             appliedNlFilters={appliedNlFilters}
             onRemoveFilter={removeNlFilter}

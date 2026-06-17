@@ -29,6 +29,7 @@ async function resolveStep(step: JobStep): Promise<CatalogProduct[]> {
     onlyDCStock: false,
     onlyPreferred: false,
     onlyActive: false,
+    onlyWithCrosses: false,
     priceMin: null,
     priceMax: null,
     sortKey: "branchStock",

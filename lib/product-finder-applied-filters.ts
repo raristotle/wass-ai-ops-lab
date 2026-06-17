@@ -18,6 +18,7 @@ export type ChipRemove =
   | { type: "dcStock" }
   | { type: "preferred" }
   | { type: "active" }
+  | { type: "withCrosses" }
   | { type: "price" }
   | { type: "spec"; name: string; value: string }
   | { type: "specRange"; name: string };
@@ -96,6 +97,9 @@ export function buildAppliedChips(filters: FilterState, nl: ParsedFilter[]): App
   }
   if (filters.onlyActive) {
     chips.push({ id: "active", label: "Active only", remove: { type: "active" } });
+  }
+  if (filters.onlyWithCrosses) {
+    chips.push({ id: "withCrosses", label: "Documented crosses", remove: { type: "withCrosses" } });
   }
   if (!covered.has("price")) {
     const pl = priceLabel(filters.priceMin, filters.priceMax);

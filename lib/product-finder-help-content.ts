@@ -770,6 +770,17 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "refine-sort-scope",
+    title: "Sort any column, refine fast, search within a category",
+    body: [
+      "Three touches make narrowing a big result set quick:",
+      "• Sort by any column — in the dense Table view (▦), click any column header to sort the whole result set by it (▲/▼ shows the active one). Every visible column is now sortable.",
+      "• Refine by — after a search, a row of one-tap chips suggests the highest-signal ways to narrow what you found (a brand, a subcategory, a voltage…), each showing how many results match.",
+      "• Search within a category — when what you type matches a category, the dropdown offers “Search only in …”. Pick it to scope your browsing to that branch; remove the scope chip anytime to go back to everything.",
+      "• Documented crosses only — a new sidebar filter keeps just the parts that carry source-backed cross-references.",
+    ],
+  },
+  {
     id: "outbound-alerts",
     title: "Outbound alerts & rep scorecard",
     body: [

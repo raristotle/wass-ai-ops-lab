@@ -77,6 +77,7 @@ function resetStore() {
       onlyDCStock: false,
       onlyPreferred: false,
       onlyActive: false,
+      onlyWithCrosses: false,
       priceMin: null,
       priceMax: null,
       sortKey: "relevance",

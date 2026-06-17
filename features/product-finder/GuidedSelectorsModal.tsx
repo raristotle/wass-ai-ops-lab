@@ -38,6 +38,7 @@ async function resolveProduct(query: string, subcategory: string): Promise<Catal
     onlyDCStock: false,
     onlyPreferred: false,
     onlyActive: true, // a guided answer should resolve to an active, orderable part
+    onlyWithCrosses: false,
     priceMin: null,
     priceMax: null,
     sortKey: "branchStock",

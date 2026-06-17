@@ -76,6 +76,10 @@ function RowAddToCart({ product }: { product: CatalogProduct }) {
 
 const STORAGE_KEY = "pf_table_columns";
 
+// Which column sorts read ascending (A→Z / low→high) vs descending — drives the
+// header arrow direction + aria-sort. Everything else is high→low / active-first.
+const ASC_SORTS = new Set(["nameAsc", "skuAsc", "brand", "subcatAsc", "uomAsc", "priceLow"]);
+
 function loadVisibility(): Record<ColumnId, boolean> {
   const def = defaultVisibility();
   if (typeof localStorage === "undefined") return def;
@@ -94,6 +98,8 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
   const toggleCompare = useProductFinder((s) => s.toggleCompare);
   const activeResultIndex = useProductFinder((s) => s.activeResultIndex);
   const branchId = useProductFinder((s) => s.user?.branchId);
+  const sortKey = useProductFinder((s) => s.filters.sortKey);
+  const setSortKey = useProductFinder((s) => s.setSortKey);
 
   const [vis, setVis] = useState<Record<ColumnId, boolean>>(loadVisibility);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -168,15 +174,34 @@ export function ResultsTable({ products }: { products: CatalogProduct[] }) {
               <th scope="col" className="w-8 px-2 py-2">
                 <span className="sr-only">Select to compare</span>
               </th>
-              {cols.map((c) => (
-                <th
-                  key={c.id}
-                  scope="col"
-                  className={`px-3 py-2 font-semibold text-[#4F758B] ${c.numeric ? "text-right" : "text-left"}`}
-                >
-                  {c.label}
-                </th>
-              ))}
+              {cols.map((c) => {
+                const active = c.sort != null && sortKey === c.sort;
+                const ariaSort = active ? (ASC_SORTS.has(c.sort!) ? "ascending" : "descending") : undefined;
+                return (
+                  <th
+                    key={c.id}
+                    scope="col"
+                    aria-sort={ariaSort}
+                    className={`px-3 py-2 font-semibold text-[#4F758B] ${c.numeric ? "text-right" : "text-left"}`}
+                  >
+                    {c.sort ? (
+                      <button
+                        type="button"
+                        onClick={() => setSortKey(c.sort!)}
+                        className={`inline-flex items-center gap-1 hover:text-[#1D252D] ${c.numeric ? "flex-row-reverse" : ""} ${active ? "text-[#1D252D]" : ""}`}
+                        title={`Sort by ${c.label}`}
+                      >
+                        {c.label}
+                        <span aria-hidden="true" className={`text-[10px] ${active ? "text-[#00AA13]" : "text-[#B7C9D3]"}`}>
+                          {active ? (ariaSort === "ascending" ? "▲" : "▼") : "⇅"}
+                        </span>
+                      </button>
+                    ) : (
+                      c.label
+                    )}
+                  </th>
+                );
+              })}
               <th scope="col" className="px-3 py-2 text-right font-semibold text-[#4F758B]">
                 Add
               </th>

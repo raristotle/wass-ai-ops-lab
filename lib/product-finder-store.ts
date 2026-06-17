@@ -191,6 +191,7 @@ export interface ProductFinderState {
   setOnlyDCStock: (v: boolean) => void;
   setOnlyPreferred: (v: boolean) => void;
   setOnlyActive: (v: boolean) => void;
+  setOnlyWithCrosses: (v: boolean) => void;
   setPriceRange: (min: number | null, max: number | null) => void;
   setSortKey: (k: SortKey) => void;
   setViewMode: (v: ViewMode) => void;
@@ -378,6 +379,8 @@ export interface ProductFinderState {
   /** In-stock substitutes keyed by out-of-stock result id (from the search route). */
   substitutes: Record<string, CatalogProduct>;
   facets: SearchResponse["facets"];
+  /** Brand/Subcategory enum facets for the refine-by-filter bar (v3-S2 #4). */
+  refineFacets: NonNullable<SearchResponse["refineFacets"]>;
   loading: boolean;
   error: string | null;
   page: number;
@@ -746,6 +749,11 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   setOnlyActive(v) {
     set((s) => ({ filters: { ...s.filters, onlyActive: v } }));
+    get().runSearch();
+  },
+
+  setOnlyWithCrosses(v) {
+    set((s) => ({ filters: { ...s.filters, onlyWithCrosses: v } }));
     get().runSearch();
   },
 
@@ -1510,6 +1518,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   results: [],
   substitutes: {},
   facets: [],
+  refineFacets: [],
   loading: false,
   error: null,
   page: 0,
@@ -1520,7 +1529,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     set({ loading: true, error: null, page: 0 });
     try {
       const res = await apiSearch(get().filters, 0, get().pageSize);
-      set({ results: res.items, substitutes: res.substitutes ?? {}, total: res.total, page: 0, loading: false, facets: res.facets ?? [] });
+      set({ results: res.items, substitutes: res.substitutes ?? {}, total: res.total, page: 0, loading: false, facets: res.facets ?? [], refineFacets: res.refineFacets ?? [] });
     } catch (e) {
       set({ loading: false, error: e instanceof Error ? e.message : "Search failed", results: [], total: 0 });
     }

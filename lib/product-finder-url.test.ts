@@ -102,8 +102,18 @@ describe("round-trips: decode(buildShareQuery(s)) ≡ s", () => {
     expectRoundTrip(s);
   });
 
-  it("every sortKey round-trips", () => {
-    const keys: SortKey[] = ["relevance", "preferred", "branchStock", "priceLow", "priceHigh", "brand"];
+  it("onlyActive and onlyWithCrosses toggles round-trip (v3-S2 #6)", () => {
+    const s = emptyFilterState();
+    s.onlyActive = true;
+    s.onlyWithCrosses = true;
+    expectRoundTrip(s);
+  });
+
+  it("every sortKey round-trips (incl. the v3-S2 #6 column sorts)", () => {
+    const keys: SortKey[] = [
+      "relevance", "preferred", "branchStock", "priceLow", "priceHigh", "brand",
+      "nameAsc", "skuAsc", "dcStock", "crosses", "subcatAsc", "uomAsc", "lifecycleActive",
+    ];
     for (const k of keys) {
       const s = emptyFilterState();
       s.sortKey = k;
