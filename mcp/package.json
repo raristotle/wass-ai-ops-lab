@@ -1,0 +1,34 @@
+{
+  "name": "@wass/meridian-mcp-server",
+  "version": "1.0.0",
+  "description": "Meridian Product Finder MCP server — catalog search, source-backed cross-references, product detail, live availability, jobs, and ordering tools over the Meridian/Wesco catalog. A thin, stateless HTTP client over the deployed REST API.",
+  "type": "module",
+  "bin": {
+    "meridian-mcp-server": "./meridian-mcp-server.mjs"
+  },
+  "files": [
+    "meridian-mcp-server.mjs",
+    "README.md"
+  ],
+  "mcpName": "io.github.raristotle/meridian-product-finder",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "electrical-distribution",
+    "product-finder",
+    "cross-reference"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raristotle/wass-ai-ops-lab.git",
+    "directory": "mcp"
+  },
+  "homepage": "https://app.raristotle.com/product-finder",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
