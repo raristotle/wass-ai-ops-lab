@@ -13,6 +13,7 @@ import { encodeQuoteShare, QUOTE_SHARE_VERSION, type QuoteSharePayload } from "@
 import { basketCsv, downloadCsv, downloadText } from "@/lib/product-finder-csv";
 import { buildPunchOutCxml } from "@/lib/procurement/cxml";
 import { buildEdi850 } from "@/lib/procurement/edi850";
+import { DepositButton } from "@/features/product-finder/DepositButton";
 import type { ProcurementOrder } from "@/lib/procurement/types";
 import { unspscCode } from "@/lib/catalog/unspsc";
 import { OrderTracking } from "@/features/product-finder/OrderTracking";
@@ -1344,6 +1345,7 @@ export function CartDrawer() {
                           Revise
                         </button>
                       )}
+                      <DepositButton quote={q} />
                       <button
                         type="button"
                         onClick={() => deleteQuote(q.id)}

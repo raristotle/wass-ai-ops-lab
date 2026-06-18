@@ -22,6 +22,7 @@ import { webPushConfigured } from "@/lib/server/web-push";
 import { eciaConfigured } from "@/lib/integration/trustedparts-live";
 import { oemsecretsConfigured } from "@/lib/integration/oemsecrets-live";
 import { weatherConfigured } from "@/lib/integration/weather-live";
+import { stripeDepositConfigured } from "@/lib/integration/stripe-deposit";
 
 export const dynamic = "force-dynamic";
 
@@ -53,6 +54,7 @@ export function GET() {
       queue: queueConfigured(),
       ratelimit: rateLimiterConfigured(),
       stripeTax: stripeTaxConfigured(),
+      deposits: stripeDepositConfigured(),
       rerank: rerankConfigured(),
       slack: slackConfigured(),
       nexar: nexarConfigured(),

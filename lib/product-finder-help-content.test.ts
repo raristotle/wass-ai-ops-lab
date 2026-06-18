@@ -72,6 +72,8 @@ describe("HELP_TOPICS", () => {
       "procurement-export",
       "offer-ladder",
       "jobsite-weather",
+      "deposits",
+      "order-lifecycle",
     ]) {
       expect(ids.has(required), required).toBe(true);
     }

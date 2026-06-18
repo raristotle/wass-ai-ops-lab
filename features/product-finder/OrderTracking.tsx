@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useProductFinder, type Order } from "@/lib/product-finder-store";
 import { orderEtaDays } from "@/lib/product-finder-delivery";
-import { orderTracking, type FulfillmentMethod } from "@/lib/product-finder-tracking";
+import { orderTracking, type FulfillmentMethod, type OrderTracking as OrderTrackingState } from "@/lib/product-finder-tracking";
+import { orderToProcurement, confirmationFromTracking, shipNoticeFromTracking } from "@/lib/product-finder-order-status";
+import { downloadText } from "@/lib/product-finder-csv";
 import { JobsiteWeatherBadge } from "@/features/product-finder/JobsiteWeatherBadge";
 import { cn } from "@/lib/utils";
 
@@ -35,9 +37,43 @@ export function OrderTracking({ order }: { order: Order }) {
   const setReturnModalOrder = useProductFinder((s) => s.setReturnModalOrder);
   const [open, setOpen] = useState(false);
 
+  const [docBusy, setDocBusy] = useState<null | "confirmation" | "shipnotice">(null);
+  const [docError, setDocError] = useState<string | null>(null);
+
   const etaDays = orderEtaDays(order.lines, branchId);
   const track = orderTracking({ placedAt: order.placedAt, etaDays, method: method as FulfillmentMethod }, Date.now());
   const metro = fulfillingMetro(order, branchId);
+
+  /**
+   * Operator action: generate the cXML OrderConfirmation / ShipNotice for this
+   * order and download it. Deterministic/$0; the buyer's procurement system is
+   * the recipient. Triggered only by this click — never scheduled.
+   */
+  async function generateDoc(kind: "confirmation" | "shipnotice", tracking: OrderTrackingState) {
+    setDocBusy(kind);
+    setDocError(null);
+    try {
+      const now = Date.now();
+      const po = orderToProcurement(order);
+      const body =
+        kind === "confirmation"
+          ? { kind, order: po, confirmation: confirmationFromTracking(tracking, now) }
+          : { kind, order: po, shipment: shipNoticeFromTracking(order, tracking, now) };
+      const res = await fetch("/api/procurement/order-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const xml = await res.text();
+      const file = kind === "confirmation" ? `${order.id}-confirmation.xml` : `${order.id}-shipnotice.xml`;
+      downloadText(file, xml, "application/xml");
+    } catch {
+      setDocError("Could not generate the document. Try again.");
+    } finally {
+      setDocBusy(null);
+    }
+  }
 
   return (
     <div className="mt-1.5">
@@ -111,6 +147,33 @@ export function OrderTracking({ order }: { order: Order }) {
 
           {/* Jobsite weather outlook (dormant unless the NWS + geocoding lanes are keyed). */}
           {method === "delivery" && metro && <JobsiteWeatherBadge location={metro} />}
+
+          {/* Procurement lifecycle documents (cXML) — operator-triggered, $0. */}
+          <div className="mt-2 border-t border-[#B7C9D3]/40 pt-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[10px] uppercase tracking-wide text-[#4F758B]">Procurement cXML:</span>
+              <button
+                type="button"
+                disabled={docBusy !== null}
+                onClick={() => generateDoc("confirmation", track)}
+                className="rounded border border-[#004986]/40 px-2 py-0.5 text-[11px] font-medium text-[#004986] hover:bg-[#004986]/5 disabled:opacity-50"
+              >
+                {docBusy === "confirmation" ? "Generating…" : "Order confirmation"}
+              </button>
+              <button
+                type="button"
+                disabled={docBusy !== null}
+                onClick={() => generateDoc("shipnotice", track)}
+                className="rounded border border-[#004986]/40 px-2 py-0.5 text-[11px] font-medium text-[#004986] hover:bg-[#004986]/5 disabled:opacity-50"
+              >
+                {docBusy === "shipnotice" ? "Generating…" : "Ship notice (ASN)"}
+              </button>
+            </div>
+            {docError && <p className="mt-1 text-[10px] text-[#DB6B30]">{docError}</p>}
+            <p className="mt-1 text-[10px] italic text-[#4F758B]">
+              cXML OrderConfirmation / ShipNotice for the buyer’s procurement system (Ariba / Coupa / SAP).
+            </p>
+          </div>
         </div>
       )}
     </div>

@@ -32,3 +32,37 @@ export interface ProcurementOrder {
 export function orderTotal(order: ProcurementOrder): number {
   return Math.round(order.lines.reduce((s, l) => s + l.unitPrice * l.qty, 0) * 100) / 100;
 }
+
+/**
+ * Inputs for the order-lifecycle cXML documents a supplier sends back to a
+ * buyer's procurement system AFTER the PO: an OrderConfirmation (we accept /
+ * detail / reject the PO) and a ShipNotice / ASN (what shipped, when, how). Kept
+ * here with ProcurementOrder so the generators stay pure + deterministic; the
+ * route maps a Meridian order + its tracking state into these. All dates are ISO
+ * strings (passed in, never read from the clock, so the generators are testable).
+ */
+export interface OrderConfirmationInput {
+  /** ISO timestamp the confirmation is issued. */
+  noticeDate: string;
+  /** accept = confirm the PO as ordered; detail = line-level; reject = decline. */
+  status: "accept" | "detail" | "reject";
+  /** ISO estimated ship date (from order tracking), optional. */
+  estimatedShipDate?: string;
+}
+
+export interface ShipNoticeInput {
+  /** Supplier shipment / ASN identifier. */
+  shipmentId: string;
+  /** ISO timestamp the notice is issued. */
+  noticeDate: string;
+  /** ISO actual ship date. */
+  shipDate: string;
+  /** ISO estimated delivery date (from tracking ETA), optional. */
+  deliveryDate?: string;
+  /** Carrier name; omitted → no ShipControl carrier block (the tracking model has none). */
+  carrier?: string;
+  /** Carrier tracking number, optional. */
+  trackingNumber?: string;
+  /** delivery vs will-call — willcall annotates a pickup shipment. */
+  method?: "delivery" | "willcall";
+}

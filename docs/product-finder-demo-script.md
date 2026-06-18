@@ -505,6 +505,13 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
 - **No weather chip on a tracked order** → the NWS jobsite-weather lane is dormant
   until a weather contact + geocoding key are set, so it stays quiet in the demo;
   it only appears on jobsite-delivery orders for the fulfilling branch metro.
+- **No "Request deposit" button on a quote** → expected in the demo. Stripe deposit
+  collection is dormant until `STRIPE_SECRET_KEY` is set; it's the only money-moving
+  feature, so it stays hidden and $0 until keyed. Talking point: "a deposit Checkout
+  link is created only by an explicit rep click — card or ACH, on Stripe's hosted page."
+- **cXML confirmation / ship notice** → on a placed order, open Track order → the
+  Procurement cXML row downloads the OrderConfirmation / ShipNotice for the buyer's
+  Ariba / Coupa / SAP system. Deterministic and $0; generated only on click.
 - **Real email fails with a domain message** → Resend free tier delivers only
   to the account owner's inbox until a domain is verified; send to that address
   or verify a domain.

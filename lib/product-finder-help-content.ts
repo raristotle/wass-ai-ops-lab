@@ -647,6 +647,27 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "deposits",
+    title: "Collecting a deposit",
+    body: [
+      "On a sent or won quote you can request a customer deposit (when the Stripe payment seam is configured):",
+      "• Click Request deposit on the quote row — it creates a secure Stripe Checkout link (default 30% of the quote) and opens it for the customer.",
+      "• Card and bank (ACH) are both accepted; no card details ever touch this app — payment happens on Stripe's hosted page.",
+      "• Once paid, the quote row shows Deposit paid ✓.",
+      "This is the only money-moving feature, so it's off until keys are set, a charge is created only by your explicit click, and nothing is ever charged automatically.",
+    ],
+  },
+  {
+    id: "order-lifecycle",
+    title: "cXML order confirmation & ship notice",
+    body: [
+      "Open Track order on a placed order to download the two procurement documents a buyer's system expects after the PO:",
+      "• Order confirmation — cXML ConfirmationRequest accepting the order with an estimated ship date.",
+      "• Ship notice (ASN) — cXML ShipNoticeRequest with ship/delivery dates and a line-by-line manifest.",
+      "Both are generated on demand for the buyer's Ariba / Coupa / SAP system — $0, deterministic, and only when you click (never on a schedule).",
+    ],
+  },
+  {
     id: "demand-forecast",
     title: "Branch demand forecast",
     body: [
