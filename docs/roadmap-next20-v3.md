@@ -85,7 +85,11 @@ together; **#18 RRF fusion** finally gives the standalone `/api/rerank` a real c
 dormant); **#15 plan-takeoff import** rides the shipped fuzzy-match + BOM Health pipeline and benefits
 from the tariff overlay landing first so imported BOMs price with duty awareness.
 
-### Sprint 4 · Field-rep mobile workflows on shipped primitives  (#11, 17)
+### Sprint 4 · Field-rep mobile workflows on shipped primitives  (#11, 17) — ✅ SHIPPED 2026-06-18 (commit 18f1ecb)
+Live: one "Cycle count & bins" surface (scan/key SKUs → count → diff vs VMI min/max → one-tap
+below-min replenishment basket), fusing the shipped VMI engine + BarcodeDetector. $0, client-side.
+Adversarial review returned zero findings; 1730 tests; First Load JS 103 kB. See [docs/field-rep-mobile.md](field-rep-mobile.md). Original plan:
+
 Siblings that fuse the **same** two shipped primitives — the VMI min/max engine + the BarcodeDetector
 scanner — into a job-site "Bins"/cycle-count workflow. Build **#11 bin manager** first (scan one bin →
 set count → propose replenishment), then extend into **#17 continuous multi-SKU cycle-count** (reuses
