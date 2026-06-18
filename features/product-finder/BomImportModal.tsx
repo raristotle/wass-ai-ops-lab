@@ -3,6 +3,7 @@
 import { useRef, useState, type ChangeEvent, type KeyboardEvent } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { parseBomLines, matchBomScored } from "@/lib/product-finder-bom";
+import { isLikelyTakeoffCsv, parseTakeoffCsv, takeoffToParsedLines } from "@/lib/product-finder-takeoff";
 import { apiSearch, apiCrossMatch } from "@/lib/product-finder-api";
 import { suggestCorrection } from "@/lib/product-finder-suggest-correction";
 import {
@@ -265,7 +266,10 @@ export function BomImportModal() {
   }
 
   async function handleMatch() {
-    const parsed = parseBomLines(text);
+    // A structured estimating/Bluebeam "Quantity Link" CSV (description + count
+    // columns) routes through the takeoff parser (#15); a plain paste uses the
+    // line parser. Both yield the same matchable lines.
+    const parsed = isLikelyTakeoffCsv(text) ? takeoffToParsedLines(parseTakeoffCsv(text)) : parseBomLines(text);
     if (parsed.length === 0) return;
     setMatching(true);
     setMatched(null);
@@ -411,6 +415,8 @@ export function BomImportModal() {
             <p id="bom-format-hint" className="mt-1 text-xs text-[#4F758B]">
               Formats: <code>12x Item</code>, <code>12 Item</code>, <code>12, Item</code>,{" "}
               <code>12 - Item</code>, or <code>Item</code> (qty defaults to 1). Up to 200 lines.
+              Also accepts an estimating / Bluebeam takeoff <strong>CSV</strong> (Description + Count
+              columns, optional CSI code) — auto-detected.
             </p>
           </div>
 

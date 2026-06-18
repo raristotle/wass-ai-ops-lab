@@ -4,6 +4,8 @@ import { computeFacets } from "@/lib/catalog/facets";
 import { parseAttribute } from "@/lib/catalog/attributes";
 import { isActiveLifecycle } from "@/lib/catalog/lifecycle";
 import { crossCountForSku } from "@/lib/catalog/cross-runtime";
+import { reciprocalRankFusion } from "@/lib/catalog/rrf";
+import { matchConfidence } from "@/lib/product-finder-match-confidence";
 
 export interface SearchFilters {
   categories?: ProductCategory[];
@@ -61,6 +63,36 @@ function sortItems(items: CatalogProduct[], sort: SortKey): CatalogProduct[] {
       );
     default: return arr.sort((a, b) => (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0));
   }
+}
+
+// Keyword lane score: weighted term hits across the strongest fields.
+function keywordScore(p: CatalogProduct, terms: string[]): number {
+  const name = p.name.toLowerCase();
+  const sku = p.sku.toLowerCase();
+  const brand = p.brand.toLowerCase();
+  const sub = p.subcategory.toLowerCase();
+  let s = 0;
+  for (const t of terms) {
+    if (sku.includes(t)) s += 3;
+    if (name.includes(t)) s += 2;
+    if (brand.includes(t)) s += 1;
+    if (sub.includes(t)) s += 1;
+  }
+  return s;
+}
+
+// Hybrid relevance (v3-S3 #18): fuse the keyword lane with a fuzzy token-coverage
+// lane via Reciprocal Rank Fusion — $0, deterministic, no score calibration. The
+// fuzzy lane is bounded (skipped for very broad matches to keep search snappy).
+const HYBRID_FUZZY_CAP = 3000;
+
+function hybridRelevance(matched: CatalogProduct[], text: string, terms: string[]): CatalogProduct[] {
+  const keyword = [...matched].sort(
+    (a, b) => keywordScore(b, terms) - keywordScore(a, terms) || (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0),
+  );
+  if (matched.length > HYBRID_FUZZY_CAP) return keyword;
+  const fuzzy = [...matched].sort((a, b) => matchConfidence(text, b) - matchConfidence(text, a));
+  return reciprocalRankFusion([keyword, fuzzy], { key: (p) => p.id });
 }
 
 /**
@@ -160,7 +192,11 @@ export function searchCatalog(params: SearchParams = {}): SearchResponse {
           })
         );
 
-  const sorted = sortItems(matched, params.sort ?? "relevance");
+  const sortKey = params.sort ?? "relevance";
+  const sorted =
+    sortKey === "relevance" && terms.length > 0
+      ? hybridRelevance(matched, text, terms)
+      : sortItems(matched, sortKey);
   const start = page * pageSize;
   return { items: sorted.slice(start, start + pageSize), total: matched.length, page, pageSize, facets, refineFacets };
 }

@@ -31,7 +31,7 @@ export function BomIntelligenceModal() {
       return;
     }
     if (items.length === 0) {
-      setAnalysis({ rows: [], compliance: { lines: 0, ulListed: 0, notUlListed: 0, rohsIssues: 0, prop65: 0, tariffExposed: 0, flagged: 0 } });
+      setAnalysis({ rows: [], compliance: { lines: 0, ulListed: 0, notUlListed: 0, rohsIssues: 0, prop65: 0, tariffExposed: 0, flagged: 0 }, tariff: { exposedLines: 0, totalDuty: 0 } });
       return;
     }
     let cancelled = false;
@@ -56,6 +56,7 @@ export function BomIntelligenceModal() {
   const roll = rollupHealth(grades);
   const totalSavings = (rows ?? []).reduce((s, r) => s + (r.award?.switch ? r.award.lineSavings : 0), 0);
   const comp = analysis?.compliance;
+  const tariff = analysis?.tariff;
 
   return (
     <div
@@ -117,7 +118,9 @@ export function BomIntelligenceModal() {
                   <p className="text-[11px] text-[#4F758B]">Compliance</p>
                   <p className="text-lg font-semibold text-[#1D252D]">{comp?.flagged ?? 0}</p>
                   <p className="text-[11px] text-[#4F758B]">
-                    {(comp?.tariffExposed ?? 0) > 0 ? `${comp!.tariffExposed} tariff-exposed` : "lines flagged"}
+                    {(tariff?.exposedLines ?? 0) > 0
+                      ? `${tariff!.exposedLines} tariff-exposed · $${tariff!.totalDuty.toFixed(0)} duty`
+                      : "lines flagged"}
                   </p>
                 </div>
               </div>
@@ -149,6 +152,12 @@ export function BomIntelligenceModal() {
                       <p className="mt-0.5 text-[10px] text-[#854F0B]">
                         ⚖ {r.compliance.countryOfOrigin}
                         {r.compliance.flags.length > 0 ? ` · ${r.compliance.flags.join(" · ")}` : " · compliant"}
+                      </p>
+                    )}
+                    {r.tariff && r.tariff.ratePct > 0 && (
+                      <p className="mt-0.5 text-[10px] text-[#A32D2D]">
+                        🛃 {r.tariff.program} {(r.tariff.ratePct * 100).toFixed(0)}% · +${r.tariff.dutyPerUnit.toFixed(2)}/unit
+                        duty → landed ${r.tariff.tariffedLandedUnit.toFixed(2)}/unit (${r.tariff.dutyLine.toFixed(2)} line)
                       </p>
                     )}
                   </li>

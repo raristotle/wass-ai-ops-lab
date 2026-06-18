@@ -10,6 +10,7 @@ import { identifierKey } from "@/lib/catalog/identifiers";
 import { gradeLine } from "@/lib/catalog/bom-health";
 import { bestAward, estimateFreightPerUnit, type SupplyOption } from "@/lib/catalog/landed-cost";
 import { complianceForProduct, complianceFlags, rollupCompliance, type Compliance } from "@/lib/catalog/compliance";
+import { tariffForLine, tariffRollup, type TariffDuty } from "@/lib/catalog/tariff";
 import { lineEtaDays } from "@/lib/product-finder-delivery";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { logApiError } from "@/lib/server/log";
@@ -68,14 +69,27 @@ export async function POST(req: Request) {
     const entries = resolvedCrossEntries();
 
     const complianceItems: Compliance[] = [];
+    const tariffDuties: TariffDuty[] = [];
     const rows = items.map(({ sku, qty }) => {
       const need = Math.max(1, Math.floor(qty ?? 1));
       const product = resolveBySku(sku);
-      if (!product) return { sku, qty: need, product: null, health: null, award: null, compliance: null };
+      if (!product) return { sku, qty: need, product: null, health: null, award: null, compliance: null, tariff: null };
 
       // Real (verified/curated) parts return null — we never fabricate compliance.
       const compliance = complianceForProduct(product);
       if (compliance) complianceItems.push(compliance);
+
+      // Tariff-adjusted landed cost (#14): Section-301 duty on the unit price basis.
+      const tariff = compliance
+        ? tariffForLine({
+            htsCode: compliance.htsCode,
+            countryOfOrigin: compliance.countryOfOrigin,
+            section301: compliance.section301,
+            unitPrice: product.unitPrice,
+            qty: need,
+          })
+        : null;
+      if (tariff) tariffDuties.push(tariff);
 
       const equivalents = findEquivalents(product, 8, branchId);
       const successor = pickActiveSuccessor(product, equivalents);
@@ -133,10 +147,23 @@ export async function POST(req: Request) {
           section301: compliance.section301,
           ulListed: compliance.ulListed,
         },
+        tariff: tariff && {
+          ratePct: tariff.ratePct,
+          program: tariff.program,
+          dutyPerUnit: tariff.dutyPerUnit,
+          dutyLine: tariff.dutyLine,
+          // Landed unit incl. duty — the price the importer of record actually carries.
+          tariffedLandedUnit:
+            Math.round(((award ? award.currentLanded.unit : product.unitPrice) + tariff.dutyPerUnit) * 100) / 100,
+        },
       };
     });
 
-    return NextResponse.json({ rows, compliance: rollupCompliance(complianceItems) });
+    return NextResponse.json({
+      rows,
+      compliance: rollupCompliance(complianceItems),
+      tariff: tariffRollup(tariffDuties),
+    });
   } catch (e) {
     logApiError("/api/bom/analyze", e);
     return NextResponse.json({ error: "Could not analyze the BOM." }, { status: 400 });

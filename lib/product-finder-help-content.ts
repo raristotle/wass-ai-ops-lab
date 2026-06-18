@@ -781,6 +781,17 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "margin-tariff-takeoff",
+    title: "Reclaim rebates, see tariffs, import a takeoff",
+    body: [
+      "Four deterministic tools for margin and estimating:",
+      "• SPA rebate claim-back — the manager dashboard surfaces unclaimed Special-Pricing-Agreement dollars across your won quotes, broken down by manufacturer, with a one-click claim-file CSV export.",
+      "• Tariff-aware landed cost — BOM Intelligence now shows the Section-301 duty on China-origin lines and the tariff-adjusted landed cost, so the real importer cost is visible.",
+      "• Smarter relevance — plain-English searches now blend exact-keyword and fuzzy matching, so paraphrased or partial queries surface the right part more often.",
+      "• Plan-takeoff import — paste or upload an estimating / Bluebeam takeoff CSV (Description + Count columns) into BOM import; it's auto-detected and run through the same confidence-matching as a pasted list.",
+    ],
+  },
+  {
     id: "outbound-alerts",
     title: "Outbound alerts & rep scorecard",
     body: [

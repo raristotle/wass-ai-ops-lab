@@ -147,14 +147,24 @@ export interface BomAnalyzeRow {
     currentLandedUnit: number;
   } | null;
   compliance: { flags: string[]; countryOfOrigin: string; section301: boolean; ulListed: boolean } | null;
+  tariff: {
+    ratePct: number;
+    program: "Section 301" | "none";
+    dutyPerUnit: number;
+    dutyLine: number;
+    tariffedLandedUnit: number;
+  } | null;
 }
 
 export interface BomAnalysis {
   rows: BomAnalyzeRow[];
   compliance: import("@/lib/catalog/compliance").BomCompliance;
+  /** Section-301 duty exposure rollup (v3-S3 #14). */
+  tariff: { exposedLines: number; totalDuty: number };
 }
 
 const EMPTY_COMPLIANCE = { lines: 0, ulListed: 0, notUlListed: 0, rohsIssues: 0, prop65: 0, tariffExposed: 0, flagged: 0 };
+const EMPTY_TARIFF = { exposedLines: 0, totalDuty: 0 };
 
 export async function apiBomAnalyze(
   items: { sku: string; qty: number }[],
@@ -166,11 +176,15 @@ export async function apiBomAnalyze(
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items, branchId }),
     });
-    if (!res.ok) return { rows: [], compliance: EMPTY_COMPLIANCE };
+    if (!res.ok) return { rows: [], compliance: EMPTY_COMPLIANCE, tariff: EMPTY_TARIFF };
     const data = await res.json();
-    return { rows: data.rows as BomAnalyzeRow[], compliance: data.compliance ?? EMPTY_COMPLIANCE };
+    return {
+      rows: data.rows as BomAnalyzeRow[],
+      compliance: data.compliance ?? EMPTY_COMPLIANCE,
+      tariff: data.tariff ?? EMPTY_TARIFF,
+    };
   } catch {
-    return { rows: [], compliance: EMPTY_COMPLIANCE };
+    return { rows: [], compliance: EMPTY_COMPLIANCE, tariff: EMPTY_TARIFF };
   }
 }
 

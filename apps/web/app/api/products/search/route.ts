@@ -4,11 +4,12 @@ import { parseSearchQuery } from "@/lib/catalog/schemas";
 import { findEquivalents } from "@/lib/catalog/equivalents";
 import { totalStock, pickInStockSubstitute } from "@/lib/product-finder-substitute";
 import { crossCountForSku } from "@/lib/catalog/cross-runtime";
+import { rerankConfigured, rerankCandidates } from "@/lib/integration/rerank-live";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
 
-export function GET(req: Request) {
+export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const params = parseSearchQuery(searchParams);
   const response = searchCatalog(params);
@@ -23,11 +24,27 @@ export function GET(req: Request) {
   }
 
   // Source-backed cross counts for result-card badges — verified/curated only.
-  const items = response.items.map((item) => {
+  let items: CatalogProduct[] = response.items.map((item) => {
     if (item.dataSource !== "verified" && item.dataSource !== "curated") return item;
     const n = crossCountForSku(item.sku);
     return n > 0 ? { ...item, verifiedCrossCount: n } : item;
   });
+
+  // Optional precision lift on the hybrid-ranked page (v3-S3 #18): when a Cohere
+  // key is set, rerank the shown results. DORMANT/$0 by default — no key ⇒ no
+  // network, the in-engine RRF order stands. Fail-soft + capped to the page.
+  if (params.sort === "relevance" && params.text.trim() && rerankConfigured()) {
+    try {
+      const rr = await rerankCandidates(
+        params.text,
+        items,
+        (p) => `${p.name} ${p.brand} ${p.subcategory}`,
+      );
+      if (rr.enabled) items = rr.items;
+    } catch {
+      /* keep the RRF order */
+    }
+  }
 
   return NextResponse.json({ ...response, items, substitutes });
 }

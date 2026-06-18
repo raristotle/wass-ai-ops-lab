@@ -53,6 +53,7 @@ import { demandForecast, WINDOW_DAYS } from "@/lib/product-finder-forecast";
 import { CrossCoveragePanel } from "@/features/product-finder/CrossCoveragePanel";
 import { CoverageGapsCard } from "@/features/product-finder/CoverageGapsCard";
 import { RepScorecardCard } from "@/features/product-finder/RepScorecardCard";
+import { SpaClaimbackCard } from "@/features/product-finder/SpaClaimbackCard";
 import { subcategoryShareQuery } from "@/lib/product-finder-url";
 import { categoryShareQuery } from "@/lib/product-finder-url";
 import { apiGetProduct } from "@/lib/product-finder-api";
@@ -678,6 +679,7 @@ function DashboardContent() {
       {/* ── Cross-reference coverage ───────────────────────────────────────────── */}
       <CrossCoveragePanel />
       <CoverageGapsCard />
+      <SpaClaimbackCard />
       <RepScorecardCard />
 
       {/* ── Charts row: Top categories + Orders over time ──────────────────────── */}
