@@ -9,6 +9,7 @@ import { apiGoesWith } from "@/lib/product-finder-api";
 import { fetchProductDetailCached } from "@/lib/product-finder-prefetch";
 import { ProductImage } from "@/features/product-finder/ProductImage";
 import { LiveDistributorPanel } from "@/features/product-finder/LiveDistributorPanel";
+import { OfferLadderPanel } from "@/features/product-finder/OfferLadderPanel";
 import { VerifiedCrossPanel } from "@/features/product-finder/VerifiedCrossPanel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -519,6 +520,10 @@ export function ProductDetailModal() {
         <VerifiedCrossPanel product={product} />
 
         <LiveDistributorPanel product={product} />
+
+        {/* ── Aggregated offer ladder (internal Meridian offer + every configured
+               external source, ranked into one seller/stock/lead/price table) ── */}
+        <OfferLadderPanel product={product} />
 
         {/* ── Spec Sheet section ──────────────────────────────── */}
         {/*

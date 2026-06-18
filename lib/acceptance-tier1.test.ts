@@ -132,6 +132,7 @@ describe("AC38 (partial) — route surface is frozen", () => {
     expect(files.sort()).toEqual([
       "[id]/goeswith/route.ts",
       "[id]/live/route.ts",
+      "[id]/offers/route.ts",
       "[id]/route.ts",
       "quick-resolve/route.ts",
       "resolve/route.ts",

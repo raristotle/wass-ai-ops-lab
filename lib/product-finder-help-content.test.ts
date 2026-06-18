@@ -70,6 +70,8 @@ describe("HELP_TOPICS", () => {
       "white-label",
       "sso",
       "procurement-export",
+      "offer-ladder",
+      "jobsite-weather",
     ]) {
       expect(ids.has(required), required).toBe(true);
     }

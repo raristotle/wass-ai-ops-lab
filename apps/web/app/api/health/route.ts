@@ -19,6 +19,9 @@ import { hubspotConfigured } from "@/lib/integration/hubspot-live";
 import { smsConfigured } from "@/lib/integration/sms-live";
 import { pdfConfigured } from "@/lib/integration/pdf-live";
 import { webPushConfigured } from "@/lib/server/web-push";
+import { eciaConfigured } from "@/lib/integration/trustedparts-live";
+import { oemsecretsConfigured } from "@/lib/integration/oemsecrets-live";
+import { weatherConfigured } from "@/lib/integration/weather-live";
 
 export const dynamic = "force-dynamic";
 
@@ -53,6 +56,9 @@ export function GET() {
       rerank: rerankConfigured(),
       slack: slackConfigured(),
       nexar: nexarConfigured(),
+      ecia: eciaConfigured(),
+      oemsecrets: oemsecretsConfigured(),
+      weather: weatherConfigured(),
       shipping: shippingConfigured(),
       hubspot: hubspotConfigured(),
       sms: smsConfigured(),

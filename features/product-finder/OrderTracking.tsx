@@ -4,10 +4,23 @@ import { useState } from "react";
 import { useProductFinder, type Order } from "@/lib/product-finder-store";
 import { orderEtaDays } from "@/lib/product-finder-delivery";
 import { orderTracking, type FulfillmentMethod } from "@/lib/product-finder-tracking";
+import { JobsiteWeatherBadge } from "@/features/product-finder/JobsiteWeatherBadge";
 import { cn } from "@/lib/utils";
 
 function fmtDate(ms: number): string {
   return new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
+
+/**
+ * "City, ST" of the fulfilling branch for this order — the best available
+ * location for a jobsite-delivery weather outlook (the order carries no explicit
+ * ship-to). Prefers the branch matching the user's home branch, else any branch
+ * stocking a line. Returns null when no branch location is present.
+ */
+function fulfillingMetro(order: Order, branchId: string | undefined): string | null {
+  const branches = order.lines.flatMap((l) => l.product.branchStock);
+  const match = (branchId && branches.find((b) => b.branchId === branchId)) || branches[0];
+  return match ? `${match.city}, ${match.state}` : null;
 }
 
 /**
@@ -24,6 +37,7 @@ export function OrderTracking({ order }: { order: Order }) {
 
   const etaDays = orderEtaDays(order.lines, branchId);
   const track = orderTracking({ placedAt: order.placedAt, etaDays, method: method as FulfillmentMethod }, Date.now());
+  const metro = fulfillingMetro(order, branchId);
 
   return (
     <div className="mt-1.5">
@@ -94,6 +108,9 @@ export function OrderTracking({ order }: { order: Order }) {
           <p className="mt-2 text-[10px] italic text-[#4F758B]">
             Simulated tracking from the order date and stocking ETA — a carrier/WMS feed drops in behind the same seam.
           </p>
+
+          {/* Jobsite weather outlook (dormant unless the NWS + geocoding lanes are keyed). */}
+          {method === "delivery" && metro && <JobsiteWeatherBadge location={metro} />}
         </div>
       )}
     </div>

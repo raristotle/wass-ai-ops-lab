@@ -497,6 +497,14 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
 - **Live distributor panel empty** → normal for most parts; use the known-good
   SKUs in step 9a. Construction commodities often aren't carried by electronics
   distributors — the panel says so rather than faking it.
+- **Offer Ladder shows only "Meridian"** → expected in the demo. The authorized
+  (ECIA TrustedParts), aggregator (OEMsecrets), and live Mouser/Digi-Key lanes
+  are env-gated and dormant until their keys are set — the ladder still shows the
+  internal volume price curve. Talking point: "one ranked seller/stock/lead/price
+  view; the external lanes stack in the moment a key is added, $0 until then."
+- **No weather chip on a tracked order** → the NWS jobsite-weather lane is dormant
+  until a weather contact + geocoding key are set, so it stays quiet in the demo;
+  it only appears on jobsite-delivery orders for the fulfilling branch metro.
 - **Real email fails with a domain message** → Resend free tier delivers only
   to the account owner's inbox until a domain is verified; send to that address
   or verify a domain.

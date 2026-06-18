@@ -625,6 +625,28 @@ export const HELP_TOPICS: HelpTopic[] = [
     tryQuery: "AF09-30-10-13",
   },
   {
+    id: "offer-ladder",
+    title: "Offer ladder & volume price curve",
+    body: [
+      "On a product's detail view, the Offer Ladder stacks every place you can get the part into one ranked list: in-stock first, then lowest entry price, with authorized distributors winning ties.",
+      "• The Meridian branch/DC offer is always shown, with its quantity-break price curve sparkline.",
+      "• When their API keys are set, authorized-distributor (ECIA TrustedParts) and broad aggregator (OEMsecrets) offers stack in alongside the live Mouser/Digi-Key quotes — all real, fetched per-request, never stored.",
+      "• External sources only query real (verified/curated) part numbers; simulated catalog SKUs stay internal-only.",
+      "Until those keys are added it shows the Meridian volume ladder — $0 and no outbound calls.",
+    ],
+    tryQuery: "AF09-30-10-13",
+  },
+  {
+    id: "jobsite-weather",
+    title: "Jobsite weather risk",
+    body: [
+      "When you track a jobsite-delivery order, an install-risk weather chip can appear for the fulfilling branch metro, powered by the free National Weather Service feed.",
+      "• Flags conditions that matter to electrical crews — rain on open terminations, freezing (PVC cement / torque out of spec), high wind limiting aerial work, storm holds.",
+      "• Worst-case across the next few periods drives the chip color: clear, caution, or hold.",
+      "On-demand only (it never polls), nothing stored. Dormant until a weather contact + geocoding key are set, so it stays quiet in the demo.",
+    ],
+  },
+  {
     id: "demand-forecast",
     title: "Branch demand forecast",
     body: [
