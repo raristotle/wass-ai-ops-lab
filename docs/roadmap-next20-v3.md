@@ -73,7 +73,11 @@ column"** first (the producer — guarantees every shown attribute is a real, fi
 same distribution) and **#8 scoped category chip** (reuses Sprint 1's removable-chip UI + the category
 branch). All deterministic, $0. Sits after Sprint 1's applied-filters bar, which establishes the chip UI.
 
-### Sprint 3 · Deterministic margin, tariff & search-quality engines  (#9, 14, 18, 15)
+### Sprint 3 · Deterministic margin, tariff & search-quality engines  (#9, 14, 18, 15) — ✅ SHIPPED 2026-06-18 (commit cba350a)
+Live: SPA/rebate claim-back card, tariff-adjusted landed cost in BOM Intelligence, hybrid RRF search,
+and plan-takeoff CSV import. All $0/deterministic; the Cohere rerank stays dormant until COHERE_API_KEY.
+Adversarial-reviewed (cost-dormancy verified); 1722 tests; First Load JS 103 kB. See [docs/deterministic-engines.md](deterministic-engines.md). Original plan:
+
 Pure deterministic engines over the shipped pricing/compliance/search lanes — all $0, no external
 account — that unblock the high-value money/import features. **#9 SPA claim-back** (the single
 highest-value story, V=9) and **#14 tariff landed-cost** share the quote/BOM line model and plumb
