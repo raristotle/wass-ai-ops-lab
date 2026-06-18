@@ -96,7 +96,7 @@ set count → propose replenishment), then extend into **#17 continuous multi-SK
 the quick-resolve pipeline #11 establishes). Self-contained, $0, client-side; no dependency on the
 faceting or pricing foundations, so it could run in parallel with Sprint 3 if capacity allows.
 
-### Sprint 5 · Env-gated live distributor & weather data lanes  (#12, 10, 16, 7)
+### Sprint 5 · Env-gated live distributor & weather data lanes  (#12, 10, 16, 7) — ✅ SHIPPED 2026-06-18 (commit d9122ac)
 External data-API adapters sharing the per-request, never-stored, env-gated-dormant pattern beside the
 shipped Mouser/Digi-Key adapters. **#12 aggregated offer ladder** is the foundation — it builds the
 Octopart-style sortable seller/stock/lead-time/price-break panel and renders **internal-only** when keys
