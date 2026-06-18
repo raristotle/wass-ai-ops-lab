@@ -792,6 +792,17 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "cycle-count-bins",
+    title: "Cycle count & bins (scan to reorder)",
+    body: [
+      "Count a shelf, van, or bin from your phone and reorder what's low — open it from Ctrl/⌘-K → “Cycle count & bins”.",
+      "• Scan each SKU with the camera (continuous — keep scanning a whole shelf) or key/scan it with a wedge scanner into the box.",
+      "• Enter the counted on-hand for each line. Anything below its VMI min/max policy is flagged Reorder or Critical with the quantity to restock back up to max.",
+      "• One tap adds every below-min line to your basket — review and check out as normal.",
+      "Set a SKU's min/max first in VMI (also under Ctrl/⌘-K). Counts are point-in-time; nothing is ordered until you check out.",
+    ],
+  },
+  {
     id: "outbound-alerts",
     title: "Outbound alerts & rep scorecard",
     body: [

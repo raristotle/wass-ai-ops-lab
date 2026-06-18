@@ -20,6 +20,7 @@ import { JobsModal } from "@/features/product-finder/JobsModal";
 import { VmiModal } from "@/features/product-finder/VmiModal";
 import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
 import { BarcodeScannerModal } from "@/features/product-finder/BarcodeScannerModal";
+import { CycleCountModal } from "@/features/product-finder/CycleCountModal";
 import { CompareTray } from "@/features/product-finder/CompareTray";
 import { KeyboardHelpModal } from "@/features/product-finder/KeyboardHelpModal";
 import { SpecMatchModal } from "@/features/product-finder/SpecMatchModal";
@@ -262,6 +263,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <VmiModal />
       <QuickOrderModal />
       <BarcodeScannerModal />
+      <CycleCountModal />
       <SpecMatchModal />
       <RiskSweepModal />
       <ReturnModal />

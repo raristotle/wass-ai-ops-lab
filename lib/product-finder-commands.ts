@@ -20,7 +20,7 @@ export type CommandAction =
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
         | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode"
-        | "spec-match" | "risk-sweep";
+        | "cyclecount" | "spec-match" | "risk-sweep";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -102,6 +102,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["scan", "barcode", "qr", "camera", "lookup", "part number"],
       action: { kind: "open", target: "barcode" },
+    },
+    {
+      id: "open-cyclecount",
+      label: "Cycle count & bins — scan to reorder",
+      group: "Open",
+      keywords: ["cycle count", "bin", "shelf", "van stock", "count", "replenish", "reorder", "scan", "vmi", "min max"],
+      action: { kind: "open", target: "cyclecount" },
     },
     {
       id: "open-help",

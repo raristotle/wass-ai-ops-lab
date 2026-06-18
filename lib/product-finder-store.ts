@@ -354,6 +354,9 @@ export interface ProductFinderState {
   barcodeOpen: boolean;
   setBarcodeOpen: (v: boolean) => void;
 
+  cycleCountOpen: boolean;
+  setCycleCountOpen: (v: boolean) => void;
+
   // Watches (notify-when-available)
   watches: WatchEntry[];
   toggleWatch: (id: string, info?: { name?: string; now?: number }) => void;
@@ -1482,6 +1485,9 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Barcode scanner (#20) ─────────────────────────────────
   barcodeOpen: false,
   setBarcodeOpen(v) { set({ barcodeOpen: v }); },
+
+  cycleCountOpen: false,
+  setCycleCountOpen(v) { set({ cycleCountOpen: v }); },
 
   // ── Watches (notify-when-available) ──────────────────────
   watches: [],

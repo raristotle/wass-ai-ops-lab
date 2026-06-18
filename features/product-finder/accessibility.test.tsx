@@ -6,6 +6,7 @@ import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
 import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
 import { BomImportModal } from "@/features/product-finder/BomImportModal";
+import { CycleCountModal } from "@/features/product-finder/CycleCountModal";
 import { JobsModal } from "@/features/product-finder/JobsModal";
 import { VmiModal } from "@/features/product-finder/VmiModal";
 import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
@@ -48,7 +49,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   });
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], cart: {}, compareIds: new Set(), keyboardHelpOpen: false, results: [] });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, cycleCountOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], cart: {}, compareIds: new Set(), keyboardHelpOpen: false, results: [] });
   });
 
   it("Guided selectors modal", async () => {
@@ -81,6 +82,12 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   it("BOM import modal (#15 takeoff)", async () => {
     useProductFinder.setState({ bomModalOpen: true });
     const { container } = render(<BomImportModal />);
+    await expectNoViolations(container);
+  });
+
+  it("Cycle-count / bins modal (#11/#17)", async () => {
+    useProductFinder.setState({ cycleCountOpen: true });
+    const { container } = render(<CycleCountModal />);
     await expectNoViolations(container);
   });
 
@@ -176,7 +183,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
 describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], keyboardHelpOpen: false });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, cycleCountOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], keyboardHelpOpen: false });
   });
 
   it("Escape closes the BOM import modal", () => {
@@ -187,6 +194,14 @@ describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
     // when open), so dispatch the key there rather than on document.
     fireEvent.keyDown(getByRole("dialog"), { key: "Escape" });
     expect(useProductFinder.getState().bomModalOpen).toBe(false);
+  });
+
+  it("Escape closes the Cycle-count modal", () => {
+    useProductFinder.setState({ cycleCountOpen: true });
+    render(<CycleCountModal />);
+    expect(useProductFinder.getState().cycleCountOpen).toBe(true);
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(useProductFinder.getState().cycleCountOpen).toBe(false);
   });
 
   it("Escape closes the Guided selectors modal", () => {
