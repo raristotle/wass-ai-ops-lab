@@ -105,7 +105,7 @@ source adapters feeding that same ladder + cross-ref rows. **#7 NWS weather** is
 "external data lane" but is $0/no-key (reuses the shipped geocoding seam) — a safe way to exercise the
 lane while ECIA/OEMsecrets accounts are provisioned. **PREREQ: ECIA + OEMsecrets accounts/keys.**
 
-### Sprint 6 · Order-lifecycle close-out & gated payment capture  (#13, 19)
+### Sprint 6 · Order-lifecycle close-out & gated payment capture  (#13, 19) — ✅ SHIPPED 2026-06-18 (commit e2ce299)
 Net-new buy-to-pay completion, with the heaviest prerequisites, so last. **#13 cXML
 Confirmation/ShipNotice** extends the shipped `lib/procurement/cxml.ts` and reads existing order-tracking
 state — document generation is deterministic/$0, but transmission stays **operator-triggered POST, never
