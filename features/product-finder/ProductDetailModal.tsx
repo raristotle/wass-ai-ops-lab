@@ -22,6 +22,7 @@ import { pickActiveSuccessor } from "@/lib/catalog/successor";
 import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { CutToLengthPanel } from "@/features/product-finder/CutToLengthPanel";
 import { RebatePanel } from "@/features/product-finder/RebatePanel";
+import { DataEnrichmentPanel } from "@/features/product-finder/DataEnrichmentPanel";
 import type { SourcingGrade } from "@/lib/catalog/coverage-score";
 import { computeProductQualityScore, TIER_COLOR, TIER_LABEL } from "@/lib/catalog/data-quality-score";
 
@@ -525,6 +526,9 @@ export function ProductDetailModal() {
 
             {/* Utility rebate estimate (lighting only) */}
             <RebatePanel product={product} qty={qty} />
+
+            {/* Ingested-data enrichment: manufacturer entity, ETIM class, substances */}
+            <DataEnrichmentPanel product={product} />
 
             {/* Find Alternatives */}
             <div>

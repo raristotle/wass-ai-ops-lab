@@ -113,6 +113,16 @@ describe("HELP_TOPICS", () => {
     expect(body).toContain("Box fill");
   });
 
+  it("covers the dataset-ingestion enrichment (manufacturer entity, ETIM, compliance)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("data-enrichment")).toBe(true);
+    const topic = HELP_TOPICS.find((t) => t.id === "data-enrichment")!;
+    const body = topic.body.join(" ");
+    expect(body).toContain("LEI");
+    expect(body).toContain("ETIM");
+    expect(body).toMatch(/REACH-SVHC|RoHS|Prop 65/);
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

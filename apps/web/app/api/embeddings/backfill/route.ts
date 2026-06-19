@@ -4,7 +4,7 @@ import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { requireApiAuth } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { getCatalog } from "@/lib/catalog/index";
-import { embeddingsConfigured, embedTexts, productEmbeddingText } from "@/lib/integration/embeddings-live";
+import { embeddingsConfigured, embedTexts, enrichedEmbeddingText } from "@/lib/integration/embeddings-live";
 import { vectorStoreConfigured, upsertVectors, vectorCount } from "@/lib/server/vector-store";
 
 export const dynamic = "force-dynamic";
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ enabled: true, embedded: 0, offset: body.offset, total, done: true });
     }
 
-    const texts = slice.map((p) => productEmbeddingText(p));
+    const texts = slice.map((p) => enrichedEmbeddingText(p));
     const vectors = await embedTexts(texts, "document");
     if (!vectors) {
       return NextResponse.json({ enabled: false, reason: "embed-failed" }, { status: 502 });

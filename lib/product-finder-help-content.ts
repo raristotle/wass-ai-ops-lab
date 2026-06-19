@@ -1003,6 +1003,19 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "data-enrichment",
+    title: "Manufacturer, ETIM class & compliance enrichment",
+    body: [
+      "Open any product's details and scroll to the Data Enrichment panel — it grounds the part in three real, sourced datasets, all computed on-device at $0:",
+      "• Manufacturer entity — the brand's parent and ultimate-parent company, its GLEIF LEI (the global legal-entity ID), and former names. So “Cutler-Hammer” is shown as Eaton, and you can see which brands are corporate siblings.",
+      "• ETIM class — the international electrotechnical class code (e.g. EC000042 for a miniature circuit breaker) and the engineering features that class expects, with a coverage bar showing which the product already lists.",
+      "• Compliance watch — a CAS-anchored “may contain” list (REACH-SVHC / RoHS / Prop 65) inferred from the product's materials, plus its US HTS chapter and any Section 301 tariff note. Always labeled an estimate to confirm against the manufacturer's declaration.",
+      "Search benefits too: type a former name like “Cutler-Hammer” or a parent like “Schneider” and the brand alias expands to the canonical catalog brand automatically. When semantic search is enabled, the same entity + ETIM text enriches each product's embedding for better recall.",
+      "Every fact carries a source link and a confidence level; nothing here is fabricated.",
+    ],
+    tryQuery: "Cutler-Hammer breaker",
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

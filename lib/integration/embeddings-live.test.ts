@@ -6,6 +6,7 @@ import {
   buildEmbeddingRequest,
   parseEmbeddingResponse,
   productEmbeddingText,
+  enrichedEmbeddingText,
   EMBEDDING_DIM,
 } from "@/lib/integration/embeddings-live";
 
@@ -91,5 +92,20 @@ describe("productEmbeddingText", () => {
   });
   it("handles missing specs", () => {
     expect(productEmbeddingText({ name: "X", brand: "Y", subcategory: "Z" })).toBe("X Y Z");
+  });
+});
+
+describe("enrichedEmbeddingText", () => {
+  it("includes the base text plus brand-entity + ETIM enrichment for a known brand/category", () => {
+    const t = enrichedEmbeddingText({ name: "QO 20A Breaker", brand: "Square D", subcategory: "Circuit Breakers" });
+    expect(t).toContain("QO 20A Breaker");
+    expect(t).toContain("Square D");
+    // Square D's parent (Schneider) should be appended for semantic recall.
+    expect(t.toLowerCase()).toContain("schneider");
+    // ETIM class name for circuit breakers mentions "circuit breaker".
+    expect(t.toLowerCase()).toContain("circuit breaker");
+  });
+  it("falls back to the base text for an unknown brand/category", () => {
+    expect(enrichedEmbeddingText({ name: "X", brand: "ZZZUnknown", subcategory: "ZZZNope" })).toBe("X ZZZUnknown ZZZNope");
   });
 });

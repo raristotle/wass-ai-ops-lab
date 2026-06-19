@@ -1,5 +1,6 @@
 import { ALL_BRANDS } from "@/data/mock/catalog-products";
 import { applySynonyms } from "@/lib/product-finder-synonyms";
+import { expandBrandAliases } from "@/lib/catalog/brand-entity";
 import type { ParsedFilter, ParsedFilterKind, ParsedQuery, ProductCategory } from "@/features/product-finder/types";
 
 function escapeRe(s: string): string {
@@ -12,7 +13,11 @@ const CATEGORIES: ProductCategory[] = ["electrical", "datacom", "oem-electrical"
 export function parseQuery(raw: string): ParsedQuery {
   // Trade-slang expansion runs FIRST so every later pass sees catalog terms.
   const synonyms = applySynonyms(raw);
-  let working = ` ${synonyms.text.toLowerCase()} `;
+  // Then resolve manufacturer aliases / former names to the canonical catalog
+  // brand (entity graph), so "Cutler-Hammer" finds Eaton, "Cooper Bussmann" finds
+  // Bussmann — the appended brand is matched by the brand pass below.
+  const brandExpanded = expandBrandAliases(synonyms.text);
+  let working = ` ${brandExpanded.text.toLowerCase()} `;
   const filters: ParsedFilter[] = [];
   const push = (kind: ParsedFilterKind, label: string, value: string | number | boolean) =>
     filters.push({ id: `${kind}:${value}`, kind, label, value });

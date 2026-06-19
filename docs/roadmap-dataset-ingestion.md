@@ -119,8 +119,15 @@ its key is set** — honors the cost guardrail.
 
 ## Sprint stories (value-ordered, all $0 unless noted)
 
+> **Increment 1 shipped 2026-06-19** — the free static layers of DI-S1/S2/S3.
+> See [dataset-ingestion-real-layers.md](dataset-ingestion-real-layers.md).
+> ✅ **DI-1** (ETIM class map), ✅ **DI-4** (GLEIF LEI), ✅ **DI-5** (Wikidata
+> ownership/aliases), ✅ **DI-6** (SEC EDGAR former names), ✅ **DI-8** (REACH/
+> RoHS/Prop 65 CAS triggers), 🟡 **DI-7** (HTS chapter + Section 301 lookup added
+> as additive enrichment; the per-subcategory tariff table replacement remains).
+
 ### DI-S1 · Attribute + classification backbone  *(free, pattern A)*
-**DI-1 — ETIM classification ingestion.** Land ETIM (groups/classes/features/values/
+**✅ DI-1 — ETIM classification ingestion.** Land ETIM (groups/classes/features/values/
 units) as a typed reference under `data/ref/etim/`; map our subcategories → ETIM
 classes; derive **required-spec sets** per category. *Improves:* completeness
 scoring (#11), faceting, and like-for-like cross-ref matching. *Acceptance:* each
@@ -134,21 +141,23 @@ specs; rebate estimate cites the listing.
 **DI-3 — UNSPSC refresh.** Re-parse the current UNSPSC codeset; verify `unspscFor`
 coverage. *Acceptance:* no electrical subcategory falls back to a generic code.
 
-### DI-S2 · Manufacturer / brand entity layer  *(free CC0, pattern A)*
-**DI-4 — GLEIF LEI parent rollups.** Ingest LEI L1+L2 RR; attach an LEI + direct/
+### DI-S2 · Manufacturer / brand entity layer  *(free CC0, pattern A)*  — ✅ shipped
+**✅ DI-4 — GLEIF LEI parent rollups.** Ingest LEI L1+L2 RR; attach an LEI + direct/
 ultimate parent to each manufacturer. *Improves:* brand hierarchy, second-source.
 *Acceptance:* every catalog brand resolves to an LEI or is reported as a gap.
-**DI-5 — Wikidata brand graph.** SPARQL for brand→owner (P127/P749) + aliases +
+**✅ DI-5 — Wikidata brand graph.** SPARQL for brand→owner (P127/P749) + aliases +
 cross-walk IDs; feed the brand-hierarchy registry + cross-ref "equivalent brand".
 *Acceptance:* "Square D / Homeline / QO → Schneider" resolves; aliases improve search recall.
-**DI-6 — SEC EDGAR name history.** Add US public-parent identity + former-name map.
+**✅ DI-6 — SEC EDGAR name history.** Add US public-parent identity + former-name map.
 *Acceptance:* a rebranded/spun-off manufacturer still resolves to its current parent.
 
 ### DI-S3 · Compliance + trade enrichment  *(free public-domain, pattern A)*
-**DI-7 — HTS + Section 301.** Replace the static tariff table with the USITC HTS +
+**🟡 DI-7 — HTS + Section 301.** Replace the static tariff table with the USITC HTS +
 Chapter-99 301/232 mapping; assign HTS per subcategory. *Improves:* landed-cost
 overlay (#14) accuracy. *Acceptance:* duty + 301 surcharge derive from a real HTS code.
-**DI-8 — Prop 65 + REACH/RoHS flags.** Ingest OEHHA Prop 65 + ECHA SVHC + RoHS
+*(Shipped: HTS chapter + Section 301 lookup as additive enrichment; full
+per-subcategory tariff-table replacement still open.)*
+**✅ DI-8 — Prop 65 + REACH/RoHS flags.** Ingest OEHHA Prop 65 + ECHA SVHC + RoHS
 Annex II as CAS lists; flag SKUs whose materials reference a listed substance.
 *Acceptance:* per-SKU compliance flags + BOM rollup ("contains SVHC?").
 **DI-9 — FCC EAS verified flag.** Dormant Socrata seam (pattern B) OR build-snapshot

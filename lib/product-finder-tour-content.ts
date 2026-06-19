@@ -147,6 +147,7 @@ export const TOUR_STEPS: readonly TourStep[] = [
       "• Voice search — tap the mic and say “twenty amp breaker in stock”.",
       "• Snap a photo — the barcode scanner can identify a part from a photo (AI vision reads it; the catalog resolves the real SKU), and search can blend in AI semantic relevance — both light up when their keys are set, $0 until then.",
       "• Language — flip the header toggle between English and Español; customers get a self-service order-history portal too.",
+      "• Data enrichment — every product's detail view grounds it in real sourced datasets: the manufacturer's parent company and GLEIF LEI (Cutler-Hammer → Eaton), its ETIM engineering class, and a CAS-anchored REACH/RoHS/Prop-65 + HTS-tariff watch. Searching a former or parent name (“Cutler-Hammer”, “Schneider”) auto-resolves to the catalog brand.",
       "• Command palette — Ctrl/Cmd-K jumps anywhere, switches roles, or runs a search.",
       "• Deep links — every filtered view has a shareable URL that rebuilds it exactly.",
       "• Help — searchable how-tos for every feature, with one-click “try it” queries.",

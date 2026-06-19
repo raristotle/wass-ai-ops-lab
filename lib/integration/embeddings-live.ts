@@ -20,6 +20,8 @@
  */
 
 import { logApiError } from "@/lib/server/log";
+import { brandEntityFor } from "@/lib/catalog/brand-entity";
+import { etimClassFor } from "@/lib/catalog/etim-specs";
 
 function env(name: string): string | null {
   const v = process.env[name]?.trim();
@@ -153,4 +155,26 @@ export function productEmbeddingText(p: {
 }): string {
   const specs = (p.specs ?? []).map((s) => `${s.name} ${s.value}`).join(" ");
   return `${p.name} ${p.brand} ${p.subcategory} ${specs}`.replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Embedding text enriched with the ingested datasets (v-DI #1): the manufacturer
+ * entity (parent / aliases / former names — so a query for "Cutler-Hammer" or the
+ * parent company embeds near the product) and the ETIM class name (the standard
+ * engineering term for the category). Richer, real text → better semantic recall.
+ */
+export function enrichedEmbeddingText(p: {
+  name: string;
+  brand: string;
+  subcategory: string;
+  specs?: { name: string; value: string }[];
+}): string {
+  const base = productEmbeddingText(p);
+  const entity = brandEntityFor(p.brand);
+  const brandExtra = entity
+    ? [entity.parentCompany, entity.ultimateParent, ...entity.aliases, ...entity.formerNames].filter(Boolean)
+    : [];
+  const etim = etimClassFor(p.subcategory);
+  const etimExtra = etim?.className ? [etim.className] : [];
+  return [base, ...brandExtra, ...etimExtra].join(" ").replace(/\s+/g, " ").trim();
 }

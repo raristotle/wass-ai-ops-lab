@@ -173,6 +173,27 @@ Every SKU below is deterministic — it exists with the same data in every envir
     this customer's price — one click into the basket. Conduit fill and breaker
     sizing work the same way. That's engineering intent captured as an order."*
 
+9h. **Search `Cutler-Hammer breaker`.** *"Watch the search bar — nobody stocks a
+    brand called 'Cutler-Hammer' anymore, it became Eaton decades ago. The app
+    knows: it expands the former name to the canonical Eaton line automatically,
+    so the rep finds the part the customer named on a 1990s drawing."* **Open any
+    breaker's View Details and scroll to the Data Enrichment panel.** *"This is
+    the free-dataset layer we just ingested, all computed on-device at zero cost
+    and every fact source-linked. Three things ground the part: first, the
+    manufacturer entity — parent and ultimate parent company, the brand's global
+    GLEIF legal-entity ID, and former names, so you see Square D is Schneider and
+    which brands are corporate siblings. Second, the ETIM class — the
+    international electrotechnical class code and the engineering features that
+    class expects, with a coverage bar. Third, a compliance watch — a
+    CAS-anchored 'may contain' list flagged REACH-SVHC, RoHS, or Prop 65 from the
+    product's materials, plus its US HTS tariff chapter and any Section 301 note.
+    Every line is labeled an estimate to confirm against the manufacturer's
+    declaration — real grounding, never a fabricated spec."*
+    > **Cost note:** this layer is 100% static, real, web-verified data shipped
+    > with the app — $0, no API key, always on. When semantic search is later
+    > enabled, the same manufacturer + ETIM text also enriches each product's
+    > embedding for better recall.
+
 ## Act 4 — From basket to deliverables (5 min)
 
 9b. **Click the 🧰 Job Wizard button** by the search bar. **Pick "200A
