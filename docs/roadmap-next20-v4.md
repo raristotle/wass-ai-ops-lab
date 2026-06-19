@@ -108,6 +108,17 @@ connector** (Epicor Eclipse / Prophet 21 / SAP — real availability + order wri
 once everything above is live. **PREREQ: industry-data membership (#19) and an ERP integration
 partnership/credentials (#20) — secure these before the sprint.**
 
+## Related backlog — external dataset ingestion
+
+A separate, research-backed backlog of **free + paid datasets to ingest for better
+catalog data** (attributes, manufacturer hierarchy, cross-references, classification,
+compliance, pricing) lives in **[roadmap-dataset-ingestion.md](roadmap-dataset-ingestion.md)**.
+It was produced by sweeping the categories Google Dataset Search surfaces and is
+ranked by value÷cost (free-first: ETIM, ENERGY STAR/DLC, GLEIF, Wikidata, USITC HTS,
+Prop 65/REACH, FCC, BLS PPI, …; with the highest-value paid option, **IDEA IDW**,
+flagged as quote-only). It overlaps Sprint 6 #19 (IDEA/ETIM ingestion) and #18
+(pricing intelligence), broken into per-dataset stories with acceptance criteria.
+
 ## Caveats (cost / dependency)
 
 - **Cost exposure is confined to a few items.** Truly $0/free: #1, #2, #5, #6, #7, #8, #9, #11,
