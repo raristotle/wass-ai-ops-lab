@@ -169,6 +169,7 @@ describe("AC45 — zero new dependencies vs git HEAD", () => {
     "@sentry/nextjs", // Sprint 1 #5: error monitoring + Session Replay (dormant until SENTRY_DSN)
     "posthog-js", // Sprint 1 #3: analytics + flags + surveys (client; dynamic-imported, dormant until NEXT_PUBLIC_POSTHOG_KEY)
     "posthog-node", // Sprint 1 #3: server-side feature flags (dormant until POSTHOG_KEY)
+    "@vitest/coverage-v8", // Coverage audit: dev-only V8 coverage provider for `npm run coverage` ($0 runtime)
   ]);
 
   it.each(["package.json", "apps/web/package.json"])("%s has no unreviewed added deps", (rel) => {

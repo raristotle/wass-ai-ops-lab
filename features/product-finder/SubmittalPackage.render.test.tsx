@@ -1,0 +1,154 @@
+import { describe, it, expect } from "vitest";
+import { render, screen, within } from "@testing-library/react";
+import { SubmittalPackage } from "@/features/product-finder/SubmittalPackage";
+import { BRANDS } from "@/lib/brand";
+import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
+
+function prod(id: string, specs: ProductSpec[] = []): CatalogProduct {
+  return {
+    id,
+    sku: `SKU-${id}`,
+    name: `Product ${id}`,
+    brand: "Acme",
+    category: "electrical",
+    subcategory: "Circuit Breakers",
+    description: `Description for ${id}`,
+    unitPrice: 20,
+    uom: "ea",
+    specs,
+    preferred: false,
+    branchStock: [],
+    dcStock: [],
+    externalSources: [],
+    imageIcon: "x",
+  };
+}
+
+const baseProps = {
+  customer: "Northwind Electric",
+  project: "PO-4821",
+  packageNumber: "SUB-001",
+  dateLabel: "2026-06-19",
+};
+
+describe("SubmittalPackage (component)", () => {
+  it("renders the cover page header and metadata for a populated package", () => {
+    const items = [
+      { product: prod("A"), qty: 3 },
+      { product: prod("B"), qty: 1 },
+    ];
+    render(
+      <SubmittalPackage
+        {...baseProps}
+        items={items}
+        preparedBy="Jane Rep"
+      />,
+    );
+    expect(
+      screen.getByRole("heading", { level: 1, name: "SUBMITTAL PACKAGE" }),
+    ).toBeInTheDocument();
+    // Metadata values from props.
+    expect(screen.getByText("SUB-001")).toBeInTheDocument();
+    expect(screen.getByText("2026-06-19")).toBeInTheDocument();
+    expect(screen.getByText("Northwind Electric")).toBeInTheDocument();
+    expect(screen.getByText("PO-4821")).toBeInTheDocument();
+    // preparedBy is present so its row renders.
+    expect(screen.getByText("Prepared by")).toBeInTheDocument();
+    expect(screen.getByText("Jane Rep")).toBeInTheDocument();
+    // Item count reflects items.length.
+    const itemsTerm = screen.getByText("Items");
+    expect(itemsTerm.parentElement).toHaveTextContent("2");
+  });
+
+  it("renders one spec sheet section per item with the index table", () => {
+    const items = [
+      { product: prod("A"), qty: 3 },
+      { product: prod("B"), qty: 5 },
+    ];
+    render(<SubmittalPackage {...baseProps} items={items} />);
+    // Per-item spec sheet headings are numbered.
+    expect(
+      screen.getByRole("heading", { level: 2, name: "1. Product A" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 2, name: "2. Product B" }),
+    ).toBeInTheDocument();
+    // SKUs appear (index row + spec-sheet subhead).
+    expect(screen.getAllByText("SKU-A").length).toBeGreaterThan(0);
+    // Descriptions render in each section.
+    expect(screen.getByText("Description for A")).toBeInTheDocument();
+    expect(screen.getByText("Description for B")).toBeInTheDocument();
+  });
+
+  it("renders Required Yes for non-negotiable specs and an em-dash otherwise", () => {
+    const items = [
+      {
+        product: prod("A", [
+          { name: "Voltage", value: "120V", isNonNeg: true },
+          { name: "Color", value: "Red", isNonNeg: false },
+        ]),
+        qty: 1,
+      },
+    ];
+    render(<SubmittalPackage {...baseProps} items={items} />);
+    // The required spec value + its "Yes" flag.
+    const voltageRow = screen.getByText("Voltage").closest("tr");
+    expect(voltageRow).not.toBeNull();
+    expect(within(voltageRow as HTMLElement).getByText("Yes")).toBeInTheDocument();
+    const colorRow = screen.getByText("Color").closest("tr");
+    expect(within(colorRow as HTMLElement).getByText("—")).toBeInTheDocument();
+  });
+
+  it("falls back to an em-dash for empty customer and project and hides preparedBy when absent", () => {
+    render(
+      <SubmittalPackage
+        customer=""
+        project=""
+        packageNumber="SUB-002"
+        dateLabel="2026-06-19"
+        items={[]}
+      />,
+    );
+    // Empty customer + project both fall back to the em-dash placeholder.
+    expect(screen.getAllByText("—").length).toBeGreaterThanOrEqual(2);
+    // No preparedBy prop -> no "Prepared by" row.
+    expect(screen.queryByText("Prepared by")).not.toBeInTheDocument();
+    // Empty package still renders the cover heading and 0 items.
+    expect(
+      screen.getByRole("heading", { level: 1, name: "SUBMITTAL PACKAGE" }),
+    ).toBeInTheDocument();
+    const itemsTerm = screen.getByText("Items");
+    expect(itemsTerm.parentElement).toHaveTextContent("0");
+    // No per-item spec-sheet sections for an empty basket.
+    expect(screen.queryByRole("heading", { level: 2 })).not.toBeInTheDocument();
+  });
+
+  it("uses the default (Meridian) brand lockup and footer when no brand prop is passed", () => {
+    render(<SubmittalPackage {...baseProps} items={[]} />);
+    expect(screen.getByText(BRANDS.meridian.logoMark)).toBeInTheDocument();
+    expect(screen.getByText(BRANDS.meridian.logoSub)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        (content) =>
+          content.startsWith(`Generated by ${BRANDS.meridian.name} Product Finder`),
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("honors an explicit white-label brand prop (Wesco) in lockup and footer", () => {
+    render(
+      <SubmittalPackage {...baseProps} items={[]} brand={BRANDS.wesco} />,
+    );
+    expect(screen.getByText(BRANDS.wesco.logoMark)).toBeInTheDocument();
+    expect(screen.getByText(BRANDS.wesco.logoSub)).toBeInTheDocument();
+    // The logo lockup chip is tinted with the brand accent.
+    const mark = screen.getByText(BRANDS.wesco.logoMark);
+    expect(mark).toHaveStyle({ backgroundColor: BRANDS.wesco.accent });
+    expect(
+      screen.getByText(
+        (content) =>
+          content.startsWith(`Generated by ${BRANDS.wesco.name} Product Finder`),
+      ),
+    ).toBeInTheDocument();
+  });
+});

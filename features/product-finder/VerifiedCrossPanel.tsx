@@ -21,10 +21,15 @@ export function VerifiedCrossPanel({ product }: { product: CatalogProduct }) {
   const [hierarchy, setHierarchy] = useState<BrandNode | null>(null);
 
   useEffect(() => {
+    // Reset BOTH on every product change so a previous product's source-backed
+    // crosses/hierarchy can never render against a new product (provenance must
+    // stay tied to the product it was fetched for).
+    setHierarchy(null);
     if (product.dataSource !== "verified" && product.dataSource !== "curated") {
       setCrosses([]);
       return;
     }
+    setCrosses(null);
     let cancelled = false;
     apiGetProduct(product.id)
       .then((detail: ProductDetail) => {

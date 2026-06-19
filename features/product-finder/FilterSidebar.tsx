@@ -42,21 +42,27 @@ function CatalogSourceStrip() {
   );
 }
 
-function hasActiveFilters(filters: FilterState): boolean {
+/** Count every active filter — the single source of truth for the mobile badge
+ * AND hasActiveFilters, so the badge can never undercount (e.g. show 0 while a
+ * crosses/price/spec filter is the only thing applied). */
+function countActiveFilters(filters: FilterState): number {
   return (
-    filters.categories.size > 0 ||
-    filters.subcategories.size > 0 ||
-    filters.brands.size > 0 ||
-    filters.onlyBranchStock ||
-    filters.onlyDCStock ||
-    filters.onlyPreferred ||
-    filters.onlyActive ||
-    filters.onlyWithCrosses ||
-    filters.priceMin !== null ||
-    filters.priceMax !== null ||
-    Object.keys(filters.specFilters ?? {}).length > 0 ||
-    Object.keys(filters.specRanges ?? {}).length > 0
+    filters.categories.size +
+    filters.subcategories.size +
+    filters.brands.size +
+    (filters.onlyBranchStock ? 1 : 0) +
+    (filters.onlyDCStock ? 1 : 0) +
+    (filters.onlyPreferred ? 1 : 0) +
+    (filters.onlyActive ? 1 : 0) +
+    (filters.onlyWithCrosses ? 1 : 0) +
+    (filters.priceMin !== null || filters.priceMax !== null ? 1 : 0) +
+    Object.keys(filters.specFilters ?? {}).length +
+    Object.keys(filters.specRanges ?? {}).length
   );
+}
+
+function hasActiveFilters(filters: FilterState): boolean {
+  return countActiveFilters(filters) > 0;
 }
 
 interface SectionProps {

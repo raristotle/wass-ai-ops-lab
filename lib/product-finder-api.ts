@@ -127,7 +127,8 @@ export async function apiCrossMatch(
       body: JSON.stringify({ queries }),
     });
     if (!res.ok) return queries.map(() => null);
-    return (await res.json()).suggestions;
+    // Fail closed to the documented per-query null shape if a 200 omits `suggestions`.
+    return (await res.json()).suggestions ?? queries.map(() => null);
   } catch {
     return queries.map(() => null);
   }
@@ -185,7 +186,9 @@ export async function apiBomAnalyze(
     if (!res.ok) return { rows: [], compliance: EMPTY_COMPLIANCE, tariff: EMPTY_TARIFF };
     const data = await res.json();
     return {
-      rows: data.rows as BomAnalyzeRow[],
+      // Fail closed to [] (consistent with the error paths + the non-optional type)
+      // if a malformed 200 omits `rows`.
+      rows: (data.rows ?? []) as BomAnalyzeRow[],
       compliance: data.compliance ?? EMPTY_COMPLIANCE,
       tariff: data.tariff ?? EMPTY_TARIFF,
     };
@@ -197,7 +200,9 @@ export async function apiBomAnalyze(
 export async function apiGoesWith(id: string): Promise<import("@/features/product-finder/types").CatalogProduct[]> {
   const res = await fetch(`/api/products/${encodeURIComponent(id)}/goeswith`);
   if (!res.ok) return [];
-  return (await res.json()).items as import("@/features/product-finder/types").CatalogProduct[];
+  // Fail closed to [] if a malformed 200 omits `items` (a consumer .map() would
+  // otherwise crash the product-detail modal).
+  return ((await res.json()).items ?? []) as import("@/features/product-finder/types").CatalogProduct[];
 }
 
 export async function apiResolve(

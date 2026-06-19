@@ -47,7 +47,14 @@ export async function serverFeatureFlag(key: string, distinctId: string, fallbac
   if (!client) return fallback;
   try {
     return (await client.isFeatureEnabled(key, distinctId)) ?? fallback;
+  } catch {
+    // Fail closed: a PostHog outage / timeout must degrade to the fallback, never
+    // throw out of a feature gate and 500 the request. (Enabling analytics must not
+    // make a previously-safe gate fragile to a third-party hiccup.)
+    return fallback;
   } finally {
-    await client.shutdown();
+    // A flush/shutdown failure must not mask the result or surface as an unhandled
+    // rejection.
+    await client.shutdown().catch(() => {});
   }
 }

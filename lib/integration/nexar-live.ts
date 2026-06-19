@@ -82,8 +82,11 @@ export interface NexarPart {
  * The first part is the primary; every part contributes a second-source row.
  * Returns null when there are no parts. Fully unit-testable, no I/O.
  */
-export function nexarSearchToEnrichment(parts: NexarPart[]): ProductEnrichment | null {
-  const part = parts[0];
+export function nexarSearchToEnrichment(parts: (NexarPart | null | undefined)[]): ProductEnrichment | null {
+  // Nexar's schema permits a null `results[].part`; drop them so a leading null
+  // can't hide valid second-source parts and a trailing null can't throw.
+  const valid = (parts ?? []).filter((p): p is NexarPart => Boolean(p));
+  const part = valid[0];
   if (!part) return null;
   return {
     mpn: part.mpn,
@@ -109,7 +112,7 @@ export function nexarSearchToEnrichment(parts: NexarPart[]): ProductEnrichment |
           .map((p) => ({ qty: p.quantity as number, price: p.price as number, currency: p.currency ?? "USD" })),
       };
     }),
-    secondSources: parts.map((p) => ({ mpn: p.mpn, manufacturer: p.manufacturer?.name ?? "—", octopartUrl: p.octopartUrl ?? null })),
+    secondSources: valid.map((p) => ({ mpn: p.mpn, manufacturer: p.manufacturer?.name ?? "—", octopartUrl: p.octopartUrl ?? null })),
   };
 }
 

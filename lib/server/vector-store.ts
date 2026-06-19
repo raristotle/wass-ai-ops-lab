@@ -49,16 +49,26 @@ async function getSql(): Promise<NeonSql | null> {
   if (!_ready) {
     _ready = (async () => {
       const { neon } = await import("@neondatabase/serverless");
-      _sql = neon(url) as unknown as NeonSql;
-      await _sql`CREATE EXTENSION IF NOT EXISTS vector`;
-      await _sql`CREATE TABLE IF NOT EXISTS "ProductVector" (
+      const sql = neon(url) as unknown as NeonSql;
+      await sql`CREATE EXTENSION IF NOT EXISTS vector`;
+      await sql`CREATE TABLE IF NOT EXISTS "ProductVector" (
         product_id text PRIMARY KEY,
         embedding vector(1024) NOT NULL,
         "updatedAt" timestamptz NOT NULL DEFAULT now()
       )`;
       // HNSW builds fine before/while rows load; cosine ops match the <=> queries.
-      await _sql`CREATE INDEX IF NOT EXISTS productvector_hnsw ON "ProductVector" USING hnsw (embedding vector_cosine_ops)`;
-    })();
+      await sql`CREATE INDEX IF NOT EXISTS productvector_hnsw ON "ProductVector" USING hnsw (embedding vector_cosine_ops)`;
+      // Publish the handle ONLY after the schema is guaranteed to exist, so a
+      // partial bootstrap never leaves a live handle to a missing table.
+      _sql = sql;
+    })().catch((e) => {
+      // A transient bootstrap failure (e.g. a Neon blip during the DDL) must not
+      // wedge the store for the life of the instance: clear the cached promise +
+      // handle so the next call retries once the database recovers.
+      _ready = null;
+      _sql = null;
+      throw e;
+    });
   }
   await _ready;
   return _sql;

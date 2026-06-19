@@ -478,7 +478,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       return false;
     }
     const { password: _pw, ...user } = record;
-    set({ user, authError: null });
+    // Clear the previous identity's "Quoting for" customer on a persona switch —
+    // same shared-workstation hazard logout() guards against (wrong pricing tier /
+    // contract attribution if the next rep inherits it).
+    set({ user, authError: null, activeCustomerId: null });
     if (typeof localStorage !== "undefined") {
       localStorage.setItem("pf_user", JSON.stringify(user));
     }
@@ -490,7 +493,7 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
 
   /** Establish a session from an SSO-mapped identity (no password). */
   loginWithSso(user) {
-    set({ user, authError: null });
+    set({ user, authError: null, activeCustomerId: null });
     if (typeof localStorage !== "undefined") localStorage.setItem("pf_user", JSON.stringify(user));
     establishServerSession(user.email, DEMO_PASSWORD, user.name);
   },
@@ -1253,9 +1256,18 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       : null;
 
     // Approval policy: margin floor + large-order + deep-discount rules.
+    // Deep-discount depth measures the REP's discount from the customer's CONTRACT
+    // price — NOT the customer's pre-negotiated contract discount off list. Using
+    // list as the baseline (the old behavior) pushed an ordinary quote for a
+    // contract customer into "pending approval" even when the rep gave no discount
+    // at all. The contract price is the provider's effective price for the active
+    // customer with no manual override; when the rep hasn't overridden, depth is 0.
     const discountDepthPct = marginLines.reduce((max, l) => {
-      const list = l.product.unitPrice;
-      const depth = list > 0 ? (list - l.effectiveUnitPrice) / list : 0;
+      const contractPrice = getPricingProvider().getPricing(l.product, {
+        customer: activeCustomer,
+        qty: l.qty,
+      }).effectiveUnitPrice;
+      const depth = contractPrice > 0 ? (contractPrice - l.effectiveUnitPrice) / contractPrice : 0;
       return depth > max ? depth : max;
     }, 0);
     const decision = evaluateApproval({

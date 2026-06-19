@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { Button } from "@/components/ui/button";
 import { isSoldByFoot, calcCutToLength, cutToLengthLabel } from "@/lib/product-finder-cut-to-length";
@@ -21,6 +21,11 @@ export function CutToLengthPanel({ product, onAdded }: Props) {
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
   const [lengthFt, setLengthFt] = useState(10);
   const [added, setAdded] = useState(false);
+  const addedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Clear any pending "added" reset timer on unmount so it can't fire setAdded on
+  // an unmounted component (the panel often unmounts when the cart drawer opens).
+  useEffect(() => () => { if (addedTimer.current) clearTimeout(addedTimer.current); }, []);
 
   if (!isSoldByFoot(product)) return null;
 
@@ -30,7 +35,8 @@ export function CutToLengthPanel({ product, onAdded }: Props) {
     if (result.qty <= 0) return;
     addToCart(product, result.qty);
     setAdded(true);
-    setTimeout(() => setAdded(false), 1500);
+    if (addedTimer.current) clearTimeout(addedTimer.current);
+    addedTimer.current = setTimeout(() => setAdded(false), 1500);
     onAdded?.();
     setCartOpen(true);
   }

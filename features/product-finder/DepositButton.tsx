@@ -115,6 +115,13 @@ export function DepositButton({ quote }: { quote: SavedQuote }) {
           Awaiting payment — refresh
         </button>
       )}
+      {(deposit?.status === "failed" || deposit?.status === "expired") && (
+        // Surface a terminal failure so the operator knows to retry — without this
+        // the refresh affordance vanishes and the prior attempt is invisible.
+        <span className="rounded bg-[#DB6B30]/10 px-2 py-0.5 text-[10px] font-semibold text-[#DB6B30]">
+          {deposit.status === "failed" ? "Deposit failed — retry" : "Link expired — retry"}
+        </span>
+      )}
       {error && <span className="text-[10px] text-[#DB6B30]">{error}</span>}
     </span>
   );

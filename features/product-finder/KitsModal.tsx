@@ -64,6 +64,10 @@ export function KitsModal() {
 
   useEffect(() => {
     if (!selectedKit) { setResolvedLines([]); return; }
+    // Cancellation guard: if the user switches kits while a slow resolve is in
+    // flight, a late response must NOT overwrite the newer kit's lines (which would
+    // mis-describe stock/price and let the wrong products be added to the cart).
+    let cancelled = false;
     setResolving(true);
     setAdded(false);
     Promise.all(
@@ -73,9 +77,13 @@ export function KitsModal() {
         return { product, inStock };
       }),
     ).then((results) => {
+      if (cancelled) return;
       setResolvedLines(results);
       setResolving(false);
     });
+    return () => {
+      cancelled = true;
+    };
   }, [selectedKit]);
 
   if (!open) return null;
