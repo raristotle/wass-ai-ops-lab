@@ -527,6 +527,20 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   signature, an order). It's hash-chained with a live “✓ Chain verified” badge, and
   Export (CSV) hands an auditor the full chain. Set `AUDIT_SECRET` for production-grade
   signing (docs/audit-log.md).
+- **Catalog Data Quality card** → on the manager dashboard, every product is scored
+  0-100 on completeness (specs, datasheet, provenance, lifecycle, identifiers); the card
+  shows the average, tier mix, and biggest gaps. Each product detail header also shows a
+  ⬡ Data badge. $0/deterministic. Talking point: "the same signal that makes AI semantic
+  search better — richer records, better recall."
+- **Semantic search looks the same** → expected in the demo. The AI semantic lane is
+  dormant until an embeddings key (Voyage AI free tier) + Neon are set and a one-time
+  backfill runs; until then search is the shipped keyword+fuzzy hybrid. Talking point:
+  "meaning-based relevance fuses in as a fourth ranking signal, $0 until keyed." Setup:
+  docs/semantic-search.md.
+- **Photo identify in the scanner** → Ctrl/⌘-K → "Scan barcode". When an ANTHROPIC_API_KEY
+  is set, "Photograph the part to identify it" uses AI vision to read brand/catalog#/
+  ratings and resolve a REAL stocked SKU (it never invents a part number); otherwise it
+  falls back to OCR or manual entry. $0 until keyed. Setup: docs/visual-part-id.md.
 - **cXML confirmation / ship notice** → on a placed order, open Track order → the
   Procurement cXML row downloads the OrderConfirmation / ShipNotice for the buyer's
   Ariba / Coupa / SAP system. Deterministic and $0; generated only on click.

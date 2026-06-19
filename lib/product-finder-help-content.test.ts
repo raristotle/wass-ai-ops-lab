@@ -86,6 +86,13 @@ describe("HELP_TOPICS", () => {
     }
   });
 
+  it("covers the v4-S3 features (semantic search, visual part ID, data quality)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    for (const required of ["semantic-search", "visual-part-id", "data-quality"]) {
+      expect(ids.has(required), required).toBe(true);
+    }
+  });
+
   it("covers the v4-S1 features (NEC extended calcs, cut-to-length, kits, submittal PDF)", () => {
     const ids = new Set(HELP_TOPICS.map((t) => t.id));
     for (const required of ["cut-to-length", "kits-assemblies", "submittal-pdf-server"]) {

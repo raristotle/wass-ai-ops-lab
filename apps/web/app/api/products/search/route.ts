@@ -5,6 +5,9 @@ import { findEquivalents } from "@/lib/catalog/equivalents";
 import { totalStock, pickInStockSubstitute } from "@/lib/product-finder-substitute";
 import { crossCountForSku } from "@/lib/catalog/cross-runtime";
 import { rerankConfigured, rerankCandidates } from "@/lib/integration/rerank-live";
+import { embeddingsConfigured, embedQuery } from "@/lib/integration/embeddings-live";
+import { vectorStoreConfigured, knnSearch } from "@/lib/server/vector-store";
+import { fuseSemanticLane } from "@/lib/catalog/semantic-search";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
@@ -43,6 +46,28 @@ export async function GET(req: Request) {
       if (rr.enabled) items = rr.items;
     } catch {
       /* keep the RRF order */
+    }
+  }
+
+  // Semantic lane (v4-S3 #4): when an embeddings key + Neon pgvector are present
+  // (and the catalog has been backfilled), embed the query, KNN over the vectors,
+  // and RRF-fuse the page so embedding relevance becomes a fourth signal.
+  // DORMANT/$0 by default — no key ⇒ no embed call, no Neon read; fail-closed to
+  // the existing order. Only re-ranks products already on the page.
+  if (
+    params.sort === "relevance" &&
+    params.text.trim() &&
+    embeddingsConfigured() &&
+    vectorStoreConfigured()
+  ) {
+    try {
+      const qvec = await embedQuery(params.text);
+      if (qvec) {
+        const ids = await knnSearch(qvec, 200);
+        items = fuseSemanticLane(items, ids);
+      }
+    } catch {
+      /* keep the current order */
     }
   }
 

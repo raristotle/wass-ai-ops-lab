@@ -81,7 +81,7 @@ and **#5 rebate lookup** are $0/free-data layers over the shipped analytics + ca
 also feeds Sprint-1 lighting kits. **#5 audit log** is $0 enterprise-readiness. **PREREQ: a
 Dropbox Sign (or equivalent) account for #3.**
 
-### Sprint 3 · AI recall + catalog quality  (#4, 11, 14)
+### Sprint 3 · AI recall + catalog quality  (#4, 11, 14) ✅ SHIPPED 2026-06-19
 The marquee AI sprint. **#4 pgvector** adds an embeddings lane fused into the shipped RRF using
 the **existing Neon** (free `vector` extension) — dormant until an embeddings key is set. **#11
 data-quality scoring** pairs first: better spec/datasheet completeness → better embedding chunks

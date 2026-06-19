@@ -23,6 +23,7 @@ import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { CutToLengthPanel } from "@/features/product-finder/CutToLengthPanel";
 import { RebatePanel } from "@/features/product-finder/RebatePanel";
 import type { SourcingGrade } from "@/lib/catalog/coverage-score";
+import { computeProductQualityScore, TIER_COLOR, TIER_LABEL } from "@/lib/catalog/data-quality-score";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
 
@@ -255,6 +256,22 @@ export function ProductDetailModal() {
                   {coverage.sources > 1 ? ` · ${coverage.sources} sources` : ""}
                 </Badge>
               )}
+              {(() => {
+                const q = computeProductQualityScore(product);
+                return (
+                  <Badge
+                    className="w-fit border-0 text-xs"
+                    style={{ backgroundColor: TIER_COLOR[q.tier], color: q.tier === "partial" ? "#1D252D" : "#FFFFFF" }}
+                    title={
+                      q.missing.length
+                        ? `Data quality ${TIER_LABEL[q.tier]} (${q.score}/100) — gaps: ${q.missing.join(", ")}`
+                        : `Data quality ${TIER_LABEL[q.tier]} (${q.score}/100)`
+                    }
+                  >
+                    ⬡ Data {q.score}
+                  </Badge>
+                );
+              })()}
             </div>
           </div>
           <button

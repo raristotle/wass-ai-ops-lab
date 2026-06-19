@@ -24,6 +24,7 @@ import { oemsecretsConfigured } from "@/lib/integration/oemsecrets-live";
 import { weatherConfigured } from "@/lib/integration/weather-live";
 import { stripeDepositConfigured } from "@/lib/integration/stripe-deposit";
 import { esignConfigured } from "@/lib/integration/esign-live";
+import { embeddingsConfigured } from "@/lib/integration/embeddings-live";
 
 export const dynamic = "force-dynamic";
 
@@ -57,6 +58,7 @@ export function GET() {
       stripeTax: stripeTaxConfigured(),
       deposits: stripeDepositConfigured(),
       esign: esignConfigured(),
+      embeddings: embeddingsConfigured(),
       rerank: rerankConfigured(),
       slack: slackConfigured(),
       nexar: nexarConfigured(),

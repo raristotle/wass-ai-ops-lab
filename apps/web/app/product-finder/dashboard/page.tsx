@@ -56,6 +56,7 @@ import { RepScorecardCard } from "@/features/product-finder/RepScorecardCard";
 import { SpaClaimbackCard } from "@/features/product-finder/SpaClaimbackCard";
 import { NextBestActionCard } from "@/features/product-finder/NextBestActionCard";
 import { AuditLogCard } from "@/features/product-finder/AuditLogCard";
+import { QualityMetricsCard } from "@/features/product-finder/QualityMetricsCard";
 import { subcategoryShareQuery } from "@/lib/product-finder-url";
 import { categoryShareQuery } from "@/lib/product-finder-url";
 import { apiGetProduct } from "@/lib/product-finder-api";
@@ -686,6 +687,7 @@ function DashboardContent() {
       <CoverageGapsCard />
       <SpaClaimbackCard />
       <RepScorecardCard />
+      <QualityMetricsCard />
       <AuditLogCard />
 
       {/* ── Charts row: Top categories + Orders over time ──────────────────────── */}

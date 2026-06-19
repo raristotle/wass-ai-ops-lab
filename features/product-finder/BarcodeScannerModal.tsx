@@ -30,6 +30,7 @@ export function BarcodeScannerModal() {
   const [scanning, setScanning] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [ocrEnabled, setOcrEnabled] = useState(false);
+  const [visionEnabled, setVisionEnabled] = useState(false);
   const [ocrBusy, setOcrBusy] = useState(false);
   const [ocrError, setOcrError] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -122,7 +123,9 @@ export function BarcodeScannerModal() {
     return () => stopCamera();
   }, [open, stopCamera]);
 
-  // Is nameplate OCR configured? (dormant — the option is hidden otherwise.)
+  // Are the photo paths configured? (dormant — the option is hidden otherwise.)
+  // OCR (#9) reads flat nameplate labels; AI vision (v4-S3 #14) additionally
+  // identifies whole-product / angled / worn-plate photos. Probe both.
   useEffect(() => {
     if (!open) return;
     let alive = true;
@@ -132,30 +135,53 @@ export function BarcodeScannerModal() {
         if (alive && d && d.configured) setOcrEnabled(true);
       })
       .catch(() => {});
+    fetch("/api/vision/part-id")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (alive && d && d.configured) setVisionEnabled(true);
+      })
+      .catch(() => {});
     return () => {
       alive = false;
     };
   }, [open]);
 
-  // Photograph a nameplate → OCR → parse → run the catalog search (reuses submit).
-  function onNameplateFile(file: File) {
+  async function queryFromEndpoint(url: string, image: string): Promise<string> {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ image }),
+    });
+    const data: unknown = await res.json().catch(() => null);
+    return data && typeof (data as { query?: unknown }).query === "string" ? (data as { query: string }).query.trim() : "";
+  }
+
+  // Photograph a part / nameplate → AI vision (if on) then OCR (if on) → parse →
+  // run the catalog search (reuses submit). Vision proposes attributes; the
+  // catalog resolves the real SKU.
+  function onPhotoFile(file: File) {
     setOcrError(null);
     setOcrBusy(true);
     const reader = new FileReader();
     reader.onload = async () => {
       try {
         const image = String(reader.result ?? "");
-        const res = await fetch("/api/ocr/nameplate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ image }),
-        });
-        const data: unknown = await res.json().catch(() => null);
-        const query = data && typeof (data as { query?: unknown }).query === "string" ? (data as { query: string }).query.trim() : "";
+        let query = "";
+        // Prefer AI vision — it handles whole-product photos, not just flat labels.
+        if (visionEnabled) {
+          try {
+            query = await queryFromEndpoint("/api/vision/part-id", image);
+          } catch {
+            /* fall through to OCR */
+          }
+        }
+        if (!query && ocrEnabled) {
+          query = await queryFromEndpoint("/api/ocr/nameplate", image);
+        }
         if (query) submit(query);
-        else setOcrError("Could not read the nameplate — try a clearer photo or type the part number.");
+        else setOcrError("Couldn't identify the part — try a clearer photo or type the part number.");
       } catch {
-        setOcrError("Could not read the nameplate — try again.");
+        setOcrError("Couldn't read that photo — try again.");
       } finally {
         setOcrBusy(false);
       }
@@ -253,10 +279,10 @@ export function BarcodeScannerModal() {
             </div>
           </form>
 
-          {ocrEnabled && (
+          {(ocrEnabled || visionEnabled) && (
             <div className="mt-3 border-t border-[#B7C9D3]/50 pt-3">
               <label htmlFor="bc-nameplate" className="mb-1 block text-xs font-medium text-[#1D252D]">
-                Or photograph a nameplate / label
+                {visionEnabled ? "Or photograph the part to identify it" : "Or photograph a nameplate / label"}
               </label>
               <input
                 id="bc-nameplate"
@@ -266,13 +292,13 @@ export function BarcodeScannerModal() {
                 disabled={ocrBusy}
                 onChange={(e) => {
                   const f = e.target.files?.[0];
-                  if (f) onNameplateFile(f);
+                  if (f) onPhotoFile(f);
                 }}
                 className="block w-full text-xs text-[#4F758B] file:mr-2 file:rounded file:border-0 file:bg-[#004986] file:px-2 file:py-1 file:font-semibold file:text-white"
               />
               {ocrBusy && (
                 <p className="mt-1 text-xs text-[#4F758B]" role="status">
-                  Reading nameplate…
+                  {visionEnabled ? "Identifying the part…" : "Reading nameplate…"}
                 </p>
               )}
               {ocrError && (

@@ -836,6 +836,39 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "semantic-search",
+    title: "Semantic search (AI-powered relevance)",
+    body: [
+      "On top of keyword and fuzzy matching, the search can blend in semantic (meaning-based) relevance — so “breaker that won't trip on motor inrush” finds the right parts even without the exact words.",
+      "• It's a fourth ranking signal fused into the existing hybrid search, never an override — your keyword filters and facets still apply.",
+      "• Dormant and $0 by default: it activates only when an embeddings key (Voyage AI by default — its free tier covers embedding the whole catalog) and the Neon vector store are configured.",
+      "• Once keys are set, an operator runs a one-time backfill to embed the catalog; until then search behaves exactly as today.",
+      "Setup is in docs/semantic-search.md.",
+    ],
+    tryQuery: "low voltage motor starter",
+  },
+  {
+    id: "visual-part-id",
+    title: "Identify a part from a photo (AI vision)",
+    body: [
+      "Open the barcode scanner (Ctrl/⌘-K → “Scan barcode”) and you can photograph a part — not just a clean nameplate — to identify it.",
+      "• AI vision reads the brand, catalog number, and ratings it can see, then the catalog resolves a real stocked SKU — it never invents a part number.",
+      "• Works on whole-product photos, angled or worn nameplates, where flat-label OCR struggles.",
+      "• Dormant and $0 until an ANTHROPIC_API_KEY is set (the same key that powers Ask Meridian) — the photo option falls back to OCR or manual entry otherwise.",
+      "The image is processed server-side and never logged.",
+    ],
+  },
+  {
+    id: "data-quality",
+    title: "Catalog data-quality score",
+    body: [
+      "Every product carries a data-quality score (0-100) so the catalog team knows what to enrich and you know how complete a record is.",
+      "• The product detail header shows a ⬡ Data badge — hover to see the score and what's missing (specs, datasheet, provenance, lifecycle, identifiers).",
+      "• The manager dashboard has a Catalog Data Quality card: the average score, the tier mix, and the biggest gaps across the catalog.",
+      "• It's deterministic and $0 — and the same completeness signal improves semantic-search recall (richer specs make better embeddings).",
+    ],
+  },
+  {
     id: "lifecycle-eol",
     title: "Lifecycle status & designing out obsolete parts",
     body: [
