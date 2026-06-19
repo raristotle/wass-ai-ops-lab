@@ -79,6 +79,19 @@ describe("HELP_TOPICS", () => {
     }
   });
 
+  it("covers the v4-S1 features (NEC extended calcs, cut-to-length, kits, submittal PDF)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    for (const required of ["cut-to-length", "kits-assemblies", "submittal-pdf-server"]) {
+      expect(ids.has(required), required).toBe(true);
+    }
+    // guided-selectors must mention both new calcs
+    const guided = HELP_TOPICS.find((t) => t.id === "guided-selectors");
+    expect(guided).toBeDefined();
+    const body = guided!.body.join(" ");
+    expect(body).toContain("Ampacity check");
+    expect(body).toContain("Box fill");
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

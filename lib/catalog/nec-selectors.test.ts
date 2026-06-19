@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { conduitFill, wireSizeForVoltageDrop, breakerSize } from "@/lib/catalog/nec-selectors";
+import { conduitFill, wireSizeForVoltageDrop, breakerSize, ampacityLookup, boxFill, wireAmpacity } from "@/lib/catalog/nec-selectors";
 
 describe("conduitFill", () => {
   it("matches NEC: nine 12 AWG THHN fit 1/2\" EMT, ten need 3/4\"", () => {
@@ -57,5 +57,77 @@ describe("wireSizeForVoltageDrop", () => {
 
   it("rejects nonsense input", () => {
     expect(wireSizeForVoltageDrop({ amps: 0, lengthFt: 50, voltage: 240, phase: "1ph", material: "Cu" }).ok).toBe(false);
+  });
+});
+
+describe("ampacityLookup", () => {
+  it("returns base ampacity for #12 Cu with no derating", () => {
+    const r = ampacityLookup({ awg: "12", material: "Cu" });
+    expect(r.ok).toBe(true);
+    expect(r.answer).toBe("20 A (derated)");
+    expect(r.explanation).toMatch(/20 A/);
+  });
+
+  it("derates for bundle (7 conductors → 70%)", () => {
+    const r = ampacityLookup({ awg: "10", material: "Cu", conductorCount: 7 });
+    expect(r.ok).toBe(true);
+    // base 30 A × 0.70 = 21 A
+    expect(r.answer).toBe("21 A (derated)");
+    expect(r.explanation).toMatch(/bundle/);
+  });
+
+  it("derates for high ambient temperature (40°C → 0.91)", () => {
+    const r = ampacityLookup({ awg: "12", material: "Cu", ambientC: 40 });
+    expect(r.ok).toBe(true);
+    // base 20 A × 0.91 = 18 A (floor)
+    expect(r.answer).toBe("18 A (derated)");
+  });
+
+  it("returns aluminum ampacity and notes #6 Al = 50 A", () => {
+    const r = ampacityLookup({ awg: "6", material: "Al" });
+    expect(r.ok).toBe(true);
+    expect(r.answer).toBe("50 A (derated)");
+  });
+
+  it("rejects #14 aluminum (not recommended for building wiring)", () => {
+    expect(ampacityLookup({ awg: "14", material: "Al" }).ok).toBe(false);
+  });
+});
+
+describe("wireAmpacity (standalone)", () => {
+  it("returns copper base ampacity", () => {
+    expect(wireAmpacity("12", "Cu")).toBe(20);
+    expect(wireAmpacity("4/0", "Cu")).toBe(230);
+  });
+  it("returns aluminum ampacity for supported sizes", () => {
+    expect(wireAmpacity("6", "Al")).toBe(50);
+    expect(wireAmpacity("14", "Al")).toBeNull();
+  });
+});
+
+describe("boxFill", () => {
+  it("three #12 conductors + 1 device + clamp → fits a 22.5 cu in box", () => {
+    const r = boxFill({ conductors: [{ awg: "12", count: 3 }], devices: 1, hasClamp: true, groundWires: 0 });
+    expect(r.ok).toBe(true);
+    // 3×2.25 + 1×2×2.25 + 1×2.25 = 6.75 + 4.5 + 2.25 = 13.5 cu in → fits 15.5 cu in octagon
+    expect(r.answer).toContain("15.5");
+    expect(r.subcategory).toBe("Boxes & Covers");
+  });
+
+  it("many conductors push into a larger box", () => {
+    const r = boxFill({ conductors: [{ awg: "12", count: 8 }], devices: 2, hasClamp: false, groundWires: 2 });
+    expect(r.ok).toBe(true);
+    // 8×2.25 + 2×2×2.25 + 0 + 1×2.25 = 18 + 9 + 2.25 = 29.25 → 29.5 cu in box
+    expect(parseFloat(r.answer)).toBeGreaterThanOrEqual(29);
+  });
+
+  it("rejects #4 AWG conductors (NEC 314.28 required)", () => {
+    const r = boxFill({ conductors: [{ awg: "4", count: 2 }], devices: 0, hasClamp: false, groundWires: 0 });
+    expect(r.ok).toBe(false);
+    expect(r.explanation).toMatch(/314\.28/);
+  });
+
+  it("rejects an empty conductor list", () => {
+    expect(boxFill({ conductors: [], devices: 0, hasClamp: false, groundWires: 0 }).ok).toBe(false);
   });
 });

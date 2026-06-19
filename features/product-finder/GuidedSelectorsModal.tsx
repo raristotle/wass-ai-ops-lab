@@ -11,6 +11,8 @@ import {
   conduitFill,
   wireSizeForVoltageDrop,
   breakerSize,
+  ampacityLookup,
+  boxFill,
   AWG_SIZES,
   type SelectorResult,
   type AwgSize,
@@ -19,12 +21,14 @@ import {
   type Conductor,
 } from "@/lib/catalog/nec-selectors";
 
-type Calc = "conduit" | "wire" | "breaker";
+type Calc = "conduit" | "wire" | "breaker" | "ampacity" | "boxfill";
 
 const CALCS: { id: Calc; label: string; blurb: string }[] = [
   { id: "conduit", label: "Conduit fill", blurb: "Smallest conduit for N conductors" },
   { id: "wire", label: "Wire size", blurb: "Ampacity + voltage drop" },
   { id: "breaker", label: "Breaker sizing", blurb: "OCPD per NEC 240.6" },
+  { id: "ampacity", label: "Ampacity check", blurb: "Derated capacity for an existing wire" },
+  { id: "boxfill", label: "Box fill", blurb: "Min. box volume per NEC 314.16" },
 ];
 
 /** Resolve a selector answer to the top stocked catalog product. */
@@ -91,6 +95,17 @@ export function GuidedSelectorsModal() {
   // Breaker inputs
   const [bAmps, setBAmps] = useState("20");
   const [bCont, setBCont] = useState(true);
+  // Ampacity inputs
+  const [aAwg, setAAwg] = useState<AwgSize>("12");
+  const [aMat, setAMat] = useState<Conductor>("Cu");
+  const [aCount, setACount] = useState("3");
+  const [aTemp, setATemp] = useState("30");
+  // Box fill inputs
+  const [bfAwg, setBfAwg] = useState<AwgSize>("12");
+  const [bfCount, setBfCount] = useState("3");
+  const [bfDevices, setBfDevices] = useState("1");
+  const [bfClamp, setBfClamp] = useState(false);
+  const [bfGrounds, setBfGrounds] = useState("1");
 
   if (!open) return null;
 
@@ -105,6 +120,22 @@ export function GuidedSelectorsModal() {
         voltage: Number(wVolts) || 0,
         phase: wPhase,
         material: wMat,
+      });
+    }
+    if (calc === "ampacity") {
+      return ampacityLookup({
+        awg: aAwg,
+        material: aMat,
+        conductorCount: Number(aCount) || 3,
+        ambientC: Number(aTemp) || 30,
+      });
+    }
+    if (calc === "boxfill") {
+      return boxFill({
+        conductors: [{ awg: bfAwg, count: Number(bfCount) || 0 }],
+        devices: Number(bfDevices) || 0,
+        hasClamp: bfClamp,
+        groundWires: Number(bfGrounds) || 0,
       });
     }
     return breakerSize({ amps: Number(bAmps) || 0, continuous: bCont });
@@ -156,7 +187,7 @@ export function GuidedSelectorsModal() {
 
         <div className="px-5 py-4">
           {/* Calculator picker */}
-          <div className="mb-4 grid grid-cols-3 gap-2">
+          <div className="mb-4 grid grid-cols-5 gap-1.5">
             {CALCS.map((c) => (
               <button
                 key={c.id}
@@ -236,6 +267,58 @@ export function GuidedSelectorsModal() {
                     <option value="no">No</option>
                   </select>
                 </Field>
+              </>
+            )}
+            {calc === "ampacity" && (
+              <>
+                <Field label="Conductor (AWG)">
+                  <select className={inputCls} value={aAwg} onChange={(e) => setAAwg(e.target.value as AwgSize)}>
+                    {AWG_SIZES.map((a) => (
+                      <option key={a} value={a}>{a}</option>
+                    ))}
+                  </select>
+                </Field>
+                <Field label="Material">
+                  <select className={inputCls} value={aMat} onChange={(e) => setAMat(e.target.value as Conductor)}>
+                    <option value="Cu">Copper</option>
+                    <option value="Al">Aluminum</option>
+                  </select>
+                </Field>
+                <Field label="Conductors in raceway">
+                  <input className={inputCls} type="number" min="1" value={aCount} onChange={(e) => setACount(e.target.value)} />
+                </Field>
+                <Field label="Ambient temp (°C)">
+                  <input className={inputCls} type="number" min="20" max="70" value={aTemp} onChange={(e) => setATemp(e.target.value)} />
+                </Field>
+              </>
+            )}
+            {calc === "boxfill" && (
+              <>
+                <Field label="Largest conductor (AWG)">
+                  <select className={inputCls} value={bfAwg} onChange={(e) => setBfAwg(e.target.value as AwgSize)}>
+                    {(["14", "12", "10", "8", "6"] as AwgSize[]).map((a) => (
+                      <option key={a} value={a}>{a} AWG</option>
+                    ))}
+                  </select>
+                </Field>
+                <Field label="Conductor count">
+                  <input className={inputCls} type="number" min="0" value={bfCount} onChange={(e) => setBfCount(e.target.value)} />
+                </Field>
+                <Field label="Devices (switches/outlets)">
+                  <input className={inputCls} type="number" min="0" value={bfDevices} onChange={(e) => setBfDevices(e.target.value)} />
+                </Field>
+                <Field label="Ground wires">
+                  <input className={inputCls} type="number" min="0" value={bfGrounds} onChange={(e) => setBfGrounds(e.target.value)} />
+                </Field>
+                <label className="col-span-2 flex cursor-pointer items-center gap-2 text-xs font-medium text-[#1D252D]">
+                  <input
+                    type="checkbox"
+                    className="h-4 w-4 accent-[#00AA13]"
+                    checked={bfClamp}
+                    onChange={(e) => setBfClamp(e.target.checked)}
+                  />
+                  Internal cable clamp present
+                </label>
               </>
             )}
           </div>

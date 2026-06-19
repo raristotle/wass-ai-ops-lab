@@ -254,6 +254,7 @@ interface SingleSearchPanelProps {
   onOpenJobs: () => void;
   onOpenVmi: () => void;
   onOpenAssistant: () => void;
+  onOpenKits: () => void;
   onVoiceInterim: (text: string) => void;
   onVoiceFinal: (text: string) => void;
 }
@@ -285,6 +286,7 @@ function SingleSearchPanel({
   onOpenJobs,
   onOpenVmi,
   onOpenAssistant,
+  onOpenKits,
   onVoiceInterim,
   onVoiceFinal,
 }: SingleSearchPanelProps) {
@@ -520,6 +522,21 @@ function SingleSearchPanel({
           Jobs
         </button>
 
+        {/* Kits — curated product bundles with price/stock rollup */}
+        <button
+          type="button"
+          onClick={onOpenKits}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full border border-[#EAAA00]/50 px-3 py-1 text-xs font-medium text-[#EAAA00]",
+            "hover:border-[#EAAA00] hover:bg-[#EAAA00]/5",
+            "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAAA00]"
+          )}
+          aria-label="Kits and assemblies"
+        >
+          <span aria-hidden="true">🔧</span>
+          Kits
+        </button>
+
         {/* VMI — vendor-managed inventory min/max + replenishment */}
         <button
           type="button"
@@ -625,6 +642,7 @@ export function SearchBar() {
     setJobsOpen,
     setVmiOpen,
     setAssistantOpen,
+    setKitsOpen,
   } = useProductFinder();
 
   // Suggestion dropdown state
@@ -788,6 +806,7 @@ export function SearchBar() {
             onOpenRfq={() => setRfqOpen(true)}
             onOpenBomIq={() => setBomIqOpen(true)}
             onOpenJobs={() => setJobsOpen(true)}
+            onOpenKits={() => setKitsOpen(true)}
             onOpenVmi={() => setVmiOpen(true)}
             onOpenAssistant={() => setAssistantOpen(true)}
             onVoiceInterim={handleVoiceInterim}

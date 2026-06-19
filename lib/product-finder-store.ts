@@ -342,6 +342,10 @@ export interface ProductFinderState {
   jobsOpen: boolean;
   setJobsOpen: (v: boolean) => void;
 
+  // Kit / assembly browser — curated product bundles added to cart in bulk
+  kitsOpen: boolean;
+  setKitsOpen: (v: boolean) => void;
+
   // VMI (vendor-managed inventory) — min/max + replenishment
   vmiOpen: boolean;
   setVmiOpen: (v: boolean) => void;
@@ -1473,6 +1477,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Job (project) workspace ───────────────────────────────
   jobsOpen: false,
   setJobsOpen(v) { set({ jobsOpen: v }); },
+
+  // ── Kit / assembly browser ────────────────────────────────
+  kitsOpen: false,
+  setKitsOpen(v) { set({ kitsOpen: v }); },
 
   // ── VMI (vendor-managed inventory) ────────────────────────
   vmiOpen: false,

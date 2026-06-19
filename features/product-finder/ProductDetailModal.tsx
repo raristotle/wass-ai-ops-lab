@@ -20,6 +20,7 @@ import { getPricingProvider, getInventoryProvider, getCrossReferenceProvider } f
 import { isObsolescent, LIFECYCLE_META } from "@/lib/catalog/lifecycle";
 import { pickActiveSuccessor } from "@/lib/catalog/successor";
 import { useModalA11y } from "@/features/product-finder/useModalA11y";
+import { CutToLengthPanel } from "@/features/product-finder/CutToLengthPanel";
 import type { SourcingGrade } from "@/lib/catalog/coverage-score";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
@@ -500,6 +501,9 @@ export function ProductDetailModal() {
                 Add to Basket
               </Button>
             </div>
+
+            {/* Cut-to-length (wire / conduit / strut sold by the foot) */}
+            <CutToLengthPanel product={product} />
 
             {/* Find Alternatives */}
             <div>

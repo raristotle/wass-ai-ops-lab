@@ -49,7 +49,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
   });
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, cycleCountOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], cart: {}, compareIds: new Set(), keyboardHelpOpen: false, results: [] });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, cycleCountOpen: false, jobsOpen: false, kitsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], cart: {}, compareIds: new Set(), keyboardHelpOpen: false, results: [] });
   });
 
   it("Guided selectors modal", async () => {
@@ -183,7 +183,7 @@ describe("accessibility (axe) — feature modals have no WCAG violations", () =>
 describe("keyboard: Escape closes the new dialogs (WCAG 2.1.2/2.4.3)", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
-    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, cycleCountOpen: false, jobsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], keyboardHelpOpen: false });
+    useProductFinder.setState({ guidedOpen: false, rfqOpen: false, returnModalOrderId: null, bomIqOpen: false, bomModalOpen: false, cycleCountOpen: false, jobsOpen: false, kitsOpen: false, vmiOpen: false, quickOrderOpen: false, orders: [], keyboardHelpOpen: false });
   });
 
   it("Escape closes the BOM import modal", () => {

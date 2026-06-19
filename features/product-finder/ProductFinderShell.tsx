@@ -14,6 +14,7 @@ import { BulkCrossModal } from "@/features/product-finder/BulkCrossModal";
 import { AssistantPanel } from "@/features/product-finder/AssistantPanel";
 import { JobWizardModal } from "@/features/product-finder/JobWizardModal";
 import { GuidedSelectorsModal } from "@/features/product-finder/GuidedSelectorsModal";
+import { KitsModal } from "@/features/product-finder/KitsModal";
 import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
 import { JobsModal } from "@/features/product-finder/JobsModal";
@@ -257,6 +258,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <AssistantPanel />
       <JobWizardModal />
       <GuidedSelectorsModal />
+      <KitsModal />
       <RfqImportModal />
       <BomIntelligenceModal />
       <JobsModal />

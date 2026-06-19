@@ -46,6 +46,14 @@ export const QUOTE_STATUS_COLOR: Record<QuoteStatus, { bg: string; text: string 
   lost: { bg: "#DB6B30", text: "#FFFFFF" },
 };
 
+/** Optional per-line configuration set by cut-to-length or kitting flows. */
+export interface QuoteLineConfig {
+  /** Set when the line was added via cut-to-length — original footage requested. */
+  cutLengthFt?: number;
+  /** Set when the line was added as part of a named kit bundle. */
+  kitId?: string;
+}
+
 export interface SavedQuote {
   id: string;
   /** Human quote number, e.g. Q-20260608-0042. */
@@ -53,7 +61,7 @@ export interface SavedQuote {
   customer: string;
   project: string;
   /** unitPrice = price the line was quoted at (incl. manual overrides); absent on pre-override quotes. */
-  lines: { product: CatalogProduct; qty: number; unitPrice?: number }[];
+  lines: { product: CatalogProduct; qty: number; unitPrice?: number; lineConfig?: QuoteLineConfig }[];
   total: number;
   status: QuoteStatus;
   createdAt: number;

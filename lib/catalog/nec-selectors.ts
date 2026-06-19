@@ -176,3 +176,162 @@ export function breakerSize(input: BreakerInput): SelectorResult {
 
 export const AWG_SIZES = AWG_ORDER;
 export const TRADE_SIZES = TRADE_ORDER;
+
+// ── Ampacity lookup (NEC 310.15) ─────────────────────────────────────────────
+
+// NEC Table 310.15(B)(16) — aluminum THHN/THWN-2, 75°C (building wiring).
+// #14 and smaller: not recommended for Al in building wiring — null returned.
+const AMPACITY_AL: Record<AwgSize, number | null> = {
+  "14": null, "12": 20, "10": 30, "8": 40, "6": 50, "4": 65, "3": 75,
+  "2": 90, "1": 100, "1/0": 120, "2/0": 135, "3/0": 155, "4/0": 180,
+};
+
+/** NEC 310.15(B)(3)(a) adjustment for >3 current-carrying conductors in a raceway. */
+function bundleDerateFactor(conductorCount: number): number {
+  if (conductorCount <= 3) return 1.0;
+  if (conductorCount <= 6) return 0.80;
+  if (conductorCount <= 9) return 0.70;
+  if (conductorCount <= 20) return 0.50;
+  if (conductorCount <= 30) return 0.45;
+  if (conductorCount <= 40) return 0.40;
+  return 0.35;
+}
+
+/** NEC Table 310.15(B)(2)(a) temperature correction for 75°C conductors. */
+function ambientTempCorrection(ambientC: number): number {
+  if (ambientC <= 25) return 1.04;
+  if (ambientC <= 30) return 1.00;
+  if (ambientC <= 35) return 0.96;
+  if (ambientC <= 40) return 0.91;
+  if (ambientC <= 45) return 0.87;
+  if (ambientC <= 50) return 0.82;
+  if (ambientC <= 55) return 0.76;
+  return 0.71;
+}
+
+export interface AmpacityInput {
+  awg: AwgSize;
+  material: Conductor;
+  /** Current-carrying conductors in the raceway for bundle derating. Default 3. */
+  conductorCount?: number;
+  /** Ambient temperature in °C for temp correction. Default 30°C (no correction). */
+  ambientC?: number;
+}
+
+/** Derated ampacity for a conductor under the given raceway/temperature conditions. */
+export function ampacityLookup(input: AmpacityInput): SelectorResult {
+  const { awg, material, conductorCount = 3, ambientC = 30 } = input;
+  const base = material === "Cu" ? AMPACITY[awg] : AMPACITY_AL[awg];
+  if (base === null || base === undefined) {
+    return fail(`${awg} AWG ${material} — not recommended for building wiring. Use copper #14 minimum.`);
+  }
+  const bundleFactor = bundleDerateFactor(conductorCount);
+  const tempFactor = ambientTempCorrection(ambientC);
+  const derated = Math.floor(base * bundleFactor * tempFactor);
+  const factors: string[] = [];
+  if (bundleFactor < 1) factors.push(`bundle ×${bundleFactor} (${conductorCount} conductors)`);
+  if (ambientC !== 30) factors.push(`temp ×${tempFactor.toFixed(2)} (${ambientC}°C)`);
+  const explanation = factors.length
+    ? `${awg} AWG ${material} base ${base} A × ${factors.join(", ")} = ${derated} A derated (NEC 310.15).`
+    : `${awg} AWG ${material} = ${derated} A @ 75°C, 30°C ambient, ≤3 conductors (NEC 310.15).`;
+  return {
+    ok: true,
+    answer: `${derated} A (derated)`,
+    explanation,
+    searchQuery: `${awg} AWG ${material === "Cu" ? "copper" : "aluminum"} THHN wire`,
+    subcategory: "Wire & Cable",
+  };
+}
+
+/** Standalone ampacity lookup — returns the 75°C base (no derating). */
+export function wireAmpacity(awg: AwgSize, material: Conductor = "Cu"): number | null {
+  if (material === "Al") return AMPACITY_AL[awg];
+  return AMPACITY[awg] ?? null;
+}
+
+// ── Box fill (NEC 314.16) ─────────────────────────────────────────────────────
+
+// NEC 314.16(B)(1) — volume per conductor equivalent (cu in) for #14 through #6.
+const BOX_FILL_VOL: Partial<Record<AwgSize, number>> = {
+  "14": 2.00, "12": 2.25, "10": 2.50, "8": 3.00, "6": 5.00,
+};
+
+// Standard device boxes sorted by volume (cu in) for "smallest that fits" lookup.
+const STANDARD_BOXES = [
+  { volume: 15.5, desc: '4" octagon (1-1/2" deep)' },
+  { volume: 18.0, desc: "single-gang plastic (standard depth)" },
+  { volume: 20.3, desc: "single-gang plastic (deep)" },
+  { volume: 21.0, desc: '4" square (1-1/2" deep)' },
+  { volume: 22.5, desc: "single-gang old-work (2-1/2\" deep)" },
+  { volume: 25.5, desc: "2-gang plastic" },
+  { volume: 29.5, desc: '4" square (2-1/8" deep)' },
+  { volume: 34.0, desc: "2-gang old-work" },
+  { volume: 42.0, desc: "3-gang plastic" },
+];
+
+export interface BoxFillInput {
+  /**
+   * Conductors entering the box by AWG. Largest AWG present is used for
+   * device/clamp/ground allowances per NEC 314.16(B).
+   * Maximum conductor size: #6 AWG — use a pull box (NEC 314.28) for larger.
+   */
+  conductors: { awg: AwgSize; count: number }[];
+  /** Number of single-pole devices (switches / receptacles). Each = 2 allowances. */
+  devices: number;
+  /** True if internal cable clamps are present (1 allowance at largest conductor). */
+  hasClamp: boolean;
+  /** Number of equipment grounding conductors (all together = 1 allowance at largest). */
+  groundWires: number;
+}
+
+/** Minimum box volume and recommended box per NEC 314.16. */
+export function boxFill(input: BoxFillInput): SelectorResult {
+  const { conductors, devices, hasClamp, groundWires } = input;
+  if (conductors.length === 0 || conductors.every((c) => c.count === 0)) {
+    return fail("Enter at least one conductor.");
+  }
+  // Guard: #4 AWG and larger require NEC 314.28 pull boxes, not 314.16.
+  const AWG6_IDX = AWG_ORDER.indexOf("6");
+  for (const { awg } of conductors) {
+    if (AWG_ORDER.indexOf(awg) > AWG6_IDX) {
+      return fail(`Conductors larger than #6 AWG (e.g. ${awg}) require NEC 314.28 pull-box sizing — this calculator covers #14–#6 only.`);
+    }
+    if (!BOX_FILL_VOL[awg]) {
+      return fail(`AWG size ${awg} is not in NEC 314.16(B) table — use #6 AWG or smaller.`);
+    }
+  }
+  // Largest AWG among conductors (highest index = largest diameter).
+  const largest = conductors.reduce<AwgSize>(
+    (best, c) => (AWG_ORDER.indexOf(c.awg) > AWG_ORDER.indexOf(best) ? c.awg : best),
+    conductors[0].awg,
+  );
+  const largeVol = BOX_FILL_VOL[largest] ?? 0;
+
+  // Conductor allowances
+  const conductorVol = conductors.reduce(
+    (sum, { awg, count }) => sum + (BOX_FILL_VOL[awg] ?? 0) * count, 0,
+  );
+  // Device allowances (2 per device, at largest conductor size)
+  const deviceVol = devices * 2 * largeVol;
+  // Clamp allowance (1 set = 1 allowance at largest conductor)
+  const clampVol = hasClamp ? largeVol : 0;
+  // Ground allowance (all combined = 1 allowance at largest ground size)
+  const groundVol = groundWires > 0 ? largeVol : 0;
+
+  const total = conductorVol + deviceVol + clampVol + groundVol;
+  const box = STANDARD_BOXES.find((b) => b.volume >= total);
+  const answer = box ? `${box.volume} cu in — ${box.desc}` : "4-gang box or larger (>42 cu in)";
+  const breakdown = [
+    `conductors ${conductorVol.toFixed(2)} cu in`,
+    devices > 0 ? `${devices} device(s) ${deviceVol.toFixed(2)} cu in` : "",
+    hasClamp ? `clamps ${clampVol.toFixed(2)} cu in` : "",
+    groundWires > 0 ? `${groundWires} ground(s) ${groundVol.toFixed(2)} cu in` : "",
+  ].filter(Boolean).join(", ");
+  return {
+    ok: true,
+    answer,
+    explanation: `Total: ${total.toFixed(2)} cu in (${breakdown}). Minimum box: ${answer} (NEC 314.16).`,
+    searchQuery: box ? `${Math.ceil(box.volume)} cubic inch device box` : "large junction box",
+    subcategory: "Boxes & Covers",
+  };
+}
