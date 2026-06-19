@@ -125,6 +125,16 @@ its key is set** — honors the cost guardrail.
 > ownership/aliases), ✅ **DI-6** (SEC EDGAR former names), ✅ **DI-8** (REACH/
 > RoHS/Prop 65 CAS triggers), 🟡 **DI-7** (HTS chapter + Section 301 lookup added
 > as additive enrichment; the per-subcategory tariff table replacement remains).
+>
+> **Increment 2 shipped 2026-06-19** — the free LIVE API seams (dormant/$0 until
+> keyed), contract-verified against the live endpoints. See
+> [dataset-ingestion-live-seams.md](dataset-ingestion-live-seams.md).
+> ✅ **DI-2** (ENERGY STAR free Socrata + DLC QPL paid-token seam), ✅ **DI-9**
+> (FCC EAS Socrata), ✅ **DI-10** (Open Icecat datasheets), ✅ **DI-11** (BLS PPI
+> electrical series; World Bank Pink Sheet deferred — metals only in a rotating-URL
+> xlsx, redundant with FRED), ✅ **DI-13** (OpenEI URDB utility rates; DSIRE
+> deferred — free API now 403/paid, free mirror frozen at 2017), plus **GLEIF +
+> Wikidata LIVE** lookups (the live-refresh companions to Increment 1's static layer).
 
 ### DI-S1 · Attribute + classification backbone  *(free, pattern A)*
 **✅ DI-1 — ETIM classification ingestion.** Land ETIM (groups/classes/features/values/
@@ -133,7 +143,7 @@ classes; derive **required-spec sets** per category. *Improves:* completeness
 scoring (#11), faceting, and like-for-like cross-ref matching. *Acceptance:* each
 electrical subcategory maps to an ETIM class; the data-quality score penalizes a
 breaker missing amperage/poles/breaking-capacity; ODC-By attribution shown.
-**DI-2 — ENERGY STAR + DLC QPL lighting enrichment.** Snapshot ENERGY STAR
+**✅ DI-2 — ENERGY STAR + DLC QPL lighting enrichment.** Snapshot ENERGY STAR
 (Socrata) + DLC QPL CSV; upgrade matching lighting SKUs with cert flag + efficacy/
 wattage/UPC. *Improves:* rebate estimator (#6), compliance facet, spec fill.
 *Acceptance:* lighting SKUs carry an `energyStar`/`dlcQualified` flag + photometric
@@ -160,21 +170,21 @@ per-subcategory tariff-table replacement still open.)*
 **✅ DI-8 — Prop 65 + REACH/RoHS flags.** Ingest OEHHA Prop 65 + ECHA SVHC + RoHS
 Annex II as CAS lists; flag SKUs whose materials reference a listed substance.
 *Acceptance:* per-SKU compliance flags + BOM rollup ("contains SVHC?").
-**DI-9 — FCC EAS verified flag.** Dormant Socrata seam (pattern B) OR build-snapshot
+**✅ DI-9 — FCC EAS verified flag.** Dormant Socrata seam (pattern B) OR build-snapshot
 for the grantee-code→manufacturer map. *Acceptance:* wireless/datacom SKUs show an
 "FCC ID verified" facet.
 
 ### DI-S4 · Product content + price/demand signals  *(free, mixed pattern)*
-**DI-10 — Open Icecat datasheets.** Pattern A snapshot of Open Icecat for sponsored
+**✅ DI-10 — Open Icecat datasheets.** Pattern A snapshot of Open Icecat for sponsored
 brands → fill datasheets/images/specs/GTINs/marketing copy on the real-products
 layer (respect DRM-gated assets). *Improves:* #11 score, embeddings (#4) chunks, search.
-**DI-11 — BLS PPI + Pink Sheet commodity signals.** Add BLS PPI electrical series +
+**🟡 DI-11 — BLS PPI + Pink Sheet commodity signals.** Add BLS PPI electrical series +
 World Bank Pink Sheet to the commodity strip (FRED seam already exists). *Improves:*
 metal-cost passthrough realism.
 **DI-12 — Amazon ESCI substitute labels.** Use ESCI Substitute/Complement pairs as
 ground truth to **validate + tune** the cross-reference/substitute ranking (offline
 eval, not shipped data). *Acceptance:* a measured precision/recall on substitutes.
-**DI-13 — URDB + DSIRE rebate depth.** Dormant seams (pattern B): URDB for $-saved
+**🟡 DI-13 — URDB + DSIRE rebate depth.** Dormant seams (pattern B): URDB for $-saved
 math, DSIRE for "which programs apply here". *Improves:* the rebate estimator from a
 range to a location-aware figure.
 

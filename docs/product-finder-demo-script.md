@@ -193,6 +193,15 @@ Every SKU below is deterministic — it exists with the same data in every envir
     > with the app — $0, no API key, always on. When semantic search is later
     > enabled, the same manufacturer + ETIM text also enriches each product's
     > embedding for better recall.
+    >
+    > **Going live (optional, free):** behind this static layer sit eight LIVE
+    > connectors to free public datasets — ENERGY STAR & DLC (lighting certs +
+    > rebate eligibility), FCC equipment authorization, Open Icecat datasheets,
+    > GLEIF & Wikidata company-ownership, BLS producer-price trends, and OpenEI
+    > utility rates. Each is OFF by default (zero cost, zero network) and an admin
+    > flips it on with a single setting — seven of the eight are free even when
+    > active. So the same panel deepens from "curated for 211 brands" to "live for
+    > the whole web" without changing the bill. (See docs/dataset-ingestion-live-seams.md.)
 
 ## Act 4 — From basket to deliverables (5 min)
 

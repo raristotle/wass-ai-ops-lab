@@ -1016,6 +1016,20 @@ export const HELP_TOPICS: HelpTopic[] = [
     tryQuery: "Cutler-Hammer breaker",
   },
   {
+    id: "live-data-sources",
+    title: "Live data sources (admin-activated, free)",
+    body: [
+      "Beyond the built-in enrichment, Meridian can pull LIVE data from eight free public sources. Each stays completely off (zero cost, zero network) until an admin sets its key, so nothing here changes your bill — it just deepens the data when switched on:",
+      "• ENERGY STAR & DLC — confirm a lighting product's certification and pull lumens / watts / efficacy, the gate for most utility rebates.",
+      "• FCC Equipment Authorization — turn an FCC ID into the real manufacturer behind a wireless/datacom part.",
+      "• Open Icecat — manufacturer datasheets, images, and GTINs for participating brands.",
+      "• GLEIF & Wikidata — live company-ownership lookups (LEI, parent and ultimate-parent) that extend the built-in manufacturer panel beyond the curated set.",
+      "• BLS Producer Price Index — electrical / switchgear / lighting price trends alongside the copper & aluminum strip.",
+      "• OpenEI utility rates — local electric tariffs by jobsite address for operating-cost context.",
+      "Seven of the eight are free to run; only DLC's API needs a paid subscription. Your admin enables each one with a single setting — see docs/dataset-ingestion-live-seams.md for the step-by-step.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

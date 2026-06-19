@@ -123,6 +123,16 @@ describe("HELP_TOPICS", () => {
     expect(body).toMatch(/REACH-SVHC|RoHS|Prop 65/);
   });
 
+  it("covers the live free-dataset seams (admin-activated sources)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("live-data-sources")).toBe(true);
+    const topic = HELP_TOPICS.find((t) => t.id === "live-data-sources")!;
+    const body = topic.body.join(" ");
+    expect(body).toContain("ENERGY STAR");
+    expect(body).toContain("FCC");
+    expect(body).toMatch(/GLEIF|Wikidata/);
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

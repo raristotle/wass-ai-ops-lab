@@ -25,6 +25,14 @@ import { weatherConfigured } from "@/lib/integration/weather-live";
 import { stripeDepositConfigured } from "@/lib/integration/stripe-deposit";
 import { esignConfigured } from "@/lib/integration/esign-live";
 import { embeddingsConfigured } from "@/lib/integration/embeddings-live";
+import { energyStarConfigured } from "@/lib/integration/energy-star-live";
+import { dlcQplConfigured } from "@/lib/integration/dlc-qpl-live";
+import { fccEasConfigured } from "@/lib/integration/fcc-eas-live";
+import { icecatConfigured } from "@/lib/integration/icecat-live";
+import { gleifConfigured } from "@/lib/integration/gleif-live";
+import { wikidataConfigured } from "@/lib/integration/wikidata-live";
+import { blsPpiConfigured } from "@/lib/integration/bls-ppi-live";
+import { urdbConfigured } from "@/lib/integration/urdb-live";
 
 export const dynamic = "force-dynamic";
 
@@ -59,6 +67,15 @@ export function GET() {
       deposits: stripeDepositConfigured(),
       esign: esignConfigured(),
       embeddings: embeddingsConfigured(),
+      // DI-Increment-2 free-dataset live seams (all dormant/$0 until keyed):
+      energyStar: energyStarConfigured(),
+      dlcQpl: dlcQplConfigured(),
+      fccEas: fccEasConfigured(),
+      icecat: icecatConfigured(),
+      gleif: gleifConfigured(),
+      wikidata: wikidataConfigured(),
+      blsPpi: blsPpiConfigured(),
+      urdb: urdbConfigured(),
       rerank: rerankConfigured(),
       slack: slackConfigured(),
       nexar: nexarConfigured(),
