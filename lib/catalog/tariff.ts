@@ -4,9 +4,14 @@
  * Section 301 duties apply to China-origin goods on the USTR lists and land on
  * the importer of record (the buyer), so they belong in the landed-cost picture.
  *
- * Pure, deterministic, $0 — a published rate table, no API. (Section 232 steel/
- * aluminum is not modeled: the synthetic catalog's HTS codes are all chapter
- * 84/85/65, none in the 72/73/76 metal chapters.)
+ * Pure, deterministic, $0 — a published rate table, no API.
+ *
+ * NOTE (DI-7): this chapter-level model is now the FALLBACK. The primary landed-cost
+ * path is lib/catalog/hts-tariff.ts, which reads the real per-subcategory HTS table
+ * (data/real/hts-codes.ts) — including chapter 73/94 steel articles — and models the
+ * MFN base duty, the per-subcategory Section 301 rate, AND a Section 232 steel
+ * surcharge. The BOM analyzer uses that richer model when a product's subcategory is
+ * mapped and only falls back to the chapter rates below when it is not.
  */
 
 export type TariffProgram = "Section 301" | "none";
@@ -64,8 +69,12 @@ export interface TariffRollup {
   totalDuty: number;
 }
 
-/** Aggregate duty exposure across a BOM. */
-export function tariffRollup(duties: TariffDuty[]): TariffRollup {
+/**
+ * Aggregate duty exposure across a BOM. Accepts any duty carrying a rate + line
+ * total, so both the legacy chapter model (TariffDuty) and the real per-subcategory
+ * model (lib/catalog/hts-tariff LandedTariff) roll up through the same function.
+ */
+export function tariffRollup(duties: { ratePct: number; dutyLine: number }[]): TariffRollup {
   let exposedLines = 0;
   let totalDuty = 0;
   for (const d of duties) {

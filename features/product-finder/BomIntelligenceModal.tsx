@@ -156,7 +156,8 @@ export function BomIntelligenceModal() {
                     )}
                     {r.tariff && r.tariff.ratePct > 0 && (
                       <p className="mt-0.5 text-[10px] text-[#A32D2D]">
-                        🛃 {r.tariff.program} {(r.tariff.ratePct * 100).toFixed(0)}% · +${r.tariff.dutyPerUnit.toFixed(2)}/unit
+                        🛃 {r.tariff.htsCode ? `HTS ${r.tariff.htsCode} · ` : ""}
+                        {r.tariff.program} {(r.tariff.ratePct * 100).toFixed(1)}% · +${r.tariff.dutyPerUnit.toFixed(2)}/unit
                         duty → landed ${r.tariff.tariffedLandedUnit.toFixed(2)}/unit (${r.tariff.dutyLine.toFixed(2)} line)
                       </p>
                     )}

@@ -135,6 +135,14 @@ its key is set** — honors the cost guardrail.
 > xlsx, redundant with FRED), ✅ **DI-13** (OpenEI URDB utility rates; DSIRE
 > deferred — free API now 403/paid, free mirror frozen at 2017), plus **GLEIF +
 > Wikidata LIVE** lookups (the live-refresh companions to Increment 1's static layer).
+>
+> **Increment 3 shipped 2026-06-19** — the two remaining $0/no-account items, both
+> contract-verified by web research first.
+> ✅ **DI-7** (full per-subcategory USITC HTS + real MFN + per-subcategory Section 301
+> + steel Section 232 — [hts-tariff.md](hts-tariff.md)); ✅ **DI-12** (offline
+> cross-reference/substitute ranking eval against our verified-cross ground truth —
+> research confirmed Amazon ESCI is query→product, the wrong shape, so we use our own
+> cited crosses — [cross-reference-eval-report.md](cross-reference-eval-report.md)).
 
 ### DI-S1 · Attribute + classification backbone  *(free, pattern A)*
 **✅ DI-1 — ETIM classification ingestion.** Land ETIM (groups/classes/features/values/
@@ -162,11 +170,11 @@ cross-walk IDs; feed the brand-hierarchy registry + cross-ref "equivalent brand"
 *Acceptance:* a rebranded/spun-off manufacturer still resolves to its current parent.
 
 ### DI-S3 · Compliance + trade enrichment  *(free public-domain, pattern A)*
-**🟡 DI-7 — HTS + Section 301.** Replace the static tariff table with the USITC HTS +
+**✅ DI-7 — HTS + Section 301.** Replace the static tariff table with the USITC HTS +
 Chapter-99 301/232 mapping; assign HTS per subcategory. *Improves:* landed-cost
 overlay (#14) accuracy. *Acceptance:* duty + 301 surcharge derive from a real HTS code.
-*(Shipped: HTS chapter + Section 301 lookup as additive enrichment; full
-per-subcategory tariff-table replacement still open.)*
+*(SHIPPED Increment 3: full per-subcategory verified HTS table — real MFN +
+per-subcategory Section 301 + steel Section 232 — replacing the chapter model.)*
 **✅ DI-8 — Prop 65 + REACH/RoHS flags.** Ingest OEHHA Prop 65 + ECHA SVHC + RoHS
 Annex II as CAS lists; flag SKUs whose materials reference a listed substance.
 *Acceptance:* per-SKU compliance flags + BOM rollup ("contains SVHC?").
@@ -181,9 +189,12 @@ layer (respect DRM-gated assets). *Improves:* #11 score, embeddings (#4) chunks,
 **🟡 DI-11 — BLS PPI + Pink Sheet commodity signals.** Add BLS PPI electrical series +
 World Bank Pink Sheet to the commodity strip (FRED seam already exists). *Improves:*
 metal-cost passthrough realism.
-**DI-12 — Amazon ESCI substitute labels.** Use ESCI Substitute/Complement pairs as
+**✅ DI-12 — Amazon ESCI substitute labels.** Use ESCI Substitute/Complement pairs as
 ground truth to **validate + tune** the cross-reference/substitute ranking (offline
 eval, not shipped data). *Acceptance:* a measured precision/recall on substitutes.
+*(SHIPPED Increment 3: research confirmed ESCI is query→product — the WRONG shape —
+so the eval uses our own verified-cross dataset as held-out ground truth instead;
+measured recall@10 39.3%, precision@1 25%, MRR 0.321 over 28 evaluable pairs.)*
 **🟡 DI-13 — URDB + DSIRE rebate depth.** Dormant seams (pattern B): URDB for $-saved
 math, DSIRE for "which programs apply here". *Improves:* the rebate estimator from a
 range to a location-aware figure.

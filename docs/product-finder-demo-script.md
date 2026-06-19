@@ -249,7 +249,12 @@ Every SKU below is deterministic — it exists with the same data in every envir
     and — the 2026 one everyone's asking about — Section 301 tariff exposure, with
     a rollup of how many lines are flagged or tariff-exposed. That's what a
     government, AHJ, or MRO submittal gates on. Derived data here; a real UL feed
-    drops in behind it."*
+    drops in behind it."* **Point at a tariff-exposed line's 🛃 detail.** *"And the
+    duty isn't a hand-wave: each line shows its REAL HTS code and the actual landed
+    duty stack — the MFN base rate plus the correct Section 301 rate for THAT
+    category. Datacom is 7.5%, breakers are 25%, and steel cable tray adds a Section
+    232 surcharge on top — all from the published USITC tariff schedule, not a flat
+    guess. We even fixed the common mistake of charging 25% on everything."*
 10a. **Click ✎ price on the line and type something absurdly low** (e.g. `1.00`),
     **Apply.** *"Price-matching a competitor? I can override the line price — but
     watch: it snapped to the floor. The guardrails won't let me sell above list or

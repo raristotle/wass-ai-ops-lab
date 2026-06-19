@@ -10,7 +10,8 @@ import { identifierKey } from "@/lib/catalog/identifiers";
 import { gradeLine } from "@/lib/catalog/bom-health";
 import { bestAward, estimateFreightPerUnit, type SupplyOption } from "@/lib/catalog/landed-cost";
 import { complianceForProduct, complianceFlags, rollupCompliance, type Compliance } from "@/lib/catalog/compliance";
-import { tariffForLine, tariffRollup, type TariffDuty } from "@/lib/catalog/tariff";
+import { tariffForLine, tariffRollup } from "@/lib/catalog/tariff";
+import { landedTariffForLine } from "@/lib/catalog/hts-tariff";
 import { lineEtaDays } from "@/lib/product-finder-delivery";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { logApiError } from "@/lib/server/log";
@@ -69,7 +70,9 @@ export async function POST(req: Request) {
     const entries = resolvedCrossEntries();
 
     const complianceItems: Compliance[] = [];
-    const tariffDuties: TariffDuty[] = [];
+    // Rollup only needs rate + line duty; both the real per-subcategory model
+    // (landedTariffForLine) and the legacy chapter fallback (tariffForLine) satisfy this.
+    const tariffDuties: { ratePct: number; dutyLine: number }[] = [];
     const rows = items.map(({ sku, qty }) => {
       const need = Math.max(1, Math.floor(qty ?? 1));
       const product = resolveBySku(sku);
@@ -79,17 +82,30 @@ export async function POST(req: Request) {
       const compliance = complianceForProduct(product);
       if (compliance) complianceItems.push(compliance);
 
-      // Tariff-adjusted landed cost (#14): Section-301 duty on the unit price basis.
-      const tariff = compliance
-        ? tariffForLine({
-            htsCode: compliance.htsCode,
+      // Tariff-adjusted landed cost (#14 + DI-7): the REAL per-subcategory HTS duty
+      // model — MFN + per-subcategory Section 301 (+ steel Section 232) — falling
+      // back to the legacy chapter model only if the subcategory isn't in the HTS table.
+      const landed = compliance
+        ? landedTariffForLine({
+            subcategory: product.subcategory,
             countryOfOrigin: compliance.countryOfOrigin,
             section301: compliance.section301,
             unitPrice: product.unitPrice,
             qty: need,
           })
         : null;
-      if (tariff) tariffDuties.push(tariff);
+      const tariff =
+        landed ??
+        (compliance
+          ? tariffForLine({
+              htsCode: compliance.htsCode,
+              countryOfOrigin: compliance.countryOfOrigin,
+              section301: compliance.section301,
+              unitPrice: product.unitPrice,
+              qty: need,
+            })
+          : null);
+      if (tariff) tariffDuties.push({ ratePct: tariff.ratePct, dutyLine: tariff.dutyLine });
 
       const equivalents = findEquivalents(product, 8, branchId);
       const successor = pickActiveSuccessor(product, equivalents);
@@ -155,6 +171,11 @@ export async function POST(req: Request) {
           // Landed unit incl. duty — the price the importer of record actually carries.
           tariffedLandedUnit:
             Math.round(((award ? award.currentLanded.unit : product.unitPrice) + tariff.dutyPerUnit) * 100) / 100,
+          // Real per-subcategory HTS detail (DI-7), present when the subcategory is mapped.
+          htsCode: landed?.htsDotted,
+          mfnDutyPct: landed?.mfnDutyPct,
+          section301Pct: landed?.section301Pct,
+          section232Pct: landed?.section232Pct,
         },
       };
     });

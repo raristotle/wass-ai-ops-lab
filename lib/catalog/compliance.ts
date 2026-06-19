@@ -18,6 +18,7 @@
  */
 
 import type { ProductCategory, ProductDataSource } from "@/features/product-finder/types";
+import { htsEntryForSubcategory, hts10 } from "@/lib/catalog/hts-tariff";
 
 export type RohsStatus = "compliant" | "exempt" | "non-compliant";
 
@@ -67,6 +68,7 @@ function originFor(id: string): string {
 }
 
 // Lead HTS chapter by category (8-digit chapter/heading + a 2-digit stat suffix).
+// Used as a FALLBACK when a product's subcategory isn't in the verified HTS table.
 const HTS_BY_CATEGORY: Record<ProductCategory, string> = {
   electrical: "85361000",
   "oem-electrical": "85044000",
@@ -76,7 +78,17 @@ const HTS_BY_CATEGORY: Record<ProductCategory, string> = {
   safety: "65061000",
 };
 
-function htsFor(id: string, category: ProductCategory): string {
+/**
+ * The 10-digit HTS code for a product. Prefers the REAL, web-verified
+ * per-subcategory code (DI-7, data/real/hts-codes.ts); falls back to the
+ * category-level heading + a stable pseudo-suffix when the subcategory is unmapped
+ * or unknown.
+ */
+function htsFor(id: string, category: ProductCategory, subcategory?: string): string {
+  if (subcategory) {
+    const entry = htsEntryForSubcategory(subcategory);
+    if (entry) return hts10(entry.hts);
+  }
   const head = HTS_BY_CATEGORY[category];
   const suffix = String(hash32(id, "hts") % 100).padStart(2, "0");
   return `${head}${suffix}`;
@@ -90,10 +102,11 @@ function htsFor(id: string, category: ProductCategory): string {
 export function complianceForProduct(product: {
   id: string;
   category: ProductCategory;
+  subcategory?: string;
   dataSource?: ProductDataSource;
 }): Compliance | null {
   if (product.dataSource === "verified" || product.dataSource === "curated") return null;
-  const { id, category } = product;
+  const { id, category, subcategory } = product;
   const coo = originFor(id);
   // Most electrical gear is UL listed; a realistic minority isn't (imports/commodity).
   const ulListed = pct(id, "ul") < 92;
@@ -107,7 +120,7 @@ export function complianceForProduct(product: {
     reachSvhc,
     prop65,
     countryOfOrigin: coo,
-    htsCode: htsFor(id, category),
+    htsCode: htsFor(id, category, subcategory),
     section301: coo === "CN",
   };
 }

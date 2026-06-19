@@ -149,10 +149,16 @@ export interface BomAnalyzeRow {
   compliance: { flags: string[]; countryOfOrigin: string; section301: boolean; ulListed: boolean } | null;
   tariff: {
     ratePct: number;
-    program: "Section 301" | "none";
+    /** Layer label, e.g. "MFN 2.7% + Section 301 25%" or "none" (DI-7). */
+    program: string;
     dutyPerUnit: number;
     dutyLine: number;
     tariffedLandedUnit: number;
+    // Real per-subcategory HTS detail (DI-7) — present when the subcategory is mapped.
+    htsCode?: string;
+    mfnDutyPct?: number;
+    section301Pct?: number;
+    section232Pct?: number;
   } | null;
 }
 
