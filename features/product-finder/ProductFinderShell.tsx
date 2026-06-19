@@ -15,6 +15,7 @@ import { AssistantPanel } from "@/features/product-finder/AssistantPanel";
 import { JobWizardModal } from "@/features/product-finder/JobWizardModal";
 import { GuidedSelectorsModal } from "@/features/product-finder/GuidedSelectorsModal";
 import { KitsModal } from "@/features/product-finder/KitsModal";
+import { WillCallQueueModal } from "@/features/product-finder/WillCallQueueModal";
 import { RfqImportModal } from "@/features/product-finder/RfqImportModal";
 import { BomIntelligenceModal } from "@/features/product-finder/BomIntelligenceModal";
 import { JobsModal } from "@/features/product-finder/JobsModal";
@@ -30,6 +31,7 @@ import { ReturnModal } from "@/features/product-finder/ReturnModal";
 import { HelpPanel } from "@/features/product-finder/HelpPanel";
 import { RoleSwitcher } from "@/features/product-finder/RoleSwitcher";
 import { BrandSwitcher } from "@/features/product-finder/BrandSwitcher";
+import { LanguageSwitcher } from "@/features/product-finder/LanguageSwitcher";
 import { NotificationBell } from "@/features/product-finder/NotificationBell";
 import { PushSubscribeButton } from "@/features/product-finder/PushSubscribeButton";
 import { TourOverlay } from "@/features/product-finder/TourOverlay";
@@ -104,6 +106,9 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
         <div className="flex items-center gap-2 sm:gap-3">
           {/* White-label brand switcher */}
           <BrandSwitcher />
+
+          {/* Language toggle (en / es) */}
+          <LanguageSwitcher />
 
           {/* Demo role switcher */}
           <RoleSwitcher />
@@ -259,6 +264,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <JobWizardModal />
       <GuidedSelectorsModal />
       <KitsModal />
+      <WillCallQueueModal />
       <RfqImportModal />
       <BomIntelligenceModal />
       <JobsModal />

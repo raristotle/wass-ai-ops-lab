@@ -88,7 +88,7 @@ data-quality scoring** pairs first: better spec/datasheet completeness → bette
 → better recall. **#14 visual part ID** extends the shipped OCR nameplate path with a dormant
 vision model. **PREREQ: embeddings + vision API keys (both dormant/$0 until set).**
 
-### Sprint 4 · Customer self-service + branch ops  (#13, 12, 16)
+### Sprint 4 · Customer self-service + branch ops  (#13, 12, 16) ✅ SHIPPED 2026-06-19
 **#13 customer portal** reuses the shipped per-tenant SSO + deposit/order state (logged-in
 history, invoices, reorder). **#12 will-call pick-ticket** completes the counter/will-call loop.
 **#16 Spanish i18n** is cross-cutting, so do it once the major surfaces are stable (one locale

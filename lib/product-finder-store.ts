@@ -39,6 +39,7 @@ import type { SavedQuote, QuoteStatus, ApprovalStatus } from "@/lib/product-find
 import { QUOTE_STATUS_LABEL, APPROVAL_LABEL, isSuperseded } from "@/lib/product-finder-quotes";
 import { evaluateApproval } from "@/lib/product-finder-approval-policy";
 import type { FulfillmentMethod } from "@/lib/product-finder-tracking";
+import { type Locale, DEFAULT_LOCALE, isLocale } from "@/lib/product-finder-i18n";
 import {
   createReturn,
   nextReturnStatus,
@@ -238,6 +239,12 @@ export interface ProductFinderState {
   /** Active white-label brand profile id (lib/brand). Persisted in localStorage. */
   brandId: string;
   setBrandId: (id: string) => void;
+  /** UI locale (v4-S4 #16). */
+  locale: Locale;
+  setLocale: (l: Locale) => void;
+  /** Will-call branch queue modal (v4-S4 #12). */
+  willCallOpen: boolean;
+  setWillCallOpen: (v: boolean) => void;
   submittalOpen: boolean;
   setSubmittalOpen: (v: boolean) => void;
 
@@ -812,6 +819,14 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     if (typeof localStorage !== "undefined") localStorage.setItem("pf_brand", next);
     set({ brandId: next });
   },
+  locale: DEFAULT_LOCALE,
+  setLocale(l) {
+    const next = isLocale(l) ? l : DEFAULT_LOCALE;
+    if (typeof localStorage !== "undefined") localStorage.setItem("pf_locale", next);
+    set({ locale: next });
+  },
+  willCallOpen: false,
+  setWillCallOpen(v) { set({ willCallOpen: v }); },
   submittalOpen: false,
   setSubmittalOpen(v) { set({ submittalOpen: v }); },
 
@@ -1752,6 +1767,10 @@ export function hydrateSavedState() {
     brandId: (() => {
       const v = localStorage.getItem("pf_brand");
       return isBrandId(v) ? v : DEFAULT_BRAND_ID;
+    })(),
+    locale: (() => {
+      const v = localStorage.getItem("pf_locale");
+      return isLocale(v) ? v : DEFAULT_LOCALE;
     })(),
     jobTemplates: readTemplates(),
     quotes: readQuotes(),

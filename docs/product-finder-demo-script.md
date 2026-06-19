@@ -541,6 +541,15 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   is set, "Photograph the part to identify it" uses AI vision to read brand/catalog#/
   ratings and resolve a REAL stocked SKU (it never invents a part number); otherwise it
   falls back to OCR or manual entry. $0 until keyed. Setup: docs/visual-part-id.md.
+- **Language toggle** → flip the header "Language" toggle to Español; the header,
+  will-call queue, and customer portal switch to Spanish. English is the default and
+  remembered per device. $0. (docs/i18n.md)
+- **Will-call queue** → when orders are marked will-call, a card on the manager
+  dashboard opens the branch pickup queue; Print pick ticket opens a printable ticket
+  with check-off boxes. $0/deterministic. (docs/will-call.md)
+- **Customer portal** → a logged-in customer visits /product-finder/customer to see
+  their own order history (tenant-scoped via SSO), expand line detail, and Reorder
+  (resolves the SKUs into the cart for review). Read-only. (docs/customer-portal.md)
 - **cXML confirmation / ship notice** → on a placed order, open Track order → the
   Procurement cXML row downloads the OrderConfirmation / ShipNotice for the buyer's
   Ariba / Coupa / SAP system. Deterministic and $0; generated only on click.

@@ -82,6 +82,7 @@ export function CommandPalette() {
         s.bomIqOpen ||
         s.jobsOpen ||
         s.kitsOpen ||
+        s.willCallOpen ||
         s.vmiOpen ||
         s.quickOrderOpen ||
         s.barcodeOpen ||

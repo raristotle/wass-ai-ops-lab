@@ -108,9 +108,10 @@ describe("AC38 (partial) — route surface is frozen", () => {
     const entries = readdirSync(dir).sort();
     // "quote" was added by the Tier 2 update (customer-facing acceptance page);
     // "crosses" is the Cross-Reference Explorer; "supplier" is the Wave-4 supplier
-    // collaboration portal (reviewed addition).
-    expect(entries).toEqual(["crosses", "dashboard", "layout.tsx", "login", "page.tsx", "quote", "supplier"]);
+    // collaboration portal; "customer" is the v4-S4 customer self-service portal.
+    expect(entries).toEqual(["crosses", "customer", "dashboard", "layout.tsx", "login", "page.tsx", "quote", "supplier"]);
     expect(readdirSync(path.join(dir, "crosses"))).toEqual(["page.tsx"]);
+    expect(readdirSync(path.join(dir, "customer"))).toEqual(["page.tsx"]);
     expect(readdirSync(path.join(dir, "dashboard"))).toEqual(["page.tsx"]);
     expect(readdirSync(path.join(dir, "login"))).toEqual(["page.tsx"]);
     expect(readdirSync(path.join(dir, "quote"))).toEqual(["page.tsx"]);

@@ -869,6 +869,38 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "will-call",
+    title: "Will-call pickup queue & pick tickets",
+    body: [
+      "Branch staff get a queue of the orders staged for will-call pickup, with a printable pick ticket to pull the stock.",
+      "• When the will-call queue has orders, a card appears on the manager dashboard — open it to see the queue (order, customer, items, date).",
+      "• Click Print pick ticket on any order to open a printable ticket (browser Print → Save as PDF) with check-off boxes per line.",
+      "• An order lands here when a rep marks its fulfillment method as will-call (vs delivery) — the same method that drives order tracking.",
+      "$0 and deterministic; no setup required.",
+    ],
+  },
+  {
+    id: "customer-portal",
+    title: "Customer self-service portal",
+    body: [
+      "Logged-in customers can view their own order history and reorder at /product-finder/customer.",
+      "• Each order shows its date, total, status, and (expanded) the line detail.",
+      "• Reorder resolves the order's items against the catalog and drops them in the cart for review before buying.",
+      "• Orders are scoped to the customer's account via single sign-on — a customer only ever sees their own (read-only; no write access).",
+      "Works with the shipped SSO; no new setup required.",
+    ],
+  },
+  {
+    id: "language",
+    title: "Switch language (English / Español)",
+    body: [
+      "Use the Language toggle in the header to switch the rep-facing UI between English and Español.",
+      "• Your choice is remembered on this device.",
+      "• English is the default; the will-call queue, customer portal, and key actions are translated, with more coverage rolling out.",
+      "$0, no setup.",
+    ],
+  },
+  {
     id: "lifecycle-eol",
     title: "Lifecycle status & designing out obsolete parts",
     body: [

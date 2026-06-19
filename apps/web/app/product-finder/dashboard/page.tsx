@@ -57,6 +57,7 @@ import { SpaClaimbackCard } from "@/features/product-finder/SpaClaimbackCard";
 import { NextBestActionCard } from "@/features/product-finder/NextBestActionCard";
 import { AuditLogCard } from "@/features/product-finder/AuditLogCard";
 import { QualityMetricsCard } from "@/features/product-finder/QualityMetricsCard";
+import { willCallOrders } from "@/lib/product-finder-pick-ticket";
 import { subcategoryShareQuery } from "@/lib/product-finder-url";
 import { categoryShareQuery } from "@/lib/product-finder-url";
 import { apiGetProduct } from "@/lib/product-finder-api";
@@ -136,6 +137,8 @@ function DashboardContent() {
   const quotes = useProductFinder((s) => s.quotes);
   const customers = useProductFinder((s) => s.customers);
   const user = useProductFinder((s) => s.user);
+  const orderFulfillment = useProductFinder((s) => s.orderFulfillment);
+  const setWillCallOpen = useProductFinder((s) => s.setWillCallOpen);
   const openCartAt = useProductFinder((s) => s.openCartAt);
   const setActiveCustomer = useProductFinder((s) => s.setActiveCustomer);
   const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
@@ -161,6 +164,7 @@ function DashboardContent() {
     [orders, customers, now]
   );
   const forecast = useMemo(() => demandForecast(orders, quotes, now, 6), [orders, quotes, now]);
+  const willCall = useMemo(() => willCallOrders(orders, orderFulfillment), [orders, orderFulfillment]);
 
   // ── Drill-through handlers ──────────────────────────────────────────────────
   // Bar click payload carries the original CategoryStat datum.
@@ -224,6 +228,25 @@ function DashboardContent() {
 
       {/* ── Next best actions (#8) — the prioritized "do this next" list ──────── */}
       <NextBestActionCard />
+
+      {/* ── Will-call branch queue (#12) — hidden when nothing is staged ──────── */}
+      {willCall.length > 0 && (
+        <button
+          type="button"
+          onClick={() => setWillCallOpen(true)}
+          aria-label="Open the will-call pickup queue"
+          className="flex w-full items-center gap-3 rounded-xl border border-[#00AA13]/40 bg-[#00AA13]/5 p-4 text-left transition-colors hover:border-[#00AA13]"
+        >
+          <span className="text-2xl" aria-hidden="true">🚏</span>
+          <span className="flex-1">
+            <span className="block text-sm font-semibold text-[#1D252D]">
+              {willCall.length} order{willCall.length === 1 ? "" : "s"} staged for will-call pickup
+            </span>
+            <span className="block text-xs text-[#4F758B]">Open the branch queue to print pick tickets.</span>
+          </span>
+          <span className="shrink-0 text-sm font-semibold text-[#00AA13]" aria-hidden="true">→</span>
+        </button>
+      )}
 
       {/* ── KPI cards ─────────────────────────────────────────────────────────── */}
       <section aria-label="Key performance indicators">
