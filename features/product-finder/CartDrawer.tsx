@@ -14,6 +14,7 @@ import { basketCsv, downloadCsv, downloadText } from "@/lib/product-finder-csv";
 import { buildPunchOutCxml } from "@/lib/procurement/cxml";
 import { buildEdi850 } from "@/lib/procurement/edi850";
 import { DepositButton } from "@/features/product-finder/DepositButton";
+import { EsignButton } from "@/features/product-finder/EsignButton";
 import type { ProcurementOrder } from "@/lib/procurement/types";
 import { unspscCode } from "@/lib/catalog/unspsc";
 import { OrderTracking } from "@/features/product-finder/OrderTracking";
@@ -414,11 +415,14 @@ export function CartDrawer() {
   const [copiedQuoteId, setCopiedQuoteId] = useState<string | null>(null);
   const customers = useProductFinder((s) => s.customers);
 
-  /** Build + copy the customer-facing acceptance link for a saved quote. */
-  const handleCustomerLink = (q: SavedQuote) => {
+  /**
+   * Build the shareable payload for a saved quote — the single source for both
+   * the customer acceptance link and the e-signature document URL.
+   */
+  const buildSharePayload = (q: SavedQuote): QuoteSharePayload => {
     const provider = getPricingProvider();
     const quoteCustomer = q.customerId ? customers.find((c) => c.id === q.customerId) ?? null : null;
-    const payload: QuoteSharePayload = {
+    return {
       v: QUOTE_SHARE_VERSION,
       id: q.id,
       number: q.number,
@@ -442,7 +446,19 @@ export function CartDrawer() {
       ...(q.note ? { note: q.note } : {}),
       ...(q.termsIds && q.termsIds.length > 0 ? { terms: resolveTerms(q.termsIds) } : {}),
     };
-    const url = `${location.origin}/product-finder/quote?q=${encodeQuoteShare(payload)}`;
+  };
+
+  /**
+   * Token-capability quote-PDF URL handed to Dropbox Sign as the signing document
+   * (same-origin, so it passes the e-sign route's SSRF allowlist). The token grants
+   * the same view access the public acceptance page already does.
+   */
+  const buildQuotePdfUrl = (q: SavedQuote): string =>
+    `${location.origin}/api/pdf/quote?token=${encodeQuoteShare(buildSharePayload(q))}`;
+
+  /** Build + copy the customer-facing acceptance link for a saved quote. */
+  const handleCustomerLink = (q: SavedQuote) => {
+    const url = `${location.origin}/product-finder/quote?q=${encodeQuoteShare(buildSharePayload(q))}`;
     navigator.clipboard.writeText(url).then(() => {
       setCopiedQuoteId(q.id);
       setTimeout(() => setCopiedQuoteId(null), 2500);
@@ -1346,6 +1362,7 @@ export function CartDrawer() {
                         </button>
                       )}
                       <DepositButton quote={q} />
+                      <EsignButton quote={q} buildFileUrl={() => buildQuotePdfUrl(q)} />
                       <button
                         type="button"
                         onClick={() => deleteQuote(q.id)}

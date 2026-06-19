@@ -21,6 +21,7 @@ import { isObsolescent, LIFECYCLE_META } from "@/lib/catalog/lifecycle";
 import { pickActiveSuccessor } from "@/lib/catalog/successor";
 import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { CutToLengthPanel } from "@/features/product-finder/CutToLengthPanel";
+import { RebatePanel } from "@/features/product-finder/RebatePanel";
 import type { SourcingGrade } from "@/lib/catalog/coverage-score";
 
 // ─── External-link icon ───────────────────────────────────────────────────────
@@ -504,6 +505,9 @@ export function ProductDetailModal() {
 
             {/* Cut-to-length (wire / conduit / strut sold by the foot) */}
             <CutToLengthPanel product={product} />
+
+            {/* Utility rebate estimate (lighting only) */}
+            <RebatePanel product={product} qty={qty} />
 
             {/* Find Alternatives */}
             <div>

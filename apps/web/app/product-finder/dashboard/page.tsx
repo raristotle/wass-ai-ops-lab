@@ -54,6 +54,8 @@ import { CrossCoveragePanel } from "@/features/product-finder/CrossCoveragePanel
 import { CoverageGapsCard } from "@/features/product-finder/CoverageGapsCard";
 import { RepScorecardCard } from "@/features/product-finder/RepScorecardCard";
 import { SpaClaimbackCard } from "@/features/product-finder/SpaClaimbackCard";
+import { NextBestActionCard } from "@/features/product-finder/NextBestActionCard";
+import { AuditLogCard } from "@/features/product-finder/AuditLogCard";
 import { subcategoryShareQuery } from "@/lib/product-finder-url";
 import { categoryShareQuery } from "@/lib/product-finder-url";
 import { apiGetProduct } from "@/lib/product-finder-api";
@@ -218,6 +220,9 @@ function DashboardContent() {
           Figures reflect seeded demo orders, not real transaction history.
         </p>
       </div>
+
+      {/* ── Next best actions (#8) — the prioritized "do this next" list ──────── */}
+      <NextBestActionCard />
 
       {/* ── KPI cards ─────────────────────────────────────────────────────────── */}
       <section aria-label="Key performance indicators">
@@ -681,6 +686,7 @@ function DashboardContent() {
       <CoverageGapsCard />
       <SpaClaimbackCard />
       <RepScorecardCard />
+      <AuditLogCard />
 
       {/* ── Charts row: Top categories + Orders over time ──────────────────────── */}
       <div className="grid gap-4 lg:grid-cols-2">

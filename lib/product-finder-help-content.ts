@@ -792,6 +792,50 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "next-best-actions",
+    title: "Next Best Actions (rep coaching)",
+    body: [
+      "The manager dashboard opens with a single ranked “what to do next” list, built from your live data — no AI, no guesswork.",
+      "• Counter-offers awaiting a reply and below-margin quotes needing sign-off rank highest (a customer or a deal is waiting).",
+      "• Then stale sent quotes (>14 days), at-risk accounts (gone quiet vs their usual cadence), unclaimed SPA rebates, and subcategories trending up to stock.",
+      "• Each row deep-links to where you act — the quote list, the account's orders, or a search.",
+      "It composes the same numbers the cards below show, so it can never disagree with them.",
+    ],
+  },
+  {
+    id: "lighting-rebates",
+    title: "Utility rebate estimates for lighting",
+    body: [
+      "Open any LED fixture or lamp and you'll see an estimated utility rebate — the kind of incentive that often closes a lighting retrofit.",
+      "• Shows a per-fixture (or per-lamp) range and the total for your quantity, grounded in real 2025-2026 utility program structures.",
+      "• If the product has occupancy/daylight/0-10V controls, the higher controls-incentive band is applied automatically.",
+      "• A “DLC-eligible category” badge marks fixtures that utilities typically require to be DLC-listed to qualify.",
+      "It's an honest estimate, not a quote — the actual amount is set by the customer's local utility worksheet, and there's no free national feed of exact rebate dollars. Confirm with the local program.",
+    ],
+    tryQuery: "LED troffer",
+  },
+  {
+    id: "esignature",
+    title: "Send a quote for e-signature (Dropbox Sign)",
+    body: [
+      "On a saved quote you can email the customer a Dropbox Sign link to sign and accept — a legally-binding close — when the seam is configured.",
+      "• The “✍️ Send for signature” button appears on open quotes only when DROPBOX_SIGN_API_KEY is set; it stays hidden in the dormant demo.",
+      "• It defaults to Dropbox test mode (free, non-binding) until you explicitly set DROPBOX_SIGN_TEST_MODE=false, so it costs nothing while you try it.",
+      "• When the customer signs, Dropbox's webhook flips the quote's signature status (verified by HMAC) and records a tamper-evident audit entry.",
+      "The customer's signing document is the branded quote PDF on our own server, so no card or document data passes through a third party beyond Dropbox.",
+    ],
+  },
+  {
+    id: "audit-log",
+    title: "Tamper-evident audit log & compliance export",
+    body: [
+      "The dashboard's Audit Log records key business events (signatures, orders, deposits, quote decisions) in a hash-chained, tamper-evident trail for compliance/SOC2 readiness.",
+      "• Each entry chains to the previous via an HMAC hash — any insertion, deletion, edit, or reorder breaks the chain, and the card shows a live “✓ Chain verified” / “✗ Broken” badge.",
+      "• Export the full chain as CSV for an auditor; every row carries its hash and the prior hash.",
+      "• It's always on ($0) and scoped per tenant. Set AUDIT_SECRET (or rely on the SSO SESSION_SECRET) for production-grade signing.",
+    ],
+  },
+  {
     id: "lifecycle-eol",
     title: "Lifecycle status & designing out obsolete parts",
     body: [

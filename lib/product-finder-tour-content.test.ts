@@ -2,8 +2,8 @@ import { describe, it, expect } from "vitest";
 import { TOUR_STEPS } from "@/lib/product-finder-tour-content";
 
 describe("TOUR_STEPS", () => {
-  it("has exactly 9 steps", () => {
-    expect(TOUR_STEPS).toHaveLength(9);
+  it("has exactly 10 steps", () => {
+    expect(TOUR_STEPS).toHaveLength(10);
   });
 
   it("ids are unique and in the exact expected order", () => {
@@ -17,9 +17,17 @@ describe("TOUR_STEPS", () => {
       "ask-meridian-ai",
       "job-wizard",
       "basket-quote",
+      "close-the-deal",
       "insights",
       "more-tools",
     ]);
+  });
+
+  it("close-the-deal step covers e-signature and rebates", () => {
+    const step = TOUR_STEPS.find((s) => s.id === "close-the-deal")!;
+    const text = step.body.join(" ").toLowerCase();
+    expect(text).toContain("signature");
+    expect(text).toContain("rebate");
   });
 
   it("job-wizard step opens the wizard", () => {

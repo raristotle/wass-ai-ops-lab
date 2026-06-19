@@ -23,6 +23,7 @@ import { eciaConfigured } from "@/lib/integration/trustedparts-live";
 import { oemsecretsConfigured } from "@/lib/integration/oemsecrets-live";
 import { weatherConfigured } from "@/lib/integration/weather-live";
 import { stripeDepositConfigured } from "@/lib/integration/stripe-deposit";
+import { esignConfigured } from "@/lib/integration/esign-live";
 
 export const dynamic = "force-dynamic";
 
@@ -55,6 +56,7 @@ export function GET() {
       ratelimit: rateLimiterConfigured(),
       stripeTax: stripeTaxConfigured(),
       deposits: stripeDepositConfigured(),
+      esign: esignConfigured(),
       rerank: rerankConfigured(),
       slack: slackConfigured(),
       nexar: nexarConfigured(),

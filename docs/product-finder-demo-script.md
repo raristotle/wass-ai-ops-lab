@@ -509,6 +509,24 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   collection is dormant until `STRIPE_SECRET_KEY` is set; it's the only money-moving
   feature, so it stays hidden and $0 until keyed. Talking point: "a deposit Checkout
   link is created only by an explicit rep click — card or ACH, on Stripe's hosted page."
+- **No "✍️ Send for signature" button on a quote** → expected in the demo. Quote
+  e-signature (Dropbox Sign) is dormant until `DROPBOX_SIGN_API_KEY` is set, and even
+  then defaults to free test mode. Talking point: "one click emails the customer a
+  binding e-signature link; the signature is captured server-side and written to the
+  tamper-evident audit trail — $0 until keyed, free in test mode." Setup: docs/esignature.md.
+- **Next Best Actions (manager dashboard)** → the top card is a single ranked “do this
+  next” list — counter-offers, approvals, stale quotes, at-risk accounts, unclaimed
+  rebates, demand to stock — each deep-linking to where you act. Deterministic over the
+  same data the cards below show: $0, no AI.
+- **Utility rebate estimate** → open any LED fixture/lamp (try "LED troffer") to see an
+  estimated per-fixture utility rebate + the total for the quantity, a DLC-eligible
+  badge, and a controls-uplift band. Talking point: "the incentive that closes a
+  retrofit — an honest estimate the local utility confirms; there's no free national
+  feed of exact rebate dollars." Non-lighting products show no panel.
+- **Audit Log card empty** → expected on a fresh demo; it populates as events occur (a
+  signature, an order). It's hash-chained with a live “✓ Chain verified” badge, and
+  Export (CSV) hands an auditor the full chain. Set `AUDIT_SECRET` for production-grade
+  signing (docs/audit-log.md).
 - **cXML confirmation / ship notice** → on a placed order, open Track order → the
   Procurement cXML row downloads the OrderConfirmation / ShipNotice for the buyer's
   Ariba / Coupa / SAP system. Deterministic and $0; generated only on click.
