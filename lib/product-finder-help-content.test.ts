@@ -158,6 +158,13 @@ describe("HELP_TOPICS", () => {
     }
   });
 
+  it("covers the v5-S4 D2C surfaces (quick-order chips, reorder/subscription)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    for (const required of ["quick-order-chips", "reorder-subscription"]) {
+      expect(ids.has(required), required).toBe(true);
+    }
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

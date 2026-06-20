@@ -1136,6 +1136,27 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "quick-order-chips",
+    title: "Quick-Order Pad — companion chips",
+    body: [
+      "Ctrl/⌘-K → “Quick-Order Pad”. Paste your SKUs and resolve them — then an “Add these too” row of cross-sell companion chips appears beneath the matched lines.",
+      "• Required companions show in green; tap a chip to add it to the cart.",
+      "• It’s basket-aware: companions are gathered across your resolved SKUs and de-duped against what you already pasted.",
+      "$0 and deterministic — the same cross-sell engine the rep surfaces use.",
+    ],
+  },
+  {
+    id: "reorder-subscription",
+    title: "Self-service reorder & subscriptions",
+    body: [
+      "On the customer portal (/product-finder/customer), expand any past order to:",
+      "• Reorder it — resolves the SKUs back into your cart for review.",
+      "• Subscribe to reorder — pick a cadence (weekly … quarterly) and it previews your next reorder date.",
+      "• Add companions — “Customers also add” chips put the cross-sell items into the reorder with one tap.",
+      "Your orders are scoped to your account via single sign-on. Subscriptions are $0; the durable subscription schedule is the production path.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

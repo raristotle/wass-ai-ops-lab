@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { AuthGuard } from "@/features/product-finder/AuthGuard";
 import { ProductFinderShell } from "@/features/product-finder/ProductFinderShell";
+import { CustomerReorderNudge } from "@/features/product-finder/CustomerReorderNudge";
 import { orderTracking } from "@/lib/product-finder-tracking";
 import { t } from "@/lib/product-finder-i18n";
 import type { PlacedOrder, OrderLine } from "@/lib/product-finder-order-intake";
@@ -154,6 +155,9 @@ function PortalContent() {
                     >
                       {reordering === o.id ? "…" : `🔁 ${t("action.reorder", locale)}`}
                     </button>
+
+                    {/* v5-S4 #16: subscribe-to-reorder cadence + cross-sell attach nudges */}
+                    <CustomerReorderNudge orderId={o.id} skus={o.lines.map((l) => l.sku)} nowIso={new Date(now).toISOString()} />
                   </div>
                 )}
               </li>

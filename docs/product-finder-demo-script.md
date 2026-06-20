@@ -626,5 +626,12 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
 - **Agentic quoting (MCP)** → mention: *"an AI agent can draft_quote a basket with its
   companions, place_order it, and push_quote_to_crm to HubSpot or Salesforce — all on the
   same $0 engine. The CRMs stay dormant until keys are set."*
+- **Quick-order companion chips** → Ctrl/⌘-K → "Quick-Order Pad", paste a couple of
+  SKUs, Resolve. *"Under the matched lines, 'Add these too' shows the cross-sell
+  companions for the whole basket — tap a chip to add it. Same engine, customer-facing."*
+- **Customer reorder + subscription** → open `/product-finder/customer` (as a logged-in
+  customer), expand an order. *"They can reorder, subscribe to a cadence — it previews
+  the next reorder date — and 'Customers also add' nudges the companions right into the
+  reorder. That's D2C cross-sell on autopilot."*
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

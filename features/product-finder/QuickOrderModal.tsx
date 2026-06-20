@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { useModalA11y } from "@/features/product-finder/useModalA11y";
+import { apiCompanions, type CompanionItem } from "@/lib/product-finder-api";
 import {
   parseQuickOrderLines,
   aggregateQuickLines,
@@ -31,10 +32,35 @@ export function QuickOrderModal() {
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
   const closeRef = useModalA11y(open, () => setOpen(false));
 
+  const branchId = useProductFinder((s) => s.user?.branchId);
   const [text, setText] = useState("");
   const [lines, setLines] = useState<UiLine[] | null>(null);
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  // v5-S4 #15: basket-aware cross-sell companions for the resolved SKUs.
+  const [companions, setCompanions] = useState<CompanionItem[]>([]);
+
+  /** Fetch companions for the matched products (a few seeds), dedup, drop anything
+   *  already in the quick-order list — the "add these too" chip row. */
+  async function loadCompanions(matched: UiLine[]) {
+    const seeds = matched.map((l) => l.product).filter((p): p is NonNullable<typeof p> => !!p);
+    if (seeds.length === 0) {
+      setCompanions([]);
+      return;
+    }
+    const inList = new Set(seeds.map((p) => p.id));
+    const rails = await Promise.all(seeds.slice(0, 3).map((p) => apiCompanions(p.id, { branchId, k: 4 })));
+    const seen = new Set<string>();
+    const merged: CompanionItem[] = [];
+    for (const c of rails.flat()) {
+      if (inList.has(c.product.id) || seen.has(c.product.id)) continue;
+      seen.add(c.product.id);
+      merged.push(c);
+    }
+    // Required first, then attach score; cap the chip row.
+    merged.sort((a, b) => (a.relation !== b.relation ? (a.relation === "required" ? -1 : 1) : b.attachScore - a.attachScore));
+    setCompanions(merged.slice(0, 6));
+  }
 
   // Resolve the pasted SKUs against the FULL catalog server-side (exact SKU then
   // canonical cross-reference) — so real Wesco SKUs and competitor BOMs resolve,
@@ -44,6 +70,7 @@ export function QuickOrderModal() {
     if (parsed.length === 0) {
       setMsg("Paste at least one SKU.");
       setLines(null);
+      setCompanions([]);
       return;
     }
     setMsg(null);
@@ -59,20 +86,20 @@ export function QuickOrderModal() {
         ? (data as { resolved: SmartResolvedQuickLine[] }).resolved
         : [];
       // The route resolves input order 1:1, so zip by index; qty stays client-side.
-      setLines(
-        parsed.map((p, i) => {
-          const r = resolved[i];
-          return {
-            raw: p.raw,
-            sku: p.sku,
-            qty: p.qty,
-            matchKind: r?.matchKind ?? "none",
-            product: r?.product ?? null,
-            via: r?.via,
-            qtyStr: String(p.qty),
-          };
-        }),
-      );
+      const uiLines: UiLine[] = parsed.map((p, i) => {
+        const r = resolved[i];
+        return {
+          raw: p.raw,
+          sku: p.sku,
+          qty: p.qty,
+          matchKind: r?.matchKind ?? "none",
+          product: r?.product ?? null,
+          via: r?.via,
+          qtyStr: String(p.qty),
+        };
+      });
+      setLines(uiLines);
+      void loadCompanions(uiLines.filter((l) => l.product));
     } catch {
       setMsg("Could not resolve SKUs — please try again.");
     } finally {
@@ -210,6 +237,31 @@ export function QuickOrderModal() {
               {unmatched.length > 0 && (
                 <div className="mt-2 rounded-lg border border-[#DB6B30]/40 bg-[#DB6B30]/5 px-3 py-2 text-xs text-[#993C1D]">
                   <b>{unmatched.length} not found:</b> {unmatched.map((l) => l.sku).join(", ")} — check the SKU or search the catalog.
+                </div>
+              )}
+
+              {/* v5-S4 #15: cross-sell companion chips for the resolved basket */}
+              {companions.length > 0 && (
+                <div className="mt-3" data-testid="quickorder-companions">
+                  <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-[#4F758B]">Add these too</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {companions.map((c) => (
+                      <button
+                        key={c.product.id}
+                        type="button"
+                        onClick={() => addToCart(c.product)}
+                        title={c.reasons[0] ?? c.product.subcategory}
+                        className={
+                          "rounded-full border px-2.5 py-1 text-xs transition-colors " +
+                          (c.relation === "required"
+                            ? "border-[#00AA13] text-[#00AA13] hover:bg-[#00AA13]/5"
+                            : "border-[#B7C9D3] text-[#1D252D] hover:bg-[#F8FAFB]")
+                        }
+                      >
+                        + {c.product.name} · ${c.product.unitPrice.toFixed(2)}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
 

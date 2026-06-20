@@ -274,6 +274,31 @@ export async function apiCartUpsell(
   }
 }
 
+/** Slim companion (from POST /api/companions). For nudge rails where a full product
+ *  isn't needed until the customer adds it. */
+export interface SlimCompanion {
+  relation: "required" | "recommended";
+  attachScore: number;
+  reasons: string[];
+  product: { id: string; sku: string; name: string; brand: string; subcategory: string; unitPrice: number; uom: string; imageIcon: string; preferred: boolean; inStock: boolean };
+}
+
+/** Basket-level attach rail for a set of SKUs (POST /api/companions, mode "attach"). */
+export async function apiCompanionsAttach(skus: string[], branchId?: string): Promise<SlimCompanion[]> {
+  if (skus.length === 0) return [];
+  try {
+    const res = await fetch("/api/companions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skus, mode: "attach", branchId }),
+    });
+    if (!res.ok) return [];
+    return ((await res.json()).attach ?? []) as SlimCompanion[];
+  } catch {
+    return [];
+  }
+}
+
 export async function apiAdjacency(): Promise<Record<string, { to: string; required: boolean }[]>> {
   try {
     const res = await fetch("/api/companions/adjacency");
