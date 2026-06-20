@@ -151,6 +151,13 @@ describe("HELP_TOPICS", () => {
     }
   });
 
+  it("covers the v5-S3 relations + agentic surfaces (contract, upgrade, icecat, cpq/crm mcp)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    for (const required of ["contract-attach", "compare-upgrade", "icecat-relations", "cpq-mcp"]) {
+      expect(ids.has(required), required).toBe(true);
+    }
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

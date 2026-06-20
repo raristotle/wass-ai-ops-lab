@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { apiCompanions, type CompanionItem } from "@/lib/product-finder-api";
-import { useProductFinder } from "@/lib/product-finder-store";
+import { useProductFinder, selectActiveCustomer } from "@/lib/product-finder-store";
+import { contractForCustomer, isOnContract, contractPrice, type Contract } from "@/lib/product-finder-contract";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -34,13 +35,16 @@ const RELATION_BADGE: Record<CompanionItem["relation"], { label: string; classNa
   recommended: { label: "Add-on", className: "bg-[#64CCC9] text-[#1D252D]" },
 };
 
-function CompanionRow({ item }: { item: CompanionItem }) {
+function CompanionRow({ item, contract }: { item: CompanionItem; contract: Contract | null }) {
   const addToCart = useProductFinder((s) => s.addToCart);
   const setDetailModal = useProductFinder((s) => s.setDetailModalProduct);
   const p = item.product;
   const badge = RELATION_BADGE[item.relation];
   // The single most informative reason, shown inline (full list is in the title attr).
   const primaryReason = item.reasons[0] ?? "";
+  // v5-S3 #11: is this companion on the active account's contract?
+  const onContract = isOnContract(p, contract);
+  const cPrice = onContract ? contractPrice(p.unitPrice, p, contract) : p.unitPrice;
 
   return (
     <li className="flex items-center gap-3 py-2">
@@ -59,6 +63,11 @@ function CompanionRow({ item }: { item: CompanionItem }) {
             <Badge className={cn("flex-shrink-0 border-0 px-1.5 py-0 text-[10px]", badge.className)}>
               {badge.label}
             </Badge>
+            {onContract && (
+              <Badge className="flex-shrink-0 border-0 bg-[#004986] px-1.5 py-0 text-[10px] text-white" title="On the account's contract">
+                On contract
+              </Badge>
+            )}
           </div>
           <p className="truncate text-xs text-[#4F758B]" title={item.reasons.join(" · ")}>
             {primaryReason || `${p.brand} · ${p.sku}`}
@@ -74,8 +83,15 @@ function CompanionRow({ item }: { item: CompanionItem }) {
         {item.attachScore}
       </span>
 
-      <span className="flex-shrink-0 tabular-nums text-sm font-semibold text-[#1D252D]">
-        ${p.unitPrice.toFixed(2)}
+      <span className="flex-shrink-0 text-right tabular-nums text-sm font-semibold text-[#1D252D]">
+        {onContract && cPrice < p.unitPrice ? (
+          <>
+            <span className="mr-1 text-xs font-normal text-gray-400 line-through">${p.unitPrice.toFixed(2)}</span>
+            <span className="text-[#004986]">${cPrice.toFixed(2)}</span>
+          </>
+        ) : (
+          <>${p.unitPrice.toFixed(2)}</>
+        )}
       </span>
 
       <button
@@ -92,6 +108,8 @@ function CompanionRow({ item }: { item: CompanionItem }) {
 
 export function CompanionsPanel({ product, branchId }: Props) {
   const addToCart = useProductFinder((s) => s.addToCart);
+  const activeCustomer = useProductFinder(selectActiveCustomer);
+  const contract = contractForCustomer(activeCustomer?.name);
   const [items, setItems] = useState<CompanionItem[]>([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -142,7 +160,7 @@ export function CompanionsPanel({ product, branchId }: Props) {
           </div>
           <ul className="divide-y divide-[#B7C9D3]/40">
             {required.map((c) => (
-              <CompanionRow key={c.product.id} item={c} />
+              <CompanionRow key={c.product.id} item={c} contract={contract} />
             ))}
           </ul>
         </section>
@@ -155,7 +173,7 @@ export function CompanionsPanel({ product, branchId }: Props) {
           </p>
           <ul className="divide-y divide-[#B7C9D3]/40">
             {recommended.map((c) => (
-              <CompanionRow key={c.product.id} item={c} />
+              <CompanionRow key={c.product.id} item={c} contract={contract} />
             ))}
           </ul>
         </section>

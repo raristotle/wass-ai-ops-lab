@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { rowIsShared, diffFlags, countSharedRows } from "@/lib/product-finder-compare-diff";
 import { useModalA11y } from "@/features/product-finder/useModalA11y";
+import { UpgradeCompletePanel } from "@/features/product-finder/UpgradeCompletePanel";
 import type { CatalogProduct, ProductSpec } from "@/features/product-finder/types";
 
 // ─── Print date helper ────────────────────────────────────────────────────────
@@ -365,6 +366,9 @@ export function SpecCompareModal() {
             </tbody>
           </table>
         </div>
+
+        {/* Complete-the-upgrade: companions the priciest compared SKU adds (v5-S3 #14) */}
+        <UpgradeCompletePanel products={compareProducts} branchId={user?.branchId} />
 
         {/* Footer — screen only */}
         <div className="print:hidden flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50 rounded-b-xl">

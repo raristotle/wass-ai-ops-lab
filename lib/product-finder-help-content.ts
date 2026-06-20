@@ -1096,6 +1096,46 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "contract-attach",
+    title: "Contract pricing & on-contract attach",
+    body: [
+      "When you’re quoting for an account that has a contract (set “Quoting for”), the cross-sell rails know it.",
+      "• Companions on the account’s contract get an “On contract” badge and show the contract (discounted) price struck through list.",
+      "• That keeps the order on contract — the highest-margin, stickiest place for it to be.",
+      "Contracts map families (and specific SKUs) to a negotiated discount; $0 and deterministic. In production they come from the contract/entitlement feed.",
+    ],
+  },
+  {
+    id: "compare-upgrade",
+    title: "Compare → complete the upgrade",
+    body: [
+      "When you compare products and trade the customer UP to a richer SKU, the compare view shows “Complete the upgrade”: the companions the upgrade needs that the cheaper option didn’t.",
+      "• A GFCI needs a weather-resistant cover; a smart breaker needs a neutral kit — they’re surfaced with one-click add.",
+      "• It only lists what’s NEW vs. the products you’re comparing, so you attach exactly the delta.",
+      "Built on the cross-sell engine; $0.",
+    ],
+  },
+  {
+    id: "icecat-relations",
+    title: "Manufacturer accessory relations (Open Icecat)",
+    body: [
+      "Beyond our spec rules and co-purchase signals, the engine can layer in MANUFACTURER-declared relations — the accessories and compatible parts a brand publishes for a product.",
+      "This comes from Open Icecat and stays completely off ($0, no network) until an admin sets the free Open Icecat account key. When on, each related part is resolved to a stocked SKU where we carry it.",
+      "GET /api/products/{id}/relations returns the relations (or {enabled:false} while dormant).",
+    ],
+  },
+  {
+    id: "cpq-mcp",
+    title: "Quote/CPQ & CRM for agents (MCP)",
+    body: [
+      "The Meridian MCP server lets an AI agent quote and sync without the UI:",
+      "• draft_quote — price a list of { sku, qty }, total it, and attach the cross-sell companions (no order placed).",
+      "• place_order — book it (idempotent).",
+      "• push_quote_to_crm — push a won quote to HubSpot (Contact + Deal) or Salesforce (Contact + Opportunity). Each CRM stays dormant until its keys are set.",
+      "These reuse the same $0 cross-sell engine the UI uses.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

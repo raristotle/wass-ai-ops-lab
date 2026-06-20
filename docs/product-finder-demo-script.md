@@ -616,5 +616,15 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   (*"the Wesco solution this basket is closest to finishing, with one-click adds for the
   empty families"*), and **Add Wesco services** (*"kitting, labeling, VMI, cut-to-length —
   triggered by the shape of the order, our highest-margin cross-sell"*).
+- **Contract-aware companions** → set "Quoting for" → Gulf Coast Industrial, then open
+  a breaker's details. *"This account is on a national contract — the companions that
+  fall under it get an 'On contract' badge and show the contract price. Keeping the order
+  on contract is the stickiest, highest-margin place for it."*
+- **Complete the upgrade** → compare two receptacles (a standard + a GFCI) → "Compare".
+  *"When I trade them up to the GFCI, 'Complete the upgrade' shows exactly what the
+  upgrade adds that the standard didn't — the weather cover — one click to attach."*
+- **Agentic quoting (MCP)** → mention: *"an AI agent can draft_quote a basket with its
+  companions, place_order it, and push_quote_to_crm to HubSpot or Salesforce — all on the
+  same $0 engine. The CRMs stay dormant until keys are set."*
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

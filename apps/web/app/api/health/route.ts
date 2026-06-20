@@ -16,6 +16,7 @@ import { slackConfigured } from "@/lib/integration/slack-alerts";
 import { nexarConfigured } from "@/lib/integration/nexar-live";
 import { shippingConfigured } from "@/lib/integration/shipping-live";
 import { hubspotConfigured } from "@/lib/integration/hubspot-live";
+import { salesforceConfigured } from "@/lib/integration/salesforce-live";
 import { smsConfigured } from "@/lib/integration/sms-live";
 import { pdfConfigured } from "@/lib/integration/pdf-live";
 import { webPushConfigured } from "@/lib/server/web-push";
@@ -84,6 +85,7 @@ export function GET() {
       weather: weatherConfigured(),
       shipping: shippingConfigured(),
       hubspot: hubspotConfigured(),
+      salesforce: salesforceConfigured(),
       sms: smsConfigured(),
       pdf: pdfConfigured(),
       webpush: webPushConfigured(),

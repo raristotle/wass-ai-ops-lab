@@ -327,6 +327,69 @@ const TOOLS = {
     if (!d.found) return ok({ sku, found: false, substitutes: [] });
     return ok({ sku: d.sku, name: d.name, substitutes: d.verifiedCrosses ?? [] });
   },
+
+  // ── Quote / CPQ (v5-S3 #12) — price a basket + suggest companions, NO order ──
+
+  async draft_quote({ items, customer, branchId }) {
+    if (!Array.isArray(items) || items.length === 0) return fail("items must be a non-empty array of { sku, qty }");
+
+    // Price each line via product_detail (resolves SKU or carries the not-carried flag).
+    const lines = [];
+    const unresolved = [];
+    for (const it of items) {
+      const sku = String(it.sku ?? "");
+      const qty = Math.max(1, Number(it.qty) || 1);
+      const r = await TOOLS.product_detail({ idOrSku: sku });
+      if (r.isError) { unresolved.push(sku); continue; }
+      const d = JSON.parse(r.content[0].text);
+      if (!d.found) { unresolved.push(sku); continue; }
+      const unitPrice = Number(d.unitPrice) || 0; // never let a missing price NaN the subtotal
+      lines.push({ sku: d.sku, name: d.name, brand: d.brand, qty, unitPrice, extended: Math.round(unitPrice * qty * 100) / 100 });
+    }
+
+    // Attach companions for the whole basket (the S1 cross-sell rail).
+    let companions = [];
+    if (lines.length > 0) {
+      const c = await api(`/api/companions`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skus: lines.map((l) => l.sku), mode: "attach", branchId: branchId ? String(branchId) : undefined }),
+      });
+      companions = (c.attach ?? []).map(slimCompanion);
+    }
+
+    const subtotal = Math.round(lines.reduce((s, l) => s + l.extended, 0) * 100) / 100;
+    return ok({
+      customer: customer ? String(customer) : null,
+      lines,
+      subtotal,
+      companions,
+      unresolved,
+      note: "Draft only — no order placed. Use place_order to book it.",
+    });
+  },
+
+  // ── CRM bridge (v5-S3 #13) — push a won quote to HubSpot or Salesforce (dormant) ──
+
+  async push_quote_to_crm({ email, dealName, amount, firstName, lastName, provider }) {
+    if (!email || !dealName || amount == null) return fail("email, dealName, and amount are required");
+    const r = await api(`/api/crm/sync`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: String(email),
+        dealName: String(dealName),
+        amount: Number(amount),
+        firstName: firstName ? String(firstName) : undefined,
+        lastName: lastName ? String(lastName) : undefined,
+        provider: provider === "salesforce" ? "salesforce" : "hubspot",
+      }),
+    });
+    if (r.enabled === false) {
+      return ok({ synced: false, reason: r.reason, hint: "The CRM seam is dormant — set its keys to enable (HubSpot: HUBSPOT_PRIVATE_APP_TOKEN; Salesforce: SALESFORCE_ACCESS_TOKEN + SALESFORCE_INSTANCE_URL)." });
+    }
+    return ok({ synced: true, ...r });
+  },
 };
 
 const TOOL_DEFS = [
@@ -479,6 +542,47 @@ const TOOL_DEFS = [
         sku: { type: "string", description: "The carried SKU to find substitutes for." },
       },
       required: ["sku"],
+    },
+  },
+
+  // ── Quote / CPQ + CRM (v5-S3) ───────────────────────────────────────────────
+  {
+    name: "draft_quote",
+    description:
+      "Build a DRAFT quote (no order) from a list of { sku, qty }: each line is priced server-side, the subtotal is computed, and the cross-sell companions for the whole basket are attached. Not-carried SKUs are reported in `unresolved`. Use this to price-and-pitch before committing; use place_order to actually book it.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        items: {
+          type: "array",
+          description: "Line items to quote.",
+          items: {
+            type: "object",
+            properties: { sku: { type: "string" }, qty: { type: "number" } },
+            required: ["sku", "qty"],
+          },
+        },
+        customer: { type: "string", description: "Customer / account name (echoed back)." },
+        branchId: { type: "string", description: "Optional branch id to bias companion stock." },
+      },
+      required: ["items"],
+    },
+  },
+  {
+    name: "push_quote_to_crm",
+    description:
+      "Push a won quote to CRM — HubSpot (Contact + Deal) or Salesforce (Contact + Opportunity), chosen by `provider` (default hubspot). Each CRM is DORMANT until its keys are set; a dormant call returns { synced:false, reason:'no-keys' } and makes no external call. Creation is not idempotent — dedupe by the returned id per quote.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        email: { type: "string", description: "The buyer's email (the CRM contact key)." },
+        dealName: { type: "string", description: "Deal / opportunity name." },
+        amount: { type: "number", description: "Deal amount (won quote total)." },
+        firstName: { type: "string" },
+        lastName: { type: "string" },
+        provider: { type: "string", enum: ["hubspot", "salesforce"], description: "Target CRM (default hubspot)." },
+      },
+      required: ["email", "dealName", "amount"],
     },
   },
 ];
