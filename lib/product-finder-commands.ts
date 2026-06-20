@@ -20,7 +20,7 @@ export type CommandAction =
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
         | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode"
-        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360" | "order-history" | "crosswalk";
+        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360" | "order-history" | "crosswalk" | "ingest";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -123,6 +123,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["import", "catalog number", "crosswalk", "customer sku", "their part number", "onboard data", "csv", "wesco sku"],
       action: { kind: "open", target: "crosswalk" },
+    },
+    {
+      id: "open-ingest",
+      label: "Data ingestion — run renewable source adapters",
+      group: "Open",
+      keywords: ["ingest", "ingestion", "data sources", "scrape", "harvest", "source adapter", "snapshot", "refresh data", "provenance", "renewable", "spec sheets", "images"],
+      action: { kind: "open", target: "ingest" },
     },
     {
       id: "open-barcode",

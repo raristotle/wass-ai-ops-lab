@@ -25,6 +25,7 @@ import { QuoteCopilotModal } from "@/features/product-finder/QuoteCopilotModal";
 import { Account360Modal } from "@/features/product-finder/Account360Modal";
 import { OrderHistoryImportModal } from "@/features/product-finder/OrderHistoryImportModal";
 import { CrosswalkImportModal } from "@/features/product-finder/CrosswalkImportModal";
+import { IngestionPanelModal } from "@/features/product-finder/IngestionPanelModal";
 import { BarcodeScannerModal } from "@/features/product-finder/BarcodeScannerModal";
 import { CycleCountModal } from "@/features/product-finder/CycleCountModal";
 import { CompareTray } from "@/features/product-finder/CompareTray";
@@ -278,6 +279,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <Account360Modal />
       <OrderHistoryImportModal />
       <CrosswalkImportModal />
+      <IngestionPanelModal />
       <BarcodeScannerModal />
       <CycleCountModal />
       <SpecMatchModal />

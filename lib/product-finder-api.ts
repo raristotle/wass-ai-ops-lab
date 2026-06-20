@@ -410,6 +410,66 @@ export async function apiClearCrosswalk(): Promise<boolean> {
   }
 }
 
+// ─── Data ingestion (Sprint D1) — renewable source-adapter framework ─────────
+export interface IngestRunReport {
+  adapterId: string;
+  label: string;
+  runAtIso: string;
+  fetched: number;
+  parsed: number;
+  kept: number;
+  dropped: number;
+  diff: { added: number; changed: number; removed: number };
+  sampleAdded: string[];
+  error?: string;
+}
+export interface IngestSource {
+  id: string;
+  label: string;
+  segment: string;
+  dataTypes: string[];
+  license: string;
+  records: number;
+  lastFetchedIso: string | null;
+}
+export interface IngestStatus {
+  ok?: boolean;
+  persisted?: "postgres" | "memory";
+  liveSourcesConfigured?: boolean;
+  sources: IngestSource[];
+  recentRuns: IngestRunReport[];
+}
+export interface IngestRunResult {
+  ok?: boolean;
+  persisted?: "postgres" | "memory";
+  headline?: string;
+  reports?: IngestRunReport[];
+  error?: string;
+}
+
+export async function apiIngestStatus(): Promise<IngestStatus> {
+  try {
+    const res = await fetch("/api/ingest/status");
+    if (!res.ok) return { sources: [], recentRuns: [] };
+    return (await res.json()) as IngestStatus;
+  } catch {
+    return { sources: [], recentRuns: [] };
+  }
+}
+
+export async function apiIngestRun(adapterIds?: string[]): Promise<IngestRunResult> {
+  try {
+    const res = await fetch("/api/ingest/run", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(adapterIds && adapterIds.length ? { adapterIds } : {}),
+    });
+    return (await res.json()) as IngestRunResult;
+  } catch {
+    return { error: "Ingestion run request failed" };
+  }
+}
+
 export async function apiAdjacency(): Promise<Record<string, { to: string; required: boolean }[]>> {
   try {
     const res = await fetch("/api/companions/adjacency");

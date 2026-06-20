@@ -371,6 +371,58 @@ const TOOLS = {
 
   // ── CRM bridge (v5-S3 #13) — push a won quote to HubSpot or Salesforce (dormant) ──
 
+  // ── Data ingestion (Sprint D1) — renewable source-adapter framework ──────────
+
+  async ingest_status() {
+    const r = await api(`/api/ingest/status`);
+    return ok({
+      persisted: r.persisted,
+      liveSourcesConfigured: r.liveSourcesConfigured,
+      sources: (r.sources ?? []).map((s) => ({
+        id: s.id,
+        label: s.label,
+        segment: s.segment,
+        dataTypes: s.dataTypes,
+        records: s.records,
+        lastFetchedIso: s.lastFetchedIso,
+      })),
+      recentRuns: (r.recentRuns ?? []).slice(0, 10).map((run) => ({
+        adapterId: run.adapterId,
+        runAtIso: run.runAtIso,
+        kept: run.kept,
+        dropped: run.dropped,
+        diff: run.diff,
+        error: run.error ?? null,
+      })),
+    });
+  },
+
+  async ingest_run({ adapterIds }) {
+    const body = {};
+    if (Array.isArray(adapterIds) && adapterIds.length) body.adapterIds = adapterIds.map(String);
+    const r = await api(`/api/ingest/run`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    return ok({
+      ok: r.ok === true,
+      persisted: r.persisted,
+      headline: r.headline,
+      reports: (r.reports ?? []).map((run) => ({
+        adapterId: run.adapterId,
+        label: run.label,
+        fetched: run.fetched,
+        parsed: run.parsed,
+        kept: run.kept,
+        dropped: run.dropped,
+        diff: run.diff,
+        sampleAdded: run.sampleAdded,
+        error: run.error ?? null,
+      })),
+    });
+  },
+
   async push_quote_to_crm({ email, dealName, amount, firstName, lastName, provider }) {
     if (!email || !dealName || amount == null) return fail("email, dealName, and amount are required");
     const r = await api(`/api/crm/sync`, {
@@ -566,6 +618,28 @@ const TOOL_DEFS = [
         branchId: { type: "string", description: "Optional branch id to bias companion stock." },
       },
       required: ["items"],
+    },
+  },
+  // ── Data ingestion (Sprint D1) ──────────────────────────────────────────────
+  {
+    name: "ingest_status",
+    description:
+      "Read the renewable data-ingestion status: which Source Adapters are registered (id, label, segment, data types), how many gated records each holds in its last snapshot, and the recent run log (kept/dropped/diff per run). Use to see what product/spec/cross-reference sources the recommender is harvesting and when they last refreshed. No arguments.",
+    inputSchema: { type: "object", properties: {} },
+  },
+  {
+    name: "ingest_run",
+    description:
+      "Trigger a renewable ingestion run: for each selected Source Adapter (or all registered when omitted) it fetches → parses → gates on provenance (confidence ≥95) → snapshots → diffs vs the last pull, returning per-source counts (kept/dropped) and the added/changed/removed diff. The default deploy registers only the network-free self-test adapter (a $0 demonstration); live external sources run only when an operator has declared them via INGEST_SOURCES. NOT a scheduled job — this is the explicit re-run trigger.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        adapterIds: {
+          type: "array",
+          items: { type: "string" },
+          description: "Restrict the run to these adapter ids (from ingest_status). Omit to run all registered adapters.",
+        },
+      },
     },
   },
   {

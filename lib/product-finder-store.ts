@@ -370,6 +370,9 @@ export interface ProductFinderState {
   setOrderHistoryOpen: (v: boolean) => void;
   crosswalkOpen: boolean;
   setCrosswalkOpen: (v: boolean) => void;
+  // Data ingestion (Sprint D1) — renewable source-adapter framework admin panel
+  ingestOpen: boolean;
+  setIngestOpen: (v: boolean) => void;
 
   // Barcode scanner (#20 PWA — camera part lookup)
   barcodeOpen: boolean;
@@ -1534,6 +1537,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setOrderHistoryOpen(v) { set({ orderHistoryOpen: v }); },
   crosswalkOpen: false,
   setCrosswalkOpen(v) { set({ crosswalkOpen: v }); },
+  ingestOpen: false,
+  setIngestOpen(v) { set({ ingestOpen: v }); },
 
   // ── Barcode scanner (#20) ─────────────────────────────────
   barcodeOpen: false,

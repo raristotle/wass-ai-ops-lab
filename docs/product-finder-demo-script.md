@@ -645,5 +645,16 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   'your #' badge. That's the illustrative demo crosswalk; Ctrl/⌘-K → 'Import catalog
   numbers' loads the customer's real crosswalk so their whole catalog resolves their way.
   We never fabricate their numbers — they come from import."*
+- **Data ingestion (the renewable data engine)** → Ctrl/⌘-K → "Data ingestion". *"This is
+  how the catalog's attributes, spec sheets, images, and crosses stay fresh from outside
+  sources — without ever inventing a value. Each source is a Source Adapter that runs the
+  same renewable pipeline: fetch → parse → gate → snapshot → diff."* **Click "Run all".**
+  *"Watch the report: one record kept, one DROPPED — the gate only keeps data with a real
+  identity, a source URL, and ≥95% confidence; the name-only record is honestly thrown
+  away. The diff shows exactly what's new since the last run, so the recommender can
+  re-check any source later — that's the renewable part."* *"Out of the box it ships a
+  self-test source so this is $0 and never touches the network; declaring real sources in
+  `INGEST_SOURCES` is a deliberate, dormant-by-default switch. The same engine is exposed
+  as the `ingest_status` / `ingest_run` MCP tools."* (docs/data-ingestion-framework.md)
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

@@ -1179,6 +1179,18 @@ export const HELP_TOPICS: HelpTopic[] = [
     tryQuery: "WX-100000",
   },
   {
+    id: "data-ingestion",
+    title: "Data ingestion — renewable source adapters",
+    body: [
+      "Ctrl/⌘-K → “Data ingestion” opens the operator panel for the renewable collection framework that keeps the catalog’s attributes, spec sheets, images, and cross-references fresh from outside sources.",
+      "Each source is a Source Adapter that runs the same renewable pipeline: fetch → parse → gate → snapshot → diff. The GATE only keeps a record that carries a real identity (a SKU, MPN, or GTIN), a source URL, and a confidence of 95 or higher — anything unverifiable is dropped, never invented. The DIFF compares each run against the last snapshot so you see exactly what was added, changed, or removed.",
+      "• Re-run any source (or all) from the panel on demand — that’s the “renewable” part: the recommender can re-check a source later for new product data. Runs are operator-triggered (or queued), never on a hidden schedule.",
+      "• The framework prefers official structured data (schema.org / JSON-LD product blocks) before scraping HTML, fetches politely (≤1 request/second per host), and captures factual specs only — not copyrighted prose.",
+      "• The default deploy ships only a built-in self-test source, so a run is $0 and never touches the network. Live external sources stay dormant until an operator declares them in the INGEST_SOURCES environment variable.",
+      "• Adapters also drive the MCP tools ingest_status and ingest_run, so an agent can read what’s registered and trigger a refresh.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

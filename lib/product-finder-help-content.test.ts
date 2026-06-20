@@ -171,6 +171,17 @@ describe("HELP_TOPICS", () => {
     expect(ids.has("catalog-crosswalk")).toBe(true);
   });
 
+  it("covers the data-sources D1 ingestion framework (gate + diff + provenance + $0 default)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("data-ingestion")).toBe(true);
+    const body = HELP_TOPICS.find((t) => t.id === "data-ingestion")!.body.join(" ");
+    // Must explain the renewable pipeline, the provenance gate, and the $0/dormant default.
+    expect(body).toMatch(/fetch .* parse .* gate .* snapshot .* diff/);
+    expect(body).toContain("95");
+    expect(body).toContain("INGEST_SOURCES");
+    expect(body).toMatch(/\$0/);
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");
