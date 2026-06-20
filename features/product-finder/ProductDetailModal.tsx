@@ -23,6 +23,7 @@ import { useModalA11y } from "@/features/product-finder/useModalA11y";
 import { CutToLengthPanel } from "@/features/product-finder/CutToLengthPanel";
 import { RebatePanel } from "@/features/product-finder/RebatePanel";
 import { DataEnrichmentPanel } from "@/features/product-finder/DataEnrichmentPanel";
+import { CompanionsPanel } from "@/features/product-finder/CompanionsPanel";
 import type { SourcingGrade } from "@/lib/catalog/coverage-score";
 import { computeProductQualityScore, TIER_COLOR, TIER_LABEL } from "@/lib/catalog/data-quality-score";
 
@@ -734,6 +735,10 @@ export function ProductDetailModal() {
             </div>
           );
         })()}
+
+        {/* ── Cross-sell companions (v5-S1): required (complete-the-assembly) +
+               recommended attach, each with relation, attach score, and why ── */}
+        <CompanionsPanel product={product} branchId={repUser?.branchId} />
 
         {/* ── Goes well with ──────────────────────────────────── */}
         {goesWithItems.length > 0 && (

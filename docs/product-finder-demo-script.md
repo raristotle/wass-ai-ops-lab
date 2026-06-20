@@ -107,6 +107,16 @@ Every SKU below is deterministic — it exists with the same data in every envir
    **Goes well with** cross-sell. **Point at the product plate** — *"every one of
    the 79 subcategories has its own line art, and the plate badges the key spec —
    that 20A comes straight off the spec sheet."*
+9x. **Search `switch` (or open any switch/receptacle) → View Details → scroll to
+    "Cross-sell companions."** *"This is the cross-sell engine. The green badge means
+    required — a switch literally can't be installed without a wall plate, so it's
+    grouped under 'Complete the assembly' with one button to add every required part.
+    The blue ones are frequently-attached add-ons. Each row shows an attach score and
+    the reason it's here — a spec rule, a known affinity, or a bought-together
+    pattern."* **Click "Add all required."** *"One click and the quote is no longer
+    missing the plates — that's the margin a distributor leaves on the table every day.
+    It's deterministic and free today, and it gets sharper as real order history feeds
+    the market-basket signal."* (Try `conduit` for fittings, `wire & cable` for lugs.)
 9a. **Search `AF09-30-10-13`** (a real ABB contactor) **and open View Details.
     Scroll to the live distributor panel.**
     *"And here's where the demo stops being a demo: those are LIVE calls to

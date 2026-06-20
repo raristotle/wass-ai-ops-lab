@@ -205,6 +205,35 @@ export async function apiGoesWith(id: string): Promise<import("@/features/produc
   return ((await res.json()).items ?? []) as import("@/features/product-finder/types").CatalogProduct[];
 }
 
+// ─── Cross-sell companions (v5-S1) ──────────────────────────────────────────
+// The richer companion rail: each item carries a relation (required/recommended),
+// an attach score, and the reasons behind it. Fails closed to [] so the modal
+// never crashes on a malformed response.
+export interface CompanionItem {
+  relation: "required" | "recommended";
+  attachScore: number;
+  reasons: string[];
+  sources: ("spec-rule" | "market-basket" | "affinity")[];
+  product: import("@/features/product-finder/types").CatalogProduct;
+}
+
+export async function apiCompanions(
+  id: string,
+  opts: { branchId?: string; k?: number } = {},
+): Promise<CompanionItem[]> {
+  const params = new URLSearchParams();
+  if (opts.branchId) params.set("branchId", opts.branchId);
+  if (opts.k) params.set("k", String(opts.k));
+  const qs = params.toString();
+  try {
+    const res = await fetch(`/api/products/${encodeURIComponent(id)}/companions${qs ? `?${qs}` : ""}`);
+    if (!res.ok) return [];
+    return ((await res.json()).companions ?? []) as CompanionItem[];
+  } catch {
+    return [];
+  }
+}
+
 export async function apiResolve(
   q: string,
 ): Promise<import("@/lib/product-finder-bulk-quote").BulkResolution> {

@@ -62,6 +62,19 @@ function fnv1aHex(input) {
 const ok = (data) => ({ content: [{ type: "text", text: JSON.stringify(data, null, 2) }] });
 const fail = (msg) => ({ content: [{ type: "text", text: `Error: ${msg}` }], isError: true });
 
+// Compact a companion (from /api/companions) for an agent: SKU + why + attach score.
+const slimCompanion = (c) => ({
+  sku: c.product.sku,
+  name: c.product.name,
+  brand: c.product.brand,
+  subcategory: c.product.subcategory,
+  unitPrice: c.product.unitPrice,
+  relation: c.relation,
+  attachScore: c.attachScore,
+  reasons: c.reasons,
+  inStock: c.product.inStock,
+});
+
 // ── Tool implementations ──────────────────────────────────────────────────────
 
 const TOOLS = {
@@ -268,6 +281,52 @@ const TOOLS = {
     }
     return ok(out);
   },
+
+  // ── Cross-sell tool-pack (v5-S1) — companions / complete-assembly / substitutes ──
+
+  async get_companions({ sku, branchId }) {
+    if (!sku) return fail("sku is required");
+    const r = await api(`/api/companions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skus: [String(sku)], mode: "attach", branchId: branchId ? String(branchId) : undefined }),
+    });
+    if (r.unresolved) return ok({ sku, carried: false, companions: [] });
+    return ok({ sku, companions: (r.attach ?? []).map(slimCompanion) });
+  },
+
+  async complete_assembly({ skus, branchId }) {
+    if (!Array.isArray(skus) || skus.length === 0) return fail("skus must be a non-empty array");
+    const r = await api(`/api/companions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skus: skus.map(String), mode: "complete-assembly", branchId: branchId ? String(branchId) : undefined }),
+    });
+    return ok({
+      resolved: r.resolved ?? 0,
+      missingRequired: (r.missingRequired ?? []).map(slimCompanion),
+      recommended: (r.recommended ?? []).map(slimCompanion),
+    });
+  },
+
+  async attach_suggestions({ skus, branchId }) {
+    if (!Array.isArray(skus) || skus.length === 0) return fail("skus must be a non-empty array");
+    const r = await api(`/api/companions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skus: skus.map(String), mode: "attach", branchId: branchId ? String(branchId) : undefined }),
+    });
+    return ok({ resolved: r.resolved ?? 0, attach: (r.attach ?? []).map(slimCompanion) });
+  },
+
+  async get_substitutes({ sku }) {
+    if (!sku) return fail("sku is required");
+    const r = await TOOLS.product_detail({ idOrSku: sku });
+    if (r.isError) return r;
+    const d = JSON.parse(r.content[0].text);
+    if (!d.found) return ok({ sku, found: false, substitutes: [] });
+    return ok({ sku: d.sku, name: d.name, substitutes: d.verifiedCrosses ?? [] });
+  },
 };
 
 const TOOL_DEFS = [
@@ -367,6 +426,59 @@ const TOOL_DEFS = [
         clientRef: { type: "string", description: "Idempotency key — a stable reference for this checkout. A repeat call with the same clientRef returns the existing order." },
       },
       required: ["items"],
+    },
+  },
+
+  // ── Cross-sell tool-pack (v5-S1) ────────────────────────────────────────────
+  {
+    name: "get_companions",
+    description:
+      "Cross-sell: given ONE carried SKU, return its companion products — the parts that go with it — each with a relation (`required` = engineering-mandatory, e.g. a switch needs a wall plate; `recommended` = commonly attached), an attach score (0-100), and the reasons behind it. Use this to answer 'what else do they need with this?' Pass branchId to bias toward locally-stocked companions.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        sku: { type: "string", description: "The carried SKU to find companions for." },
+        branchId: { type: "string", description: "Optional branch id to prefer in-stock companions." },
+      },
+      required: ["sku"],
+    },
+  },
+  {
+    name: "complete_assembly",
+    description:
+      "Cross-sell: given a SET of SKUs (a BOM, cart, or quote), return `missingRequired` — the engineering-mandatory companions that are NOT yet in the set ('you have switches and conduit but no wall plates or fittings') — plus the top `recommended` add-ons. Use this to catch incomplete assemblies before a quote goes out.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        skus: { type: "array", items: { type: "string" }, description: "The SKUs already in the BOM / cart." },
+        branchId: { type: "string", description: "Optional branch id to prefer in-stock companions." },
+      },
+      required: ["skus"],
+    },
+  },
+  {
+    name: "attach_suggestions",
+    description:
+      "Cross-sell: given the SKUs in a cart/order, return the deduped 'complete your order' attach rail across the whole basket (required first, then by attach score), excluding items already in the cart. Use this for the order-level upsell prompt.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        skus: { type: "array", items: { type: "string" }, description: "The SKUs currently in the cart / order." },
+        branchId: { type: "string", description: "Optional branch id to prefer in-stock companions." },
+      },
+      required: ["skus"],
+    },
+  },
+  {
+    name: "get_substitutes",
+    description:
+      "Given ONE carried SKU, return its verified cross-reference substitutes (the documented equivalent parts) so you can offer an in-stock or preferred-line alternative. Returns [] when no documented crosses exist for that SKU.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        sku: { type: "string", description: "The carried SKU to find substitutes for." },
+      },
+      required: ["sku"],
     },
   },
 ];

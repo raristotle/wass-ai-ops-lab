@@ -133,6 +133,17 @@ describe("HELP_TOPICS", () => {
     expect(body).toMatch(/GLEIF|Wikidata/);
   });
 
+  it("covers the v5-S1 cross-sell engine (companions / complete-the-assembly)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("cross-sell-companions")).toBe(true);
+    const topic = HELP_TOPICS.find((t) => t.id === "cross-sell-companions")!;
+    const body = topic.body.join(" ");
+    // Must explain both relation tiers and the attach score.
+    expect(body).toMatch(/Required/);
+    expect(body).toMatch(/Add-on|attach/);
+    expect(body).toContain("attach score");
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

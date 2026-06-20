@@ -1030,6 +1030,19 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "cross-sell-companions",
+    title: "Cross-sell companions — complete the assembly",
+    body: [
+      "Open any product and the Cross-sell companions section shows the parts that go WITH it — so a quote never ships missing the pieces the job needs.",
+      "Two kinds of companion, each labelled:",
+      "• Required (green) — engineering-mandatory. A switch needs a wall plate; conduit needs fittings; a breaker needs a lug. These are grouped under “Complete the assembly” with an “Add all required” button so you attach them in one click.",
+      "• Add-on (blue) — frequently attached items that round out the order.",
+      "Every companion shows an attach score (0-100) — how strongly the engine believes it belongs with the selected product — and the reason behind it (a spec rule, a co-purchase pattern, or a known affinity).",
+      "It works the same on the cart: the engine looks across everything in the basket, flags any required companions you’re missing, and de-dupes the suggestions you already have.",
+      "All of this is deterministic and runs at zero added cost. The suggestions get sharper as real order history accumulates — the engine layers in market-basket “bought-together” lift on top of the always-on engineering rules.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [
