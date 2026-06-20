@@ -18,6 +18,7 @@ import { EsignButton } from "@/features/product-finder/EsignButton";
 import type { ProcurementOrder } from "@/lib/procurement/types";
 import { unspscCode } from "@/lib/catalog/unspsc";
 import { OrderTracking } from "@/features/product-finder/OrderTracking";
+import { CartUpsellSection } from "@/features/product-finder/CartUpsellSection";
 import { orderEtaDays, addDays, etaLabel } from "@/lib/product-finder-delivery";
 import { isInLocalMonth } from "@/lib/analytics";
 import {
@@ -1012,6 +1013,10 @@ export function CartDrawer() {
             )}
           </div>
         )}
+
+        {/* ── Cross-sell / upsell strips (v5-S2): preferred swaps, segment package,
+               and Wesco services, all driven by the cart's contents ── */}
+        <CartUpsellSection />
 
         {/* ── Complete this job — basket cross-sell ─────────────────────────── */}
         {completions.length > 0 && (

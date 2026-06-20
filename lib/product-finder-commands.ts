@@ -20,7 +20,7 @@ export type CommandAction =
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
         | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode"
-        | "cyclecount" | "spec-match" | "risk-sweep";
+        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -95,6 +95,20 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["quick order", "paste", "sku", "rapid", "reorder", "recall", "bulk add", "pad"],
       action: { kind: "open", target: "quickorder" },
+    },
+    {
+      id: "open-copilot",
+      label: "Quote Copilot — paste an RFQ",
+      group: "Open",
+      keywords: ["quote", "copilot", "rfq", "takeoff", "draft", "companions", "cross-sell", "upsell"],
+      action: { kind: "open", target: "copilot" },
+    },
+    {
+      id: "open-account360",
+      label: "Account 360 — whitespace & call prep",
+      group: "Open",
+      keywords: ["account", "360", "whitespace", "call prep", "customer", "reorder", "share of wallet"],
+      action: { kind: "open", target: "account360" },
     },
     {
       id: "open-barcode",

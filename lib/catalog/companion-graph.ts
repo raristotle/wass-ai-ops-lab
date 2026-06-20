@@ -22,6 +22,7 @@ import { getCatalog } from "@/lib/catalog/index";
 import {
   companionRulesFor,
   specValue,
+  COMPANION_RULES,
   type CompanionRelation,
 } from "@/lib/catalog/companion-rules";
 import { AFFINITY } from "@/lib/catalog/goeswith";
@@ -257,4 +258,34 @@ export function attachSuggestionsForCart(products: CatalogProduct[], ctx: Compan
 export function _resetCompanionCache(): void {
   _topBySubcat = null;
   _memo.clear();
+}
+
+// ── Subcategory adjacency (v5-S2) ─────────────────────────────────────────────
+// A catalog-free, global subcategory→companions map built once from the spec rules
+// (with required relation) + the affinity baseline (recommended). Feeds the Account
+// 360 whitespace panel and the Segment Solution Builder — neither needs the 200k
+// catalog, so this is cheap to ship to the client via an API route.
+
+export interface SubcatAdjacencyEdge {
+  to: string;
+  required: boolean;
+}
+
+let _adjacency: Map<string, SubcatAdjacencyEdge[]> | null = null;
+
+export function subcategoryAdjacency(): Map<string, SubcatAdjacencyEdge[]> {
+  if (_adjacency) return _adjacency;
+  const m = new Map<string, Map<string, boolean>>(); // from → (to → required)
+  const add = (from: string, to: string, required: boolean) => {
+    if (from === to) return;
+    const inner = m.get(from) ?? new Map<string, boolean>();
+    inner.set(to, (inner.get(to) ?? false) || required);
+    m.set(from, inner);
+  };
+  for (const r of COMPANION_RULES) add(r.from, r.to, r.relation === "required");
+  for (const [from, tos] of Object.entries(AFFINITY)) {
+    for (const to of tos ?? []) add(from, to, false);
+  }
+  _adjacency = new Map([...m].map(([from, inner]) => [from, [...inner].map(([to, required]) => ({ to, required }))]));
+  return _adjacency;
 }

@@ -144,6 +144,13 @@ describe("HELP_TOPICS", () => {
     expect(body).toContain("attach score");
   });
 
+  it("covers the v5-S2 rep surfaces (copilot, account 360, segment, services, private-label)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    for (const required of ["quote-copilot", "account-360", "segment-builder", "services-attach", "private-label"]) {
+      expect(ids.has(required), required).toBe(true);
+    }
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

@@ -360,6 +360,11 @@ export interface ProductFinderState {
   // Quick-Order Pad — exact-SKU rapid entry + recall
   quickOrderOpen: boolean;
   setQuickOrderOpen: (v: boolean) => void;
+  // v5-S2 rep surfaces
+  copilotOpen: boolean;
+  setCopilotOpen: (v: boolean) => void;
+  account360Open: boolean;
+  setAccount360Open: (v: boolean) => void;
 
   // Barcode scanner (#20 PWA — camera part lookup)
   barcodeOpen: boolean;
@@ -1516,6 +1521,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   // ── Quick-Order Pad ───────────────────────────────────────
   quickOrderOpen: false,
   setQuickOrderOpen(v) { set({ quickOrderOpen: v }); },
+  copilotOpen: false,
+  setCopilotOpen(v) { set({ copilotOpen: v }); },
+  account360Open: false,
+  setAccount360Open(v) { set({ account360Open: v }); },
 
   // ── Barcode scanner (#20) ─────────────────────────────────
   barcodeOpen: false,

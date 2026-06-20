@@ -601,5 +601,20 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
 - **Real email fails with a domain message** → Resend free tier delivers only
   to the account owner's inbox until a domain is verified; send to that address
   or verify a domain.
+- **Quote Copilot** → Ctrl/⌘-K → "Quote Copilot". Paste a few RFQ lines (e.g. "10 20A
+  single pole breaker", "24 decorator switch white"). *"Every line drafts the quote AND
+  pre-loads its cross-sell companions — the required ones, like wall plates for the
+  switches, are pre-checked. One button adds the draft plus the companions I keep."*
+  Talking point: "the rep upsells by default, not as an afterthought."
+- **Account 360** → Ctrl/⌘-K → "Account 360" (with a customer selected in "Quoting for").
+  *"This is the call sheet: what they buy, and the whitespace — the families they should
+  be buying from us but aren't. The required gaps mean they're buying the device but
+  sourcing the mandatory companion elsewhere. That's the order-size pitch."*
+- **Cart cross-sell strips** → put a switch + a breaker in the cart, open it. Three strips
+  appear: **Preferred-brand swaps** (*"swap a commodity line to our preferred brand at the
+  same-or-lower price — pure margin, one click, or Swap all"*), **Complete the package**
+  (*"the Wesco solution this basket is closest to finishing, with one-click adds for the
+  empty families"*), and **Add Wesco services** (*"kitting, labeling, VMI, cut-to-length —
+  triggered by the shape of the order, our highest-margin cross-sell"*).
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

@@ -234,6 +234,56 @@ export async function apiCompanions(
   }
 }
 
+// ─── Cart upsell bundle (v5-S2: preferred swaps + segment coverage) ──────────
+type Cat = import("@/features/product-finder/types").CatalogProduct;
+export interface CartUpsell {
+  resolved?: number;
+  swaps: {
+    from: Cat; to: Cat; qty: number;
+    unitPriceDelta: number; marginDeltaPct: number; lineMarginGain: number;
+  }[];
+  penetration: {
+    before: { linePenetrationPct: number; valuePenetrationPct: number };
+    after: { linePenetrationPct: number; valuePenetrationPct: number };
+  } | null;
+  solution: {
+    segment: { code: string; name: string };
+    template: { id: string; name: string; description: string };
+    coveragePct: number; coveredCount: number; totalCount: number;
+    gaps: { subcategory: string; product: Cat }[];
+  } | null;
+}
+
+export async function apiCartUpsell(
+  skus: string[],
+  qtys: number[],
+  opts: { branchId?: string; seedSku?: string } = {},
+): Promise<CartUpsell> {
+  const empty: CartUpsell = { swaps: [], penetration: null, solution: null };
+  if (skus.length === 0) return empty;
+  try {
+    const res = await fetch("/api/cart/upsell", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skus, qtys, branchId: opts.branchId, seedSku: opts.seedSku }),
+    });
+    if (!res.ok) return empty;
+    return (await res.json()) as CartUpsell;
+  } catch {
+    return empty;
+  }
+}
+
+export async function apiAdjacency(): Promise<Record<string, { to: string; required: boolean }[]>> {
+  try {
+    const res = await fetch("/api/companions/adjacency");
+    if (!res.ok) return {};
+    return ((await res.json()).adjacency ?? {}) as Record<string, { to: string; required: boolean }[]>;
+  } catch {
+    return {};
+  }
+}
+
 export async function apiResolve(
   q: string,
 ): Promise<import("@/lib/product-finder-bulk-quote").BulkResolution> {

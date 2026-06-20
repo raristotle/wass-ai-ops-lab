@@ -42,6 +42,8 @@ export function CommandPalette() {
   const setJobsOpen = useProductFinder((s) => s.setJobsOpen);
   const setVmiOpen = useProductFinder((s) => s.setVmiOpen);
   const setQuickOrderOpen = useProductFinder((s) => s.setQuickOrderOpen);
+  const setCopilotOpen = useProductFinder((s) => s.setCopilotOpen);
+  const setAccount360Open = useProductFinder((s) => s.setAccount360Open);
   const setBarcodeOpen = useProductFinder((s) => s.setBarcodeOpen);
   const setCycleCountOpen = useProductFinder((s) => s.setCycleCountOpen);
   const setSpecMatchOpen = useProductFinder((s) => s.setSpecMatchOpen);
@@ -143,6 +145,8 @@ export function CommandPalette() {
         else if (action.target === "jobs") setJobsOpen(true);
         else if (action.target === "vmi") setVmiOpen(true);
         else if (action.target === "quickorder") setQuickOrderOpen(true);
+        else if (action.target === "copilot") setCopilotOpen(true);
+        else if (action.target === "account360") setAccount360Open(true);
         else if (action.target === "barcode") setBarcodeOpen(true);
         else if (action.target === "cyclecount") setCycleCountOpen(true);
         else if (action.target === "spec-match") setSpecMatchOpen(true);

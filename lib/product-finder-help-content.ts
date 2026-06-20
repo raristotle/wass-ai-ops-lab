@@ -1043,6 +1043,59 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "quote-copilot",
+    title: "Quote Copilot — paste an RFQ, draft with companions",
+    body: [
+      "Ctrl/⌘-K → “Quote Copilot”. Paste a customer’s RFQ or takeoff (one item per line) and Copilot drafts the quote AND pre-loads each line’s cross-sell companions.",
+      "• Every line is resolved against the full catalog (fuzzy + typo rescue); low-confidence matches are flagged “review”.",
+      "• Required companions (a switch’s wall plate, conduit’s fittings) are pre-checked; tick the add-ons you want.",
+      "• One button adds the whole draft plus the companions you kept to the cart.",
+      "It’s deterministic and free. Parsing a messy prose RFQ email with AI is an optional upgrade that turns on only when an Anthropic key is set; the plain-text parser is always the fallback.",
+    ],
+  },
+  {
+    id: "account-360",
+    title: "Account 360 — whitespace & call prep",
+    body: [
+      "Ctrl/⌘-K → “Account 360”. For the account you’re quoting, it turns their history into a call sheet:",
+      "• What they buy — families ranked by spend.",
+      "• Whitespace — adjacent families they should buy from us but don’t (the biggest order-size lever). Required gaps — they buy the device but not the mandatory companion from us — sort to the top.",
+      "• Reorder shortlist — their most-ordered SKUs, ready to re-add.",
+      "Whitespace is computed from the same companion graph as the cross-sell engine. $0, deterministic; it fills in as the account’s quote history grows.",
+    ],
+  },
+  {
+    id: "segment-builder",
+    title: "Segment Solution Builder — complete the package",
+    body: [
+      "On the cart, the “Complete the …” strip shows the Wesco solution package (EES / CSS / UBS) your basket is closest to finishing — a branch-wiring package, a structured-cabling package, and so on.",
+      "A coverage meter shows how many families you’ve got; each empty family lists a stocked product with a one-click add, so one search becomes a full multi-family segment package.",
+      "$0 and deterministic — built from the Wesco segment taxonomy over the shipped catalog.",
+    ],
+  },
+  {
+    id: "services-attach",
+    title: "Services Attach — kitting, labeling, VMI, cut-to-length",
+    body: [
+      "The cart’s “Add Wesco services” strip offers the high-margin services that fit the shape of the order:",
+      "• Cut-to-length — when there’s sold-by-the-foot wire/cable.",
+      "• Kitting & bagging — for a multi-family BOM with enough lines.",
+      "• Panel labeling & schedules — when there’s distribution gear.",
+      "• VMI / bin stock — when there are several consumable lines.",
+      "• Project staging — for large orders; plus jobsite delivery / will-call on any order.",
+      "Each offer explains why it triggered. $0, computed locally from the cart.",
+    ],
+  },
+  {
+    id: "private-label",
+    title: "Preferred-brand swaps — penetration & bulk swap",
+    body: [
+      "The cart’s “Preferred-brand swaps” strip finds commodity lines that have a preferred / private-label functional equivalent at the same-or-lower customer price, and shows the margin lift.",
+      "A penetration meter shows how much of the cart is preferred now vs. after the swaps; “Swap all” converts every eligible line at once — pure margin, no spec change, no extra cost to the customer.",
+      "$0 and deterministic, built on the shipped cross-reference engine and margin math.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [
