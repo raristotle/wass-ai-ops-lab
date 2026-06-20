@@ -28,6 +28,10 @@ function status(over: Partial<IngestStatus> = {}): IngestStatus {
       },
     ],
     recentRuns: [],
+    attributeTaxonomy: [
+      { key: "amperage", label: "Amperage", unit: "A" },
+      { key: "voltage", label: "Voltage", unit: "V" },
+    ],
     ...over,
   };
 }
@@ -69,6 +73,7 @@ describe("IngestionPanelModal (component)", () => {
           dropped: 1,
           diff: { added: 1, changed: 0, removed: 0 },
           sampleAdded: ["EX-BR120"],
+          normalization: { attributesSeen: 3, attributesMapped: 3, coverage: 100 },
         },
       ],
     });
@@ -77,7 +82,14 @@ describe("IngestionPanelModal (component)", () => {
     fireEvent.click(await screen.findByRole("button", { name: /Run all/ }));
     await waitFor(() => expect(apiIngestRun).toHaveBeenCalled());
     expect(await screen.findByText(/1 new \+ 0 changed/)).toBeInTheDocument();
-    expect(screen.getByText(/kept 1 · dropped 1/)).toBeInTheDocument();
+    expect(screen.getByText(/kept 1 · dropped 1.*100% canonical/)).toBeInTheDocument();
+  });
+
+  it("lists the D2 attribute backbone (canonical taxonomy) from status", async () => {
+    useProductFinder.setState({ ingestOpen: true });
+    render(<IngestionPanelModal />);
+    expect(await screen.findByText(/Attribute backbone — 2 canonical attributes/)).toBeInTheDocument();
+    expect(screen.getByText(/Amperage/)).toBeInTheDocument();
   });
 
   it("shows the live-sources banner when INGEST_SOURCES is configured", async () => {

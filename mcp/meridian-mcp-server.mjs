@@ -392,6 +392,7 @@ const TOOLS = {
         kept: run.kept,
         dropped: run.dropped,
         diff: run.diff,
+        attributeCoverage: run.normalization ? run.normalization.coverage : null,
         error: run.error ?? null,
       })),
     });
@@ -418,6 +419,7 @@ const TOOLS = {
         dropped: run.dropped,
         diff: run.diff,
         sampleAdded: run.sampleAdded,
+        attributeCoverage: run.normalization ? run.normalization.coverage : null,
         error: run.error ?? null,
       })),
     });

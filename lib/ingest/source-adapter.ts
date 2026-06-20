@@ -44,6 +44,11 @@ export interface IngestRecord {
   gtin?: string;
   brand?: string;
   attributes?: { name: string; value: string }[];
+  /**
+   * Canonical attributes derived from `attributes` by the D2 backbone
+   * (lib/ingest/attribute-normalize). Additive — `attributes` stays the raw provenance.
+   */
+  normalizedAttributes?: { key: string; label: string; value: string; numeric?: number; unit?: string; raw: { name: string; value: string } }[];
   /** A reference URL to mirror only where the license permits — never hot-linked blindly. */
   datasheetUrl?: string;
   imageUrl?: string;
@@ -196,6 +201,8 @@ export interface RunReport {
   diff: { added: number; changed: number; removed: number };
   /** A few example new keys for the operator-facing summary. */
   sampleAdded: string[];
+  /** D2 attribute-backbone coverage of this run's kept records (when computed). */
+  normalization?: { attributesSeen: number; attributesMapped: number; coverage: number };
   error?: string;
 }
 

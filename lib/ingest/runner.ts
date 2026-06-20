@@ -17,6 +17,7 @@ import { runAdapter } from "@/lib/ingest/source-adapter";
 import { politeGet } from "@/lib/ingest/fetcher";
 import { getAdapters } from "@/lib/ingest/registry";
 import { loadSnapshot, recordRunReport, saveSnapshot } from "@/lib/ingest/snapshot-store";
+import { normalizeRecord, attributeCoverage } from "@/lib/ingest/attribute-normalize";
 
 export interface RunIngestionOptions {
   /** Restrict the run to these adapter ids; omit/empty = run all registered adapters. */
@@ -48,11 +49,19 @@ export async function runIngestion(store: KvStore, opts: RunIngestionOptions = {
   for (const adapter of adapters) {
     const prev = await loadSnapshot(store, adapter.id);
     const { report, snapshot } = await runAdapter(adapter, ctx, prev, opts.minConfidence);
-    // Only persist a snapshot when the run produced one (a thrown adapter yields null,
-    // so the last good snapshot is preserved for the next diff).
-    if (snapshot) await saveSnapshot(store, snapshot);
-    await recordRunReport(store, report);
-    reports.push(report);
+
+    let finalReport = report;
+    if (snapshot) {
+      // D2 attribute backbone: attach canonical normalized attributes to each kept record
+      // (additive — raw `attributes` stay intact) and report normalization coverage. This
+      // only ADDS a derived field, so the diff (computed on raw attributes in runAdapter)
+      // is unchanged whether we normalize before or after it.
+      const normalizedRecords = snapshot.records.map(normalizeRecord);
+      await saveSnapshot(store, { ...snapshot, records: normalizedRecords });
+      finalReport = { ...report, normalization: attributeCoverage(snapshot.records) };
+    }
+    await recordRunReport(store, finalReport);
+    reports.push(finalReport);
   }
   return reports;
 }

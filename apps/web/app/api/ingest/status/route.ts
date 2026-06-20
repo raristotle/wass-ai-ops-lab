@@ -5,6 +5,7 @@ import { logApiError } from "@/lib/server/log";
 import { getStore, forTenant } from "@/lib/server/persistence";
 import { getAdapters, liveSourcesConfigured } from "@/lib/ingest/registry";
 import { loadSnapshot, recentRunReports } from "@/lib/ingest/snapshot-store";
+import { ATTRIBUTE_TAXONOMY } from "@/lib/ingest/attribute-taxonomy";
 
 export const dynamic = "force-dynamic";
 
@@ -45,6 +46,8 @@ export async function GET(req: Request) {
       liveSourcesConfigured: liveSourcesConfigured(),
       sources,
       recentRuns,
+      // The D2 attribute backbone the recommender normalizes ingested specs against.
+      attributeTaxonomy: ATTRIBUTE_TAXONOMY.map((a) => ({ key: a.key, label: a.label, unit: a.unit ?? null })),
     });
   } catch (e) {
     logApiError("/api/ingest/status:GET", e);

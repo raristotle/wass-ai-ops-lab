@@ -655,6 +655,11 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   re-check any source later — that's the renewable part."* *"Out of the box it ships a
   self-test source so this is $0 and never touches the network; declaring real sources in
   `INGEST_SOURCES` is a deliberate, dormant-by-default switch. The same engine is exposed
-  as the `ingest_status` / `ingest_run` MCP tools."* (docs/data-ingestion-framework.md)
+  as the `ingest_status` / `ingest_run` MCP tools."* **Point at the run report's
+  "attrs 100% canonical".** *"That's the D2 attribute backbone — every ingested spec is
+  normalized onto one canonical taxonomy (Amperage, Voltage, Interrupting rating…) so the
+  same attribute from Eaton, a distributor, and a datasheet all line up and merge. Specs it
+  doesn't recognize are reported, never force-fit; units are never invented. Expand
+  'Attribute backbone' in the panel to see the canonical set."* (docs/data-ingestion-framework.md)
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

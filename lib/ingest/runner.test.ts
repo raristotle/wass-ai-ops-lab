@@ -23,6 +23,18 @@ describe("runIngestion (self-test adapter, network-free)", () => {
     ]);
   });
 
+  it("D2: attaches normalized attributes to the snapshot and reports attribute coverage", async () => {
+    const store = new MemoryStore();
+    const [report] = await runIngestion(store, { adapterIds: [SELFTEST_ADAPTER_ID], now: () => "2026-06-20T00:00:00.000Z" });
+    // The fixture's Amperage/Poles/Voltage all map to the canonical taxonomy → 100%.
+    expect(report.normalization).toEqual({ attributesSeen: 3, attributesMapped: 3, coverage: 100 });
+    const snap = await loadSnapshot(store, SELFTEST_ADAPTER_ID);
+    const keys = snap?.records[0].normalizedAttributes?.map((n) => n.key);
+    expect(keys).toEqual(["amperage", "poles", "voltage"]);
+    // Raw attributes are preserved alongside the canonical view.
+    expect(snap?.records[0].attributes).toHaveLength(3);
+  });
+
   it("a second identical run reports zero added/changed/removed (idempotent diff)", async () => {
     const store = new MemoryStore();
     const opts = { adapterIds: [SELFTEST_ADAPTER_ID], now: () => "2026-06-20T00:00:00.000Z" };

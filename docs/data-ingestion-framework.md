@@ -134,3 +134,40 @@ Guidelines baked into the framework:
 New source *types* (a REST API, a bulk file, a sitemap crawl) are new adapters that
 implement the same `SourceAdapter` interface — `fetch()` + a pure `parse()` — and register
 the same way. That's the extension point D2–D6 build on.
+
+---
+
+## D2 — Identity + attribute backbone
+
+D1 collects records; **D2 makes them mergeable.** Two sources spell the same engineering
+attribute a dozen ways — "Amps", "Amperage", "Current Rating (A)", "In" — and a record
+keyed only by a raw spelling won't line up with another source's. The attribute backbone
+normalizes those raw `{name, value}` pairs onto a **canonical taxonomy** so the same
+attribute from any source collapses to one key with one unit. This is the prerequisite
+the distributor (D3) and manufacturer (D4) harvests merge through.
+
+| File | Responsibility |
+|---|---|
+| `lib/ingest/attribute-taxonomy.ts` | The canonical attribute dictionary (key + label + canonical unit + aliases) aligned to the catalog's ETIM concept groups, plus `resolveAttribute(rawName)` and `canonicalUnit(rawUnit)`. Pure data + resolvers. |
+| `lib/ingest/attribute-normalize.ts` | `normalizeAttribute` / `normalizeAttributes` (parse numeric + canonical unit, dedupe by key), `normalizeRecord` (attach `normalizedAttributes`), `attributeCoverage`. Pure. |
+
+**How a run uses it.** After gating, the runner maps each kept record through
+`normalizeRecord`, which **adds** a `normalizedAttributes` array (the raw `attributes`
+stay untouched as provenance) and reports the run's **attribute coverage** — the fraction
+of raw attributes that mapped onto the canonical taxonomy. Because normalization only adds
+a derived field, the renewable diff (computed on raw attributes) is unchanged.
+
+**Honest by construction:**
+
+- An attribute **name** the taxonomy doesn't recognize is reported as *unmapped*, never
+  force-fit into a bucket. Coverage tells you, per run, how much was recognized.
+- A **unit** is attached only when it actually appears in the source value. The canonical
+  unit is the *expected* unit (metadata) — a bare `"2"` is never silently stamped `"2 A"`.
+  A unit from a mismatched family (e.g. `mm` where inches are expected) is kept as the raw
+  value but not asserted as canonical.
+- The original `{name, value}` pair is preserved on every normalized attribute.
+
+The admin panel surfaces the recognized canonical set ("Attribute backbone — N canonical
+attributes") and each run shows its `attrs N% canonical` coverage; `GET /api/ingest/status`
+returns the taxonomy and the per-run coverage, and the MCP `ingest_run` / `ingest_status`
+reports carry `attributeCoverage`.

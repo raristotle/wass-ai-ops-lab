@@ -182,6 +182,15 @@ describe("HELP_TOPICS", () => {
     expect(body).toMatch(/\$0/);
   });
 
+  it("covers the data-sources D2 attribute backbone (canonical taxonomy + coverage + honest)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("attribute-backbone")).toBe(true);
+    const body = HELP_TOPICS.find((t) => t.id === "attribute-backbone")!.body.join(" ");
+    expect(body).toMatch(/canonical/);
+    expect(body).toMatch(/unmapped/);
+    expect(body).toMatch(/coverage/);
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

@@ -421,6 +421,7 @@ export interface IngestRunReport {
   dropped: number;
   diff: { added: number; changed: number; removed: number };
   sampleAdded: string[];
+  normalization?: { attributesSeen: number; attributesMapped: number; coverage: number };
   error?: string;
 }
 export interface IngestSource {
@@ -438,6 +439,7 @@ export interface IngestStatus {
   liveSourcesConfigured?: boolean;
   sources: IngestSource[];
   recentRuns: IngestRunReport[];
+  attributeTaxonomy?: { key: string; label: string; unit: string | null }[];
 }
 export interface IngestRunResult {
   ok?: boolean;

@@ -155,12 +155,30 @@ export function IngestionPanelModal() {
                     ) : (
                       <span className="text-[#4F758B]">
                         kept {r.kept} · dropped {r.dropped} · +{r.diff.added} new / ~{r.diff.changed} changed / −{r.diff.removed} gone
+                        {r.normalization ? ` · attrs ${r.normalization.coverage}% canonical` : ""}
                       </span>
                     )}
                   </li>
                 ))}
               </ul>
             </div>
+          )}
+
+          {/* Attribute backbone (D2) — the canonical taxonomy ingested specs map onto */}
+          {status && status.attributeTaxonomy && status.attributeTaxonomy.length > 0 && (
+            <details className="text-xs">
+              <summary className="cursor-pointer font-semibold text-[#4F758B]">
+                Attribute backbone — {status.attributeTaxonomy.length} canonical attributes
+              </summary>
+              <div className="mt-1.5 flex flex-wrap gap-1">
+                {status.attributeTaxonomy.map((a) => (
+                  <span key={a.key} className="rounded border border-[#B7C9D3] bg-[#F8FAFB] px-1.5 py-0.5 text-[11px] text-[#1D252D]">
+                    {a.label}
+                    {a.unit ? <span className="text-[#4F758B]"> ({a.unit})</span> : null}
+                  </span>
+                ))}
+              </div>
+            </details>
           )}
 
           {/* Recent run log */}

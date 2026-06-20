@@ -1191,6 +1191,16 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "attribute-backbone",
+    title: "Attribute backbone — one canonical spec language",
+    body: [
+      "Different sources spell the same engineering spec a dozen ways — “Amps”, “Amperage”, “Current Rating (A)”. The attribute backbone normalizes every ingested spec onto ONE canonical taxonomy (key + canonical unit) so the same attribute from any source lines up and merges. It’s the foundation the distributor and manufacturer harvests build on.",
+      "• When a source runs, each kept record gains a canonical view of its specs (the raw values are kept untouched as provenance), and the run reports its “% canonical” coverage — how much of what the source published the backbone recognized.",
+      "• Honest: a spec name the taxonomy doesn’t know is reported as unmapped, never force-fit; a unit is only attached when it’s actually in the source value (a bare “2” is never relabeled “2 A”).",
+      "• The Data-ingestion panel lists the recognized canonical attributes (e.g. Amperage (A), Voltage (V), Interrupting rating (kAIC), Luminous flux (lm)); the MCP run/status reports carry the coverage number.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [
