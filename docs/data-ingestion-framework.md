@@ -240,3 +240,33 @@ array (dormant/$0 until set):
 Each entry becomes a `manufacturer:<brand>` source. The segment is derived from the registry
 (override with an optional `"segment"`). Harvesting uses the same polite fetch (≤1 req/s/host)
 and gate → snapshot → diff pipeline as every other source.
+
+---
+
+## D5 — Cross-reference + lifecycle
+
+Two signals the framework now captures: competitive **cross-references** and product
+**lifecycle**.
+
+### Cross-references (Nexar second sources)
+
+`lib/ingest/adapters/cross-reference.ts` emits the `crosses` on an `IngestRecord`: for a
+seed MPN, the alternate-manufacturer parts that are the same component. The data is Nexar's
+`secondSources` (same part, different manufacturer) — D3 keeps only the primary identity;
+**D5 picks up the second-source EDGES**. These are factual "part X is also made as part Y"
+relations, not proprietary catalog content. `enrichmentToCrossRecord` is pure (emits one
+cross per *distinct* second source, excluding the primary and dupes, relation
+`"second-source"` — honest, not overclaimed as "equivalent"). The adapter
+(`cross-reference:nexar`) is dormant until Nexar is keyed and shares the
+`INGEST_DISTRIBUTOR_MPNS` seed list.
+
+### Lifecycle (schema.org availability)
+
+Manufacturer pages encode lifecycle in `offers.availability`. `lib/ingest/lifecycle.ts`
+maps the schema.org `ItemAvailability` enum to a coarse state — only **`Discontinued`** is
+treated as a lifecycle (EOL) signal; ordinary stock states (In/OutOfStock, PreOrder, …) are
+availability, **not** lifecycle, so they map to nothing (honest — we don't infer a lifecycle
+we weren't told). When present, it's carried as a factual `Lifecycle status` attribute, so
+it flows through the gate, the D2 backbone (canonical `lifecycle-status` key), and the
+renewable diff like any other spec — surfacing on the manufacturer (D4) and schema.org (D1)
+sources automatically, at $0.

@@ -59,6 +59,7 @@ export const ATTRIBUTE_TAXONOMY: CanonicalAttribute[] = [
   { key: "dimming", label: "Dimming", datatype: "string", aliases: ["dimming", "dimmable", "dimming protocol", "dali", "0-10v", "control protocol"] },
   { key: "color", label: "Color", datatype: "string", aliases: ["color", "colour", "finish", "body color"] },
   { key: "operating-temperature", label: "Operating temperature", unit: "°C", datatype: "string", aliases: ["operating temperature", "temperature rating", "temp rating", "ambient temperature", "operating temp"] },
+  { key: "lifecycle-status", label: "Lifecycle status", datatype: "string", aliases: ["lifecycle status", "lifecycle", "product status", "availability status", "eol", "end of life", "obsolescence status"] },
 ];
 
 /** Canonical unit symbols keyed by lowercased source spelling. */

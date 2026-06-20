@@ -66,6 +66,20 @@ describe("schemaOrgProducts", () => {
     const obj = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","image":{"@type":"ImageObject","url":"https://ex.com/io.jpg"}}</script>`))[0];
     expect(obj.images).toEqual(["https://ex.com/io.jpg"]);
   });
+
+  it("derives a lifecycle label from offers.availability = Discontinued (D5), else undefined", () => {
+    const eol = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","offers":{"@type":"Offer","availability":"https://schema.org/Discontinued"}}</script>`))[0];
+    expect(eol.lifecycle).toBe("Discontinued");
+
+    const inStock = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}</script>`))[0];
+    expect(inStock.lifecycle).toBeUndefined();
+
+    // Offers as an ARRAY (one Discontinued among InStock) and as a BARE STRING both work.
+    const arrOffers = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","offers":[{"availability":"https://schema.org/InStock"},{"availability":"https://schema.org/Discontinued"}]}</script>`))[0];
+    expect(arrOffers.lifecycle).toBe("Discontinued");
+    const strOffer = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","offers":"https://schema.org/Discontinued"}</script>`))[0];
+    expect(strOffer.lifecycle).toBe("Discontinued");
+  });
 });
 
 describe("productsFromHtml", () => {

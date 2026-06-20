@@ -80,6 +80,13 @@ describe("distributor adapter dormancy", () => {
     const ids = getAdapters({ INGEST_DISTRIBUTOR_MPNS: "EX-1,EX-2" }).map((a) => a.id);
     expect(ids).not.toContain("distributor:identity");
   });
+
+  it("D5 cross-reference source is dormant without Nexar keys + a seed list ($0)", () => {
+    // No Nexar key in the test env → no cross-reference adapter even when seeded.
+    expect(getAdapters({ INGEST_DISTRIBUTOR_MPNS: "EX-1" }).map((a) => a.id)).not.toContain("cross-reference:nexar");
+    // No seed list → no cross-reference adapter regardless of keys.
+    expect(getAdapters({ INGEST_DISTRIBUTOR_MPNS: "" }).map((a) => a.id)).not.toContain("cross-reference:nexar");
+  });
 });
 
 describe("liveSourcesConfigured", () => {

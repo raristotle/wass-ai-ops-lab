@@ -46,6 +46,12 @@ describe("schemaProductToRecord + gate", () => {
     const r = schemaProductToRecord(sp({ url: "https://canonical/p", mpn: "M" }), "https://page/list");
     expect(r.sourceUrl).toBe("https://canonical/p");
   });
+
+  it("appends a lifecycle attribute (D5) when the product carries one", () => {
+    const r = schemaProductToRecord(sp({ mpn: "M", lifecycle: "Discontinued", attributes: [{ name: "Amperage", value: "20 A" }] }), "https://s/1");
+    expect(r.attributes).toContainEqual({ name: "Lifecycle status", value: "Discontinued" });
+    expect(r.attributes).toContainEqual({ name: "Amperage", value: "20 A" });
+  });
 });
 
 describe("makeSchemaOrgAdapter", () => {

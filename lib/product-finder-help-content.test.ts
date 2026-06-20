@@ -210,6 +210,15 @@ describe("HELP_TOPICS", () => {
     expect(body).toContain("INGEST_MANUFACTURERS");
   });
 
+  it("covers the data-sources D5 cross-reference + lifecycle harvest (honest relations + EOL)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("crossref-lifecycle-harvest")).toBe(true);
+    const body = HELP_TOPICS.find((t) => t.id === "crossref-lifecycle-harvest")!.body.join(" ");
+    expect(body).toMatch(/second.source/i);
+    expect(body).toMatch(/discontinued/i);
+    expect(body).toMatch(/not lifecycle/i); // honest: stock state ≠ lifecycle
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

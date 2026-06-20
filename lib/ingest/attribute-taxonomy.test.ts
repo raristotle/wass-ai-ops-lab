@@ -35,6 +35,11 @@ describe("resolveAttribute", () => {
     expect(resolveAttribute("Conductor Material")?.key).toBe("material");
   });
 
+  it("maps the D5 lifecycle signal onto the canonical lifecycle-status key", () => {
+    expect(resolveAttribute("Lifecycle status")?.key).toBe("lifecycle-status");
+    expect(resolveAttribute("End of life")?.key).toBe("lifecycle-status");
+  });
+
   it("returns null for an unknown attribute name", () => {
     expect(resolveAttribute("Warranty Period")).toBeNull();
     expect(resolveAttribute("")).toBeNull();

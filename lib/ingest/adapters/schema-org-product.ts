@@ -24,6 +24,7 @@ import { PRODUCTION_CONFIDENCE } from "@/lib/catalog/provenance";
 import { normalizeGtin } from "@/lib/catalog/identifiers";
 import { productsFromHtml, type SchemaProduct } from "@/lib/ingest/fetcher";
 import { pickBestImage } from "@/lib/ingest/image";
+import { LIFECYCLE_ATTRIBUTE } from "@/lib/ingest/lifecycle";
 
 export interface SchemaOrgAdapterConfig {
   /** Stable id (snapshot namespace), e.g. "schema-org:eaton". */
@@ -60,12 +61,16 @@ export function schemaProductToRecord(
   brandFallback?: string,
 ): IngestRecord {
   const pageUrl = p.url ?? sourceUrl;
+  // Carry a lifecycle signal (e.g. "Discontinued") as a factual attribute so it flows
+  // through the gate, the D2 backbone, and the renewable diff like any other spec.
+  const attributes = [...p.attributes];
+  if (p.lifecycle) attributes.push({ name: LIFECYCLE_ATTRIBUTE, value: p.lifecycle });
   return {
     sku: p.sku,
     mpn: p.mpn,
     gtin: p.gtin,
     brand: p.brand ?? brandFallback,
-    attributes: p.attributes.length ? p.attributes : undefined,
+    attributes: attributes.length ? attributes : undefined,
     imageUrl: pickBestImage(p.images ?? [], pageUrl),
     sourceUrl: pageUrl,
     confidence: scoreSchemaProduct(p),

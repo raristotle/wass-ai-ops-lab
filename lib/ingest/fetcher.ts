@@ -14,6 +14,7 @@
 
 import { logApiError } from "@/lib/server/log";
 import type { RawPayload } from "@/lib/ingest/source-adapter";
+import { mapAvailabilityToLifecycle, lifecycleLabel } from "@/lib/ingest/lifecycle";
 
 const UA = "MeridianProductFinder/1.0 (+ingestion; respects robots.txt; contact: ops)";
 const MIN_HOST_INTERVAL_MS = 1000; // be a good citizen: ≤1 req/s per host
@@ -105,6 +106,8 @@ export interface SchemaProduct {
   /** All image references found, in document order (D4 picks the best + absolutizes). */
   images: string[];
   url?: string;
+  /** Lifecycle label derived from offers.availability (D5), e.g. "Discontinued". */
+  lifecycle?: string;
   /** Raw additionalProperty pairs → attribute candidates. */
   attributes: { name: string; value: string }[];
 }
@@ -142,6 +145,19 @@ function collectImages(v: unknown): string[] {
   return [];
 }
 
+/** Extract a lifecycle label from a schema.org offers node's availability (D5). The first
+ *  offer carrying a recognized lifecycle availability wins; null when none do. */
+function offerLifecycle(v: unknown): string | undefined {
+  const offers = Array.isArray(v) ? v : v ? [v] : [];
+  for (const o of offers) {
+    // Accept an offer object {availability} or a bare availability string.
+    const raw = typeof o === "string" ? o : o && typeof o === "object" ? str((o as { availability?: unknown }).availability) : undefined;
+    const state = mapAvailabilityToLifecycle(raw);
+    if (state) return lifecycleLabel(state);
+  }
+  return undefined;
+}
+
 /** Map schema.org additionalProperty (PropertyValue[]) to attribute pairs. */
 function additionalProps(v: unknown): { name: string; value: string }[] {
   const arr = Array.isArray(v) ? v : v ? [v] : [];
@@ -168,6 +184,7 @@ export function schemaOrgProducts(nodes: Record<string, unknown>[]): SchemaProdu
       image: images[0],
       images,
       url: str(n.url),
+      lifecycle: offerLifecycle(n.offers),
       attributes: additionalProps(n.additionalProperty),
     };
   });

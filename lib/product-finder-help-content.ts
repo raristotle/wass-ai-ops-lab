@@ -1221,6 +1221,15 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "crossref-lifecycle-harvest",
+    title: "Cross-reference & lifecycle harvest",
+    body: [
+      "Two more signals the data-ingestion framework captures: competitive cross-references and product lifecycle.",
+      "• Cross-references: for a seed list of part numbers, the Nexar/Octopart source brings back the “second sources” — the same part made by an alternate manufacturer — and records them as cross-reference edges. They’re labeled honestly as “second-source” (not overclaimed as exact equivalents), and the primary part and duplicates are excluded. Dormant/$0 until Nexar is keyed; reuses the same seed list as the distributor harvest.",
+      "• Lifecycle: when a manufacturer’s page marks a product Discontinued (via schema.org availability), the harvester records a “Lifecycle status: Discontinued” fact. Only a true end-of-life signal counts — ordinary in/out-of-stock is availability, not lifecycle, so it’s never mistaken for one. The signal flows through the same gate, the attribute backbone, and the diff as every other spec.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

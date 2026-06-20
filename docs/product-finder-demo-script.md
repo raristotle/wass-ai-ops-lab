@@ -669,6 +669,11 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   (Eaton, Schneider, Siemens, ABB…), where their own product photos and full specs are fair
   game. Every image is resolved to a real URL and placeholders are thrown out, so a product
   gets a real image or none — never a fake one. Each brand lands in the right segment
-  automatically. Set INGEST_MANUFACTURERS to turn a brand on."* (docs/data-ingestion-framework.md)
+  automatically. Set INGEST_MANUFACTURERS to turn a brand on."* *"D5 closes the loop with
+  two more signals: cross-references — the Nexar source brings back 'second sources', the
+  same part from an alternate manufacturer, recorded as honest 'second-source' edges — and
+  lifecycle: when a manufacturer's page marks a product Discontinued, that EOL fact is
+  captured. We're careful: ordinary in/out-of-stock is availability, not lifecycle, so it's
+  never mistaken for an end-of-life signal."* (docs/data-ingestion-framework.md)
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.
