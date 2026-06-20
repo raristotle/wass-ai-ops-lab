@@ -633,5 +633,12 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   customer), expand an order. *"They can reorder, subscribe to a cadence — it previews
   the next reorder date — and 'Customers also add' nudges the companions right into the
   reorder. That's D2C cross-sell on autopilot."*
+- **Import order history (the data unlock)** → Ctrl/⌘-K → "Import order history". Paste
+  a CSV of a customer's past orders (order,sku,qty). *"This is the moment the app stops
+  guessing. It mines real 'bought-together' lift from your actual orders — watch the
+  cross-sell rail go from 'these go together by spec' to 'your customers actually buy
+  these together, 3× more than chance.' One file wakes the whole behavioral engine."*
+  Show the mined top pairs in the summary. (Until imported, the rail is the honest
+  deterministic spec-rule model — no faked behavior.)
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

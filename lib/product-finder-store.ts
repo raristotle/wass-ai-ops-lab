@@ -365,6 +365,9 @@ export interface ProductFinderState {
   setCopilotOpen: (v: boolean) => void;
   account360Open: boolean;
   setAccount360Open: (v: boolean) => void;
+  // Pilot data onboarding
+  orderHistoryOpen: boolean;
+  setOrderHistoryOpen: (v: boolean) => void;
 
   // Barcode scanner (#20 PWA — camera part lookup)
   barcodeOpen: boolean;
@@ -1525,6 +1528,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setCopilotOpen(v) { set({ copilotOpen: v }); },
   account360Open: false,
   setAccount360Open(v) { set({ account360Open: v }); },
+  orderHistoryOpen: false,
+  setOrderHistoryOpen(v) { set({ orderHistoryOpen: v }); },
 
   // ── Barcode scanner (#20) ─────────────────────────────────
   barcodeOpen: false,

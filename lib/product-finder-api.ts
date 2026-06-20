@@ -299,6 +299,64 @@ export async function apiCompanionsAttach(skus: string[], branchId?: string): Pr
   }
 }
 
+// ─── Order-history import (pilot data onboarding) ───────────────────────────
+export interface OrderHistoryManifest {
+  version: number;
+  customer: string | null;
+  orders: number;
+  lines: number;
+  resolved: number;
+  unresolved: number;
+  distinctSkus: number;
+  distinctSubcategories: number;
+  rulesMined: number;
+  topPairs: { a: string; b: string; lift: number; count: number }[];
+  importedAtIso: string;
+}
+export interface OrderHistoryStatus {
+  durable: boolean;
+  manifest: OrderHistoryManifest | null;
+}
+export interface OrderHistoryImportResult {
+  ok?: boolean;
+  persisted?: "postgres" | "memory";
+  manifest?: OrderHistoryManifest;
+  headline?: string;
+  error?: string;
+}
+
+export async function apiOrderHistoryStatus(): Promise<OrderHistoryStatus> {
+  try {
+    const res = await fetch("/api/order-history");
+    if (!res.ok) return { durable: false, manifest: null };
+    return (await res.json()) as OrderHistoryStatus;
+  } catch {
+    return { durable: false, manifest: null };
+  }
+}
+
+export async function apiImportOrderHistory(csv: string, customer?: string): Promise<OrderHistoryImportResult> {
+  try {
+    const res = await fetch("/api/order-history/import", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ csv, customer }),
+    });
+    return (await res.json()) as OrderHistoryImportResult;
+  } catch {
+    return { error: "Import request failed" };
+  }
+}
+
+export async function apiClearOrderHistory(): Promise<boolean> {
+  try {
+    const res = await fetch("/api/order-history", { method: "DELETE" });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export async function apiAdjacency(): Promise<Record<string, { to: string; required: boolean }[]>> {
   try {
     const res = await fetch("/api/companions/adjacency");

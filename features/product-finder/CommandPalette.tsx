@@ -44,6 +44,7 @@ export function CommandPalette() {
   const setQuickOrderOpen = useProductFinder((s) => s.setQuickOrderOpen);
   const setCopilotOpen = useProductFinder((s) => s.setCopilotOpen);
   const setAccount360Open = useProductFinder((s) => s.setAccount360Open);
+  const setOrderHistoryOpen = useProductFinder((s) => s.setOrderHistoryOpen);
   const setBarcodeOpen = useProductFinder((s) => s.setBarcodeOpen);
   const setCycleCountOpen = useProductFinder((s) => s.setCycleCountOpen);
   const setSpecMatchOpen = useProductFinder((s) => s.setSpecMatchOpen);
@@ -147,6 +148,7 @@ export function CommandPalette() {
         else if (action.target === "quickorder") setQuickOrderOpen(true);
         else if (action.target === "copilot") setCopilotOpen(true);
         else if (action.target === "account360") setAccount360Open(true);
+        else if (action.target === "order-history") setOrderHistoryOpen(true);
         else if (action.target === "barcode") setBarcodeOpen(true);
         else if (action.target === "cyclecount") setCycleCountOpen(true);
         else if (action.target === "spec-match") setSpecMatchOpen(true);

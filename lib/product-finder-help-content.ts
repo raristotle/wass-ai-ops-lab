@@ -1157,6 +1157,17 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "order-history-import",
+    title: "Import order history — activate co-purchase lift",
+    body: [
+      "Ctrl/⌘-K → “Import order history”. Paste or upload a customer’s past orders (a CSV of order lines) and the app mines real “bought-together” patterns from them.",
+      "• Recognized columns: an order/PO/invoice id, a sku/part/item number, and an optional qty. A header row is required; unmatched SKUs are reported, never guessed.",
+      "• After import, the cross-sell rail blends real co-purchase LIFT on top of the always-on spec-rule + affinity model — so “customers who bought X also bought Y” reflects this account’s actual orders.",
+      "• The modal shows what was mined (orders, matched lines, rules, top pairs) and lets you clear it.",
+      "This is the single highest-leverage data step: until an order file is imported, the behavioral engines run on the deterministic backbone only. $0 — it reuses the app’s own database.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

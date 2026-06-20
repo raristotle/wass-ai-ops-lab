@@ -20,7 +20,7 @@ export type CommandAction =
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
         | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode"
-        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360";
+        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360" | "order-history";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -109,6 +109,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["account", "360", "whitespace", "call prep", "customer", "reorder", "share of wallet"],
       action: { kind: "open", target: "account360" },
+    },
+    {
+      id: "open-order-history",
+      label: "Import order history — activate co-purchase lift",
+      group: "Open",
+      keywords: ["import", "order history", "co-purchase", "market basket", "behavioral", "onboard data", "upload orders", "csv"],
+      action: { kind: "open", target: "order-history" },
     },
     {
       id: "open-barcode",

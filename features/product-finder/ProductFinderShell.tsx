@@ -23,6 +23,7 @@ import { VmiModal } from "@/features/product-finder/VmiModal";
 import { QuickOrderModal } from "@/features/product-finder/QuickOrderModal";
 import { QuoteCopilotModal } from "@/features/product-finder/QuoteCopilotModal";
 import { Account360Modal } from "@/features/product-finder/Account360Modal";
+import { OrderHistoryImportModal } from "@/features/product-finder/OrderHistoryImportModal";
 import { BarcodeScannerModal } from "@/features/product-finder/BarcodeScannerModal";
 import { CycleCountModal } from "@/features/product-finder/CycleCountModal";
 import { CompareTray } from "@/features/product-finder/CompareTray";
@@ -274,6 +275,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <QuickOrderModal />
       <QuoteCopilotModal />
       <Account360Modal />
+      <OrderHistoryImportModal />
       <BarcodeScannerModal />
       <CycleCountModal />
       <SpecMatchModal />

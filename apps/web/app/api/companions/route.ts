@@ -10,6 +10,9 @@ import {
   type CompanionContext,
 } from "@/lib/catalog/companion-graph";
 import { mineAssociationRules, indexByAntecedent, type Basket } from "@/lib/catalog/market-basket";
+import { getStore, forTenant } from "@/lib/server/persistence";
+import { tenantForRequest } from "@/lib/server/api-auth";
+import { loadImportedRulesIndex } from "@/lib/catalog/order-history-rules";
 
 export const dynamic = "force-dynamic";
 
@@ -64,11 +67,16 @@ export async function POST(req: Request) {
     if (products.length === 0) return NextResponse.json({ unresolved: true, missingRequired: [], recommended: [], attach: [] });
 
     const ctx: CompanionContext = { branchId: body.branchId };
-    // Activate the behavioral market-basket overlay when the caller supplies baskets.
+    // Behavioral market-basket overlay: a caller's request-supplied baskets win (a
+    // one-off context); otherwise fall back to the app-global rules mined from any
+    // IMPORTED order history, so the rail reflects real co-purchase by default.
     if (body.baskets && body.baskets.length > 0) {
       const baskets = body.baskets as Basket[];
       const rules = mineAssociationRules(baskets, { grain: "subcategory", minCount: 2, minLift: 1 });
       ctx.rulesBySubcat = indexByAntecedent(rules);
+    } else {
+      const tenant = tenantForRequest(req);
+      ctx.rulesBySubcat = (await loadImportedRulesIndex(forTenant(getStore(), tenant), tenant ?? "global")) ?? undefined;
     }
 
     if (body.mode === "complete-assembly") {
