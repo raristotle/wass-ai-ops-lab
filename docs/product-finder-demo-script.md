@@ -674,6 +674,10 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   same part from an alternate manufacturer, recorded as honest 'second-source' edges — and
   lifecycle: when a manufacturer's page marks a product Discontinued, that EOL fact is
   captured. We're careful: ordinary in/out-of-stock is availability, not lifecycle, so it's
-  never mistaken for an end-of-life signal."* (docs/data-ingestion-framework.md)
+  never mistaken for an end-of-life signal."* *"D6 finishes the backlog: it captures
+  certifications (UL/CSA approvals off the manufacturer page), deepens the spec backbone with
+  category-specific attributes, and adds a free CPSC source that flags any product whose model
+  is under a safety recall — only real, model-matched recalls, dormant until you switch it on.
+  That's the whole D1–D6 data-sources backlog, every sprint live and honest."* (docs/data-ingestion-framework.md)
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

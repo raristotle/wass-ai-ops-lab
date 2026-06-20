@@ -1230,6 +1230,16 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "certs-depth-demand",
+    title: "Certifications, category depth & recall signals",
+    body: [
+      "The data-ingestion framework also captures certifications, deeper category specs, and product-safety recall signals.",
+      "• Certifications: a manufacturer page’s listed agency approvals (UL, CSA, ETL…) are captured as a factual “Certifications” attribute that normalizes onto the canonical backbone — no extra calls, it rides the manufacturer harvest.",
+      "• Category depth: the canonical attribute backbone now recognizes category-specific specs — lighting (beam angle, CRI, lamp base, rated life), datacom (shielding, jacket rating, bandwidth), wire (insulation, stranding), safety (arc-flash rating), plus country of origin and weight — so more of each source’s specs line up.",
+      "• Recall demand signal: a free, keyless U.S. CPSC source flags any product whose model appears in a safety recall. It’s honest — only recalls that name a real model become records — and stays dormant ($0/zero-network) until you set INGEST_CPSC_RECALLS=1, then a “demand:cpsc-recalls” source appears in the panel.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

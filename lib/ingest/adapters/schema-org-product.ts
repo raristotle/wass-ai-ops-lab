@@ -61,10 +61,12 @@ export function schemaProductToRecord(
   brandFallback?: string,
 ): IngestRecord {
   const pageUrl = p.url ?? sourceUrl;
-  // Carry a lifecycle signal (e.g. "Discontinued") as a factual attribute so it flows
-  // through the gate, the D2 backbone, and the renewable diff like any other spec.
+  // Carry a lifecycle signal (e.g. "Discontinued") and certifications/approvals (D6) as
+  // factual attributes so they flow through the gate, the D2 backbone, and the renewable
+  // diff like any other spec.
   const attributes = [...p.attributes];
   if (p.lifecycle) attributes.push({ name: LIFECYCLE_ATTRIBUTE, value: p.lifecycle });
+  if (p.certifications && p.certifications.length) attributes.push({ name: "Certifications", value: p.certifications.join(", ") });
   return {
     sku: p.sku,
     mpn: p.mpn,

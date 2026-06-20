@@ -80,6 +80,17 @@ describe("schemaOrgProducts", () => {
     const strOffer = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","offers":"https://schema.org/Discontinued"}</script>`))[0];
     expect(strOffer.lifecycle).toBe("Discontinued");
   });
+
+  it("collects certifications from hasCertification (string | Certification obj | array) (D6)", () => {
+    const str = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","hasCertification":"UL Listed"}</script>`))[0];
+    expect(str.certifications).toEqual(["UL Listed"]);
+
+    const arr = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","hasCertification":[{"@type":"Certification","name":"UL 489"},{"name":"CSA"}]}</script>`))[0];
+    expect(arr.certifications).toEqual(["UL 489", "CSA"]);
+
+    const none = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M"}</script>`))[0];
+    expect(none.certifications).toEqual([]);
+  });
 });
 
 describe("productsFromHtml", () => {

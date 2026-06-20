@@ -87,6 +87,11 @@ describe("distributor adapter dormancy", () => {
     // No seed list → no cross-reference adapter regardless of keys.
     expect(getAdapters({ INGEST_DISTRIBUTOR_MPNS: "" }).map((a) => a.id)).not.toContain("cross-reference:nexar");
   });
+
+  it("D6 CPSC recall source registers ONLY when explicitly enabled ($0/zero-network default)", () => {
+    expect(getAdapters({}).map((a) => a.id)).not.toContain("demand:cpsc-recalls");
+    expect(getAdapters({ INGEST_CPSC_RECALLS: "1" }).map((a) => a.id)).toContain("demand:cpsc-recalls");
+  });
 });
 
 describe("liveSourcesConfigured", () => {

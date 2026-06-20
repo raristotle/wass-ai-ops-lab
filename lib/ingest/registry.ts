@@ -20,6 +20,7 @@ import { selfTestAdapter } from "@/lib/ingest/adapters/selftest";
 import { makeDistributorAdapter, distributorClientsConfigured } from "@/lib/ingest/adapters/distributor";
 import { makeManufacturerAdapter, parseEnvManufacturers } from "@/lib/ingest/adapters/manufacturer";
 import { makeNexarCrossAdapter, crossReferenceClientConfigured } from "@/lib/ingest/adapters/cross-reference";
+import { makeCpscRecallAdapter, cpscRecallsEnabled } from "@/lib/ingest/adapters/cpsc-recalls";
 import { logApiError } from "@/lib/server/log";
 
 /** Cap the distributor seed list so one run can't fan out to thousands of API calls. */
@@ -124,10 +125,12 @@ export function getAdapters(env: IngestEnv = process.env): SourceAdapter[] {
   const manufacturers = parseEnvManufacturers(env.INGEST_MANUFACTURERS).map(makeManufacturerAdapter);
   const distributor = distributorAdapter(env);
   const crossRef = crossReferenceAdapter(env);
+  const cpsc = cpscRecallsEnabled(env) ? makeCpscRecallAdapter() : null;
   const all = [
     selfTestAdapter,
     ...(distributor ? [distributor] : []),
     ...(crossRef ? [crossRef] : []),
+    ...(cpsc ? [cpsc] : []),
     ...manufacturers,
     ...live,
   ];

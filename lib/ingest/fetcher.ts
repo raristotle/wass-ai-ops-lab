@@ -108,6 +108,8 @@ export interface SchemaProduct {
   url?: string;
   /** Lifecycle label derived from offers.availability (D5), e.g. "Discontinued". */
   lifecycle?: string;
+  /** Certification names/standards from schema.org hasCertification (D6). */
+  certifications: string[];
   /** Raw additionalProperty pairs → attribute candidates. */
   attributes: { name: string; value: string }[];
 }
@@ -158,6 +160,21 @@ function offerLifecycle(v: unknown): string | undefined {
   return undefined;
 }
 
+/** Certification name(s) from schema.org hasCertification (string | Certification obj | []). */
+function collectCertifications(v: unknown): string[] {
+  if (typeof v === "string") {
+    const s = str(v);
+    return s ? [s] : [];
+  }
+  if (Array.isArray(v)) return v.flatMap(collectCertifications);
+  if (v && typeof v === "object") {
+    const o = v as { name?: unknown; certificationIdentification?: unknown; certificationStandard?: unknown };
+    const name = str(o.name) ?? str(o.certificationIdentification) ?? str(o.certificationStandard);
+    return name ? [name] : [];
+  }
+  return [];
+}
+
 /** Map schema.org additionalProperty (PropertyValue[]) to attribute pairs. */
 function additionalProps(v: unknown): { name: string; value: string }[] {
   const arr = Array.isArray(v) ? v : v ? [v] : [];
@@ -185,6 +202,7 @@ export function schemaOrgProducts(nodes: Record<string, unknown>[]): SchemaProdu
       images,
       url: str(n.url),
       lifecycle: offerLifecycle(n.offers),
+      certifications: collectCertifications(n.hasCertification),
       attributes: additionalProps(n.additionalProperty),
     };
   });

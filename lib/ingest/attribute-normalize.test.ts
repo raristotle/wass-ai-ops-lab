@@ -47,6 +47,19 @@ describe("normalizeAttribute", () => {
     expect(normalizeAttribute({ name: "Operating Temperature", value: "75 °C" })?.unit).toBe("°C");
   });
 
+  it("never attaches a unit to a UNITLESS attribute, even with an adjacent token (honesty)", () => {
+    // "4C" (4-conductor) must NOT fabricate a °C; "80 K" on a dimensionless CRI must NOT keep K.
+    const cc = normalizeAttribute({ name: "Number of Conductors", value: "4C" });
+    expect(cc?.key).toBe("conductor-count");
+    expect(cc?.numeric).toBe(4);
+    expect(cc?.unit).toBeUndefined();
+    const cri = normalizeAttribute({ name: "CRI", value: "80 K" });
+    expect(cri?.key).toBe("color-rendering-index");
+    expect(cri?.numeric).toBe(80);
+    expect(cri?.unit).toBeUndefined();
+    expect(normalizeAttribute({ name: "Poles", value: "3 g" })?.unit).toBeUndefined();
+  });
+
   it("returns null for an unmapped name or an empty value", () => {
     expect(normalizeAttribute({ name: "Warranty", value: "5 years" })).toBeNull();
     expect(normalizeAttribute({ name: "Amperage", value: "   " })).toBeNull();

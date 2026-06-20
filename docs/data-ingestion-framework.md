@@ -270,3 +270,45 @@ we weren't told). When present, it's carried as a factual `Lifecycle status` att
 it flows through the gate, the D2 backbone (canonical `lifecycle-status` key), and the
 renewable diff like any other spec — surfacing on the manufacturer (D4) and schema.org (D1)
 sources automatically, at $0.
+
+---
+
+## D6 — Certifications, category depth, demand signals
+
+The final layer adds three things.
+
+### Category depth (D2 taxonomy expansion)
+
+The canonical attribute backbone gains ~15 category-specific attributes — lighting (beam
+angle, CRI, lamp base, rated life), datacom (shielding, jacket rating, bandwidth), wire
+(insulation type, stranding), safety (arc-flash rating), plus certifications, country of
+origin, and weight. Deeper coverage means more of each source's published specs collapse
+to a canonical key (a higher `attrs N% canonical` per run).
+
+### Certifications (schema.org `hasCertification`)
+
+Manufacturer pages list their products' agency approvals. The schema.org parser now reads
+`hasCertification` (string | `Certification` object | array) into a factual `Certifications`
+attribute, which normalizes onto the canonical `certification` key. Approvals listed in a
+page's `additionalProperty` ("Agency Approvals", "UL Listing", …) already mapped via the D2
+aliases — so this captures both paths. No new network call (it rides the D1/D4 harvest).
+
+### Demand signals (CPSC product recalls)
+
+`lib/ingest/adapters/cpsc-recalls.ts` is a **free, keyless** source over the U.S. CPSC
+SaferProducts REST service (U.S. government public domain). It turns recalls that name a
+product **model** into records flagging that model with a `Safety recall` attribute and the
+recall URL — a real safety/demand signal ("is anything we carry under recall?"). Only
+recalls carrying a usable model become records; a recall with no model has no identity and
+is skipped, never invented. Output is bounded (last 365 days, ≤500 records).
+
+Per the "zero network until explicitly enabled" rule it stays dormant until
+`INGEST_CPSC_RECALLS=1` (free, but an explicit operator switch — mirrors the NWS weather
+seam). Then a `demand:cpsc-recalls` source appears in the panel.
+
+---
+
+That completes the data-sources rejuvenation backlog (D1–D6): a renewable, honest,
+$0-by-default ingestion framework spanning the source spine (D1), the identity + attribute
+backbone (D2), distributor identity (D3), manufacturer pages + images (D4), cross-reference
++ lifecycle (D5), and certifications + category depth + demand signals (D6).

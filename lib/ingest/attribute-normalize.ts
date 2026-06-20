@@ -47,9 +47,12 @@ function parseNumericAndUnit(value: string, canonical: CanonicalAttribute): { nu
   const firstNum = m[1].match(/-?\d+(?:[.,]\d+)?/);
   const numeric = firstNum ? Number(firstNum[0].replace(",", "")) : undefined;
   let unit = m[2] ? canonicalUnit(m[2]) : undefined;
-  // Only keep a unit that's consistent with this attribute's expected family — a
-  // mismatched family (e.g. "mm" where we expect "in") is conservative-dropped, not wrong.
-  if (unit && canonical.unit && unit !== canonical.unit) unit = undefined;
+  // Keep a unit ONLY when this attribute expects that exact unit family. A UNITLESS
+  // attribute (e.g. poles, conductor-count, CRI) must never receive a parsed unit — so a
+  // value like "4C" (4-conductor) can't fabricate a "°C", and "80 K" on a dimensionless
+  // index can't fabricate a "K". A mismatched family ("mm" where we expect "in") is dropped
+  // the same way — conservative, never wrong.
+  if (unit && (!canonical.unit || unit !== canonical.unit)) unit = undefined;
   return { numeric: Number.isFinite(numeric) ? numeric : undefined, unit };
 }
 

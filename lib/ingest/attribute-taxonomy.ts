@@ -60,6 +60,23 @@ export const ATTRIBUTE_TAXONOMY: CanonicalAttribute[] = [
   { key: "color", label: "Color", datatype: "string", aliases: ["color", "colour", "finish", "body color"] },
   { key: "operating-temperature", label: "Operating temperature", unit: "°C", datatype: "string", aliases: ["operating temperature", "temperature rating", "temp rating", "ambient temperature", "operating temp"] },
   { key: "lifecycle-status", label: "Lifecycle status", datatype: "string", aliases: ["lifecycle status", "lifecycle", "product status", "availability status", "eol", "end of life", "obsolescence status"] },
+  // ── Category-depth attributes (D6) — lighting / datacom / wire / safety / compliance ──
+  // NOTE: a bare "listing" alias is intentionally omitted — it over-matches unrelated
+  // columns ("Listing Date", "Catalog Listing"). Cert columns use distinctive names.
+  { key: "certification", label: "Certifications & approvals", datatype: "string", aliases: ["certification", "certifications", "agency approval", "agency approvals", "approvals", "compliance", "compliance document", "conformity", "declaration", "ul approved", "csa certified"] },
+  { key: "beam-angle", label: "Beam angle", unit: "°", datatype: "number", aliases: ["beam angle", "beam spread", "field angle"] },
+  { key: "color-rendering-index", label: "Color rendering index (CRI)", datatype: "number", aliases: ["cri", "color rendering index", "colour rendering index", "color rendering", "colour rendering", "ra"] },
+  { key: "lamp-base", label: "Lamp base", datatype: "string", aliases: ["lamp base", "base type", "socket type", "cap type"] },
+  { key: "rated-life", label: "Rated life", unit: "h", datatype: "number", aliases: ["rated life", "life hours", "lifespan", "average life", "l70"] },
+  { key: "shielding", label: "Shielding", datatype: "string", aliases: ["shielding", "shield", "utp", "stp", "ftp", "screened"] },
+  { key: "jacket-rating", label: "Jacket rating", datatype: "string", aliases: ["jacket rating", "flame rating", "plenum", "riser", "cmr", "cmp", "cable rating"] },
+  { key: "bandwidth", label: "Bandwidth", unit: "MHz", datatype: "number", aliases: ["bandwidth", "frequency bandwidth", "rated bandwidth"] },
+  { key: "insulation-type", label: "Insulation type", datatype: "string", aliases: ["insulation type", "insulation", "thhn", "xhhw", "thwn", "insulation material"] },
+  { key: "stranding", label: "Stranding", datatype: "string", aliases: ["stranding", "strand", "solid or stranded", "conductor stranding"] },
+  { key: "arc-flash-rating", label: "Arc-flash rating", unit: "cal/cm²", datatype: "number", aliases: ["arc flash rating", "arc rating", "atpv", "incident energy rating"] },
+  { key: "country-of-origin", label: "Country of origin", datatype: "string", aliases: ["country of origin", "origin", "made in", "coo"] },
+  { key: "weight", label: "Weight", unit: "lb", datatype: "number", aliases: ["weight", "net weight", "product weight", "shipping weight"] },
+  { key: "safety-recall", label: "Safety recall", datatype: "string", aliases: ["safety recall", "recall", "recall notice", "product recall"] },
 ];
 
 /** Canonical unit symbols keyed by lowercased source spelling. */
@@ -77,6 +94,9 @@ const UNIT_ALIASES: Record<string, string> = {
   in: "in", '"': "in", inch: "in", inches: "in",
   mm: "mm", cm: "cm", m: "m", ft: "ft",
   "°c": "°C", c: "°C", "°f": "°F", f: "°F",
+  mhz: "MHz", ghz: "GHz",
+  h: "h", hr: "h", hrs: "h", hour: "h", hours: "h",
+  lb: "lb", lbs: "lb", kg: "kg", g: "g", oz: "oz",
 };
 
 /** Map a raw unit token to its canonical symbol, or undefined when unrecognized. */

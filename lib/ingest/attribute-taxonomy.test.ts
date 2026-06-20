@@ -40,6 +40,25 @@ describe("resolveAttribute", () => {
     expect(resolveAttribute("End of life")?.key).toBe("lifecycle-status");
   });
 
+  it("maps D6 category-depth + cert + recall attributes onto canonical keys", () => {
+    expect(resolveAttribute("Certifications")?.key).toBe("certification");
+    expect(resolveAttribute("Agency Approvals")?.key).toBe("certification");
+    expect(resolveAttribute("CRI")?.key).toBe("color-rendering-index");
+    expect(resolveAttribute("Jacket Rating")?.key).toBe("jacket-rating");
+    expect(resolveAttribute("Country of Origin")?.key).toBe("country-of-origin");
+    expect(resolveAttribute("Safety recall")?.key).toBe("safety-recall");
+  });
+
+  it("does not over-map 'Color Rendering' to color, nor a bare 'Listing' to certification", () => {
+    expect(resolveAttribute("Color Rendering")?.key).toBe("color-rendering-index"); // not "color"
+    // The bare word "listing" is no longer a certification alias → an unrelated column is unmapped.
+    expect(resolveAttribute("Listing Date")).toBeNull();
+    expect(resolveAttribute("Catalog Listing")).toBeNull();
+    // Cert columns still map via distinctive names.
+    expect(resolveAttribute("Agency Approvals")?.key).toBe("certification");
+    expect(resolveAttribute("Certifications")?.key).toBe("certification");
+  });
+
   it("returns null for an unknown attribute name", () => {
     expect(resolveAttribute("Warranty Period")).toBeNull();
     expect(resolveAttribute("")).toBeNull();

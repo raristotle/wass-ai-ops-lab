@@ -219,6 +219,15 @@ describe("HELP_TOPICS", () => {
     expect(body).toMatch(/not lifecycle/i); // honest: stock state ≠ lifecycle
   });
 
+  it("covers the data-sources D6 certs + category depth + recall demand signal (honest + dormant)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("certs-depth-demand")).toBe(true);
+    const body = HELP_TOPICS.find((t) => t.id === "certs-depth-demand")!.body.join(" ");
+    expect(body).toMatch(/certification/i);
+    expect(body).toMatch(/recall/i);
+    expect(body).toContain("INGEST_CPSC_RECALLS");
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

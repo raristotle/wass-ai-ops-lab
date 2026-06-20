@@ -10,7 +10,7 @@ import type { SchemaProduct } from "@/lib/ingest/fetcher";
 const VALID_GTIN = "0712345678904";
 const INVALID_GTIN = "0712345678901";
 
-const sp = (over: Partial<SchemaProduct> = {}): SchemaProduct => ({ attributes: [], images: [], ...over });
+const sp = (over: Partial<SchemaProduct> = {}): SchemaProduct => ({ attributes: [], images: [], certifications: [], ...over });
 
 describe("scoreSchemaProduct", () => {
   it("scores mpn or VALID gtin at/above the floor, sku-only below it, name-only low", () => {
@@ -51,6 +51,11 @@ describe("schemaProductToRecord + gate", () => {
     const r = schemaProductToRecord(sp({ mpn: "M", lifecycle: "Discontinued", attributes: [{ name: "Amperage", value: "20 A" }] }), "https://s/1");
     expect(r.attributes).toContainEqual({ name: "Lifecycle status", value: "Discontinued" });
     expect(r.attributes).toContainEqual({ name: "Amperage", value: "20 A" });
+  });
+
+  it("appends a certifications attribute (D6) when the product carries certifications", () => {
+    const r = schemaProductToRecord(sp({ mpn: "M", certifications: ["UL Listed", "CSA"] }), "https://s/1");
+    expect(r.attributes).toContainEqual({ name: "Certifications", value: "UL Listed, CSA" });
   });
 });
 
