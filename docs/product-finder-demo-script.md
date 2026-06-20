@@ -640,5 +640,10 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   these together, 3× more than chance.' One file wakes the whole behavioral engine."*
   Show the mined top pairs in the summary. (Until imported, the rail is the honest
   deterministic spec-rule model — no faked behavior.)
+- **Find by your own catalog #** → type `WX-100000` in the search box. *"A buyer searches
+  the number THEY use, not the manufacturer's — it resolves to the carried product with a
+  'your #' badge. That's the illustrative demo crosswalk; Ctrl/⌘-K → 'Import catalog
+  numbers' loads the customer's real crosswalk so their whole catalog resolves their way.
+  We never fabricate their numbers — they come from import."*
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

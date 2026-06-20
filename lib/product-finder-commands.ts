@@ -20,7 +20,7 @@ export type CommandAction =
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
         | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode"
-        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360" | "order-history";
+        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360" | "order-history" | "crosswalk";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -116,6 +116,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["import", "order history", "co-purchase", "market basket", "behavioral", "onboard data", "upload orders", "csv"],
       action: { kind: "open", target: "order-history" },
+    },
+    {
+      id: "open-crosswalk",
+      label: "Import catalog numbers — customer SKU crosswalk",
+      group: "Open",
+      keywords: ["import", "catalog number", "crosswalk", "customer sku", "their part number", "onboard data", "csv", "wesco sku"],
+      action: { kind: "open", target: "crosswalk" },
     },
     {
       id: "open-barcode",

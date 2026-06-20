@@ -357,6 +357,59 @@ export async function apiClearOrderHistory(): Promise<boolean> {
   }
 }
 
+// ─── Customer catalog-number crosswalk (pilot data onboarding) ───────────────
+export interface CrosswalkManifest {
+  version: number;
+  customer: string | null;
+  entries: number;
+  resolved: number;
+  unresolved: number;
+  importedAtIso: string;
+}
+export interface CrosswalkStatus {
+  durable: boolean;
+  manifest: CrosswalkManifest | null;
+}
+export interface CrosswalkImportResult {
+  ok?: boolean;
+  persisted?: "postgres" | "memory";
+  manifest?: CrosswalkManifest;
+  headline?: string;
+  error?: string;
+}
+
+export async function apiCrosswalkStatus(): Promise<CrosswalkStatus> {
+  try {
+    const res = await fetch("/api/catalog/crosswalk");
+    if (!res.ok) return { durable: false, manifest: null };
+    return (await res.json()) as CrosswalkStatus;
+  } catch {
+    return { durable: false, manifest: null };
+  }
+}
+
+export async function apiImportCrosswalk(csv: string, customer?: string): Promise<CrosswalkImportResult> {
+  try {
+    const res = await fetch("/api/catalog/crosswalk/import", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ csv, customer }),
+    });
+    return (await res.json()) as CrosswalkImportResult;
+  } catch {
+    return { error: "Import request failed" };
+  }
+}
+
+export async function apiClearCrosswalk(): Promise<boolean> {
+  try {
+    const res = await fetch("/api/catalog/crosswalk", { method: "DELETE" });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export async function apiAdjacency(): Promise<Record<string, { to: string; required: boolean }[]>> {
   try {
     const res = await fetch("/api/companions/adjacency");

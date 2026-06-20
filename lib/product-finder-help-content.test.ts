@@ -165,9 +165,10 @@ describe("HELP_TOPICS", () => {
     }
   });
 
-  it("covers pilot data onboarding (order-history import)", () => {
+  it("covers pilot data onboarding (order-history import + catalog crosswalk)", () => {
     const ids = new Set(HELP_TOPICS.map((t) => t.id));
     expect(ids.has("order-history-import")).toBe(true);
+    expect(ids.has("catalog-crosswalk")).toBe(true);
   });
 
   it("states the 200,000-product catalog size (not the old 60,000)", () => {

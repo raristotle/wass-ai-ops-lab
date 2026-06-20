@@ -247,6 +247,8 @@ export interface SuggestItem {
   sku: string;
   brand: string;
   imageIcon: string;
+  /** Set when the suggestion was matched via the customer catalog-number crosswalk. */
+  customerNumber?: string;
 }
 
 export interface ProductDetail {

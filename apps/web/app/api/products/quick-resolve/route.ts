@@ -4,6 +4,10 @@ import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { getCatalog } from "@/lib/catalog/index";
 import { lookupCrossReference } from "@/lib/integration/cross-reference";
 import { resolveQuickOrderSmart } from "@/lib/product-finder-quick-order";
+import { resolveBySku } from "@/lib/catalog/sku-index";
+import { crosswalkIndex, resolveCustomerNumber } from "@/lib/catalog/crosswalk";
+import { getStore, forTenant } from "@/lib/server/persistence";
+import { tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
@@ -43,10 +47,21 @@ export async function POST(req: Request) {
 
     const index = skuIndex();
     const exact = (sku: string) => index.get(sku.trim().toUpperCase()) ?? null;
+    // Resolve a pasted token by the customer's own catalog number first (their
+    // crosswalk), then fall back to the competitor/legacy cross-reference. Exact SKU
+    // is still tried before either (inside resolveQuickOrderSmart), so a customer
+    // number never shadows a real SKU.
+    const tenant = tenantForRequest(req);
+    const cwIdx = await crosswalkIndex(forTenant(getStore(), tenant), tenant ?? "global");
+    const crossOrCrosswalk = (sku: string): CatalogProduct | null => {
+      const hit = resolveCustomerNumber(cwIdx, sku);
+      if (hit) return resolveBySku(hit.sku);
+      return lookupCrossReference(sku);
+    };
     const resolved = resolveQuickOrderSmart(
       parsed.data.skus.map((s) => ({ raw: s, sku: s, qty: 1 })),
       exact,
-      lookupCrossReference,
+      crossOrCrosswalk,
     );
 
     return NextResponse.json({

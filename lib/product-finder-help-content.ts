@@ -1168,6 +1168,17 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "catalog-crosswalk",
+    title: "Customer catalog numbers — find parts by your own #",
+    body: [
+      "Ctrl/⌘-K → “Import catalog numbers”. Load a customer’s own item-number → product mapping (a CSV of “your number, sku”) so their buyers find parts by the numbers they already use.",
+      "• After import, typing a customer number in the search box surfaces the carried product with a “your #” badge; pasting customer numbers into the Quick-Order pad resolves them too.",
+      "• Exact manufacturer SKU is always tried first, so a customer number never shadows a real SKU. Unmatched rows are reported, never invented.",
+      "Until a real crosswalk is imported, an illustrative DEMO crosswalk is active — try searching “WX-100000”. Import replaces it with the customer’s real numbers. $0.",
+    ],
+    tryQuery: "WX-100000",
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

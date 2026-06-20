@@ -217,6 +217,12 @@ function SuggestionRow({
           {product.name}
         </p>
         <p className="truncate text-xs text-[#4F758B]">
+          {/* v5: when matched via the customer's own catalog number, show it. */}
+          {product.customerNumber ? (
+            <>
+              <span className="font-semibold text-[#004986]">your #{product.customerNumber}</span> &middot;{" "}
+            </>
+          ) : null}
           {product.brand} &middot; SKU: {product.sku}
         </p>
       </div>
