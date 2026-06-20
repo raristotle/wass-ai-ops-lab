@@ -10,7 +10,7 @@ import type { SchemaProduct } from "@/lib/ingest/fetcher";
 const VALID_GTIN = "0712345678904";
 const INVALID_GTIN = "0712345678901";
 
-const sp = (over: Partial<SchemaProduct> = {}): SchemaProduct => ({ attributes: [], ...over });
+const sp = (over: Partial<SchemaProduct> = {}): SchemaProduct => ({ attributes: [], images: [], ...over });
 
 describe("scoreSchemaProduct", () => {
   it("scores mpn or VALID gtin at/above the floor, sku-only below it, name-only low", () => {

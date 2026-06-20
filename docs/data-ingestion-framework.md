@@ -204,3 +204,39 @@ client calls in `fetch()`, which return nothing until distributor keys are set (
 
 With both set, a `distributor:identity` source appears in the registry and a run enriches
 those MPNs' brand + datasheet links through the same gate → snapshot → diff pipeline.
+
+---
+
+## D4 — Manufacturer product-page harvester + accurate images
+
+A branded layer over the schema.org/JSON-LD adapter (`lib/ingest/adapters/manufacturer.ts`)
+tuned for **manufacturer** product pages — Eaton, Schneider, Siemens, ABB, Hubbell,
+Leviton, etc. The manufacturer is the authoritative source for its own products'
+attributes, datasheets, and **product images** — and, unlike third-party distributor
+catalog content, a manufacturer's own image of its own product is redistributable, so D4
+harvests accurate images here.
+
+It adds three things over the bare schema.org adapter:
+
+- **A curated brand → Wesco-segment registry** (`MANUFACTURER_REGISTRY`) so a harvested
+  record lands in the right segment (Eaton/Square D/Siemens/ABB → EES; Panduit/CommScope →
+  CSS; Acuity → UBS; …). Aliases (Square D → Schneider, Cutler-Hammer → Eaton) resolve too.
+- **A manufacturer-appropriate license note** stating it ingests factual specs + the
+  manufacturer's own product images, never copyrighted marketing prose.
+- **Best-image resolution** (`lib/ingest/image.ts`): every image reference is resolved to an
+  absolute `http(s)` URL against the page it came from (handling protocol-relative `//cdn…`
+  and root/relative `/img/…` refs) and obvious placeholders (spinners, "no-image",
+  "coming-soon") are skipped — so the ingested `imageUrl` is an accurate, loadable link or
+  nothing at all (never a fabricated/placeholder image). This image hardening also lifts the
+  D1 schema.org sources.
+
+**Activation** — declare manufacturer sources in `INGEST_MANUFACTURERS`, a single-line JSON
+array (dormant/$0 until set):
+
+```json
+[{"brand":"Eaton","urls":["https://www.eaton.com/…/br120","https://www.eaton.com/…/br240"]}]
+```
+
+Each entry becomes a `manufacturer:<brand>` source. The segment is derived from the registry
+(override with an optional `"segment"`). Harvesting uses the same polite fetch (≤1 req/s/host)
+and gate → snapshot → diff pipeline as every other source.

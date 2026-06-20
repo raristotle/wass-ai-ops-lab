@@ -54,6 +54,18 @@ describe("schemaOrgProducts", () => {
     const nodes = extractJsonLd(`<script type="application/ld+json">{"@type":["Product","IndividualProduct"],"name":"Z","mpn":"M"}</script>`);
     expect(schemaOrgProducts(nodes)).toHaveLength(1);
   });
+
+  it("collects ALL images (string | array | ImageObject) in document order", () => {
+    const arr = schemaOrgProducts(extractJsonLd(PAGE))[0];
+    expect(arr.images).toEqual(["https://ex.com/a.jpg", "https://ex.com/b.jpg"]);
+    expect(arr.image).toBe("https://ex.com/a.jpg");
+
+    const single = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","image":"https://ex.com/one.jpg"}</script>`))[0];
+    expect(single.images).toEqual(["https://ex.com/one.jpg"]);
+
+    const obj = schemaOrgProducts(extractJsonLd(`<script type="application/ld+json">{"@type":"Product","name":"P","mpn":"M","image":{"@type":"ImageObject","url":"https://ex.com/io.jpg"}}</script>`))[0];
+    expect(obj.images).toEqual(["https://ex.com/io.jpg"]);
+  });
 });
 
 describe("productsFromHtml", () => {

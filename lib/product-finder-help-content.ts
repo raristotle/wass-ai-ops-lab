@@ -1211,6 +1211,16 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "manufacturer-harvest",
+    title: "Manufacturer harvest — accurate specs & images",
+    body: [
+      "A data-ingestion source that harvests product attributes, datasheets, and accurate product IMAGES straight from the manufacturer’s own product pages (Eaton, Schneider, Siemens, ABB, Hubbell, Leviton, and more).",
+      "• The manufacturer is the authoritative source for its own products, and — unlike third-party distributor catalog content — its own image of its own product is fine to use, so this is where the app gets real, accurate images. Each harvested record is placed in the right Wesco segment automatically from a built-in brand map.",
+      "• Honest images: every image link is resolved to a full URL and obvious placeholders (spinners, “no-image”, “coming-soon”) are skipped — so a product either gets a real, loadable image or none, never a fake one. Only factual specs are read, never copyrighted marketing prose.",
+      "• Dormant and $0 until you declare manufacturer sources in INGEST_MANUFACTURERS — then a “manufacturer:<brand>” source appears in the Data-ingestion panel and runs through the same provenance gate → snapshot → diff as every other source.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

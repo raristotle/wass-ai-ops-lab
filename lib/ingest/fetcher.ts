@@ -100,7 +100,10 @@ export interface SchemaProduct {
   mpn?: string;
   sku?: string;
   gtin?: string;
+  /** First image (back-compat); see `images` for all candidates. */
   image?: string;
+  /** All image references found, in document order (D4 picks the best + absolutizes). */
+  images: string[];
   url?: string;
   /** Raw additionalProperty pairs → attribute candidates. */
   attributes: { name: string; value: string }[];
@@ -125,12 +128,18 @@ function brandName(v: unknown): string | undefined {
   return undefined;
 }
 
-/** First image URL from a string | string[] | ImageObject (trimmed; "" → undefined). */
-function firstImage(v: unknown): string | undefined {
-  if (typeof v === "string") return str(v);
-  if (Array.isArray(v)) return firstImage(v[0]);
-  if (v && typeof v === "object") return str((v as { url?: unknown }).url) ?? str((v as { contentUrl?: unknown }).contentUrl);
-  return undefined;
+/** All image refs from a string | string[] | ImageObject(+[]) , in document order. */
+function collectImages(v: unknown): string[] {
+  if (typeof v === "string") {
+    const s = str(v);
+    return s ? [s] : [];
+  }
+  if (Array.isArray(v)) return v.flatMap(collectImages);
+  if (v && typeof v === "object") {
+    const url = str((v as { url?: unknown }).url) ?? str((v as { contentUrl?: unknown }).contentUrl);
+    return url ? [url] : [];
+  }
+  return [];
 }
 
 /** Map schema.org additionalProperty (PropertyValue[]) to attribute pairs. */
@@ -148,16 +157,20 @@ function additionalProps(v: unknown): { name: string; value: string }[] {
 
 /** Extract schema.org Product nodes from a page's JSON-LD into a clean shape. */
 export function schemaOrgProducts(nodes: Record<string, unknown>[]): SchemaProduct[] {
-  return nodes.filter(isProduct).map((n) => ({
-    name: str(n.name),
-    brand: brandName(n.brand),
-    mpn: str(n.mpn),
-    sku: str(n.sku),
-    gtin: str(n.gtin13) ?? str(n.gtin12) ?? str(n.gtin) ?? str(n.gtin14) ?? str(n.gtin8),
-    image: firstImage(n.image),
-    url: str(n.url),
-    attributes: additionalProps(n.additionalProperty),
-  }));
+  return nodes.filter(isProduct).map((n) => {
+    const images = collectImages(n.image);
+    return {
+      name: str(n.name),
+      brand: brandName(n.brand),
+      mpn: str(n.mpn),
+      sku: str(n.sku),
+      gtin: str(n.gtin13) ?? str(n.gtin12) ?? str(n.gtin) ?? str(n.gtin14) ?? str(n.gtin8),
+      image: images[0],
+      images,
+      url: str(n.url),
+      attributes: additionalProps(n.additionalProperty),
+    };
+  });
 }
 
 /** Convenience: HTML → schema.org products in one call. */

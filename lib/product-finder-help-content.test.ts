@@ -201,6 +201,15 @@ describe("HELP_TOPICS", () => {
     expect(body).toContain("INGEST_DISTRIBUTOR_MPNS");
   });
 
+  it("covers the data-sources D4 manufacturer harvest (accurate images + honest + dormant)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("manufacturer-harvest")).toBe(true);
+    const body = HELP_TOPICS.find((t) => t.id === "manufacturer-harvest")!.body.join(" ");
+    expect(body).toMatch(/image/i);
+    expect(body).toMatch(/placeholder|never a fake/i);
+    expect(body).toContain("INGEST_MANUFACTURERS");
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

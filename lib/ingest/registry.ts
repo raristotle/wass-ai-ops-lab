@@ -18,6 +18,7 @@ import type { SourceAdapter } from "@/lib/ingest/source-adapter";
 import { makeSchemaOrgAdapter, type SchemaOrgAdapterConfig } from "@/lib/ingest/adapters/schema-org-product";
 import { selfTestAdapter } from "@/lib/ingest/adapters/selftest";
 import { makeDistributorAdapter, distributorClientsConfigured } from "@/lib/ingest/adapters/distributor";
+import { makeManufacturerAdapter, parseEnvManufacturers } from "@/lib/ingest/adapters/manufacturer";
 import { logApiError } from "@/lib/server/log";
 
 /** Cap the distributor seed list so one run can't fan out to thousands of API calls. */
@@ -99,12 +100,20 @@ function distributorAdapter(env: IngestEnv): SourceAdapter | null {
 
 /**
  * The adapters available to run: the built-in self-test, the dormant distributor harvest
- * (when keyed + seeded), plus any env-declared schema.org sources. `env` is injectable.
+ * (when keyed + seeded), env-declared manufacturer harvesters (D4), plus any env-declared
+ * schema.org sources. `env` is injectable. All live sources are dormant by default.
  */
 export function getAdapters(env: IngestEnv = process.env): SourceAdapter[] {
   const live = parseEnvSources(env.INGEST_SOURCES).map(makeSchemaOrgAdapter);
+  const manufacturers = parseEnvManufacturers(env.INGEST_MANUFACTURERS).map(makeManufacturerAdapter);
   const distributor = distributorAdapter(env);
-  return [selfTestAdapter, ...(distributor ? [distributor] : []), ...live];
+  const all = [selfTestAdapter, ...(distributor ? [distributor] : []), ...manufacturers, ...live];
+  // Dedupe by id (first wins): two operator entries that slug to the same id must NOT both
+  // register — they share one snapshot namespace and would clobber each other's diff. The
+  // id is the snapshot key, so collapsing to the first is the safe, consistent behavior.
+  const byId = new Map<string, SourceAdapter>();
+  for (const a of all) if (!byId.has(a.id)) byId.set(a.id, a);
+  return [...byId.values()];
 }
 
 /** Look up one adapter by id, or null. */

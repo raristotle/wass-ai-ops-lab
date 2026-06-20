@@ -664,6 +664,11 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   harvest source — point it at a list of part numbers and it fills in manufacturer names and
   datasheet links from Mouser/Digi-Key/Nexar. Crucially, it respects their terms: it ingests
   only the identity and the datasheet URL, never their pricing or catalog content. Dormant
-  and $0 until you set a distributor key plus a seed MPN list."* (docs/data-ingestion-framework.md)
+  and $0 until you set a distributor key plus a seed MPN list."* *"And D4 is where the
+  accurate IMAGES come from — it harvests straight from the manufacturer's own product pages
+  (Eaton, Schneider, Siemens, ABB…), where their own product photos and full specs are fair
+  game. Every image is resolved to a real URL and placeholders are thrown out, so a product
+  gets a real image or none — never a fake one. Each brand lands in the right segment
+  automatically. Set INGEST_MANUFACTURERS to turn a brand on."* (docs/data-ingestion-framework.md)
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.

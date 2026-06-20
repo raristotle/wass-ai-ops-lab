@@ -23,6 +23,7 @@ import type {
 import { PRODUCTION_CONFIDENCE } from "@/lib/catalog/provenance";
 import { normalizeGtin } from "@/lib/catalog/identifiers";
 import { productsFromHtml, type SchemaProduct } from "@/lib/ingest/fetcher";
+import { pickBestImage } from "@/lib/ingest/image";
 
 export interface SchemaOrgAdapterConfig {
   /** Stable id (snapshot namespace), e.g. "schema-org:eaton". */
@@ -51,20 +52,22 @@ export function scoreSchemaProduct(p: SchemaProduct): number {
   return 40; // name only (or unverifiable code only) → dropped
 }
 
-/** Map one parsed schema.org product to an IngestRecord stamped with its source URL. */
+/** Map one parsed schema.org product to an IngestRecord stamped with its source URL. The
+ *  image is resolved to an absolute, non-placeholder URL against the page it came from. */
 export function schemaProductToRecord(
   p: SchemaProduct,
   sourceUrl: string,
   brandFallback?: string,
 ): IngestRecord {
+  const pageUrl = p.url ?? sourceUrl;
   return {
     sku: p.sku,
     mpn: p.mpn,
     gtin: p.gtin,
     brand: p.brand ?? brandFallback,
     attributes: p.attributes.length ? p.attributes : undefined,
-    imageUrl: p.image,
-    sourceUrl: p.url ?? sourceUrl,
+    imageUrl: pickBestImage(p.images ?? [], pageUrl),
+    sourceUrl: pageUrl,
     confidence: scoreSchemaProduct(p),
   };
 }
