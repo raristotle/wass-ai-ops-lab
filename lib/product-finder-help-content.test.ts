@@ -191,6 +191,16 @@ describe("HELP_TOPICS", () => {
     expect(body).toMatch(/coverage/);
   });
 
+  it("covers the data-sources D3 distributor harvest (ToS boundary + dormant/$0)", () => {
+    const ids = new Set(HELP_TOPICS.map((t) => t.id));
+    expect(ids.has("distributor-harvest")).toBe(true);
+    const body = HELP_TOPICS.find((t) => t.id === "distributor-harvest")!.body.join(" ");
+    // Must state the identity-only ToS boundary and the dormant/$0 default.
+    expect(body).toMatch(/datasheet/i);
+    expect(body).toMatch(/never cached|proprietary/i);
+    expect(body).toContain("INGEST_DISTRIBUTOR_MPNS");
+  });
+
   it("states the 200,000-product catalog size (not the old 60,000)", () => {
     const text = JSON.stringify(HELP_TOPICS);
     expect(text).toContain("200,000");

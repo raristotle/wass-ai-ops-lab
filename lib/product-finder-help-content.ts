@@ -1201,6 +1201,16 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "distributor-harvest",
+    title: "Distributor harvest — fill datasheet & brand gaps",
+    body: [
+      "A data-ingestion source that enriches a list of manufacturer part numbers from the distributor APIs (Mouser, Digi-Key, Nexar/Octopart) to fill in missing manufacturer names and datasheet links.",
+      "• It respects each distributor’s terms: it ingests ONLY the factual identity linkage — the part number, the manufacturer, and the datasheet URL. Their proprietary catalog content (pricing, stock, descriptions, parametric specs) is deliberately never cached. Live pricing/stock is still available per request elsewhere in the app.",
+      "• Dormant and $0 by default. It activates only when (1) a distributor key is set (MOUSER_API_KEY, DIGIKEY_CLIENT_ID/SECRET, or NEXAR_CLIENT_ID/SECRET) AND (2) a seed MPN list is provided in INGEST_DISTRIBUTOR_MPNS — then a “distributor:identity” source appears in the Data-ingestion panel.",
+      "• Records from multiple distributors for the same part merge into one, and flow through the same gate (≥95% provenance) → snapshot → diff as every other source.",
+    ],
+  },
+  {
     id: "tips",
     title: "Quick tips",
     body: [

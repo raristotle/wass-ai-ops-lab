@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseEnvSources, getAdapters, getAdapter, liveSourcesConfigured } from "@/lib/ingest/registry";
+import { parseEnvSources, getAdapters, getAdapter, liveSourcesConfigured, parseDistributorMpns, MAX_DISTRIBUTOR_MPNS } from "@/lib/ingest/registry";
 import { SELFTEST_ADAPTER_ID } from "@/lib/ingest/adapters/selftest";
 
 describe("parseEnvSources", () => {
@@ -36,6 +36,30 @@ describe("getAdapters / getAdapter", () => {
     expect(ids).toEqual([SELFTEST_ADAPTER_ID, "schema-org:x"]);
     expect(getAdapter("schema-org:x", env)?.label).toBe("schema-org:x");
     expect(getAdapter("nope", env)).toBeNull();
+  });
+});
+
+describe("parseDistributorMpns", () => {
+  it("splits on commas/whitespace, dedupes case-insensitively, and caps the list", () => {
+    expect(parseDistributorMpns("A-1, B-2  B-2\nC-3")).toEqual(["A-1", "B-2", "C-3"]);
+    expect(parseDistributorMpns(undefined)).toEqual([]);
+    expect(parseDistributorMpns("   ")).toEqual([]);
+    const many = Array.from({ length: MAX_DISTRIBUTOR_MPNS + 50 }, (_, i) => `M-${i}`).join(",");
+    expect(parseDistributorMpns(many)).toHaveLength(MAX_DISTRIBUTOR_MPNS);
+  });
+});
+
+describe("distributor adapter dormancy", () => {
+  it("is NOT registered without a seed MPN list (even if a client were keyed)", () => {
+    // No INGEST_DISTRIBUTOR_MPNS → no distributor adapter regardless of keys.
+    const ids = getAdapters({ INGEST_DISTRIBUTOR_MPNS: "" }).map((a) => a.id);
+    expect(ids).not.toContain("distributor:identity");
+  });
+
+  it("is NOT registered when seeded but no distributor client is configured ($0 default)", () => {
+    // Seed present but no Mouser/Digi-Key/Nexar keys in this test env → still dormant.
+    const ids = getAdapters({ INGEST_DISTRIBUTOR_MPNS: "EX-1,EX-2" }).map((a) => a.id);
+    expect(ids).not.toContain("distributor:identity");
   });
 });
 

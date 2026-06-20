@@ -171,3 +171,36 @@ The admin panel surfaces the recognized canonical set ("Attribute backbone — N
 attributes") and each run shows its `attrs N% canonical` coverage; `GET /api/ingest/status`
 returns the taxonomy and the per-run coverage, and the MCP `ingest_run` / `ingest_status`
 reports carry `attributeCoverage`.
+
+---
+
+## D3 — Distributor identity harvest
+
+A Source Adapter (`lib/ingest/adapters/distributor.ts`) that wraps the existing dormant
+distributor seams — **Mouser + Digi-Key** (`lib/integration/distributor-live`) and
+**Nexar / Octopart** (`lib/integration/nexar-live`) — to enrich a seed list of MPNs.
+
+> **Terms-of-service boundary — the honest part.** Mouser/Digi-Key/Nexar API terms restrict
+> caching and redistribution of their **proprietary catalog content**: pricing, stock,
+> descriptions, and parametric specs. So this adapter persists **only the factual identity
+> linkage** that is *not* their proprietary content — the **manufacturer part number** (the
+> manufacturer's identifier), the **manufacturer/brand name** (a fact), and the **datasheet
+> URL** (a link to the manufacturer's own document). Price/stock/description/specs are
+> deliberately dropped and never enter a snapshot. (Live pricing/stock remains available
+> per-request through the existing distributor seams — it just isn't ingested here.) The
+> adapter's `license` string states this boundary so every run is auditable.
+
+The transforms (`liveQuoteToIdentityRecord`, `nexarEnrichmentToIdentityRecord`,
+`mergeIdentityRecords`) are pure; the same-MPN records from multiple distributors merge
+into one, preferring the first non-empty brand/datasheet. The only I/O is the dormant
+client calls in `fetch()`, which return nothing until distributor keys are set ($0 default).
+
+**Activation** — two switches, both required:
+
+1. Configure at least one distributor client: `MOUSER_API_KEY`, or
+   `DIGIKEY_CLIENT_ID` + `DIGIKEY_CLIENT_SECRET`, or `NEXAR_CLIENT_ID` + `NEXAR_CLIENT_SECRET`.
+2. Provide a seed MPN list: `INGEST_DISTRIBUTOR_MPNS="EX-BR120, ABC-123, …"`
+   (comma/whitespace-separated, deduped, capped at 200 per run).
+
+With both set, a `distributor:identity` source appears in the registry and a run enriches
+those MPNs' brand + datasheet links through the same gate → snapshot → diff pipeline.

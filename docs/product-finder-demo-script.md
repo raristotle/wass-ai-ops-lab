@@ -660,6 +660,10 @@ bell and pipeline — and every screen two keystrokes away, desk or job site."*
   normalized onto one canonical taxonomy (Amperage, Voltage, Interrupting rating…) so the
   same attribute from Eaton, a distributor, and a datasheet all line up and merge. Specs it
   doesn't recognize are reported, never force-fit; units are never invented. Expand
-  'Attribute backbone' in the panel to see the canonical set."* (docs/data-ingestion-framework.md)
+  'Attribute backbone' in the panel to see the canonical set."* *"And D3 adds a distributor
+  harvest source — point it at a list of part numbers and it fills in manufacturer names and
+  datasheet links from Mouser/Digi-Key/Nexar. Crucially, it respects their terms: it ingests
+  only the identity and the datasheet URL, never their pricing or catalog content. Dormant
+  and $0 until you set a distributor key plus a seed MPN list."* (docs/data-ingestion-framework.md)
 - **Stuck anywhere** → the **?** Help button covers every feature with examples,
   or **Ctrl-K / ⌘K** jumps anywhere.
