@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
+import { requireApiAuth } from "@/lib/server/api-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +26,13 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  // Gate + rate-limit BEFORE doing anything: with a Resend key set this route sends
+  // real mail, so an ungated POST would be an open relay from the verified sender.
+  const rl = await rateLimit(req, { limit: 10, windowMs: 60_000 });
+  if (!rl.ok) return tooManyRequests(rl);
+  const denied = requireApiAuth(req);
+  if (denied) return denied;
+
   if (!configured()) {
     return NextResponse.json({ sent: false, simulated: true });
   }

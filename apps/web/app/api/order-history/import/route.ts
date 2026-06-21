@@ -5,6 +5,7 @@ import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { getStore, forTenant } from "@/lib/server/persistence";
 import { resolveBySku } from "@/lib/catalog/sku-index";
+import { crosswalkIndex, resolveCustomerNumber } from "@/lib/catalog/crosswalk";
 import { parseOrderHistoryCsv } from "@/lib/catalog/order-history";
 import { mineAssociationRules, type Basket } from "@/lib/catalog/market-basket";
 import {
@@ -15,6 +16,7 @@ import {
 } from "@/lib/catalog/order-history-rules";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 /**
  * Import a customer's historical order export (CSV) and WAKE the behavioral engines.
@@ -61,8 +63,23 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No order rows parsed from the file." }, { status: 400 });
     }
 
-    // Resolve SKUs → products, build one basket per order. Unresolved lines (parts
-    // we don't carry) are counted, never invented.
+    // Scope to the operator's tenant (or global when sessions are off) so one customer's
+    // co-purchase model never bleeds into another's rail. Built up front so the resolver
+    // can consult the tenant's catalog-number crosswalk.
+    const tenant = tenantForRequest(req);
+    const store = forTenant(getStore(), tenant);
+    const crosswalk = await crosswalkIndex(store, tenant ?? "global");
+
+    // Resolve a line to a carried product: exact SKU first, then the customer
+    // catalog-number crosswalk (so a real distributor's export that keys on THEIR own
+    // numbers still resolves). Unresolved lines are counted, never invented.
+    const resolveLine = (sku: string) => {
+      const direct = resolveBySku(sku);
+      if (direct) return direct;
+      const hit = resolveCustomerNumber(crosswalk, sku);
+      return hit ? resolveBySku(hit.sku) : null;
+    };
+
     const baskets: Basket[] = [];
     const resolvedSkus = new Set<string>();
     const subcats = new Set<string>();
@@ -71,7 +88,7 @@ export async function POST(req: Request) {
     for (const order of parsed.orders) {
       const items = [];
       for (const line of order.lines) {
-        const product = resolveBySku(line.sku);
+        const product = resolveLine(line.sku);
         if (!product) {
           unresolved++;
           continue;
@@ -86,7 +103,7 @@ export async function POST(req: Request) {
 
     if (baskets.length === 0) {
       return NextResponse.json(
-        { error: "None of the order SKUs matched the catalog — nothing to mine. Check the SKUs or run the catalog crosswalk first." },
+        { error: "None of the order lines matched a carried product — tried exact SKU and the customer catalog-number crosswalk. Check the part-number column, or import a crosswalk / the catalog for these numbers first." },
         { status: 422 },
       );
     }
@@ -95,9 +112,6 @@ export async function POST(req: Request) {
     const rules = mineAssociationRules(baskets, { grain: "subcategory", minCount: 2, minLift: 1.0 });
     const topPairs: TopPair[] = rules.slice(0, 8).map((r) => ({ a: r.a, b: r.b, lift: Math.round(r.lift * 100) / 100, count: r.count }));
 
-    // Scope to the operator's tenant (or global when sessions are off) so one
-    // customer's co-purchase model never bleeds into another's rail.
-    const store = forTenant(getStore(), tenantForRequest(req));
     const prev = await getOrderHistoryManifest(store);
     const manifest: OrderHistoryManifest = {
       version: (prev?.version ?? 0) + 1,

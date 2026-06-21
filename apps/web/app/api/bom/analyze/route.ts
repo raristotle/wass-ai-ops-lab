@@ -18,6 +18,8 @@ import { logApiError } from "@/lib/server/log";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
+// Per-line catalog scanning over a BOM can be heavy — give it headroom.
+export const maxDuration = 30;
 
 // This route runs catalog-scanning work per line (equivalents + sourcing), so the
 // cap is deliberately small — a basket/BOM analysis, not a bulk feed. Zod rejects

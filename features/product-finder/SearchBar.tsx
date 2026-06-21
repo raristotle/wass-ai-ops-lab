@@ -12,8 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { apiSuggest } from "@/lib/product-finder-api";
-import { lookupCrossReference } from "@/lib/integration/cross-reference";
+import { apiSuggest, apiCrossMatch } from "@/lib/product-finder-api";
 import { QUICK_PICKS } from "@/lib/product-finder-commands";
 import { normalizeTranscript } from "@/lib/product-finder-voice";
 import { VoiceSearchButton } from "@/features/product-finder/VoiceSearchButton";
@@ -50,12 +49,14 @@ function CrossReferenceModal({
   const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
   const [inputValue, setInputValue] = useState("");
   const [missMsg, setMissMsg] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (open) {
       setInputValue("");
       setMissMsg(null);
+      setBusy(false);
       setTimeout(() => inputRef.current?.focus(), 50);
     }
   }, [open]);
@@ -68,18 +69,29 @@ function CrossReferenceModal({
 
   function handleKeyDown(e: React.KeyboardEvent) {
     if (e.key === "Escape") onClose();
-    if (e.key === "Enter") handleFind();
+    if (e.key === "Enter") void handleFind();
   }
 
-  function handleFind() {
+  // Resolve against the REAL documented cross-references (POST /api/crosses/match):
+  // each suggestion cites the source that states the cross and carries the stocked
+  // equivalent. No synthetic fallback — a miss is reported honestly, never faked.
+  async function handleFind() {
     const sku = inputValue.trim();
-    if (!sku) return;
-    const product = lookupCrossReference(sku);
-    if (product) {
-      setDetailModalProduct(product);
-      onClose();
-    } else {
-      setMissMsg(`No Meridian equivalent found for '${sku}'.`);
+    if (!sku || busy) return;
+    setBusy(true);
+    setMissMsg(null);
+    try {
+      const [suggestion] = await apiCrossMatch([sku]);
+      if (suggestion) {
+        setDetailModalProduct(suggestion.product);
+        onClose();
+      } else {
+        setMissMsg(`No documented cross-reference to a stocked product for '${sku}'.`);
+      }
+    } catch {
+      setMissMsg("Couldn't reach the cross-reference service — try again.");
+    } finally {
+      setBusy(false);
     }
   }
 
@@ -122,8 +134,8 @@ function CrossReferenceModal({
               type="text"
               value={inputValue}
               onChange={(e) => { setInputValue(e.target.value); setMissMsg(null); }}
-              onKeyDown={(e) => { if (e.key === "Enter") handleFind(); }}
-              placeholder="e.g. GRN-2B4K0Q or ACE-1X7FZW"
+              onKeyDown={(e) => { if (e.key === "Enter") void handleFind(); }}
+              placeholder="e.g. a competitor or legacy part number"
               className={cn(
                 "flex-1 h-10 rounded-lg border border-[#B7C9D3] px-3 text-sm text-[#1D252D]",
                 "placeholder:text-[#4F758B]/60",
@@ -133,11 +145,11 @@ function CrossReferenceModal({
             />
             <Button
               type="button"
-              onClick={handleFind}
-              disabled={!inputValue.trim()}
+              onClick={() => void handleFind()}
+              disabled={!inputValue.trim() || busy}
               className="h-10 shrink-0 bg-[#00AA13] px-4 text-sm font-medium text-white hover:bg-[#009911] disabled:opacity-50"
             >
-              Find
+              {busy ? "Finding…" : "Find"}
             </Button>
           </div>
 
@@ -148,7 +160,7 @@ function CrossReferenceModal({
           )}
 
           <p className="text-[10px] text-[#4F758B] italic">
-            cross-reference data — simulated
+            Resolves against documented, source-cited cross-references.
           </p>
         </div>
       </div>

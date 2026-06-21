@@ -21,6 +21,22 @@ import { readSession, sessionsEnabled, type Session } from "@/lib/server/session
 
 type Outcome = { allowed: true; tenantId: string | null; session: Session | null } | { allowed: false };
 
+// Fail-LOUD if a PRODUCTION deploy is running without per-tenant sessions: the gate then
+// has no real tenancy (Origin is forgeable, tenantId:null collapses every caller into one
+// shared namespace). In that misconfiguration the forgeable same-origin allowance is
+// dropped below — a write requires WRITE_API_TOKEN. Real prod runs sessions ON, so this is
+// a backstop against accidentally shipping prod with SESSION_SECRET unset.
+if (process.env.VERCEL_ENV === "production" && !sessionsEnabled()) {
+  console.error(
+    JSON.stringify({
+      level: "error",
+      scope: "api-auth",
+      message:
+        "SESSION_SECRET is not set in production — per-tenant isolation is OFF and same-origin writes are denied (WRITE_API_TOKEN required). Set SESSION_SECRET to enable SSO sessions.",
+    }),
+  );
+}
+
 function tokenOk(req: Request): boolean {
   const token = process.env.WRITE_API_TOKEN?.trim();
   return Boolean(token) && req.headers.get("authorization") === `Bearer ${token}`;
@@ -44,8 +60,14 @@ function evaluate(req: Request): Outcome {
     if (tokenOk(req)) return { allowed: true, tenantId: "service", session: null };
     return { allowed: false };
   }
-  // Pilot mode: same-origin OR token, single shared space.
-  if (tokenOk(req) || sameOrigin(req)) return { allowed: true, tenantId: null, session: null };
+  // Pilot mode: same-origin OR token, single shared space. The server token always works.
+  if (tokenOk(req)) return { allowed: true, tenantId: null, session: null };
+  // The same-origin allowance is DROPPED in production: Origin is forgeable and sessions-off
+  // means no tenancy, so prod must run sessions ON (or use the token). Dev/preview keep the
+  // convenient same-origin path so local/preview UIs aren't broken.
+  if (sameOrigin(req) && process.env.VERCEL_ENV !== "production") {
+    return { allowed: true, tenantId: null, session: null };
+  }
   return { allowed: false };
 }
 

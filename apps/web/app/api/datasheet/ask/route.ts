@@ -18,6 +18,8 @@ import {
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
+// Free lexical retrieval + (when keyed) one model call — give it headroom.
+export const maxDuration = 30;
 
 /**
  * Datasheet RAG. Retrieval is FREE lexical (always runs). Generation is gated on

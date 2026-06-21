@@ -27,9 +27,16 @@ import { logApiError } from "@/lib/server/log";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
+// The tool-use loop can take several sequential model round-trips; give the function
+// room so it isn't killed mid-call (which would burn paid tokens for no answer).
+export const maxDuration = 60;
 
 // The assistant calls a paid model per request — cap hard to protect the bill.
 const ASSISTANT_LIMIT = { limit: 20, windowMs: 60_000 };
+// Wall-clock budget for the whole tool-use loop, kept under maxDuration with headroom to
+// still return a graceful answer before the function is force-killed.
+const LOOP_BUDGET_MS = 50_000;
+const PER_CALL_TIMEOUT_MS = 25_000;
 
 const totalStock = (p: CatalogProduct) =>
   p.branchStock.reduce((s, b) => s + b.quantity, 0) + p.dcStock.reduce((s, d) => s + d.quantity, 0);
@@ -135,8 +142,15 @@ async function runAnthropic(messages: AssistantTextMessage[], env: NodeJS.Proces
     content: m.content,
   }));
   const toolsUsed = new Set<string>();
+  const deadline = Date.now() + LOOP_BUDGET_MS;
 
   for (let step = 0; step < 6; step++) {
+    // Stop before the function wall so we return a graceful answer rather than getting
+    // force-killed after spending paid tokens.
+    const remaining = deadline - Date.now();
+    if (remaining < 4000) {
+      return { reply: "I ran out of time on that one — try narrowing it to a single part or spec.", toolsUsed: [...toolsUsed] };
+    }
     const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -151,6 +165,8 @@ async function runAnthropic(messages: AssistantTextMessage[], env: NodeJS.Proces
         tools: ASSISTANT_TOOLS,
         messages: convo,
       }),
+      // A single hung model call can't consume the whole budget.
+      signal: AbortSignal.timeout(Math.min(PER_CALL_TIMEOUT_MS, remaining)),
     });
     if (!res.ok) {
       const t = await res.text();

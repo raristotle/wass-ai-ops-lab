@@ -8,6 +8,8 @@ import { runIngestion } from "@/lib/ingest/runner";
 import { getAdapters } from "@/lib/ingest/registry";
 
 export const dynamic = "force-dynamic";
+// A run can fetch several live sources sequentially — give it room (still operator-only).
+export const maxDuration = 60;
 
 /**
  * Operator-triggered ingestion run (Sprint D1).

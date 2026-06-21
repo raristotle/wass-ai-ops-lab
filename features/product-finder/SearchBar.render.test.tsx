@@ -138,13 +138,15 @@ describe("SearchBar (render)", () => {
     expect(screen.queryByRole("dialog", { name: "Cross-reference lookup" })).not.toBeInTheDocument();
   });
 
-  it("cross-reference: an unknown part number shows the no-equivalent miss message", () => {
+  it("cross-reference: an unknown part number shows the no-documented-cross miss message", async () => {
+    // The modal now resolves against the real /api/crosses/match endpoint (apiCrossMatch);
+    // the default fetch stub omits `suggestions`, so it fails closed to a miss.
     render(<SearchBar />);
     fireEvent.click(screen.getByRole("button", { name: "Cross-reference lookup" }));
     const input = screen.getByLabelText("Competitor or legacy part number");
     fireEvent.change(input, { target: { value: "ZZZ-NOPE-9999" } });
     fireEvent.click(screen.getByRole("button", { name: "Find" }));
-    expect(screen.getByText(/No Meridian equivalent found/i)).toBeInTheDocument();
+    expect(await screen.findByText(/No documented cross-reference to a stocked product/i)).toBeInTheDocument();
   });
 
   it("offers a scoped 'Search only in {label}' suggestion for a category-name query", async () => {

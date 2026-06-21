@@ -19,8 +19,8 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "WASS AI Ops Lab",
-  description: "AI operations monitoring dashboard for LLM workloads",
+  title: "Meridian — Product Finder",
+  description: "AI product recommender for electrical distributors — search, cross-reference, and quote.",
   manifest: "/manifest.webmanifest",
   appleWebApp: { capable: true, title: "Meridian", statusBarStyle: "default" },
 };
