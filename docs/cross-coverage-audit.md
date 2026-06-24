@@ -69,10 +69,36 @@ The two tools differ on the one thing that matters — the license attached to t
   interactively for an individual quote — that is its intended single-use case — but it is not a
   bulk data source we can ingest.
 
+## Nexar/Octopart — already wired; what it does and does not give us
+
+Reviewed 2026-06-24. Nexar (Octopart) is **already integrated** and dormant pending keys, in two
+places, so there is nothing to build:
+
+- `lib/integration/nexar-live.ts` → `/api/parts/enrich` — live compliance docs, multi-distributor
+  stock + price breaks, datasheets, and second-source MPNs for a part. **Octopart's coverage
+  includes electrical-distribution SKUs** (verified: it returns Square D `QO130M200PC` with real
+  distributor offers + datasheet), so this is a strong *product-data enrichment* lane.
+- `lib/ingest/adapters/cross-reference.ts` (D5) — turns Nexar's `secondSources` into cross records,
+  honestly labeled relation `"second-source"` (same part, alternate manufacturer), **not** "equivalent".
+
+What it will and won't move:
+- ✅ **Enrichment** (datasheets, specs-adjacent compliance docs, multi-distributor pricing/stock):
+  genuinely useful for the "fix detailed info / specs / add SKUs" goal, for the parts Octopart carries.
+- ⚠️ **Cross coverage**: Nexar's only cross signal is `secondSources` — and proprietary electrical /
+  AV gear (Square D breakers, Leviton devices, RACO boxes, Shure mics) generally has **no** alternate-
+  manufacturer second source, so this adds *few* crosses. It will **not** reach 99% cross coverage.
+  (Its `similarParts` is algorithmic spec-similarity, which the simulated equivalence engine already
+  provides — so we don't treat it as verified crosses either.)
+
+To activate: add `NEXAR_CLIENT_ID` + `NEXAR_CLIENT_SECRET` to the Vercel env (credentials must be
+added by the account owner — the assistant cannot enter them), optionally set
+`INGEST_DISTRIBUTOR_MPNS` to the uncrossed MPNs for the D5 cross run, then trigger an ingest run.
+Cost: D3 + D5 each call Nexar once per seed MPN against the account's metered plan.
+
 ## To extend coverage further (compliant paths only)
 
-- **Paid cross/identity data** — Nexar/Octopart, Digi-Key, ECIA TrustedParts (env-gated seams already
-  exist in `lib/integration/`). These license cross/identity data for storage and use.
+- **Paid cross/identity data** — Nexar/Octopart (wired, see above), Digi-Key, ECIA TrustedParts
+  (env-gated seams already exist in `lib/integration/`). These license cross/identity data for use.
 - **Per-category manufacturer interchange tables** where the manufacturer publishes them openly
   (e.g. the Appleton tool above, or openly-posted Leviton/P&S spec-grade device cross sheets) — add
   as `data/real/*-crosses.ts` with the source URL, after confirming the source carries no
