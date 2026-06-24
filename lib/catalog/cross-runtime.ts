@@ -1,6 +1,7 @@
 import type { CatalogProduct } from "@/features/product-finder/types";
 import { resolveCrossConflicts, type VerifiedCrossEntry } from "@/lib/catalog/verified-crosses";
 import { VERIFIED_CROSS_ENTRIES } from "@/data/real/verified-crosses";
+import { BOM_CROSS_ENTRIES } from "@/data/real/bom-crosses";
 import { qualityScoreForUrl } from "@/lib/catalog/cross-sources";
 import { CROSS_SOURCE_ENTRIES } from "@/data/real/cross-source-registry";
 import { identifierKey } from "@/lib/catalog/identifiers";
@@ -23,7 +24,9 @@ const g = globalThis as unknown as {
 /** Conflict-resolved cross entries (cached once per process). */
 export function resolvedCrossEntries(): VerifiedCrossEntry[] {
   if (!g.__resolvedCrosses) {
-    g.__resolvedCrosses = resolveCrossConflicts(VERIFIED_CROSS_ENTRIES, {
+    // Real verified crosses + the rep-supplied Crouse-Hinds↔Appleton interchange crosses
+    // (data/real/bom-crosses — source-cited, not generated).
+    g.__resolvedCrosses = resolveCrossConflicts([...VERIFIED_CROSS_ENTRIES, ...BOM_CROSS_ENTRIES], {
       qualityScoreFor: (url) => qualityScoreForUrl(url, CROSS_SOURCE_ENTRIES),
     }).resolved;
   }
