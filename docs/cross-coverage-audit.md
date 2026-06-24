@@ -50,12 +50,35 @@ don't exist publicly, paid identity/cross data (Nexar/Digi-Key/ECIA), or per-par
 and many items have no true cross at all. We therefore **do not** chase a 99% number by fabricating
 pairs; every cross in the repo cites a source.
 
-## To extend coverage further
+## Why we use the Appleton tool but NOT the Eaton tool
 
-- **Eaton Crouse-Hinds Competitor Cross Reference** (`eaton.com/.../cross-reference-search.html`) —
-  competitor → Crouse-Hinds, for the breaker/fitting brands Eaton covers. Browser-drivable like the
-  Appleton tool.
+A tool being *technically* drivable in a browser does not make its data usable in this product.
+The two tools differ on the one thing that matters — the license attached to their data:
+
+- **Appleton Group Competitor Cross Reference** (`edt.youritdept.com/crossref`) presents its
+  competitor→Appleton cross data **openly, with no confidentiality or proprietary restriction**. It
+  is a sales-enablement tool whose intended purpose is for distributors and customers to surface and
+  act on Appleton equivalents. Using and storing that data is consistent with its purpose. → **Used**
+  (31 crosses shipped: `data/real/bom-crosses.ts` + `data/real/appleton-tool-crosses.ts`).
+- **Eaton to-competitor Cross-Reference search** (`eaton.com/us/en-us/cross-reference-search.html`)
+  gates its data behind terms that state, verbatim: _"The Eaton product cross-reference information
+  available via this tool … is **proprietary** and provided … on a **CONFIDENTIAL** and 'AS IS'
+  basis."_ Harvesting that data and republishing it in this production recommender would breach the
+  confidentiality term the user of the tool agrees to. → **NOT used.** We do not extract or store it.
+  (Reviewed 2026-06-24; no query was ever submitted.) A human rep may of course use the Eaton tool
+  interactively for an individual quote — that is its intended single-use case — but it is not a
+  bulk data source we can ingest.
+
+## To extend coverage further (compliant paths only)
+
 - **Paid cross/identity data** — Nexar/Octopart, Digi-Key, ECIA TrustedParts (env-gated seams already
-  exist in `lib/integration/`).
-- **Per-category manufacturer interchange tables** where published (e.g. Leviton/P&S spec-grade
-  device cross sheets) — add as `data/real/*-crosses.ts` with the source URL.
+  exist in `lib/integration/`). These license cross/identity data for storage and use.
+- **Per-category manufacturer interchange tables** where the manufacturer publishes them openly
+  (e.g. the Appleton tool above, or openly-posted Leviton/P&S spec-grade device cross sheets) — add
+  as `data/real/*-crosses.ts` with the source URL, after confirming the source carries no
+  confidentiality/no-redistribution restriction.
+- **Publicly-advertised category facts** — e.g. Eaton openly markets that its UL-Classified Type CHQ
+  (3/4") and CL (1") breakers are listed to replace GE / ITE-Siemens / Murray / Square D Homeline /
+  Crouse-Hinds / T&B loadcenter breakers. That category-level claim is public marketing (not the
+  confidential tool) and could seed *generic* substitution guidance, but it is not a part-number
+  cross and is intentionally not encoded as per-SKU `VerifiedCrossEntry` data.
