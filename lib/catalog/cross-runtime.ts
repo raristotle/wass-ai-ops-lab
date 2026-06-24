@@ -2,6 +2,7 @@ import type { CatalogProduct } from "@/features/product-finder/types";
 import { resolveCrossConflicts, type VerifiedCrossEntry } from "@/lib/catalog/verified-crosses";
 import { VERIFIED_CROSS_ENTRIES } from "@/data/real/verified-crosses";
 import { BOM_CROSS_ENTRIES } from "@/data/real/bom-crosses";
+import { APPLETON_TOOL_CROSS_ENTRIES } from "@/data/real/appleton-tool-crosses";
 import { qualityScoreForUrl } from "@/lib/catalog/cross-sources";
 import { CROSS_SOURCE_ENTRIES } from "@/data/real/cross-source-registry";
 import { identifierKey } from "@/lib/catalog/identifiers";
@@ -25,10 +26,12 @@ const g = globalThis as unknown as {
 export function resolvedCrossEntries(): VerifiedCrossEntry[] {
   if (!g.__resolvedCrosses) {
     // Real verified crosses + the rep-supplied Crouse-Hinds↔Appleton interchange crosses
-    // (data/real/bom-crosses — source-cited, not generated).
-    g.__resolvedCrosses = resolveCrossConflicts([...VERIFIED_CROSS_ENTRIES, ...BOM_CROSS_ENTRIES], {
-      qualityScoreFor: (url) => qualityScoreForUrl(url, CROSS_SOURCE_ENTRIES),
-    }).resolved;
+    // (bom-crosses) + real catalog products crossed via Appleton's authoritative tool
+    // (appleton-tool-crosses). All source-cited, none generated/scraped.
+    g.__resolvedCrosses = resolveCrossConflicts(
+      [...VERIFIED_CROSS_ENTRIES, ...BOM_CROSS_ENTRIES, ...APPLETON_TOOL_CROSS_ENTRIES],
+      { qualityScoreFor: (url) => qualityScoreForUrl(url, CROSS_SOURCE_ENTRIES) },
+    ).resolved;
   }
   return g.__resolvedCrosses;
 }
