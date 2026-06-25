@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { resolveBySku } from "@/lib/catalog/sku-index";
 import { searchCatalog } from "@/lib/catalog/search";
+import { getCatalog } from "@/lib/catalog/index";
 import { BOM_PRODUCTS } from "@/data/real/bom-products";
 
 /**
@@ -42,5 +43,13 @@ describe("part-number search (mfr + Wesco numbers)", () => {
   it("an exact manufacturer part number ranks first (not a fuzzy substring)", () => {
     const r = searchCatalog({ text: "461", pageSize: 5 });
     expect(r.items[0]?.sku).toBe("461");
+  });
+
+  it("every simulated demo product is searchable by its (simulated) Wesco stock number", () => {
+    const sim = getCatalog().products.find((p) => p.dataSource === "simulated" && p.wescoSku);
+    expect(sim).toBeDefined();
+    const wesco = sim?.wescoSku ?? "";
+    expect(wesco).toMatch(/^\d{9}$/); // 9-digit simulated # — never collides with real 11-digit Wesco SKUs
+    expect(resolveBySku(wesco)?.id).toBe(sim?.id);
   });
 });

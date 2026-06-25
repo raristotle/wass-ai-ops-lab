@@ -64,6 +64,22 @@ function makeExternal(rng: () => number, price: number, sku: string): ExternalSo
   });
 }
 
+/**
+ * A deterministic SIMULATED Wesco stock number for the simulated demo tier — so reps can
+ * search/quote by a Wesco-style number across the whole demo catalog. It is demo data, exactly
+ * like the generated SKU/price/stock on these `dataSource: "simulated"` products (NOT a claim
+ * about a real Wesco part — real Wesco numbers come only from imported PIM data / the BOM).
+ * 9 digits, so it can never collide with the real 11-digit Wesco SKUs on verified parts.
+ */
+function simWescoSku(id: string): string {
+  let h = 2166136261;
+  for (let i = 0; i < id.length; i++) {
+    h ^= id.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return String(100000000 + ((h >>> 0) % 900000000));
+}
+
 function genOne(
   rng: () => number,
   category: ProductCategory,
@@ -94,8 +110,10 @@ function genOne(
     externalSources: inStock ? [] : makeExternal(rng, price, sku),
     imageIcon: sub.icon,
     dataSource: "simulated",
-    // Derived from the id hash (not the shared rng) so existing SKUs/specs/stock
-    // stay byte-identical; curated/verified real parts default to Active.
+    // Simulated Wesco stock number (demo tier only) so part-number search by a Wesco-style
+    // number works across the demo catalog. Derived from the id hash (not the shared rng) so
+    // existing SKUs/specs/stock stay byte-identical; curated/verified real parts default to Active.
+    wescoSku: simWescoSku(id),
     lifecycleStatus: lifecycleStatusForId(id),
   };
 }
