@@ -54,8 +54,15 @@ export interface CrosswalkParseStats {
   mapping: { customerNumber: string | null; sku: string | null };
 }
 
-const CUSTOMER_HEADERS = ["customer_number", "customer number", "customer_sku", "your_sku", "your number", "cust_part", "customer_part", "account_sku", "their_sku", "customer item", "item_id"];
-const SKU_HEADERS = ["sku", "our_sku", "meridian_sku", "mfr", "mpn", "part", "part_number", "manufacturer_sku", "catalog", "product"];
+// The LOOKUP-KEY column: the number a rep types. Covers both a customer's own item number
+// AND a Wesco stock number — import a `wesco_sku,mfr_part` file and reps resolve by Wesco #.
+const CUSTOMER_HEADERS = [
+  "customer_number", "customer number", "customer_sku", "your_sku", "your number", "cust_part",
+  "customer_part", "account_sku", "their_sku", "customer item", "item_id",
+  "wesco_sku", "wesco number", "wesco", "wesco_stock", "wesco_part", "stock_number", "stock number", "stock_no",
+];
+// The carried-product column it resolves TO (the manufacturer SKU we stock).
+const SKU_HEADERS = ["sku", "our_sku", "meridian_sku", "mfr", "mpn", "part", "part_number", "manufacturer_sku", "manufacturer part", "catalog", "product"];
 
 function splitCsvLine(line: string, delim: string): string[] {
   const out: string[] = [];
@@ -89,18 +96,18 @@ function tokenize(header: string): string[] {
   return header.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
 }
 
-function findColumn(headers: string[], synonyms: string[]): number {
+function findColumn(headers: string[], synonyms: string[], exclude = -1): number {
   const lower = headers.map((h) => h.toLowerCase());
   for (const syn of synonyms) {
     const i = lower.indexOf(syn);
-    if (i !== -1) return i;
+    if (i !== -1 && i !== exclude) return i;
   }
   const tokens = headers.map(tokenize);
   for (let i = 0; i < tokens.length; i++) {
-    if (tokens[i].some((t) => synonyms.includes(t))) return i;
+    if (i !== exclude && tokens[i].some((t) => synonyms.includes(t))) return i;
   }
   for (let i = 0; i < lower.length; i++) {
-    if (synonyms.some((syn) => syn.length >= 4 && lower[i].includes(syn))) return i;
+    if (i !== exclude && synonyms.some((syn) => syn.length >= 4 && lower[i].includes(syn))) return i;
   }
   return -1;
 }
@@ -118,8 +125,9 @@ export function parseCrosswalkCsv(csv: string): { entries: { customerNumber: str
   const delim = detectDelimiter(lines[0]);
   const headers = splitCsvLine(lines[0], delim);
   const custCol = findColumn(headers, CUSTOMER_HEADERS);
-  // The SKU column must not be the same column chosen for the customer number.
-  let skuCol = findColumn(headers, SKU_HEADERS);
+  // The carried-SKU column must not be the lookup-key column — exclude it, so a header like
+  // "wesco_sku" (which matches both detectors) maps to the lookup key, not both.
+  let skuCol = findColumn(headers, SKU_HEADERS, custCol);
   if (skuCol === custCol) skuCol = -1;
   const mapping = {
     customerNumber: custCol === -1 ? null : headers[custCol],

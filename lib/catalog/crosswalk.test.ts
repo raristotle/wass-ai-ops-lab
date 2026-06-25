@@ -28,6 +28,18 @@ describe("parseCrosswalkCsv", () => {
     ]);
   });
 
+  it("maps a WESCO stock-number file (wesco # → mfr part) for part-number resolution", () => {
+    // A rep imports their Wesco PIM export; reps then resolve/quote by Wesco stock number.
+    const csv = ["wesco_sku,manufacturer_part", "78456410461,461", "78456410451,451", "78456410201,"].join("\n");
+    const { entries, stats } = parseCrosswalkCsv(csv);
+    expect(stats.mapping).toEqual({ customerNumber: "wesco_sku", sku: "manufacturer_part" });
+    expect(stats.dropped).toBe(1);
+    expect(entries).toEqual([
+      { customerNumber: "78456410461", sku: "461" },
+      { customerNumber: "78456410451", sku: "451" },
+    ]);
+  });
+
   it("returns no entries when a side is missing or both map to one column", () => {
     expect(parseCrosswalkCsv("foo,bar\n1,2").entries).toEqual([]);
     // 'part' matches the sku synonym; with no distinct customer column → nulled.
