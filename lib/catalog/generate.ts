@@ -4,6 +4,7 @@ import { makeRng, pick, randInt, round2 } from "@/lib/catalog/prng";
 import { lifecycleStatusForId } from "@/lib/catalog/lifecycle";
 import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { REAL_PRODUCTS } from "@/lib/catalog/real";
+import { EXTERNAL_PRODUCTS } from "@/lib/catalog/external-products";
 
 export const CATALOG_SIZE = 200000;
 const FIXED_SEED = 1337;
@@ -126,7 +127,18 @@ export function generateCatalog(size: number = CATALOG_SIZE): CatalogProduct[] {
       realUnique.push(rp);
     }
   }
-  const featured = [...curated, ...realUnique].slice(0, Math.min(curated.length + realUnique.length, size));
+  // Bulk external-source products (openly-licensed public datasets, e.g. ENERGY STAR /
+  // EPA public domain) fold in too — unique SKUs only, behind curated + verified records.
+  const realSkus = new Set(realUnique.map((p) => normSku(p.sku)));
+  const externalUnique: CatalogProduct[] = [];
+  for (const xp of EXTERNAL_PRODUCTS) {
+    const k = normSku(xp.sku);
+    if (curatedBySku.has(k) || realSkus.has(k)) continue;
+    realSkus.add(k);
+    externalUnique.push(xp);
+  }
+  const folded = [...curated, ...realUnique, ...externalUnique];
+  const featured = folded.slice(0, Math.min(folded.length, size));
   const out: CatalogProduct[] = [...featured];
   const usedIds = new Set(out.map((p) => p.id));
   const remaining = size - out.length;
