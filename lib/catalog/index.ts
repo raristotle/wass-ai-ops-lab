@@ -11,7 +11,9 @@ function build(): Catalog {
   const products = generateCatalog();
   const byId = new Map(products.map((p) => [p.id, p]));
   const haystack = products.map((p) =>
-    [p.name, p.sku, p.brand, p.category, p.subcategory, p.description, ...p.specs.map((s) => `${s.name} ${s.value}`)]
+    // Every part-number identity is searchable: mfr SKU, Wesco stock #, catalog #, GTIN.
+    [p.name, p.sku, p.wescoSku, p.catalogNumber, p.gtin, p.brand, p.category, p.subcategory, p.description, ...p.specs.map((s) => `${s.name} ${s.value}`)]
+      .filter(Boolean)
       .join(" ")
       .toLowerCase(),
   );

@@ -100,6 +100,13 @@ export interface CatalogProduct {
   specSheetUrl?: string;
   /** Provenance of unitPrice, e.g. "Est. list price, researched 2026-06 (grainger.com)". */
   priceNote?: string;
+  // ── Part-number identity (reps search/quote by part number, not name) ──
+  /** Wesco stock number, when known. Searchable + exact-resolvable like `sku`. */
+  wescoSku?: string;
+  /** Manufacturer catalog number when it differs from the MPN in `sku`. */
+  catalogNumber?: string;
+  /** Validated GTIN/UPC digits (GS1 check-digit verified). */
+  gtin?: string;
 }
 
 export interface BomLine {

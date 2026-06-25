@@ -102,6 +102,9 @@ function toCatalogProduct(e: RealProductEntry): CatalogProduct {
     dataSource: "verified",
     specSheetUrl: e.specSheetUrl,
     priceNote: `Est. list price, researched ${e.verifiedAt} (${e.priceSource}) — not a quote`,
+    wescoSku: e.wescoSku,
+    catalogNumber: e.catalogNumber,
+    gtin: e.gtin,
   };
 }
 

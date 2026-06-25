@@ -6,6 +6,7 @@ import { isActiveLifecycle } from "@/lib/catalog/lifecycle";
 import { crossCountForSku } from "@/lib/catalog/cross-runtime";
 import { reciprocalRankFusion } from "@/lib/catalog/rrf";
 import { matchConfidence } from "@/lib/product-finder-match-confidence";
+import { identifierKey } from "@/lib/catalog/identifiers";
 
 export interface SearchFilters {
   categories?: ProductCategory[];
@@ -71,9 +72,20 @@ function keywordScore(p: CatalogProduct, terms: string[]): number {
   const sku = p.sku.toLowerCase();
   const brand = p.brand.toLowerCase();
   const sub = p.subcategory.toLowerCase();
+  const wesco = (p.wescoSku ?? "").toLowerCase();
+  const catn = (p.catalogNumber ?? "").toLowerCase();
+  const gtin = (p.gtin ?? "").toLowerCase();
+  // Normalized part-number identities — an EXACT hit dominates (reps type the whole
+  // part number and expect that exact item first, mfr OR Wesco).
+  const idKeys = [p.sku, p.wescoSku, p.catalogNumber, p.gtin]
+    .filter((x): x is string => Boolean(x))
+    .map((x) => identifierKey(x));
   let s = 0;
   for (const t of terms) {
+    const tk = identifierKey(t);
+    if (tk && idKeys.includes(tk)) s += 1000; // exact part-number match wins outright
     if (sku.includes(t)) s += 3;
+    if (wesco.includes(t) || catn.includes(t) || gtin.includes(t)) s += 3; // Wesco/catalog/GTIN like the SKU
     if (name.includes(t)) s += 2;
     if (brand.includes(t)) s += 1;
     if (sub.includes(t)) s += 1;
