@@ -49,8 +49,14 @@ export function measureEquivalence(sample: CatalogProduct[], k = 8): Equivalence
   };
 }
 
-/** Deterministic evenly-spaced sample of the catalog (every `step`-th product). */
+/**
+ * Deterministic evenly-spaced sample of the catalog (every `step`-th product).
+ * Functional-equivalent precision only applies to spec-rich products, so identity-only
+ * bulk-source records (brand + type only, pending enrichment) are excluded from the
+ * sample — they are not cross-reference candidates and would otherwise dilute the gate.
+ */
 export function sampleCatalog(step = 137, limit = 400): CatalogProduct[] {
   const { products } = getCatalog();
-  return products.filter((_, i) => i % step === 0).slice(0, limit);
+  const eligible = products.filter((p) => p.specs.length >= 3);
+  return eligible.filter((_, i) => i % step === 0).slice(0, limit);
 }

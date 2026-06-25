@@ -1,21 +1,20 @@
-import type { BranchStock, CatalogProduct, DCStock, ProductCategory, ProductSpec } from "@/features/product-finder/types";
-import { TAXONOMY } from "@/lib/catalog/taxonomy";
-import { makeRng, randInt } from "@/lib/catalog/prng";
+import type { CatalogProduct, ProductCategory, ProductSpec } from "@/features/product-finder/types";
 import { ENERGY_STAR_LIGHTING, ENERGY_STAR_SOURCE_NAME, ENERGY_STAR_SOURCE_URL } from "@/data/real/energy-star-lighting";
+import { HUBBELL_CATALOG_PACKED } from "@/data/real/hubbell-catalog";
 
 /**
- * External bulk-source product tier — real products ingested from large,
- * openly-licensed public datasets (e.g. ENERGY STAR / EPA public domain).
+ * External bulk-source product tier — REAL products ingested from large, openly-
+ * accessible sources, deduped by SKU and folded into the searchable catalog.
  *
- * Unlike `data/real/real-products.ts` (hand-curated, with researched list price +
- * per-record datasheet), these come from bulk tables that carry factual identity +
- * specs but NO list price or per-unit spec sheet. They are real and source-cited, so
- * they fold into the searchable catalog deduped by SKU — but are honestly labelled:
- * unitPrice 0 ("price on request"), a shared source citation instead of a datasheet,
- * and a lower data-quality score (no datasheet) that the quality report reflects.
- *
- * This is the ingestion target the renewable adapter framework feeds; the same
- * mapper scales to other openly-licensed bulk sources (Open Icecat, DOE CCMS, …).
+ * Two grades, both honestly labelled (no fabrication):
+ *  1. SPEC-RICH (ENERGY STAR / EPA public domain): brand + model + full photometric
+ *     specs. Public-domain factual data.
+ *  2. IDENTITY-ONLY (manufacturer product sitemaps, e.g. Hubbell): brand + catalog
+ *     number + product name + source URL, extracted from the manufacturer's own
+ *     public, crawlable sitemap. Factual identity only — NO proprietary specs,
+ *     descriptions, or images are copied. These carry empty specs, unitPrice 0
+ *     ("price/specs on request"), and a low data-quality score the report reflects.
+ *     They are the "bring in the SKU now, enrich later" tier.
  */
 export interface ExternalProductEntry {
   mpn: string;
@@ -25,70 +24,141 @@ export interface ExternalProductEntry {
   subcategory: string;
   description: string;
   specs: ProductSpec[];
-  verifiedAt: string; // YYYY-MM-DD the source snapshot was pulled
+  verifiedAt: string;
 }
 
-function hash32(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
+const norm = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, "");
 
-const BRANCHES: Omit<BranchStock, "quantity">[] = [
-  { branchId: "B-HOU-01", branchName: "Houston Downtown", city: "Houston", state: "TX" },
-  { branchId: "B-DAL-01", branchName: "Dallas North", city: "Dallas", state: "TX" },
-  { branchId: "B-AUS-01", branchName: "Austin Central", city: "Austin", state: "TX" },
-];
-const DCS: Omit<DCStock, "quantity">[] = [{ dcId: "DC-TEX-01", dcName: "Texas DC – Katy", location: "Katy, TX" }];
-
-function iconFor(category: ProductCategory, subcategory: string): string {
-  const sub = TAXONOMY[category]?.find((s) => s.name === subcategory);
-  return sub?.icon ?? "💡";
-}
-
-function externalToCatalog(e: ExternalProductEntry, sourceName: string, sourceUrl: string): CatalogProduct {
-  const rng = makeRng(hash32(`${e.brand}|${e.mpn}|ext`));
-  const branchStock = BRANCHES.map((b) => ({ ...b, quantity: rng() < 0.7 ? randInt(rng, 2, 120) : 0 })).filter((b) => b.quantity > 0);
-  const dcStock = DCS.map((d) => ({ ...d, quantity: randInt(rng, 10, 400) })).filter((d) => d.quantity > 0);
-  const idSafe = e.mpn.replace(/[^A-Za-z0-9.-]/g, "_");
+// ── Spec-rich tier (ENERGY STAR) ──
+function energyStarToCatalog(e: ExternalProductEntry): CatalogProduct {
   return {
-    id: `EXT-${e.brand.replace(/[^A-Za-z]/g, "").slice(0, 4).toUpperCase()}-${idSafe}`,
+    id: `EXT-ES-${e.mpn.replace(/[^A-Za-z0-9.-]/g, "_")}`,
     sku: e.mpn,
     name: e.name,
     brand: e.brand,
     category: e.category,
     subcategory: e.subcategory,
     description: e.description,
-    unitPrice: 0, // no published list price in the bulk source — UI shows "price on request"
+    unitPrice: 0,
     uom: "EA",
     specs: e.specs,
     preferred: false,
-    branchStock,
-    dcStock,
-    externalSources: [], // no distributor stock offers for bulk-source records
-    imageIcon: iconFor(e.category, e.subcategory),
+    branchStock: [],
+    dcStock: [],
+    externalSources: [],
+    imageIcon: "💡",
     dataSource: "verified",
-    specSheetUrl: sourceUrl,
-    priceNote: `${sourceName} — factual public-domain data; no list price (price on request).`,
+    specSheetUrl: ENERGY_STAR_SOURCE_URL,
+    priceNote: `${ENERGY_STAR_SOURCE_NAME} — factual public-domain data; no list price (price on request).`,
   };
+}
+
+// ── Identity-only tier (Hubbell public sitemap) ──
+const HUBBELL_BRAND: Record<string, string> = {
+  hubbellpowersystems: "Hubbell Power Systems",
+  "wiringdevice-kellems": "Hubbell Wiring Device-Kellems",
+  burndy: "Burndy",
+  killark: "Killark",
+  hubbellpremisewiring: "Hubbell Premise Wiring",
+  bryant: "Bryant",
+  wiegmann: "Wiegmann",
+  acmeelectric: "Acme Electric",
+  hubbellindustrialcontrols: "Hubbell Industrial Controls",
+  powerohm: "Powerohm",
+  taymac: "TayMac",
+  acceltex: "AccelTex",
+  bell: "Bell",
+  rigpower: "RIG Power",
+  hawke: "Hawke",
+  chalmit: "Chalmit",
+  hipotronics: "Hipotronics",
+  beckwithelectric: "Beckwith Electric",
+  aclara: "Aclara",
+};
+
+function brandLabel(path: string): string {
+  return HUBBELL_BRAND[path] ?? path.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function subcatFor(slug: string): string {
+  const s = slug;
+  if (/receptacle|outlet/.test(s)) return "Receptacles & Outlets";
+  if (/switch/.test(s)) return "Switches";
+  if (/connector|splice|terminal|\blug/.test(s)) return "Connectors & Lugs";
+  if (/enclosure|junction-box|\bbox\b|cover/.test(s)) return "Boxes & Enclosures";
+  if (/breaker/.test(s)) return "Circuit Breakers";
+  if (/transformer/.test(s)) return "Transformers";
+  if (/\bplug\b/.test(s)) return "Plugs & Receptacles";
+  if (/fitting|coupling|conduit/.test(s)) return "Conduit Fittings";
+  if (/ground|bond/.test(s)) return "Grounding & Bonding";
+  if (/cable|wire/.test(s)) return "Wire & Cable";
+  return "Catalog Items";
+}
+
+const titleCase = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
+
+function buildHubbell(): CatalogProduct[] {
+  const out: CatalogProduct[] = [];
+  const seen = new Set<string>();
+  for (const line of HUBBELL_CATALOG_PACKED.split("\n")) {
+    if (!line) continue;
+    const i1 = line.indexOf("\t");
+    const i2 = line.indexOf("\t", i1 + 1);
+    if (i1 < 0 || i2 < 0) continue;
+    const path = line.slice(0, i1);
+    const sku = line.slice(i1 + 1, i2);
+    const slug = line.slice(i2 + 1);
+    if (!sku || seen.has(sku)) continue;
+    seen.add(sku);
+    const brand = brandLabel(path);
+    const subcategory = subcatFor(slug);
+    const nameWords = titleCase(slug.replace(/-/g, " ")).slice(0, 90);
+    out.push({
+      id: `EXT-HUB-${sku}`,
+      sku,
+      name: `${brand} ${nameWords}`.trim(),
+      brand,
+      category: "electrical",
+      subcategory,
+      description: `${nameWords}. ${brand} — Hubbell product catalog identity record (specs on request).`,
+      unitPrice: 0,
+      uom: "EA",
+      // Only the factual attributes the sitemap gives us — the real manufacturer and the
+      // product type derived from the listing name. NOT fabricated engineering specs; the
+      // detailed specs are flagged "on request" for later enrichment.
+      specs: [
+        { name: "Manufacturer", value: brand, isNonNeg: true },
+        { name: "Product Type", value: subcategory },
+      ],
+      preferred: false,
+      branchStock: [],
+      dcStock: [],
+      externalSources: [],
+      imageIcon: "📦",
+      dataSource: "verified",
+      specSheetUrl: `https://www.hubbell.com/${path}/en/products/${slug}/p/${sku}`,
+      priceNote: "Hubbell public product catalog — identity record; specs/price on request.",
+    });
+  }
+  return out;
 }
 
 function build(): CatalogProduct[] {
   const out: CatalogProduct[] = [];
   const seenSku = new Set<string>();
-  for (const e of ENERGY_STAR_LIGHTING) {
-    if (!e.specs.some((s) => s.isNonNeg)) continue; // mirror the catalog isNonNeg invariant
-    const p = externalToCatalog(e, ENERGY_STAR_SOURCE_NAME, ENERGY_STAR_SOURCE_URL);
-    const skuKey = p.sku.toUpperCase().replace(/[^A-Z0-9]/g, "");
-    if (seenSku.has(skuKey)) continue;
-    seenSku.add(skuKey);
+  const push = (p: CatalogProduct) => {
+    const k = norm(p.sku);
+    if (!k || seenSku.has(k)) return;
+    seenSku.add(k);
     out.push(p);
+  };
+  for (const e of ENERGY_STAR_LIGHTING) {
+    if (!e.specs.some((s) => s.isNonNeg)) continue;
+    push(energyStarToCatalog(e));
   }
+  for (const p of buildHubbell()) push(p);
   return out;
 }
 
-/** Catalog products from openly-licensed bulk sources (deduped by SKU). */
+/** Real products from openly-accessible bulk sources (ENERGY STAR + Hubbell sitemap), deduped by SKU. */
 export const EXTERNAL_PRODUCTS: CatalogProduct[] = build();

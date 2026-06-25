@@ -6,7 +6,11 @@ import { CATALOG_PRODUCTS } from "@/data/mock/catalog-products";
 import { REAL_PRODUCTS } from "@/lib/catalog/real";
 import { EXTERNAL_PRODUCTS } from "@/lib/catalog/external-products";
 
-export const CATALOG_SIZE = 200000;
+// 200k synthetic/demo base + every real record ingested from openly-accessible bulk
+// sources (ENERGY STAR + manufacturer sitemaps). The base is preserved and the real
+// records are NET-NEW growth on top of it, so the table grows by the ingested count.
+export const CATALOG_BASE_SIZE = 200000;
+export const CATALOG_SIZE = CATALOG_BASE_SIZE + EXTERNAL_PRODUCTS.length;
 const FIXED_SEED = 1337;
 
 const BRANCHES: Omit<BranchStock, "quantity">[] = [

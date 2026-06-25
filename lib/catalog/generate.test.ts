@@ -14,8 +14,8 @@ describe("generateCatalog", () => {
     expect(generateCatalog(500)).toHaveLength(500);
   });
 
-  it("default CATALOG_SIZE is 200000", () => {
-    expect(CATALOG_SIZE).toBe(200000);
+  it("CATALOG_SIZE = 200000 base + the ingested bulk-source records (net-new growth)", () => {
+    expect(CATALOG_SIZE).toBeGreaterThanOrEqual(300000);
   });
 
   it("electrical dominates — more than 65% of products are electrical", () => {

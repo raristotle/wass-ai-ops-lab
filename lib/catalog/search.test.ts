@@ -2,12 +2,13 @@ import { describe, it, expect } from "vitest";
 import { searchCatalog } from "@/lib/catalog/search";
 import { isActiveLifecycle } from "@/lib/catalog/lifecycle";
 import { crossCountForSku } from "@/lib/catalog/cross-runtime";
+import { CATALOG_SIZE } from "@/lib/catalog/generate";
 import type { RangeFacet, CatalogProduct } from "@/features/product-finder/types";
 
 describe("searchCatalog", () => {
   it("paginates: total reflects all matches, items is one page", () => {
     const r = searchCatalog({ pageSize: 24, page: 0 });
-    expect(r.total).toBe(200000);
+    expect(r.total).toBe(CATALOG_SIZE);
     expect(r.items).toHaveLength(24);
     expect(r.page).toBe(0);
   });

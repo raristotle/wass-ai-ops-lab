@@ -6,8 +6,8 @@ Generated from datasets built 2026-06-12. Regenerated automatically by the test 
 
 | Metric | Value |
 |---|---|
-| Records loaded | 661 |
-| Production-ready (verified, ≥95% confidence) | 661 |
+| Records loaded | 660 |
+| Production-ready (verified, ≥95% confidence) | 660 |
 | Below threshold (quarantined/review) | 0 |
 | Distinct brands | 188 |
 | Brands with modeled hierarchy | 52 |
@@ -16,7 +16,7 @@ Generated from datasets built 2026-06-12. Regenerated automatically by the test 
 
 | Band | Records |
 |---|---|
-| 95+ | 661 |
+| 95+ | 660 |
 | 85-94 | 0 |
 | 70-84 | 0 |
 | <70 | 0 |
@@ -25,13 +25,13 @@ Generated from datasets built 2026-06-12. Regenerated automatically by the test 
 
 | Field | Present | % |
 |---|---|---|
-| specSheetUrl | 661 | 100% |
+| specSheetUrl | 660 | 100% |
 | productUrl | 0 | 0% |
 | sourceUrl | 0 | 0% |
 | wescoSku | 0 | 0% |
 | catalogNumber | 0 | 0% |
 | gtin/upc | 111 | 16.8% |
-| parentCompany | 381 | 57.6% |
+| parentCompany | 380 | 57.6% |
 
 ### Largest brands not yet hierarchy-modeled
 
