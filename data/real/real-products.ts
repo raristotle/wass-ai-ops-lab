@@ -18701,43 +18701,6 @@ export const REAL_PRODUCT_ENTRIES: RealProductEntry[] = [
   "verifiedAt": "2026-06-12"
  },
  {
-  "mpn": "3232-W",
-  "brand": "Pass & Seymour",
-  "name": "Pass & Seymour 3232-W TradeMaster Duplex Receptacle",
-  "category": "electrical",
-  "subcategory": "Wiring Devices",
-  "description": "TradeMaster 15 Amp 125 Volt grounding duplex receptacle, NEMA 5-15R, 2-pole 3-wire, screw terminals, white.",
-  "uom": "EA",
-  "estListPrice": 1.05,
-  "priceSource": "supplyhouse.com",
-  "specs": [
-   {
-    "name": "Type",
-    "value": "Duplex receptacle",
-    "isNonNeg": true
-   },
-   {
-    "name": "Amperage",
-    "value": "15 A",
-    "isNonNeg": true
-   },
-   {
-    "name": "Color",
-    "value": "White"
-   },
-   {
-    "name": "Voltage",
-    "value": "125 V"
-   },
-   {
-    "name": "NEMA Configuration",
-    "value": "5-15R"
-   }
-  ],
-  "specSheetUrl": "https://www.legrand.us/wiring-devices/outlets-and-receptacles/residential-receptacles/trademaster-15a-125v-duplex-receptacle-white/p/3232w",
-  "verifiedAt": "2026-06-12"
- },
- {
   "mpn": "TM870-W",
   "brand": "Pass & Seymour",
   "name": "Pass & Seymour TM870-W Decorator Rocker Switch",
