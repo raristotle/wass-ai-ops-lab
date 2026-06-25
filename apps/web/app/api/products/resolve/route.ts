@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { getCatalog } from "@/lib/catalog/index";
 import { searchCatalog } from "@/lib/catalog/search";
 import { lookupCrossReference } from "@/lib/integration/cross-reference";
 import { resolveBySku } from "@/lib/catalog/sku-index";
@@ -22,12 +21,10 @@ export async function GET(req: Request) {
   const q = (searchParams.get("q") ?? "").trim();
   if (!q) return NextResponse.json({ product: null, matchedVia: null });
 
-  const catalog = getCatalog();
-
-  // 1. exact SKU (case-insensitive)
-  const upper = q.toUpperCase();
-  const bySku = catalog.products.find((p) => p.sku.toUpperCase() === upper);
-  if (bySku) return NextResponse.json({ product: bySku, matchedVia: "sku" });
+  // 1. exact part-number identity — manufacturer SKU, Wesco stock #, catalog #, or GTIN.
+  // Reps quote by ANY of these; the O(1) sku-index resolves all of them (mfr SKU wins ties).
+  const byId = resolveBySku(q);
+  if (byId) return NextResponse.json({ product: byId, matchedVia: "sku" });
 
   // 2. customer catalog-number crosswalk (per-scope: demo seed + imported)
   const tenant = tenantForRequest(req);
