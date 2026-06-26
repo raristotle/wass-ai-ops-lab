@@ -2,6 +2,7 @@ import type { CatalogProduct, ProductCategory, ProductSpec } from "@/features/pr
 import { ENERGY_STAR_LIGHTING, ENERGY_STAR_SOURCE_NAME, ENERGY_STAR_SOURCE_URL } from "@/data/real/energy-star-lighting";
 import { HUBBELL_CATALOG_PACKED } from "@/data/real/hubbell-catalog";
 import { BOM_PRODUCTS } from "@/data/real/bom-products";
+import { SECURITY_BRAND_PRODUCTS } from "@/data/real/security-brand-products";
 
 /**
  * External bulk-source product tier — REAL products ingested from large, openly-
@@ -175,6 +176,29 @@ function bomToCatalog(e: ExternalProductEntry): CatalogProduct {
   };
 }
 
+// Rep-supplied top-selling SKU lists (security/surveillance brands) — identity products.
+function securityToCatalog(e: ExternalProductEntry): CatalogProduct {
+  return {
+    id: `EXT-SEC-${e.mpn.replace(/[^A-Za-z0-9.-]/g, "_")}`,
+    sku: e.mpn,
+    name: e.name,
+    brand: e.brand,
+    category: e.category,
+    subcategory: e.subcategory,
+    description: e.description,
+    unitPrice: 0,
+    uom: "EA",
+    specs: e.specs,
+    preferred: false,
+    branchStock: [],
+    dcStock: [],
+    externalSources: [],
+    imageIcon: "📹",
+    dataSource: "verified",
+    priceNote: "Rep-supplied top-selling SKU list — identity record; price on request.",
+  };
+}
+
 function build(): CatalogProduct[] {
   const out: CatalogProduct[] = [];
   const seenSku = new Set<string>();
@@ -188,6 +212,10 @@ function build(): CatalogProduct[] {
   for (const e of BOM_PRODUCTS) {
     if (!e.specs.some((s) => s.isNonNeg)) continue;
     push(bomToCatalog(e));
+  }
+  for (const e of SECURITY_BRAND_PRODUCTS) {
+    if (!e.specs.some((s) => s.isNonNeg)) continue;
+    push(securityToCatalog(e));
   }
   for (const e of ENERGY_STAR_LIGHTING) {
     if (!e.specs.some((s) => s.isNonNeg)) continue;

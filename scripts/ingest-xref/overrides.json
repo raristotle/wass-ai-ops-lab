@@ -1,0 +1,75 @@
+{
+  "_comment": "Per-file overrides for scripts/ingest-xref/ingest.mjs. Keys are exact filenames. Use 'skip' for non-cross files (product catalogs, SKU lists, doc registries, merged-cell layouts needing manual mapping); 'comp'/'tgt' to pin columns; 'wide' for one-key-to-many-brand matrices; 'filterCol'/'filterVal' to keep only verified rows; 'compBrand'/'tgtBrand'/'source'/'relation' for labels.",
+
+  "Copy of 2023-05-26_CrossCheck_Unverified-Data-from-Rahul-for-Rick-Weaver-Review.xlsx": {
+    "comp": "sim_mfr_part_num", "tgt": "substitute_mfr_part_num",
+    "filterCol": "Is the Product Pair a Match? (Yes /No/ Possible)", "filterVal": "yes",
+    "source": "CrossCheck (Yes-verified) 2023-05-26", "_note": "UNVERIFIED data — keep only rows confirmed 'Yes'."
+  },
+  "2023-10-05_Owned-Brands-Cross-Reference-Template.xlsx": {
+    "comp": "NB_mfg_part_no", "tgt": "OB_mfg_part_no",
+    "compBrand": "National Brand", "tgtBrand": "Owned Brand", "source": "Owned Brands Cross 2023-10-05"
+  },
+  "Sub-upgrades.xls": {
+    "comp": "Ferraz Part Number", "tgt": "Ferraz Upgrade Part Number",
+    "compBrand": "Mersen/Ferraz", "tgtBrand": "Mersen/Ferraz (upgrade)", "source": "Ferraz/Mersen fuse upgrades"
+  },
+  "Thomas  Betts to 3M as of 11-14-22.xlsx": {
+    "comp": "Part Number", "tgt": "Catalog Number",
+    "compBrand": "Thomas & Betts", "tgtBrand": "3M", "source": "Thomas & Betts → 3M 2022-11-14"
+  },
+  "3.14.2023_Wiring Devices_Cross Reference Data.xlsx": {
+    "comp": "Eaton Catalog Number", "tgt": "Manufacturer Part Number",
+    "compBrand": "Eaton", "source": "Wiring Devices Cross 2023-03-14"
+  },
+  "Hikvision to Hanwha A Series Cross.xlsx": {
+    "comp": "HIK", "tgt": "HTA", "compBrand": "Hikvision", "tgtBrand": "Hanwha", "source": "Hikvision → Hanwha A-Series"
+  },
+  "Invid Vendor Comparison Chart.xlsx": {
+    "comp": "Dahua Part Number", "tgt": "InVid", "compBrand": "Dahua", "tgtBrand": "InVid Tech", "source": "InVid Vendor Comparison"
+  },
+  "Wesco X-ref..xlsx": {
+    "comp": "Competitor P/N", "tgt": "Ferraz P/N", "compBrandCol": "Competitor Name", "tgtBrand": "Mersen/Ferraz", "source": "Wesco Ferraz X-ref"
+  },
+  "WESCO-3M-Products-for-Crosses - Version 2.xlsx": {
+    "comp": "catalog_no", "tgt": "3M ID", "compBrandCol": "manufacturer_name", "tgtBrand": "3M", "source": "Wesco→3M Crosses v2"
+  },
+  "WESCO-3M-Products-for-Crosses - Version 3.xlsx": {
+    "comp": "catalog_no", "tgt": "3M ID", "compBrandCol": "manufacturer_name", "tgtBrand": "3M", "source": "Wesco→3M Crosses v3"
+  },
+  "Hanwha _Axis Competitive Cross Reference May2022.xlsb": { "skip": "multi-sheet camera matrix (.xlsb) — needs manual mapping" },
+
+  "2022-10-31_CORNING_Competitor-x-ref-list_FINAL.xlsx": {
+    "wide": { "key": "VNDR ITEM", "keyBrand": "Corning", "brands": ["CommScope", "Panduit", "Belden", "AFL"] },
+    "source": "Corning Competitor X-ref 2022-10-31"
+  },
+  "2022-12-20_Fluke-Extech_Mfr-Cross-Reference.xlsx": {
+    "wide": { "key": "Fluke", "keyBrand": "Fluke", "brands": ["Extech", "FLIR", "Amprobe"] },
+    "source": "Fluke/Extech Mfr Cross 2022-12-20"
+  },
+  "Master Cable-Cross File.xls": {
+    "sheet": "x-ref",
+    "wide": { "key": "Belden", "keyBrand": "Belden", "brands": ["Gepco", "Liberty", "Lake", "OCC", "Sheerwire", "West Penn Wire", "GCC", "Extron", "Coleman", "Crestron", "Mohawk", "Canare"] },
+    "source": "Master Cable X-ref"
+  },
+
+  "Atkore 80 Percent Focused Categories_2023_02_09.xlsx": { "skip": "product catalog (specs), not a cross" },
+  "2023-04-10_X-Ref-Data.xlsx": { "skip": "registry of cross-ref documents (links), not part pairs" },
+  "Copy of COMMODITY ITEMS ALL_GENERICS.xlsx": { "skip": "Anixter↔vendor item map, not a competitor cross" },
+  "2023 REVISED WESCO BULK UPLOAD FORM 83123.xlsx": { "skip": "Wesco product upload form, not a cross" },
+  "RIDGID Pro_Shop Vac Comparisons 11.2020.xlsx": { "skip": "spec comparison grid, no clean part pairs" },
+  "RIDGID Pro_Shop Vac Cross Reference_May2023.xlsx": { "skip": "spec comparison grid, no clean part pairs" },
+  "Bosch- Hilti Cross-Reference 2021.xlsx": { "skip": "merged-cell layout — needs manual mapping" },
+  "Greenlee Manufacture Cross Reference.xlsx": { "skip": "multi-sheet, 2-row headers — needs manual mapping" },
+  "INTERNAL ONLY--Security Camera Cross Reference Guide.xlsx": { "skip": "merged multi-brand layout — needs manual mapping" },
+  "Northern to Hik-Dahua-Hanwha cross reference sheet.xlsx": { "skip": "title-row layout — needs manual mapping" },
+  "SMB Camera Crossover List Northern.xlsx": { "skip": "title-row layout — needs manual mapping" },
+  "SMB VideoComparisonList11.4.2021 (002) (2).xlsx": { "skip": "title-row layout — needs manual mapping" },
+  "OB Offering with Cross to NB - 08.8.23 v13.xlsx": { "skip": "2-row header, per-category sheets — needs manual mapping" },
+  "2023-03-23_Hubbell_Xref_Data_COMPLETE-FILE 1.xlsx": { "skip": "duplicate of already-ingested Hubbell file" },
+
+  "Digital WD Top 20 Selling SKUs.xlsx": { "skip": "SKU list (added as products), not a cross" },
+  "Invid Tech's 20 Top-Selling SKUs.csv": { "skip": "SKU list (added as products), not a cross" },
+  "Speco Tech Top 20 Selling SKUs.xlsx": { "skip": "SKU list (added as products), not a cross" },
+  "Vivotek Top 20 Selling SKUs.xlsx": { "skip": "SKU list (added as products), not a cross" }
+}

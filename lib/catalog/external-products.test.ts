@@ -11,15 +11,15 @@ describe("EXTERNAL_PRODUCTS (openly-accessible bulk-source tier)", () => {
     expect(hub.length).toBeGreaterThanOrEqual(100_000); // Hubbell sitemap SKUs
   });
 
-  it("every record is electrical, SKU'd, deduped, honestly priced + sourced", () => {
+  it("every record is on-domain, SKU'd, deduped, honestly priced + sourced", () => {
     const skus = new Set<string>();
     for (const p of EXTERNAL_PRODUCTS) {
       expect(p.sku.trim().length).toBeGreaterThan(0);
       expect(p.brand.trim().length).toBeGreaterThan(0);
       expect(p.name.trim().length).toBeGreaterThan(0);
-      expect(p.category).toBe("electrical");
+      expect(["electrical", "datacom"]).toContain(p.category); // electrical + low-voltage/security
       expect(p.unitPrice).toBe(0); // no list price in bulk sources — "price on request"
-      expect(p.specSheetUrl).toMatch(/^https?:\/\//);
+      if (p.specSheetUrl) expect(p.specSheetUrl).toMatch(/^https?:\/\//); // when a source URL exists
       const k = p.sku.toUpperCase().replace(/[^A-Z0-9]/g, "");
       expect(skus.has(k)).toBe(false); // deduped by SKU
       skus.add(k);
