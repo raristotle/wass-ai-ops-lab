@@ -25,6 +25,12 @@ function category(src) {
   if (/tape|adhesive/.test(s)) return "Tapes & Adhesives";
   if (/thomas|t&b|new_tnb|wiring device|hubbell|leviton|abb empower/.test(s)) return "Wiring Devices & Connectors";
   if (/measure|fluke|flir|extech/.test(s)) return "Test & Measurement";
+  if (/micrel|semiconductor|allegro/.test(s)) return "Semiconductors & Electronic Components";
+  if (/\brfi\b|rf industries|rf coax|coax|commscope/.test(s)) return "RF & Coax Connectors";
+  if (/hexseal|switch boot|toggle|boot/.test(s)) return "Switch Boots & Seals";
+  if (/\bcit\b|cutler/.test(s)) return "Switches & Relays";
+  if (/diversitech/.test(s)) return "HVAC & Controls";
+  if (/belden|quabbin|alpha|carol|lake cable/.test(s)) return "Wire & Cable";
   if (/uline|box partner/.test(s)) return "Packaging & Industrial MRO";
   if (/audiblevisual/.test(s)) return "Audible & Visual Signaling";
   if (/industrialequipment/.test(s)) return "Industrial Equipment";

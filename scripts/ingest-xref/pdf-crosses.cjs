@@ -32,13 +32,16 @@ function add(src, cb, cp, tb, tp) {
   rows.push([ck, clean(cb) || "?", clean(cp), clean(tb) || "?", clean(tp), src, "f"]);
   stats[src] = (stats[src] || 0) + 1; return true;
 }
+// Source is attributed by the agent-reported targetBrand (reliable per-result), NOT the filename —
+// a failed agent can shift the array and misalign filenames, but each result's targetBrand is correct.
+const srcFor = (pdf) => { const tb = clean(pdf.targetBrand); return tb && tb !== "?" ? `${tb} (PDF cross-guide)` : `PDF: ${clean(pdf.file).replace(/\.pdf$/i, "")}`; };
 for (const pdf of obj.pdfs) {
   const tb = clean(pdf.targetBrand) || "?";
-  const src = `PDF: ${clean(pdf.file).replace(/\.pdf$/i, "")}`;
+  const src = srcFor(pdf);
   for (const pr of (pdf.pairs || [])) add(src, pr.competitorBrand || "", pr.competitorPart, tb, pr.targetPart);
 }
-console.log("Per-PDF ingested:");
-for (const pdf of obj.pdfs) { const src = `PDF: ${clean(pdf.file).replace(/\.pdf$/i, "")}`; console.log(`  ${clean(pdf.file).slice(0, 42).padEnd(42)} tgt=${(clean(pdf.targetBrand) || "?").padEnd(10)} extracted ${String(pdf.count).padStart(5)} -> added ${String(stats[src] || 0).padStart(5)}`); if (pdf.note) console.log(`        note: ${clean(pdf.note).slice(0, 130)}`); }
+console.log("Per-result ingested (by targetBrand — filenames may be shifted by a failed agent):");
+for (const pdf of obj.pdfs) { const src = srcFor(pdf); console.log(`  tgt=${(clean(pdf.targetBrand) || "?").slice(0, 28).padEnd(28)} extracted ${String(pdf.count).padStart(5)} -> added ${String(stats[src] || 0).padStart(5)}`); }
 console.log(`\nAdded ${rows.length - start} new pairs -> master ${rows.length}.`);
 if (WRITE) { fs.writeFileSync("inbox/xref-master.tsv", rows.map((r) => r.join(TAB)).join("\n") + "\n"); console.log("WROTE master."); }
 else console.log("(dry — pass 'write')");

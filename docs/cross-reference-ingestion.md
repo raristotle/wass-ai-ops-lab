@@ -23,7 +23,7 @@ node scripts/ingest-xref/ingest.mjs --input <dir> --master <master.tsv> \
 
 ## What's ingested
 
-**759,869 unique competitor→target cross pairs** from **57 files** (1,573 brands, 62 sources),
+**766,663 unique competitor→target cross pairs** from **57 spreadsheets + 32 PDF cross-guides**,
 deduped, junk-dropped, and contradiction-filtered. Highlights by wave:
 
 | Wave | Representative files | Pairs |
@@ -46,6 +46,17 @@ cross *documents*, not tables — not machine-ingested.
 
 Dropped at parse (never fabricated): `NO CROSS`/`NO-CROSS`, `NOT IN SAP`, `#N/A`, relationship
 words (`DIRECT`, `EXACT`), sentence cells, 4+-token cells, blanks, self-crosses, and unverified rows.
+
+## PDF cross-guides (`pdf-crosses.cjs`)
+
+Manufacturer cross-reference **PDFs** (cross *documents*, not tables) are extracted by a workflow:
+one agent per PDF converts it (markitdown/pdftotext) and pulls structured competitor→target pairs,
+then `pdf-crosses.cjs` junk-filters + dedups them in. 32 guides yielded ~6.8K pairs — Hoffman→Hammond,
+Carol→Belden, →Bussmann/Eaton fuses, →B-Line strut, Hubbell→ABB, →Lake Cable, →Quabbin, Micrel
+semiconductor crosses, RF Industries coax assemblies (1,405), CIT→Cutler-Hammer, Hexseal switch
+boots, and the Cooper Halo/Metalux lighting fight-sheets. Each source is attributed by the
+agent-verified publisher brand (robust to a failed-agent array shift). A 0-byte corrupt PDF and a
+WiFi guide with no part table were honestly skipped (0 pairs).
 
 ## Verify, contradictions & dedup (`verify-dedup.cjs`)
 
