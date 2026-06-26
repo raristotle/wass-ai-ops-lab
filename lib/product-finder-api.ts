@@ -134,6 +134,29 @@ export async function apiCrossMatch(
   }
 }
 
+/**
+ * Single-part cross lookup: the stocked suggestion (verified engine) PLUS the documented bulk
+ * cross-references (ingested manufacturer xref files) — so a rep always sees what a competitor
+ * part crosses to, even when we don't stock the target.
+ */
+export async function apiCrossLookup(query: string): Promise<{
+  suggestion: import("@/lib/catalog/bom-cross").BomCrossSuggestion | null;
+  xref: import("@/lib/catalog/xref-index").XrefHit[];
+}> {
+  try {
+    const res = await fetch("/api/crosses/match", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ queries: [query] }),
+    });
+    if (!res.ok) return { suggestion: null, xref: [] };
+    const data = await res.json();
+    return { suggestion: data.suggestions?.[0] ?? null, xref: data.xref?.[0] ?? [] };
+  } catch {
+    return { suggestion: null, xref: [] };
+  }
+}
+
 export interface BomAnalyzeRow {
   sku: string;
   qty: number;

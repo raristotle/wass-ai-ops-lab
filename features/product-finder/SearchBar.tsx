@@ -12,7 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
-import { apiSuggest, apiCrossMatch } from "@/lib/product-finder-api";
+import { apiSuggest, apiCrossLookup } from "@/lib/product-finder-api";
+import type { XrefHit } from "@/lib/catalog/xref-index";
 import { QUICK_PICKS } from "@/lib/product-finder-commands";
 import { normalizeTranscript } from "@/lib/product-finder-voice";
 import { VoiceSearchButton } from "@/features/product-finder/VoiceSearchButton";
@@ -49,6 +50,7 @@ function CrossReferenceModal({
   const setDetailModalProduct = useProductFinder((s) => s.setDetailModalProduct);
   const [inputValue, setInputValue] = useState("");
   const [missMsg, setMissMsg] = useState<string | null>(null);
+  const [xrefHits, setXrefHits] = useState<XrefHit[]>([]);
   const [busy, setBusy] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -56,6 +58,7 @@ function CrossReferenceModal({
     if (open) {
       setInputValue("");
       setMissMsg(null);
+      setXrefHits([]);
       setBusy(false);
       setTimeout(() => inputRef.current?.focus(), 50);
     }
@@ -80,13 +83,18 @@ function CrossReferenceModal({
     if (!sku || busy) return;
     setBusy(true);
     setMissMsg(null);
+    setXrefHits([]);
     try {
-      const [suggestion] = await apiCrossMatch([sku]);
+      const { suggestion, xref } = await apiCrossLookup(sku);
       if (suggestion) {
+        // A stocked equivalent — open its product detail.
         setDetailModalProduct(suggestion.product);
         onClose();
+      } else if (xref.length > 0) {
+        // No stocked equivalent, but documented cross-references exist (ingested xref files).
+        setXrefHits(xref);
       } else {
-        setMissMsg(`No documented cross-reference to a stocked product for '${sku}'.`);
+        setMissMsg(`No documented cross-reference for '${sku}'.`);
       }
     } catch {
       setMissMsg("Couldn't reach the cross-reference service — try again.");
@@ -133,7 +141,7 @@ function CrossReferenceModal({
               ref={inputRef}
               type="text"
               value={inputValue}
-              onChange={(e) => { setInputValue(e.target.value); setMissMsg(null); }}
+              onChange={(e) => { setInputValue(e.target.value); setMissMsg(null); setXrefHits([]); }}
               onKeyDown={(e) => { if (e.key === "Enter") void handleFind(); }}
               placeholder="e.g. a competitor or legacy part number"
               className={cn(
@@ -157,6 +165,28 @@ function CrossReferenceModal({
             <p className="text-sm text-[#4F758B] bg-[#F8FAFB] rounded-lg px-4 py-3 border border-[#B7C9D3]/60">
               {missMsg}
             </p>
+          )}
+
+          {xrefHits.length > 0 && (
+            <div className="rounded-lg border border-[#B7C9D3]/60 bg-[#F8FAFB] overflow-hidden">
+              <div className="px-4 py-2 text-xs font-semibold text-[#1D252D] border-b border-[#B7C9D3]/50">
+                Documented cross-reference{xrefHits.length > 1 ? "s" : ""}
+              </div>
+              <ul className="divide-y divide-[#B7C9D3]/40 max-h-64 overflow-y-auto">
+                {xrefHits.map((h, i) => (
+                  <li key={`${h.targetBrand}-${h.targetPart}-${i}`} className="px-4 py-2.5 text-sm">
+                    <div className="flex items-baseline gap-1.5 flex-wrap">
+                      <span className="text-[#4F758B]">{h.competitorBrand} {h.competitorPart}</span>
+                      <span className="text-[#00AA13] font-bold">→</span>
+                      <span className="font-semibold text-[#1D252D]">{h.targetBrand} {h.targetPart}</span>
+                    </div>
+                    <div className="text-[10px] text-[#4F758B] mt-0.5">
+                      {h.relation === "equivalent" ? "Equivalent" : "Functional substitute"} · {h.source}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
 
           <p className="text-[10px] text-[#4F758B] italic">
