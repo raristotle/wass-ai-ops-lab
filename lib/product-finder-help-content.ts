@@ -280,6 +280,9 @@ export const HELP_TOPICS: HelpTopic[] = [
     title: "Competitor cross-reference",
     body: [
       "Click Cross-reference by the search box and paste a competitor or legacy part number to find the Meridian equivalent.",
+      "Backed by 738,000+ documented manufacturer cross-references (Hubbell, Eaton/Danfoss, Panduit, Leviton, 3M, Ferraz, Atkore comparables, security/camera lines, and more).",
+      "• If we stock an equivalent, you get the product. If not, you still see every documented cross-reference for the part — each tagged with the relationship and the source file it came from.",
+      "• Every pair is from a real manufacturer file — nothing is invented. A part with no documented cross says so honestly.",
       "Each product's detail view also lists the parts it Replaces.",
     ],
   },
