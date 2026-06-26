@@ -23,8 +23,8 @@ node scripts/ingest-xref/ingest.mjs --input <dir> --master <master.tsv> \
 
 ## What's ingested
 
-**738,102 unique competitor→target cross pairs** from **47 files** (1,535 brands, 50 sources),
-deduped and junk-dropped. Highlights by wave:
+**759,869 unique competitor→target cross pairs** from **57 files** (1,573 brands, 62 sources),
+deduped, junk-dropped, and contradiction-filtered. Highlights by wave:
 
 | Wave | Representative files | Pairs |
 |---|---|---|
@@ -32,13 +32,42 @@ deduped and junk-dropped. Highlights by wave:
 | `*_Comparables` (legacy→Wesco comparable SKU) | ConduitFittings (+73K), WireMgmt (+42K), Enclosures (+32K), Hardware (+28K), Tools (+14K), Fuses, Safety, Lighting, Batteries, … | ~200K |
 | Brand crosses | Wesco→Ferraz (+16K), Uline→Box (+13K), Wiring Devices (+7K), Northern→Liberty, Southwire→Madison, T&B→3M, Wesco→3M, Bosch→DeWalt, FLIR, TNB, Cable Ties | ~60K |
 | Wide/matrix | Master Cable (12-brand), Corning, Fluke/Extech | ~2K |
-| Security/camera | Hikvision→Hanwha, Dahua→Speco/Pelco/InVid, Inaxsys | <1K |
-| CrossCheck (**unverified** source) | kept **only** the 873 rows confirmed "Yes" | 0.9K |
+| Security/camera | Hikvision→Hanwha, Dahua→Speco/Pelco/InVid, Inaxsys, SMB matrices | ~2K |
+| Tools | SnapOn, WESCO/Hilti, Wright→Proto, Bosch↔Hilti, Greenlee, Bosch→DeWalt | ~3K |
+| Merged-cell / wide layouts | INTERNAL camera, OB Offering (per-category), Stocked DS→NB, Northern camera | ~4K |
+| Verified-only sources | CrossCheck + Leviton rep-crossref — kept **only** the rows confirmed "Yes/Y" | ~17K |
 
-**19 of 66 files were skipped** (logged with a reason in `overrides.json`): product catalogs and
-SKU lists (added as products instead — see below), Anixter↔vendor item maps, doc-link registries,
-and merged-cell / 2-row-header layouts that need a small custom parse. **26 PDFs** (Cooper "fight
-sheets", the Product-Crosses guides) are cross *documents*, not tables — not machine-ingested.
+**Merged-cell, 2-row-header, and wide multi-brand layouts** the column auto-detector can't map are
+handled by bespoke parsers in `scripts/ingest-xref/merged-parsers.cjs` (pairwise camera/tool
+matrices, per-category owned-brand sheets, wide usage-report crosses). Genuinely-non-cross files
+(product catalogs, SKU lists, Anixter↔vendor maps, customer usage lists) are still `skip`-ped with a
+reason in `overrides.json`. **PDFs** (Cooper "fight sheets", Belden/Alpha/Hoffman/Strut guides) are
+cross *documents*, not tables — not machine-ingested.
+
+Dropped at parse (never fabricated): `NO CROSS`/`NO-CROSS`, `NOT IN SAP`, `#N/A`, relationship
+words (`DIRECT`, `EXACT`), sentence cells, 4+-token cells, blanks, self-crosses, and unverified rows.
+
+## Verify, contradictions & dedup (`verify-dedup.cjs`)
+
+- **Dedup**: every pair is keyed by normalized `(competitor → target)`; exact duplicates collapse.
+  Bidirectional pairs from matrices (A→B *and* B→A) are kept on purpose — either part finds the other.
+- **Multiple targets are not contradictions.** A part legitimately crosses to several brands; all are
+  kept (59,577 parts have 2+ valid alternatives).
+- **Contradiction policy — rejection wins.** A pair explicitly marked *not-substitutable* in any
+  source (CrossCheck "No", rep-crossref "N") is removed even if another file asserts it positively.
+- **Backfill** (`backfill-brands.cjs`): missing manufacturer labels are filled from the source/column
+  that implies them (Leviton, Uline, Southwire, Northern…). Brand completeness is now 99.98%.
+
+## Analysis spreadsheet (`analysis-report.cjs`)
+
+`docs/reports/Meridian-Cross-Reference-Analysis.xlsx` — counts by category, sub-category, target
+manufacturer, competitor brand, and source file. A full row-per-cross export
+(`Meridian-All-Crosses.csv`, 759,869 rows) is generated alongside for raw analysis.
+
+## Running it: `/ingest-xref`
+
+Drop the next batch and invoke the **`/ingest-xref`** skill (`.claude/skills/ingest-xref/`), or run
+the tool directly. See [the tool README](../scripts/ingest-xref/README.md) for the full recipe.
 
 Dropped at parse (never fabricated): `NO CROSS`/`NO-CROSS`, `NOT IN SAP`, `#N/A`, relationship
 words (`DIRECT`, `EXACT`), sentence cells (`N/A — Pelco does not have…`), 4+-token cells, blanks,

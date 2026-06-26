@@ -71,5 +71,23 @@
   "Digital WD Top 20 Selling SKUs.xlsx": { "skip": "SKU list (added as products), not a cross" },
   "Invid Tech's 20 Top-Selling SKUs.csv": { "skip": "SKU list (added as products), not a cross" },
   "Speco Tech Top 20 Selling SKUs.xlsx": { "skip": "SKU list (added as products), not a cross" },
-  "Vivotek Top 20 Selling SKUs.xlsx": { "skip": "SKU list (added as products), not a cross" }
+  "Vivotek Top 20 Selling SKUs.xlsx": { "skip": "SKU list (added as products), not a cross" },
+
+  "Leviton Cross.xlsx": {
+    "comp": "manufacturerPart", "tgt": "levitonPart", "compBrandCol": "manufacturerName",
+    "tgtBrand": "Leviton", "source": "Leviton Cross (2026 batch)"
+  },
+  "Copy of rep_crossref_matches_leviton_test-for-Rick-Weaver.xlsx": {
+    "comp": "ORIGIN_PART_NUM", "tgt": "ORIGIN_PART_NUM_comparable",
+    "filterCol": "Substitutable?  (Y/N)", "filterVal": "Y",
+    "tgtBrandCol": "SIM_MFR_NAME_comparable", "source": "Leviton rep crossref (Y-verified)"
+  },
+  "Wright Tools - 9_2020 to 9_2021 10.25.2021 final.xlsx": {
+    "comp": "catalog_no", "tgt": "Proto number", "compBrand": "Wright", "tgtBrand": "Proto",
+    "source": "Wright->Proto Tools X-ref"
+  },
+  "Clean Match Files.xlsx": { "skip": "customer catalog/SIM usage list, not a competitor cross" },
+  "SnapOn 2020FY x reference final.xlsx": { "skip": "wide usage report — handled by gen-merged-crosses.cjs" },
+  "WESCO - Hilti Items 9-2020 thru 9-2021 10.22 x ref final.xlsx": { "skip": "wide usage report — handled by gen-merged-crosses.cjs" },
+  "Stocked DS to NB Cross File.xlsx": { "skip": "wide many-brand layout — handled by gen-merged-crosses.cjs" }
 }
