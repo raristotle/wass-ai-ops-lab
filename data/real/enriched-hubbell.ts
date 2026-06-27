@@ -66788,5 +66788,1105 @@ export const ENRICHED_HUBBELL: ExternalProductEntry[] = [
   ],
   "verifiedAt": "2026-06-26",
   "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yae14n-nylon-ring-terminal-for-16-14-awg/p/519451"
+ },
+ {
+  "mpn": "CT120800L",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY UNIRAP Nylon Cable Tie CT120800L",
+  "category": "electrical",
+  "subcategory": "UNIRAP Nylon Cable Tie",
+  "description": "BURNDY UNIRAP standard-duty nylon cable tie, natural color, 8.00\" max bundle diameter, 120 lb tensile strength.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "UNIRAP Nylon Cable Tie"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "8.00 in (203 mm)"
+   },
+   {
+    "name": "Minimum Tensile Strength",
+    "value": "120 lb"
+   },
+   {
+    "name": "Width",
+    "value": "0.30 in (7.6 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6 (Natural)"
+   },
+   {
+    "name": "Operating Temperature",
+    "value": "-40°C to 85°C"
+   },
+   {
+    "name": "Compliance",
+    "value": "RoHS Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/catalogs/master-catalog/section%20g-unirap.pdf"
+ },
+ {
+  "mpn": "CT120800L00",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY UNIRAP Nylon Cable Tie CT120800L00",
+  "category": "electrical",
+  "subcategory": "UNIRAP Nylon Cable Tie",
+  "description": "BURNDY UNIRAP standard-duty UV black nylon cable tie, 8.00\" max bundle diameter, 120 lb tensile strength, for outdoor/UV-exposed applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "UNIRAP Nylon Cable Tie"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "8.00 in (203 mm)"
+   },
+   {
+    "name": "Minimum Tensile Strength",
+    "value": "120 lb"
+   },
+   {
+    "name": "Width",
+    "value": "0.30 in (7.6 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6 (UV Black)"
+   },
+   {
+    "name": "UV Resistance",
+    "value": "UV stabilized for outdoor use"
+   },
+   {
+    "name": "Operating Temperature",
+    "value": "-40°C to 85°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/catalogs/master-catalog/section%20g-unirap.pdf"
+ },
+ {
+  "mpn": "CT50175M0",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY UNIRAP Nylon Cable Tie CT50175M0",
+  "category": "electrical",
+  "subcategory": "UNIRAP Nylon Cable Tie",
+  "description": "BURNDY UNIRAP standard-duty UV black nylon cable tie, 50 lb tensile, 1.75\" max bundle diameter, military spec MS3367, for outdoor use.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "UNIRAP Nylon Cable Tie"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "1.75 in"
+   },
+   {
+    "name": "Overall Length",
+    "value": "7.83 in"
+   },
+   {
+    "name": "Width",
+    "value": "0.18 in"
+   },
+   {
+    "name": "Minimum Tensile Strength",
+    "value": "50 lb"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6 UV Black (2% Carbon)"
+   },
+   {
+    "name": "Military Specification",
+    "value": "MS3367"
+   },
+   {
+    "name": "UV Resistance",
+    "value": "Yes"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/catalogs/master-catalog/section%20g-unirap.pdf"
+ },
+ {
+  "mpn": "BA14E14",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl-Insulated Ring Tongue Compression Terminal BA14E14",
+  "category": "electrical",
+  "subcategory": "Vinyl-Insulated Ring Tongue Compression ",
+  "description": "BURNDY vinyl-insulated ring tongue terminal for 18-14 AWG wire with 1/4\" stud. Blue insulation, brazed barrel, electrolytic copper.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl-Insulated Ring Tongue Compression Terminal"
+   },
+   {
+    "name": "Wire Size Range",
+    "value": "18-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Insulation Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic Copper"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (PVC)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/catalogs/2022/Section%20B%20Small%20HYDENT%202022%20BURNDY%20Master%20Catalog.pdf"
+ },
+ {
+  "mpn": "UHKR16A5",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Bus Support Clamp UHKR16A5",
+  "category": "electrical",
+  "subcategory": "Aluminum Bus Support Clamp",
+  "description": "BURNDY Type UHKR-A aluminum bus support clamp for rigid cable or tube to base, substation application.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Bus Support Clamp"
+   },
+   {
+    "name": "Series",
+    "value": "UHKR-A"
+   },
+   {
+    "name": "Material",
+    "value": "Cast Aluminum"
+   },
+   {
+    "name": "Application",
+    "value": "Cable or Tube to Base (substation)"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Rigid/Fixed pipe to base"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "1PLD60010",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY UNITAP Multi-Tap Connector 1PLD60010",
+  "category": "electrical",
+  "subcategory": "UNITAP Multi-Tap Connector",
+  "description": "BURNDY UNITAP plastisol-covered aluminum multi-tap connector with 10 ports, 600V rating, black insulation, for service entrance and branch circuit applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "UNITAP Multi-Tap Connector"
+   },
+   {
+    "name": "Number of Ports",
+    "value": "10"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum with plastisol covering"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Dimensions",
+    "value": "12.97 L x 2.75 H x 3.00 W in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed, RoHS Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/multiple-tap-connectors/burndy_unitap_catalog.pdf"
+ },
+ {
+  "mpn": "CT18125C0",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY UNIRAP Nylon Cable Tie CT18125C0",
+  "category": "electrical",
+  "subcategory": "UNIRAP Nylon Cable Tie",
+  "description": "BURNDY UNIRAP mini cable tie, UV black (C0 suffix), 18 lb tensile, approximately 1.25\" max bundle diameter, standard-duty nylon 6/6.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "UNIRAP Nylon Cable Tie"
+   },
+   {
+    "name": "Series",
+    "value": "CT18 UNIRAP Mini"
+   },
+   {
+    "name": "Minimum Tensile Strength",
+    "value": "18 lb"
+   },
+   {
+    "name": "Approximate Max Bundle Diameter",
+    "value": "1.25 in"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6 (UV Black)"
+   },
+   {
+    "name": "Operating Temperature",
+    "value": "-40°C to 85°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/catalogs/master-catalog/section%20g-unirap.pdf"
+ },
+ {
+  "mpn": "CT18200M",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY UNIRAP Nylon Cable Tie CT18200M",
+  "category": "electrical",
+  "subcategory": "UNIRAP Nylon Cable Tie",
+  "description": "BURNDY UNIRAP standard-duty nylon cable tie, 18 lb tensile, 2.00\" max bundle diameter, 8 in length, available in natural and colors including UV black.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "UNIRAP Nylon Cable Tie"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "2.00 in (51 mm)"
+   },
+   {
+    "name": "Overall Length",
+    "value": "8 in"
+   },
+   {
+    "name": "Minimum Tensile Strength",
+    "value": "18 lb"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6"
+   },
+   {
+    "name": "Operating Temperature",
+    "value": "-40°C to 85°C"
+   },
+   {
+    "name": "Compliance",
+    "value": "RoHS Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/521813"
+ },
+ {
+  "mpn": "UHG22A5",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Cast Aluminum Bus Support Clamp UHG22A5",
+  "category": "electrical",
+  "subcategory": "Cast Aluminum Bus Support Clamp",
+  "description": "BURNDY Type UHG cast aluminum bus support clamp for fixed/rigid pipe-to-base mounting in substation applications, 4\" IPS, 11.34\" length.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cast Aluminum Bus Support Clamp"
+   },
+   {
+    "name": "IPS Size",
+    "value": "4 in"
+   },
+   {
+    "name": "Overall Length",
+    "value": "11.34 in"
+   },
+   {
+    "name": "Bolt Circle Diameter",
+    "value": "5.0 in"
+   },
+   {
+    "name": "Threaded Specification",
+    "value": "5/8\"-11"
+   },
+   {
+    "name": "Material",
+    "value": "Cast Aluminum"
+   },
+   {
+    "name": "Pack Quantity",
+    "value": "4 pcs"
+   },
+   {
+    "name": "Application",
+    "value": "Fixed or rigid pipe to base (substation)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "TP1010Z",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl Ring Terminal TP1010Z",
+  "category": "electrical",
+  "subcategory": "Vinyl Ring Terminal",
+  "description": "BURNDY VINYLUG vinyl-insulated ring tongue terminal for 12-10 AWG wire, 1/2\" stud, yellow insulation, copper construction with 600V rating.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl Ring Terminal"
+   },
+   {
+    "name": "Wire Size Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in (#8-#10 screw)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Insulation Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic Copper"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "PVC vinyl shroud"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Ring-Tongue/TP1010/p/2023761"
+ },
+ {
+  "mpn": "BA14E38",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl-Insulated Ring Tongue Compression Terminal BA14E38",
+  "category": "electrical",
+  "subcategory": "Vinyl-Insulated Ring Tongue Compression ",
+  "description": "BURNDY vinyl-insulated ring tongue terminal for 18-14 AWG wire with 3/8\" stud hole, blue insulation, brazed barrel, electrolytic copper.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl-Insulated Ring Tongue Compression Terminal"
+   },
+   {
+    "name": "Wire Size Range",
+    "value": "18-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Insulation Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic Copper"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (PVC)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/catalogs/2022/Section%20B%20Small%20HYDENT%202022%20BURNDY%20Master%20Catalog.pdf"
+ },
+ {
+  "mpn": "NDR65544T12",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Stud Connector NDR65544T12",
+  "category": "electrical",
+  "subcategory": "Substation Stud Connector",
+  "description": "BURNDY Type NDR substation stud connector for copper cable, tube, and flat bar connections to equipment studs with reversible/rotatable cap.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Stud Connector"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1-1/8 in -12 UNC"
+   },
+   {
+    "name": "Tube IPS Range",
+    "value": "3/8 to 3/4 in"
+   },
+   {
+    "name": "Dimensions (H x L)",
+    "value": "2.88 x 4.63 in"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Application",
+    "value": "Cable, tube, or flat bar to equipment stud"
+   },
+   {
+    "name": "Type",
+    "value": "NDR (substation bolted)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://buy.wesco.com/static/catalog/products/images/PDF/BURNDY_BURNDYC00004_G21.pdf"
+ },
+ {
+  "mpn": "KPU29A26AC",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Aluminum Mechanical Gutter Tap Connector KPU29A26AC",
+  "category": "electrical",
+  "subcategory": "Insulated Aluminum Mechanical Gutter Tap",
+  "description": "Insulated aluminum mechanical gutter tap connector rated Al/Cu for connecting tap conductors to larger run conductors in gutter or junction box applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Aluminum Mechanical Gutter Tap Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "1/0 AWG Str - 250 kcmil"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "14 AWG Sol - 2/0 AWG Str"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, insulated (Al/Cu rated)"
+   },
+   {
+    "name": "Length",
+    "value": "4.24 in"
+   },
+   {
+    "name": "Width",
+    "value": "3.38 in"
+   },
+   {
+    "name": "Type",
+    "value": "Mechanical (set-screw)"
+   },
+   {
+    "name": "Cover",
+    "value": "Included"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Taps/Mechanical/Insulated-Aluminum-Mechanical-Gutter-Tap-Connector/p/1713290"
+ },
+ {
+  "mpn": "8266N",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Duplex Receptacle 8266N",
+  "category": "electrical",
+  "subcategory": "Duplex Receptacle",
+  "description": "Bryant heavy-duty duplex receptacle with nylon body, 15A 125V, 5-15R configuration.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Duplex Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15R"
+   },
+   {
+    "name": "Poles / Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Body Material",
+    "value": "Hard-duty nylon"
+   },
+   {
+    "name": "Type",
+    "value": "Duplex receptacle"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://s3.amazonaws.com/cesco-content/unilog/Batch2/785007/39308-AttachmentURL.pdf"
+ },
+ {
+  "mpn": "NA154N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Bolted Copper Substation Terminal (Tube-to-Pad) NA154N",
+  "category": "electrical",
+  "subcategory": "Bolted Copper Substation Terminal (Tube-",
+  "description": "Type NA high-copper-alloy bolted terminal for joining 1-inch copper tube to a flat pad, drilled to NEMA standards, rated to 230 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Bolted Copper Substation Terminal (Tube-to-Pad)"
+   },
+   {
+    "name": "Tube Size",
+    "value": "1\" copper IPS (pipe size)"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4 (NEMA spacing)"
+   },
+   {
+    "name": "Voltage Class",
+    "value": "230 kV"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Length",
+    "value": "5.25 in"
+   },
+   {
+    "name": "Width",
+    "value": "2.75 in"
+   },
+   {
+    "name": "Height",
+    "value": "2.06 in"
+   },
+   {
+    "name": "Weight",
+    "value": "2.38 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "YAV26L3BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Copper Lug (HYLUG) YAV26L3BOX",
+  "category": "electrical",
+  "subcategory": "Compression Copper Lug (HYLUG)",
+  "description": "HYLUG heavy-duty compression lug for 2/0 AWG copper conductor, 1-hole, 5/16\" stud, standard barrel with inspection window, tin-plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Copper Lug (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "2/0 AWG Copper"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Standard barrel"
+   },
+   {
+    "name": "Inspection Window",
+    "value": "Yes"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin plated"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, UL467, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/528110"
+ },
+ {
+  "mpn": "YAE18Z2",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Flanged Fork Terminal YAE18Z2",
+  "category": "electrical",
+  "subcategory": "Nylon Flanged Fork Terminal",
+  "description": "Nylon-insulated flanged fork terminal for 22-18 AWG copper stranded conductors; flanges prevent disconnection. Discontinued, replaced by YAE18N56F.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Flanged Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG (copper stranded)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#4 to #6"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin-plated with nylon insulation"
+   },
+   {
+    "name": "Insulation Color",
+    "value": "Red"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.00 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL486, CSA, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yae18z2-nylon-flanged-fork-terminal-for-22-18-awg/p/519778"
+ },
+ {
+  "mpn": "CT18125M",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Cable Tie (UNIRAP) CT18125M",
+  "category": "electrical",
+  "subcategory": "Cable Tie (UNIRAP)",
+  "description": "BURNDY UNIRAP black nylon 6/6 UV-stabilized cable tie, bulk pack, rated for 1.25\" maximum bundle diameter.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cable Tie (UNIRAP)"
+   },
+   {
+    "name": "Maximum Bundle Diameter",
+    "value": "1.25 in"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6, UV-stabilized"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Pack Type",
+    "value": "Bulk/Master"
+   },
+   {
+    "name": "Application",
+    "value": "Indoor/outdoor cable bundling"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BURNDY_CT18125M_Specsheet.pdf"
+ },
+ {
+  "mpn": "UHG18A5",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Hydraulic Crimping Die UHG18A5",
+  "category": "electrical",
+  "subcategory": "Hydraulic Crimping Die",
+  "description": "BURNDY hydraulic die for 2.5-inch bolt-circle aluminum/copper compression connectors, for use with BURNDY hydraulic crimping tools.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hydraulic Crimping Die"
+   },
+   {
+    "name": "Bolt Circle",
+    "value": "2.5 in"
+   },
+   {
+    "name": "Compatible Materials",
+    "value": "Aluminum and Copper (Al/Cu)"
+   },
+   {
+    "name": "Die Type",
+    "value": "Hydraulic crimping die"
+   },
+   {
+    "name": "Brand Family",
+    "value": "BURNDY tooling"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/digital-catalog"
+ },
+ {
+  "mpn": "YAE10N3",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Ring Terminal YAE10N3",
+  "category": "electrical",
+  "subcategory": "Nylon Ring Terminal",
+  "description": "Nylon-insulated ring terminal for 12-10 AWG copper conductors; brazed-seam barrel for reliable termination; UL486/CSA rated to 600V.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG (copper)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#4 to #6 (small stud)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin-plated with nylon insulation"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Short barrel, brazed seam"
+   },
+   {
+    "name": "Standards",
+    "value": "UL486, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yae10n-nylon-ring-terminal-for-12-10-awg/p/519452"
+ },
+ {
+  "mpn": "NDR6844T12",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Bolted Substation Stud Connector NDR6844T12",
+  "category": "electrical",
+  "subcategory": "Bolted Substation Stud Connector",
+  "description": "Type NDR high-copper-alloy reversible and rotatable cap stud connector for joining cable, tube, and flat bar in-line or at right angles to equipment studs.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Bolted Substation Stud Connector"
+   },
+   {
+    "name": "Cable Range",
+    "value": "#2 Sol - 1000 kcmil Cu stranded"
+   },
+   {
+    "name": "Tube/Pipe Range",
+    "value": "3/8 - 3/4 in copper IPS"
+   },
+   {
+    "name": "Stud Hardware",
+    "value": "2-12 (stud clamping bolt)"
+   },
+   {
+    "name": "Conductor Hardware",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy with DURIUM silicon bronze hardware"
+   },
+   {
+    "name": "Type",
+    "value": "Reversible, rotatable cap stud connector"
+   },
+   {
+    "name": "UPC",
+    "value": "78181000357"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "GF15ILA",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Commercial Grade GFCI Duplex Receptacle GF15ILA",
+  "category": "electrical",
+  "subcategory": "Commercial Grade GFCI Duplex Receptacle",
+  "description": "Bryant Circuit Guard commercial-grade GFCI duplex receptacle, 15A 125V, 5-15R, ivory, with LED indicator light and side/back wiring.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Commercial Grade GFCI Duplex Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15R"
+   },
+   {
+    "name": "Poles / Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Color",
+    "value": "Ivory"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial"
+   },
+   {
+    "name": "LED Indicator",
+    "value": "Yes"
+   },
+   {
+    "name": "Wiring",
+    "value": "Back and side wired, up to #10 AWG"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://buy.wesco.com/Ground-Fault-Receptacle-Outlets/HUBBELL/Ground-Fault-Duplex-Ivory-15A-125V-2P/GF15ILA/p/88377837901-1"
+ },
+ {
+  "mpn": "CHL1/0BN",
+  "brand": "Hubbell CMC",
+  "name": "Hubbell CMC Two-Hole Copper Compression Lug CHL1/0BN",
+  "category": "electrical",
+  "subcategory": "Two-Hole Copper Compression Lug",
+  "description": "Hubbell CMC two-hole copper compression lug for 1/0 AWG copper conductors, NEMA pad holes, tin-plated, suitable for use with copper conductors only.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CMC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Two-Hole Copper Compression Lug"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "1/0 AWG"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "2 (NEMA spacing)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin-plated"
+   },
+   {
+    "name": "Conductor Compatibility",
+    "value": "Copper only"
+   },
+   {
+    "name": "Series",
+    "value": "CHL (Two-Hole Heavy Lug)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/cmc/en/products/c/548025"
+ },
+ {
+  "mpn": "YRB2U4",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Splice Reducer YRB2U4",
+  "category": "electrical",
+  "subcategory": "Compression Splice Reducer",
+  "description": "Dual-rated aluminum/copper compression splice reducer, Barrel A for #2-1 AWG, Barrel B for #4 AWG, pre-filled with PENETROX A13 oxide inhibitor, tan color code.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Splice Reducer"
+   },
+   {
+    "name": "Barrel A Wire Range (Al)",
+    "value": "#2-1 AWG"
+   },
+   {
+    "name": "Barrel B Wire Range (Al)",
+    "value": "#4 AWG"
+   },
+   {
+    "name": "Barrel A Wire Range (Cu)",
+    "value": "#2-1 AWG"
+   },
+   {
+    "name": "Barrel B Wire Range (Cu)",
+    "value": "#4-3 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, dual-rated Al/Cu"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin plated"
+   },
+   {
+    "name": "Die Index",
+    "value": "296"
+   },
+   {
+    "name": "Color Code",
+    "value": "Tan"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yrb2u4-compression-splice-reducer-barrel-a-2-awg-barrel-b-4-awg-al9cu/p/530106"
  }
 ];
