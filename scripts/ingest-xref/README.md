@@ -90,3 +90,13 @@ so re-ingesting the same file adds nothing.
   with a reason and need a small custom parse. The skip list in `overrides.json` records which.
 - It is a **build-time** tool. `xlsx` is dev-only and never ships to the browser; the output
   `xref-crosses.ts` is server-only (loaded lazily by the cross-match function, ~5MB gzipped).
+
+## Companion scripts in this folder
+
+- **Bespoke cross parsers** — `merged-parsers.cjs` (merged-cell / wide / matrix files), `pdf-crosses.cjs`
+  (ingest LLM-extracted pairs from PDF guides), `verify-dedup.cjs` (contradiction policy + dedup),
+  `backfill-brands.cjs` (fill missing manufacturer labels), `analysis-report.cjs` (the counts xlsx + CSV).
+- **Product web-enrichment loop** — `enrich-rank-targets.cjs` (rank candidates), `enrich-iter-driver.cjs`
+  (target-driven, session-limit-safe iteration driver), `enrich-products.cjs` (append verified results to
+  a tier; `ENRICH_KEEP=hub|nonhub` splits a combined run), `enrich-record-skips.cjs` (don't retry
+  unverifiable parts). Full write-up in [docs/cross-reference-ingestion.md](../../docs/cross-reference-ingestion.md).

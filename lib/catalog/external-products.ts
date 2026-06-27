@@ -277,6 +277,9 @@ function build(): CatalogProduct[] {
     if (!e.specs.some((s) => s.isNonNeg)) continue;
     push(atkoreToCatalog(e));
   }
+  // Web-enriched tiers (verified specs + datasheet URLs, researched from manufacturer sites by the
+  // scripts/ingest-xref/enrich-* pipeline). Pushed BEFORE the identity-only Hubbell sitemap below so
+  // an enriched Hubbell SKU wins SKU precedence over its spec-less sitemap record (push() dedups).
   for (const e of ENRICHED_CROSS_TARGETS) {
     if (!e.specs.some((s) => s.isNonNeg)) continue;
     push(enrichedToCatalog(e));
@@ -293,5 +296,12 @@ function build(): CatalogProduct[] {
   return out;
 }
 
-/** Real products from openly-accessible bulk sources (ENERGY STAR + Hubbell sitemap), deduped by SKU. */
+/**
+ * Real products folded into the searchable catalog, deduped by SKU. Tiers, in precedence order:
+ *  - BOM (Wesco-carried) · security/camera SKU lists · Atkore catalog · web-enriched cross targets
+ *    (`enriched-cross-targets.ts`) · web-enriched Hubbell (`enriched-hubbell.ts`) · ENERGY STAR ·
+ *    Hubbell public sitemap (identity-only, lowest precedence).
+ * The two web-enriched tiers (~9.7K products) carry verified specs + manufacturer datasheet URLs;
+ * see docs/cross-reference-ingestion.md and scripts/ingest-xref/ for how they are produced.
+ */
 export const EXTERNAL_PRODUCTS: CatalogProduct[] = build();

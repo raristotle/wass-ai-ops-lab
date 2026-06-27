@@ -87,6 +87,16 @@ export const HELP_TOPICS: HelpTopic[] = [
     ],
   },
   {
+    id: "verified-specs",
+    title: "Verified specs & datasheets",
+    body: [
+      "Thousands of catalog products carry web-verified specifications pulled from the manufacturer's own site — Panduit, Leviton, Mersen/Ferraz, 3M, Pass & Seymour, and Hubbell-family lines (Burndy, Wiring Device-Kellems, Wiegmann, RACO, and more).",
+      "• Each enriched product lists ~9 attributes (amperage, voltage, material, trade size, conductor range, rating…) and links straight to the manufacturer datasheet.",
+      "• Every value is confirmed on an authoritative page — nothing is guessed or fabricated. A part we couldn't verify is left without specs rather than filled with assumptions.",
+      "• Search by part number to pull these up; the spec sheet and datasheet link are in View Details.",
+    ],
+  },
+  {
     id: "compare",
     title: "Compare products",
     body: [

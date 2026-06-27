@@ -75,6 +75,37 @@ WiFi guide with no part table were honestly skipped (0 pairs).
 manufacturer, competitor brand, and source file. A full row-per-cross export
 (`Meridian-All-Crosses.csv`, 759,869 rows) is generated alongside for raw analysis.
 
+## Web-enriched product tiers (verified specs + datasheets)
+
+The most-relevant cross-target parts are turned into **fully-specced, searchable catalog products**
+by web-researching each against its manufacturer's own site. Two tiers, both wired into the catalog
+via `enrichedToCatalog` in `lib/catalog/external-products.ts` (and ahead of the identity-only Hubbell
+sitemap, so a spec-rich record wins SKU precedence):
+
+| File | Products | Contents |
+|---|---|---|
+| `data/real/enriched-cross-targets.ts` | **7,836** | Top non-Hubbell cross targets — Panduit, Leviton, Mersen/Ferraz, 3M, Pass & Seymour, security/RF |
+| `data/real/enriched-hubbell.ts` | **1,911** | Most cross-referenced Hubbell family — Burndy, Wiring Device-Kellems, Wiegmann, Chance, Killark, RACO, PCORE |
+
+Each record carries ~9 verified attributes plus a `specSheetUrl`. **Only facts confirmed on an
+authoritative page are kept** — unverifiable parts are dropped, never fabricated.
+
+### How it's produced (the enrichment loop)
+
+A resumable, target-driven loop (scripts in `scripts/ingest-xref/`), safe across API session limits:
+
+1. **`enrich-rank-targets.cjs`** — rank candidate parts by cross-frequency, excluding already-done,
+   hydraulic (Aeroquip/Weatherhead), and internal Wesco stock numbers (not public, can't verify).
+2. **`enrich-iter-driver.cjs`** — each round, re-rank the *remaining* work (Hubbell first), write the
+   next chunk; report `DONE` when the cumulative targets are met.
+3. A workflow of small Sonnet agents researches each part (WebSearch/WebFetch, manufacturer-first).
+4. **`enrich-products.cjs`** — append verified results to the tier file (`ENRICH_KEEP=hub|nonhub`
+   splits one combined run into both tiers); **`enrich-record-skips.cjs`** records `found=false`
+   parts so they are never retried.
+
+Because progress is measured against the live tier files, any batch a session limit kills is
+auto-retried next round — nothing is lost or double-spent. Cost ran ~2.8K tokens per net product.
+
 ## Running it: `/ingest-xref`
 
 Drop the next batch and invoke the **`/ingest-xref`** skill (`.claude/skills/ingest-xref/`), or run
