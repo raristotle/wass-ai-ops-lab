@@ -67888,5 +67888,23214 @@ export const ENRICHED_HUBBELL: ExternalProductEntry[] = [
   ],
   "verifiedAt": "2026-06-26",
   "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yrb2u4-compression-splice-reducer-barrel-a-2-awg-barrel-b-4-awg-al9cu/p/530106"
+ },
+ {
+  "mpn": "YAEV8CL1",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon insulated ring terminal YAEV8CL1",
+  "category": "electrical",
+  "subcategory": "Nylon insulated ring terminal",
+  "description": "Nylon-insulated copper ring tongue terminal for 8 AWG wire, 1/4-in stud, double-thick tongue, designed for high-vibration aerospace and marine applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon insulated ring terminal"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "8 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon (locked, color: red)"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.47 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL486), MIL-SPEC MS25036, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Ring-Tongue/Nylon-Ring-Terminal-For-8-AWG/p/1690252"
+ },
+ {
+  "mpn": "YS3C",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression splice (copper) YS3C",
+  "category": "electrical",
+  "subcategory": "Compression splice (copper)",
+  "description": "Long-barrel compression butt splice for 3 AWG copper conductors, tin-plated, UL/CSA listed for 90°C at up to 35 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression splice (copper)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "3 AWG copper"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Long barrel"
+   },
+   {
+    "name": "Plating",
+    "value": "Tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "White"
+   },
+   {
+    "name": "Die Index",
+    "value": "9"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "Up to 35 kV"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "90°C"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Splices/Compression/Copper/Compression-Splice/p/1700880"
+ },
+ {
+  "mpn": "1SBM15H1",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Horizontal pin standoff bracket 1SBM15H1",
+  "category": "electrical",
+  "subcategory": "Horizontal pin standoff bracket",
+  "description": "15-in medium-duty fiberglass single-phase horizontal pin standoff bracket with 15° angle and hot-dip galvanized ductile iron fittings, for conductor support on distribution poles.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Horizontal pin standoff bracket"
+   },
+   {
+    "name": "Distance From Pole",
+    "value": "15 in"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty fiberglass)"
+   },
+   {
+    "name": "Angle",
+    "value": "15°"
+   },
+   {
+    "name": "Thread Material",
+    "value": "1 in Plastisol coated"
+   },
+   {
+    "name": "Strength (Longitudinal)",
+    "value": "1,450 lb min ultimate"
+   },
+   {
+    "name": "Strength (Transverse)",
+    "value": "1,500 lb min ultimate"
+   },
+   {
+    "name": "Strength (Vertical)",
+    "value": "1,500 lb min ultimate"
+   },
+   {
+    "name": "Weight",
+    "value": "5.6 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/horizontal-pin-standoff-bracket-15/p/295129"
+ },
+ {
+  "mpn": "YDS4W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Full tension splice (copper, solid) YDS4W",
+  "category": "electrical",
+  "subcategory": "Full tension splice (copper, solid)",
+  "description": "HYSPLICE single-sleeve full-tension splice for #4 AWG solid copper conductors (hard, medium, or soft drawn), requiring 4 crimps.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Full tension splice (copper, solid)"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "Solid copper, #4 AWG"
+   },
+   {
+    "name": "Conductor Compatibility (stranded)",
+    "value": "6–3 AWG stranded copper"
+   },
+   {
+    "name": "Material",
+    "value": "Copper tubing (unplated)"
+   },
+   {
+    "name": "Die Index",
+    "value": "162"
+   },
+   {
+    "name": "Crimps Required",
+    "value": "4"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2.55 in (65 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.38 in"
+   },
+   {
+    "name": "Industry Standard",
+    "value": "RUS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yds4w-copper-single-sleeve-full-tension-splice/p/474747"
+ },
+ {
+  "mpn": "YDS6W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Full tension splice (copper, solid) YDS6W",
+  "category": "electrical",
+  "subcategory": "Full tension splice (copper, solid)",
+  "description": "HYSPLICE single-sleeve full-tension splice for #6 AWG solid copper conductors (hard, medium, or soft drawn), maintaining full rated breaking strength.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Full tension splice (copper, solid)"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "Solid copper, #6 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Copper tubing (unplated)"
+   },
+   {
+    "name": "Die Index",
+    "value": "161"
+   },
+   {
+    "name": "Crimps Required",
+    "value": "4"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2.62 in (67 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.32 in"
+   },
+   {
+    "name": "Industry Standard",
+    "value": "RUS"
+   },
+   {
+    "name": "RoHS",
+    "value": "CM (Compliant Materials)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yds6w-copper-full-tension-splice/p/474748"
+ },
+ {
+  "mpn": "C7",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Cast bronze ground clamp (cable to water pipe) C7",
+  "category": "electrical",
+  "subcategory": "Cast bronze ground clamp (cable to water",
+  "description": "Cast bronze clamp for connecting armored or copper cable to water pipe; rated for direct burial in earth and concrete, UL467 listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cast bronze ground clamp (cable to water pipe)"
+   },
+   {
+    "name": "Cable Range (Armored)",
+    "value": "10–2 AWG"
+   },
+   {
+    "name": "Cable Range (Copper Solid/Stranded)",
+    "value": "8–2 AWG / 10–2 AWG"
+   },
+   {
+    "name": "Pipe/EMT Size",
+    "value": "1-1/4 in – 2 in"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy body, zinc-plated steel hardware"
+   },
+   {
+    "name": "Length",
+    "value": "3.62 in (92 mm)"
+   },
+   {
+    "name": "Application",
+    "value": "Cable to water pipe, direct burial"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL467)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/c7-cast-bronze-clamp-cable-to-water-pipe/p/2276256"
+ },
+ {
+  "mpn": "1104",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1104",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "1 in. trade size uninsulated Rigid/IMC bushing for smoothing wire entry at conduit ends; malleable iron construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   },
+   {
+    "name": "Brand",
+    "value": "RACO"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/1-in-RigidIMC-Bushing/p/1657184"
+ },
+ {
+  "mpn": "1105",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1105",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "1-1/4 in. trade size Rigid/IMC bushing providing a smooth rounded surface at conduit entrance; malleable iron.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-12-in-rigidimc-bushing/p/142961"
+ },
+ {
+  "mpn": "1106",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1106",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "1-1/2 in. trade size Rigid/IMC bushing; malleable iron construction for mechanical protection at conduit box entries.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-12-in-rigidimc-bushing/p/142961"
+ },
+ {
+  "mpn": "1108",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1108",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "2 in. trade size Rigid/IMC bushing providing a smooth rounded surface at conduit entrance; malleable iron.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/2-in-RigidIMC-Bushing/p/2178388"
+ },
+ {
+  "mpn": "1112",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1112",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "3 in. trade size Rigid/IMC bushing for smooth wire entry protection at conduit ends; malleable iron.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/3-in-rigidimc-bushing/p/2178416"
+ },
+ {
+  "mpn": "1114",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1114",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "3-1/2 in. trade size Rigid/IMC bushing; malleable iron, smooths wire entry at threaded conduit ends.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3-1/2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/3-12-in-rigidimc-bushing/p/2178424"
+ },
+ {
+  "mpn": "1116",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1116",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "4 in. trade size Rigid/IMC bushing; malleable iron construction for wire entry protection at conduit terminations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "4 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/4-in-rigidimc-bushing/p/140397"
+ },
+ {
+  "mpn": "1103",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC conduit bushing 1103",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC conduit bushing",
+  "description": "3/4 in. trade size Rigid/IMC bushing providing a smooth rounded surface at conduit entrance; malleable iron.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC conduit bushing"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (uninsulated)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/1103/p/2178220"
+ },
+ {
+  "mpn": "KC25",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST mechanical grounding connector (cable to flat) KC25",
+  "category": "electrical",
+  "subcategory": "SERVIT POST mechanical grounding connect",
+  "description": "Single-cable SERVIT POST mechanical grounding connector for grounding 2–1/0 AWG copper cable to steel structures, fence posts, or bus bar; 1/2-in stud, bronze body.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST mechanical grounding connector (cable to flat)"
+   },
+   {
+    "name": "Conductor Range (Stranded)",
+    "value": "2–1/0 AWG"
+   },
+   {
+    "name": "Conductor Range (Solid)",
+    "value": "2–2/0 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze, leaded commercial"
+   },
+   {
+    "name": "Stud Installation Torque",
+    "value": "480 in-lbs"
+   },
+   {
+    "name": "Application",
+    "value": "Grounding/bonding cable to flat surface"
+   },
+   {
+    "name": "Brand Line",
+    "value": "SERVIT POST"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Grounding-Bonding/Mechanical/SERVIT-POST/KC25/p/1731518"
+ },
+ {
+  "mpn": "KC22",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST mechanical grounding connector (cable to flat) KC22",
+  "category": "electrical",
+  "subcategory": "SERVIT POST mechanical grounding connect",
+  "description": "Single-cable SERVIT POST mechanical connector for grounding 10–3 AWG stranded/10–2 AWG solid copper to steel structures or bus bar; 3/8-in stud, bronze.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST mechanical grounding connector (cable to flat)"
+   },
+   {
+    "name": "Conductor Range (Stranded)",
+    "value": "10–3 AWG"
+   },
+   {
+    "name": "Conductor Range (Solid)",
+    "value": "10–2 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze, leaded commercial"
+   },
+   {
+    "name": "Nut Torque",
+    "value": "275 in-lbs"
+   },
+   {
+    "name": "Stud Torque",
+    "value": "280 in-lbs"
+   },
+   {
+    "name": "Brand Line",
+    "value": "SERVIT POST"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/kc22-servit-post-mechanical-connector-cable-to-flat/p/484146"
+ },
+ {
+  "mpn": "KC20",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST mechanical grounding connector (cable to flat) KC20",
+  "category": "electrical",
+  "subcategory": "SERVIT POST mechanical grounding connect",
+  "description": "Single-cable SERVIT POST mechanical connector for grounding 10–5 AWG stranded/10–4 AWG solid copper; 5/16-in stud, bronze body, 1-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST mechanical grounding connector (cable to flat)"
+   },
+   {
+    "name": "Conductor Range (Stranded)",
+    "value": "10–5 AWG"
+   },
+   {
+    "name": "Conductor Range (Solid)",
+    "value": "10–4 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze, leaded commercial"
+   },
+   {
+    "name": "Stud Installation Torque",
+    "value": "180 in-lbs"
+   },
+   {
+    "name": "Installation",
+    "value": "1-wrench"
+   },
+   {
+    "name": "Brand Line",
+    "value": "SERVIT POST"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/kc20-servit-post-mechanical-connector-cable-to-flat/p/484145"
+ },
+ {
+  "mpn": "K2C28",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST mechanical grounding connector (2 cables to flat) K2C28",
+  "category": "electrical",
+  "subcategory": "SERVIT POST mechanical grounding connect",
+  "description": "Two-cable SERVIT POST mechanical connector for grounding up to 4/0 AWG copper cables to flat steel structures; 5/8-11 stud, bronze body.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST mechanical grounding connector (2 cables to flat)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "1–4/0 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/8-11"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze"
+   },
+   {
+    "name": "Cables",
+    "value": "2 cables to flat"
+   },
+   {
+    "name": "Brand Line",
+    "value": "SERVIT POST"
+   },
+   {
+    "name": "Application",
+    "value": "Grounding/bonding to steel structures or bus bar"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Grounding-Bonding/Mechanical/SERVIT-POST/K2C28/p/1731448"
+ },
+ {
+  "mpn": "K2C17",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST mechanical grounding connector (2 cables to flat) K2C17",
+  "category": "electrical",
+  "subcategory": "SERVIT POST mechanical grounding connect",
+  "description": "Two-cable SERVIT POST mechanical connector for grounding 10–7 AWG stranded/10–6 AWG solid copper cables to flat surfaces; bronze body.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST mechanical grounding connector (2 cables to flat)"
+   },
+   {
+    "name": "Conductor Range (Stranded)",
+    "value": "10–7 AWG"
+   },
+   {
+    "name": "Conductor Range (Solid)",
+    "value": "10–6 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze"
+   },
+   {
+    "name": "Cables",
+    "value": "2 cables to flat"
+   },
+   {
+    "name": "Brand Line",
+    "value": "SERVIT POST"
+   },
+   {
+    "name": "Application",
+    "value": "Grounding/bonding to steel structures or bus bar"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Grounding-Bonding/Mechanical/SERVIT-POST/K2C17/p/1731451"
+ },
+ {
+  "mpn": "YSE10HN",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon insulated butt splice (INSULINK) YSE10HN",
+  "category": "electrical",
+  "subcategory": "Nylon insulated butt splice (INSULINK)",
+  "description": "INSULINK nylon-insulated seamless butt splice for 12–10 AWG wire, color-coded yellow, UL Listed and CSA Approved, 600 V, 105°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon insulated butt splice (INSULINK)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "12–10 AWG"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C"
+   },
+   {
+    "name": "Color Code",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated seamless electrolytic copper"
+   },
+   {
+    "name": "Insulation",
+    "value": "Transparent nylon"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.64 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL486), CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Splices/Compression/Nylon-Insulated/YSE10HN/p/1690802"
+ },
+ {
+  "mpn": "SWDE55N",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Quadrant strain clamp / static wire deadend SWDE55N",
+  "category": "electrical",
+  "subcategory": "Quadrant strain clamp / static wire dead",
+  "description": "Galvanized ductile iron quadrant strain clamp for deadending static wires on overhead transmission/distribution lines; 19,000 lb rated strength, clevis pin fitting.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Quadrant strain clamp / static wire deadend"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "0.22–0.55 in diameter"
+   },
+   {
+    "name": "Body Material",
+    "value": "Galvanized ductile iron"
+   },
+   {
+    "name": "Rated Strength",
+    "value": "19,000 lb"
+   },
+   {
+    "name": "Bolt Size",
+    "value": "0.5 in"
+   },
+   {
+    "name": "Clevis Pin Diameter",
+    "value": "0.62 in"
+   },
+   {
+    "name": "Clevis Opening",
+    "value": "0.68 in"
+   },
+   {
+    "name": "Length",
+    "value": "8.00 in"
+   },
+   {
+    "name": "Min Slip Strength (Normal Tension)",
+    "value": "60% RBS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Connectors/Deadend/Bolted/Quadrant/Strain-Clamp-Quadrant-Static-Wire-Deadend/p/1684078"
+ },
+ {
+  "mpn": "BGBL4",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum lay-in lug (grounding) BGBL4",
+  "category": "electrical",
+  "subcategory": "Aluminum lay-in lug (grounding)",
+  "description": "Tin-plated aluminum lay-in ground lug for 4–14 AWG copper or 8–4 AWG aluminum, 1/4-in stud, UL486B/AL9CU listed, 90°C/600 V.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum lay-in lug (grounding)"
+   },
+   {
+    "name": "Conductor Range (Cu)",
+    "value": "14–4 AWG solid or stranded"
+   },
+   {
+    "name": "Conductor Range (Al stranded)",
+    "value": "8–4 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Material",
+    "value": "6061-T6 aluminum, electro-tin plated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "35 in-lbs"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "90°C"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.10 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL486B, AL9CU rated, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/bgbl4-aluminum-lay-in-lug-4-14-awg-14-stud-tin-plated/p/484035"
+ },
+ {
+  "mpn": "FCB644N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation copper tap adapter (T-connector) FCB644N",
+  "category": "electrical",
+  "subcategory": "Substation copper tap adapter (T-connect",
+  "description": "One-piece cast copper alloy tin-plated substation tap adapter for NEMA-drilled transformer secondary terminals; 4-hole T-connector for Cu/Al conductors.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation copper tap adapter (T-connector)"
+   },
+   {
+    "name": "Connector Type",
+    "value": "T-Connector (4-hole)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, tin-plated"
+   },
+   {
+    "name": "Conductor Compatibility",
+    "value": "Copper and aluminum"
+   },
+   {
+    "name": "Overall Height",
+    "value": "5.75 in (146.1 mm)"
+   },
+   {
+    "name": "Overall Length",
+    "value": "4.00 in (102 mm)"
+   },
+   {
+    "name": "Pin Diameter",
+    "value": "0.75 in"
+   },
+   {
+    "name": "Application",
+    "value": "Substation transformer secondary NEMA terminal tapping"
+   },
+   {
+    "name": "Package Weight",
+    "value": "9.6 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/fcb644n-substation-copper-tap-adapter/p/494982"
+ },
+ {
+  "mpn": "2SBM30VV1",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Two-phase vertical pin standoff bracket 2SBM30VV1",
+  "category": "electrical",
+  "subcategory": "Two-phase vertical pin standoff bracket",
+  "description": "30-in medium-duty fiberglass two-phase vertical pin standoff bracket with 1-in Plastisol coated threads and galvanized ductile iron fittings for distribution line conductor support.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Two-phase vertical pin standoff bracket"
+   },
+   {
+    "name": "Distance From Pole",
+    "value": "30 in"
+   },
+   {
+    "name": "Phase Configuration",
+    "value": "Two-phase"
+   },
+   {
+    "name": "Rod Type",
+    "value": "Medium-duty fiberglass, 1.5 in diameter"
+   },
+   {
+    "name": "Thread Type",
+    "value": "1 in Plastisol coated"
+   },
+   {
+    "name": "Min Ultimate Strength",
+    "value": "1,800 lb"
+   },
+   {
+    "name": "Min Bending Strength",
+    "value": "1,100 lb"
+   },
+   {
+    "name": "Torsion Rating",
+    "value": "1,500 lb"
+   },
+   {
+    "name": "Weight",
+    "value": "12.3 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellpowersystems.cld.bz/Full-Catalogs/Fiberglass-Construction-Products-12/29/"
+ },
+ {
+  "mpn": "2SBM40VV1",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Two-phase vertical pin standoff bracket 2SBM40VV1",
+  "category": "electrical",
+  "subcategory": "Two-phase vertical pin standoff bracket",
+  "description": "40-in medium-duty fiberglass two-phase vertical pin standoff bracket with 1-in Plastisol coated threads and galvanized ductile iron fittings for overhead distribution.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Two-phase vertical pin standoff bracket"
+   },
+   {
+    "name": "Distance From Pole",
+    "value": "40 in"
+   },
+   {
+    "name": "Phase Configuration",
+    "value": "Two-phase"
+   },
+   {
+    "name": "Rod Type",
+    "value": "Medium-duty fiberglass, 1.5 in diameter"
+   },
+   {
+    "name": "Thread Type",
+    "value": "1 in Plastisol coated"
+   },
+   {
+    "name": "Min Ultimate Load",
+    "value": "1,350 lb"
+   },
+   {
+    "name": "Weight",
+    "value": "13.5 lb"
+   },
+   {
+    "name": "Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellpowersystems.cld.bz/Full-Catalogs/Fiberglass-Construction-Products-12/29/"
+ },
+ {
+  "mpn": "2SBM44VV1",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Two-phase vertical pin standoff bracket 2SBM44VV1",
+  "category": "electrical",
+  "subcategory": "Two-phase vertical pin standoff bracket",
+  "description": "44-in medium-duty fiberglass two-phase vertical pin standoff bracket with 1-in Plastisol coated threads and galvanized ductile iron fittings.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Two-phase vertical pin standoff bracket"
+   },
+   {
+    "name": "Distance From Pole",
+    "value": "44 in"
+   },
+   {
+    "name": "Phase Configuration",
+    "value": "Two-phase"
+   },
+   {
+    "name": "Rod Type",
+    "value": "Medium-duty fiberglass, 1.5 in diameter"
+   },
+   {
+    "name": "Thread Type",
+    "value": "1 in Plastisol coated"
+   },
+   {
+    "name": "Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Brand",
+    "value": "Chance (Hubbell Power Systems)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Line-Construction-Hardware/Brackets/Construction-Brackets/Standoffs-Brackets/Conductor-Support/Vertical-Pin-Standoff-Bracket-44-Two-Phase/p/1644366"
+ },
+ {
+  "mpn": "1SBM12V1",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Single-phase vertical pin standoff bracket 1SBM12V1",
+  "category": "electrical",
+  "subcategory": "Single-phase vertical pin standoff brack",
+  "description": "12-in medium-duty fiberglass single-phase vertical pin standoff bracket with 15° angle, Plastisol coated threads, and galvanized ductile iron fittings.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-phase vertical pin standoff bracket"
+   },
+   {
+    "name": "Distance From Pole",
+    "value": "12 in"
+   },
+   {
+    "name": "Phase Configuration",
+    "value": "Single-phase"
+   },
+   {
+    "name": "Angle",
+    "value": "15°"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty fiberglass)"
+   },
+   {
+    "name": "Strength (Longitudinal)",
+    "value": "1,400 lb min ultimate"
+   },
+   {
+    "name": "Strength (Transverse)",
+    "value": "2,000 lb min ultimate"
+   },
+   {
+    "name": "Strength (Vertical)",
+    "value": "1,800 lb min ultimate"
+   },
+   {
+    "name": "Weight",
+    "value": "6.8 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/vertical-pin-standoff-bracket-12/p/295210"
+ },
+ {
+  "mpn": "HSC34T48PF",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heat shrink tubing (thin wall, clear) HSC34T48PF",
+  "category": "electrical",
+  "subcategory": "Heat shrink tubing (thin wall, clear)",
+  "description": "Clear thin-wall cross-linked polyolefin heat shrink tubing on a 48-in spool; 2:1 shrink ratio, for 1–3/0 AWG conductors, CSA Approved.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heat shrink tubing (thin wall, clear)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "1 AWG – 3/0 AWG"
+   },
+   {
+    "name": "Expanded ID (Min)",
+    "value": "0.75 in"
+   },
+   {
+    "name": "Recovered ID (Max Recommended)",
+    "value": "0.38 in"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4-ft spool)"
+   },
+   {
+    "name": "Color",
+    "value": "Clear"
+   },
+   {
+    "name": "Certifications",
+    "value": "CSA Approved, RoHS CM"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/hsc34t48pf-heat-shrink-tubing-thin-wall-clear/p/4580410"
+ },
+ {
+  "mpn": "2960RT",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO EMT raintight compression connector (insulated) 2960RT",
+  "category": "electrical",
+  "subcategory": "EMT raintight compression connector (ins",
+  "description": "2-1/2 in. raintight zinc-plated steel EMT compression connector with insulated throat, listed for wet locations per NEC 358.42 and 314.15.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "EMT raintight compression connector (insulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2-1/2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "EMT"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Compression"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc-electroplated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated throat"
+   },
+   {
+    "name": "Environmental Rating",
+    "value": "Raintight / Wet Location"
+   },
+   {
+    "name": "Length",
+    "value": "3.924 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed (UL 514B)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/p/142023"
+ },
+ {
+  "mpn": "3565",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight conduit connector, 45-degree (insulated) 3565",
+  "category": "electrical",
+  "subcategory": "Liquidtight conduit connector, 45-degree",
+  "description": "1-1/4 in. 45-degree insulated liquidtight connector for flexible metallic and Type B nonmetallic conduit; suitable for hazardous and wet locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight conduit connector, 45-degree (insulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Angle",
+    "value": "45 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Steel / Malleable iron"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible metallic and Type B nonmetallic liquidtight"
+   },
+   {
+    "name": "Hazardous Location Rating",
+    "value": "Class I Div 2; Class II Div 1&2; Class III Div 1&2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Hazardous-Location/Liquidtight-Fittings/3565/p/1658087"
+ },
+ {
+  "mpn": "3524",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight conduit connector, straight (insulated) 3524",
+  "category": "electrical",
+  "subcategory": "Liquidtight conduit connector, straight ",
+  "description": "3-1/2 in. insulated liquidtight straight connector for flexible metallic and Type B nonmetallic conduit; UL/CSA listed, rated for hazardous and wet locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight conduit connector, straight (insulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3-1/2 in"
+   },
+   {
+    "name": "Angle",
+    "value": "Straight (0 degrees)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc-electroplated"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible metallic liquidtight and Type B nonmetallic"
+   },
+   {
+    "name": "Hazardous Location Rating",
+    "value": "Class I Div 2; Class II Div 1&2; Class III Div 1&2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified (UL 514B)"
+   },
+   {
+    "name": "Weight",
+    "value": "4.869 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/3-12-in-liquidtight-straight-connector-insulated/p/142610"
+ },
+ {
+  "mpn": "3563",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight conduit connector, 45-degree (insulated) 3563",
+  "category": "electrical",
+  "subcategory": "Liquidtight conduit connector, 45-degree",
+  "description": "3/4 in. 45-degree insulated liquidtight connector for flexible metallic and Type B nonmetallic conduit; rated for hazardous and wet locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight conduit connector, 45-degree (insulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Angle",
+    "value": "45 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Steel / Malleable iron"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible metallic and Type B nonmetallic liquidtight"
+   },
+   {
+    "name": "Hazardous Location Rating",
+    "value": "Class I Div 2; Class II Div 1&2; Class III Div 1&2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Hazardous-Location/Liquidtight-Fittings/34-in-45-Degree-Liquidtight-Connector-Insulated/p/1658083"
+ },
+ {
+  "mpn": "RLL050",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LL conduit body RLL050",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LL conduit body",
+  "description": "1/2 in. Rigid/IMC LL-type die-cast aluminum conduit body with NBR gasket and powder coat finish; NEMA 3R, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LL conduit body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "LL (left-turn)"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum, powder coat finish"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Cover",
+    "value": "Stamped aluminum with combination head screw"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "3R"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RIGIDIMC-CONDUIT-BODIES/p/1657097"
+ },
+ {
+  "mpn": "RLL075",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LL conduit body RLL075",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LL conduit body",
+  "description": "3/4 in. Rigid/IMC LL-type die-cast aluminum conduit body; 7.3 cu-in capacity, NBR gasket, NEMA 3R, UL Listed, Buy America qualified.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LL conduit body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "LL (left-turn)"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum, premium powder coat"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "7.3 cu in"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "3R"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, Buy America Qualified, EU RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141689"
+ },
+ {
+  "mpn": "RLL125",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LL conduit body RLL125",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LL conduit body",
+  "description": "1-1/4 in. Rigid/IMC LL-type die-cast aluminum conduit body with NBR gasket; NEMA 3R, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LL conduit body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "LL (left-turn)"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid / IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum, powder coat finish"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Cover",
+    "value": "Stamped aluminum"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "3R"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RIGIDIMC-CONDUIT-BODIES/p/1657100"
+ },
+ {
+  "mpn": "RLL150",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LL-Type Conduit Body RLL150",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LL-Type Conduit Body",
+  "description": "1-1/2 in. trade size LL-type die cast aluminum conduit body with powder coat finish, NBR gasket, and stamped aluminum cover.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LL-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in."
+   },
+   {
+    "name": "Body Type",
+    "value": "LL (Left-Left)"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "34.2 cu.in"
+   },
+   {
+    "name": "Dimensions (L×W×H)",
+    "value": "7.82 in × 3.52 in × 2.5 in"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellmexico/es-mx/products/rigidimc-conduit-bodies/p/10385208"
+ },
+ {
+  "mpn": "RLB075",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LB-Type Conduit Body RLB075",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LB-Type Conduit Body",
+  "description": "3/4 in. trade size LB-type die cast aluminum conduit body with NBR gasket, NEMA 3R rating, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LB-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in."
+   },
+   {
+    "name": "Body Type",
+    "value": "LB"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "7.3 cu.in"
+   },
+   {
+    "name": "Dimensions (L×W×H)",
+    "value": "5.08 in × 1.56 in × 2.39 in"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141314"
+ },
+ {
+  "mpn": "RLB100",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LB-Type Conduit Body RLB100",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LB-Type Conduit Body",
+  "description": "1 in. trade size LB-type die cast aluminum conduit body with NBR gasket, NEMA 3R rated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LB-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in."
+   },
+   {
+    "name": "Body Type",
+    "value": "LB"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "12 cu.in"
+   },
+   {
+    "name": "Dimensions (L×W×H)",
+    "value": "5.92 in × 1.82 in × 2.78 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.62 lb"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RLB100/p/1657079"
+ },
+ {
+  "mpn": "RLB125",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LB-Type Conduit Body RLB125",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LB-Type Conduit Body",
+  "description": "1-1/4 in. trade size LB-type die cast aluminum conduit body with powder coat finish and NBR gasket.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LB-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in."
+   },
+   {
+    "name": "Body Type",
+    "value": "LB"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Cover",
+    "value": "Stamped aluminum"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RIGIDIMC-CONDUIT-BODIES/p/1657100"
+ },
+ {
+  "mpn": "BA14E6",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl Ring Terminal BA14E6",
+  "category": "electrical",
+  "subcategory": "Vinyl Ring Terminal",
+  "description": "VINYLUG vinyl-insulated ring terminal for 16–14 AWG wire, #6 stud, electro-tin plated copper, 600V/105°C rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "16–14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl (PVC)"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper, electro-tin plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V max"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C max"
+   },
+   {
+    "name": "Tongue Style",
+    "value": "Ring"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ba14e6-vinyl-ring-terminal-for-16-14-awg/p/1944263"
+ },
+ {
+  "mpn": "TN144",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Ring Terminal TN144",
+  "category": "electrical",
+  "subcategory": "Nylon Ring Terminal",
+  "description": "INSULUG nylon-insulated ring terminal for 16–14 AWG, #3–#4 stud, electro-tin plated copper, 600V/105°C rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "16–14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#3–#4"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon, shrouded barrel style"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, electro-tin plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V max"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C max"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.79 in (20 mm)"
+   },
+   {
+    "name": "Military Spec",
+    "value": "MS25036"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/tn144-nylon-ring-terminal-for-16-14-awg/p/519145"
+ },
+ {
+  "mpn": "BA14EF8",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl Fork Terminal BA14EF8",
+  "category": "electrical",
+  "subcategory": "Vinyl Fork Terminal",
+  "description": "VINYLUG vinyl-insulated fork terminal for 16–14 AWG wire, #8 stud, electro-tin plated copper, 600V/105°C rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl Fork Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "16–14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl (PVC)"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper, electro-tin plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V max"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C max"
+   },
+   {
+    "name": "Tongue Style",
+    "value": "Fork (spade)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/electrical-electronic/compression-connectors-and-terminals/fork-tongue/c/2146667"
+ },
+ {
+  "mpn": "YCHC34TC34",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression C-Tap Connector YCHC34TC34",
+  "category": "electrical",
+  "subcategory": "Compression C-Tap Connector",
+  "description": "Copper compression C-tap for 500 kcmil–4/0 AWG run and tap, electro-tin plated, die index 1104.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression C-Tap Connector"
+   },
+   {
+    "name": "Run Wire Size",
+    "value": "500 kcmil–4/0 AWG"
+   },
+   {
+    "name": "Tap Wire Size",
+    "value": "500 kcmil–4/0 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, electro-tin plated"
+   },
+   {
+    "name": "Die Index",
+    "value": "1104"
+   },
+   {
+    "name": "Connector Style",
+    "value": "C-Tap"
+   },
+   {
+    "name": "Dimensions (L×H×W)",
+    "value": "1.00 in × 2.97 in × 1.38 in"
+   },
+   {
+    "name": "Cover Available",
+    "value": "Yes (flame retardant UL94 V-O)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ychc34tc34-cu-compression-c-tap-500-kcmil-40-awg-run-and-tap/p/530081"
+ },
+ {
+  "mpn": "GAR1834",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector, Cable to Rod/Pipe GAR1834",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector, Cable to",
+  "description": "Mechanical grounding connector for 300–500 kcmil copper cable to 2–2-3/8 in. rod or 2 IPS pipe, DURIUM hardware, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector, Cable to Rod/Pipe"
+   },
+   {
+    "name": "Cable Size",
+    "value": "300–500 kcmil"
+   },
+   {
+    "name": "Rod Size",
+    "value": "2 in.–2-3/8 in."
+   },
+   {
+    "name": "Pipe Size",
+    "value": "2 IPS"
+   },
+   {
+    "name": "Material",
+    "value": "Copper body, DURIUM Silicon Bronze hardware"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes (UL467 Listed)"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench, parallel or 90°"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gar1834-mechanical-grounding-connector-cable-to-rod-or-pipe/p/483005"
+ },
+ {
+  "mpn": "GAR224C",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector, Cable to Rod/Pipe GAR224C",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector, Cable to",
+  "description": "Mechanical grounding connector for 8 AWG solid–4 AWG stranded copper to 4–4-1/2 in. rod or 4 IPS pipe, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector, Cable to Rod/Pipe"
+   },
+   {
+    "name": "Cable Size",
+    "value": "8 AWG solid–4 AWG stranded"
+   },
+   {
+    "name": "Rod Size",
+    "value": "4–4-1/2 in."
+   },
+   {
+    "name": "Pipe Size",
+    "value": "4 IPS"
+   },
+   {
+    "name": "Finish",
+    "value": "Bright dipped"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench, parallel or 90°"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Grounding-Bonding/Mechanical/Clamps/Cable-to-Rod-or-Tube/GAR224C-Mechanical-Grounding-Connector-Cable-to-Rod-or-Pipe/p/1730506"
+ },
+ {
+  "mpn": "GAR2234",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector, Cable to Rod/Pipe GAR2234",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector, Cable to",
+  "description": "Mechanical grounding connector for 300–500 kcmil copper cable to 4–4-1/2 in. rod or 4 IPS pipe, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector, Cable to Rod/Pipe"
+   },
+   {
+    "name": "Cable Size",
+    "value": "300–500 kcmil"
+   },
+   {
+    "name": "Rod Size",
+    "value": "4–4-1/2 in."
+   },
+   {
+    "name": "Pipe Size",
+    "value": "4 IPS"
+   },
+   {
+    "name": "Finish",
+    "value": "Bright dipped"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes (UL467 Listed)"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench, parallel or 90°"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Grounding-Bonding/Mechanical/Clamps/Cable-to-Rod-or-Tube/GAR2234-Mechanical-Grounding-Connector-Cable-to-Rod-or-Pipe/p/1730518"
+ },
+ {
+  "mpn": "T2535173S",
+  "brand": "Hubbell ACME ELECTRIC",
+  "name": "Hubbell ACME ELECTRIC Low Voltage Distribution Transformer, Single Phase T2535173S",
+  "category": "electrical",
+  "subcategory": "Low Voltage Distribution Transformer, Si",
+  "description": "15 kVA single-phase 240×480V primary / 120/240V secondary dry-type encapsulated distribution transformer, NEMA 3R, wall mount, shielded.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ACME ELECTRIC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Low Voltage Distribution Transformer, Single Phase"
+   },
+   {
+    "name": "kVA",
+    "value": "15"
+   },
+   {
+    "name": "Primary Voltage",
+    "value": "240 × 480V"
+   },
+   {
+    "name": "Secondary Voltage",
+    "value": "120/240V"
+   },
+   {
+    "name": "Phase",
+    "value": "Single phase, 60 Hz"
+   },
+   {
+    "name": "Enclosure",
+    "value": "NEMA 3R, encapsulated dry-type"
+   },
+   {
+    "name": "Temperature Rise",
+    "value": "115°C (Insulation class 180°C)"
+   },
+   {
+    "name": "Taps",
+    "value": "2 ANFC + 4 BNFC at 2.5% steps"
+   },
+   {
+    "name": "Mounting",
+    "value": "Wall"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/acmeelectric/en/products/low-voltage-distribution-transformer-single-phase-240x480-120240v-15kva/p/1077147"
+ },
+ {
+  "mpn": "CCO",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Cover for Compression C Connector CCO",
+  "category": "electrical",
+  "subcategory": "Insulated Cover for Compression C Connec",
+  "description": "High-density polyethylene snap-on insulating cover for BURNDY O-range compression C connectors, one-piece no-hardware design, #6 AWG–600 kcmil range.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Cover for Compression C Connector"
+   },
+   {
+    "name": "Material",
+    "value": "High-density polyethylene (HDPE)"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Conductor Range Covered",
+    "value": "#6 AWG–600 kcmil"
+   },
+   {
+    "name": "Overall Length",
+    "value": "4.29 in"
+   },
+   {
+    "name": "B Dimension (Length)",
+    "value": "1.32 in"
+   },
+   {
+    "name": "Design",
+    "value": "One-piece, snap-shut, no hardware"
+   },
+   {
+    "name": "RoHS",
+    "value": "EU RoHS Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Covers/Standard-Covers/CCO/p/2022427"
+ },
+ {
+  "mpn": "TP1012",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl Ring Terminal TP1012",
+  "category": "electrical",
+  "subcategory": "Vinyl Ring Terminal",
+  "description": "VINYLUG vinyl-insulated ring terminal for 12–10 AWG wire, #12 stud, electro-tin plated copper, 600V/105°C rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "12–10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#12"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl (PVC)"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper, electro-tin plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V max"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C max"
+   },
+   {
+    "name": "Tongue Style",
+    "value": "Ring"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Ring-Tongue/TP1012/p/2023781"
+ },
+ {
+  "mpn": "5189-5",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cluster Cover, Carded 5189-5",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cluster Cover, Carded",
+  "description": "1-gang die cast aluminum weatherproof cluster cover with three 1/2 in. threaded outlets, gray, carded (retail pack), includes gasket and hardware.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cluster Cover, Carded"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "1"
+   },
+   {
+    "name": "Number of Outlets",
+    "value": "3 (1/2 in. threaded)"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Actual Depth",
+    "value": "1.063 in"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "15.28 cu.in"
+   },
+   {
+    "name": "Packaging",
+    "value": "Carded (retail)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/c/1-Gang-Weatherproof-Cluster-Cover-Three-12-in-Threaded-Outlets-Gray-Carded/p/1670597"
+ },
+ {
+  "mpn": "2103",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Flex Straight Squeeze Connector, Uninsulated 2103",
+  "category": "electrical",
+  "subcategory": "Flex Straight Squeeze Connector, Uninsul",
+  "description": "3/4 in. trade size malleable iron flex straight squeeze connector for flexible metal conduit, uninsulated, electro zinc plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flex Straight Squeeze Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metal Conduit (FMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, electro zinc plated"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Squeeze"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/2103/p/1657530"
+ },
+ {
+  "mpn": "Q2A262N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heavy Duty Copper Lug, 2-Conductor 2-Hole Q2A262N",
+  "category": "electrical",
+  "subcategory": "Heavy Duty Copper Lug, 2-Conductor 2-Hol",
+  "description": "QIKLUG 2-conductor, 2-hole mechanical heavy-duty copper lug for 1/0–2/0 AWG stranded copper, 1/2 in. stud, 1-3/4 in. spacing.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heavy Duty Copper Lug, 2-Conductor 2-Hole"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "1/0–2/0 AWG stranded copper"
+   },
+   {
+    "name": "Number of Conductors",
+    "value": "2"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in."
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "180 lb-in"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Dual clamp (QIKLUG)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/q2a262n-2-cond-2-hole-heavy-duty-copper-lug-connector/p/490095"
+ },
+ {
+  "mpn": "2105",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Flex Straight Squeeze Connector, Uninsulated 2105",
+  "category": "electrical",
+  "subcategory": "Flex Straight Squeeze Connector, Uninsul",
+  "description": "1 in. trade size malleable iron flex straight squeeze connector for flexible metal conduit, uninsulated, electro zinc plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flex Straight Squeeze Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metal Conduit (FMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, electro zinc plated"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Squeeze"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/electrical-electronic/fittings/commercial-fittings/cl/2056193"
+ },
+ {
+  "mpn": "2106",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Flex Straight Squeeze Connector, Uninsulated 2106",
+  "category": "electrical",
+  "subcategory": "Flex Straight Squeeze Connector, Uninsul",
+  "description": "1-1/2 in. trade size malleable iron flex straight squeeze connector for flexible metal conduit, uninsulated, electro zinc plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flex Straight Squeeze Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metal Conduit (FMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, electro zinc plated"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Squeeze"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-12-in-flex-straight-squeeze-connector-uninsulated/p/141000"
+ },
+ {
+  "mpn": "2110",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Flex Straight Squeeze Connector, Uninsulated 2110",
+  "category": "electrical",
+  "subcategory": "Flex Straight Squeeze Connector, Uninsul",
+  "description": "2-1/2 in. trade size malleable iron flex straight squeeze connector for flexible metal conduit, uninsulated, electro zinc plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flex Straight Squeeze Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2-1/2 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metal Conduit (FMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, electro zinc plated"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Squeeze"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/2-12-in-flex-straight-squeeze-connector-uninsulated/p/141028"
+ },
+ {
+  "mpn": "2112",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Flex Straight Squeeze Connector, Uninsulated 2112",
+  "category": "electrical",
+  "subcategory": "Flex Straight Squeeze Connector, Uninsul",
+  "description": "3 in. trade size malleable iron flex straight squeeze connector for flexible metal conduit, uninsulated, electro zinc plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flex Straight Squeeze Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metal Conduit (FMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, electro zinc plated"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Squeeze"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Dimensions (L×W×H)",
+    "value": "3.234 in × 4.3 in × 5 in"
+   },
+   {
+    "name": "Weight",
+    "value": "2.026 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/3-in-flex-straight-squeeze-connector-uninsulated/p/141029"
+ },
+ {
+  "mpn": "5189-1",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cluster Cover 5189-1",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cluster Cover",
+  "description": "1-gang die cast aluminum weatherproof cluster cover with three 1/2 in. threaded outlets, white, includes gasket and hardware.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cluster Cover"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "1"
+   },
+   {
+    "name": "Number of Outlets",
+    "value": "3 (1/2 in. threaded)"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Actual Depth",
+    "value": "1.063 in"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat"
+   },
+   {
+    "name": "Packaging",
+    "value": "Bulk (non-carded)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/1-gang-weatherproof-cluster-cover-three-12-in-threaded-outlets-white/p/141216"
+ },
+ {
+  "mpn": "Q3A344N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heavy Duty Copper Lug, 3-Conductor 4-Hole Q3A344N",
+  "category": "electrical",
+  "subcategory": "Heavy Duty Copper Lug, 3-Conductor 4-Hol",
+  "description": "QIKLUG 3-conductor, 4-hole mechanical heavy-duty copper lug for 400–500 kcmil copper, 1/2 in. stud, 1-3/4 in. spacing.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heavy Duty Copper Lug, 3-Conductor 4-Hole"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "400–500 kcmil"
+   },
+   {
+    "name": "Number of Conductors",
+    "value": "3"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "4"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in."
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "375 lb-in"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Tri clamp (QIKLUG)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/q3a344n-3-conductor-4-hole-heavy-duty-copper-lug/p/490175"
+ },
+ {
+  "mpn": "2101",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Flex Straight Squeeze Connector, Uninsulated 2101",
+  "category": "electrical",
+  "subcategory": "Flex Straight Squeeze Connector, Uninsul",
+  "description": "3/8 in. trade size malleable iron flex straight squeeze connector for flexible metal conduit, uninsulated, electro zinc plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flex Straight Squeeze Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/8 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metal Conduit (FMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, electro zinc plated"
+   },
+   {
+    "name": "Dimensions (L×W×H)",
+    "value": "1.063 in × 1.125 in × 1.359 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.2 lb"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Squeeze"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/38-in-flex-straight-squeeze-connector-uninsulated/p/140986"
+ },
+ {
+  "mpn": "5638-5",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Swivel Photocell, Carded 5638-5",
+  "category": "electrical",
+  "subcategory": "Weatherproof Swivel Photocell, Carded",
+  "description": "Weatherproof swivel photocell in gray, carded retail pack, with built-in time delay to prevent false triggering from vehicle headlamps.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Swivel Photocell, Carded"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Type",
+    "value": "Swivel photocell"
+   },
+   {
+    "name": "Weather Resistant",
+    "value": "Yes"
+   },
+   {
+    "name": "Dimensions (H×W×D)",
+    "value": "1.67 in × 1.673 in × 4.5 in"
+   },
+   {
+    "name": "Package Weight",
+    "value": "0.05 lb"
+   },
+   {
+    "name": "Time Delay",
+    "value": "Built-in (prevents headlamp false trigger)"
+   },
+   {
+    "name": "Packaging",
+    "value": "Carded (retail)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/weatherproof-swivel-photocell-gray-carded/p/140879"
+ },
+ {
+  "mpn": "5102-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cover, GFCI Horizontal 5102-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cover, GFCI Horizontal",
+  "description": "1-gang die cast aluminum horizontal weatherproof cover for GFCI receptacles, gray, includes gasket and hardware.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cover, GFCI Horizontal"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "1"
+   },
+   {
+    "name": "Orientation",
+    "value": "Horizontal"
+   },
+   {
+    "name": "Device Type Covered",
+    "value": "GFCI receptacle"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/1-gang-weatherproof-cover-horizontal-gfci-gray/p/142518"
+ },
+ {
+  "mpn": "5125-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cover, 2-Toggle 5125-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cover, 2-Toggle",
+  "description": "2-gang die cast aluminum weatherproof cover for two toggle switches, gray, includes gasket and mounting hardware.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cover, 2-Toggle"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "2"
+   },
+   {
+    "name": "Device Type Covered",
+    "value": "2 toggle switches"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/2-gang-weatherproof-cover-2-toggle-gray/p/141202"
+ },
+ {
+  "mpn": "CT40300M0",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY UV-Stabilized Cable Tie, Black CT40300M0",
+  "category": "electrical",
+  "subcategory": "UV-Stabilized Cable Tie, Black",
+  "description": "BURNDY UV-black nylon 6/6 cable tie, 40 lb tensile strength, 3.37 in. max bundle diameter, 10.96 in. overall length.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "UV-Stabilized Cable Tie, Black"
+   },
+   {
+    "name": "Tensile Strength",
+    "value": "40 lb"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "3.37 in."
+   },
+   {
+    "name": "Overall Length",
+    "value": "10.96 in. (278 mm)"
+   },
+   {
+    "name": "Width",
+    "value": "0.14 in. (4 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6"
+   },
+   {
+    "name": "Color",
+    "value": "UV Black"
+   },
+   {
+    "name": "Operating Temperature",
+    "value": "-40°C to 85°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ct40300m0-cable-tie-3-37-max-bundle-40-lb-tensile-uv-black/p/521342"
+ },
+ {
+  "mpn": "2944",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO EMT Compression Connector, Uninsulated 2944",
+  "category": "electrical",
+  "subcategory": "EMT Compression Connector, Uninsulated",
+  "description": "3-1/2 in. trade size EMT compression connector (uninsulated) for bonding EMT conduit to a box or enclosure, concrete-tight.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "EMT Compression Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3-1/2 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "EMT"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Compression"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Application",
+    "value": "Concrete-tight, bonds conduit to box/enclosure"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/3-12-in-emt-compression-connector-uninsulated/p/142031"
+ },
+ {
+  "mpn": "5028-5",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL RAYNTITE Weatherproof Cover, GFCI Vertical, Carded 5028-5",
+  "category": "electrical",
+  "subcategory": "RAYNTITE Weatherproof Cover, GFCI Vertic",
+  "description": "1-gang RAYNTITE Series die cast aluminum vertical weatherproof cover for GFCI receptacles, gray, self-closing lid, padlockable, carded.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "RAYNTITE Weatherproof Cover, GFCI Vertical, Carded"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "1"
+   },
+   {
+    "name": "Orientation",
+    "value": "Vertical"
+   },
+   {
+    "name": "Device Type Covered",
+    "value": "GFCI receptacle"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum"
+   },
+   {
+    "name": "Series",
+    "value": "RAYNTITE"
+   },
+   {
+    "name": "Self-Closing Lid",
+    "value": "Yes"
+   },
+   {
+    "name": "Padlockable",
+    "value": "Yes"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/Products/Electrical-Electronic/Outdoor/Boxes-Covers-Plates/5028-5/p/2159268"
+ },
+ {
+  "mpn": "CH4M",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Cable Tie Hanger, Screw Mount CH4M",
+  "category": "electrical",
+  "subcategory": "Cable Tie Hanger, Screw Mount",
+  "description": "UNIRAP nylon 6/6 screw-mount cable tie hanger, 0.27 in. max bundle diameter, radiused edges for cable protection, 1,000 per package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cable Tie Hanger, Screw Mount"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6"
+   },
+   {
+    "name": "Color",
+    "value": "Natural"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "0.27 in."
+   },
+   {
+    "name": "Width",
+    "value": "0.4 in. (10 mm)"
+   },
+   {
+    "name": "Mounting",
+    "value": "Screw"
+   },
+   {
+    "name": "Trade Name",
+    "value": "UNIRAP"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1,000 pcs"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ch4m-cable-tie-hanger/p/521539"
+ },
+ {
+  "mpn": "CH8M",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Cable Tie Hanger, Screw Mount CH8M",
+  "category": "electrical",
+  "subcategory": "Cable Tie Hanger, Screw Mount",
+  "description": "UNIRAP nylon 6/6 screw-mount cable tie hanger, 0.54 in. max bundle diameter, radiused edges for cable protection, 1,000 per package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cable Tie Hanger, Screw Mount"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6"
+   },
+   {
+    "name": "Color",
+    "value": "Natural"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "0.54 in."
+   },
+   {
+    "name": "Width",
+    "value": "0.48 in. (12 mm)"
+   },
+   {
+    "name": "Mounting",
+    "value": "Screw"
+   },
+   {
+    "name": "Trade Name",
+    "value": "UNIRAP"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1,000 pcs"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ch8m-cable-tie-hanger/p/521566"
+ },
+ {
+  "mpn": "2942RT",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO EMT Raintight Compression Connector, Uninsulated 2942RT",
+  "category": "electrical",
+  "subcategory": "EMT Raintight Compression Connector, Uni",
+  "description": "3 in. trade size raintight EMT compression connector (uninsulated) for wet locations, complies with 2008 NEC 358.42 and 314.15.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "EMT Raintight Compression Connector, Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "EMT"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Compression, Raintight"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Location Rating",
+    "value": "Wet locations"
+   },
+   {
+    "name": "Code Compliance",
+    "value": "2008 NEC 358.42 and 314.15"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/3-in-EMT-Raintight-Compression-Connector-Uninsulated/p/1657873"
+ },
+ {
+  "mpn": "GRL4",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Light Duty Ground Rod Clamp, Cable to Rod GRL4",
+  "category": "electrical",
+  "subcategory": "Light Duty Ground Rod Clamp, Cable to Ro",
+  "description": "Light-duty copper alloy mechanical ground rod clamp for #10–#2 AWG cable to 1/2 in. ground rod, UL467 listed, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Light Duty Ground Rod Clamp, Cable to Rod"
+   },
+   {
+    "name": "Cable Size",
+    "value": "#10–#2 AWG"
+   },
+   {
+    "name": "Rod Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy (unplated)"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467, CSA Approved"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes"
+   },
+   {
+    "name": "Duty Rating",
+    "value": "Light duty, economical"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/grl4-ground-rod-clamp-light-duty-cable-to-rod/p/482953"
+ },
+ {
+  "mpn": "GRL5",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Light Duty Ground Rod Clamp, Cable to Rod GRL5",
+  "category": "electrical",
+  "subcategory": "Light Duty Ground Rod Clamp, Cable to Ro",
+  "description": "Light-duty copper alloy mechanical ground rod clamp for #10–#2 AWG cable to 5/8 in. ground rod, UL467 listed, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Light Duty Ground Rod Clamp, Cable to Rod"
+   },
+   {
+    "name": "Cable Size",
+    "value": "#10–#2 AWG"
+   },
+   {
+    "name": "Rod Size",
+    "value": "5/8 in."
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy (unplated)"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467, CSA Approved"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes"
+   },
+   {
+    "name": "Duty Rating",
+    "value": "Light duty, economical"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/grl5-ground-rod-clamp-light-duty-cable-to-rod/p/482954"
+ },
+ {
+  "mpn": "GRL6",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Ground Rod Clamp GRL6",
+  "category": "electrical",
+  "subcategory": "Mechanical Ground Rod Clamp",
+  "description": "Light duty mechanical ground rod clamp connecting copper cable (#2–#10 AWG) to 3/4\" rod; UL467-listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Ground Rod Clamp"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#10 AWG – #2 AWG (copper stranded)"
+   },
+   {
+    "name": "Rod Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Material",
+    "value": "Copper Alloy, unplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, CSA Approved"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes (earth or concrete)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/grl6-ground-rod-clamp-light-duty-cable-to-rod/p/482955"
+ },
+ {
+  "mpn": "BD18N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Flexible Copper Braid Jumper BD18N",
+  "category": "electrical",
+  "subcategory": "Flexible Copper Braid Jumper",
+  "description": "18-inch tin-plated copper braid jumper with pressed seamless ferrules for grounding and bonding, rated 190A indoor / 225A outdoor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flexible Copper Braid Jumper"
+   },
+   {
+    "name": "Length",
+    "value": "18 in (457 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper with tin plating, pressed seamless ferrules"
+   },
+   {
+    "name": "Indoor Ampacity",
+    "value": "190 A"
+   },
+   {
+    "name": "Outdoor Ampacity",
+    "value": "225 A"
+   },
+   {
+    "name": "Hole Size",
+    "value": "0.56 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/bd18n-18-inch-flexible-copper-braid/p/480723"
+ },
+ {
+  "mpn": "BD24N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Flexible Copper Braid Jumper BD24N",
+  "category": "electrical",
+  "subcategory": "Flexible Copper Braid Jumper",
+  "description": "24-inch tin-plated copper braid jumper with pressed seamless ferrules to absorb linear expansion and vibration; rated 190A indoor / 225A outdoor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flexible Copper Braid Jumper"
+   },
+   {
+    "name": "Length",
+    "value": "24 in (610 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper with tin plating, pressed seamless ferrules"
+   },
+   {
+    "name": "Indoor Ampacity",
+    "value": "190 A"
+   },
+   {
+    "name": "Outdoor Ampacity",
+    "value": "225 A"
+   },
+   {
+    "name": "Hole Size",
+    "value": "0.56 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/bd24n-flexible-copper-braid-24-in-l-flexible-copper-braid-jumpers-designed-to-take-up-linear-expansion-and-contraction/p/480722"
+ },
+ {
+  "mpn": "SHC1033",
+  "brand": "Hubbell HUBBELL",
+  "name": "Hubbell HUBBELL Straight Male Cord Connector SHC1033",
+  "category": "electrical",
+  "subcategory": "Straight Male Cord Connector",
+  "description": "Kellems 3/4\" NPT aluminum straight male cord connector for cord diameters 0.38\"–0.50\"; suitable for wet and hazardous (Class I Div 2, Class II Div 1&2) locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell HUBBELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Straight Male Cord Connector"
+   },
+   {
+    "name": "Hub Size",
+    "value": "3/4\" NPT"
+   },
+   {
+    "name": "Cord Grip Range",
+    "value": "0.38\"–0.50\" (9.7–12.7 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "-30°F to +225°F (-34°C to +107°C)"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed; NEMA Type 4, 4X, 12, 13"
+   },
+   {
+    "name": "Color Code",
+    "value": "Blue"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/kellems-wire-management-cord-connectors-straight-male-38-50-34-aluminum/p/176311"
+ },
+ {
+  "mpn": "7401018",
+  "brand": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+  "name": "Hubbell INDUSTRIAL CONTROLS DIVISION Cord Grip Strain Relief 7401018",
+  "category": "electrical",
+  "subcategory": "Cord Grip Strain Relief",
+  "description": "Hubbell strain relief cord grip with 3/4\" thread size accommodating cable diameters 0.625\"–0.75\".",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cord Grip Strain Relief"
+   },
+   {
+    "name": "Thread Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Cable Diameter Min",
+    "value": "0.625 in"
+   },
+   {
+    "name": "Cable Diameter Max",
+    "value": "0.75 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellindustrialcontrols/en"
+ },
+ {
+  "mpn": "QA312N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Bolted Heavy Duty Copper Lug Connector QA312N",
+  "category": "electrical",
+  "subcategory": "Bolted Heavy Duty Copper Lug Connector",
+  "description": "QIKLUG heavy duty two-hole copper lug for 250–350 kcmil cable to equipment pads; 1/2\" stud, 1-3/4\" spacing, 1 screw, 325 in-lb installation torque.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Bolted Heavy Duty Copper Lug Connector"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "250–350 kcmil (copper)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in, 2-hole"
+   },
+   {
+    "name": "Stud Spacing",
+    "value": "1-3/4 in"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "325 in-lb"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL 486A-486B Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/qa312n-heavy-duty-two-hole-mounting-copper-lug-connector-250-350-kcmil-12-stud-1-34-spacing-1-screw/p/489921"
+ },
+ {
+  "mpn": "YAZ6CTC14",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Copper Compression Lug YAZ6CTC14",
+  "category": "electrical",
+  "subcategory": "Copper Compression Lug",
+  "description": "6 AWG one-hole tin-plated copper compression lug with 1/4\" stud, long barrel, inspection window, and internal chamfer; rated 90°C, up to 35 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Copper Compression Lug"
+   },
+   {
+    "name": "Wire Gauge",
+    "value": "6 AWG copper"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in, 1-hole"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long Barrel, Tin Plated"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "90°C"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "Up to 35 kV"
+   },
+   {
+    "name": "Die Index",
+    "value": "7 or 374"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL 486A-486B Listed, CSA Approved"
+   },
+   {
+    "name": "Color Code",
+    "value": "Blue"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yaz6ctc14-cu-compression-1-hole-14-stud-long-barrel-6-awg/p/522499"
+ },
+ {
+  "mpn": "HSB34T300PF",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heat Shrink Tubing HSB34T300PF",
+  "category": "electrical",
+  "subcategory": "Heat Shrink Tubing",
+  "description": "Black polyolefin thin-wall heat shrink tubing, 0.75\" expanded / 0.375\" recovered ID, 2:1 shrink ratio, 600 V, 25 ft reel for conductors #1 AWG to #3/0 AWG.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heat Shrink Tubing"
+   },
+   {
+    "name": "ID Min (Expanded)",
+    "value": "0.75 in"
+   },
+   {
+    "name": "ID Max (Recovered)",
+    "value": "0.375 in"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#1 AWG – #3/0 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, thin wall"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Length",
+    "value": "25 ft reel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/hsb34t300pf-heat-shrink-tubing-0-75-id-min-exp-0-375-id-max-rec-polyolefin-thin-wall-black-shrink-ratio-21-600v-25-ft-reel/p/1953421"
+ },
+ {
+  "mpn": "HSC12T48PF",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heat Shrink Tubing HSC12T48PF",
+  "category": "electrical",
+  "subcategory": "Heat Shrink Tubing",
+  "description": "Clear polyolefin thin-wall heat shrink tubing, 0.50\" expanded / 0.25\" recovered ID, 2:1 ratio for #6–#2 AWG conductors, 4 ft reel, CSA Approved.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heat Shrink Tubing"
+   },
+   {
+    "name": "ID Min (Expanded)",
+    "value": "0.50 in"
+   },
+   {
+    "name": "ID Max (Recovered)",
+    "value": "0.25 in"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#6 – #2 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Polyolefin, thin wall"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Clear"
+   },
+   {
+    "name": "Length",
+    "value": "4 ft reel"
+   },
+   {
+    "name": "Certifications",
+    "value": "CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/hsc12t48pf-clear-heat-shrink-tubing-0-50-id-min-exp-0-25-id-max-rec-6-2-polyolefin-thin-wall-shrink-ratio-21-4-ft-reel/p/1953556"
+ },
+ {
+  "mpn": "1804",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Connector 1804",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Connector",
+  "description": "1\" trade size uninsulated rigid/IMC compression connector providing concrete-tight bonding of unthreaded conduit to boxes; steel/zinc-plated construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Compression"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc-electroplated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 514B), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/1-in-RigidIMC-Compression-Connector-Uninsulated/p/1657427"
+ },
+ {
+  "mpn": "CRS15",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Duplex Receptacle CRS15",
+  "category": "electrical",
+  "subcategory": "Duplex Receptacle",
+  "description": "Bryant commercial grade duplex receptacle, 15A 125V, NEMA 5-15R, 2-pole 3-wire grounding, brown, side wired.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Duplex Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "15 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial"
+   },
+   {
+    "name": "Color",
+    "value": "Brown"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bryant/en/products/straight-blade-devices-receptacles-duplex-commercial-grade-15a-125v-2-pole-3-wire-grounding-5-15r-brown-single-pack/p/179035"
+ },
+ {
+  "mpn": "CRS15I",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Duplex Receptacle CRS15I",
+  "category": "electrical",
+  "subcategory": "Duplex Receptacle",
+  "description": "Bryant commercial grade duplex receptacle, 15A 125V, NEMA 5-15R, 2-pole 3-wire grounding, ivory, side wired.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Duplex Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "15 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial"
+   },
+   {
+    "name": "Color",
+    "value": "Ivory"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bryant/en/products/straight-blade-devices-receptacles-duplex-commercial-grade-15a-125v-2-pole-3-wire-grounding-5-15r-brown-single-pack/p/19395370"
+ },
+ {
+  "mpn": "NDR6328T13",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Stud Connector NDR6328T13",
+  "category": "electrical",
+  "subcategory": "Substation Stud Connector",
+  "description": "TYPE NDR high copper alloy reversible and rotatable cap stud connector for cable, tube, and flat bar; 1/2\"-13 stud, accommodates #6 Sol.–4/0 Str. copper; one-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Stud Connector"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2\"-13"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#6 Sol. – 4/0 Str. copper"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Application",
+    "value": "Substation cable/tube/flat bar to stud"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench, reversible and rotatable"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/substation"
+ },
+ {
+  "mpn": "GD1526",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector GD1526",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector",
+  "description": "Cast copper alloy two-cable-to-rod mechanical grounding connector for #4 AWG – 2/0 AWG to 1-1/4\" rod or 1\"-1-1/4\" pipe; UL467 Listed, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#4 AWG – 2/0 AWG (Cu solid or stranded)"
+   },
+   {
+    "name": "Rod/Pipe Size",
+    "value": "1-1/4 in rod; 1-1/8 to 1-1/4 in pipe"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, cast; DURIUM silicon bronze hardware"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lbs/in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, CSA Approved"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes (earth or concrete)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gd1526-mechanical-grounding-connector-2-cables-to-rod-or-pipe/p/483139"
+ },
+ {
+  "mpn": "KPA8CUP",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Copper Terminal KPA8CUP",
+  "category": "electrical",
+  "subcategory": "Mechanical Copper Terminal",
+  "description": "One-hole copper mechanical terminal for #14 AWG solid to #6 AWG stranded wire, #10 stud, 35 in-lb torque; pressure bar design prevents cable damage; UL 486A-486B listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Copper Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#14 AWG Sol. – #6 AWG Str. copper"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "#12-24 slot screw with pressure bar"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "35 in-lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL 486A-486B Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/kpa8cup-copper-terminal-1-hole-14-awg-sol-6-awg-str-10-stud-1-screw/p/490477"
+ },
+ {
+  "mpn": "GK6429",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Clamp GK6429",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Clamp",
+  "description": "Cast copper alloy three-cable-to-rod grounding clamp for 2/0 AWG Sol.–250 kcmil to 5/8\"–3/4\" rod; UL467 Listed, direct burial rated, 480 in-lb torque.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Clamp"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "2/0 AWG Sol. – 250 kcmil (3 conductors)"
+   },
+   {
+    "name": "Rod/Pipe Size",
+    "value": "5/8\" and 3/4\" rod; 3/8\" pipe"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, cast; DURIUM silicon bronze screws"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 in-lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed"
+   },
+   {
+    "name": "Direct Burial",
+    "value": "Yes (earth or concrete)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gk6429-copper-alloy-grounding-clamp-3-cables-to-rod-or-pipe/p/483195"
+ },
+ {
+  "mpn": "YF1408IDL",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Bootlace Ferrule YF1408IDL",
+  "category": "electrical",
+  "subcategory": "Insulated Bootlace Ferrule",
+  "description": "BURNDY covered ferrule for 14 AWG copper wire, tin-plated electrolytic copper, UL 486F Listed; part of the FINGRIP type-YF insulated ferrule series.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Bootlace Ferrule"
+   },
+   {
+    "name": "Wire Gauge",
+    "value": "14 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper, tin plated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Covered (insulated)"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL 486F Listed"
+   },
+   {
+    "name": "Series",
+    "value": "TYPE YF covered ferrule"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/power-connectors-ferrule-connectors"
+ },
+ {
+  "mpn": "3002",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Set-Screw Connector 3002",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Set-Screw Connector",
+  "description": "1/2\" trade size uninsulated rigid/IMC set-screw connector for dry locations; steel, zinc-electroplated; UL Listed (UL 514B).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Set-Screw Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Set-Screw"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc-electroplated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 514B)"
+   },
+   {
+    "name": "Dimensions (L×W×H)",
+    "value": "1.125\" × 1.16\" × 1.375\""
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/p/142087"
+ },
+ {
+  "mpn": "3003",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Set-Screw Connector 3003",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Set-Screw Connector",
+  "description": "3/4\" trade size uninsulated rigid/IMC set-screw connector for dry locations; steel construction; UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Set-Screw Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Set-Screw"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc-electroplated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 514B)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/3003/p/142088"
+ },
+ {
+  "mpn": "3004",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Set-Screw Connector 3004",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Set-Screw Connector",
+  "description": "1\" trade size uninsulated rigid/IMC set-screw connector for dry locations; steel, zinc-electroplated; UL Listed (UL 514B).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Set-Screw Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Set-Screw"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc-electroplated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 514B)"
+   },
+   {
+    "name": "Dimensions (L×W×H)",
+    "value": "1.5\" × 1.78\" × 1.875\""
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-in-rigidimc-set-screw-connector-uninsulated/p/142089"
+ },
+ {
+  "mpn": "2663",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC 90° Pulling Elbow 2663",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC 90° Pulling Elbow",
+  "description": "3/4\" trade size 90° Handy Ell threaded rigid/IMC pulling elbow; zinc die cast with gasket and cover included.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC 90° Pulling Elbow"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Type",
+    "value": "90° Pulling Elbow (Handy Ell)"
+   },
+   {
+    "name": "Thread Size",
+    "value": "3/4\"-14 NPSM"
+   },
+   {
+    "name": "Material",
+    "value": "Zinc die cast"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.66\" L × 1.29\" W × 1.63\" H"
+   },
+   {
+    "name": "Accessories",
+    "value": "Gasket and cover included"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/electrical-electronic/fittings/commercial-fittings/c/2144823"
+ },
+ {
+  "mpn": "BA10E14",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl Insulated Ring Terminal BA10E14",
+  "category": "electrical",
+  "subcategory": "Vinyl Insulated Ring Terminal",
+  "description": "Vinyl insulated ring tongue terminal for 12–10 AWG copper wire, 1/4\" stud, tin-plated brass; deep-V groove serration for enhanced holding strength.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12–10 AWG copper"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Material",
+    "value": "Brass, tin-plated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Feature",
+    "value": "Deep-V groove serration"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Ring-Tongue/Vinyl-Ring-Terminal-For-12---10-AWG/p/2023787"
+ },
+ {
+  "mpn": "HBL5366C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Heavy Duty Male Plug HBL5366C",
+  "category": "electrical",
+  "subcategory": "Insulgrip Heavy Duty Male Plug",
+  "description": "Insulgrip heavy duty 20A 125V NEMA 5-20P straight male plug; industrial/commercial grade; VARI-SIZE cord clamp; ribbed nylon housing rated to 75°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Heavy Duty Male Plug"
+   },
+   {
+    "name": "Amperage",
+    "value": "20 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20P (male plug)"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "Material",
+    "value": "Ribbed nylon, copper alloy contacts"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "-40°C to +75°C"
+   },
+   {
+    "name": "Dielectric Withstand",
+    "value": "2000 V min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Straight-Blade-Devices/Plugs-Connectors/HBL5366C/p/1634105"
+ },
+ {
+  "mpn": "HBL5369C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Heavy Duty Female Connector Body HBL5369C",
+  "category": "electrical",
+  "subcategory": "Insulgrip Heavy Duty Female Connector Bo",
+  "description": "Insulgrip heavy duty 20A 125V NEMA 5-20R straight female connector body; industrial/commercial grade; white.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Heavy Duty Female Connector Body"
+   },
+   {
+    "name": "Amperage",
+    "value": "20 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R (female connector)"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Industrial/Commercial"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Straight-Blade-Devices/Plugs-Connectors/HBL5369C/p/1638740"
+ },
+ {
+  "mpn": "HBL8319C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital Grade Female Connector Body HBL8319C",
+  "category": "electrical",
+  "subcategory": "Hospital Grade Female Connector Body",
+  "description": "Insulgrip hospital grade 20A 125V NEMA 5-20R straight female connector body; nylon housing, brass terminal screws, cord range 0.230\"–0.720\".",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital Grade Female Connector Body"
+   },
+   {
+    "name": "Amperage",
+    "value": "20 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R (female connector)"
+   },
+   {
+    "name": "Grade",
+    "value": "Hospital Grade"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon; brass terminal screws"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.230\" – 0.720\""
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "-40°C to +75°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Hospital-Products/Plugs-Connector-Bodies/HBL8319C/p/1638718"
+ },
+ {
+  "mpn": "HBL5669C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Heavy Duty Female Connector Body HBL5669C",
+  "category": "electrical",
+  "subcategory": "Insulgrip Heavy Duty Female Connector Bo",
+  "description": "Insulgrip heavy duty 15A 250V NEMA 6-15R straight female connector body; industrial/commercial grade; white.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Heavy Duty Female Connector Body"
+   },
+   {
+    "name": "Amperage",
+    "value": "15 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "250 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "6-15R (female connector)"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Industrial/Commercial"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/straight-blade-devices-female-connector-body-insulgrip-heavy-duty-industrialcommercial-grade-straight-15a-250v-6-15r-and-white/p/169054"
+ },
+ {
+  "mpn": "HBL5466C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Heavy Duty Male Plug HBL5466C",
+  "category": "electrical",
+  "subcategory": "Insulgrip Heavy Duty Male Plug",
+  "description": "Insulgrip heavy duty 20A 250V NEMA 6-20P straight male plug; industrial/commercial grade; VARI-SIZE cord clamp; ribbed nylon housing.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Heavy Duty Male Plug"
+   },
+   {
+    "name": "Amperage",
+    "value": "20 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "250 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "6-20P (male plug)"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Industrial/Commercial"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "-40°C to +75°C"
+   },
+   {
+    "name": "Dielectric Withstand",
+    "value": "2000 V min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Straight-Blade-Devices/Plugs-Connectors/HBL5466C/p/1634125"
+ },
+ {
+  "mpn": "HBL5469C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Heavy Duty Female Connector Body HBL5469C",
+  "category": "electrical",
+  "subcategory": "Insulgrip Heavy Duty Female Connector Bo",
+  "description": "Insulgrip heavy duty 20A 250V NEMA 6-20R straight female connector body; industrial/commercial grade; white.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Heavy Duty Female Connector Body"
+   },
+   {
+    "name": "Amperage",
+    "value": "20 A"
+   },
+   {
+    "name": "Voltage",
+    "value": "250 V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "6-20R (female connector)"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Industrial/Commercial"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Straight-Blade-Devices/Plugs-Connectors/HBL5469C/p/1638744"
+ },
+ {
+  "mpn": "K2C15",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST Mechanical Grounding Connector K2C15",
+  "category": "electrical",
+  "subcategory": "SERVIT POST Mechanical Grounding Connect",
+  "description": "SERVIT POST two-cable-to-flat grounding connector for #12–#9 AWG Str./#12–#8 AWG Sol. copper; leaded bronze alloy, 1/4\" bolt, 80 lbs/in torque; UL467 Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST Mechanical Grounding Connector"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#12–#9 AWG Str. / #12–#8 AWG Sol. copper"
+   },
+   {
+    "name": "Conductors",
+    "value": "2 max"
+   },
+   {
+    "name": "Bolt Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy, leaded, unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "80 lbs/in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, direct burial approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/c/K2C15/p/1731459"
+ },
+ {
+  "mpn": "K2C20B1",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST Mechanical Grounding Connector K2C20B1",
+  "category": "electrical",
+  "subcategory": "SERVIT POST Mechanical Grounding Connect",
+  "description": "SERVIT POST two-cable-to-flat grounding connector for #10–#5 AWG Str./#10–#4 AWG Sol. copper; leaded bronze, 5/16\" bolt, 180 lbs/in torque; UL467 Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST Mechanical Grounding Connector"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#10–#5 AWG Str. / #10–#4 AWG Sol. copper"
+   },
+   {
+    "name": "Conductors",
+    "value": "2 max"
+   },
+   {
+    "name": "Bolt Size",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy, leaded, unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "180 lbs/in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, direct burial approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/k2c20b1-servit-post-mechanical-connector-2-cables-to-flat/p/484088"
+ },
+ {
+  "mpn": "K2C22B1",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST Mechanical Grounding Connector K2C22B1",
+  "category": "electrical",
+  "subcategory": "SERVIT POST Mechanical Grounding Connect",
+  "description": "SERVIT POST two-cable-to-flat grounding connector for #10–#3 AWG Str./#10–#2 AWG Sol. copper; leaded bronze, 3/8\"-16 bolt, 280 lbs/in torque; UL467 Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST Mechanical Grounding Connector"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#10–#3 AWG Str. / #10–#2 AWG Sol. copper"
+   },
+   {
+    "name": "Conductors",
+    "value": "2 max"
+   },
+   {
+    "name": "Bolt Size",
+    "value": "3/8\"-16"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy, leaded, unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "280 lbs/in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, direct burial approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/k2c22b1-servit-post-mechanical-connector-2-cables-to-flat/p/484081"
+ },
+ {
+  "mpn": "FQN14F18X02D",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Fully Insulated Nylon Female Quick Disconnect FQN14F18X02D",
+  "category": "electrical",
+  "subcategory": "Fully Insulated Nylon Female Quick Disco",
+  "description": "FINGRIP fully insulated nylon female quick disconnect for 16–14 AWG wire; 0.187\" × 0.020\" blade; 300 V max; tin-plated brass; cULus approved.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fully Insulated Nylon Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16–14 AWG"
+   },
+   {
+    "name": "Blade Size",
+    "value": "0.187\" × 0.020\""
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass; nylon insulation"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "300 V max"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.79 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Approved (UL310, UL467)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/519829"
+ },
+ {
+  "mpn": "KVSW40",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY OKLIP Mechanical Connector with Spacer Bar KVSW40",
+  "category": "electrical",
+  "subcategory": "OKLIP Mechanical Connector with Spacer B",
+  "description": "Compact 2-piece OKLIP copper mechanical connector for 400–800 kcmil run and 4/0 AWG Str.–800 kcmil tap conductors; copper alloy spacer bar separates run and tap; 480 lbs/in torque.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "OKLIP Mechanical Connector with Spacer Bar"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "400–800 kcmil copper stranded"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "4/0 AWG Str. – 800 kcmil copper stranded"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lbs/in"
+   },
+   {
+    "name": "Dimensions (H×L×W)",
+    "value": "3.47\" × 2.31\" × 2.72\""
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/kvsw40-mechanical-connector-with-spacer-bar/p/502482"
+ },
+ {
+  "mpn": "DS1405012",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Stud Connector DS1405012",
+  "category": "electrical",
+  "subcategory": "Stud Connector",
+  "description": "Anderson bronze alloy stud connector for copper cable and tube to equipment studs; accommodates conductors 0.258\"–1.152\" diameter; 1.5\" stud with 12-thread; supports straight or 90° configurations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Stud Connector"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy with stainless/galvanized steel clamping hardware"
+   },
+   {
+    "name": "Conductor Diameter Range",
+    "value": "0.258\" – 1.152\""
+   },
+   {
+    "name": "Stud Size",
+    "value": "1.5\" × 12 threads"
+   },
+   {
+    "name": "Application",
+    "value": "Connects two copper cables/tubes to equipment stud"
+   },
+   {
+    "name": "Configuration Options",
+    "value": "Straight or 90°"
+   },
+   {
+    "name": "Installation",
+    "value": "Hex-stop clamping bolts, single-wrench"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/hps-brands/anderson"
+ },
+ {
+  "mpn": "NA132N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Bolted Copper Terminal – Tube to Flat NA132N",
+  "category": "electrical",
+  "subcategory": "Substation Bolted Copper Terminal – Tube",
+  "description": "Cast copper alloy bolted terminal for joining 1/2\" copper pipe to a flat pad, 2-hole NEMA pad, for substation applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Bolted Copper Terminal – Tube to Flat"
+   },
+   {
+    "name": "Pipe Size",
+    "value": "1/2\" Cu IPS"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "2"
+   },
+   {
+    "name": "Pad Configuration",
+    "value": "1.5\" x 3\" (2-hole NEMA)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "230 kV rated application"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Bolted/Tube-to-Flat/NA132N/p/1709107"
+ },
+ {
+  "mpn": "GB34",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector – Cable to Bar GB34",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector – Cable t",
+  "description": "High copper alloy mechanical grounding connector for joining 300–500 kcmil copper cable to 1/4\" thick bar, UL467 listed, suitable for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector – Cable to Bar"
+   },
+   {
+    "name": "Cable Range",
+    "value": "300–500 kcmil copper"
+   },
+   {
+    "name": "Bar Thickness",
+    "value": "1/4\""
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze hexagonal bolt"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467"
+   },
+   {
+    "name": "Burial Rating",
+    "value": "Suitable for direct burial in earth or concrete"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gb34-mechanical-grounding-connector-cable-to-bar/p/483402"
+ },
+ {
+  "mpn": "M3S62",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Air-Break Distribution Disconnect Switch – Hookstick Operated M3S62",
+  "category": "electrical",
+  "subcategory": "Air-Break Distribution Disconnect Switch",
+  "description": "Single-phase hookstick-operated station class disconnect switch, 15.5 kV, 110 kV BIL, 600 A, with silver-plated contacts and load break hook capability.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Air-Break Distribution Disconnect Switch – Hookstick Operated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "15.5 kV"
+   },
+   {
+    "name": "BIL",
+    "value": "110 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "600 A"
+   },
+   {
+    "name": "Phases",
+    "value": "Single phase"
+   },
+   {
+    "name": "Operation",
+    "value": "Hookstick"
+   },
+   {
+    "name": "Insulation",
+    "value": "Porcelain, 3\" bolt circle"
+   },
+   {
+    "name": "Standard",
+    "value": "IEEE C37.30.1"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Utility-Switching-Fusing/Air-Break-Distribution-Switches/Hookstick/M3S-Switches/M3S62/p/1553049"
+ },
+ {
+  "mpn": "YAD4CM10E38",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Ring Terminal – Non-Insulated YAD4CM10E38",
+  "category": "electrical",
+  "subcategory": "Compression Ring Terminal – Non-Insulate",
+  "description": "Non-insulated brazed barrel copper compression ring terminal for 4 AWG conductor with 3/8\" stud, electro-tin plated for corrosion resistance.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Ring Terminal – Non-Insulated"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "4 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8\""
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, electro-tin plated"
+   },
+   {
+    "name": "Barrel Type",
+    "value": "Brazed seam"
+   },
+   {
+    "name": "Length",
+    "value": "1.3\""
+   },
+   {
+    "name": "Width",
+    "value": "0.67\""
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated/Uninsulated-Ring-Terminal-For-4-AWG/p/1689627"
+ },
+ {
+  "mpn": "531",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Gangable Steel Switch Box 531",
+  "category": "electrical",
+  "subcategory": "Gangable Steel Switch Box",
+  "description": "3 in. x 2 in. gangable steel switch box, 2-1/2 in. deep, with TS bracket, three 1/2\" KOs and NMSC clamps, 12.5 cu. in., suitable for 2-hour fire-rated walls.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Gangable Steel Switch Box"
+   },
+   {
+    "name": "Dimensions",
+    "value": "3\" x 2\" x 2-1/2\" deep"
+   },
+   {
+    "name": "Volume",
+    "value": "12.5 cu. in."
+   },
+   {
+    "name": "KOs",
+    "value": "Three 1/2\" knockouts"
+   },
+   {
+    "name": "Cable Clamps",
+    "value": "NMSC clamps (non-metallic sheathed cable)"
+   },
+   {
+    "name": "Bracket",
+    "value": "TS side-mount bracket"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, gray"
+   },
+   {
+    "name": "Fire Rating",
+    "value": "Acceptable for 2-hour fire-rated walls"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/p/140454"
+ },
+ {
+  "mpn": "YAV4CL3",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Ring Terminal – HYLUG Non-Insulated YAV4CL3",
+  "category": "electrical",
+  "subcategory": "Compression Ring Terminal – HYLUG Non-In",
+  "description": "Seamless copper compression ring terminal (HYLUG) for 4 AWG aircraft cable AN-4, #8-#10 stud, short barrel, tin plated, with inspection hole, meets MIL/UL standards.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Ring Terminal – HYLUG Non-Insulated"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "4 AWG (AN-4 Flex)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8-#10"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "0.2\""
+   },
+   {
+    "name": "Material",
+    "value": "Seamless electrolytic copper, tin plated"
+   },
+   {
+    "name": "Barrel",
+    "value": "Short barrel with inspection hole"
+   },
+   {
+    "name": "Die Index",
+    "value": "40"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467, UL486, AS20659, CSA, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav4cl3-uninsulated-ring-terminal-for-4-awg-1-hole-8-10-stud/p/518122"
+ },
+ {
+  "mpn": "NA152N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Bolted Copper Terminal – Tube to Flat NA152N",
+  "category": "electrical",
+  "subcategory": "Substation Bolted Copper Terminal – Tube",
+  "description": "Cast copper alloy bolted terminal for joining 1\" IPS copper pipe to a flat pad, 2-hole NEMA pad, for substation applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Bolted Copper Terminal – Tube to Flat"
+   },
+   {
+    "name": "Pipe Size",
+    "value": "1\" IPS"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "2"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "0.56\""
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, unplated"
+   },
+   {
+    "name": "Pad Type",
+    "value": "NEMA standard drilled"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench"
+   },
+   {
+    "name": "Application",
+    "value": "Substation tube-to-flat connection"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Bolted/Tube-to-Flat/c/836318"
+ },
+ {
+  "mpn": "NA174N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Bolted Copper Terminal – Tube to Flat NA174N",
+  "category": "electrical",
+  "subcategory": "Substation Bolted Copper Terminal – Tube",
+  "description": "Cast copper alloy bolted terminal for joining 1-1/2\" IPS copper pipe to a flat pad, 4-hole NEMA pad, for substation applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Bolted Copper Terminal – Tube to Flat"
+   },
+   {
+    "name": "Pipe Size",
+    "value": "1-1/2\" IPS"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "4"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "9/16\" (0.56\")"
+   },
+   {
+    "name": "Pad Configuration",
+    "value": "3\" x 3\", 1.75\" center-to-center"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, unplated"
+   },
+   {
+    "name": "Overall Dimensions",
+    "value": "5.94\" L x 3.94\" W x 2.75\" H"
+   },
+   {
+    "name": "Pad Type",
+    "value": "NEMA standard drilled"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/na174n-substation-copper-terminal-1-12-ips-4-hole-nema/p/501603"
+ },
+ {
+  "mpn": "TTC814050",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Bolted Tee Connector – Bronze, Tube Main to Cable Tap TTC814050",
+  "category": "electrical",
+  "subcategory": "Bolted Tee Connector – Bronze, Tube Main",
+  "description": "Bronze alloy bolted tee connector for joining copper tubing main to copper cable tap, with reversible cable caps and hex-stop bolts for single-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Bolted Tee Connector – Bronze, Tube Main to Cable Tap"
+   },
+   {
+    "name": "Material (Body)",
+    "value": "Bronze alloy casting"
+   },
+   {
+    "name": "Material (Hardware)",
+    "value": "Stainless steel or silicon bronze"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Tubing main to cable tap"
+   },
+   {
+    "name": "Tap Diameter Range",
+    "value": "0.325–0.813\""
+   },
+   {
+    "name": "Cable Caps",
+    "value": "Reversible, furnished with all taps"
+   },
+   {
+    "name": "Installation",
+    "value": "Hex-stop one-wrench"
+   },
+   {
+    "name": "Weight",
+    "value": "5.782 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/tee-bronze-bolted-tubing-main-to-cable-tap/p/148983"
+ },
+ {
+  "mpn": "GD2129",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector – 2 Cables to Rod or Pipe GD2129",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector – 2 Cable",
+  "description": "Cast copper alloy mechanical grounding connector for joining two parallel copper cables (2/0 AWG solid–250 kcmil) to 3-1/2\"–4\" rod or pipe, UL467 listed, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector – 2 Cables to Rod or Pipe"
+   },
+   {
+    "name": "Cable Range",
+    "value": "2/0 AWG (solid) – 250 kcmil (stranded) copper"
+   },
+   {
+    "name": "Rod/Pipe Size",
+    "value": "3-1/2\" to 4\" rod; 3-1/2\" pipe"
+   },
+   {
+    "name": "Material",
+    "value": "Cast copper alloy, DURIUM Silicon Bronze screw"
+   },
+   {
+    "name": "Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Dimensions",
+    "value": "6.25\" H x 5.31\" W"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467"
+   },
+   {
+    "name": "Burial Rating",
+    "value": "Direct burial in earth or concrete"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gd2129-mechanical-grounding-connector-2-cables-to-rod-or-pipe/p/483148"
+ },
+ {
+  "mpn": "GBM26",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector – Cable to Bar GBM26",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector – Cable t",
+  "description": "High copper alloy mechanical grounding connector for joining 4 AWG solid–2/0 AWG stranded cable to 1/4\" thick bar, UL467 listed, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector – Cable to Bar"
+   },
+   {
+    "name": "Cable Range",
+    "value": "4 AWG (solid) – 2/0 AWG (stranded)"
+   },
+   {
+    "name": "Bar Thickness",
+    "value": "1/4\""
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8\""
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy, DURIUM bolts/nuts"
+   },
+   {
+    "name": "Torque",
+    "value": "240 in-lb"
+   },
+   {
+    "name": "Dimensions",
+    "value": "1-1/2\" W x 1-1/2\" H"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467, direct burial rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gbm26-mechanical-grounding-connector-cable-to-bar/p/483481"
+ },
+ {
+  "mpn": "GFR83R",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital-Grade GFCI Receptacle – AUTOGUARD Self-Test GFR83R",
+  "category": "electrical",
+  "subcategory": "Hospital-Grade GFCI Receptacle – AUTOGUA",
+  "description": "Heavy-duty hospital grade 20A 125V AUTOGUARD self-test GFCI receptacle, 5-20R configuration, red, with continuous 30-second self-monitoring and dual LED indicators.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital-Grade GFCI Receptacle – AUTOGUARD Self-Test"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Grade",
+    "value": "Hospital Grade"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD – tests every 30 seconds"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4.12\" H x 1.75\" W x 1.48\" D"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-hospital-grade-autoguard-self-test-gfci-receptacle-20a-red/p/11763316"
+ },
+ {
+  "mpn": "GFRST83R",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital-Grade GFCI Receptacle – AUTOGUARD Self-Test GFRST83",
+  "category": "electrical",
+  "subcategory": "Hospital-Grade GFCI Receptacle – AUTOGUA",
+  "description": "Heavy-duty commercial hospital-grade AUTOGUARD self-test GFCI receptacle, 20A 125V, 5-20R, red, with continuous monitoring and automatic shutdown if protection is compromised.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital-Grade GFCI Receptacle – AUTOGUARD Self-Test"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial Hospital Grade"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD – monitors every 30 seconds"
+   },
+   {
+    "name": "Safety Feature",
+    "value": "Reverse wiring lockout; auto shutdown on protection loss"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Hospital-Products/GFCI-Receptacles/GFRST83R/p/1725971"
+ },
+ {
+  "mpn": "GFBFST20W",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Blank-Face Self-Test GFCI Device GFBFST20W",
+  "category": "electrical",
+  "subcategory": "Blank-Face Self-Test GFCI Device",
+  "description": "Heavy-duty commercial AUTOGUARD self-test faceless GFCI power protection device, 20A 125V, 2-pole 3-wire, white, for in-wall installation without exposed receptacle face.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Blank-Face Self-Test GFCI Device"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Face Type",
+    "value": "Blank face (no outlet slots)"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD – monitors every 30 seconds"
+   },
+   {
+    "name": "Standard",
+    "value": "UL 943 (2015)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/GFCI/Receptacles/Specification-Grade/GFBFST20W/p/2553537"
+ },
+ {
+  "mpn": "70615NP",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Locking Plug – Insulgrip Twist-Lock 70615NP",
+  "category": "electrical",
+  "subcategory": "Locking Plug – Insulgrip Twist-Lock",
+  "description": "Industrial male locking plug, 15A 250V, 2-pole 3-wire, NEMA L6-15P, nylon body with Insulgrip wide-rib grip and Triple Gripper cord clamp, screw terminal, black/white.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Locking Plug – Insulgrip Twist-Lock"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "250V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L6-15P"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole 3-Wire"
+   },
+   {
+    "name": "Body Material",
+    "value": "Nylon, double-wall construction"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#14–#10 AWG"
+   },
+   {
+    "name": "Dimensions",
+    "value": "1.53\" L x 1.53\" W x 2.18\" H"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bryant/en/products/locking-devices-industrial-male-plug-15a-250v-2-pole-3-wire-grounding-l6-15p-screw-terminal-black-and-white/p/558291"
+ },
+ {
+  "mpn": "3556-3",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight 90° Connector – Insulated with Ground Lug 3556-3",
+  "category": "electrical",
+  "subcategory": "Liquidtight 90° Connector – Insulated wi",
+  "description": "4 in. 90-degree insulated liquidtight connector with ground lug for use with flexible metallic liquidtight conduit, malleable iron, UL/CSA listed, rated for hazardous locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight 90° Connector – Insulated with Ground Lug"
+   },
+   {
+    "name": "Trade Size",
+    "value": "4\""
+   },
+   {
+    "name": "Angle",
+    "value": "90 Degree"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated with ground lug"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, zinc electroplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA, cULus"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div 2; Class II Div 1&2; Class III Div 1&2"
+   },
+   {
+    "name": "Dimensions",
+    "value": "8.25\" L x 5.53\" W x 8\" H; 10.33 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/4-in-90-degree-liquidtight-connector-insulated-with-ground-lug/p/142777"
+ },
+ {
+  "mpn": "BIBS3506DB",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Direct Burial Submersible Insulated Multi-Tap Connector BIBS3506DB",
+  "category": "electrical",
+  "subcategory": "Direct Burial Submersible Insulated Mult",
+  "description": "BURNDY UNITAP direct burial submersible 6-port insulated multi-tap connector, 350 kcmil–12 AWG, dual-rated Al/Cu, EPDM rubber insulation, prefilled with oxide inhibitor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Direct Burial Submersible Insulated Multi-Tap Connector"
+   },
+   {
+    "name": "Ports",
+    "value": "6 conductors"
+   },
+   {
+    "name": "Wire Range",
+    "value": "350 kcmil – 12 AWG stranded"
+   },
+   {
+    "name": "Conductor Rating",
+    "value": "Aluminum and copper dual-rated"
+   },
+   {
+    "name": "Insulation",
+    "value": "EPDM rubber"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Dimensions",
+    "value": "7.45\" L x 4.06\" W x 2.46\" H"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL486D, CSA, direct burial rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/494258"
+ },
+ {
+  "mpn": "MY293",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Dieless Mechanical Crimping Tool MY293",
+  "category": "electrical",
+  "subcategory": "Dieless Mechanical Crimping Tool",
+  "description": "Heavy-duty forged steel dieless mechanical crimper (HYTOOL) for copper #8 Str–250 kcmil, aluminum #8–4/0, and 30–250 Navy copper cable; bench-mountable with knurled adjusting knob.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dieless Mechanical Crimping Tool"
+   },
+   {
+    "name": "Copper Range",
+    "value": "#8 Str – 250 kcmil"
+   },
+   {
+    "name": "Aluminum Range",
+    "value": "#8 Str – 4/0 Str"
+   },
+   {
+    "name": "Navy Cable Range",
+    "value": "30 Navy – 250 Navy (copper)"
+   },
+   {
+    "name": "Tool Type",
+    "value": "Dieless mechanical (HYTOOL)"
+   },
+   {
+    "name": "Material",
+    "value": "Heavy-duty forged steel"
+   },
+   {
+    "name": "Weight",
+    "value": "8 lb"
+   },
+   {
+    "name": "Dimensions",
+    "value": "22.65\" L x 4.86\" W x 1.12\" H"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/511890"
+ },
+ {
+  "mpn": "M3D92B",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Air-Break Distribution Disconnect Switch – Hookstick Operated M3D92B",
+  "category": "electrical",
+  "subcategory": "Air-Break Distribution Disconnect Switch",
+  "description": "Single-phase hookstick-operated M3D-series disconnect switch, 15.5 kV, 110 kV BIL, 900 A, porcelain insulation with 2-1/4\" bolt circle, silver-plated contacts.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Air-Break Distribution Disconnect Switch – Hookstick Operated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "15.5 kV"
+   },
+   {
+    "name": "BIL",
+    "value": "110 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "900 A"
+   },
+   {
+    "name": "Phases",
+    "value": "Single phase"
+   },
+   {
+    "name": "Insulation",
+    "value": "Porcelain, 2-1/4\" bolt circle"
+   },
+   {
+    "name": "Operation",
+    "value": "Hookstick"
+   },
+   {
+    "name": "Standard",
+    "value": "ANSI/IEEE C37.30.1"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Utility-Switching-Fusing/Air-Break-Distribution-Switches/Hookstick/M3D-Switches/15-5-kV-110-kV-BIL-900-A-Porcelain-2-14-Bolt-Circle-insulation-M3-Switch/p/1552725"
+ },
+ {
+  "mpn": "3025",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Set-Screw Coupling 3025",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Set-Screw Coupling",
+  "description": "1-1/4 in. steel set-screw coupling for joining two ends of unthreaded rigid/IMC conduit in dry locations; concrete-tight when taped; zinc electroplated; UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Set-Screw Coupling"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4\""
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc electroplated"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B)"
+   },
+   {
+    "name": "Application",
+    "value": "Dry locations; concrete-tight when taped"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.188\" L x 2\" W x 2.25\" H"
+   },
+   {
+    "name": "Weight",
+    "value": "0.779 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-14-in-rigidimc-set-screw-coupling/p/142048"
+ },
+ {
+  "mpn": "3026",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Set-Screw Coupling 3026",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Set-Screw Coupling",
+  "description": "1-1/2 in. steel set-screw coupling for joining two ends of unthreaded rigid/IMC conduit in dry locations; concrete-tight when taped; zinc electroplated; UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Set-Screw Coupling"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2\""
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc electroplated"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B)"
+   },
+   {
+    "name": "Application",
+    "value": "Dry locations; concrete-tight when taped"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.625\" L x 2.25\" W x 2.5\" H"
+   },
+   {
+    "name": "Weight",
+    "value": "1.09 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-12-in-rigidimc-set-screw-coupling/p/142049"
+ },
+ {
+  "mpn": "HSB35H48PF5",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heavy-Wall Heat Shrink Tubing HSB35H48PF5",
+  "category": "electrical",
+  "subcategory": "Heavy-Wall Heat Shrink Tubing",
+  "description": "3:1 shrink-ratio heavy-wall black cross-linked polyolefin heat shrink tubing with adhesive sealant lining for direct burial applications, rated 1500V, conductor range #14–#10 AWG.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heavy-Wall Heat Shrink Tubing"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "#14 – #10 AWG"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "3:1"
+   },
+   {
+    "name": "Wall Type",
+    "value": "Heavy wall"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin"
+   },
+   {
+    "name": "ID Expanded (min)",
+    "value": "0.35\""
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "1500V"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, UL486D (direct burial), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/hsb35h48pf5-heat-shrink-tubing-heavy-wall-black/p/4580501"
+ },
+ {
+  "mpn": "ACC-FPV180",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Solar PV Module Cable Clip – 180° Wire Management ACC-FPV180",
+  "category": "electrical",
+  "subcategory": "Solar PV Module Cable Clip – 180° Wire M",
+  "description": "180-degree stainless steel module cable clip (Wiley/BURNDY) for 1–2 PV cables, 5.0–8.0 mm wire diameter, tool-free installation, flange-mounted, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Solar PV Module Cable Clip – 180° Wire Management"
+   },
+   {
+    "name": "Cable Quantity",
+    "value": "1–2 PV cables"
+   },
+   {
+    "name": "Wire Diameter Range",
+    "value": "5.0–8.0 mm per cable"
+   },
+   {
+    "name": "Angle",
+    "value": "180 degree"
+   },
+   {
+    "name": "Material",
+    "value": "304 Stainless steel / Nylon"
+   },
+   {
+    "name": "Flange Thickness",
+    "value": "1.0–3.0 mm"
+   },
+   {
+    "name": "Dimensions",
+    "value": "0.9\" L x 0.5\" W x 0.7\" H"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL1565), CSA, cULus; UL2703/ASTM B117 tested"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/acc-fpv180-stainless-steel-180-degree-2-wire-module-cable-clip/p/2277275"
+ },
+ {
+  "mpn": "ES2W2W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Aluminum Service Entrance Compression Sleeve ES2W2W",
+  "category": "electrical",
+  "subcategory": "Insulated Aluminum Service Entrance Comp",
+  "description": "Pre-insulated aluminum service entrance compression sleeve for Cu/Al/ACSR conductors, 2 AWG both sides, orange color code both sides, prefilled with oxide inhibitor, Buy America qualified.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Aluminum Service Entrance Compression Sleeve"
+   },
+   {
+    "name": "Side A Conductor",
+    "value": "2 AWG copper solid; 4–3 AWG Cu/Al stranded; 4 AWG ACSR"
+   },
+   {
+    "name": "Side B Conductor",
+    "value": "2 AWG copper solid; 4–3 AWG Cu/Al stranded; 4 AWG ACSR"
+   },
+   {
+    "name": "Color Code",
+    "value": "Orange / Orange"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, tin plated; nylon insulation"
+   },
+   {
+    "name": "Length Overall",
+    "value": "2.75\" (70 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.75\""
+   },
+   {
+    "name": "Die Index",
+    "value": "BG or 5/8"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/es2w2w-insulated-al-service-entrance-compression-sleeve/p/502969"
+ },
+ {
+  "mpn": "ES2R6W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Aluminum Service Entrance Compression Sleeve ES2R6W",
+  "category": "electrical",
+  "subcategory": "Insulated Aluminum Service Entrance Comp",
+  "description": "Pre-insulated aluminum service entrance compression sleeve for Cu/Al/ACSR conductors, red side A (2–1 AWG), green side B (6–8 AWG Cu/Al), prefilled with oxide inhibitor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Aluminum Service Entrance Compression Sleeve"
+   },
+   {
+    "name": "Side A Conductor",
+    "value": "2–1 AWG Cu/Al stranded; 2 (6/1) Sparrow ACSR"
+   },
+   {
+    "name": "Side B Conductor",
+    "value": "6 AWG Cu solid; 8 AWG Cu/Al stranded"
+   },
+   {
+    "name": "Color Code",
+    "value": "Red (A) / Green (B)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, tin plated; nylon insulation"
+   },
+   {
+    "name": "Length Overall",
+    "value": "2.75\" (70 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.75\""
+   },
+   {
+    "name": "Die Index",
+    "value": "BG or 5/8"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/es2r6w-insulated-aluminum-service-entrance-compression-sleeve/p/502983"
+ },
+ {
+  "mpn": "ES2R4W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Aluminum Service Entrance Compression Sleeve ES2R4W",
+  "category": "electrical",
+  "subcategory": "Insulated Aluminum Service Entrance Comp",
+  "description": "Pre-insulated aluminum service entrance compression sleeve for Cu/Al/ACSR conductors, red side A (2–1 AWG), blue side B (6–4 AWG Cu/Al), prefilled with oxide inhibitor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Aluminum Service Entrance Compression Sleeve"
+   },
+   {
+    "name": "Side A Conductor",
+    "value": "2–1 AWG Cu/Al stranded; 2 (6/1) Sparrow ACSR"
+   },
+   {
+    "name": "Side B Conductor",
+    "value": "4 AWG Cu solid; 6–5 AWG Cu/Al stranded; 6 (6/1) Turkey ACSR"
+   },
+   {
+    "name": "Color Code",
+    "value": "Red (A) / Blue (B)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, tin plated; nylon insulation"
+   },
+   {
+    "name": "Length Overall",
+    "value": "2.75\" (70 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.75\""
+   },
+   {
+    "name": "Die Index",
+    "value": "BG or 5/8"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/es2r4w-insulated-al-service-entrance-compression-sleeve/p/502968"
+ },
+ {
+  "mpn": "ES2R2R",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Aluminum Service Entrance Compression Sleeve ES2R2R",
+  "category": "electrical",
+  "subcategory": "Insulated Aluminum Service Entrance Comp",
+  "description": "Pre-insulated aluminum service entrance compression sleeve for Cu/Al/ACSR conductors, red both sides (2–1 AWG), prefilled with joint compound, Buy America qualified.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Aluminum Service Entrance Compression Sleeve"
+   },
+   {
+    "name": "Side A Conductor",
+    "value": "2–1 AWG Cu/Al/ACSR"
+   },
+   {
+    "name": "Side B Conductor",
+    "value": "2–1 AWG Cu/Al/ACSR"
+   },
+   {
+    "name": "Color Code",
+    "value": "Red / Red"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum; nylon insulation"
+   },
+   {
+    "name": "Length Overall",
+    "value": "2.75\" (70 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.75\""
+   },
+   {
+    "name": "Die Index",
+    "value": "BG or 5/8"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/es2r2r-insulated-al-service-entrance-compression-sleeve/p/502966"
+ },
+ {
+  "mpn": "ES25R2W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Aluminum Service Entrance Compression Sleeve ES25R2W",
+  "category": "electrical",
+  "subcategory": "Insulated Aluminum Service Entrance Comp",
+  "description": "Pre-insulated aluminum service entrance compression sleeve for Cu/Al/ACSR conductors, yellow side A (1/0–1 AWG), orange side B (4–3 AWG), prefilled with oxide inhibitor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Aluminum Service Entrance Compression Sleeve"
+   },
+   {
+    "name": "Side A Conductor",
+    "value": "1/0–1 AWG Cu/Al stranded (19 Str); 1 (6/1) Robin ACSR"
+   },
+   {
+    "name": "Side B Conductor",
+    "value": "4–3 AWG Cu/Al stranded; 4 (6/1) Swan ACSR"
+   },
+   {
+    "name": "Color Code",
+    "value": "Yellow (A) / Orange (B)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, tin plated; nylon insulation"
+   },
+   {
+    "name": "Length Overall",
+    "value": "2.75\" (70 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.75\""
+   },
+   {
+    "name": "Die Index",
+    "value": "BG or 5/8"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/es25r2w-insulated-aluminum-service-entrance-compression-sleeve/p/502972"
+ },
+ {
+  "mpn": "228LE45T",
+  "brand": "Hubbell HUBBELL",
+  "name": "Hubbell HUBBELL Underground Separable Load-Break Elbow Connector with Test Point 228LE45T",
+  "category": "electrical",
+  "subcategory": "Underground Separable Load-Break Elbow C",
+  "description": "25/28 kV, 200 A, 125 kV BIL fully shielded submersible load-break elbow with test point and bi-metal contact, IEEE 386/592 compliant, cable insulation dia. 0.800–1.140\".",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell HUBBELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Underground Separable Load-Break Elbow Connector with Test Point"
+   },
+   {
+    "name": "Voltage Class",
+    "value": "25/28 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "200 A"
+   },
+   {
+    "name": "BIL",
+    "value": "125 kV"
+   },
+   {
+    "name": "AC Withstand (1 min)",
+    "value": "45 kV"
+   },
+   {
+    "name": "Contact Type",
+    "value": "Bi-Metal (long)"
+   },
+   {
+    "name": "Cable Insulation Diameter",
+    "value": "0.800–1.140\""
+   },
+   {
+    "name": "Standards",
+    "value": "IEEE Std. 386 and IEEE Std. 592; TAA compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/2528-kv-load-break-elbow-w-test-point-bimetal-contact/p/2309616"
+ },
+ {
+  "mpn": "YHN550",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression H-Style Line Tap Connector YHN550",
+  "category": "electrical",
+  "subcategory": "Compression H-Style Line Tap Connector",
+  "description": "Reversible Figure H aluminum HYCRIMP line tap for Cu, Al, and ACSR compact conductors, pre-filled with PENETROX oxide inhibitor; run 250–500 kcmil Al, tap 2/0–4/0 AWG.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression H-Style Line Tap Connector"
+   },
+   {
+    "name": "Run (Al Stranded)",
+    "value": "250–500 kcmil"
+   },
+   {
+    "name": "Tap (Cu/Al Stranded)",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Run (ACSR)",
+    "value": "266.8 (18/1)–477 (18/1) kcmil"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, unplated"
+   },
+   {
+    "name": "Oxide Inhibitor",
+    "value": "Pre-filled PENETROX"
+   },
+   {
+    "name": "Dimensions",
+    "value": "1.96\" H x 1.28\" W x 2.00\" L"
+   },
+   {
+    "name": "Type",
+    "value": "Universal reversible H-connector"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yhn550-line-tap-for-cu-al-acsr-compact/p/502843"
+ },
+ {
+  "mpn": "3430",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight 90° Connector – Uninsulated 3430",
+  "category": "electrical",
+  "subcategory": "Liquidtight 90° Connector – Uninsulated",
+  "description": "2-1/2 in. 90-degree uninsulated liquidtight connector for flexible metallic and Type B nonmetallic liquidtight conduit, malleable iron body, UL Listed, CSA, hazardous location rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight 90° Connector – Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2-1/2\""
+   },
+   {
+    "name": "Angle",
+    "value": "90 Degree"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, zinc electroplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div 2; Class II Div 1&2; Class III Div 1&2"
+   },
+   {
+    "name": "Dimensions",
+    "value": "9.188\" H x 3.938\" L/W; 6.15 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/2-12-in-90-degree-liquidtight-connector-uninsulated/p/142459"
+ },
+ {
+  "mpn": "3432",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight 90° Connector – Uninsulated 3432",
+  "category": "electrical",
+  "subcategory": "Liquidtight 90° Connector – Uninsulated",
+  "description": "3 in. 90-degree uninsulated liquidtight connector for flexible metallic and Type B nonmetallic liquidtight conduit, malleable iron body, UL Listed, CSA, hazardous location rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight 90° Connector – Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3\""
+   },
+   {
+    "name": "Angle",
+    "value": "90 Degree"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, zinc electroplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div 2; Class II Div 1&2; Class III Div 1&2"
+   },
+   {
+    "name": "Dimensions",
+    "value": "10.625\" H x 4.75\" L x 4.75\" W; 8.35 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/3-in-90-degree-liquidtight-connector-uninsulated/p/142460"
+ },
+ {
+  "mpn": "3436",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight 90° Connector – Uninsulated 3436",
+  "category": "electrical",
+  "subcategory": "Liquidtight 90° Connector – Uninsulated",
+  "description": "4 in. 90-degree uninsulated liquidtight connector for flexible metallic and Type B nonmetallic liquidtight conduit, malleable iron body, zinc electroplated, UL Listed, hazardous location rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight 90° Connector – Uninsulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "4\""
+   },
+   {
+    "name": "Angle",
+    "value": "90 Degree"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, zinc electroplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div 2; Class II Div 1&2; Class III Div 1&2"
+   },
+   {
+    "name": "Features",
+    "value": "Split gland-ring, sealing washer, heavy-duty locknut; reusable"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/4-in-90-degree-liquidtight-connector-uninsulated/p/142484"
+ },
+ {
+  "mpn": "215LE43",
+  "brand": "Hubbell HUBBELL",
+  "name": "Hubbell HUBBELL Underground Separable Load-Break Elbow Connector 215LE43",
+  "category": "electrical",
+  "subcategory": "Underground Separable Load-Break Elbow C",
+  "description": "15 kV, 200 A, 95 kV BIL fully shielded submersible load-break elbow with bi-metal contact; cable insulation diameter 0.635–0.905\"; meets IEEE 386 and IEEE 592.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell HUBBELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Underground Separable Load-Break Elbow Connector"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "15 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "200 A"
+   },
+   {
+    "name": "BIL",
+    "value": "95 kV"
+   },
+   {
+    "name": "AC Withstand (1 min)",
+    "value": "34 kV"
+   },
+   {
+    "name": "Contact Type",
+    "value": "Bi-Metal"
+   },
+   {
+    "name": "Cable Insulation Diameter",
+    "value": "0.635–0.905\""
+   },
+   {
+    "name": "Standards",
+    "value": "IEEE Std. 386 and IEEE Std. 592; TAA compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/15-kv-load-break-elbow-w-bimetal-contact/p/147792"
+ },
+ {
+  "mpn": "215LE44",
+  "brand": "Hubbell HUBBELL",
+  "name": "Hubbell HUBBELL Underground Separable Load-Break Elbow Connector 215LE44",
+  "category": "electrical",
+  "subcategory": "Underground Separable Load-Break Elbow C",
+  "description": "15 kV, 200 A, 95 kV BIL fully shielded submersible load-break elbow with bi-metal contact; cable insulation diameter 0.635–0.905\" for #1/0 solid or #1 stranded conductors.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell HUBBELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Underground Separable Load-Break Elbow Connector"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "15 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "200 A"
+   },
+   {
+    "name": "BIL",
+    "value": "95 kV"
+   },
+   {
+    "name": "AC Withstand (1 min)",
+    "value": "34 kV"
+   },
+   {
+    "name": "Contact Type",
+    "value": "Bi-Metal"
+   },
+   {
+    "name": "Cable Insulation Diameter",
+    "value": "0.635–0.905\""
+   },
+   {
+    "name": "Conductor Sizes",
+    "value": "1/0 solid or compacted; #1 stranded or compressed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/15-kv-load-break-elbow-w-test-point-bimetal-contact/p/149229"
+ },
+ {
+  "mpn": "215LE45",
+  "brand": "Hubbell Power Systems",
+  "name": "Hubbell Power Systems 15 kV Load Break Elbow Connector 215LE45",
+  "category": "electrical",
+  "subcategory": "15 kV Load Break Elbow Connector",
+  "description": "Fully shielded, insulated, and submersible 15 kV load break elbow with bimetal contact rated 200 A, compliant with IEEE Std. 386 and 592.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell Power Systems",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "15 kV Load Break Elbow Connector"
+   },
+   {
+    "name": "Voltage Class",
+    "value": "15 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "200 A load break"
+   },
+   {
+    "name": "AC Withstand (1 min)",
+    "value": "34 kV"
+   },
+   {
+    "name": "Basic Impulse Level",
+    "value": "95 kV"
+   },
+   {
+    "name": "Corona Extinction",
+    "value": "11 kV"
+   },
+   {
+    "name": "Cable Insulation Dia. Range",
+    "value": "0.635–0.905 in"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "7.50 x 2.875 x 9.00 in"
+   },
+   {
+    "name": "Weight",
+    "value": "2.75 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/15-kv-load-break-elbow-w-bimetal-contact/p/149667"
+ },
+ {
+  "mpn": "NP82",
+  "brand": "Hubbell Wiring Device-Kellems",
+  "name": "Hubbell Wiring Device-Kellems Nylon Wallplate NP82",
+  "category": "electrical",
+  "subcategory": "Nylon Wallplate",
+  "description": "2-Gang, 2-Duplex nylon wallplate in brown; self-extinguishing material with reinforcement ribs. Discontinued, replaced by P82.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell Wiring Device-Kellems",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Wallplate"
+   },
+   {
+    "name": "Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Cutouts",
+    "value": "2) Duplex"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon (self-extinguishing)"
+   },
+   {
+    "name": "Color",
+    "value": "Brown"
+   },
+   {
+    "name": "Thickness",
+    "value": "0.06 in"
+   },
+   {
+    "name": "Mounting",
+    "value": "Vertical, screw mount"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed"
+   },
+   {
+    "name": "RoHS",
+    "value": "Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/wallplates-and-box-covers-wallplate-nylon-2-gang-2-duplex-brown/p/179652"
+ },
+ {
+  "mpn": "NP28I",
+  "brand": "Hubbell Wiring Device-Kellems",
+  "name": "Hubbell Wiring Device-Kellems Nylon Wallplate NP28I",
+  "category": "electrical",
+  "subcategory": "Nylon Wallplate",
+  "description": "3-Gang, 2-Toggle 1-Duplex nylon wallplate in ivory; standard size 1/8 in. larger for extra coverage. Discontinued, replaced by P28I.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell Wiring Device-Kellems",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Wallplate"
+   },
+   {
+    "name": "Gangs",
+    "value": "3-Gang"
+   },
+   {
+    "name": "Cutouts",
+    "value": "2) Toggle, 1) Duplex"
+   },
+   {
+    "name": "Material",
+    "value": "High-impact self-extinguishing nylon"
+   },
+   {
+    "name": "Color",
+    "value": "Ivory"
+   },
+   {
+    "name": "Thickness",
+    "value": "0.06 in"
+   },
+   {
+    "name": "Depth",
+    "value": "0.25 in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/wallplates-and-box-covers-wallplate-nylon-3-gang-2-toggle-1-duplex-white/p/174115"
+ },
+ {
+  "mpn": "NP18W",
+  "brand": "Hubbell Premise Wiring",
+  "name": "Hubbell Premise Wiring Nylon Wallplate NP18W",
+  "category": "electrical",
+  "subcategory": "Nylon Wallplate",
+  "description": "2-Gang, 1-Duplex 1-Toggle nylon wallplate in white; standard size 1/8 in. larger for extra coverage. Discontinued, replaced by P18W.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell Premise Wiring",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Wallplate"
+   },
+   {
+    "name": "Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Cutouts",
+    "value": "1) Duplex, 1) Toggle"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Thickness",
+    "value": "0.06 in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/hubbell/en/Products/Electrical-Electronic/Wallplates/Nonmetallic-Wallplates/P18W/p/2632634"
+ },
+ {
+  "mpn": "NPJ2I",
+  "brand": "Hubbell Wiring Device-Kellems",
+  "name": "Hubbell Wiring Device-Kellems Nylon Mid-Size Wallplate NPJ2I",
+  "category": "electrical",
+  "subcategory": "Nylon Mid-Size Wallplate",
+  "description": "Mid-size 2-Gang, 2-Toggle nylon wallplate in ivory; slightly larger footprint than standard for improved coverage.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell Wiring Device-Kellems",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Mid-Size Wallplate"
+   },
+   {
+    "name": "Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Cutouts",
+    "value": "2) Toggle"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Color",
+    "value": "Ivory"
+   },
+   {
+    "name": "Size",
+    "value": "Mid-Size"
+   },
+   {
+    "name": "Thickness",
+    "value": "0.06 in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/wallplate-mid-size-2-g-2-toggle-ivory/p/5473878"
+ },
+ {
+  "mpn": "HBL5266C",
+  "brand": "Hubbell Wiring Device-Kellems",
+  "name": "Hubbell Wiring Device-Kellems Insulgrip Heavy-Duty Male Plug HBL5266C",
+  "category": "electrical",
+  "subcategory": "Insulgrip Heavy-Duty Male Plug",
+  "description": "NEMA 5-15P heavy-duty industrial/commercial grade Insulgrip male plug, 15 A 125 V, with VARI-SIZE cord clamp and polycarbonate housing.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell Wiring Device-Kellems",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Heavy-Duty Male Plug"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15P"
+   },
+   {
+    "name": "Ampere Rating",
+    "value": "15 A"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "125 V"
+   },
+   {
+    "name": "Poles / Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Housing Material",
+    "value": "Polycarbonate"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#18–10 AWG"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-40°C to 75°C"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Straight-Blade-Devices/Plugs-Connectors/HBL5266C/p/1634095"
+ },
+ {
+  "mpn": "ACC-R2",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Rail Cable Clip ACC-R2",
+  "category": "electrical",
+  "subcategory": "Rail Cable Clip",
+  "description": "Rail-mount cable clip accommodating 1 wire up to 0.55 in. OD or 2 wires up to 0.43 in. OD; UL listed per UL 1565.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rail Cable Clip"
+   },
+   {
+    "name": "Single-Wire Max OD",
+    "value": "0.55 in"
+   },
+   {
+    "name": "Two-Wire Max OD",
+    "value": "0.43 in"
+   },
+   {
+    "name": "Mounting",
+    "value": "Rail mount"
+   },
+   {
+    "name": "Standard",
+    "value": "UL 1565 / CSA C22.2"
+   },
+   {
+    "name": "Trade Name",
+    "value": "Wiley Wire Management"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Data-Communications/WireCableHose-Management/Cable-Ties-and-Clips/ACC-R2-Rail-Cable-Clip-1-wire-Max-0-55-2-wire-Max-0-43/p/1732309"
+ },
+ {
+  "mpn": "CTSS225200304C",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Stainless Steel Cable Tie CTSS225200304C",
+  "category": "electrical",
+  "subcategory": "Stainless Steel Cable Tie",
+  "description": "304 stainless steel cable tie with 225 lb tensile strength and 1.97 in. max bundle diameter; suitable for indoor, outdoor, and underground use.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Stainless Steel Cable Tie"
+   },
+   {
+    "name": "Material",
+    "value": "304 Stainless Steel"
+   },
+   {
+    "name": "Tensile Strength",
+    "value": "225 lb"
+   },
+   {
+    "name": "Length",
+    "value": "7.87 in"
+   },
+   {
+    "name": "Width",
+    "value": "0.18 in"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "1.97 in"
+   },
+   {
+    "name": "Installation Tool",
+    "value": "CTTSS900 or MK9SST"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BRDY-CTSS225200304C-SPEC-EN.pdf"
+ },
+ {
+  "mpn": "RC125",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RC125",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "1-1/4 in. trade size C-type die-cast aluminum Rigid/IMC conduit body with NBR gasket, stamped aluminum cover, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum, powder coated"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "32.3 cu.in"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RIGIDIMC-CONDUIT-BODIES/p/1657090"
+ },
+ {
+  "mpn": "RLC125",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RLC125",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "1-1/4 in. trade size C-type die-cast aluminum Rigid/IMC conduit body with NBR gasket, stamped aluminum cover, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum, powder coated"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "32.3 cu.in"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "8.35 x 2.51 x 2.50 in"
+   },
+   {
+    "name": "Weight",
+    "value": "1.1 lb"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RIGIDIMC-CONDUIT-BODIES/p/1657090"
+ },
+ {
+  "mpn": "RLC150",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RLC150",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "1-1/2 in. trade size C-type die-cast aluminum Rigid/IMC conduit body with NBR gasket, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Die cast aluminum, powder coated"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141401"
+ },
+ {
+  "mpn": "RC200",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RC200",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "2 in. trade size C-type aluminum Rigid/IMC conduit body, NEMA 3R rated, 71.4 cu.in capacity.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "71.4 cu.in"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "10.55 x 3.19 x 3.41 in"
+   },
+   {
+    "name": "Weight",
+    "value": "1.323 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/2196522"
+ },
+ {
+  "mpn": "RLC200",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RLC200",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "2 in. trade size C-type aluminum Rigid/IMC conduit body with NBR gasket and stamped aluminum cover, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "71.4 cu.in"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Weight",
+    "value": "2 lb"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141650"
+ },
+ {
+  "mpn": "YA4CL6BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG) YA4CL6BOX",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG)",
+  "description": "4 AWG copper 1-hole HYLUG compression terminal, 1/2 in. stud, standard barrel, electro-tin plated, UL Listed, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "4 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrel",
+    "value": "Standard, chamfered"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2.2 in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ya4cl6box-cu-compression-1-hole-12-stud-standard-barrel-4-awg/p/522899"
+ },
+ {
+  "mpn": "RC050",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RC050",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "1/2 in. trade size C-type die-cast aluminum Rigid/IMC conduit body with NBR gasket, 4.3 cu.in capacity, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, powder coated"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "4.3 cu.in"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "4.72 x 1.34 x 1.36 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.29 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141401"
+ },
+ {
+  "mpn": "RLC050",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RLC050",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "1/2 in. trade size C-type die-cast aluminum Rigid/IMC conduit body with NBR gasket and stamped aluminum cover, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, powder coated"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "4.3 cu.in"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "4.72 x 1.34 x 1.36 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.29 lb"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141401"
+ },
+ {
+  "mpn": "RC075",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC C-Type Conduit Body RC075",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC C-Type Conduit Body",
+  "description": "3/4 in. trade size C-type die-cast aluminum Rigid/IMC conduit body, NEMA 3R rated, 0.266 lb.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC C-Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "C-Type"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, powder coated"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "5.512 x 1.563 x 1.626 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.266 lb"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/2196518"
+ },
+ {
+  "mpn": "YAV10T3BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Ring Terminal YAV10T3BOX",
+  "category": "electrical",
+  "subcategory": "Uninsulated Ring Terminal",
+  "description": "Uninsulated copper ring terminal for #14–10 AWG stranded or #12–10 AWG solid, 1-hole, 1/4 in. stud, electro-tin plated, boxed packaging.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Ring Terminal"
+   },
+   {
+    "name": "Wire Size (Stranded)",
+    "value": "#14–10 AWG"
+   },
+   {
+    "name": "Wire Size (Solid)",
+    "value": "#12–10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V–35 kV"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav10t3box-uninsulated-ring-terminal-14-10-awg-str-12-10-sol-1-hole-14-stud/p/517906"
+ },
+ {
+  "mpn": "YAZ2CTC38",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Cable-to-Flat, Long Barrel) YAZ2CTC38",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Cable-to-Flat, Long Bar",
+  "description": "2 AWG copper 1-hole long-barrel cable-to-flat compression terminal, 3/8 in. stud, electro-tin plated, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Cable-to-Flat, Long Barrel)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "2 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long, chamfered"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Brown"
+   },
+   {
+    "name": "Die Index",
+    "value": "10"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Cable-to-Flat/YAZ2CTC38-Cu-Compression-1-Hole-38-Stud-Long-Barrel-2-AWG/p/1695788"
+ },
+ {
+  "mpn": "YA29L2",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG, Standard Barrel) YA29L2",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG, Standard Barrel)",
+  "description": "250 kcmil copper 1-hole standard-barrel HYLUG compression terminal, 1/4 in. stud, electro-tin plated, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG, Standard Barrel)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "250 kcmil Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrel",
+    "value": "Standard"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Yellow"
+   },
+   {
+    "name": "Die Index",
+    "value": "16"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://nassaunationalcable.com/products/burndy-ya29l2-250-mcm-1-4-stud-1-hole-inspection-window-standard-barrel-copper-terminal-lug"
+ },
+ {
+  "mpn": "YAV28L12BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Ring Terminal YAV28L12BOX",
+  "category": "electrical",
+  "subcategory": "Uninsulated Ring Terminal",
+  "description": "Uninsulated copper ring terminal for 4/0 AWG flexible conductor, 1-hole, 1/2 in. stud, electro-tin plated, boxed packaging.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "4/0 AWG Flex"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2.72 in"
+   },
+   {
+    "name": "Width",
+    "value": "1.12 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav28l12box-uninsulated-ring-terminal-for-40-awg-1-hole-12-stud/p/518115"
+ },
+ {
+  "mpn": "YA36L11",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG, Standard Barrel) YA36L11",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG, Standard Barrel)",
+  "description": "600 kcmil copper 1-hole standard-barrel HYLUG compression terminal, 1/2 in. stud, electro-tin plated, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG, Standard Barrel)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "600 kcmil Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrel",
+    "value": "Standard"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Green"
+   },
+   {
+    "name": "Die Index",
+    "value": "22"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated-Tin-Plated/Compression-Terminal/p/1693541"
+ },
+ {
+  "mpn": "YA25LB",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Cable-to-Flat, Standard Barrel, Bell End) YA25LB",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Cable-to-Flat, Standard",
+  "description": "1/0 AWG flexible copper 1-hole standard-barrel bell-end compression terminal, 5/16 in. stud, tin plated, for DLO/flex cable.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Cable-to-Flat, Standard Barrel, Bell End)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "1/0 AWG Flex (DLO, G, H, I, K, M)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrel",
+    "value": "Standard, bell end"
+   },
+   {
+    "name": "Plating",
+    "value": "Tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Pink"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Cable-to-Flat/Compression-Terminal/p/1697553"
+ },
+ {
+  "mpn": "YAZ8CTC14",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Cable-to-Flat, Long Barrel) YAZ8CTC14",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Cable-to-Flat, Long Bar",
+  "description": "8 AWG copper 1-hole long-barrel cable-to-flat compression terminal, 1/4 in. stud, electro-tin plated, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Cable-to-Flat, Long Barrel)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "8 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long, chamfered"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Red"
+   },
+   {
+    "name": "Die Index",
+    "value": "49"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yaz8ctc14-compression-terminal-8-awg-cu-1-hole-14-stud-long-barrel/p/522510"
+ },
+ {
+  "mpn": "YA26N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG, Long Barrel) YA26N",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG, Long Barrel)",
+  "description": "2/0 AWG copper 1-hole long-barrel HYLUG compression terminal, 1/2 in. stud, electro-tin plated, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG, Long Barrel)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "2/0 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Black"
+   },
+   {
+    "name": "Die Index",
+    "value": "13"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated-Tin-Plated/Compression-Terminal/p/1695066"
+ },
+ {
+  "mpn": "YAV27LBOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Ring Terminal YAV27LBOX",
+  "category": "electrical",
+  "subcategory": "Uninsulated Ring Terminal",
+  "description": "Uninsulated copper ring terminal for 3/0 AWG and AN-3/0 flex conductor, 1-hole, 3/8 in. stud, electro-tin plated, boxed packaging.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "3/0 AWG / AN-3/0 Flex"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic copper"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav27l-uninsulated-ring-terminal-for-30-awg-an-30-flex-1-hole-38-stud/p/518067"
+ },
+ {
+  "mpn": "YAZ262N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Cable-to-Flat, Long Barrel, 2-Hole) YAZ262N",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Cable-to-Flat, Long Bar",
+  "description": "2/0 AWG copper 2-hole long-barrel cable-to-flat compression terminal, 1/2 in. stud, 1-3/4 in. spacing, electro-tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Cable-to-Flat, Long Barrel, 2-Hole)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "2/0 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "2"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Black"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ya262n-20-awg-cu-2-hole-12-studs-1-34-spacing-long-barrel/p/523686"
+ },
+ {
+  "mpn": "YA272NU",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG, Long Barrel, 2-Hole) YA272NU",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG, Long Barrel, 2-H",
+  "description": "3/0 AWG copper 2-hole long-barrel compression terminal, 1/2 in. stud, 1-3/4 in. spacing, electro-tin plated, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG, Long Barrel, 2-Hole)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "3/0 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "2"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Orange"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated-Tin-Plated/Compression-Terminal/p/1694676"
+ },
+ {
+  "mpn": "YA282NU",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG, Long Barrel, 2-Hole) YA282NU",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG, Long Barrel, 2-H",
+  "description": "4/0 AWG copper 2-hole long-barrel compression terminal, 1/2 in. stud, 1-3/4 in. spacing, electro-tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG, Long Barrel, 2-Hole)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "4/0 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "2"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/c/Compression-Terminal/p/1694682"
+ },
+ {
+  "mpn": "YAZ342N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Cable-to-Flat, Long Barrel, 2-Hole) YAZ342N",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Cable-to-Flat, Long Bar",
+  "description": "500 kcmil copper 2-hole long-barrel cable-to-flat compression terminal, 1/2 in. stud, 1-3/4 in. spacing, electro-tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Cable-to-Flat, Long Barrel, 2-Hole)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "500 kcmil Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "2"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in"
+   },
+   {
+    "name": "Barrel",
+    "value": "Long, skived"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Brown"
+   },
+   {
+    "name": "Die Index",
+    "value": "20"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yaz342n-cu-compression-2-hole-12-stud-1-34-spacing-long-barrel-500-kcmil/p/522153"
+ },
+ {
+  "mpn": "YA252LN",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG, Standard Barrel, 2-Hole) YA252LN",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG, Standard Barrel,",
+  "description": "1/0 AWG copper 2-hole standard-barrel compression terminal, 1/2 in. stud, 1-3/4 in. spacing, electro-tin plated, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG, Standard Barrel, 2-Hole)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "1/0 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Holes",
+    "value": "2"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in"
+   },
+   {
+    "name": "Barrel",
+    "value": "Standard"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Color Code",
+    "value": "Pink"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ya252ln-comp-term-cu-standard-barrel-2-hole/p/528043"
+ },
+ {
+  "mpn": "YA31L2TC38",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (HYLUG, Standard Barrel, 2-Hole) YA31L2TC38",
+  "category": "electrical",
+  "subcategory": "Compression Lug (HYLUG, Standard Barrel,",
+  "description": "350 kcmil copper 2-hole standard-barrel HYLUG compression terminal, 3/8 in. stud, 1 in. spacing, electro-tin plated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (HYLUG, Standard Barrel, 2-Hole)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "350 kcmil Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Holes",
+    "value": "2"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1 in"
+   },
+   {
+    "name": "Barrel",
+    "value": "Standard, chamfered"
+   },
+   {
+    "name": "Overall Length",
+    "value": "3.51 in"
+   },
+   {
+    "name": "Die Index",
+    "value": "18"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ya31l2tc38-compression-terminal-350-kcmil-cu-2-hole-38-stud-1-spacing-standard-barrel/p/531320"
+ },
+ {
+  "mpn": "YAV150M10",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal YAV150M10",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal",
+  "description": "150 mm² Class 2 copper metric 1-hole ring terminal, M10 (3/8 in.) stud, electro-tin plated, IEC 61238-1 compliant, 35 kV rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "150 mm² Cu, Class 2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M10 / 3/8 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro-tin"
+   },
+   {
+    "name": "Die Index",
+    "value": "17"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA C22.2 No. 65"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav150m10-compression-terminal/p/530617"
+ },
+ {
+  "mpn": "YAV240M12",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal YAV240M12",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal",
+  "description": "240 mm² copper metric 1-hole ring terminal, M12 stud, electro-tin plated, for use with metric conductors in international installations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "240 mm² Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M12"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Plating",
+    "value": "Tin"
+   },
+   {
+    "name": "UPC",
+    "value": "781810285749"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.rexelusa.com/p/671927/burndy-bur-yav240m12-240mm-cu-metric-1-h-781810285749-yav240m12"
+ },
+ {
+  "mpn": "YAV240M16",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal YAV240M16",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal",
+  "description": "240 mm² copper metric 1-hole ring terminal, M16 stud, electro-tin plated, for use with metric conductors in international installations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "240 mm² Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M16"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Plating",
+    "value": "Tin"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/ohwassets/HCE/burndy/catalogs/2020/Section%20C_Compression_2020%20BURNDY%20Master.pdf"
+ },
+ {
+  "mpn": "YAV25M10",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal (HYLUG) YAV25M10",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal (HYLUG)",
+  "description": "Non-insulated copper tubular compression terminal, 25 mm² Class 2, 1-hole with inspection window, M10 stud, tin-electroplated finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "25 mm² (Class 2)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M10 (3/8 in)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro tin-plated"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA-C22.2 No. 65-03"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV max"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Metric/Compression-Terminal/p/1692392"
+ },
+ {
+  "mpn": "YAV25M6",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal (HYLUG) YAV25M6",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal (HYLUG)",
+  "description": "Non-insulated copper tubular compression terminal, 25 mm² Class 2, 1-hole with inspection window, M6 stud, tin-electroplated finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "25 mm² (Class 2)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M6"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro tin-plated"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA-C22.2 No. 65-03"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV max"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Metric/Compression-Terminal/p/1692389"
+ },
+ {
+  "mpn": "YAV300M12",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal (HYLUG) YAV300M12",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal (HYLUG)",
+  "description": "Non-insulated copper tubular compression terminal, 300 mm² Class 2, 1-hole with inspection window, M12 stud, tin-electroplated finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "300 mm² (Class 2)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M12"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro tin-plated"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA-C22.2 No. 65-03"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV max"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Metric/c/836153"
+ },
+ {
+  "mpn": "YAV400M16",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal (HYLUG) YAV400M16",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal (HYLUG)",
+  "description": "Non-insulated copper tubular compression terminal, 400 mm² Class 2, 1-hole with inspection window, M16 stud, tin-electroplated finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "400 mm² (Class 2)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M16"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro tin-plated"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA-C22.2 No. 65-03"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV max"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Metric/c/836153"
+ },
+ {
+  "mpn": "YAV70M12",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal (HYLUG) YAV70M12",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal (HYLUG)",
+  "description": "Non-insulated copper tubular compression terminal, 70 mm² Class 2, 1-hole with inspection window, M12 (1/2 in) stud, tin-electroplated finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "70 mm² (Class 2)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in (M12)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro tin-plated"
+   },
+   {
+    "name": "Die Index",
+    "value": "13"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2.19 in"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA-C22.2 No. 65-03"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV max"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav70m12-compression-terminal/p/530707"
+ },
+ {
+  "mpn": "YAV70M8",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Compression Terminal (HYLUG) YAV70M8",
+  "category": "electrical",
+  "subcategory": "Metric Compression Terminal (HYLUG)",
+  "description": "Non-insulated copper tubular compression terminal, 70 mm² Class 2, 1-hole with inspection window, M8 stud, tin-electroplated finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "70 mm² (Class 2)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M8"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro tin-plated"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA-C22.2 No. 65-03"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV max"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://octopart.com/yav70m8-burndy-33330669"
+ },
+ {
+  "mpn": "YALB150M16",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Metric Long Barrel Compression Terminal (HYLUG) YALB150M16",
+  "category": "electrical",
+  "subcategory": "Metric Long Barrel Compression Terminal ",
+  "description": "Non-insulated copper long-barrel compression terminal, 150 mm² Class 2, 1-hole, M16 stud, no inspection window (ideal for corrosive environments), tin-electroplated finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Metric Long Barrel Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "150 mm² (Class 2)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "M16"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Long barrel, no inspection window"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro tin-plated"
+   },
+   {
+    "name": "Standards",
+    "value": "IEC 61238-1, UL 486A-486B, CSA-C22.2 No. 65-03"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV max"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yalb150m12-compression-terminal/p/530882"
+ },
+ {
+  "mpn": "BPD8500",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Power Distribution Block BPD8500",
+  "category": "electrical",
+  "subcategory": "Power Distribution Block",
+  "description": "Aluminum alloy 6061-T6 power distribution block, 8-conductor, rated for #2 AWG to 500 kcmil Al/Cu conductors at 600 V AC.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Power Distribution Block"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V AC"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#2 AWG to 500 kcmil"
+   },
+   {
+    "name": "Conductor Compatibility",
+    "value": "Al/Cu"
+   },
+   {
+    "name": "Number of Outlets",
+    "value": "8"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum Alloy 6061-T6"
+   },
+   {
+    "name": "Insulation",
+    "value": "Plastisol with tin plating"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/bic8500-insulating-cover-multiple-outlet-connector-power-distribution-block/p/4586517"
+ },
+ {
+  "mpn": "NS15A15A",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Aluminum Tube-to-Tube Straight Coupler NS15A15A",
+  "category": "electrical",
+  "subcategory": "Substation Aluminum Tube-to-Tube Straigh",
+  "description": "Type NS-A straight coupler for aluminum and copper tube-to-tube substation bus connections, 1-1/4 IPS run and tap tube size.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Aluminum Tube-to-Tube Straight Coupler"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Straight coupler, tube-to-tube"
+   },
+   {
+    "name": "Tube Size (Run)",
+    "value": "1-1/4 IPS (aluminum or copper)"
+   },
+   {
+    "name": "Tube Size (Tap)",
+    "value": "1-1/4 IPS (aluminum or copper)"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus"
+   },
+   {
+    "name": "Installation",
+    "value": "Bolted"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Bus/Couplers/Tube-to-Tube/NS1515/p/1709611"
+ },
+ {
+  "mpn": "NS17A17A",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Aluminum Tube-to-Tube Straight Coupler NS17A17A",
+  "category": "electrical",
+  "subcategory": "Substation Aluminum Tube-to-Tube Straigh",
+  "description": "Type NS-A straight coupler for aluminum and copper tube-to-tube substation bus connections, 1-1/2 IPS run and tap tube size.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Aluminum Tube-to-Tube Straight Coupler"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Straight coupler, tube-to-tube"
+   },
+   {
+    "name": "Tube Size (Run)",
+    "value": "1-1/2 IPS (aluminum or copper)"
+   },
+   {
+    "name": "Tube Size (Tap)",
+    "value": "1-1/2 IPS (aluminum or copper)"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus"
+   },
+   {
+    "name": "Installation",
+    "value": "Bolted"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/substation-aluminium"
+ },
+ {
+  "mpn": "GAR114C",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Ground Clamp (Cable to Rebar) GAR114C",
+  "category": "electrical",
+  "subcategory": "Ground Clamp (Cable to Rebar)",
+  "description": "High copper alloy ground clamp for cable-to-rebar connections, rated for direct burial in earth or concrete, one-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Ground Clamp (Cable to Rebar)"
+   },
+   {
+    "name": "Wire Range (Solid)",
+    "value": "#8 AWG"
+   },
+   {
+    "name": "Wire Range (Stranded)",
+    "value": "#9-#4 AWG"
+   },
+   {
+    "name": "Rod/Rebar Diameter",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Body Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 in-lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL 467, IEEE-837-2014, direct burial rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/gar114c-ground-clamp-cable-to-rebar-8-sol-4-str/p/4582441"
+ },
+ {
+  "mpn": "NT1413",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Tube-to-Tube T-Connector NT1413",
+  "category": "electrical",
+  "subcategory": "Substation Copper Tube-to-Tube T-Connect",
+  "description": "Bolted high-copper-alloy T-connector for substation bus, 3/4 IPS run, 1/2 IPS tap tube sizes.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Tube-to-Tube T-Connector"
+   },
+   {
+    "name": "Run Tube Size",
+    "value": "3/4 IPS"
+   },
+   {
+    "name": "Tap Tube Size",
+    "value": "1/2 IPS"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Installation",
+    "value": "Bolted"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus T-connection"
+   },
+   {
+    "name": "Product Series",
+    "value": "Type NT"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "NT1514",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Tube-to-Tube T-Connector NT1514",
+  "category": "electrical",
+  "subcategory": "Substation Copper Tube-to-Tube T-Connect",
+  "description": "Bolted high-copper-alloy T-connector for substation bus, 1 IPS run, 3/4 IPS tap tube sizes.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Tube-to-Tube T-Connector"
+   },
+   {
+    "name": "Run Tube Size",
+    "value": "1 IPS"
+   },
+   {
+    "name": "Tap Tube Size",
+    "value": "3/4 IPS"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Installation",
+    "value": "Bolted"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus T-connection"
+   },
+   {
+    "name": "Product Series",
+    "value": "Type NT"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "NT1515",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Tube-to-Tube T-Connector NT1515",
+  "category": "electrical",
+  "subcategory": "Substation Copper Tube-to-Tube T-Connect",
+  "description": "Bolted high-copper-alloy T-connector for substation bus, 1 IPS run and tap; 2-1/8 in width, 4-1/2 in length.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Tube-to-Tube T-Connector"
+   },
+   {
+    "name": "Run Tube Size",
+    "value": "1 IPS"
+   },
+   {
+    "name": "Tap Tube Size",
+    "value": "1 IPS"
+   },
+   {
+    "name": "Width",
+    "value": "2-1/8 in"
+   },
+   {
+    "name": "Length",
+    "value": "4-1/2 in"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Installation",
+    "value": "Bolted"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus T-connection"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "NT1714",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Tube-to-Tube T-Connector NT1714",
+  "category": "electrical",
+  "subcategory": "Substation Copper Tube-to-Tube T-Connect",
+  "description": "Bolted high-copper-alloy T-connector for substation bus, 1-1/2 IPS run, 3/4 IPS tap tube sizes.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Tube-to-Tube T-Connector"
+   },
+   {
+    "name": "Run Tube Size",
+    "value": "1-1/2 IPS"
+   },
+   {
+    "name": "Tap Tube Size",
+    "value": "3/4 IPS"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Installation",
+    "value": "Bolted"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus T-connection"
+   },
+   {
+    "name": "Product Series",
+    "value": "Type NT"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "NA15A4N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Alloy Bolted Terminal (Tube to Flat) NA15A4N",
+  "category": "electrical",
+  "subcategory": "Substation Copper Alloy Bolted Terminal ",
+  "description": "High copper alloy bolted tube-to-flat substation terminal, 1 IPS Al/Cu tube, 4-hole NEMA pad, rated to 230 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Alloy Bolted Terminal (Tube to Flat)"
+   },
+   {
+    "name": "Tube Size",
+    "value": "1 IPS (Al or Cu)"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4-hole NEMA"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "0.56 in"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1.75 in"
+   },
+   {
+    "name": "Overall Length",
+    "value": "6.75 in"
+   },
+   {
+    "name": "Overall Width",
+    "value": "3.06 in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "230 kV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "NA17A2N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Alloy Bolted Terminal (Tube to Flat) NA17A2N",
+  "category": "electrical",
+  "subcategory": "Substation Copper Alloy Bolted Terminal ",
+  "description": "High copper alloy bolted tube-to-flat substation terminal, 1-1/2 IPS Al/Cu tube, 2-hole NEMA pad.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Alloy Bolted Terminal (Tube to Flat)"
+   },
+   {
+    "name": "Tube Size",
+    "value": "1-1/2 IPS (Al or Cu)"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2-hole NEMA"
+   },
+   {
+    "name": "Overall Width",
+    "value": "2-1/2 in"
+   },
+   {
+    "name": "Overall Length",
+    "value": "6 in"
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy"
+   },
+   {
+    "name": "Installation",
+    "value": "Bolted, tube-to-flat"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "2204",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Flex Squeeze Connector (Uninsulated) 2204",
+  "category": "electrical",
+  "subcategory": "90-Degree Flex Squeeze Connector (Uninsu",
+  "description": "1 in. 90-degree flex squeeze connector, uninsulated, for FMC/AC/MC cable, malleable iron construction, zinc-electroplated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Flex Squeeze Connector (Uninsulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "FMC / AC / MC"
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/2204/p/1657592"
+ },
+ {
+  "mpn": "3204",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Flex Squeeze Connector (Insulated) 3204",
+  "category": "electrical",
+  "subcategory": "90-Degree Flex Squeeze Connector (Insula",
+  "description": "1 in. 90-degree flex squeeze connector, insulated, for FMC/AC/MC cable, malleable iron construction, zinc-electroplated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Flex Squeeze Connector (Insulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "FMC / AC / MC"
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/1-in-90-Degree-Flex-Squeeze-Connector-Insulated/p/1657925"
+ },
+ {
+  "mpn": "VAUS101",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON VERSAtile Minimum Tension Compression Splice (Reducing) VAUS101",
+  "category": "electrical",
+  "subcategory": "VERSAtile Minimum Tension Compression Sp",
+  "description": "Aluminum VERSAtile reducing compression splice for 1/0 CU/AL/ACSR run (End A) to #2-#1 stranded Al/Cu or #2 ACSR (End B); color-coded, minimum tension.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "VERSAtile Minimum Tension Compression Splice (Reducing)"
+   },
+   {
+    "name": "End A Conductor",
+    "value": "1/0 AWG str Al/Cu/ACSR"
+   },
+   {
+    "name": "End B Conductor",
+    "value": "#2-#1 str Al/Cu, #2 ACSR"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum alloy"
+   },
+   {
+    "name": "Length (before crimp)",
+    "value": "2 in"
+   },
+   {
+    "name": "Color Code",
+    "value": "Yellow/Red"
+   },
+   {
+    "name": "Installation",
+    "value": "VersaCrimp or conventional die tooling"
+   },
+   {
+    "name": "UPC",
+    "value": "096359335092"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Connectors/Splices/Compression/Minimum-Tension/Compression-Splice-VERSAtile-Minimum-Tension/p/1700477"
+ },
+ {
+  "mpn": "2205",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Flex Squeeze Connector (Uninsulated) 2205",
+  "category": "electrical",
+  "subcategory": "90-Degree Flex Squeeze Connector (Uninsu",
+  "description": "1-1/4 in. 90-degree flex squeeze connector, uninsulated, for FMC/AC/MC cable, malleable iron construction, zinc-electroplated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Flex Squeeze Connector (Uninsulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "FMC / AC / MC"
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4.203 in x 2.859 in x 3 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/114-in-90-degree-flex-squeeze-connector-uninsulated-for-fmcacmc-cable/p/1657594"
+ },
+ {
+  "mpn": "CSC125",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Conduit Body Cover CSC125",
+  "category": "electrical",
+  "subcategory": "Conduit Body Cover",
+  "description": "1-1/4 in. stamped aluminum conduit body replacement cover, UL Listed, NEMA 3R, Buy American qualified.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Conduit Body Cover"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Material",
+    "value": "Stamped aluminum"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R, Buy American"
+   },
+   {
+    "name": "Dimensions",
+    "value": "7.29 in L x 2.5 in W x 0.18 in H"
+   },
+   {
+    "name": "Weight",
+    "value": "0.115 lb"
+   },
+   {
+    "name": "Pack Quantity",
+    "value": "50 per carton"
+   },
+   {
+    "name": "Compliance",
+    "value": "EU RoHS compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/conduit-body-covers/p/141939"
+ },
+ {
+  "mpn": "2206",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Flex Squeeze Connector (Uninsulated) 2206",
+  "category": "electrical",
+  "subcategory": "90-Degree Flex Squeeze Connector (Uninsu",
+  "description": "1-1/2 in. 90-degree flex squeeze connector, uninsulated, for FMC/AC/MC cable, malleable iron construction, zinc-electroplated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Flex Squeeze Connector (Uninsulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "FMC / AC / MC"
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4.891 in x 3.094 in x 3 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-12-in-90-degree-flex-squeeze-connector-uninsulated-for-fmcacmc-cable/p/141132"
+ },
+ {
+  "mpn": "YDS2CA",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Full Tension Aluminum Compression Splice YDS2CA",
+  "category": "electrical",
+  "subcategory": "Full Tension Aluminum Compression Splice",
+  "description": "Aluminum HYSPLICE full tension splice with staked-in cable stop for 2 AWG aluminum/ACSR conductors, ANSI C119.4 Class 1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Full Tension Aluminum Compression Splice"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "2 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Splice Type",
+    "value": "Full tension, staked-in cable stop"
+   },
+   {
+    "name": "Overall Length",
+    "value": "3-7/8 in"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI C119.4 Class 1 (Full Tension)"
+   },
+   {
+    "name": "Pre-filled",
+    "value": "PENETROX joint compound"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.gescan.com/products/14-electric-utility-outside-plant-products/06-utility-connectors/01-distributiontransmission/05-splices-sleeves/p-QlVSWURTMkNB-hubbell-3-78-inch-2-awg-burndy-hysplice-full-tension-aluminum-splice-with-staked-in-cable-stop"
+ },
+ {
+  "mpn": "2208",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Flex Squeeze Connector (Uninsulated) 2208",
+  "category": "electrical",
+  "subcategory": "90-Degree Flex Squeeze Connector (Uninsu",
+  "description": "2 in. 90-degree flex squeeze connector, uninsulated, for FMC/AC/MC cable, malleable iron construction, zinc-electroplated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Flex Squeeze Connector (Uninsulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "FMC / AC / MC"
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions",
+    "value": "6.797 in x 3.797 in x 4.53 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/2-in-90-degree-flex-squeeze-connector-uninsulated-for-fmcacmc-cable/p/141141"
+ },
+ {
+  "mpn": "3210",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Flex Squeeze Connector (Insulated) 3210",
+  "category": "electrical",
+  "subcategory": "90-Degree Flex Squeeze Connector (Insula",
+  "description": "2-1/2 in. 90-degree flex squeeze connector, insulated, for FMC cable, malleable iron construction, zinc-electroplated, cULus Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Flex Squeeze Connector (Insulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2-1/2 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "FMC"
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   },
+   {
+    "name": "Dimensions",
+    "value": "7.563 in x 4.328 in x 5.25 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/2-12-in-flex-squeeze-connector-insulated/p/142074"
+ },
+ {
+  "mpn": "3212",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Flex Squeeze Connector (Insulated) 3212",
+  "category": "electrical",
+  "subcategory": "90-Degree Flex Squeeze Connector (Insula",
+  "description": "3 in. 90-degree flex squeeze connector, insulated, for FMC cable, malleable iron construction, zinc-electroplated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Flex Squeeze Connector (Insulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3 in"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "FMC"
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions",
+    "value": "8.969 in x 5.063 in x 6.54 in"
+   },
+   {
+    "name": "Weight",
+    "value": "5.58 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/3-in-Flex-Squeeze-Connector-Insulated/p/1657931"
+ },
+ {
+  "mpn": "ACL500",
+  "brand": "Hubbell CMC",
+  "name": "Hubbell CMC Aluminum Common Die Compression Splice Connector ACL500",
+  "category": "electrical",
+  "subcategory": "Aluminum Common Die Compression Splice C",
+  "description": "Aluminum common-die splice connector for 450-500 kcmil Al/Cu stranded conductors; pre-filled with joint compound, for pole jumpers and service entrances. ANSI C119.4 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CMC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Common Die Compression Splice Connector"
+   },
+   {
+    "name": "Conductor Size (Al Str)",
+    "value": "450-500 kcmil"
+   },
+   {
+    "name": "Conductor Size (Cu Str)",
+    "value": "450-500 kcmil"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Die Index (Burndy)",
+    "value": "316, 655, 705, or 13A"
+   },
+   {
+    "name": "Overall Length",
+    "value": "4.25 in"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI C119.4"
+   },
+   {
+    "name": "Pre-filled",
+    "value": "Electrical joint compound"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/cmc/en/products/acl500-compression-common-die-splice-connector-aluminum/p/4806168"
+ },
+ {
+  "mpn": "YS39AM1",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Splice (HYLINK Aluminum) YS39AM1",
+  "category": "electrical",
+  "subcategory": "Compression Splice (HYLINK Aluminum)",
+  "description": "Dual-rated aluminum/copper compression splice, 700-750 kcmil conductor, electro-tin plated, pre-filled with PENETROX A13, UL Listed to 35 kV and 90°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Splice (HYLINK Aluminum)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "700-750 kcmil"
+   },
+   {
+    "name": "Conductor Material",
+    "value": "Aluminum/Copper (dual-rated)"
+   },
+   {
+    "name": "Die Index",
+    "value": "936"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro-tin plated"
+   },
+   {
+    "name": "Overall Length",
+    "value": "5.58 in"
+   },
+   {
+    "name": "Pre-filled",
+    "value": "PENETROX A13 oxide inhibitor"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, 35 kV max, 90°C rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ys39am1-compression-splice-750-kcmil-al-al9cu/p/530230"
+ },
+ {
+  "mpn": "VACL1038",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON VERSAtile Aluminum Compression Terminal VACL1038",
+  "category": "electrical",
+  "subcategory": "VERSAtile Aluminum Compression Terminal",
+  "description": "VERSAtile aluminum compression terminal (VACL series), 1/0 AWG Al/Cu, 1-hole with 3/8 in bolt, tin-plated; UL Listed and CSA Certified, rated 34.5 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "VERSAtile Aluminum Compression Terminal"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "1/0 AWG str Al/Cu"
+   },
+   {
+    "name": "Bolt Hole Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, tin-plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "34.5 kV"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified"
+   },
+   {
+    "name": "Installation",
+    "value": "VERSA-CRIMP or conventional die tooling"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Aluminum---Tin-Plated/Terminal-Compression/p/1687942"
+ },
+ {
+  "mpn": "HBL4100RS1W",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Pin and Sleeve Receptacle HBL4100RS1W",
+  "category": "electrical",
+  "subcategory": "Insulgrip Pin and Sleeve Receptacle",
+  "description": "Heavy-duty industrial-grade female pin-and-sleeve receptacle, 100A 600V AC, 3-pole 4-wire grounding, watertight, black, Style 1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Pin and Sleeve Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "100A"
+   },
+   {
+    "name": "Voltage",
+    "value": "600V AC"
+   },
+   {
+    "name": "Configuration",
+    "value": "3-pole 4-wire grounding"
+   },
+   {
+    "name": "Device Type",
+    "value": "Female receptacle"
+   },
+   {
+    "name": "Ingress Protection",
+    "value": "Watertight"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Standard",
+    "value": "UL 1686"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Pin-Sleeve/UL-1686-Pin-Sleeve-Devices/Heavy-Duty-Products-Insulgrip-Pin-and-Sleeve-Devices-Industrial-Grade-Female-Receptacle-100A-600V-AC-3--Pole-4-Wire-Grounding-and-Black/p/1635895"
+ },
+ {
+  "mpn": "AMS3/0",
+  "brand": "Hubbell CMC",
+  "name": "Hubbell CMC Aluminum Mechanical One-Hole Terminal Lug AMS3/0",
+  "category": "electrical",
+  "subcategory": "Aluminum Mechanical One-Hole Terminal Lu",
+  "description": "Aluminum one-hole terminal lug for 3/0 AWG stranded Cu/Al/ACSR conductors; pre-filled with joint compound, solid end wall, 1/2 in mounting bolt. ANSI C119.4 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CMC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Mechanical One-Hole Terminal Lug"
+   },
+   {
+    "name": "Conductor Size (Cu)",
+    "value": "3/0 AWG stranded"
+   },
+   {
+    "name": "Conductor Size (ACSR)",
+    "value": "3/0 AWG stranded"
+   },
+   {
+    "name": "Bolt Hole",
+    "value": "0.562 in (1/2 in bolts)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Die Reference",
+    "value": "Burndy WK840 / 249, Kearney 840"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI C119.4"
+   },
+   {
+    "name": "Pre-filled",
+    "value": "Electrical joint compound"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/cmc/en/products/aluminum-one-hole-terminal-lugs/p/4806231"
+ },
+ {
+  "mpn": "HBL360RS1W",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Pin and Sleeve Receptacle HBL360RS1W",
+  "category": "electrical",
+  "subcategory": "Insulgrip Pin and Sleeve Receptacle",
+  "description": "Heavy-duty industrial-grade female pin-and-sleeve receptacle, 60A 600V AC/250V DC, 2-pole 3-wire grounding, watertight (Type 3, 4, 4X), Style 1, black.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Pin and Sleeve Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "60A"
+   },
+   {
+    "name": "Voltage",
+    "value": "600V AC / 250V DC"
+   },
+   {
+    "name": "Configuration",
+    "value": "2-pole 3-wire grounding"
+   },
+   {
+    "name": "Ingress Protection",
+    "value": "Watertight (Type 3, 4, 4X)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#8 AWG to #2 AWG"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-40°C to 75°C continuous"
+   },
+   {
+    "name": "Standard",
+    "value": "UL 1682, CSA C22.2 No. 182.1"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-products-insulgrip-pin-and-sleeve-devices-industrial-grade-female-receptacle-60a-600v-ac-2-pole-3-wire-grounding-style1-and-black/p/162608"
+ },
+ {
+  "mpn": "HBL460RS1W",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Pin and Sleeve Receptacle HBL460RS1W",
+  "category": "electrical",
+  "subcategory": "Insulgrip Pin and Sleeve Receptacle",
+  "description": "Heavy-duty industrial-grade female pin-and-sleeve receptacle, 60A 600V AC, 3-pole 4-wire grounding, watertight (Type 3, 4, 4X), Style 1, black.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Pin and Sleeve Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "60A"
+   },
+   {
+    "name": "Voltage",
+    "value": "600V AC"
+   },
+   {
+    "name": "Configuration",
+    "value": "3-pole 4-wire grounding"
+   },
+   {
+    "name": "Device Type",
+    "value": "Female receptacle"
+   },
+   {
+    "name": "Ingress Protection",
+    "value": "Watertight (Type 3, 4, 4X)"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-40°C to 75°C continuous"
+   },
+   {
+    "name": "Dielectric Withstand",
+    "value": "3,000V AC"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-products-insulgrip-pin-and-sleeve-devices-industrial-grade-female-receptacle-60a-600v-ac-3-pole-4-wire-grounding-style-1-and-black/p/173745"
+ },
+ {
+  "mpn": "YSU2W6W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Service Entrance Splice (Heavy-Walled Aluminum, Uninsulated) YSU2W6W",
+  "category": "electrical",
+  "subcategory": "Service Entrance Splice (Heavy-Walled Al",
+  "description": "Heavy-walled aluminum tube with solid barrier, uninsulated center-stop service entrance splice; Side A for 2-4 AWG (Cu/Al/ACSR), Side B for 8-10 AWG Cu; pre-filled with PENETROX compound.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Service Entrance Splice (Heavy-Walled Aluminum, Uninsulated)"
+   },
+   {
+    "name": "Side A Conductor",
+    "value": "2-4 AWG Cu solid/str, Al str, ACSR"
+   },
+   {
+    "name": "Side B Conductor",
+    "value": "8-10 AWG Copper"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum (heavy-walled)"
+   },
+   {
+    "name": "Die Index",
+    "value": "243; BG or 5/8"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2 in"
+   },
+   {
+    "name": "Color Code",
+    "value": "Orange (Side A), Green (Side B)"
+   },
+   {
+    "name": "Pre-filled",
+    "value": "PENETROX Joint Compound, Stripsealed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ysu2w6w-heavy-walled-aluminum-tube-with-solid-barrier/p/502928"
+ },
+ {
+  "mpn": "YSU6W6W",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Service Entrance Compression Sleeve (Uninsulated, Center Stop) YSU6W6W",
+  "category": "electrical",
+  "subcategory": "Service Entrance Compression Sleeve (Uni",
+  "description": "Heavy-walled aluminum tube with solid center barrier minimizes galvanic corrosion; LINKIT trade name; for 8 AWG Al stranded or 6/8 AWG Cu service entrance applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Service Entrance Compression Sleeve (Uninsulated, Center Stop)"
+   },
+   {
+    "name": "Conductor Range Side A",
+    "value": "8 AWG Aluminum Stranded; 8 AWG Copper Stranded; 6 AWG Copper Solid"
+   },
+   {
+    "name": "Conductor Range Side B",
+    "value": "8 AWG Aluminum Stranded; 8 AWG Copper Stranded; 6 AWG Copper Solid"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, Tin (Hot Dipped) plating"
+   },
+   {
+    "name": "Color Code",
+    "value": "Green (both sides)"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2 in (51 mm)"
+   },
+   {
+    "name": "Outside Diameter",
+    "value": "0.65 in"
+   },
+   {
+    "name": "Die Index",
+    "value": "243; BG or 5/8"
+   },
+   {
+    "name": "Pre-filled Oxide Inhibitor",
+    "value": "PENETROX Joint Compound (stripsealed)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/502931"
+ },
+ {
+  "mpn": "VAUS1010",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Compression Splice Connector (Universal/VERSAtile) VAUS1010",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Splice Connector (U",
+  "description": "Anderson VERSAtile VAUS-series aluminum compression splice for 1/0 Str. Al/Cu/ACSR conductors; compatible with conventional or VERSA-CRIMP tools.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Splice Connector (Universal/VERSAtile)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "1/0 Str. Al/Cu/ACSR"
+   },
+   {
+    "name": "Color Code",
+    "value": "Yellow"
+   },
+   {
+    "name": "Die Size",
+    "value": "5/8 in"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI C119.4 Class 3 minimum tension connector"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Weight",
+    "value": "0.039 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellpowersystems.cld.bz/Distribution-Connectors-Combined1/50/"
+ },
+ {
+  "mpn": "VAUS16",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Compression Splice Connector (Universal/VERSAtile) VAUS16",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Splice Connector (U",
+  "description": "Anderson VERSAtile VAUS-series aluminum compression splice for #4 Str.–#2 Sol. Al/Cu and #4 ACSR conductors; accepts both conventional and Anderson crimp tools.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Splice Connector (Universal/VERSAtile)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#4 Str. – #2 Sol. Al/Cu and #4 ACSR"
+   },
+   {
+    "name": "Color Code",
+    "value": "Red and Orange"
+   },
+   {
+    "name": "Die Size",
+    "value": "5/8 in"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI C119.4 Class 3 minimum tension connector"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Weight",
+    "value": "0.043 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellpowersystems.cld.bz/Distribution-Connectors-Combined1/50/"
+ },
+ {
+  "mpn": "VAUS18",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Compression Splice Connector (Universal/VERSAtile) VAUS18",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Splice Connector (U",
+  "description": "Anderson VERSAtile VAUS-series aluminum compression splice for #8–#1 Str. Al/Cu and #6–#2 ACSR conductors; accepts both conventional and Anderson crimp tools.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Splice Connector (Universal/VERSAtile)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#8 – #1 Str. Al/Cu and #6 – #2 ACSR"
+   },
+   {
+    "name": "Color Code",
+    "value": "Red and Blue"
+   },
+   {
+    "name": "Die Size",
+    "value": "5/8 in"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI C119.4 Class 3 minimum tension connector"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Weight",
+    "value": "0.049 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellpowersystems.cld.bz/Distribution-Connectors-Combined1/50/"
+ },
+ {
+  "mpn": "TSC150",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Trunnion Suspension Clamp (Aluminum) TSC150",
+  "category": "electrical",
+  "subcategory": "Trunnion Suspension Clamp (Aluminum)",
+  "description": "Aluminum trunnion suspension clamp for tangent spans with horizontal or vertical post insulators; accepts ACSR/AAC/ACAR conductors from Partridge through Coreopsis; reversible keeper.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Trunnion Suspension Clamp (Aluminum)"
+   },
+   {
+    "name": "Conductor OD Range",
+    "value": "1.00 – 1.50 in (one shed configuration)"
+   },
+   {
+    "name": "Ultimate Strength Rating",
+    "value": "2800 lb"
+   },
+   {
+    "name": "Material – Body",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Material – Hardware",
+    "value": "Galvanized Steel"
+   },
+   {
+    "name": "Dimensions",
+    "value": "5.25 × 3.88 × 1.5 in"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "300 in-lbs"
+   },
+   {
+    "name": "Max Take-Off Angle",
+    "value": "20°"
+   },
+   {
+    "name": "Compliance",
+    "value": "Buy American qualified; TAA Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/trunnion-suspension-clamp-al/p/1382269"
+ },
+ {
+  "mpn": "2203",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 90-Degree Squeeze Connector for FMC/AC/MC Cable (Uninsulated) 2203",
+  "category": "electrical",
+  "subcategory": "90-Degree Squeeze Connector for FMC/AC/M",
+  "description": "3/4 in. trade size, 90-degree uninsulated squeeze connector for flexible metal conduit (FMC), armored cable (AC), and metal clad (MC) cable; malleable iron with zinc electroplate.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "90-Degree Squeeze Connector for FMC/AC/MC Cable (Uninsulated)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Angle",
+    "value": "90 Degree"
+   },
+   {
+    "name": "Cable Type",
+    "value": "FMC / AC / MC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable Iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.49 × 1.969 × 1.70 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.177 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "cULus Listed; RoHS Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/34-in-flexac-90-degree-squeeze-connector-uninsulated-for-fmcacmc-cable/p/141127"
+ },
+ {
+  "mpn": "POC750G1216RS",
+  "brand": "Hubbell PCORE",
+  "name": "Hubbell PCORE Condenser (Capacitance-Graded) Power Apparatus Bushing POC750G1216RS",
+  "category": "electrical",
+  "subcategory": "Condenser (Capacitance-Graded) Power App",
+  "description": "PCORE POC Series II oil-impregnated capacitance-graded bushing rated 161 kV / 750 kV BIL / 1200 A; porcelain insulator; designed for transformer or oil circuit breaker applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell PCORE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Condenser (Capacitance-Graded) Power Apparatus Bushing"
+   },
+   {
+    "name": "Voltage Class",
+    "value": "161 kV"
+   },
+   {
+    "name": "BIL",
+    "value": "750 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "1200 A"
+   },
+   {
+    "name": "Above Flange Length",
+    "value": "77.94 in"
+   },
+   {
+    "name": "Below Flange Length",
+    "value": "50.25 in"
+   },
+   {
+    "name": "Flange Mounting Holes",
+    "value": "8 holes on 15.75 in bolt circle"
+   },
+   {
+    "name": "Material – Insulation",
+    "value": "Porcelain"
+   },
+   {
+    "name": "Material – Flange",
+    "value": "Aluminum"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/poc-series-ii-bushing-161kv/p/144296"
+ },
+ {
+  "mpn": "YAE22G18",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon-Insulated Ring Terminal (Compression) YAE22G18",
+  "category": "electrical",
+  "subcategory": "Nylon-Insulated Ring Terminal (Compressi",
+  "description": "Nylon INSULUG ring terminal for 26–20 AWG wire with #2 stud; military-grade multi-finger insulation grip; brazed seam barrel; tin-plated copper; 300 V rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon-Insulated Ring Terminal (Compression)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "26 – 20 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#2"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V (per product page)"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C"
+   },
+   {
+    "name": "Color",
+    "value": "Amber"
+   },
+   {
+    "name": "Material",
+    "value": "Pure electrolytic copper, tin-plated, nylon insulation"
+   },
+   {
+    "name": "Standards",
+    "value": "MS25036 Class 2; SAE-AS7928; RoHS CM"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.69 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yae22g18-nylon-ring-terminal-for-26-20-awg/p/519446"
+ },
+ {
+  "mpn": "YAEV8CL",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon-Insulated Ring Terminal, INSULUG Type (Compression) YAEV8CL",
+  "category": "electrical",
+  "subcategory": "Nylon-Insulated Ring Terminal, INSULUG T",
+  "description": "INSULUG YAEV-L series 8 AWG nylon ring terminal for high-vibration applications; double-thick tongue; one-piece electrolytic copper barrel; UL486 listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon-Insulated Ring Terminal, INSULUG Type (Compression)"
+   },
+   {
+    "name": "Wire Gauge",
+    "value": "8 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8 – #10"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Material",
+    "value": "One-piece pure electrolytic copper, tin-plated, nylon insulation"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.40 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL486; MS25036; UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yaev8cl-nylon-ring-terminal-for-8-awg/p/519240"
+ },
+ {
+  "mpn": "SBN500",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Split Bolt Connector (Copper) SBN500",
+  "category": "electrical",
+  "subcategory": "Split Bolt Connector (Copper)",
+  "description": "Copper alloy split bolt connector rated for 300–500 MCM conductors; hex head; CSA approved; no cable separator.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Split Bolt Connector (Copper)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "300 – 500 MCM"
+   },
+   {
+    "name": "Conductor Diameter Min/Max",
+    "value": "0.629 – 0.813 in"
+   },
+   {
+    "name": "Material",
+    "value": "Copper Alloy (unplated)"
+   },
+   {
+    "name": "Bolt Head Type",
+    "value": "Hex"
+   },
+   {
+    "name": "Certification",
+    "value": "CSA Approved"
+   },
+   {
+    "name": "Weight",
+    "value": "0.735 lb"
+   },
+   {
+    "name": "Cable Separator",
+    "value": "None"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/p/3465150"
+ },
+ {
+  "mpn": "KA30U",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Set-Screw (Universal) Compression Lug Terminal, Single Conductor K",
+  "category": "electrical",
+  "subcategory": "Aluminum Set-Screw (Universal) Compressi",
+  "description": "Dual-rated (Al/Cu) single-conductor aluminum universal lug; 6 AWG Str–300 kcmil; 5/16 in stud; rated to 35 kV; UL 486A-486B and CSA.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Set-Screw (Universal) Compression Lug Terminal, Single Conductor"
+   },
+   {
+    "name": "Wire Range",
+    "value": "6 AWG Str – 300 kcmil (Al or Cu)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "Rated to 35 kV"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "194°F (90°C)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, electro tin-plated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "275 in-lbs"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B; CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/ka30u-al-universal-terminal-1-hole-6-awg-str-300-kcmil-516-stud-1-screw-alcu-rated/p/4586428"
+ },
+ {
+  "mpn": "YAE18Z2BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Flanged Fork Terminal, Boxed Quantity (Compression) YAE18Z2BOX",
+  "category": "electrical",
+  "subcategory": "Nylon Flanged Fork Terminal, Boxed Quant",
+  "description": "INSULUG nylon flanged fork terminal for 22–18 AWG; #4–6 stud; 600 V; UL486 listed; BOX suffix denotes bulk box packaging. Note: base part YAE18Z2 is listed as discontinued, replaced by YAE18N56F.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Flanged Fork Terminal, Boxed Quantity (Compression)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22 – 18 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#4, #5, #6"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Flanged Fork (spade)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin-plated, nylon insulation"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.00 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL486; Mil-Spec; RoHS CM"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yae18z2-nylon-flanged-fork-terminal-for-22-18-awg/p/519778"
+ },
+ {
+  "mpn": "YAE18N3",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon-Insulated Ring Terminal (Compression) YAE18N3",
+  "category": "electrical",
+  "subcategory": "Nylon-Insulated Ring Terminal (Compressi",
+  "description": "Nylon INSULUG ring terminal for 22–18 AWG; #8–10 stud; 600 V; multi-finger insulation grip; meets MIL-SPEC AS25036 Class 2 and SAE-AS7928.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon-Insulated Ring Terminal (Compression)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22 – 18 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8 – #10"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C"
+   },
+   {
+    "name": "Material",
+    "value": "Pure electrolytic copper, tin-plated, nylon insulation"
+   },
+   {
+    "name": "Standards",
+    "value": "AS25036 Class 2; SAE-AS7928"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Ring-Tongue/Nylon-Ring-Terminal-For-22---18-AWG/p/1690478"
+ },
+ {
+  "mpn": "YAV25M12",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Metric Compression Ring Terminal (Copper) YAV25M12",
+  "category": "electrical",
+  "subcategory": "Uninsulated Metric Compression Ring Term",
+  "description": "Non-insulated copper metric compression terminal; 25 mm² Class 2 conductor; 3/8 in stud; chamfered barrel; die index 9; tin-electro plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Metric Compression Ring Terminal (Copper)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "25 mm² Class 2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in (M12)"
+   },
+   {
+    "name": "Holes",
+    "value": "1 with inspection hole"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin-electro plated"
+   },
+   {
+    "name": "Die Index",
+    "value": "9"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Chamfered (standard)"
+   },
+   {
+    "name": "Tongue Thickness",
+    "value": "1.5 mm"
+   },
+   {
+    "name": "Standard",
+    "value": "Metric IEC Class 2"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/products/yav25m12-compression-terminal/p/530691"
+ },
+ {
+  "mpn": "NNTR15A42A",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Bolted Substation T-Connector (NNTR-A Series) NNTR15A42A",
+  "category": "electrical",
+  "subcategory": "Aluminum Bolted Substation T-Connector (",
+  "description": "Aluminum alloy bolted T-connector for substation cable-to-cable applications; rated for 600–900 MCM (477–795 kcmil) ACSR/AAC; one-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Bolted Substation T-Connector (NNTR-A Series)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "477 (30-7) – 795 (54-7) ACSR; 600–900 MCM"
+   },
+   {
+    "name": "Size Designation",
+    "value": "1 in"
+   },
+   {
+    "name": "Dimensions",
+    "value": "3-3/8 in × 6-7/8 in"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum Alloy"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench bolted"
+   },
+   {
+    "name": "Conductor Types",
+    "value": "Aluminum, Copper, ACSR"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "NNTR18A29A",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Bolted Substation T-Connector (NNTR-A Series) NNTR18A29A",
+  "category": "electrical",
+  "subcategory": "Aluminum Bolted Substation T-Connector (",
+  "description": "Aluminum alloy bolted T-connector for substation cable-to-cable applications; rated for 1/0 Str.–250 kcmil; one-wrench installation; suitable for Al/Cu/ACSR.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Bolted Substation T-Connector (NNTR-A Series)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "1/0 (6-1) – 4/0 (6-1) ACSR; 1/0 Str. – 250 kcmil"
+   },
+   {
+    "name": "Size Designation",
+    "value": "2 in"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4-1/2 in × 7-5/8 in"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum Alloy"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench bolted"
+   },
+   {
+    "name": "Conductor Types",
+    "value": "Aluminum, Copper, ACSR"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionL_BoltedSubstation-FullCatalog.pdf"
+ },
+ {
+  "mpn": "YAD188",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Ring Terminal, HYLUG (Compression) YAD188",
+  "category": "electrical",
+  "subcategory": "Uninsulated Ring Terminal, HYLUG (Compre",
+  "description": "Uninsulated HYLUG copper ring terminal for 22–18 AWG control wiring; #6–8 stud; long brazed seam barrel; tin-plated; UL467/486 listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Ring Terminal, HYLUG (Compression)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22 – 18 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6 – #8"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Material",
+    "value": "Pure electrolytic copper, tin-plated (uninsulated)"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.77 in (20 mm)"
+   },
+   {
+    "name": "Pad Width",
+    "value": "0.32 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL467; UL486; UL Listed"
+   },
+   {
+    "name": "Trade Name",
+    "value": "HYLUG"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yad188-uninsulated-ring-terminal-for-22-18-awg-1-hole-6-8-stud/p/518454"
+ },
+ {
+  "mpn": "DLA-112",
+  "brand": "Hubbell CMC",
+  "name": "Hubbell CMC Two-Conductor Aluminum Mechanical (Solderless) Lug DLA-112",
+  "category": "electrical",
+  "subcategory": "Two-Conductor Aluminum Mechanical (Solde",
+  "description": "CMC DLA-112 dual two-conductor aluminum mechanical lug; high-strength 6061-T6 aluminum; electro tin-plated; reusable; tool-free assembly.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CMC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Two-Conductor Aluminum Mechanical (Solderless) Lug"
+   },
+   {
+    "name": "Conductors",
+    "value": "2"
+   },
+   {
+    "name": "Material",
+    "value": "6061-T6 Aluminum, electro tin-plated"
+   },
+   {
+    "name": "Length",
+    "value": "1.47 in"
+   },
+   {
+    "name": "Width",
+    "value": "1.13 in"
+   },
+   {
+    "name": "Height",
+    "value": "0.78 in"
+   },
+   {
+    "name": "Assembly",
+    "value": "Screwdriver or Allen wrench; reusable"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/cmc/en/products/two-conductor-solderless-lugs/p/4823778"
+ },
+ {
+  "mpn": "K2A44U",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Set-Screw Universal Lug Terminal, 2-Conductor, 1-Hole K2A44U",
+  "category": "electrical",
+  "subcategory": "Aluminum Set-Screw Universal Lug Termina",
+  "description": "Extruded aluminum dual-conductor universal lug for 500–1000 kcmil Al/Cu; 5/8 in stud; two 3/8 UNC slotted set screws; UL 486A-486B listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Set-Screw Universal Lug Terminal, 2-Conductor, 1-Hole"
+   },
+   {
+    "name": "Wire Range",
+    "value": "500 – 1000 kcmil (Al or Cu)"
+   },
+   {
+    "name": "Conductors",
+    "value": "2"
+   },
+   {
+    "name": "Holes",
+    "value": "1 (0.63 in diameter)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/8 in"
+   },
+   {
+    "name": "Screws",
+    "value": "Two 3/8 UNC slotted set screws"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "500 lb-in"
+   },
+   {
+    "name": "Material",
+    "value": "Extruded aluminum alloy, tin-plated"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B; dual-rated Al/Cu"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/k2a44u-al-universal-terminal-2-conductor-1-hole-500-1000-kcmil-58-stud-2-screws-alcu-rated/p/491104"
+ },
+ {
+  "mpn": "K2A44U2N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Set-Screw Universal Lug Terminal, 2-Conductor, 2-Hole K2A44U2N",
+  "category": "electrical",
+  "subcategory": "Aluminum Set-Screw Universal Lug Termina",
+  "description": "Extruded aluminum dual-conductor universal lug for 500–1000 kcmil Al/Cu; 2-hole pad with 1/2 in studs at 1.75 in spacing; two Allen set screws; UL 486A-486B listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Set-Screw Universal Lug Terminal, 2-Conductor, 2-Hole"
+   },
+   {
+    "name": "Wire Range",
+    "value": "500 – 1000 kcmil (Al or Cu)"
+   },
+   {
+    "name": "Conductors",
+    "value": "2"
+   },
+   {
+    "name": "Holes",
+    "value": "2 at 1.75 in spacing"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "375 in-lb"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4.75 × 3.19 × 1.94 in"
+   },
+   {
+    "name": "Material",
+    "value": "High-strength aluminum alloy, electro tin-plated"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B; dual-rated Al/Cu"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Bolted/Cables-to-Flat/K2A44U2N/p/2020712"
+ },
+ {
+  "mpn": "1SBM18CL",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Cutout/Arrester Standoff Bracket, 3-Position Cloverleaf, 1-Phase",
+  "category": "datacom",
+  "subcategory": "Fiberglass Cutout/Arrester Standoff Brac",
+  "description": "CHANCE 1-phase 18 in medium-duty fiberglass standoff bracket with 4-hole 3-position cloverleaf end fitting; 15° angle; hot-dip galvanized ductile iron base; aluminum alloy end fitting.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Cutout/Arrester Standoff Bracket, 3-Position Cloverleaf, 1-Phase, 18 in"
+   },
+   {
+    "name": "Type",
+    "value": "Single-phase cutout/arrester standoff, 3-position cloverleaf"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty) fiberglass"
+   },
+   {
+    "name": "Length",
+    "value": "18 in"
+   },
+   {
+    "name": "Angle",
+    "value": "15°"
+   },
+   {
+    "name": "Mounting Holes",
+    "value": "4-hole pattern"
+   },
+   {
+    "name": "Base Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "End Fitting",
+    "value": "Aluminum alloy"
+   },
+   {
+    "name": "Weight",
+    "value": "10 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/products/15-4-hole-3-position-cloverleaf-cutout-arrester-standoff-bracket-18-no-hardware/p/295404"
+ },
+ {
+  "mpn": "3SBM3613CT",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Cutout/Arrester Standoff Bracket, 3-Phase 3SBM3613CT",
+  "category": "datacom",
+  "subcategory": "Fiberglass Cutout/Arrester Standoff Brac",
+  "description": "CHANCE 3-phase cutout/arrester standoff bracket with 1.5 in medium-duty fiberglass rod; 13 in length; hot-dip galvanized ductile iron construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Cutout/Arrester Standoff Bracket, 3-Phase"
+   },
+   {
+    "name": "Type",
+    "value": "3-phase cutout/arrester standoff bracket"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty) fiberglass"
+   },
+   {
+    "name": "Length",
+    "value": "13 in (3SBM36=36 series; 13=length)"
+   },
+   {
+    "name": "Material",
+    "value": "Fiberglass rod; hot-dip galvanized ductile iron fittings"
+   },
+   {
+    "name": "Brand",
+    "value": "Hubbell Power Systems CHANCE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/solutions/anchoring"
+ },
+ {
+  "mpn": "DLA-350",
+  "brand": "Hubbell CMC",
+  "name": "Hubbell CMC Two-Conductor Aluminum Mechanical (Solderless) Lug DLA-350",
+  "category": "electrical",
+  "subcategory": "Two-Conductor Aluminum Mechanical (Solde",
+  "description": "CMC DLA-350 dual-conductor aluminum mechanical lug for 350–6 AWG (two conductors); dual-rated Al/Cu; 90°C; UL/CSA listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CMC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Two-Conductor Aluminum Mechanical (Solderless) Lug"
+   },
+   {
+    "name": "Wire Range",
+    "value": "350 kcmil – 6 AWG (2 conductors)"
+   },
+   {
+    "name": "Conductors",
+    "value": "2"
+   },
+   {
+    "name": "Material",
+    "value": "6061-T6 Aluminum, electro tin-plated"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "90°C"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.88 × 1.92 × 1.25 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.263 lb"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486B Listed; CSA Certified; dual-rated Al/Cu"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/cmc/en/products/dla-350-two-conductor-aluminum-mechanical-lugs-terminals/p/2294610"
+ },
+ {
+  "mpn": "YAES18N50",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon-Insulated Ring Terminal, INSULUG-S (Compression) YAES18N50",
+  "category": "electrical",
+  "subcategory": "Nylon-Insulated Ring Terminal, INSULUG-S",
+  "description": "INSULUG-S one-piece design ring terminal for 22–18 AWG; #12–1/4 in stud; 600 V; brazed seam; nylon insulation locked in place; UL486 listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon-Insulated Ring Terminal, INSULUG-S (Compression)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22 – 18 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#12 – 1/4 in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Material",
+    "value": "Pure electrolytic copper, tin-plated, nylon insulation"
+   },
+   {
+    "name": "OD",
+    "value": "0.28 in"
+   },
+   {
+    "name": "Pad Width",
+    "value": "0.46 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL486; MS25036; RoHS CM"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yaes18n50-nylon-ring-terminal-for-22-18-awg/p/519510"
+ },
+ {
+  "mpn": "VACL4012BN",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON VERSAtile Aluminum Compression Lug Terminal (Distribution) VACL4012BN",
+  "category": "electrical",
+  "subcategory": "VERSAtile Aluminum Compression Lug Termi",
+  "description": "Anderson VERSAtile VACL aluminum compression lug terminal for ACSR/AAC conductors; 34.5 kV; 2-hole pad; compatible with conventional or VERSA-CRIMP tools; UL/CSA listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "VERSAtile Aluminum Compression Lug Terminal (Distribution)"
+   },
+   {
+    "name": "Conductor Diameter Range",
+    "value": "0.292 – 0.528 in (compatible conductors ACSR/AAC)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "34.5 kV"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2 (0.5 in diameter)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum alloy, tin-plated"
+   },
+   {
+    "name": "Dimensions",
+    "value": "5.25 × 1.16 × 0.854 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.196 lb"
+   },
+   {
+    "name": "Standards",
+    "value": "UL listed (Al or Cu conductors); CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/terminal-compression/p/143525"
+ },
+ {
+  "mpn": "VACL50012",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON VERSAtile Aluminum Compression Lug Terminal (Distribution) VACL50012",
+  "category": "electrical",
+  "subcategory": "VERSAtile Aluminum Compression Lug Termi",
+  "description": "Anderson VERSAtile VACL aluminum compression lug terminal for large ACSR/AAC conductors (500 kcmil range); 34.5 kV; 2-hole pad; compatible with conventional or VERSA-CRIMP tools.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "VERSAtile Aluminum Compression Lug Terminal (Distribution)"
+   },
+   {
+    "name": "Conductor Diameter Range",
+    "value": "0.522 – 0.813 in (large ACSR/AAC)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "34.5 kV"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2 (0.5 in diameter)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum alloy, tin-plated"
+   },
+   {
+    "name": "Dimensions",
+    "value": "6.441 × 1.67 × 1.187 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.62 lb"
+   },
+   {
+    "name": "Standards",
+    "value": "UL listed (Al or Cu conductors); CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/terminal-compression/p/143557"
+ },
+ {
+  "mpn": "RPM151",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Ridge Pin (Medium Duty), 15 in RPM151",
+  "category": "datacom",
+  "subcategory": "Fiberglass Ridge Pin (Medium Duty), 15 i",
+  "description": "CHANCE 15 in medium-duty fiberglass ridge pin with 1.5 in diameter rod and Plastisol threads; hot-dip galvanized ductile iron fittings; for conductor support on distribution lines.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Ridge Pin (Medium Duty), 15 in"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty)"
+   },
+   {
+    "name": "Length",
+    "value": "15 in"
+   },
+   {
+    "name": "Thread Type",
+    "value": "Plastisol (1 in)"
+   },
+   {
+    "name": "Material – Fittings",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Material – Rod",
+    "value": "Fiberglass"
+   },
+   {
+    "name": "Weight",
+    "value": "5.8 lb"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/anchoring-foundations/cl/548034"
+ },
+ {
+  "mpn": "RPM181",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Ridge Pin (Medium Duty), 18 in RPM181",
+  "category": "datacom",
+  "subcategory": "Fiberglass Ridge Pin (Medium Duty), 18 i",
+  "description": "CHANCE 18 in medium-duty fiberglass ridge pin with 1.5 in rod and Plastisol threads; hot-dip galvanized ductile iron fittings; rated 1400 lb longitudinal/transverse and 2500 lb vertical.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Ridge Pin (Medium Duty), 18 in"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty)"
+   },
+   {
+    "name": "Length",
+    "value": "18 in"
+   },
+   {
+    "name": "Thread Type",
+    "value": "Plastisol (1 in)"
+   },
+   {
+    "name": "Material – Fittings",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Strength – Longitudinal",
+    "value": "1,400 lb (minimum ultimate)"
+   },
+   {
+    "name": "Strength – Transverse",
+    "value": "1,400 lb (minimum ultimate)"
+   },
+   {
+    "name": "Strength – Vertical",
+    "value": "2,500 lb (minimum ultimate)"
+   },
+   {
+    "name": "Weight",
+    "value": "5.9 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/ridge-pin-18/p/295856"
+ },
+ {
+  "mpn": "1SBM18H4",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Horizontal Pin Standoff Bracket, 1-Phase, 18 in 1SBM18H4",
+  "category": "datacom",
+  "subcategory": "Fiberglass Horizontal Pin Standoff Brack",
+  "description": "CHANCE 18 in medium-duty single-phase horizontal pin standoff bracket; 1.5 in fiberglass rod; 15° angle; hot-dip galvanized ductile iron base and end fittings.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Horizontal Pin Standoff Bracket, 1-Phase, 18 in"
+   },
+   {
+    "name": "Type",
+    "value": "Single-phase horizontal pin standoff"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty) fiberglass"
+   },
+   {
+    "name": "Length",
+    "value": "18 in"
+   },
+   {
+    "name": "Angle",
+    "value": "15°"
+   },
+   {
+    "name": "Mounting Bolt Spacing",
+    "value": "6 or 8 in"
+   },
+   {
+    "name": "Strength – Longitudinal",
+    "value": "1200 lb (minimum ultimate)"
+   },
+   {
+    "name": "Strength – Transverse",
+    "value": "1500 lb (minimum ultimate)"
+   },
+   {
+    "name": "Strength – Vertical",
+    "value": "1200 lb (minimum ultimate)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/horizontal-pin-standoff-bracket-18/p/295140"
+ },
+ {
+  "mpn": "VAUL412",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Compression Terminal VAUL412",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Terminal",
+  "description": "VERSAtile aluminum compression terminal for #4 AL/CU, #2 sol CU, #4 6/1 7/1 ACSR, and #2 COMPACT conductors; compatible with VERSA-CRIMP or conventional compression tools.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Terminal"
+   },
+   {
+    "name": "Color Code",
+    "value": "Orange"
+   },
+   {
+    "name": "Die Index",
+    "value": "5/8 (243, BG)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "1"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI C119.4 Class A (Al/ACSR), Class C (Cu)"
+   },
+   {
+    "name": "Inhibitor",
+    "value": "Pre-filled rubber compatible inhibitor, color-coded end caps"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/DF-CompressionTerminals.pdf"
+ },
+ {
+  "mpn": "BDBLHC1123501",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Power Distribution Block BDBLHC1123501",
+  "category": "electrical",
+  "subcategory": "Power Distribution Block",
+  "description": "VERSIPOLE 1-pole configurable aluminum power distribution block rated 310 A per pole, for use in panels and wireways; supports single or dual run connections.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Power Distribution Block"
+   },
+   {
+    "name": "Poles",
+    "value": "1"
+   },
+   {
+    "name": "Run Wire Range",
+    "value": "#6 AWG to 350 kcmil (Al/Cu)"
+   },
+   {
+    "name": "Tap Wire Range",
+    "value": "#14 to #4 AWG (Al/Cu)"
+   },
+   {
+    "name": "Ampere Rating",
+    "value": "310 A/pole"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum"
+   },
+   {
+    "name": "Short Circuit Rating",
+    "value": "100 kA (with proper fusing)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Mechanical-Connectors-and-Terminals/Power-Distribution-Blocks/BDBLHC1123501/p/2020872"
+ },
+ {
+  "mpn": "BDBMHC145003",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Power Distribution Block BDBMHC145003",
+  "category": "electrical",
+  "subcategory": "Power Distribution Block",
+  "description": "VERSIPOLE 3-pole configurable aluminum power distribution block rated 380 A per pole for industrial control feeder, HVAC, and wireway applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Power Distribution Block"
+   },
+   {
+    "name": "Poles",
+    "value": "3"
+   },
+   {
+    "name": "Run Wire Range",
+    "value": "#4 AWG to 500 kcmil (Al/Cu)"
+   },
+   {
+    "name": "Tap Wire Range",
+    "value": "#14 to 2/0 AWG (Al/Cu)"
+   },
+   {
+    "name": "Ampere Rating",
+    "value": "380 A/pole"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum"
+   },
+   {
+    "name": "Dimensions",
+    "value": "5.28 in L x 3.88 in W x 3.25 in H"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/bdbmhc145003-3-pole-power-distribution-block/p/493734"
+ },
+ {
+  "mpn": "BDBMHC162/03",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Power Distribution Block BDBMHC162/03",
+  "category": "electrical",
+  "subcategory": "Power Distribution Block",
+  "description": "VERSIPOLE 1-pole aluminum power distribution block for industrial control feeder, HVAC and wireway applications; variant of the BDBMHC162 series with 3 tap ports.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Power Distribution Block"
+   },
+   {
+    "name": "Poles",
+    "value": "1"
+   },
+   {
+    "name": "Run Wire Range",
+    "value": "#12 to 2/0 AWG (Al/Cu)"
+   },
+   {
+    "name": "Tap Wire Range",
+    "value": "#14 to #2 AWG (Al/Cu)"
+   },
+   {
+    "name": "Ampere Rating",
+    "value": "175 A/pole"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum"
+   },
+   {
+    "name": "Short Circuit Rating",
+    "value": "100 kA (with proper fusing)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BURNDY_BDBMHC16201_Specsheet.pdf"
+ },
+ {
+  "mpn": "BDBLHC2125001",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Power Distribution Block BDBLHC2125001",
+  "category": "electrical",
+  "subcategory": "Power Distribution Block",
+  "description": "VERSIPOLE 1-pole large aluminum power distribution block rated 760 A per pole for high-ampacity distribution in panels and wireways.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Power Distribution Block"
+   },
+   {
+    "name": "Poles",
+    "value": "1"
+   },
+   {
+    "name": "Run Wire Range",
+    "value": "#4 AWG to 500 kcmil (Al/Cu)"
+   },
+   {
+    "name": "Tap Wire Range",
+    "value": "#14 to #4 AWG (Al/Cu)"
+   },
+   {
+    "name": "Ampere Rating",
+    "value": "760 A/pole"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.73 in L x 5.70 in W x 3.55 in H"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/bdblhc2125001-1-pole-power-distribution-block/p/493759"
+ },
+ {
+  "mpn": "K3A29U4N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Set-Screw Universal Terminal K3A29U4N",
+  "category": "electrical",
+  "subcategory": "Aluminum Set-Screw Universal Terminal",
+  "description": "3-conductor aluminum universal terminal with 4-hole mounting, dual-rated Al/Cu, for connecting multiple aluminum or copper cables to equipment pads.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Set-Screw Universal Terminal"
+   },
+   {
+    "name": "Conductors",
+    "value": "3"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#6 AWG to 250 kcmil (Al or Cu stranded)"
+   },
+   {
+    "name": "Mounting Holes",
+    "value": "4"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Stud Hole Spacing",
+    "value": "1.75 in"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum alloy"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "275 LBS/in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, Al/Cu Rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/k3a29u4n-al-universal-term-3-conductor-6-awg-str-250-kcmil-4-hole-12-stud-1-75-spacing-3-screws-alcu-rated/p/491124"
+ },
+ {
+  "mpn": "K3A31U2N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Set-Screw Universal Terminal K3A31U2N",
+  "category": "electrical",
+  "subcategory": "Aluminum Set-Screw Universal Terminal",
+  "description": "3-conductor aluminum universal terminal with 2-hole mounting, dual-rated Al/Cu, for connecting multiple aluminum or copper cables to equipment pads.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Set-Screw Universal Terminal"
+   },
+   {
+    "name": "Conductors",
+    "value": "3"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#6 AWG to 350 kcmil (Al or Cu stranded)"
+   },
+   {
+    "name": "Mounting Holes",
+    "value": "2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Material",
+    "value": "Electro tin-plated aluminum alloy"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "275 LBS/in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, Al/Cu Rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/491116"
+ },
+ {
+  "mpn": "2715",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO MC/AC Cable Connector 2715",
+  "category": "electrical",
+  "subcategory": "MC/AC Cable Connector",
+  "description": "REDI-LOC duplex 1/2 in steel cable connector for MCI/AC/HCF flexible metal cable; accepts two cable runs with preassembled anti-short bushing.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "MC/AC Cable Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Cable Type",
+    "value": "MCI, AC, HCF"
+   },
+   {
+    "name": "Cable Range",
+    "value": "0.450 to 0.550 in OD"
+   },
+   {
+    "name": "Material",
+    "value": "Steel"
+   },
+   {
+    "name": "Ports",
+    "value": "Duplex (2 cables)"
+   },
+   {
+    "name": "Height",
+    "value": "1 in"
+   },
+   {
+    "name": "Length",
+    "value": "1-5/8 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/2715/p/1657755"
+ },
+ {
+  "mpn": "NA18A4N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Aluminum Bolted Terminal NA18A4N",
+  "category": "electrical",
+  "subcategory": "Substation Aluminum Bolted Terminal",
+  "description": "Heavy-duty aluminum bolted terminal for connecting 2-inch IPS aluminum pipe to flat substation pads; one-wrench installation design rated to 230 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Aluminum Bolted Terminal"
+   },
+   {
+    "name": "Pipe/Tube Size",
+    "value": "2 IPS (2 in) aluminum or copper"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "9/16 in"
+   },
+   {
+    "name": "Pad Configuration",
+    "value": "3.12 x 3 in, offset alignment"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum alloy, unplated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "230 kV"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 LBS/in"
+   },
+   {
+    "name": "Dimensions",
+    "value": "7.50 in L x 4.50 in W x 4.47 in H"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/na18a4n-substation-aluminum-bolted-terminal-2-al-pipe-4-hole/p/496914"
+ },
+ {
+  "mpn": "1224B",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Four-Way Toggle Switch 1224B",
+  "category": "electrical",
+  "subcategory": "Four-Way Toggle Switch",
+  "description": "Hubbell-PRO Series heavy-duty 4-way general purpose AC toggle switch, 20A 120/277V, brown, with back and side wiring; rated 50,000 operating cycles.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Four-Way Toggle Switch"
+   },
+   {
+    "name": "Switch Configuration",
+    "value": "4-Way"
+   },
+   {
+    "name": "Current Rating",
+    "value": "20 A"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "120/277 VAC"
+   },
+   {
+    "name": "Color",
+    "value": "Brown"
+   },
+   {
+    "name": "Wiring Method",
+    "value": "Back and side wired"
+   },
+   {
+    "name": "Operating Cycles",
+    "value": "50,000"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-40°C to 75°C"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Electrical-Switches/Industrial-Series-Switches/1224B/p/1546232"
+ },
+ {
+  "mpn": "KSA1/0",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Split Bolt Connector KSA1/0",
+  "category": "electrical",
+  "subcategory": "Aluminum Split Bolt Connector",
+  "description": "Tin-plated aluminum split bolt connector for all combinations of Al-Al, Al-Cu, and Cu-Cu conductors up to 1/0 AWG; no oxide inhibitor required.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Split Bolt Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "2 AWG to 1/0 AWG (Al or Cu)"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "8 AWG to 1/0 AWG (Al or Cu)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum alloy"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "385 LBS/in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V min"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "194°F"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/490808"
+ },
+ {
+  "mpn": "KSA2/0",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Split Bolt Connector KSA2/0",
+  "category": "electrical",
+  "subcategory": "Aluminum Split Bolt Connector",
+  "description": "Tin-plated aluminum split bolt connector for all combinations of Al-Al, Al-Cu, and Cu-Cu conductors up to 2/0 AWG; gas-tight tin seal eliminates need for oxide inhibitor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Split Bolt Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "2 AWG to 2/0 AWG (Al or Cu)"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "8 AWG to 2/0 AWG (Al or Cu)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum alloy"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "385 LBS/in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V min"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, CSA"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "194°F"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ksa20-aluminum-split-bolt-connector-tin-plated/p/490809"
+ },
+ {
+  "mpn": "KSA350",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Split Bolt Connector KSA350",
+  "category": "electrical",
+  "subcategory": "Aluminum Split Bolt Connector",
+  "description": "Tin-plated aluminum split bolt connector for all combinations of Al-Al, Al-Cu, and Cu-Cu conductors up to 350 kcmil; no scratch brushing or oxide inhibitor required.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Split Bolt Connector"
+   },
+   {
+    "name": "Al-Al Conductor Range",
+    "value": "1/0 AWG to 350 kcmil (run and tap)"
+   },
+   {
+    "name": "Al-Cu Run Range",
+    "value": "1/0 AWG to 350 kcmil"
+   },
+   {
+    "name": "Cu-Cu Range",
+    "value": "4 AWG to 350 kcmil stranded"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum alloy"
+   },
+   {
+    "name": "Hardware",
+    "value": "1-3/8-12 UNF bolt"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "650 LBS/in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ksa350-aluminum-split-bolt-connector-tin-plated/p/490810"
+ },
+ {
+  "mpn": "KSA4",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Split Bolt Connector KSA4",
+  "category": "electrical",
+  "subcategory": "Aluminum Split Bolt Connector",
+  "description": "Tin-plated aluminum split bolt connector for all combinations of Al-Al, Al-Cu, and Cu-Cu conductors in the #4 to #8 AWG range.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Split Bolt Connector"
+   },
+   {
+    "name": "Al-Al Conductor Range",
+    "value": "#4 to #8 AWG stranded"
+   },
+   {
+    "name": "Al-Cu Range",
+    "value": "#4 Al to #4-#10 AWG Cu"
+   },
+   {
+    "name": "Cu-Cu Range",
+    "value": "#4-#8 AWG stranded"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum alloy"
+   },
+   {
+    "name": "Hardware",
+    "value": "5/8-18 UNF bolt"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "165 LBS/in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ksa4-aluminum-split-bolt-connector-tin-plated/p/490814"
+ },
+ {
+  "mpn": "KSA4/0",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Split Bolt Connector KSA4/0",
+  "category": "electrical",
+  "subcategory": "Aluminum Split Bolt Connector",
+  "description": "Tin-plated aluminum split bolt connector for all combinations of Al-Al, Al-Cu, and Cu-Cu conductors up to 4/0 AWG; gas-tight seal eliminates oxide inhibitor requirement.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Split Bolt Connector"
+   },
+   {
+    "name": "Al-Al Conductor Range",
+    "value": "#2 AWG to 4/0 AWG (run and tap)"
+   },
+   {
+    "name": "Al-Cu Conductor Range",
+    "value": "#2 to 4/0 AWG run; #6 to 4/0 AWG tap"
+   },
+   {
+    "name": "Cu-Cu Conductor Range",
+    "value": "#2 to 4/0 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum alloy"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "500 LBS/in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL486B, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ksa40-aluminum-split-bolt-connector-tin-plated/p/490811"
+ },
+ {
+  "mpn": "KSA500",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Split Bolt Connector KSA500",
+  "category": "electrical",
+  "subcategory": "Aluminum Split Bolt Connector",
+  "description": "Tin-plated aluminum split bolt connector for Al-Al, Al-Cu, and Cu-Cu conductors up to 500 kcmil run; supports taps down to #2 AWG.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Split Bolt Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "400 to 500 kcmil (Al or Cu)"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "#2 AWG to 500 kcmil"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated aluminum alloy"
+   },
+   {
+    "name": "Hardware",
+    "value": "1-5/8-12 UN bolt"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "825 LBS/in"
+   },
+   {
+    "name": "Length",
+    "value": "3.24 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ksa500-aluminum-split-bolt-connector-tin-plated/p/490812"
+ },
+ {
+  "mpn": "ACF30B",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Bolted Compression Terminal ACF30B",
+  "category": "electrical",
+  "subcategory": "Aluminum Bolted Compression Terminal",
+  "description": "Cast aluminum bolted terminal for connecting 3/0 AWG stranded aluminum cable to flat substation pad; compatible with conventional compression tooling.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Bolted Compression Terminal"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "3/0 AWG (6/1 stranding)"
+   },
+   {
+    "name": "Material",
+    "value": "Cast aluminum"
+   },
+   {
+    "name": "Barrel Type",
+    "value": "1-A, conventional compression"
+   },
+   {
+    "name": "Recommended Dies",
+    "value": "EEI-11A; Burndy W-K840/V-K840 Index 249"
+   },
+   {
+    "name": "Overall Length",
+    "value": "5-7/8 in (149.22 mm)"
+   },
+   {
+    "name": "Pad Hole Spacing",
+    "value": "NEMA standard spacing"
+   },
+   {
+    "name": "Weight",
+    "value": "0.33 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/Substation%20Connectors%20(SA).pdf"
+ },
+ {
+  "mpn": "YCA45R2N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Compression Lug (HYLUG) YCA45R2N",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Lug (HYLUG)",
+  "description": "HYLUG aluminum compression lug for terminating 795-1000 kcmil ACSR/aluminum jumper loops and equipment taps to substation switch pads; 2-hole NEMA pad.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Lug (HYLUG)"
+   },
+   {
+    "name": "ACSR Conductor Sizes",
+    "value": "795 kcmil (54/7) Condor and 795 kcmil (26/7)"
+   },
+   {
+    "name": "Aluminum Conductor Sizes",
+    "value": "900, 954, 1000 kcmil"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in NEMA"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, prefilled with oxide inhibitor"
+   },
+   {
+    "name": "Application",
+    "value": "Substation switchyard termination"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BURNDY_YCA45R2N_Specsheet.pdf"
+ },
+ {
+  "mpn": "YNA49RT",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY ACSR Aluminum Compression Terminal (HYLUG) YNA49RT",
+  "category": "electrical",
+  "subcategory": "ACSR Aluminum Compression Terminal (HYLU",
+  "description": "HYLUG aluminum compression terminal for terminating large ACSR transmission conductors to 4-hole substation pads; prefilled with PENETROX oxide inhibitor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "ACSR Aluminum Compression Terminal (HYLUG)"
+   },
+   {
+    "name": "ACSR Conductor Sizes",
+    "value": "900 (54/7) Canary; 954 (54/7) Cardinal; 1033.5 (54/7) Curlew; 1113 (54/19) Finch"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4"
+   },
+   {
+    "name": "Bolt Hole Size",
+    "value": "0.56 in"
+   },
+   {
+    "name": "Die Index",
+    "value": "727"
+   },
+   {
+    "name": "Overall Length",
+    "value": "10.77 in (274 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Inhibitor",
+    "value": "PENETROX compound pre-filled"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yna49rt-acsr-compression-terminal/p/477389"
+ },
+ {
+  "mpn": "YCA26R2N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Compression Lug (HYLUG) YCA26R2N",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Lug (HYLUG)",
+  "description": "HYLUG aluminum compression lug for terminating 2/0 AWG aluminum conductor to 2-hole substation switch pads; compatible with standard compression tooling.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Lug (HYLUG)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "2/0 AWG aluminum (ACSR/6201/5005 compact)"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in NEMA"
+   },
+   {
+    "name": "Die Index",
+    "value": "245 (9A)"
+   },
+   {
+    "name": "Overall Length",
+    "value": "6.30 in"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, prefilled with oxide inhibitor"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Aluminum/YCA26R2N/p/1711431"
+ },
+ {
+  "mpn": "YCA2R2N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Compression Lug (HYLUG) YCA2R2N",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Lug (HYLUG)",
+  "description": "HYLUG aluminum compression lug for terminating #2 AWG ACSR or aluminum conductor to 2-hole substation switch pads.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Lug (HYLUG)"
+   },
+   {
+    "name": "ACSR Conductor Size",
+    "value": "2 AWG (6/1) Sparrow"
+   },
+   {
+    "name": "Aluminum Conductor Size",
+    "value": "#2 AWG"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in"
+   },
+   {
+    "name": "Die Index",
+    "value": "239"
+   },
+   {
+    "name": "Overall Length",
+    "value": "5.90 in (149 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, prefilled oxide inhibitor"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/503794"
+ },
+ {
+  "mpn": "YCA43R2N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Compression Lug (HYLUG) YCA43R2N",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Lug (HYLUG)",
+  "description": "HYLUG aluminum compression lug for terminating large ACSR or aluminum conductors to 2-hole substation switch pads; designed for jumper loop and equipment tap applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Lug (HYLUG)"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "1-3/4 in NEMA"
+   },
+   {
+    "name": "Overall Length",
+    "value": "10.28 in"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, prefilled with oxide inhibitor"
+   },
+   {
+    "name": "Application",
+    "value": "Substation switchyard termination"
+   },
+   {
+    "name": "Product Line",
+    "value": "HYLUG"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Aluminum/YCA43R2N/p/1711441"
+ },
+ {
+  "mpn": "NA20A4N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Aluminum Bolted Terminal NA20A4N",
+  "category": "electrical",
+  "subcategory": "Substation Aluminum Bolted Terminal",
+  "description": "Heavy-duty aluminum bolted terminal for connecting 3-inch IPS aluminum pipe to flat substation pads; 4-hole NEMA pad configuration rated to 230 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Aluminum Bolted Terminal"
+   },
+   {
+    "name": "Pipe/Tube Size",
+    "value": "3 in IPS aluminum"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum alloy"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "230 kV"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench installation"
+   },
+   {
+    "name": "Application",
+    "value": "Substation bus tube to flat pad connection"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Bolted/Tube-to-Flat/Substation---Aluminum-Bolted-Terminal/p/1704465"
+ },
+ {
+  "mpn": "1PLD2505",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Multi-Tap Connector (UNITAP) 1PLD2505",
+  "category": "electrical",
+  "subcategory": "Insulated Multi-Tap Connector (UNITAP)",
+  "description": "UNITAP UV-rated black plastisol-covered aluminum multi-tap connector; double-sided, 5-port, range-taking design for #10 AWG to 250 kcmil indoor/outdoor use.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Multi-Tap Connector (UNITAP)"
+   },
+   {
+    "name": "Ports",
+    "value": "5"
+   },
+   {
+    "name": "Entry Sides",
+    "value": "2 (double-sided)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#10 AWG to 250 kcmil (Al or Cu stranded)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "AL6061-T6 aluminum body, UV-rated black plastisol"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "275 in-lb"
+   },
+   {
+    "name": "Hex Key",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/1pld2505-uv-rated-black-2-side-5-port-10-awg-250-kcmil/p/494437"
+ },
+ {
+  "mpn": "1PL2503",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Multi-Tap Connector (UNITAP) 1PL2503",
+  "category": "electrical",
+  "subcategory": "Insulated Multi-Tap Connector (UNITAP)",
+  "description": "UNITAP UV-rated black plastisol-covered aluminum multi-tap connector; single-sided, 3-port, range-taking design for #10 AWG to 250 kcmil.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Multi-Tap Connector (UNITAP)"
+   },
+   {
+    "name": "Ports",
+    "value": "3"
+   },
+   {
+    "name": "Entry Sides",
+    "value": "1 (single-sided)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#10 AWG to 250 kcmil (Al or Cu stranded)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "AL6061-T6 aluminum body, UV-rated black plastisol"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "275 in-lb"
+   },
+   {
+    "name": "Hex Key",
+    "value": "5/16 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/1pl2503-uv-rated-black-1-sided-3-port-10-awg-250-kcmil/p/494380"
+ },
+ {
+  "mpn": "1PL3508",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Multi-Tap Connector (UNITAP) 1PL3508",
+  "category": "electrical",
+  "subcategory": "Insulated Multi-Tap Connector (UNITAP)",
+  "description": "UNITAP UV-rated black plastisol-covered aluminum multi-tap connector; single-sided, 8-port, range-taking design for #10 AWG to 350 kcmil.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Multi-Tap Connector (UNITAP)"
+   },
+   {
+    "name": "Ports",
+    "value": "8"
+   },
+   {
+    "name": "Entry Sides",
+    "value": "1 (single-sided)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#10 AWG to 350 kcmil (Al or Cu stranded)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "AL6061-T6 aluminum body, UV-rated black plastisol"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "275 in-lb"
+   },
+   {
+    "name": "Hex Key",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/1pl3508-uv-rated-black-1-sided-8-port-10-awg-350-kcmil/p/494382"
+ },
+ {
+  "mpn": "1PL44",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Multi-Tap Connector (UNITAP) 1PL44",
+  "category": "electrical",
+  "subcategory": "Insulated Multi-Tap Connector (UNITAP)",
+  "description": "UNITAP UV-rated black plastisol-covered aluminum multi-tap connector; single-sided, 4-port design for small conductors #14 to #4 AWG; eliminates need for taping.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Multi-Tap Connector (UNITAP)"
+   },
+   {
+    "name": "Ports",
+    "value": "4"
+   },
+   {
+    "name": "Entry Sides",
+    "value": "1 (single-sided)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#14 to #4 AWG (Al or Cu stranded)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Material",
+    "value": "AL6061-T6 aluminum body, UV-rated black plastisol"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "45 in-lb"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.03 in L x 1.25 in W"
+   },
+   {
+    "name": "Standards",
+    "value": "UL486B"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/1pl44-uv-rated-black-1-sided-4-port-14-4-awg/p/494384"
+ },
+ {
+  "mpn": "1PL6003",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Multi-Tap Connector 1PL6003",
+  "category": "electrical",
+  "subcategory": "Insulated Multi-Tap Connector",
+  "description": "UNITAP UV-rated plastisol-covered aluminum distribution connector, single-sided 3-port, for #4 AWG–600 kcmil conductors at 600 V.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Multi-Tap Connector"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#4 AWG–600 kcmil (Al/Cu)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Number of Ports",
+    "value": "3"
+   },
+   {
+    "name": "Body Material",
+    "value": "AL6061-T6 aluminum with UV-rated black plastisol insulation"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "375 in-lb"
+   },
+   {
+    "name": "Hex Key Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "4.00 in x 2.38 in x 2.75 in"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "194°F"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Bolted/Vinyl-Insulated/Single-Sided-Three-Conductor-UV-Rated-Insulated-Multi-Tap-Connector/p/2021442"
+ },
+ {
+  "mpn": "1PL6006",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Multi-Tap Connector 1PL6006",
+  "category": "electrical",
+  "subcategory": "Insulated Multi-Tap Connector",
+  "description": "UNITAP UV-rated plastisol-covered aluminum distribution connector, single-sided 6-port, for #4 AWG–600 kcmil conductors at 600 V.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Multi-Tap Connector"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#4 AWG–600 kcmil (Al/Cu)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Number of Ports",
+    "value": "6"
+   },
+   {
+    "name": "Body Material",
+    "value": "AL6061-T6 aluminum with UV-rated black plastisol insulation"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "375 in-lb"
+   },
+   {
+    "name": "Hex Key Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "7.84 in x 2.38 in x 2.75 in"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "194°F"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/1pl6006-uv-rated-black-1-sided-6-port-4-awg-600-kcmil/p/494403"
+ },
+ {
+  "mpn": "YAV28L12",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Ring Terminal) YAV28L12",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Ring Terminal)",
+  "description": "Copper compression lug, uninsulated ring terminal for 4/0 AWG conductors, 1-hole with inspection hole, 1/2 in stud, standard barrel, tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Ring Terminal)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "4/0 AWG (AN-4/0 Flex)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless electrolytic copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro-tin plated"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Standard barrel"
+   },
+   {
+    "name": "Tongue Holes",
+    "value": "1 hole with inspection hole"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, UL467, UL486"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated/Uninsulated-Ring-Terminal-For-40-AWG/p/1689271"
+ },
+ {
+  "mpn": "YAV2CL4",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Ring Terminal) YAV2CL4",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Ring Terminal)",
+  "description": "Copper compression lug, uninsulated ring terminal for 2 AWG conductors, 1-hole, 1/2 in stud, standard barrel, tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Ring Terminal)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "2 AWG Cu"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in (0.52 in bolt hole dia.)"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless electrolytic copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Tin plated"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Standard chamfered barrel"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.88 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, UL467, UL486, RoHS, Mil-Spec AS20659"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav2cl4-uninsulated-ring-terminal-for-2-awg-1-hole-12-stud/p/518087"
+ },
+ {
+  "mpn": "YAV26L3",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Ring Terminal) YAV26L3",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Ring Terminal)",
+  "description": "Copper compression lug, uninsulated ring terminal for 2/0 AWG conductors, 1-hole with inspection hole, 1/2 in stud, standard barrel, tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Ring Terminal)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "2/0 AWG (AN-2/0 Flex)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless electrolytic copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Tin plated"
+   },
+   {
+    "name": "Barrel Style",
+    "value": "Standard barrel"
+   },
+   {
+    "name": "Tongue Holes",
+    "value": "1 hole with inspection hole"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, UL467, UL486"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated/Uninsulated-Ring-Terminal-For-20-AWG/p/1689268"
+ },
+ {
+  "mpn": "YAV10",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Lug (Ring Terminal) YAV10",
+  "category": "electrical",
+  "subcategory": "Compression Lug (Ring Terminal)",
+  "description": "Copper compression lug, uninsulated ring terminal for 12–10 AWG conductors, 1-hole with inspection hole, #8–10 stud, standard barrel, tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Lug (Ring Terminal)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "#12–#10 AWG solid / #14–#10 AWG stranded"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8–#10"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless electrolytic copper"
+   },
+   {
+    "name": "Finish",
+    "value": "Tin plated"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.94 in"
+   },
+   {
+    "name": "Pad Width",
+    "value": "0.38 in"
+   },
+   {
+    "name": "Standards",
+    "value": "UL Listed, UL467, UL486, Mil-Spec AS20659"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav10-uninsulated-ring-terminal-for-12-10-awg/p/518011"
+ },
+ {
+  "mpn": "GS16120CC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16120CC",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 120 in length, clevis/clevis end fittings, veiled-rod construction for UV resistance.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "120 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Weight",
+    "value": "5.1 lb"
+   },
+   {
+    "name": "Mounting Bolt Spacing",
+    "value": "128 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/120-16k-guy-strain-clevis-clevis/p/295591"
+ },
+ {
+  "mpn": "GS16036CC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16036CC",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 36 in length, clevis/clevis end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "36 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Weight",
+    "value": "3.3 lb"
+   },
+   {
+    "name": "Mounting Bolt Spacing",
+    "value": "44 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/p/295484"
+ },
+ {
+  "mpn": "GS16042CC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16042CC",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 42 in length, clevis/clevis end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "42 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/guy-strains/c/561514"
+ },
+ {
+  "mpn": "GS16042CC2",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16042CC2",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 42 in length, clevis/clevis with 2 rollers end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "42 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis + 2 Rollers"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/guy-strains/c/561514"
+ },
+ {
+  "mpn": "GS16144CC2",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16144CC2",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 144 in length, clevis/clevis with 2 rollers, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "144 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis + 2 Rollers"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Weight",
+    "value": "5.7 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/144-16k-guy-strain-clevis-clevis/p/295601"
+ },
+ {
+  "mpn": "GS16054CC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16054CC",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 54 in length, clevis/clevis end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "54 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/guy-strains/c/561514"
+ },
+ {
+  "mpn": "GS16060CC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16060CC",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 60 in length, clevis/clevis end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "60 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Weight",
+    "value": "3.8 lb"
+   },
+   {
+    "name": "Mounting Bolt Spacing",
+    "value": "68 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/60-16k-guy-strain-clevis-clevis-2-rollers/p/295560"
+ },
+ {
+  "mpn": "GS16060CC1",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16060CC1",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 60 in length, clevis/clevis with 1 roller end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "60 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis + 1 Roller"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/guy-strains/c/561514"
+ },
+ {
+  "mpn": "GS16060CC2",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16060CC2",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 60 in length, clevis/clevis with 2 rollers, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "60 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis + 2 Rollers"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Weight",
+    "value": "3.8 lb"
+   },
+   {
+    "name": "Mounting Bolt Spacing",
+    "value": "68 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/60-16k-guy-strain-clevis-clevis-2-rollers/p/295560"
+ },
+ {
+  "mpn": "GS16078CC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16078CC",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 78 in length, clevis/clevis end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "78 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/guy-strains/c/561514"
+ },
+ {
+  "mpn": "GS16096CC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS16096CC",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 16,000 lb fiberglass guy strain, 96 in length, clevis/clevis end fittings, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "96 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "16,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Weight",
+    "value": "4.6 lb"
+   },
+   {
+    "name": "Mounting Bolt Spacing",
+    "value": "104 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/96-16k-guy-strain-clevis-clevis/p/295580"
+ },
+ {
+  "mpn": "GS21036CC2",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Guy Strain Insulator GS21036CC2",
+  "category": "datacom",
+  "subcategory": "Fiberglass Guy Strain Insulator",
+  "description": "CHANCE 21,000 lb fiberglass guy strain, 36 in length, clevis/clevis with 2 rollers, veiled-rod construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Guy Strain Insulator"
+   },
+   {
+    "name": "Length",
+    "value": "36 in"
+   },
+   {
+    "name": "Load Rating (Ultimate)",
+    "value": "21,000 lb"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "0.625 in (5/8 in)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass, veiled rod"
+   },
+   {
+    "name": "End Fitting Type",
+    "value": "Clevis / Clevis + 2 Rollers"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/guy-strains/c/561514"
+ },
+ {
+  "mpn": "DEH48DP",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Deadend Arm DEH48DP",
+  "category": "datacom",
+  "subcategory": "Fiberglass Deadend Arm",
+  "description": "CHANCE heavy-duty fiberglass deadend arm, 48 in length, with hot-dip galvanized ductile iron base and end fittings.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Deadend Arm"
+   },
+   {
+    "name": "Length",
+    "value": "48 in"
+   },
+   {
+    "name": "Duty Rating",
+    "value": "Heavy Duty"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Hot-dip galvanized ductile iron"
+   },
+   {
+    "name": "Strength Rating – Longitudinal (L)",
+    "value": "9,500 lb (min. ultimate)"
+   },
+   {
+    "name": "Strength Rating – Vertical (V)",
+    "value": "7,600 lb (min. ultimate)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Line-Construction-Hardware/Arms/Heavy-Duty-Fiberglass-Deadend-Arm-48/p/1643376"
+ },
+ {
+  "mpn": "ACL750",
+  "brand": "Hubbell CMC",
+  "name": "Hubbell CMC Aluminum Common-Die Splice Connector ACL750",
+  "category": "electrical",
+  "subcategory": "Aluminum Common-Die Splice Connector",
+  "description": "CMC aluminum common-die splice connector for 700–800 kcmil Al/Cu conductors (ACSR-compatible to 900 kcmil), pre-filled with electrical joint compound, ANSI C119.4 listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CMC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Common-Die Splice Connector"
+   },
+   {
+    "name": "Conductor Range – Al Stranded",
+    "value": "700–800 kcmil"
+   },
+   {
+    "name": "Conductor Range – Cu Stranded",
+    "value": "700–800 kcmil"
+   },
+   {
+    "name": "ACSR Compatibility",
+    "value": "900 kcmil"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Length",
+    "value": "6 in"
+   },
+   {
+    "name": "Compatible Dies (Burndy)",
+    "value": "301, 342, 608, 722, 786, 125"
+   },
+   {
+    "name": "Standard",
+    "value": "ANSI C119.4"
+   },
+   {
+    "name": "Pre-filled",
+    "value": "Electrical joint compound"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/cmc/en/products/aluminum-common-die-splice-connectors/p/4806206"
+ },
+ {
+  "mpn": "ADS88N",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Bolted Deadend Connector (Straight Line) ADS88N",
+  "category": "electrical",
+  "subcategory": "Bolted Deadend Connector (Straight Line)",
+  "description": "Anderson ADS-type bolted deadend connector for distribution/light transmission, accepting #1 (7 STR)–556.5 kcmil AAC/ACSR conductor, 8,000 lb ultimate strength, RUS listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Bolted Deadend Connector (Straight Line)"
+   },
+   {
+    "name": "Conductor Range (Diameter)",
+    "value": "0.31–0.88 in"
+   },
+   {
+    "name": "Ultimate Strength",
+    "value": "8,000 lb"
+   },
+   {
+    "name": "Body Material",
+    "value": "356 T6 aluminum alloy"
+   },
+   {
+    "name": "Hardware Material",
+    "value": "Galvanized steel"
+   },
+   {
+    "name": "Pin Material",
+    "value": "#302 stainless steel"
+   },
+   {
+    "name": "Bolt Diameter",
+    "value": "0.5 in (1/2 in U-bolt)"
+   },
+   {
+    "name": "Weight",
+    "value": "2.2 lb"
+   },
+   {
+    "name": "Certification",
+    "value": "RUS Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/deadend-straight-line-1-7-str-556-5-37-str-al-2-61-556-5-181-acsr/p/148829"
+ },
+ {
+  "mpn": "UH215",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Bus Support UH215",
+  "category": "electrical",
+  "subcategory": "Substation Copper Bus Support",
+  "description": "BURNDY UH-series substation copper bus support for 3.5 in IPS copper tubing, 5 in bolt circle, 5/8-11 bolt, slip or rigid fit, copper alloy body.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Bus Support"
+   },
+   {
+    "name": "Tube Size (IPS)",
+    "value": "3-1/2 in"
+   },
+   {
+    "name": "Bolt Circle Diameter",
+    "value": "5 in"
+   },
+   {
+    "name": "Bolt Size",
+    "value": "5/8-11 x 1 in LG"
+   },
+   {
+    "name": "Body Material",
+    "value": "Copper alloy"
+   },
+   {
+    "name": "Hardware Material",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "660 in-lb"
+   },
+   {
+    "name": "Fitting Type",
+    "value": "Slip or Rigid (180° rotatable cap)"
+   },
+   {
+    "name": "Height",
+    "value": "6.50 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/uh215-substation-copper-bus-support-3-5-ips-5-bolt-dia-58-bolt/p/496050"
+ },
+ {
+  "mpn": "WTH203",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Weldment Bus Support WTH203",
+  "category": "electrical",
+  "subcategory": "Aluminum Weldment Bus Support",
+  "description": "Anderson horizontal aluminum weldment bus support for 2 in IPS/EHIPS aluminum tubing to insulator, rigid or slip-fit, 3 in bolt circle, with static eliminator spring.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Weldment Bus Support"
+   },
+   {
+    "name": "Tube Size",
+    "value": "2 in IPS/EHIPS aluminum"
+   },
+   {
+    "name": "Bolt Circle Diameter",
+    "value": "3 in"
+   },
+   {
+    "name": "Body Material",
+    "value": "356-T6 aluminum alloy casting"
+   },
+   {
+    "name": "Hardware Material",
+    "value": "Galvanized steel"
+   },
+   {
+    "name": "Static Spring Material",
+    "value": "Stainless steel"
+   },
+   {
+    "name": "Fitting Type",
+    "value": "Rigid or slip-fit"
+   },
+   {
+    "name": "Weight",
+    "value": "2.450 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.irbyutilities.com/product/detail/98001/hubbell-power-systems-wth203"
+ },
+ {
+  "mpn": "WTH303",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Weldment Bus Support WTH303",
+  "category": "electrical",
+  "subcategory": "Aluminum Weldment Bus Support",
+  "description": "Anderson horizontal aluminum weldment bus support for 3 in IPS/EHIPS aluminum tubing to insulator, rigid or slip-fit, 3 in bolt circle, with static eliminator spring.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Weldment Bus Support"
+   },
+   {
+    "name": "Tube Size",
+    "value": "3 in IPS/EHIPS aluminum"
+   },
+   {
+    "name": "Bolt Circle Diameter",
+    "value": "3 in"
+   },
+   {
+    "name": "Body Material",
+    "value": "356-T6 aluminum alloy casting"
+   },
+   {
+    "name": "Hardware Material",
+    "value": "Galvanized steel"
+   },
+   {
+    "name": "Static Spring Material",
+    "value": "Stainless steel"
+   },
+   {
+    "name": "Fitting Type",
+    "value": "Rigid or slip-fit"
+   },
+   {
+    "name": "Weight",
+    "value": "2.94 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/bus-support-aluminum-weldment/p/151537"
+ },
+ {
+  "mpn": "ORT2113",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Compression Tee ORT2113",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Tee",
+  "description": "Anderson aluminum compression tee, open-run cable-to-cable, for 0.681–0.765 in diameter main and tap conductors.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Tee"
+   },
+   {
+    "name": "Conductor Diameter Range (Main)",
+    "value": "0.681–0.765 in"
+   },
+   {
+    "name": "Conductor Diameter Range (Tap)",
+    "value": "0.681–0.765 in"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Open run, compression"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "2-hole pad"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/power-utilities/connectors/tees/compression/cl/836136"
+ },
+ {
+  "mpn": "WURF405",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Weldment Expansion Bus Support WURF405",
+  "category": "electrical",
+  "subcategory": "Aluminum Weldment Expansion Bus Support",
+  "description": "Anderson horizontal aluminum weldment expansion bus support for 4 in IPS/EHIPS aluminum tubing to insulator, 5 in bolt circle, includes static eliminator spring and shunt.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Weldment Expansion Bus Support"
+   },
+   {
+    "name": "Tube Size",
+    "value": "4 in IPS/EHIPS aluminum"
+   },
+   {
+    "name": "Bolt Circle Diameter",
+    "value": "5 in"
+   },
+   {
+    "name": "Body Material",
+    "value": "356-T6 aluminum alloy casting"
+   },
+   {
+    "name": "Shunt Material",
+    "value": "Laminated aluminum"
+   },
+   {
+    "name": "Hardware Material",
+    "value": "Galvanized steel"
+   },
+   {
+    "name": "Static Spring Material",
+    "value": "Stainless steel"
+   },
+   {
+    "name": "Weight",
+    "value": "2.803 lb"
+   },
+   {
+    "name": "Fitting Type",
+    "value": "Expansion (thermal movement)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/p/144420"
+ },
+ {
+  "mpn": "W2CF155D",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Weldment Terminal W2CF155D",
+  "category": "electrical",
+  "subcategory": "Aluminum Weldment Terminal",
+  "description": "Anderson aluminum weldment terminal for AAC/ACSR conductor, 1.454–1.504 in diameter, 4-hole NEMA-spaced pad, 180° angle, puddle-weld application.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Weldment Terminal"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "AAC, ACSR"
+   },
+   {
+    "name": "Conductor Diameter Range",
+    "value": "1.454–1.504 in"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4 (NEMA spacing)"
+   },
+   {
+    "name": "Pad Width",
+    "value": "4 in"
+   },
+   {
+    "name": "Pad Angle",
+    "value": "180° (45° and 90° available)"
+   },
+   {
+    "name": "Material",
+    "value": "356-F aluminum alloy casting"
+   },
+   {
+    "name": "Weight",
+    "value": "3.528 lb"
+   },
+   {
+    "name": "Installation Method",
+    "value": "Puddle welding"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/terminal-aluminum-weldment/p/147301"
+ },
+ {
+  "mpn": "WTT4040",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Aluminum Weldment Tee WTT4040",
+  "category": "electrical",
+  "subcategory": "Aluminum Weldment Tee",
+  "description": "Anderson aluminum weldment tee for connecting aluminum tubing main to aluminum tubing tap, 356-T6 aluminum alloy casting.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Weldment Tee"
+   },
+   {
+    "name": "Material",
+    "value": "356-T6 aluminum alloy casting"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Aluminum tubing main to aluminum tubing tap"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "Aluminum bus"
+   },
+   {
+    "name": "Weight",
+    "value": "3.43 lb"
+   },
+   {
+    "name": "Application",
+    "value": "Weldment tee for bus tube systems"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/tee-aluminum-weldment/p/151057"
+ },
+ {
+  "mpn": "1CSM12",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Fiberglass Communication Standoff Bracket 1CSM12",
+  "category": "datacom",
+  "subcategory": "Fiberglass Communication Standoff Bracke",
+  "description": "CHANCE 15° communication standoff bracket, 12 in length, 1.5 in diameter medium-duty fiberglass rod with aluminum alloy end fittings.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Fiberglass Communication Standoff Bracket"
+   },
+   {
+    "name": "Angle",
+    "value": "15°"
+   },
+   {
+    "name": "Length",
+    "value": "12 in"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "1.5 in (medium duty)"
+   },
+   {
+    "name": "Rod Material",
+    "value": "Fiberglass"
+   },
+   {
+    "name": "End Fitting Material",
+    "value": "Aluminum alloy"
+   },
+   {
+    "name": "Strength – Longitudinal (L)",
+    "value": "1,300 lb"
+   },
+   {
+    "name": "Strength – Transverse (T)",
+    "value": "1,500 lb"
+   },
+   {
+    "name": "Strength – Vertical (V)",
+    "value": "2,100 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/15-communication-standoff-bracket-12/p/295459"
+ },
+ {
+  "mpn": "BA10E6",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl Insulated Ring Terminal BA10E6",
+  "category": "electrical",
+  "subcategory": "Vinyl Insulated Ring Terminal",
+  "description": "Vinyl-insulated copper ring terminal for 12–10 AWG wire, #6 stud, tin-plated, 600 V rated, UL/CSA listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge Range",
+    "value": "12–10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Material",
+    "value": "Pure electrolytic copper, electro-tin plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V max at 105°C"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.91 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Approved, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ba10e6-vinyl-ring-terminal-for-12-10-awg/p/518879"
+ },
+ {
+  "mpn": "5399-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Extension Adapter 5399-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Extension Adapter",
+  "description": "1-gang weatherproof extension adapter with two 1/2 in. threaded outlets, die-cast aluminum, gray powder-coat finish, includes gasket and closure plugs.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Extension Adapter"
+   },
+   {
+    "name": "Number of Outlets",
+    "value": "2"
+   },
+   {
+    "name": "Hub Thread Size",
+    "value": "1/2 in. threaded"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Gray powder coat"
+   },
+   {
+    "name": "Includes",
+    "value": "Gasket, closure plugs, pre-installed ground screw"
+   },
+   {
+    "name": "Hub Compliance",
+    "value": "NEMA-compliant internal threads"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/Products/Electrical-Electronic/Outdoor/Boxes-Covers-Plates/1-Gang-Weatherproof-Extension-Adapter-Two-12-in-Threaded-Outlets-Gray/p/1670912"
+ },
+ {
+  "mpn": "189",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 4-Inch Square Electrical Box 189",
+  "category": "electrical",
+  "subcategory": "4-Inch Square Electrical Box",
+  "description": "4 in. square welded steel box, 1-1/2 in. deep, with ten 1/2 in. knockouts and six TKOs; suitable for 2-hour fire-rated walls.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "4-Inch Square Electrical Box"
+   },
+   {
+    "name": "Box Size",
+    "value": "4 in. square"
+   },
+   {
+    "name": "Depth",
+    "value": "1-1/2 in."
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "21 cu. in."
+   },
+   {
+    "name": "Knockouts",
+    "value": "Ten 1/2 in. KO + Six TKO"
+   },
+   {
+    "name": "Material",
+    "value": "Pre-galvanized steel, 1/16 in. thick"
+   },
+   {
+    "name": "Construction",
+    "value": "Welded"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, 2-hour fire rated wall rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/RACO-189-SPEC-EN.pdf"
+ },
+ {
+  "mpn": "YAE14N3",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Insulated Ring Terminal YAE14N3",
+  "category": "electrical",
+  "subcategory": "Nylon Insulated Ring Terminal",
+  "description": "Nylon-insulated copper ring terminal for 16–14 AWG, #10 stud, tin-plated, 600 V max; INSULUG design with brazed seam and multi-finger insulation grip.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge Range",
+    "value": "16–14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10 (5/16 in.)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon"
+   },
+   {
+    "name": "Material",
+    "value": "Pure electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V max"
+   },
+   {
+    "name": "Barrel",
+    "value": "Short barrel, brazed seam"
+   },
+   {
+    "name": "Feature",
+    "value": "Multi-finger insulation grip"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Ring-Tongue/Nylon-Ring-Terminal-For-16---14-AWG/p/1690471"
+ },
+ {
+  "mpn": "NP262W",
+  "brand": "Hubbell PREMISE WIRING",
+  "name": "Hubbell PREMISE WIRING Nylon Wallplate NP262W",
+  "category": "electrical",
+  "subcategory": "Nylon Wallplate",
+  "description": "2-gang decorator wallplate in white nylon; standard size with curved corners, reinforcement ribs, and 1/8 in. extra coverage to hide box openings.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell PREMISE WIRING",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Wallplate"
+   },
+   {
+    "name": "Gang",
+    "value": "2-gang"
+   },
+   {
+    "name": "Opening Type",
+    "value": "2 Decorator"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Coverage",
+    "value": "1/8 in. larger than standard"
+   },
+   {
+    "name": "Feature",
+    "value": "Reinforcement ribs, curved corners"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Electrical-Electronic/Wallplates/Nonmetallic-Wallplates/Wallplates-and-Box-Covers-Wallplate-Nylon-2-Gang-2-Decorator-White/p/1642702"
+ },
+ {
+  "mpn": "NS1818",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Tube Coupler NS1818",
+  "category": "electrical",
+  "subcategory": "Substation Copper Tube Coupler",
+  "description": "Cast copper alloy substation straight coupler for joining 2 IPS copper tubes end-to-end; silicon bronze hardware, one-wrench installation, 480 lb-in torque.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Tube Coupler"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "2 IPS copper tube, straight tube-to-tube"
+   },
+   {
+    "name": "Material",
+    "value": "Cast copper alloy body, silicon bronze hardware"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Overall Length",
+    "value": "5.75 in"
+   },
+   {
+    "name": "Width",
+    "value": "4.63 in"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench"
+   },
+   {
+    "name": "Application",
+    "value": "Substation"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/substation-copper-coupler-straight/p/502058"
+ },
+ {
+  "mpn": "YAEV6CL",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Insulated INSULUG Ring Terminal YAEV6CL",
+  "category": "electrical",
+  "subcategory": "Nylon Insulated INSULUG Ring Terminal",
+  "description": "Nylon-insulated INSULUG compression ring terminal for 6 AWG, 1/4 in. stud, tin-plated copper, 600 V, 105°C rated; for high-vibration motor lead applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Insulated INSULUG Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge",
+    "value": "6 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4 in."
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon"
+   },
+   {
+    "name": "Material",
+    "value": "Pure electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V max"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "105°C"
+   },
+   {
+    "name": "Barrel",
+    "value": "Short barrel with inspection hole"
+   },
+   {
+    "name": "Standard",
+    "value": "SAE-AS7928"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yaev6cl-nylon-ring-terminal-for-6-awg/p/519239"
+ },
+ {
+  "mpn": "YAES14N53",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Insulated Ring Terminal YAES14N53",
+  "category": "electrical",
+  "subcategory": "Nylon Insulated Ring Terminal",
+  "description": "Nylon-insulated copper ring terminal for 16–14 AWG, #6–#8 stud, tin-plated; INSULUG design for reliable small-gauge terminations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge Range",
+    "value": "16–14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6–#8"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Plating",
+    "value": "Tin-plated"
+   },
+   {
+    "name": "Strip Length",
+    "value": "7/32 in."
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Ring-Tongue/Nylon-Ring-Terminal-For-16---14-AWG-Silver-Plated/p/1690515"
+ },
+ {
+  "mpn": "VHS500",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY VERSAtile Compression Splice VHS500",
+  "category": "electrical",
+  "subcategory": "VERSAtile Compression Splice",
+  "description": "Copper long-barrel VERSAtile minimum-tension compression splice for 50 MCM conductors, rated 35 kV, UL listed; compatible with VersaCrimp or conventional die tooling.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "VERSAtile Compression Splice"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "50 MCM"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   },
+   {
+    "name": "Length",
+    "value": "4.636 in"
+   },
+   {
+    "name": "Width/Height",
+    "value": "1.060 in"
+   },
+   {
+    "name": "Tooling",
+    "value": "VersaCrimp or conventional die"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/c/Compression-Splice-VERSAtile-Minimum-Tension/p/1700408"
+ },
+ {
+  "mpn": "VHS1",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY VERSAtile Compression Splice VHS1",
+  "category": "electrical",
+  "subcategory": "VERSAtile Compression Splice",
+  "description": "Copper VERSAtile minimum-tension compression splice for #1 AWG stranded conductors, 35 kV rated, green color code; UL listed and CSA approved.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "VERSAtile Compression Splice"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "#1 AWG stranded"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "35 kV"
+   },
+   {
+    "name": "Length",
+    "value": "2.873 in"
+   },
+   {
+    "name": "Width/Height",
+    "value": "0.461 in"
+   },
+   {
+    "name": "Color Code",
+    "value": "Green"
+   },
+   {
+    "name": "Tooling",
+    "value": "VersaCrimp or conventional die"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Approved"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/compression-splice-versatile-minimum-tension/p/151061"
+ },
+ {
+  "mpn": "NHNT4846",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper T-Connector NHNT4846",
+  "category": "electrical",
+  "subcategory": "Substation Copper T-Connector",
+  "description": "Cast copper alloy 90-degree T-connector for cable-to-cable substation applications; 500–2000 kcmil run, 1000–1500 kcmil tap, rated 230 kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper T-Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "500–2000 kcmil"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "1000–1500 kcmil"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "230 kV"
+   },
+   {
+    "name": "Material",
+    "value": "Cast copper alloy, DURIUM silicon bronze hardware"
+   },
+   {
+    "name": "Overall Length",
+    "value": "6.76 in"
+   },
+   {
+    "name": "Width",
+    "value": "3.16 in"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench, reversible"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/nhnt4846-substation-copper-t-connector-90-degrees-cable-to-cable-500-2000-kcmil-run-1000-1500-kcmil-tap-230kv/p/501985"
+ },
+ {
+  "mpn": "YAV14BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Compression Ring Terminal YAV14BOX",
+  "category": "electrical",
+  "subcategory": "Uninsulated Compression Ring Terminal",
+  "description": "HYLUG uninsulated copper compression ring terminal for 20–14 AWG solid/stranded; 1-hole, #8–#10 stud, short barrel, tin-plated, with inspection hole.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Compression Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge Range",
+    "value": "20–14 AWG stranded / 20 AWG solid"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8–#10"
+   },
+   {
+    "name": "Holes",
+    "value": "1-hole"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless pure electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Barrel",
+    "value": "Short barrel, internally beveled"
+   },
+   {
+    "name": "Strip Length",
+    "value": "9/32 in."
+   },
+   {
+    "name": "Feature",
+    "value": "Inspection hole"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated/YAV14BOX-Uninsulated-Ring-Terminal-20-14-AWG-Str-20-AWG-Sol-1-Hole-8-10-Stud/p/1689144"
+ },
+ {
+  "mpn": "Q14F18X02D",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Female Quick Disconnect Terminal Q14F18X02D",
+  "category": "electrical",
+  "subcategory": "Uninsulated Female Quick Disconnect Term",
+  "description": "Uninsulated copper female quick disconnect terminal for 16–14 AWG, 0.187 x 0.020 in. tab size, tin-plated; for push-on electrical connections.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Female Quick Disconnect Terminal"
+   },
+   {
+    "name": "Wire Gauge Range",
+    "value": "16–14 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.187 in. x 0.020 in."
+   },
+   {
+    "name": "Insulation",
+    "value": "Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin-plated"
+   },
+   {
+    "name": "Type",
+    "value": "Female quick disconnect"
+   },
+   {
+    "name": "Connection Style",
+    "value": "Push-on"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/c/Q14F18X02B/p/2023454"
+ },
+ {
+  "mpn": "DLM18BC",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Downlead Bracket DLM18BC",
+  "category": "electrical",
+  "subcategory": "Downlead Bracket",
+  "description": "18 in. downlead bracket that creates clearance between grounding wire and pole; ductile iron construction, hot-dip galvanized, for conductor diameters 0.128–0.398 in.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Downlead Bracket"
+   },
+   {
+    "name": "Length",
+    "value": "18 in."
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "5/8 in. (0.625 in.)"
+   },
+   {
+    "name": "Conductor Diameter Range",
+    "value": "0.128–0.398 in."
+   },
+   {
+    "name": "Material",
+    "value": "Ductile iron, hot-dip galvanized"
+   },
+   {
+    "name": "Weight",
+    "value": "2.1 lb"
+   },
+   {
+    "name": "Mounting Bolt Spacing",
+    "value": "0.6875 in."
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/downlead-bracket-18/p/295097"
+ },
+ {
+  "mpn": "STC814050",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Substation Connector STC814050",
+  "category": "electrical",
+  "subcategory": "Substation Connector",
+  "description": "Anderson substation connector for 1/0 Sol.–500 MCM conductors, 1-1/2 in. size; part of Hubbell Power Systems substation connector line.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Connector"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "1/0 Sol.–500 MCM"
+   },
+   {
+    "name": "Connector Size",
+    "value": "1-1/2 in."
+   },
+   {
+    "name": "Application",
+    "value": "Substation"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/Substation%20Connectors%20(SA).pdf"
+ },
+ {
+  "mpn": "GC10906",
+  "brand": "Hubbell ANDERSON",
+  "name": "Hubbell ANDERSON Grounding Clamp GC10906",
+  "category": "electrical",
+  "subcategory": "Grounding Clamp",
+  "description": "Bronze alloy U-bolt grounding clamp for 2 in. OD / 1-1/2 in. rod/tube; flexible braid-to-rod or tube connection for grounding applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ANDERSON",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Grounding Clamp"
+   },
+   {
+    "name": "Clamping OD",
+    "value": "2 in."
+   },
+   {
+    "name": "Rod/Tube Diameter",
+    "value": "1-1/2 in."
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy with stainless steel hardware"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "Copper"
+   },
+   {
+    "name": "Weight",
+    "value": "0.804 lb"
+   },
+   {
+    "name": "Type",
+    "value": "U-bolt style, flexible braid to rod or tube"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/hubbellpowersystems/en/Products/Power-Utilities/Grounding-Bonding/Mechanical/Clamps/Flexible-Braid-to-Rod-or-Tube/Grounding-Clamp/p/1726264"
+ },
+ {
+  "mpn": "YAV25L1BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Compression Ring Terminal YAV25L1BOX",
+  "category": "electrical",
+  "subcategory": "Uninsulated Compression Ring Terminal",
+  "description": "HYLUG uninsulated copper compression ring terminal for 1/0 AWG flexible conductors, 1-hole, 5/16 in. stud, short barrel, tin-plated, boxed quantity.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Compression Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge",
+    "value": "1/0 AWG (AN-1/0 flex)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16 in."
+   },
+   {
+    "name": "Holes",
+    "value": "1-hole"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless pure electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Barrel",
+    "value": "Short barrel"
+   },
+   {
+    "name": "Feature",
+    "value": "Inspection hole"
+   },
+   {
+    "name": "Pack",
+    "value": "Boxed quantity"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/power-utilities/connectors/lugs-terminals/compression/cl/836154"
+ },
+ {
+  "mpn": "YAV25L3BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Compression Ring Terminal YAV25L3BOX",
+  "category": "electrical",
+  "subcategory": "Uninsulated Compression Ring Terminal",
+  "description": "HYLUG uninsulated copper compression ring terminal for 1/0 AWG flexible conductors, 1-hole, 1/2 in. stud, short barrel, tin-plated, boxed quantity.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Compression Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge",
+    "value": "1/0 AWG (AN-1/0 flex)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Holes",
+    "value": "1-hole"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless pure electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Barrel",
+    "value": "Short barrel"
+   },
+   {
+    "name": "Feature",
+    "value": "Inspection hole"
+   },
+   {
+    "name": "Pack",
+    "value": "Boxed quantity"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Compression/Non-insulated/YAV25L3/p/1689295"
+ },
+ {
+  "mpn": "YAV4CL3BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Uninsulated Compression Ring Terminal YAV4CL3BOX",
+  "category": "electrical",
+  "subcategory": "Uninsulated Compression Ring Terminal",
+  "description": "HYLUG uninsulated copper compression ring terminal for 4 AWG flexible conductors, 1-hole, #8–#10 stud, short barrel, tin-plated, inspection hole.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Uninsulated Compression Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge",
+    "value": "4 AWG (AN-4 flex)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8–#10"
+   },
+   {
+    "name": "Holes",
+    "value": "1-hole"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless pure electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.37 in"
+   },
+   {
+    "name": "Pad Width",
+    "value": "0.55 in"
+   },
+   {
+    "name": "Barrel",
+    "value": "Short barrel, internally beveled"
+   },
+   {
+    "name": "Feature",
+    "value": "Inspection hole"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav4cl3box-uninsulated-ring-terminal-for-4-awg-1-hole-8-10-stud/p/518100"
+ },
+ {
+  "mpn": "CBRS15I",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Commercial Grade Duplex Receptacle CBRS15I",
+  "category": "electrical",
+  "subcategory": "Commercial Grade Duplex Receptacle",
+  "description": "Commercial grade duplex receptacle, 15A 125V, 5-15R, 2-pole 3-wire grounding, ivory; UL listed and CSA certified.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Commercial Grade Duplex Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Config",
+    "value": "5-15R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-pole 3-wire grounding"
+   },
+   {
+    "name": "Color",
+    "value": "Ivory"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bryant/en/products/electrical-electronic/wiring-devices/straight-blade-devices/cl/2027752"
+ },
+ {
+  "mpn": "CBRS15GRY",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Commercial Grade Duplex Receptacle CBRS15GRY",
+  "category": "electrical",
+  "subcategory": "Commercial Grade Duplex Receptacle",
+  "description": "Commercial grade duplex receptacle, 15A 125V, 5-15R, 2-pole 3-wire grounding, gray; self-grounding, UL listed and CSA certified.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Commercial Grade Duplex Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Config",
+    "value": "5-15R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-pole 3-wire grounding"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial"
+   },
+   {
+    "name": "Dimensions",
+    "value": "3.28 in L x 1.38 in W x 1.07 in H"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bryant/en/products/straight-blade-devices-receptacles-duplex-commercial-grade-15a-125v-2-pole-3-wire-grounding-5-15r-gray-single-pack/p/19387525"
+ },
+ {
+  "mpn": "K2C23",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST Mechanical Grounding Connector K2C23",
+  "category": "electrical",
+  "subcategory": "SERVIT POST Mechanical Grounding Connect",
+  "description": "SERVIT POST mechanical connector for grounding 1–2 cables to steel structures, fence posts, or transformers; 8–2 AWG stranded/10–1 AWG solid, 3/8 in. stud, UL 467 direct burial listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST Mechanical Grounding Connector"
+   },
+   {
+    "name": "Wire Gauge Range (Stranded)",
+    "value": "8–2 AWG"
+   },
+   {
+    "name": "Wire Gauge Range (Solid)",
+    "value": "10–1 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in."
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy (leaded), unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "280 lb-in"
+   },
+   {
+    "name": "Dimensions",
+    "value": "0.469 in L x 0.62 in W x 1.05 in H"
+   },
+   {
+    "name": "Listing",
+    "value": "UL 467, direct burial in earth or concrete"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BRDY-K2C23-SPEC-EN.pdf"
+ },
+ {
+  "mpn": "K2C26",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST Mechanical Grounding Connector K2C26",
+  "category": "electrical",
+  "subcategory": "SERVIT POST Mechanical Grounding Connect",
+  "description": "SERVIT POST mechanical connector for grounding 1–2 cables to steel structures or tapping bus bar; 2–2/0 AWG stranded, 1/2 in. stud, UL 467 direct burial listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST Mechanical Grounding Connector"
+   },
+   {
+    "name": "Wire Gauge Range (Stranded)",
+    "value": "2 AWG–2/0 AWG"
+   },
+   {
+    "name": "Wire Gauge Range (Solid)",
+    "value": "2 AWG–3/0 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in. (1/2-13 UNC)"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy (leaded), unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Overall Length",
+    "value": "2.62 in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL 467, direct burial"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BRDY-K2C26-SPEC-EN.pdf"
+ },
+ {
+  "mpn": "TP1610Z",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Vinyl Insulated Ring Terminal TP1610Z",
+  "category": "electrical",
+  "subcategory": "Vinyl Insulated Ring Terminal",
+  "description": "Vinyl-insulated copper ring terminal for 22–16 AWG, #8–#10 stud, tin-plated; TP series compression terminal.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Vinyl Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Gauge Range",
+    "value": "22–16 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8–#10"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin-plated"
+   },
+   {
+    "name": "Type",
+    "value": "Ring tongue"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/518834"
+ },
+ {
+  "mpn": "1SBH18V1",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Single-Phase Vertical Pin Standoff Bracket 1SBH18V1",
+  "category": "electrical",
+  "subcategory": "Single-Phase Vertical Pin Standoff Brack",
+  "description": "Heavy-duty 18 in. single-phase vertical pin standoff bracket for cutout/arrester mounting on utility poles; 3-position, CHANCE series.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Phase Vertical Pin Standoff Bracket"
+   },
+   {
+    "name": "Length",
+    "value": "18 in."
+   },
+   {
+    "name": "Type",
+    "value": "Vertical pin standoff"
+   },
+   {
+    "name": "Phase",
+    "value": "Single-phase"
+   },
+   {
+    "name": "Positions",
+    "value": "3-position"
+   },
+   {
+    "name": "Application",
+    "value": "Cutout / arrester standoff bracket"
+   },
+   {
+    "name": "Brand",
+    "value": "CHANCE / Hubbell Power Systems"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/p/1274979"
+ },
+ {
+  "mpn": "BGBL1/0",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Lay-In Lug BGBL1/0",
+  "category": "electrical",
+  "subcategory": "Aluminum Lay-In Lug",
+  "description": "QUICKLUG aluminum lay-in lug for 14–1/0 AWG copper or 8–1/0 AWG aluminum conductors; 3/8 in. stud, tin-plated, AL9CU rated, UL486B listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Lay-In Lug"
+   },
+   {
+    "name": "Copper Conductor Range",
+    "value": "14–1/0 AWG solid/stranded"
+   },
+   {
+    "name": "Aluminum Conductor Range",
+    "value": "8–1/0 AWG stranded"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in."
+   },
+   {
+    "name": "Material",
+    "value": "6061-T6 aluminum, electro-tin plated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "50 lb-in"
+   },
+   {
+    "name": "Dimensions",
+    "value": "1.50 in L x 0.63 in W x 1.17 in H"
+   },
+   {
+    "name": "Listing",
+    "value": "UL486B, AL9CU rated, 600 V, 90°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/Burndy_BGBL10_Specsheet.pdf"
+ },
+ {
+  "mpn": "2081",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO MC/AC Cable Strap 2081",
+  "category": "electrical",
+  "subcategory": "MC/AC Cable Strap",
+  "description": "3/8 in. MC/AC cable 1-hole strap; steel construction, zinc electroplated for corrosion protection, for securing armored and metal-clad cables.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "MC/AC Cable Strap"
+   },
+   {
+    "name": "Cable Size",
+    "value": "3/8 in. MC/AC"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "1-hole"
+   },
+   {
+    "name": "Material",
+    "value": "Steel"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc electroplated"
+   },
+   {
+    "name": "Application",
+    "value": "Secures metal-clad (MC) and armored cable (AC)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/2081/p/1657514"
+ },
+ {
+  "mpn": "860",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Handy Box Cover 860",
+  "category": "electrical",
+  "subcategory": "Handy Box Cover",
+  "description": "4 in. x 2 in. blank handy box cover in pre-galvanized steel with captive screws; blank, no holes, fits 1/2 in. drywall.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Handy Box Cover"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4.188 in H x 2.313 in W x 0.49 in D"
+   },
+   {
+    "name": "Material",
+    "value": "Pre-galvanized steel (drawn)"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Cover Type",
+    "value": "Blank"
+   },
+   {
+    "name": "Drywall Depth",
+    "value": "Accommodates 1/2 in. drywall"
+   },
+   {
+    "name": "Fasteners",
+    "value": "Captive screws"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Boxes/Handy-Boxes-Covers/860/p/1670740"
+ },
+ {
+  "mpn": "3561",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight Connector 3561",
+  "category": "electrical",
+  "subcategory": "Liquidtight Connector",
+  "description": "3/8 in. 45-degree insulated liquidtight connector for flexible metallic and Type B nonmetallic liquidtight conduit; zinc-electroplated, suitable for hazardous locations Class I Div 2 / Class II Div 1&2.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/8 in."
+   },
+   {
+    "name": "Angle",
+    "value": "45 degree"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron, zinc-electroplated"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible metallic liquidtight / Type B nonmetallic liquidtight"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div 2; Class II Div 1 & 2; Class III Div 1 & 2"
+   },
+   {
+    "name": "Seal",
+    "value": "Split gland-ring"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/38-in-45-degree-liquidtight-connector-insulated/p/142779"
+ },
+ {
+  "mpn": "5374-1",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Round Weatherproof Blank Cover 5374-1",
+  "category": "electrical",
+  "subcategory": "Round Weatherproof Blank Cover",
+  "description": "4 in. round blank weatherproof cover in white die-cast metal; box-mount style for outdoor electrical boxes.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Round Weatherproof Blank Cover"
+   },
+   {
+    "name": "Diameter",
+    "value": "4 in."
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast metal"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Type",
+    "value": "Blank, round"
+   },
+   {
+    "name": "Mounting",
+    "value": "Box mount"
+   },
+   {
+    "name": "Application",
+    "value": "Outdoor weatherproof"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/p/2140992"
+ },
+ {
+  "mpn": "RLR050",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LR Type Conduit Body RLR050",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LR Type Conduit Body",
+  "description": "1/2 in. LR type rigid/IMC conduit body; die-cast aluminum with powder-coat finish, NBR rubber gasket, stamped aluminum cover, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LR Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Type",
+    "value": "LR"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat, gray"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Cover",
+    "value": "Stamped aluminum, combination head screw"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/142628"
+ },
+ {
+  "mpn": "RLR075",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LR Type Conduit Body RLR075",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LR Type Conduit Body",
+  "description": "3/4 in. LR type rigid/IMC conduit body; die-cast aluminum, powder-coat finish, NBR rubber gasket, 7.3 cu. in. capacity, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LR Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in."
+   },
+   {
+    "name": "Type",
+    "value": "LR"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "7.3 cu. in."
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions",
+    "value": "5.06 in L x 2.30 in W x 1.63 in H"
+   },
+   {
+    "name": "Weight",
+    "value": "0.44 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141765"
+ },
+ {
+  "mpn": "RLR100",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LR Type Conduit Body RLR100",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LR Type Conduit Body",
+  "description": "1 in. LR type rigid/IMC conduit body; die-cast aluminum, powder-coat finish, NBR rubber gasket, 12 cu. in. capacity, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LR Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in."
+   },
+   {
+    "name": "Type",
+    "value": "LR"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "12 cu. in."
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions",
+    "value": "5.92 in L x 2.68 in W x 1.89 in H"
+   },
+   {
+    "name": "Weight",
+    "value": "0.60 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RIGIDIMC-CONDUIT-BODIES/p/1657109"
+ },
+ {
+  "mpn": "RLR125",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LR Type Conduit Body RLR125",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LR Type Conduit Body",
+  "description": "1-1/4 in. LR type rigid/IMC conduit body; die-cast aluminum with powder-coat finish and NBR rubber gasket.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LR Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in."
+   },
+   {
+    "name": "Type",
+    "value": "LR"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat, gray"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Cover",
+    "value": "Stamped steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://assets.usesi.com/product-media/brochures/USESI_461501_brochure.pdf"
+ },
+ {
+  "mpn": "RLR150",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LR Type Conduit Body RLR150",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LR Type Conduit Body",
+  "description": "1-1/2 in. LR type rigid/IMC conduit body; die-cast aluminum, powder-coat finish, NBR rubber gasket, 30.8 cu. in. capacity.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LR Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in."
+   },
+   {
+    "name": "Type",
+    "value": "LR"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "30.8 cu. in."
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat, gray"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.stateelectric.com/products/taymac-rlr150"
+ },
+ {
+  "mpn": "RLR200",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LR Type Conduit Body RLR200",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LR Type Conduit Body",
+  "description": "2 in. LR type rigid/IMC conduit body; die-cast aluminum, powder-coat finish, NBR rubber gasket, 67 cu. in. capacity.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LR Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in."
+   },
+   {
+    "name": "Type",
+    "value": "LR"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "67 cu. in."
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat, gray"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RLR200/p/1657112"
+ },
+ {
+  "mpn": "RLL100",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LL Type Conduit Body RLL100",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LL Type Conduit Body",
+  "description": "1 in. LL type rigid/IMC conduit body; die-cast aluminum, powder-coat finish, NBR rubber gasket, 12 cu. in. capacity, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LL Type Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in."
+   },
+   {
+    "name": "Type",
+    "value": "LL"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "12 cu. in."
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Dimensions",
+    "value": "5.92 in L x 2.68 in W x 1.89 in H"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/p/141714"
+ },
+ {
+  "mpn": "703",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Round Box Cover 703",
+  "category": "electrical",
+  "subcategory": "Round Box Cover",
+  "description": "3-1/2 in. round blank box cover; metallic, with center 1/2 in. knockout and keyhole mounting that allows installation without removing box screws.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Round Box Cover"
+   },
+   {
+    "name": "Diameter",
+    "value": "3-1/2 in."
+   },
+   {
+    "name": "Knockout",
+    "value": "One 1/2 in. center KO"
+   },
+   {
+    "name": "Material",
+    "value": "Metallic"
+   },
+   {
+    "name": "Mounting",
+    "value": "Keyhole mount (no screw removal needed)"
+   },
+   {
+    "name": "Type",
+    "value": "Blank, round"
+   },
+   {
+    "name": "Compatible Box",
+    "value": "RACO 110 octagonal box"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/electrical-electronic/boxes/covers/cl/2056196"
+ },
+ {
+  "mpn": "779",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 4-inch Square Box Cover / Mud Ring 779",
+  "category": "electrical",
+  "subcategory": "4-inch Square Box Cover / Mud Ring",
+  "description": "4 in. square 2-device mud ring cover, 3/4 in. raised, with angled mounting slots that compensate up to 12 degrees for box misalignment.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "4-inch Square Box Cover / Mud Ring"
+   },
+   {
+    "name": "Raised Height",
+    "value": "0.75 in"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "8.8 cu. in"
+   },
+   {
+    "name": "Dimensions (H x W x D)",
+    "value": "4 in x 4 in x 0.75 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.23 lb"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed, Buy American Act Qualified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Boxes/4-in-Square-Boxes-Covers/779/p/1670672"
+ },
+ {
+  "mpn": "196",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 4-inch Square Electrical Box 196",
+  "category": "electrical",
+  "subcategory": "4-inch Square Electrical Box",
+  "description": "Welded 4 in. square, 1-1/2 in. deep steel box with nine 1/2 in. KOs and five TKOs, FS flush bracket, rated for 2-hour fire walls.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "4-inch Square Electrical Box"
+   },
+   {
+    "name": "Box Depth",
+    "value": "1-1/2 in (1.563 in actual)"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "21 cu. in"
+   },
+   {
+    "name": "Material",
+    "value": "1/16 in pre-galvanized steel"
+   },
+   {
+    "name": "Knockouts",
+    "value": "Nine 1/2 in KOs, Five 1/2-3/4 in TKOs"
+   },
+   {
+    "name": "Bracket",
+    "value": "FS flush style"
+   },
+   {
+    "name": "Weight",
+    "value": "0.808 lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, Buy American Act, 2-hour fire rated wall acceptable"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/4-in-square-box-welded-1-12-in-deep-with-nine-12-in-kos-and-five-tkos-fs-flush-bracket/p/140799"
+ },
+ {
+  "mpn": "778",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 4-inch Square Box Cover / Mud Ring 778",
+  "category": "electrical",
+  "subcategory": "4-inch Square Box Cover / Mud Ring",
+  "description": "4 in. square 2-device mud ring cover, 1/2 in. raised, with angled mounting slots that compensate up to 12 degrees for box misalignment.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "4-inch Square Box Cover / Mud Ring"
+   },
+   {
+    "name": "Raised Height",
+    "value": "0.50 in"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Box Size Compatibility",
+    "value": "4 in square"
+   },
+   {
+    "name": "Mounting Slots",
+    "value": "Angled, compensates up to 12 degrees misalignment"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Boxes/4-in-Square-Boxes-Covers/778/p/1670671"
+ },
+ {
+  "mpn": "865",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Handy Box Cover - Toggle Switch 865",
+  "category": "electrical",
+  "subcategory": "Handy Box Cover - Toggle Switch",
+  "description": "4 in. x 2 in. handy box cover for toggle switch, pre-galvanized steel with captive screws and rounded corners.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Handy Box Cover - Toggle Switch"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4.188 in H x 2.313 in W x 0.49 in D"
+   },
+   {
+    "name": "Material",
+    "value": "Pre-galvanized steel"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Weight",
+    "value": "0.102 lb"
+   },
+   {
+    "name": "Opening Type",
+    "value": "Toggle Switch"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Boxes/Handy-Boxes-Covers/865/p/1670745"
+ },
+ {
+  "mpn": "RLB050",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LB Conduit Body RLB050",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LB Conduit Body",
+  "description": "1/2 in. die-cast aluminum LB-type Rigid/IMC conduit body with NBR gasket, stamped aluminum cover, and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LB Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "LB"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "4.3 cu. in"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "4.31 in x 1.34 in x 2.09 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.3 lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/142628"
+ },
+ {
+  "mpn": "RLB150",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LB Conduit Body RLB150",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LB Conduit Body",
+  "description": "1-1/2 in. die-cast aluminum LB-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LB Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "LB"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RLB150/p/1657081"
+ },
+ {
+  "mpn": "RLB200",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC LB Conduit Body RLB200",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC LB Conduit Body",
+  "description": "2 in. die-cast aluminum LB-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC LB Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "LB"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RLB200/p/1657082"
+ },
+ {
+  "mpn": "RLT050",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC T Conduit Body RLT050",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC T Conduit Body",
+  "description": "1/2 in. die-cast aluminum T-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC T Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "T"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RLT050/p/1657117"
+ },
+ {
+  "mpn": "RLT075",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC T Conduit Body RLT075",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC T Conduit Body",
+  "description": "3/4 in. die-cast aluminum T-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC T Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "T"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "7.3 cu. in"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "5.51 in x 2.3 in x 1.63 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.445 lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141950"
+ },
+ {
+  "mpn": "RLT100",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC T Conduit Body RLT100",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC T Conduit Body",
+  "description": "1 in. die-cast aluminum T-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC T Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "T"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/taymac/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/RLT100/p/1657119"
+ },
+ {
+  "mpn": "RLT125",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC T Conduit Body RLT125",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC T Conduit Body",
+  "description": "1-1/4 in. die-cast aluminum T-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC T Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "T"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141971"
+ },
+ {
+  "mpn": "RLT150",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC T Conduit Body RLT150",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC T Conduit Body",
+  "description": "1-1/2 in. die-cast aluminum T-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC T Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "T"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141972"
+ },
+ {
+  "mpn": "RLT200",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Rigid/IMC T Conduit Body RLT200",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC T Conduit Body",
+  "description": "2 in. die-cast aluminum T-type Rigid/IMC conduit body with NBR gasket and powder coat finish; NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC T Conduit Body"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in"
+   },
+   {
+    "name": "Body Type",
+    "value": "T"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/taymac/en"
+ },
+ {
+  "mpn": "819",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 4-11/16-inch Square Box Cover / Mud Ring 819",
+  "category": "electrical",
+  "subcategory": "4-11/16-inch Square Box Cover / Mud Ring",
+  "description": "4-11/16 in. square 2-device mud ring cover, 1 in. raised, for use with 4-11/16 in. square boxes.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "4-11/16-inch Square Box Cover / Mud Ring"
+   },
+   {
+    "name": "Box Size",
+    "value": "4-11/16 in square"
+   },
+   {
+    "name": "Raised Height",
+    "value": "1 in"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Boxes/4-1116-in-Square-Boxes-Covers/4-1116-in-Square-Cover-2-Device-1-in-Raised/p/1670708"
+ },
+ {
+  "mpn": "HBL5369VY",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Female Connector Body - Straight Blade HBL5369VY",
+  "category": "electrical",
+  "subcategory": "Female Connector Body - Straight Blade",
+  "description": "Valise Series 20A 125V 5-20R female connector body, 2-pole 3-wire grounding, industrial/commercial grade, yellow, with screw terminals.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Female Connector Body - Straight Blade"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125 VAC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Poles / Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Wire Size Range",
+    "value": "#18 AWG to #12 AWG"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.300\"-0.660\" (7.6-16.8 mm)"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL498), CSA C22.2 No.42, NEMA WD-6"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/straight-blade-devices-female-connector-body-valise-series-industrialcommercial-grade-straight-2-pole-3-wire-grounding-20a-125v-5-20r/p/157383"
+ },
+ {
+  "mpn": "5160-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cover - Discontinued 5160-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cover - Discontinued",
+  "description": "2-gang weatherproof RAYNTITE cover for one duplex and one single outlet; gray die-cast construction. Product is discontinued with no substitute.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cover - Discontinued"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Openings",
+    "value": "One duplex, one single"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast zinc"
+   },
+   {
+    "name": "Status",
+    "value": "Discontinued - No Substitute"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Electrical-Electronic/Outdoor/Boxes-Covers-Plates/5160-0---Discontinued-No-Sub/p/4593275"
+ },
+ {
+  "mpn": "GAR194C",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector - Cable to Rod/Pipe GAR194C",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector - Cable t",
+  "description": "Copper mechanical grounding connector for cable to rod or pipe, rated for direct burial, with DURIUM silicon bronze hardware. Supports 8 AWG solid to 4 AWG stranded copper cable.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector - Cable to Rod/Pipe"
+   },
+   {
+    "name": "Cable Range (Copper)",
+    "value": "8 AWG (solid) to 4 AWG (stranded)"
+   },
+   {
+    "name": "Rod Diameter",
+    "value": "2-1/2 in to 2-7/8 in"
+   },
+   {
+    "name": "Pipe Size",
+    "value": "2-1/2 in IPS"
+   },
+   {
+    "name": "Body Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL467), Direct Burial Rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gar194c-mechanical-grounding-connector-cable-to-rod-or-pipe/p/482992"
+ },
+ {
+  "mpn": "GAR1934",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector - Cable to Rod/Pipe GAR1934",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector - Cable t",
+  "description": "Mechanical copper alloy grounding connector for 300-500 kcmil cable to 2-1/2 to 2-7/8 in. rod or 2-1/2 in. pipe; direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector - Cable to Rod/Pipe"
+   },
+   {
+    "name": "Cable Range",
+    "value": "300 - 500 kcmil"
+   },
+   {
+    "name": "Rod Size",
+    "value": "2-1/2 in to 2-7/8 in"
+   },
+   {
+    "name": "Pipe Size",
+    "value": "2-1/2 in"
+   },
+   {
+    "name": "Finish",
+    "value": "Bright Dipped"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL467), Direct Burial Rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Grounding-Bonding/Mechanical/Clamps/Cable-to-Rod-or-Tube/GAR1934-Mechanical-Grounding-Connector-Cable-to-Rod-or-Pipe/p/1730516"
+ },
+ {
+  "mpn": "GAR2034",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector - Cable to Rod/Pipe GAR2034",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector - Cable t",
+  "description": "Copper alloy mechanical grounding connector for 300-500 kcmil cable to 3 to 3.5 in. rod or 3 in. pipe; direct burial rated, one-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector - Cable to Rod/Pipe"
+   },
+   {
+    "name": "Cable Range",
+    "value": "300 - 500 kcmil"
+   },
+   {
+    "name": "Rod Size",
+    "value": "3 in to 3.5 in"
+   },
+   {
+    "name": "Pipe Size",
+    "value": "3 in"
+   },
+   {
+    "name": "Body Material",
+    "value": "Copper alloy"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL467), Direct Burial Rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/483007"
+ },
+ {
+  "mpn": "T2535163S",
+  "brand": "Hubbell ACME ELECTRIC",
+  "name": "Hubbell ACME ELECTRIC Low Voltage Distribution Transformer - Single Phase T2535163S",
+  "category": "electrical",
+  "subcategory": "Low Voltage Distribution Transformer - S",
+  "description": "10 kVA single-phase dry-type distribution transformer, 240x480V primary to 120/240V secondary, aluminum windings, NEMA 3R, electrostatic shield.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ACME ELECTRIC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Low Voltage Distribution Transformer - Single Phase"
+   },
+   {
+    "name": "kVA Rating",
+    "value": "10 kVA"
+   },
+   {
+    "name": "Primary Voltage",
+    "value": "240 x 480 V"
+   },
+   {
+    "name": "Secondary Voltage",
+    "value": "120/240 V"
+   },
+   {
+    "name": "Frequency",
+    "value": "60 Hz"
+   },
+   {
+    "name": "Winding Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Max Temperature Rise",
+    "value": "115°C"
+   },
+   {
+    "name": "Weight",
+    "value": "125 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/acmeelectric/en/Products/Electrical-Electronic/Power-Quality-Conversion/Low-Voltage-Distribution-Transformer/T2535163S/p/1655318"
+ },
+ {
+  "mpn": "T2535183S",
+  "brand": "Hubbell ACME ELECTRIC",
+  "name": "Hubbell ACME ELECTRIC Low Voltage Distribution Transformer - Single Phase T2535183S",
+  "category": "electrical",
+  "subcategory": "Low Voltage Distribution Transformer - S",
+  "description": "25 kVA single-phase dry-type distribution transformer, 240x480V primary to 120/240V secondary, aluminum windings, NEMA 3R, electrostatic shield.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell ACME ELECTRIC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Low Voltage Distribution Transformer - Single Phase"
+   },
+   {
+    "name": "kVA Rating",
+    "value": "25 kVA"
+   },
+   {
+    "name": "Primary Voltage",
+    "value": "240 x 480 V"
+   },
+   {
+    "name": "Secondary Voltage",
+    "value": "120/240 V"
+   },
+   {
+    "name": "Frequency",
+    "value": "60 Hz"
+   },
+   {
+    "name": "Winding Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Max Temperature Rise",
+    "value": "115°C"
+   },
+   {
+    "name": "Weight",
+    "value": "250 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/acmeelectric/en/products/p/1077148"
+ },
+ {
+  "mpn": "5186-5",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cluster Cover 5186-5",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cluster Cover",
+  "description": "1-gang weatherproof cluster cover with one 1/2 in. threaded outlet, gray, carded; die-cast construction with powder coat finish.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cluster Cover"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "1-Gang"
+   },
+   {
+    "name": "Outlet",
+    "value": "One 1/2 in. threaded outlet"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat"
+   },
+   {
+    "name": "Packaging",
+    "value": "Carded"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/p/141010"
+ },
+ {
+  "mpn": "HBL2623",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Locking Female Connector Body - Twist-Lock HBL2623",
+  "category": "electrical",
+  "subcategory": "Locking Female Connector Body - Twist-Lo",
+  "description": "Twist-Lock industrial female connector body, 30A 250V, NEMA L6-30R, 2-pole 3-wire grounding, screw terminal, black and white nylon.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Locking Female Connector Body - Twist-Lock"
+   },
+   {
+    "name": "Amperage",
+    "value": "30A"
+   },
+   {
+    "name": "Voltage",
+    "value": "250 VAC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L6-30R"
+   },
+   {
+    "name": "Poles / Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Wire Size Range",
+    "value": "#16 AWG to #8 AWG"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.360\"-0.930\""
+   },
+   {
+    "name": "Color",
+    "value": "Black and White"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL498), CSA C22.2 No.42, Federal Spec W-C-596"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/locking-devices-twist-lock-industrial-female-connector-body-30a-250v-2-pole-3-wire-grounding-l6-30r-screw-terminal-black-and-white/p/180746"
+ },
+ {
+  "mpn": "2104",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Flexible Metal Conduit Connector - Squeeze Type 2104",
+  "category": "electrical",
+  "subcategory": "Flexible Metal Conduit Connector - Squee",
+  "description": "1 in. malleable iron flex straight squeeze connector, uninsulated, electro zinc plated for corrosion protection.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flexible Metal Conduit Connector - Squeeze Type"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Straight Squeeze"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metal Conduit"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable Iron"
+   },
+   {
+    "name": "Plating",
+    "value": "Electro Zinc"
+   },
+   {
+    "name": "Dimensions",
+    "value": "1.688 in L x 1.72 in W x 2.391 in H"
+   },
+   {
+    "name": "Weight",
+    "value": "0.313 lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-in-flex-straight-squeeze-connector-uninsulated/p/140997"
+ },
+ {
+  "mpn": "5606-5",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Lampholder - Flood Swivel 5606-5",
+  "category": "electrical",
+  "subcategory": "Weatherproof Lampholder - Flood Swivel",
+  "description": "Die-cast aluminum weatherproof architectural flood swivel lampholder for 75-150W PAR 38 incandescent lamps; gray, porcelain socket, with locking swivel knuckle.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Lampholder - Flood Swivel"
+   },
+   {
+    "name": "Lamp Type",
+    "value": "PAR 38 Incandescent"
+   },
+   {
+    "name": "Wattage",
+    "value": "75-150W"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Socket",
+    "value": "Porcelain"
+   },
+   {
+    "name": "Weight",
+    "value": "0.32 lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 1598), CSA Certified, Buy America Qualified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/c/5606-5/p/1907667"
+ },
+ {
+  "mpn": "5613-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Architectural Lampholder 5613-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Architectural Lampholder",
+  "description": "Die-cast aluminum weatherproof architectural lampholder for 75-150W PAR 38 incandescent lamps; gray, adjustable swivel head, porcelain socket.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Architectural Lampholder"
+   },
+   {
+    "name": "Lamp Type",
+    "value": "PAR 38 Incandescent"
+   },
+   {
+    "name": "Wattage",
+    "value": "75-150W"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Socket",
+    "value": "Porcelain with inside gasket"
+   },
+   {
+    "name": "Dimensions",
+    "value": "5.484 in W x 5.484 in H x 7.75 in D"
+   },
+   {
+    "name": "Weight",
+    "value": "1.01 lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 1598), CSA Certified, Buy American Qualified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/c/5613-0/p/1907671"
+ },
+ {
+  "mpn": "CCD",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Cover for Compression C Connector CCD",
+  "category": "electrical",
+  "subcategory": "Insulated Cover for Compression C Connec",
+  "description": "One-piece HDPE insulated cover that slips over BURNDY C-type compression connectors and snaps shut; covers #6 AWG to 600 kcmil conductor range.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Cover for Compression C Connector"
+   },
+   {
+    "name": "Material",
+    "value": "High Density Polyethylene (HDPE)"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Overall Length",
+    "value": "5.57 in"
+   },
+   {
+    "name": "Conductor Range Coverage",
+    "value": "#6 AWG to 600 kcmil"
+   },
+   {
+    "name": "Installation",
+    "value": "Snap-on, no hardware required"
+   },
+   {
+    "name": "Compliance",
+    "value": "EU RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Covers/Standard-Covers/CCD/p/2022426"
+ },
+ {
+  "mpn": "5104-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cover - Vertical GFCI 5104-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cover - Vertical GFCI",
+  "description": "1-gang vertical GFCI weatherproof cover, gray, die-cast construction with powder coat finish; includes gasket and mounting hardware.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cover - Vertical GFCI"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "1-Gang"
+   },
+   {
+    "name": "Opening Type",
+    "value": "Vertical GFCI"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/bell/en/Products/Electrical-Electronic/Outdoor/Boxes-Covers-Plates/5104-0/p/2159328"
+ },
+ {
+  "mpn": "5124-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cover - 2-Gang Toggle 5124-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cover - 2-Gang Toggle",
+  "description": "2-gang weatherproof cover for two toggle switches, gray, with two single-pole 125V 15A switches included; die-cast construction, NEMA 3R rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cover - 2-Gang Toggle"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Opening Type",
+    "value": "2-Toggle"
+   },
+   {
+    "name": "Switches Included",
+    "value": "Two 15A, 125V single pole switches"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast"
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/bell/en/Products/Electrical-Electronic/Outdoor/Boxes-Covers-Plates/5124-0/p/1670533"
+ },
+ {
+  "mpn": "5040-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Cover - Discontinued 5040-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Cover - Discontinued",
+  "description": "2-gang RAYNTITE weatherproof GFCI cover, gray, with padlockable feature. Product is discontinued with no substitute.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Cover - Discontinued"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "2-Gang"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Padlock Feature",
+    "value": "Yes, 1/4 in diameter hole"
+   },
+   {
+    "name": "Status",
+    "value": "Discontinued - No Substitute"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/Products/Electrical-Electronic/Outdoor/Boxes-Covers-Plates/5040-0---Discontinued-No-Sub/p/1670502"
+ },
+ {
+  "mpn": "RW51810",
+  "brand": "Hubbell PREMISE WIRING",
+  "name": "Hubbell PREMISE WIRING Weatherproof Wallplate Cover RW51810",
+  "category": "electrical",
+  "subcategory": "Weatherproof Wallplate Cover",
+  "description": "1-gang weatherproof cover with horizontal duplex opening, cast zinc construction with foam gasket; gray, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell PREMISE WIRING",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Wallplate Cover"
+   },
+   {
+    "name": "Number of Gangs",
+    "value": "1-Gang"
+   },
+   {
+    "name": "Opening",
+    "value": "Duplex, Horizontal"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Cast zinc"
+   },
+   {
+    "name": "Gasket",
+    "value": "Foam gasket included"
+   },
+   {
+    "name": "Hardware",
+    "value": "Zinc-plated steel mounting screws"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wallplates/Weatherproof-Plates-Covers/Wallplates-and-Boxes-Weatherproof-Covers-1-Gang-Duplex-Opening-Horizontal-Gray/p/1643268"
+ },
+ {
+  "mpn": "CT40300M",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Cable Tie - UV Resistant CT40300M",
+  "category": "electrical",
+  "subcategory": "Cable Tie - UV Resistant",
+  "description": "UNIRAP nylon cable tie, 3.37 in. maximum bundle diameter, 40 lb tensile strength, UV stabilized black nylon.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cable Tie - UV Resistant"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "3.37 in"
+   },
+   {
+    "name": "Tensile Strength",
+    "value": "40 lb"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6/6"
+   },
+   {
+    "name": "Color",
+    "value": "UV Black"
+   },
+   {
+    "name": "UV Stabilized",
+    "value": "Yes"
+   },
+   {
+    "name": "Operating Temperature",
+    "value": "-40°C to 85°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/ct40300m0-cable-tie-3-37-max-bundle-40-lb-tensile-uv-black/p/521342"
+ },
+ {
+  "mpn": "YC2C2",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression C-Shape Tap Connector YC2C2",
+  "category": "electrical",
+  "subcategory": "Compression C-Shape Tap Connector",
+  "description": "CRIMPIT copper C-shape compression connector for tap or parallel copper connections; compact, unplated, die index C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression C-Shape Tap Connector"
+   },
+   {
+    "name": "Shape",
+    "value": "C-Shape"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, unplated"
+   },
+   {
+    "name": "Die Index",
+    "value": "C"
+   },
+   {
+    "name": "Height",
+    "value": "1.05 in"
+   },
+   {
+    "name": "Application",
+    "value": "Tap or parallel copper connections"
+   },
+   {
+    "name": "Series",
+    "value": "CRIMPIT"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Taps/Compression/YC2C2/p/1710543"
+ },
+ {
+  "mpn": "YC2C4",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression C-Shape Tap Connector YC2C4",
+  "category": "electrical",
+  "subcategory": "Compression C-Shape Tap Connector",
+  "description": "CRIMPIT YC-C Series copper C-shape compression connector for making tap or parallel copper connections, 2 AWG run / 4 AWG tap range, rated 600V–35kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression C-Shape Tap Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "4 AWG–2 AWG (solid/stranded copper)"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "8 AWG–4 AWG (solid/stranded copper)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V to 35kV"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, unplated"
+   },
+   {
+    "name": "Trade Name / Series",
+    "value": "CRIMPIT YC-C Series"
+   },
+   {
+    "name": "Die Index",
+    "value": "C"
+   },
+   {
+    "name": "Carton Quantity",
+    "value": "100"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 486A/486B), RoHS CM, TAA Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Taps/Compression/YC2C4/p/1710544"
+ },
+ {
+  "mpn": "YC28C26",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression C-Shape Tap Connector YC28C26",
+  "category": "electrical",
+  "subcategory": "Compression C-Shape Tap Connector",
+  "description": "CRIMPIT YC-C Series copper C-shape compression connector for 3/0–4/0 AWG run and 1/0–2/0 AWG tap copper stranded conductors, rated 600V–35kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression C-Shape Tap Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "3/0–4/0 AWG stranded copper"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "1/0–2/0 AWG stranded copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V to 35kV"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, unplated"
+   },
+   {
+    "name": "Trade Name / Series",
+    "value": "CRIMPIT YC-C Series"
+   },
+   {
+    "name": "Die Index",
+    "value": "F or D3"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 486A/486B), RoHS CM"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yc28c26-copper-c-shape-connector/p/502555"
+ },
+ {
+  "mpn": "YC28C28",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression C-Shape Tap Connector YC28C28",
+  "category": "electrical",
+  "subcategory": "Compression C-Shape Tap Connector",
+  "description": "CRIMPIT YC-C Series copper C-shape compression connector for equal-size 3/0–4/0 AWG run and tap conductors, rated 600V–35kV.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression C-Shape Tap Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "3/0–4/0 AWG stranded copper"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "3/0–4/0 AWG stranded copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V to 35kV"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, unplated"
+   },
+   {
+    "name": "Trade Name / Series",
+    "value": "CRIMPIT YC-C Series"
+   },
+   {
+    "name": "Die Index",
+    "value": "F or D3"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 486A/486B), RoHS CM, TAA Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yc28c28-copper-c-shape-connector/p/502556"
+ },
+ {
+  "mpn": "YAV8CL4BOX",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Ring Terminal / Lug YAV8CL4BOX",
+  "category": "electrical",
+  "subcategory": "Compression Ring Terminal / Lug",
+  "description": "Uninsulated tin-plated copper compression ring terminal for 8 AWG conductors with 1/2-inch stud size, with inspection window, sold in box quantity.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Ring Terminal / Lug"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "8 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 inch"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Seamless electrolytic copper, tin-plated"
+   },
+   {
+    "name": "Barrel Type",
+    "value": "Standard barrel with chamfer"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Approved, UL467, UL486, AS20659, RoHS CM"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yav8cl4box-uninsulated-ring-terminal-for-8-awg-1-hole-12-stud/p/518098"
+ },
+ {
+  "mpn": "2954RT",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO EMT Raintight Compression Coupling 2954RT",
+  "category": "electrical",
+  "subcategory": "EMT Raintight Compression Coupling",
+  "description": "3-1/2 inch EMT raintight compression coupling for wet locations, zinc electroplated steel construction, compliant with NEC 358.42 and 314.15.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "EMT Raintight Compression Coupling"
+   },
+   {
+    "name": "Conduit Trade Size",
+    "value": "3-1/2 inch EMT"
+   },
+   {
+    "name": "Type",
+    "value": "Raintight Compression Coupling"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc electroplated"
+   },
+   {
+    "name": "Location Rating",
+    "value": "Wet Location (marked)"
+   },
+   {
+    "name": "NEC Compliance",
+    "value": "NEC 358.42, 314.15 (2008)"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/3-12-in-EMT-Raintight-Compression-Coupling/p/1657888"
+ },
+ {
+  "mpn": "2940RT",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO EMT Raintight Compression Connector 2940RT",
+  "category": "electrical",
+  "subcategory": "EMT Raintight Compression Connector",
+  "description": "2-1/2 inch EMT raintight compression connector (uninsulated) for wet locations, zinc electroplated steel, NEC 358.42 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "EMT Raintight Compression Connector"
+   },
+   {
+    "name": "Conduit Trade Size",
+    "value": "2-1/2 inch EMT"
+   },
+   {
+    "name": "Type",
+    "value": "Raintight Compression Connector, Uninsulated"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, zinc electroplated"
+   },
+   {
+    "name": "Location Rating",
+    "value": "Wet Location (marked)"
+   },
+   {
+    "name": "NEC Compliance",
+    "value": "NEC 358.42, 314.15 (2008)"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.platt.com/p/0778702/hubbell-raco/emt-compression-connector-2-1-2-inch-raintight-steel/050169501009/rac2940rt"
+ },
+ {
+  "mpn": "SECP9GA",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Cord Connector / Cable Gland (European PG-Thread) SECP9GA",
+  "category": "electrical",
+  "subcategory": "Cord Connector / Cable Gland (European P",
+  "description": "European-style PG9 liquid-tight cord connector in gray nylon, IP66 rated, cable range 0.18–0.31 inch, suitable for wet locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cord Connector / Cable Gland (European PG-Thread)"
+   },
+   {
+    "name": "Thread Size",
+    "value": "PG9"
+   },
+   {
+    "name": "Cable Range",
+    "value": "0.18–0.31 in (4.6–7.9 mm)"
+   },
+   {
+    "name": "Material / Body",
+    "value": "Nylon with Buna N gland"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "IP Rating",
+    "value": "IP66"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-22°F to 225°F (-30°C to 107°C)"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, RoHS CM"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/kellems-wire-management-cord-connectors-european-style-18-31-pg9-gray/p/172417"
+ },
+ {
+  "mpn": "GG181",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector (Cable/Braid to Rod/Pipe) GG181",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector (Cable/Br",
+  "description": "Cast copper alloy Type GG mechanical grounding connector joining bar, strap, braid, or cable to 2-inch rod or pipe, UL467 listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector (Cable/Braid to Rod/Pipe)"
+   },
+   {
+    "name": "Rod / Pipe Size",
+    "value": "2 in. Pipe, 2–2-3/8 in. Rod"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, cast (DURIUM Silicon Bronze screw)"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Burial Rating",
+    "value": "Rated for direct burial in earth or concrete"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, RoHS"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench installation"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gg181-mechanical-grounding-connector-copper-bar-strap-braid-or-cable-to-rod-or-tube/p/483305"
+ },
+ {
+  "mpn": "GG212",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector (Cable/Braid to Rod/Pipe) GG212",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector (Cable/Br",
+  "description": "Cast copper alloy Type GG mechanical grounding connector for 3-1/2 in. pipe or 3-1/2–4 in. rod, UL467 listed for direct burial, 480 lb-in installation torque.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector (Cable/Braid to Rod/Pipe)"
+   },
+   {
+    "name": "Rod / Pipe Size",
+    "value": "3-1/2 in. Pipe, 3-1/2–4 in. Rod"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, cast (DURIUM Silicon Bronze screw)"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Burial Rating",
+    "value": "Rated for direct burial in earth or concrete"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, RoHS"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench installation"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gg212-mechanical-grounding-connector-copper-bar-strap-braid-or-cable-to-rod-or-tube/p/483311"
+ },
+ {
+  "mpn": "GG222",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector (Cable/Braid to Rod/Pipe) GG222",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector (Cable/Br",
+  "description": "Cast copper alloy Type GG mechanical grounding connector for 4 in. pipe or 4–4-1/2 in. rod, UL467 listed for direct burial, 480 lb-in torque.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector (Cable/Braid to Rod/Pipe)"
+   },
+   {
+    "name": "Rod / Pipe Size",
+    "value": "4 in. Pipe, 4–4-1/2 in. Rod"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy, cast (DURIUM Silicon Bronze screw)"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Burial Rating",
+    "value": "Rated for direct burial in earth or concrete"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, RoHS"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench installation"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gg222-mechanical-grounding-connector-copper-bar-strap-braid-or-cable-to-rod-or-tube/p/483312"
+ },
+ {
+  "mpn": "SHC1041",
+  "brand": "Hubbell HUBBELL",
+  "name": "Hubbell HUBBELL Cord Connector (Straight Male, Aluminum) SHC1041",
+  "category": "electrical",
+  "subcategory": "Cord Connector (Straight Male, Aluminum)",
+  "description": "Kellems straight male aluminum cord connector (Form 4), 1-inch NPT hub, 0.63–0.75 in. cable range, rated for hazardous and wet locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell HUBBELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Cord Connector (Straight Male, Aluminum)"
+   },
+   {
+    "name": "Cable Diameter Range",
+    "value": "0.63–0.75 in. (15.9–19.0 mm)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "1 in. NPT"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Form / Angle",
+    "value": "Straight Male (Form 4)"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-30°F to +225°F (-34°C to +107°C)"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, NEMA 4/4X/12/13, RoHS CM"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/c/SHC1041/p/1674643"
+ },
+ {
+  "mpn": "3702-1",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight Strain Relief Cord Connector (Form 1) 3702-1",
+  "category": "electrical",
+  "subcategory": "Liquidtight Strain Relief Cord Connector",
+  "description": "1/2-inch hub Form 1 liquidtight strain relief cord connector with neoprene grommet seal for cables 0.125–0.250 inch, zinc-electroplated steel construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight Strain Relief Cord Connector (Form 1)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "1/2 in. NPT"
+   },
+   {
+    "name": "Cable Range",
+    "value": "0.125–0.250 in."
+   },
+   {
+    "name": "Form",
+    "value": "Form 1"
+   },
+   {
+    "name": "Material",
+    "value": "Steel body, zinc electroplated"
+   },
+   {
+    "name": "Seal Type",
+    "value": "Neoprene grommet (liquidtight)"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Hazardous-Location/Liquidtight-Fittings/3702-1/p/1658093"
+ },
+ {
+  "mpn": "74011021",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Deluxe Cord Grip (Straight Male) 74011021",
+  "category": "electrical",
+  "subcategory": "Deluxe Cord Grip (Straight Male)",
+  "description": "Kellems Deluxe Cord Grip, straight male, 1-inch NPT hub, 0.625–0.750 inch cable range, aluminum body with stainless steel mesh, UL/CSA listed for hazardous locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Deluxe Cord Grip (Straight Male)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "1 in. NPT"
+   },
+   {
+    "name": "Cable Diameter Range",
+    "value": "0.625–0.750 in."
+   },
+   {
+    "name": "Angle",
+    "value": "Straight Male"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum body, stainless steel mesh, neoprene bushing"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-30°F to +225°F (-34°C to +115°C)"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/kellems-wire-management-deluxe-cord-grips-straight-male-187-250-34-with-mesh/p/157618"
+ },
+ {
+  "mpn": "7401078",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Deluxe Cord Grip (90-Degree Male) 7401078",
+  "category": "electrical",
+  "subcategory": "Deluxe Cord Grip (90-Degree Male)",
+  "description": "Kellems Deluxe Cord Grip, 90-degree male, 1/2-inch NPT hub, 0.375–0.500 inch cable range, aluminum with stainless steel mesh, UL listed for hazardous locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Deluxe Cord Grip (90-Degree Male)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "1/2 in. NPT"
+   },
+   {
+    "name": "Cable Diameter Range",
+    "value": "0.375–0.500 in."
+   },
+   {
+    "name": "Angle",
+    "value": "90 Degree Male"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum body, stainless steel mesh, neoprene bushing"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-30°F to +240°F (-34°C to +115°C)"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/kellems-wire-management-deluxe-cord-grips-90-degree-male-375-500-12-with-mesh/p/159102"
+ },
+ {
+  "mpn": "3703-3",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Liquidtight Strain Relief Cord Connector (Form 3) 3703-3",
+  "category": "electrical",
+  "subcategory": "Liquidtight Strain Relief Cord Connector",
+  "description": "3/4-inch hub Form 3 liquidtight strain relief cord connector with neoprene grommet seal for cables 0.500–0.600 inch, zinc-electroplated steel/malleable iron.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Liquidtight Strain Relief Cord Connector (Form 3)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "3/4 in. NPT"
+   },
+   {
+    "name": "Cable Range",
+    "value": "0.500–0.600 in."
+   },
+   {
+    "name": "Form",
+    "value": "Form 3"
+   },
+   {
+    "name": "Material",
+    "value": "Steel/Malleable Iron, zinc electroplated"
+   },
+   {
+    "name": "Seal Type",
+    "value": "Neoprene grommet (liquidtight)"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/34-in-hubs-form-3-liquidtight-strain-relief-cord-connector-cable-range-500-600/p/142955"
+ },
+ {
+  "mpn": "7401017",
+  "brand": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+  "name": "Hubbell INDUSTRIAL CONTROLS DIVISION Deluxe Cord Grip (Straight Male) 7401017",
+  "category": "electrical",
+  "subcategory": "Deluxe Cord Grip (Straight Male)",
+  "description": "Kellems Deluxe Cord Grip, straight male, 3/4-inch NPT hub, 0.500–0.625 inch cable range, aluminum with stainless steel mesh, UL/CSA listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Deluxe Cord Grip (Straight Male)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "3/4 in. NPT"
+   },
+   {
+    "name": "Cable Diameter Range",
+    "value": "0.500–0.625 in."
+   },
+   {
+    "name": "Angle",
+    "value": "Straight Male"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum body, stainless steel mesh"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-30°F to +225°F"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/kellems-wire-management-deluxe-cord-grips-straight-male-187-250-34-with-mesh/p/157618"
+ },
+ {
+  "mpn": "74011051",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Deluxe Cord Grip (45-Degree Male) 74011051",
+  "category": "electrical",
+  "subcategory": "Deluxe Cord Grip (45-Degree Male)",
+  "description": "Kellems Deluxe Cord Grip, 45-degree male, 3/4-inch NPT hub, 0.630–0.750 inch cable range, aluminum with stainless steel mesh, UL/CSA listed for hazardous locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Deluxe Cord Grip (45-Degree Male)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "3/4 in. NPT"
+   },
+   {
+    "name": "Cable Diameter Range",
+    "value": "0.630–0.750 in."
+   },
+   {
+    "name": "Angle",
+    "value": "45 Degree Male"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum body, stainless steel mesh"
+   },
+   {
+    "name": "Strain Relief Length",
+    "value": "6 in. external"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.zoro.com/hubbell-wiring-device-kellems-strain-relief-cord-grip-45-34-in-74011051/i/G7276647/"
+ },
+ {
+  "mpn": "7401084",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Deluxe Cord Grip (90-Degree Male) 7401084",
+  "category": "electrical",
+  "subcategory": "Deluxe Cord Grip (90-Degree Male)",
+  "description": "Kellems Deluxe Cord Grip, 90-degree male, 3/4-inch NPT hub, 0.625–0.750 inch cable range, aluminum with stainless steel mesh, UL listed for hazardous and wet locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Deluxe Cord Grip (90-Degree Male)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "3/4 in. NPT"
+   },
+   {
+    "name": "Cable Diameter Range",
+    "value": "0.625–0.750 in."
+   },
+   {
+    "name": "Angle",
+    "value": "90 Degree Male"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum body, stainless steel mesh, neoprene bushing"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-30°F to +240°F (-34°C to +115°C)"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div. 2, Class II Div. 1 & 2, Class III Div. 1 & 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/kellems-wire-management-deluxe-cord-grips-90-degree-male-625-750-34-with-mesh/p/159106"
+ },
+ {
+  "mpn": "7401021",
+  "brand": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+  "name": "Hubbell INDUSTRIAL CONTROLS DIVISION Deluxe Cord Grip (Straight Male) 7401021",
+  "category": "electrical",
+  "subcategory": "Deluxe Cord Grip (Straight Male)",
+  "description": "Kellems Deluxe Cord Grip, straight male, 1-inch NPT hub, 0.625–0.750 inch cable range, aluminum with stainless steel mesh, UL/CSA listed for hazardous locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Deluxe Cord Grip (Straight Male)"
+   },
+   {
+    "name": "Hub Size",
+    "value": "1 in. NPT"
+   },
+   {
+    "name": "Cable Diameter Range",
+    "value": "0.625–0.750 in."
+   },
+   {
+    "name": "Angle",
+    "value": "Straight Male"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum body, stainless steel mesh, neoprene bushing"
+   },
+   {
+    "name": "Connector Size",
+    "value": "1.75 in. dia. x 2.31 in. L"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-30°F to +225°F"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/hubbell/en/products/p/157624"
+ },
+ {
+  "mpn": "K2C26B1",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST Mechanical Connector (Cable to Flat) K2C26B1",
+  "category": "electrical",
+  "subcategory": "SERVIT POST Mechanical Connector (Cable ",
+  "description": "Burndy SERVIT POST mechanical connector joining 1 or 2 copper cables (2 AWG–2/0 AWG) to flat bus bar or steel structures using a 1/2-inch stud, 480 lb-in torque, UL467 listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST Mechanical Connector (Cable to Flat)"
+   },
+   {
+    "name": "Conductor Range (Stranded)",
+    "value": "2 AWG–2/0 AWG"
+   },
+   {
+    "name": "Conductor Range (Solid)",
+    "value": "2 AWG–3/0 AWG"
+   },
+   {
+    "name": "Stud / Bolt Size",
+    "value": "1/2 in.-13 UNC"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze alloy, leaded, unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Conductors per Connector",
+    "value": "1 or 2"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, direct burial rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/k2c26b1-servit-post-mechanical-connector-2-cables-to-flat/p/484074"
+ },
+ {
+  "mpn": "MM410G",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Weatherproof In-Use Cover MM410G",
+  "category": "electrical",
+  "subcategory": "Weatherproof In-Use Cover",
+  "description": "1-gang weatherproof in-use cover with 16-in-1 universal fit adapter system, 2-3/4 in. deep, gray polycarbonate, NEMA 3R, for horizontal/vertical installations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof In-Use Cover"
+   },
+   {
+    "name": "Gang Count",
+    "value": "1-Gang"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "High-impact polycarbonate (non-metallic)"
+   },
+   {
+    "name": "Dimensions (H x W x D)",
+    "value": "5.5 in. x 4 in. x 3.07 in."
+   },
+   {
+    "name": "NEMA Rating",
+    "value": "NEMA 3R"
+   },
+   {
+    "name": "Depth",
+    "value": "2.75 in. (3.25 in. actual)"
+   },
+   {
+    "name": "Features",
+    "value": "16-in-1 universal adapter, lockable tab, Quick-Fit keyhole mount"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/c/MM410G/p/1670829"
+ },
+ {
+  "mpn": "QA342N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heavy-Duty Mechanical Bolted Lug Connector (QIKLUG) QA342N",
+  "category": "electrical",
+  "subcategory": "Heavy-Duty Mechanical Bolted Lug Connect",
+  "description": "Burndy QIKLUG QA-series heavy-duty copper mechanical lug for 400–500 kcmil stranded copper, 2-hole mounting, 1/2-inch stud, 1-3/4 in. spacing, single set-screw.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heavy-Duty Mechanical Bolted Lug Connector (QIKLUG)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "400–500 kcmil stranded copper"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Bolt Hole Spacing",
+    "value": "1-3/4 in. (1.75 in.)"
+   },
+   {
+    "name": "Bolt Holes",
+    "value": "2"
+   },
+   {
+    "name": "Set Screws",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, unplated"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "375 lb-in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 486A-486B)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.stateelectric.com/products/burndy-qa342n/"
+ },
+ {
+  "mpn": "QA402N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heavy-Duty Mechanical Bolted Lug Connector (QIKLUG) QA402N",
+  "category": "electrical",
+  "subcategory": "Heavy-Duty Mechanical Bolted Lug Connect",
+  "description": "Burndy QIKLUG QA-series heavy-duty copper mechanical lug for 600–800 kcmil stranded copper, 2-hole mounting, 1/2-inch stud, 1-3/4 in. spacing, single set-screw.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heavy-Duty Mechanical Bolted Lug Connector (QIKLUG)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "600–800 kcmil stranded copper"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Bolt Hole Spacing",
+    "value": "1-3/4 in. (1.75 in.)"
+   },
+   {
+    "name": "Bolt Holes",
+    "value": "2"
+   },
+   {
+    "name": "Set Screws",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, unplated"
+   },
+   {
+    "name": "Minimum Voltage Rating",
+    "value": "600V"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL 486A-486B)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/qa402n-heavy-duty-two-hole-mounting-copper-lug-connector-600-800-kcmil-12-stud-1-34-spacing-1-screw/p/489917"
+ },
+ {
+  "mpn": "HBL300MBN",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (300A) HBL300MBN",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (300A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 300A/600V AC/DC, accepts #6 to 2/0 AWG, brown thermoplastic elastomer body with brass contact, UL/cUL listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (300A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "300A (400A max)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#6 to 2/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "Brown"
+   },
+   {
+    "name": "Material",
+    "value": "Thermoplastic elastomer body, brass contact"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12, NEC ANSI/NFPA 70"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Single-Pole-Devices/HBL300MBN/p/1631620"
+ },
+ {
+  "mpn": "HBL300MO",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (300A) HBL300MO",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (300A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 300A/600V AC/DC, accepts #6 to 2/0 AWG, orange thermoplastic elastomer body with brass contact, UL/cUL listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (300A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "300A (400A max)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#6 to 2/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "Orange"
+   },
+   {
+    "name": "Material",
+    "value": "Thermoplastic elastomer body, brass contact"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-products-single-pole-devices-industrial-grade-male-plug-300a-600v-acdc-single-conductor-double-set-screws-orange/p/174170"
+ },
+ {
+  "mpn": "HBL300MY",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (300A) HBL300MY",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (300A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 300A/600V AC/DC, accepts #6 to 2/0 AWG, yellow thermoplastic elastomer body with brass contact, UL/cUL listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (300A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "300A (400A max)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#6 to 2/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Thermoplastic elastomer body, brass contact"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/products/heavy-duty-products-single-pole-devices-industrial-grade-male-plug-300a-600v-acdc-single-conductor-double-set-screws-yellow/p/174173"
+ },
+ {
+  "mpn": "HBL400FBK",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Female Connector (400A) HBL400FBK",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Female Connector ",
+  "description": "Series 16 heavy-duty single-pole female connector rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, black thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Female Connector (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, female connector"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Material",
+    "value": "Thermoplastic elastomer body, brass contact"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-products-single-pole-devices-industrial-grade-female-plug-400a-600v-acdc-single-conductor-double-set-screws-black/p/163159"
+ },
+ {
+  "mpn": "HBL400FW",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Female Connector (400A) HBL400FW",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Female Connector ",
+  "description": "Series 16 heavy-duty single-pole female connector rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, white thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Female Connector (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, female connector"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/products/heavy-duty-products-single-pole-devices-industrial-grade-female-plug-400a-600v-acdc-single-conductor-double-set-screws-white/p/163948"
+ },
+ {
+  "mpn": "HBL400FR",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Female Connector (400A) HBL400FR",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Female Connector ",
+  "description": "Series 16 heavy-duty single-pole female connector rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, red thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Female Connector (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, female connector"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/hubbell/en/Products/Electrical-Electronic/Wiring-Devices/Single-Pole-Devices/Heavy-Duty-Products-Single-Pole-Devices-Industrial-Grade-Female-Plug-400A-600V-ACDC-Single-Conductor-Double-Set-Screws-Red/p/1631673"
+ },
+ {
+  "mpn": "HBL400FBL",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Female Connector (400A) HBL400FBL",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Female Connector ",
+  "description": "Series 16 heavy-duty single-pole female connector rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, blue thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Female Connector (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, female connector"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/products/heavy-duty-products-single-pole-devices-industrial-grade-female-plug-400a-600v-acdc-single-conductor-double-set-screws-blue/p/163160"
+ },
+ {
+  "mpn": "HBL400FGN",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Female Connector (400A) HBL400FGN",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Female Connector ",
+  "description": "Series 16 heavy-duty single-pole female connector rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, green thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Female Connector (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, female connector"
+   },
+   {
+    "name": "Color",
+    "value": "Green"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/hubbell/en/products/p/163162"
+ },
+ {
+  "mpn": "HBL400MBK",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (400A) HBL400MBK",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (400A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, black thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Material",
+    "value": "Thermoplastic elastomer body, brass contact"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-products-single-pole-devices-industrial-grade-male-plug-400a-600v-acdc-single-conductor-double-set-screws-black/p/163942"
+ },
+ {
+  "mpn": "HBL400MW",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (400A) HBL400MW",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (400A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, white thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/products/heavy-duty-products-single-pole-devices-industrial-grade-male-plug-400a-600v-acdc-single-conductor-double-set-screws-white/p/163948"
+ },
+ {
+  "mpn": "HBL400MR",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (400A) HBL400MR",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (400A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, red thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Single-Pole-Devices/Heavy-Duty-Products-Single-Pole-Devices-Industrial-Grade-Male-Plug-400A-600V-ACDC-Single-Conductor-Double-Set-Screws-Red/p/1631681"
+ },
+ {
+  "mpn": "HBL400MBL",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (400A) HBL400MBL",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (400A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, blue thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-products-single-pole-devices-industrial-grade-male-plug-400a-600v-acdc-single-conductor-double-set-screws-blue/p/163943"
+ },
+ {
+  "mpn": "HBL400MGN",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Single-Pole Heavy-Duty Male Plug (400A) HBL400MGN",
+  "category": "electrical",
+  "subcategory": "Single-Pole Heavy-Duty Male Plug (400A)",
+  "description": "Series 16 heavy-duty single-pole male plug rated 400A/600V AC/DC, accepts 2/0–4/0 AWG, green thermoplastic elastomer body with brass contact.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Single-Pole Heavy-Duty Male Plug (400A)"
+   },
+   {
+    "name": "Current Rating",
+    "value": "400A max"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V AC / 250V DC max"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0–4/0 AWG"
+   },
+   {
+    "name": "Configuration",
+    "value": "Single pole, male plug"
+   },
+   {
+    "name": "Color",
+    "value": "Green"
+   },
+   {
+    "name": "Series",
+    "value": "Series 16"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL/cUL Listed, NEMA 3R/4X/12"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-products-single-pole-devices-industrial-grade-male-plug-400a-600v-acdc-single-conductor-double-set-screws-green/p/163945"
+ },
+ {
+  "mpn": "GD1629",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Ground Connector (2 Cables to Rod/Pipe) GD1629",
+  "category": "electrical",
+  "subcategory": "Mechanical Ground Connector (2 Cables to",
+  "description": "Cast high-copper-alloy mechanical grounding connector accepting 2 parallel copper cables (2/0 AWG–250 kcmil) to 1-3/8–1-1/2 in. rod or 1-1/4 in. pipe, UL467 listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Ground Connector (2 Cables to Rod/Pipe)"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "2/0 AWG Sol.–250 kcmil (solid and stranded copper)"
+   },
+   {
+    "name": "Conductors per Connector",
+    "value": "2 parallel"
+   },
+   {
+    "name": "Rod Size",
+    "value": "1-3/8 in.–1-1/2 in."
+   },
+   {
+    "name": "Pipe Size",
+    "value": "1-1/4 in."
+   },
+   {
+    "name": "Material",
+    "value": "High copper alloy, cast (DURIUM Silicon Bronze fasteners)"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Burial Rating",
+    "value": "Direct burial in earth or concrete"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed (US and Canada)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/gd1629-ground-connector-2-parallel-copper-cables-to-rod-or-pipe-20-awg-sol-250-kcmil-1-38-1-12-rod-1-14-pipe/p/4582926"
+ },
+ {
+  "mpn": "C710143PB",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Porcelain Distribution Cutout (Type C Standard) C710143PB",
+  "category": "electrical",
+  "subcategory": "Porcelain Distribution Cutout (Type C St",
+  "description": "15 kV, 110 kV BIL Type C standard porcelain cutout with 200A/12kAIC fuseholder, NEMA B heavy-duty crossarm bracket and parallel-groove connector, ANSI/IEEE C37.41 & C37.42 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Porcelain Distribution Cutout (Type C Standard)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "15 kV"
+   },
+   {
+    "name": "BIL",
+    "value": "110 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "200A"
+   },
+   {
+    "name": "Interrupting Rating",
+    "value": "12 kAIC"
+   },
+   {
+    "name": "Material",
+    "value": "Porcelain (synthetic arc-quench liner)"
+   },
+   {
+    "name": "Dimensions (H x L x W)",
+    "value": "4.13 in. x 14.88 in. x 14.5 in."
+   },
+   {
+    "name": "Creep Distance",
+    "value": "8.7 in. (220 mm)"
+   },
+   {
+    "name": "Standards",
+    "value": "ANSI/IEEE C37.41 & C37.42-2016"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/15-kv-110-kv-bil-type-c-standard-porcelain-cutout-w200a-12kaic-fuseholder/p/1277220"
+ },
+ {
+  "mpn": "HSB100T6PF7",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heat Shrink Tubing HSB100T6PF7",
+  "category": "electrical",
+  "subcategory": "Heat Shrink Tubing",
+  "description": "Thin-wall cross-linked polyolefin flame-retardant heat shrink tubing, black, 1.00\" expanded ID, 7-piece pack, 6-inch lengths, for 2/0–300 kcmil conductors.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heat Shrink Tubing"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "1.00 in"
+   },
+   {
+    "name": "Recovered ID (max)",
+    "value": "0.50 in"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "2/0–300 kcmil"
+   },
+   {
+    "name": "Length",
+    "value": "6.00 in"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, thin wall"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "120°C (248°F)"
+   },
+   {
+    "name": "Color",
+    "value": "Black (B)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/catalogfull/BUR-SectionD-ShrinkTubing-FullCatalog.pdf"
+ },
+ {
+  "mpn": "HSB14T6PF14",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heat Shrink Tubing HSB14T6PF14",
+  "category": "electrical",
+  "subcategory": "Heat Shrink Tubing",
+  "description": "Thin-wall cross-linked polyolefin flame-retardant heat shrink tubing, black, for #10–14 AWG conductors, 600V rated, 6.00-inch lengths, 14-piece pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heat Shrink Tubing"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#10–14 AWG"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Length",
+    "value": "6.00 in"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, thin wall"
+   },
+   {
+    "name": "Flame Rating",
+    "value": "Flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/WireCableHose-Management/Heat-Shrink-Tubing-End-Caps-Installation-Accessories/Heat-Shrink/p/1949432"
+ },
+ {
+  "mpn": "HSB34T6PF8",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heat Shrink Tubing HSB34T6PF8",
+  "category": "electrical",
+  "subcategory": "Heat Shrink Tubing",
+  "description": "Thin-wall cross-linked polyolefin flame-retardant heat shrink tubing, black, 0.750\" expanded ID, for #1–3/0 AWG conductors, 6-inch lengths, 8-piece pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heat Shrink Tubing"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.750 in"
+   },
+   {
+    "name": "Recovered ID (max)",
+    "value": "0.375 in"
+   },
+   {
+    "name": "Conductor Range",
+    "value": "#1 AWG to #3/0 AWG"
+   },
+   {
+    "name": "Length",
+    "value": "6.00 in"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, thin wall"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "120°C (248°F)"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BRDY_CA-HSB34T6PF8-SPEC-EN.pdf"
+ },
+ {
+  "mpn": "1802",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Connector 1802",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Connector",
+  "description": "1/2 in. uninsulated compression connector for unthreaded rigid/IMC conduit; concrete-tight, steel/malleable iron, zinc-electroplated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel/Malleable Iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Insulated",
+    "value": "No"
+   },
+   {
+    "name": "Dimensions (L x H x W)",
+    "value": "1.406 x 1.063 x 1.063 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.118 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/c/1802/p/1657426"
+ },
+ {
+  "mpn": "1803",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Connector 1803",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Connector",
+  "description": "3/4 in. uninsulated compression connector for unthreaded rigid/IMC conduit; concrete-tight, steel/malleable iron, zinc-electroplated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel/Malleable Iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Insulated",
+    "value": "No"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Compression, concrete-tight"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/34-in-rigidimc-compression-connector-uninsulated/p/140755"
+ },
+ {
+  "mpn": "1823",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Coupling 1823",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Coupling",
+  "description": "3/4 in. compression coupling for unthreaded rigid/IMC conduit; concrete-tight, steel/malleable iron, zinc-electroplated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Coupling"
+   },
+   {
+    "name": "Trade Size",
+    "value": "3/4 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel/Malleable Iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions (L x H x W)",
+    "value": "1.500 x 1.297 x 1.297 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.275 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/34-in-rigidimc-compression-coupling/p/140940"
+ },
+ {
+  "mpn": "1824",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Coupling 1824",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Coupling",
+  "description": "1 in. compression coupling for unthreaded rigid/IMC conduit; concrete-tight, steel/malleable iron, zinc-electroplated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Coupling"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel/Malleable Iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions (L x H x W)",
+    "value": "1.688 x 1.609 x 1.609 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.443 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-in-rigidimc-compression-coupling/p/140941"
+ },
+ {
+  "mpn": "1805",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Connector 1805",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Connector",
+  "description": "1-1/4 in. uninsulated compression connector for unthreaded rigid/IMC conduit; concrete-tight, steel/malleable iron, zinc-electroplated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel/Malleable Iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions (L x H x W)",
+    "value": "1.938 x 1.953 x 1.953 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.524 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-14-in-rigidimc-compression-connector/p/140759"
+ },
+ {
+  "mpn": "1806",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Connector 1806",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Connector",
+  "description": "1-1/2 in. uninsulated compression connector for unthreaded rigid/IMC conduit; concrete-tight, steel/malleable iron, zinc-electroplated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/2 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel/Malleable Iron"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions (L x H x W)",
+    "value": "2.125 x 2.266 x 2.266 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.659 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B), CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/1-12-in-rigidimc-compression-connector/p/140760"
+ },
+ {
+  "mpn": "1808",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Compression Connector 1808",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Compression Connector",
+  "description": "2 in. uninsulated compression connector for unthreaded rigid/IMC conduit; concrete-tight, malleable iron, zinc-electroplated, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Compression Connector"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable Iron/Steel"
+   },
+   {
+    "name": "Finish",
+    "value": "Electro-plated Zinc"
+   },
+   {
+    "name": "Insulated",
+    "value": "No"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Compression, concrete-tight"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed (UL 514B), CSA C22.2"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Commercial-Fittings/1808/p/1657430"
+ },
+ {
+  "mpn": "RK2262",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Terminal Block RK2262",
+  "category": "electrical",
+  "subcategory": "Terminal Block",
+  "description": "12-circuit terminal block with steel nickel-plated screws for use on illuminating instrument panels; sold in packs of 5.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Terminal Block"
+   },
+   {
+    "name": "Number of Circuits",
+    "value": "12"
+   },
+   {
+    "name": "Screw Material",
+    "value": "Steel, nickel plated"
+   },
+   {
+    "name": "Application",
+    "value": "Illuminating instrument panels"
+   },
+   {
+    "name": "Pack Quantity",
+    "value": "5"
+   },
+   {
+    "name": "Buy American Qualified",
+    "value": "Yes"
+   },
+   {
+    "name": "UPC",
+    "value": "781810024126"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/rk2262-terminal-block-12-circuits-w-steel-nickel-plated-screws/p/3113702"
+ },
+ {
+  "mpn": "CRS15W",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Duplex Receptacle CRS15W",
+  "category": "electrical",
+  "subcategory": "Duplex Receptacle",
+  "description": "Commercial-grade 15A 125V duplex receptacle, NEMA 5-15R, 2-pole 3-wire grounding, side-wired only, self-grounding, white.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Duplex Receptacle"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-15R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Wiring Method",
+    "value": "Side wired only"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial"
+   },
+   {
+    "name": "Self-Grounding",
+    "value": "Yes"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bryant/en/products/straight-blade-devices-receptacles-duplex-commercial-grade-15a-125v-2-pole-3-wire-grounding-5-15r-brown-single-pack/p/19395370"
+ },
+ {
+  "mpn": "GP6429",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector GP6429",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector",
+  "description": "Mechanical grounding connector joining 2 parallel cables to rod or pipe; copper alloy body with DURIUM silicon bronze hardware; UL467 listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector"
+   },
+   {
+    "name": "Cable Range",
+    "value": "2/0 AWG (Sol.) to 250 kcmil"
+   },
+   {
+    "name": "Rod Size",
+    "value": "5/8\"–3/4\""
+   },
+   {
+    "name": "Pipe Size",
+    "value": "3/8\" IPS"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy cast, DURIUM silicon bronze hardware"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 LBS/in"
+   },
+   {
+    "name": "Direct Burial Rated",
+    "value": "Yes (earth or concrete)"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gp6429-mechanical-grounding-connector-2-cables-to-rod-or-pipe/p/483247"
+ },
+ {
+  "mpn": "BIBD6002",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Multi-Tap Connector (Insulated) BIBD6002",
+  "category": "electrical",
+  "subcategory": "Multi-Tap Connector (Insulated)",
+  "description": "Double-sided 2-conductor clear plastisol-insulated UNITAP multi-tap connector, 4 AWG–600 kcmil, 600V, AL6061-T6 aluminum body with pre-installed oxide inhibitor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Multi-Tap Connector (Insulated)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "4 AWG to 600 kcmil"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Ports / Entry Sides",
+    "value": "2 ports, double-sided entry"
+   },
+   {
+    "name": "Body Material",
+    "value": "AL6061-T6 aluminum"
+   },
+   {
+    "name": "Insulation",
+    "value": "Clear plastisol"
+   },
+   {
+    "name": "Dimensions (H x L x W)",
+    "value": "2.75 x 2.72 x 3.00 in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL 486A-486B, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/BRDY_CA-BIBD6002-SPEC-EN.pdf"
+ },
+ {
+  "mpn": "YDS2C",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Splice (Full Tension) YDS2C",
+  "category": "electrical",
+  "subcategory": "Compression Splice (Full Tension)",
+  "description": "HYSPLICE single-sleeve full-tension copper compression splice for #2 AWG hard, medium, or soft drawn stranded copper conductors; prefilled with Penetrox E.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Splice (Full Tension)"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "#2 AWG Cu stranded"
+   },
+   {
+    "name": "Material",
+    "value": "Copper tubing"
+   },
+   {
+    "name": "Splice Type",
+    "value": "Single sleeve, full tension"
+   },
+   {
+    "name": "Oxide Inhibitor",
+    "value": "Penetrox E (prefilled)"
+   },
+   {
+    "name": "Die Index",
+    "value": "163"
+   },
+   {
+    "name": "Overall Length",
+    "value": "3.69 in"
+   },
+   {
+    "name": "Barrel Length",
+    "value": "1.72 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yds2c-copper-single-sleeve-full-tension-splice/p/474826"
+ },
+ {
+  "mpn": "YS3CL",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Splice YS3CL",
+  "category": "electrical",
+  "subcategory": "Compression Splice",
+  "description": "3 AWG copper compression butt splice, standard barrel, tin-plated, for stranded copper conductors; 600V–35kV rated, 90°C temperature rating.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Splice"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "#3 AWG Cu stranded"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Barrel Type",
+    "value": "Standard barrel"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600V–35 kV"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "90°C"
+   },
+   {
+    "name": "Color Code",
+    "value": "White"
+   },
+   {
+    "name": "Standards",
+    "value": "UL 486A-486B"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Splices/Compression/Copper/Compression-Splice/p/1700880"
+ },
+ {
+  "mpn": "YGHHC34C26",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Grounding C-Tap Connector YGHHC34C26",
+  "category": "electrical",
+  "subcategory": "Compression Grounding C-Tap Connector",
+  "description": "HYTAP double-C compression grounding tap connector; copper; 300–500 kcmil run (3/4\" rod), 6 AWG (Sol)–2/0 AWG (Str) tap; prefilled with Penetrox; UL467/IEEE 837.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Grounding C-Tap Connector"
+   },
+   {
+    "name": "Run/Rod Size",
+    "value": "300–500 kcmil / 3/4\" rod"
+   },
+   {
+    "name": "Tap Size",
+    "value": "6 AWG (Sol) – 2/0 AWG (Str)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Die Index",
+    "value": "O"
+   },
+   {
+    "name": "Oxide Inhibitor",
+    "value": "Penetrox (prefilled)"
+   },
+   {
+    "name": "Direct Burial Rated",
+    "value": "Yes"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467, IEEE 837, UL 486A-486B"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Grounding-Bonding/Compression/Taps/YGHC34C26/p/1732670"
+ },
+ {
+  "mpn": "GD1626",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector GD1626",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector",
+  "description": "Mechanical grounding connector joining 2 parallel copper cables to 1-1/4\"–1-1/2\" rod or pipe; copper alloy body with DURIUM silicon bronze U-bolt; UL467 listed, direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector"
+   },
+   {
+    "name": "Cable Range",
+    "value": "#4 AWG (Sol.) to 2/0 AWG (Str.)"
+   },
+   {
+    "name": "Rod Size",
+    "value": "1-3/8\" to 1-1/2\""
+   },
+   {
+    "name": "Pipe Size",
+    "value": "1-1/4\" IPS"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy cast, DURIUM silicon bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 LBS/in"
+   },
+   {
+    "name": "Direct Burial Rated",
+    "value": "Yes"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gd1626-mechanical-grounding-connector-2-cables-to-rod-or-pipe/p/483140"
+ },
+ {
+  "mpn": "GD1926",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector GD1926",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector",
+  "description": "Mechanical grounding connector joining 2 parallel copper cables to 2-1/2\"–2-7/8\" rod or 2-1/2\" pipe; copper alloy body with DURIUM silicon bronze hardware; UL467 listed, direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector"
+   },
+   {
+    "name": "Cable Range",
+    "value": "#4 AWG (Sol.) to 2/0 AWG (Str.)"
+   },
+   {
+    "name": "Rod Size",
+    "value": "2-1/2\" to 2-7/8\""
+   },
+   {
+    "name": "Pipe Size",
+    "value": "2-1/2\" IPS"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy cast, DURIUM silicon bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 LBS/in"
+   },
+   {
+    "name": "Direct Burial Rated",
+    "value": "Yes"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gd1926-mechanical-grounding-connector-2-cables-to-rod-or-pipe/p/483143"
+ },
+ {
+  "mpn": "GD2026",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector GD2026",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector",
+  "description": "Mechanical grounding connector joining 2 parallel copper cables to 3\"–3-1/2\" rod or 3\" pipe; copper alloy body with DURIUM silicon bronze hardware; UL467 listed, direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector"
+   },
+   {
+    "name": "Cable Range",
+    "value": "#4 AWG (Sol.) to 2/0 AWG (Str.)"
+   },
+   {
+    "name": "Rod Size",
+    "value": "3\" to 3-1/2\""
+   },
+   {
+    "name": "Pipe Size",
+    "value": "3\" IPS"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy cast, DURIUM silicon bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 LBS/in"
+   },
+   {
+    "name": "Dimensions (H x W)",
+    "value": "5.63 x 4.81 in"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gd2026-mechanical-grounding-connector-2-cables-to-rod-or-pipe/p/483145"
+ },
+ {
+  "mpn": "HBL2411",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Twist-Lock Male Plug HBL2411",
+  "category": "electrical",
+  "subcategory": "Twist-Lock Male Plug",
+  "description": "Insulgrip Twist-Lock industrial male plug, 20A 125/250V, NEMA L14-20P, 3-pole 4-wire grounding, screw terminal, black and white nylon.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Twist-Lock Male Plug"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125/250V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L14-20P"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "3-Pole, 4-Wire Grounding"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Screw, #16–#8 AWG stranded Cu"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.350\"–1.150\""
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Temp Rating",
+    "value": "-40°C to 75°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/locking-devices-twist-lock-industrial-male-plug-20a-125250v-3-pole-4-wire-grounding-l14-20p-screw-terminal-black-and-white/p/172979"
+ },
+ {
+  "mpn": "HBL2431",
+  "brand": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+  "name": "Hubbell INDUSTRIAL CONTROLS DIVISION Twist-Lock Male Plug HBL2431",
+  "category": "electrical",
+  "subcategory": "Twist-Lock Male Plug",
+  "description": "Insulgrip Twist-Lock industrial male plug, 20A 3-phase delta 480V AC, NEMA L16-20P, 3-pole 4-wire grounding, screw terminal, black and white nylon.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell INDUSTRIAL CONTROLS DIVISION",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Twist-Lock Male Plug"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "480V AC (3-phase delta)"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L16-20P"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "3-Pole, 4-Wire Grounding"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Screw, #16–#8 AWG stranded Cu"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Color",
+    "value": "Black and White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/Locking-Devices/Insulgrip-Twist-Lock/HBL2431/p/174886"
+ },
+ {
+  "mpn": "HBL2313",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Twist-Lock Female Connector Body HBL2313",
+  "category": "electrical",
+  "subcategory": "Twist-Lock Female Connector Body",
+  "description": "Insulgrip Twist-Lock industrial female connector body, 20A 125V, NEMA L5-20R, 2-pole 3-wire grounding, screw terminal, ribbed nylon housing.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Twist-Lock Female Connector Body"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L5-20R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.360\"–0.930\" (#16–#8 AWG)"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon (ribbed)"
+   },
+   {
+    "name": "Dielectric Strength",
+    "value": "2,000V min"
+   },
+   {
+    "name": "Listing",
+    "value": "UL 498, CSA C22.2 No.42"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/locking-devices-twist-lock-industrial-female-connector-body-20a-125v-2-pole-3-wire-grounding-l5-20r-screw-terminal-black-and-white/p/167598"
+ },
+ {
+  "mpn": "70520NC",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Twist-Lock Female Connector Body 70520NC",
+  "category": "electrical",
+  "subcategory": "Twist-Lock Female Connector Body",
+  "description": "Industrial female connector body, 20A 125V AC, NEMA L5-20R, 2-pole 3-wire grounding, screw terminal, black and white; Triple Gripper cord grip.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Twist-Lock Female Connector Body"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L5-20R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Screw"
+   },
+   {
+    "name": "Material",
+    "value": "Composite, impact-resistant nylon"
+   },
+   {
+    "name": "Cord Grip",
+    "value": "Triple Gripper with radius teeth"
+   },
+   {
+    "name": "Color",
+    "value": "Black and White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bryant/en/products/locking-devices-industrial-female-connector-body-20a-125v-2-pole-3-wire-grounding-l5-20r-screw-terminal-black-and-white/p/19479787"
+ },
+ {
+  "mpn": "HBL2311",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Twist-Lock Male Plug HBL2311",
+  "category": "electrical",
+  "subcategory": "Twist-Lock Male Plug",
+  "description": "Insulgrip Twist-Lock industrial male plug, 20A 125V, NEMA L5-20P, 2-pole 3-wire grounding, screw terminal, black and white nylon.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Twist-Lock Male Plug"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L5-20P"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Screw"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Color",
+    "value": "Black and White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/c/HBL2311/p/1640176"
+ },
+ {
+  "mpn": "HBL2611",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Twist-Lock Male Plug HBL2611",
+  "category": "electrical",
+  "subcategory": "Twist-Lock Male Plug",
+  "description": "Insulgrip Twist-Lock industrial male plug, 30A 125V, NEMA L5-30P, 2-pole 3-wire grounding, screw terminal, black and white nylon.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Twist-Lock Male Plug"
+   },
+   {
+    "name": "Amperage",
+    "value": "30A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "L5-30P"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.360\"–0.930\""
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Temp Rating",
+    "value": "-40°C to 75°C"
+   },
+   {
+    "name": "Max HP Rating",
+    "value": "2"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/30-amp-twist-lock-male-plug-125v-2-pole-3-wire-grounding-industrial-grade-l5-30p-screw-terminal-black-and-white/p/179850"
+ },
+ {
+  "mpn": "GK1529",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector (3-Cable to Rod) GK1529",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector (3-Cable ",
+  "description": "Copper alloy mechanical grounding clamp joining 3 cables to rod or pipe; for 2/0 Sol–250 kcmil cable and 1\" IPS pipe; UL467 listed, direct burial rated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector (3-Cable to Rod)"
+   },
+   {
+    "name": "Cable Range",
+    "value": "2/0 AWG (Sol.) to 250 kcmil"
+   },
+   {
+    "name": "Rod/Pipe Size",
+    "value": "1\" IPS pipe"
+   },
+   {
+    "name": "Number of Cables",
+    "value": "3"
+   },
+   {
+    "name": "Material",
+    "value": "Copper alloy"
+   },
+   {
+    "name": "Direct Burial Rated",
+    "value": "Yes"
+   },
+   {
+    "name": "Listing",
+    "value": "UL467"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/grounding-bonding-connectors-mechanical-grounding-connectors"
+ },
+ {
+  "mpn": "QA1C2B",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Copper Lug Connector (Bolted) QA1C2B",
+  "category": "electrical",
+  "subcategory": "Copper Lug Connector (Bolted)",
+  "description": "QIKLUG heavy-duty 2-hole copper lug connector for 4–1 AWG stranded cable; 5/16\" stud, 7/8\" hole spacing, 1 screw; 194°F temperature rating.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Copper Lug Connector (Bolted)"
+   },
+   {
+    "name": "Wire Size",
+    "value": "4–1 AWG (Str.)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16\""
+   },
+   {
+    "name": "Hole Spacing",
+    "value": "7/8\""
+   },
+   {
+    "name": "Number of Holes",
+    "value": "2"
+   },
+   {
+    "name": "Screws",
+    "value": "1 (hexagonal bolt)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "150 LBS/in"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "194°F (90°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Bolted/Cables-to-Flat/QA1C2B/p/1687107"
+ },
+ {
+  "mpn": "RLL200",
+  "brand": "Hubbell TAYMAC",
+  "name": "Hubbell TAYMAC Conduit Body (LL Type) RLL200",
+  "category": "electrical",
+  "subcategory": "Conduit Body (LL Type)",
+  "description": "2 in. LL-type rigid/IMC conduit body, die-cast aluminum with powder coat finish; NBR rubber gasket and stamped aluminum cover; NEMA 3R, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell TAYMAC",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Conduit Body (LL Type)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in."
+   },
+   {
+    "name": "Body Type",
+    "value": "LL"
+   },
+   {
+    "name": "Material",
+    "value": "Die-cast aluminum"
+   },
+   {
+    "name": "Finish",
+    "value": "Premium powder coat"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "71.4 cu in"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "10.05 x 4.27 x 3.41 in"
+   },
+   {
+    "name": "Gasket",
+    "value": "NBR synthetic rubber"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed, NEMA 3R, NEC Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/taymac/en/products/rigidimc-conduit-bodies/p/141717"
+ },
+ {
+  "mpn": "1432",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC or EMT Set-Screw Coupling 1432",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC or EMT Set-Screw Coupling",
+  "description": "1/2 in. set-screw coupling for rigid/IMC or EMT conduit; steel, zinc-electroplated; UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC or EMT Set-Screw Coupling"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC or EMT"
+   },
+   {
+    "name": "Material",
+    "value": "Steel"
+   },
+   {
+    "name": "Finish",
+    "value": "Zinc-electroplated"
+   },
+   {
+    "name": "Dimensions (L x H x W)",
+    "value": "2.203 x 0.859 x 0.859 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.148 lb"
+   },
+   {
+    "name": "Listing",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/12-in-rigidimc-or-emt-set-screw-coupling/p/140734"
+ },
+ {
+  "mpn": "2655",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Rigid/IMC Handy Ell Threaded Coupling 2655",
+  "category": "electrical",
+  "subcategory": "Rigid/IMC Handy Ell Threaded Coupling",
+  "description": "1-1/4 in. 90-degree handy ell threaded coupling for rigid/IMC conduit; malleable iron construction providing concrete-tight connections.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Rigid/IMC Handy Ell Threaded Coupling"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in."
+   },
+   {
+    "name": "Angle",
+    "value": "90 degrees"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC (threaded)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable iron"
+   },
+   {
+    "name": "Connection Type",
+    "value": "Concrete-tight"
+   },
+   {
+    "name": "Series",
+    "value": "Handy Ell (hinged coupling line)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/electrical-electronic/fittings/commercial-fittings/c/2144823"
+ },
+ {
+  "mpn": "HBL8315C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital-Grade Male Plug HBL8315C",
+  "category": "electrical",
+  "subcategory": "Hospital-Grade Male Plug",
+  "description": "Insulgrip hospital-grade straight male plug, 20A 125V, NEMA 5-20P, 2-pole 3-wire grounding, black and white nylon; rated for current interruption at full load.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital-Grade Male Plug"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20P"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Hospital Grade"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.230\"–0.720\""
+   },
+   {
+    "name": "Material",
+    "value": "Nylon"
+   },
+   {
+    "name": "Color",
+    "value": "Black and White"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Hospital-Products/Plugs-Connector-Bodies/HBL8315C/p/1634035"
+ },
+ {
+  "mpn": "BRY5469NC",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Straight Blade Female Connector Body BRY5469NC",
+  "category": "electrical",
+  "subcategory": "Straight Blade Female Connector Body",
+  "description": "Heavy-duty industrial/commercial-grade female connector body, 20A 250V, NEMA 6-20R, 2-pole 3-wire grounding, Tech-Spec Triple Gripper cord grip.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Straight Blade Female Connector Body"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "250V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "6-20R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Grade",
+    "value": "Heavy Duty Industrial/Commercial"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.95 x 1.52 x 1.38 in"
+   },
+   {
+    "name": "Temp Rating",
+    "value": "-40°C to 75°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/female-connector-body-heavy-duty-industrialcommercial-grade-straight-20a-250v-2-pole-3-wire-grounding-6-20r-black-and-white-single-pack/p/4690871"
+ },
+ {
+  "mpn": "80S0250F09",
+  "brand": "Hubbell OHIO BRASS",
+  "name": "Hubbell OHIO BRASS Distribution Line Post Insulator 80S0250F09",
+  "category": "electrical",
+  "subcategory": "Distribution Line Post Insulator",
+  "description": "Veri*Lite 25 kV silicone rubber distribution line post insulator with F-neck live end and 3/4\"-10 stud base; 2800 lb max cantilever, 15 in. overall length.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell OHIO BRASS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Distribution Line Post Insulator"
+   },
+   {
+    "name": "Voltage Class",
+    "value": "25 kV"
+   },
+   {
+    "name": "Material",
+    "value": "Silicone rubber weathersheds, galvanized steel end fittings"
+   },
+   {
+    "name": "Max Cantilever Strength",
+    "value": "2800 lb (12.5 kN)"
+   },
+   {
+    "name": "Routine Cantilever Strength",
+    "value": "1235 lb (5.5 kN)"
+   },
+   {
+    "name": "Live End Fitting",
+    "value": "F-Neck"
+   },
+   {
+    "name": "Base Fitting",
+    "value": "3/4\"-10 stud"
+   },
+   {
+    "name": "Overall Length",
+    "value": "15 in."
+   },
+   {
+    "name": "Number of Sheds",
+    "value": "4"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/veri-lite-line-post-insulator-sr-25-kv/p/1409419"
+ },
+ {
+  "mpn": "YHD200",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Line Tap Connector YHD200",
+  "category": "electrical",
+  "subcategory": "Compression Line Tap Connector",
+  "description": "HYCRIMP aluminum H-style compression line tap for Cu/Al/ACSR and compact conductors; 3/0–4/0 AWG run, 6 AWG–1/0 AWG tap; pre-filled with Penetrox compound.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Line Tap Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "3/0–4/0 AWG (Cu/Al/ACSR)"
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "6 AWG–1/0 AWG (Cu); 6 AWG–1 AWG (Al)"
+   },
+   {
+    "name": "Shape",
+    "value": "Figure H"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Die Index",
+    "value": "D3"
+   },
+   {
+    "name": "Pre-filled Compound",
+    "value": "Penetrox Joint Compound"
+   },
+   {
+    "name": "Buy American Qualified",
+    "value": "Yes"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yhd200-compression-line-tap-cu-al-acsr-compact/p/502833"
+ },
+ {
+  "mpn": "YHD6",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Compression Line Tap Connector YHD6",
+  "category": "electrical",
+  "subcategory": "Compression Line Tap Connector",
+  "description": "LOKTAP aluminum H-style compression line tap for Al-Cu and Al-Al conductors; 3/0 AWG–300 kcmil run, 1–3/0 AWG tap; die index D3.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Compression Line Tap Connector"
+   },
+   {
+    "name": "Run Conductor Range",
+    "value": "3/0 AWG to 300 kcmil (Al)"
+   },
+   {
+    "name": "Run Diameter Range",
+    "value": "0.461\"–0.563\""
+   },
+   {
+    "name": "Tap Conductor Range",
+    "value": "1 AWG to 3/0 AWG"
+   },
+   {
+    "name": "Tap Diameter Range",
+    "value": "0.332\"–0.419\""
+   },
+   {
+    "name": "Shape",
+    "value": "Figure H"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Die Index",
+    "value": "D3 Element A"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/yhd6-line-tap-connector-al-cu-al-al/p/502868"
+ },
+ {
+  "mpn": "RSD315LA",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Decorator Rocker Switch RSD315LA",
+  "category": "electrical",
+  "subcategory": "Decorator Rocker Switch",
+  "description": "TradeSelect residential-grade three-way decorator rocker switch, 15A 120/277V AC, push-back and side-wired, light almond; self-grounding, 30,000 cycle rating.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Decorator Rocker Switch"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "120/277V AC"
+   },
+   {
+    "name": "Switch Function",
+    "value": "Three-way"
+   },
+   {
+    "name": "Wiring",
+    "value": "Push-back and side wired"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#14–#12 AWG solid/stranded Cu"
+   },
+   {
+    "name": "Color",
+    "value": "Light Almond (LA)"
+   },
+   {
+    "name": "Endurance",
+    "value": "30,000 cycles min"
+   },
+   {
+    "name": "Grade",
+    "value": "Residential (TradeSelect)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/products/tradeselect-decorator-switch-residential-grade-rocker-switch-general-purpose-ac-three-way-15a-120277v-ac-push-back-and-side-wired-light/p/2183165"
+ },
+ {
+  "mpn": "55084P",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Square Nut (Pole Line Hardware) 55084P",
+  "category": "electrical",
+  "subcategory": "Square Nut (Pole Line Hardware)",
+  "description": "5/8\"-11 UNC galvanized steel regular square nut for pole line construction; ASTM A-153 hot-dip galvanized, compliant with ANSI C135.1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Square Nut (Pole Line Hardware)"
+   },
+   {
+    "name": "Thread Size",
+    "value": "5/8\"-11 UNC"
+   },
+   {
+    "name": "Nut Type",
+    "value": "Regular square"
+   },
+   {
+    "name": "Material",
+    "value": "Steel"
+   },
+   {
+    "name": "Finish",
+    "value": "Hot-dip galvanized (ASTM A-153)"
+   },
+   {
+    "name": "Dimensions (L x W x H)",
+    "value": "1.000 x 1.000 x 0.500 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.1 lb"
+   },
+   {
+    "name": "Standard",
+    "value": "ANSI C135.1"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/p/306782"
+ },
+ {
+  "mpn": "6806",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE Round Washer (Pole Line Hardware) 6806",
+  "category": "electrical",
+  "subcategory": "Round Washer (Pole Line Hardware)",
+  "description": "2 in. diameter galvanized steel round washer with 13/16 in. hole for 3/4 in. bolts; 9-gauge (0.134 in.) thickness; ANSI B18.22.1, galvanized per ASTM A-153.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Round Washer (Pole Line Hardware)"
+   },
+   {
+    "name": "Outer Diameter",
+    "value": "2.000 in"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "13/16 in. (for 3/4\" bolt)"
+   },
+   {
+    "name": "Thickness",
+    "value": "0.134 in. (9 gauge)"
+   },
+   {
+    "name": "Material",
+    "value": "Steel"
+   },
+   {
+    "name": "Finish",
+    "value": "Galvanized (ASTM A-153 or ASTM B695)"
+   },
+   {
+    "name": "Standard",
+    "value": "ANSI B18.22.1 & NEMA PH10"
+   },
+   {
+    "name": "Weight",
+    "value": "0.1 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/washer-round-1316-in-hole-2in/p/307278"
+ },
+ {
+  "mpn": "QA282B",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Heavy Duty Copper Bolted Lug Terminal (QIKLUG) QA282B",
+  "category": "electrical",
+  "subcategory": "Heavy Duty Copper Bolted Lug Terminal (Q",
+  "description": "Two-hole heavy duty copper terminal for 3/0-4/0 AWG stranded cable, joining cable to equipment pads or bars with one-screw hexagonal bolt installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Heavy Duty Copper Bolted Lug Terminal (QIKLUG)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "3/0-4/0 AWG Stranded"
+   },
+   {
+    "name": "Number of Holes",
+    "value": "2"
+   },
+   {
+    "name": "Connector Type",
+    "value": "Bolted (Single Clamp)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, Unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "Hexagonal Bolt"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "250 lb-in"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "194°F (90°C)"
+   },
+   {
+    "name": "Trade Name",
+    "value": "QIKLUG"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellcanada/en/products/qa282b-heavy-duty-copper-terminal-2-hole-30-40-awg-str/p/4585455"
+ },
+ {
+  "mpn": "KC23B1",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY SERVIT POST Mechanical Connector (Cable to Flat) KC23B1",
+  "category": "electrical",
+  "subcategory": "SERVIT POST Mechanical Connector (Cable ",
+  "description": "Bronze SERVIT POST mechanical connector for grounding 8-2 AWG stranded (or 10-1 AWG solid) copper cable to steel structures, fence posts, transformers, or bus bars, with direct-burial rating.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "SERVIT POST Mechanical Connector (Cable to Flat)"
+   },
+   {
+    "name": "Wire Range (Stranded)",
+    "value": "8-2 AWG"
+   },
+   {
+    "name": "Wire Range (Solid)",
+    "value": "10-1 AWG"
+   },
+   {
+    "name": "Material",
+    "value": "Bronze, Leaded, Commercial, Unplated"
+   },
+   {
+    "name": "Stud Torque",
+    "value": "280 lb-in"
+   },
+   {
+    "name": "Body Width",
+    "value": "0.62 in"
+   },
+   {
+    "name": "Standard",
+    "value": "UL467 Listed, Direct Burial"
+   },
+   {
+    "name": "RoHS",
+    "value": "Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/kc23b1servit-post-mechanical-connector-cable-to-flat/p/484148"
+ },
+ {
+  "mpn": "5612-0",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL Weatherproof Lampholder with Gasket 5612-0",
+  "category": "electrical",
+  "subcategory": "Weatherproof Lampholder with Gasket",
+  "description": "Die-cast aluminum weatherproof flood lampholder for 75-150W PAR 38 lamps with porcelain socket, locking swivel knuckle (150° range of motion), inside/outside gasket, and 1/2 in. locknut.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Weatherproof Lampholder with Gasket"
+   },
+   {
+    "name": "Lamp Type",
+    "value": "PAR 38 Incandescent"
+   },
+   {
+    "name": "Max Wattage",
+    "value": "75-150W"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Material",
+    "value": "Die-Cast Aluminum"
+   },
+   {
+    "name": "Range of Motion",
+    "value": "150°"
+   },
+   {
+    "name": "Depth",
+    "value": "5 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified (UL 1598)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/weatherproof-lampholder-with-gasket-75-150w-par-38-lamps-gray/p/142684"
+ },
+ {
+  "mpn": "QN10M25X03D",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Nylon Male Quick Disconnect Terminal QN10M25X03D",
+  "category": "electrical",
+  "subcategory": "Nylon Male Quick Disconnect Terminal",
+  "description": "Nylon-insulated brass male quick disconnect terminal for 12-10 AWG wire with 0.250 x 0.032 in. tab, rated 300V, featuring funnel-entry barrel and sleeved barrel construction.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Nylon Male Quick Disconnect Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.25 x 0.03 in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "300V"
+   },
+   {
+    "name": "Material",
+    "value": "Brass, Tin Plated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.95 in"
+   },
+   {
+    "name": "Strip Length",
+    "value": "3/8 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/qn10m25x03d-nylon-male-quick-disconnect-for-12-10-awg-25-x-03/p/519855"
+ },
+ {
+  "mpn": "ATD1600WRP",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Dual-Technology Occupancy Sensor (Ultrasonic + PIR), Wall Mo",
+  "category": "electrical",
+  "subcategory": "Dual-Technology Occupancy Sensor (Ultras",
+  "description": "Adaptive Technology Dual (Ultrasonic + PIR) wall-mount occupancy sensor covering 1600 sq ft at 110° corner-mount, with isolated relay output and 24VDC supply from Hubbell CU series control unit.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dual-Technology Occupancy Sensor (Ultrasonic + PIR), Wall Mount, with Relay"
+   },
+   {
+    "name": "Supply Voltage",
+    "value": "24V DC (from Hubbell CU control unit)"
+   },
+   {
+    "name": "Coverage",
+    "value": "1600 sq ft, 110°"
+   },
+   {
+    "name": "Technology",
+    "value": "Dual: Ultrasonic + PIR"
+   },
+   {
+    "name": "Relay",
+    "value": "Isolated, normally open and normally closed"
+   },
+   {
+    "name": "Time Delay",
+    "value": "Test 8 sec; Adaptive 8-40 min"
+   },
+   {
+    "name": "Operating Temp",
+    "value": "32-104°F (0-40°C)"
+   },
+   {
+    "name": "Dimensions",
+    "value": "6 in H x 2 in W x 1.5 in D"
+   },
+   {
+    "name": "Certifications",
+    "value": "cULus Listed UL244A, ASHRAE 90.1 Compliant"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/occupancy-sensors-adaptive-technologydual-ultrasonic-and-pir-wall-mount-sensor-1600-square-feetcoveragesq-with-relay/p/166551"
+ },
+ {
+  "mpn": "971",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO Low-Voltage Box Partition for Switch Boxes 971",
+  "category": "electrical",
+  "subcategory": "Low-Voltage Box Partition for Switch Box",
+  "description": "Low-voltage partition for RACO 686/687 switch boxes to separate low-voltage circuits from current-carrying circuitry; fits 2-1/2 in. and 3-1/2 in. deep masonry boxes.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Low-Voltage Box Partition for Switch Boxes"
+   },
+   {
+    "name": "Compatible Boxes",
+    "value": "686 and 687"
+   },
+   {
+    "name": "Material",
+    "value": "Zinc pre-coated steel"
+   },
+   {
+    "name": "Height",
+    "value": "3.625 in"
+   },
+   {
+    "name": "Width",
+    "value": "3.531 in"
+   },
+   {
+    "name": "Depth/Length",
+    "value": "0.843 in"
+   },
+   {
+    "name": "Weight",
+    "value": "0.232 lb"
+   },
+   {
+    "name": "Compliance",
+    "value": "Buy America Compliant, Non-gangable"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Boxes/Accessories/971/p/1656869"
+ },
+ {
+  "mpn": "232",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 4 in. Square Welded Steel Electrical Box 232",
+  "category": "electrical",
+  "subcategory": "4 in. Square Welded Steel Electrical Box",
+  "description": "4-inch square welded steel electrical box, 2-1/8 in. deep with 10 half-inch KOs and 6 TKOs, raised ground, fire-rated, suitable for enclosing wiring, switches, receptacles, or fixtures.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "4 in. Square Welded Steel Electrical Box"
+   },
+   {
+    "name": "Box Size",
+    "value": "4 in. Square"
+   },
+   {
+    "name": "Depth",
+    "value": "2-1/8 in (2.125 in)"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "30.3 cu. in"
+   },
+   {
+    "name": "Knockouts",
+    "value": "10 x 1/2 in. KO + 6 TKO (1/2-3/4 in.)"
+   },
+   {
+    "name": "Material",
+    "value": "Pre-galvanized Steel, 1/16 in."
+   },
+   {
+    "name": "Max Voltage",
+    "value": "600V"
+   },
+   {
+    "name": "Weight",
+    "value": "0.898 lb"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, TAA Compliant, 2-hr fire rated"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/4-in-square-box-welded-2-18-in-deep-ten-12-in-kos-six-tkos-raised-ground/p/1670137"
+ },
+ {
+  "mpn": "GB4C",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector (Cable to Bar) GB4C",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector (Cable to",
+  "description": "Copper alloy mechanical grounding connector joining 8-4 AWG copper cable to 1/4 in. thick bar, one-wrench installation with DURIUM silicon bronze hardware, UL467 Listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector (Cable to Bar)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "8-4 AWG (solid and stranded)"
+   },
+   {
+    "name": "Bar Thickness",
+    "value": "1/4 in."
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in."
+   },
+   {
+    "name": "Material",
+    "value": "Copper Alloy, Unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, Direct Burial, Buy America Qualified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gb4c-mechanical-grounding-connector-cable-to-bar/p/483400"
+ },
+ {
+  "mpn": "SWAB22A44N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY EHV Welded T Connector (Bus to Pad, Substation) SWAB22A44N",
+  "category": "electrical",
+  "subcategory": "EHV Welded T Connector (Bus to Pad, Subs",
+  "description": "Cast 356 aluminum alloy welded T connector (Type SWAB-A-N) for substation bus-to-pad connections, EHV rated up to 550 kV with shielding caps, with 4-hole pad pattern.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "EHV Welded T Connector (Bus to Pad, Substation)"
+   },
+   {
+    "name": "Material",
+    "value": "Cast 356 Aluminum Alloy"
+   },
+   {
+    "name": "EHV Rating",
+    "value": "Up to 550 kV (with shielding caps)"
+   },
+   {
+    "name": "Pad Width",
+    "value": "4.50 in (114 mm)"
+   },
+   {
+    "name": "Pad Height",
+    "value": "6.21 in (158 mm)"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4"
+   },
+   {
+    "name": "Application",
+    "value": "Substation Bus to Pad, EHV"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/p/503128"
+ },
+ {
+  "mpn": "YF1808IDL",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Insulated Bootlace Ferrule (Wire End Ferrule) for 18 AWG YF1808IDL",
+  "category": "electrical",
+  "subcategory": "Insulated Bootlace Ferrule (Wire End Fer",
+  "description": "Covered (insulated) bootlace-style compression wire ferrule for 18 AWG conductors, electrolytic copper tin-plated with smooth funnel entry for easy insertion and secure termination without strand fraying.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulated Bootlace Ferrule (Wire End Ferrule) for 18 AWG"
+   },
+   {
+    "name": "Wire Size",
+    "value": "18 AWG"
+   },
+   {
+    "name": "Type",
+    "value": "Covered (Insulated) Ferrule"
+   },
+   {
+    "name": "Material",
+    "value": "Electrolytic Copper, Tin Plated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Polymer sleeve (color-coded)"
+   },
+   {
+    "name": "Entry",
+    "value": "Smooth funnel entry"
+   },
+   {
+    "name": "Series",
+    "value": "YF Bootlace-Style Ferrule Connectors"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/Bootlace-Style-Ferrule-Connectors/Covered-Ferrule-For-18-AWG/p/7661813"
+ },
+ {
+  "mpn": "BD12N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Flexible Copper Braid (Bonding/Grounding Jumper) BD12N",
+  "category": "electrical",
+  "subcategory": "Flexible Copper Braid (Bonding/Grounding",
+  "description": "12-inch flexible copper braid with pressed seamless copper ferrules for bonding/grounding applications requiring flexibility or vibration resistance, extra fine stranding, rated 190A indoor / 225A outdoor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Flexible Copper Braid (Bonding/Grounding Jumper)"
+   },
+   {
+    "name": "Length",
+    "value": "12 inches (305 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, Tin Plated"
+   },
+   {
+    "name": "Width",
+    "value": "0.94 in"
+   },
+   {
+    "name": "Hole Size",
+    "value": "0.56 in"
+   },
+   {
+    "name": "Current Rating (Indoor)",
+    "value": "190 A"
+   },
+   {
+    "name": "Current Rating (Outdoor)",
+    "value": "225 A"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified, UL467, Buy America Qualified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/bd12n-12-inch-flexible-copper-braid/p/480719"
+ },
+ {
+  "mpn": "NA194N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Bolted Terminal (Tube to Flat) NA194N",
+  "category": "electrical",
+  "subcategory": "Substation Copper Bolted Terminal (Tube ",
+  "description": "Heavy-duty substation copper bolted terminal for 2-1/2 in. copper pipe (tube to flat), 4-hole pad pattern, rated 230 kV, for joining large conductor pipe to equipment pads in substation applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Bolted Terminal (Tube to Flat)"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "CU Tube, 2-1/2 in. IPS"
+   },
+   {
+    "name": "Pad Holes",
+    "value": "4"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "230 kV"
+   },
+   {
+    "name": "Material",
+    "value": "Copper Alloy, Unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Application",
+    "value": "Substation, Tube to Flat"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Lugs-Terminals/Bolted/Tube-to-Flat/Substation---Copper-Terminal/p/1709163"
+ },
+ {
+  "mpn": "NAS3434N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Bolted Tee Terminal (Cable to Flat) NAS3434N",
+  "category": "electrical",
+  "subcategory": "Substation Copper Bolted Tee Terminal (C",
+  "description": "High copper alloy substation tee terminal for 1/0-500 kcmil stranded or 1/0-4/0 AWG solid copper cable to flat, 4-hole 3x3 in. offset pad pattern, DURIUM silicon bronze hardware, one-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Bolted Tee Terminal (Cable to Flat)"
+   },
+   {
+    "name": "Wire Range (Stranded)",
+    "value": "1/0-500 kcmil"
+   },
+   {
+    "name": "Wire Range (Solid)",
+    "value": "1/0-4/0 AWG"
+   },
+   {
+    "name": "Pad Configuration",
+    "value": "3 x 3 in., 4 holes (offset)"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "9/16 in."
+   },
+   {
+    "name": "Material",
+    "value": "High Copper Alloy, Unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Application",
+    "value": "Substation Cable to Flat, Tee"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/Products/Power-Utilities/Connectors/Tees/Bolted/Cables-or-Tube-to-Flat/NAS3434N/p/1709430"
+ },
+ {
+  "mpn": "NA214N",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Substation Copper Bolted Terminal (Tube to Flat) NA214N",
+  "category": "electrical",
+  "subcategory": "Substation Copper Bolted Terminal (Tube ",
+  "description": "Substation copper bolted terminal for 3-1/2 in. IPS copper pipe (tube to flat) applications, 4-hole 4.75x3 in. pad pattern, copper alloy with DURIUM silicon bronze hardware, one-wrench installation.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Substation Copper Bolted Terminal (Tube to Flat)"
+   },
+   {
+    "name": "Conductor Type",
+    "value": "CU Tube, 3-1/2 in. IPS"
+   },
+   {
+    "name": "Pad Configuration",
+    "value": "4.75 x 3 in., 4 holes (offset)"
+   },
+   {
+    "name": "Hole Diameter",
+    "value": "9/16 in."
+   },
+   {
+    "name": "Material",
+    "value": "Copper Alloy, Unplated"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Application",
+    "value": "Substation, Tube to Flat"
+   },
+   {
+    "name": "Installation",
+    "value": "One-wrench"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/na214n-substation-copper-terminal/p/501626"
+ },
+ {
+  "mpn": "M3D62B",
+  "brand": "Hubbell CHANCE",
+  "name": "Hubbell CHANCE M3 Hookstick Air Break Disconnect Switch M3D62B",
+  "category": "electrical",
+  "subcategory": "M3 Hookstick Air Break Disconnect Switch",
+  "description": "Single-phase hookstick-operated M3 disconnect switch rated 15.5 kV / 110 kV BIL / 600 A with porcelain insulation (2-1/4 in. bolt circle), silver-plated contacts, load break hook, IEEE C37.30.1 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell CHANCE",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "M3 Hookstick Air Break Disconnect Switch"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "15.5 kV"
+   },
+   {
+    "name": "BIL",
+    "value": "110 kV"
+   },
+   {
+    "name": "Current Rating",
+    "value": "600 A (1080 A emergency overload)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Porcelain, 2-1/4 in. bolt circle"
+   },
+   {
+    "name": "Contact",
+    "value": "Silver-plated"
+   },
+   {
+    "name": "Standard",
+    "value": "ANSI/IEEE C37.30.1"
+   },
+   {
+    "name": "Operation",
+    "value": "Hookstick operated"
+   },
+   {
+    "name": "Mounting",
+    "value": "Cross arm or station (serrated backstraps)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbellpowersystems/en/products/15-5-kv-110-kv-bil-600-a-porcelain-2-14-bolt-circle-insulation-m3-switch/p/1273839"
+ },
+ {
+  "mpn": "5884-8",
+  "brand": "Hubbell BELL",
+  "name": "Hubbell BELL 3-Tier Incandescent Garden Light 5884-8",
+  "category": "electrical",
+  "subcategory": "3-Tier Incandescent Garden Light",
+  "description": "3-tier outdoor incandescent garden landscape light with die-cast construction, powder coat finish, 1/2 in. NPT and 18 in. leads, accepting up to 40W max lamps, includes screw-in clear glass globe.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BELL",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "3-Tier Incandescent Garden Light"
+   },
+   {
+    "name": "Tiers",
+    "value": "3"
+   },
+   {
+    "name": "Max Wattage",
+    "value": "40W"
+   },
+   {
+    "name": "Connection",
+    "value": "1/2 in. NPT"
+   },
+   {
+    "name": "Lead Length",
+    "value": "18 in."
+   },
+   {
+    "name": "Construction",
+    "value": "Die-cast"
+   },
+   {
+    "name": "Finish",
+    "value": "Powder coat"
+   },
+   {
+    "name": "Globe",
+    "value": "Clear glass, screw-in included"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/bell/en/products/p/2090573"
+ },
+ {
+  "mpn": "GL2929",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector (2 Cables to Bar) GL2929",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector (2 Cables",
+  "description": "Copper alloy mechanical grounding connector for joining two 2/0 AWG-250 kcmil parallel copper cables to 1/4 in. thick bar, two-bolt design, one-wrench installation, UL467 Listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector (2 Cables to Bar)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "2/0 AWG (Sol.) - 250 kcmil (Str.)"
+   },
+   {
+    "name": "Bar Thickness",
+    "value": "1/4 in."
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in."
+   },
+   {
+    "name": "Material",
+    "value": "Copper Alloy, DURIUM Silicon Bronze hardware"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "480 lb-in"
+   },
+   {
+    "name": "Width",
+    "value": "2-1/4 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, Direct Burial"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/burndy/en/products/p/483615"
+ },
+ {
+  "mpn": "954",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 5-Gang Welded Steel Switch Box 954",
+  "category": "electrical",
+  "subcategory": "5-Gang Welded Steel Switch Box",
+  "description": "5-gang welded steel electrical switch box, 1-5/8 in. deep with 18 concentric KOs (1/2 and 3/4 in.), 6 half-inch KOs, and 4 three-quarter-inch KOs; 85.8 cu. in. capacity.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "5-Gang Welded Steel Switch Box"
+   },
+   {
+    "name": "Gangs",
+    "value": "5"
+   },
+   {
+    "name": "Depth",
+    "value": "1-5/8 in."
+   },
+   {
+    "name": "Height",
+    "value": "4.5 in"
+   },
+   {
+    "name": "Width",
+    "value": "12.25 in"
+   },
+   {
+    "name": "Cubic Capacity",
+    "value": "85.8 cu. in."
+   },
+   {
+    "name": "Knockouts",
+    "value": "18 concentric (1/2 & 3/4 in.) + 6 x 1/2 in. + 4 x 3/4 in."
+   },
+   {
+    "name": "Material",
+    "value": "Steel"
+   },
+   {
+    "name": "Weight",
+    "value": "2.07 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/products/p/142475"
+ },
+ {
+  "mpn": "GD2226",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Mechanical Grounding Connector (2 Cables to Rod or Pipe) GD2226",
+  "category": "electrical",
+  "subcategory": "Mechanical Grounding Connector (2 Cables",
+  "description": "Cast copper alloy U-bolt grounding connector for two 4 AWG-2/0 AWG copper cables to 4-4.5 in. rod or 4 in. pipe, with DURIUM silicon bronze hardware, UL467 Listed for direct burial.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mechanical Grounding Connector (2 Cables to Rod or Pipe)"
+   },
+   {
+    "name": "Wire Range",
+    "value": "4 AWG (Sol.) - 2/0 AWG (Str.)"
+   },
+   {
+    "name": "Rod/Pipe Size",
+    "value": "4-4.5 in. rod or 4 in. pipe"
+   },
+   {
+    "name": "Material",
+    "value": "Copper Alloy, Cast; DURIUM Silicon Bronze hardware"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Height",
+    "value": "6.38 in"
+   },
+   {
+    "name": "Width",
+    "value": "5.81 in"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL467 Listed, Direct Burial (US and Canada)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/gd2226-mechanical-grounding-connector-2-cables-to-rod-or-pipe/p/483149"
+ },
+ {
+  "mpn": "BRY5662I",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Duplex Specification Grade Receptacle, 15A 250V, 6-15R BRY5662I",
+  "category": "electrical",
+  "subcategory": "Duplex Specification Grade Receptacle, 1",
+  "description": "Bryant specification grade duplex straight-blade receptacle, 15A 250V, 6-15R configuration, ivory, 2-pole 3-wire grounding, brass contacts and mounting strap, UL Listed.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Duplex Specification Grade Receptacle, 15A 250V, 6-15R"
+   },
+   {
+    "name": "Amperage",
+    "value": "15A"
+   },
+   {
+    "name": "Voltage",
+    "value": "250V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "6-15R"
+   },
+   {
+    "name": "Poles/Wires",
+    "value": "2-Pole, 3-Wire Grounding"
+   },
+   {
+    "name": "Color",
+    "value": "Ivory"
+   },
+   {
+    "name": "Contacts",
+    "value": "Brass"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed (UL498), CSA Certified (C22.2 No.42)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Electrical-Electronic/Wiring-Devices/Straight-Blade-Devices/Industrial-Receptacles/HBL5662I/p/1636743"
+ },
+ {
+  "mpn": "GFRST20AL",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Commercial Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, A",
+  "category": "electrical",
+  "subcategory": "Commercial Grade AUTOGUARD Self-Test GFC",
+  "description": "Heavy duty commercial grade AUTOGUARD self-test GFCI duplex receptacle, 20A 125V, 5-20R, almond, with continuous 30-second monitoring, EOL indication, and reverse-wiring protection.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Commercial Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, Almond"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "Almond"
+   },
+   {
+    "name": "Grade",
+    "value": "Commercial, Specification Grade"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD, every 30 seconds"
+   },
+   {
+    "name": "Material (Face/Base)",
+    "value": "Nylon"
+   },
+   {
+    "name": "Contacts",
+    "value": "Brass"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Wiring-Devices/GFCI/Receptacles/Specification-Grade/GFRST20/p/1725697"
+ },
+ {
+  "mpn": "GF20GYLA",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Commercial Grade GFCI Receptacle, 20A, Gray GF20GYLA",
+  "category": "electrical",
+  "subcategory": "Commercial Grade GFCI Receptacle, 20A, G",
+  "description": "Bryant commercial grade GFCI duplex receptacle, 20A 125V, 5-20R, gray, specification grade, with LED ground fault EOL indicator, automatic self-grounding, and reverse-wiring protection.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Commercial Grade GFCI Receptacle, 20A, Gray"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "120V AC"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "Gray"
+   },
+   {
+    "name": "Grade",
+    "value": "Specification Grade"
+   },
+   {
+    "name": "EOL Indicator",
+    "value": "Ground fault LED"
+   },
+   {
+    "name": "Feature",
+    "value": "No power at face if reverse wired"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.platt.com/platt-electric-supply/Commercial-Grade-Receptacles-20-Amp-GFCI/Hubbell-Bryant/GF20GYLA/product.aspx?zpid=922599"
+ },
+ {
+  "mpn": "GFR83",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, Bro",
+  "category": "electrical",
+  "subcategory": "Hospital Grade AUTOGUARD Self-Test GFCI ",
+  "description": "Heavy duty hospital grade AUTOGUARD self-test GFCI receptacle, 20A 125V 5-20R, brown, with triple-wipe construction, continuous 30-second self-monitoring, reverse-wiring protection, UL 943 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, Brown"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "Brown"
+   },
+   {
+    "name": "Grade",
+    "value": "Hospital Grade"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD, every 30 seconds"
+   },
+   {
+    "name": "Dimensions",
+    "value": "4.12 in H x 1.75 in W x 1.48 in D"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL 943"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/heavy-duty-hospital-grade-autoguard-self-test-gfci-receptacle-20a-brown/p/11763338"
+ },
+ {
+  "mpn": "GFRST83",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, Bro",
+  "category": "electrical",
+  "subcategory": "Hospital Grade AUTOGUARD Self-Test GFCI ",
+  "description": "Heavy duty hospital grade AUTOGUARD self-test GFCI duplex receptacle, 20A 125V, 5-20R, brown, with continuous 30-second self-monitoring, EOL and trip indicators, reverse-wiring protection, 2015 UL 943 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, Brown"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "Brown"
+   },
+   {
+    "name": "Grade",
+    "value": "Hospital Grade, Commercial"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD, every 30 seconds"
+   },
+   {
+    "name": "Standard",
+    "value": "2015 UL 943"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/hubbell/en/Products/Electrical-Electronic/Wiring-Devices/Hospital-Products/GFCI-Receptacles/GFRST83/p/1725967"
+ },
+ {
+  "mpn": "GFR83W",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, Whi",
+  "category": "electrical",
+  "subcategory": "Hospital Grade AUTOGUARD Self-Test GFCI ",
+  "description": "Heavy duty hospital grade AUTOGUARD self-test GFCI receptacle, 20A 125V, 5-20R, white; same construction as GFR83 with continuous 30-second self-monitoring, EOL indicator, and reverse-wiring protection.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, White"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Grade",
+    "value": "Hospital Grade"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD, every 30 seconds"
+   },
+   {
+    "name": "Standard",
+    "value": "UL 943"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Hospital-Products/GFCI-Receptacles/GFRST83W/p/1725972"
+ },
+ {
+  "mpn": "GFRST83W",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, Whi",
+  "category": "electrical",
+  "subcategory": "Hospital Grade AUTOGUARD Self-Test GFCI ",
+  "description": "Heavy duty hospital grade AUTOGUARD self-test GFCI duplex receptacle, 20A 125V, 5-20R, white, with continuous 30-second self-monitoring, EOL and trip indicators, reverse-wiring protection, UL 943 compliant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Hospital Grade AUTOGUARD Self-Test GFCI Receptacle, 20A, White"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125V"
+   },
+   {
+    "name": "NEMA Configuration",
+    "value": "5-20R"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Grade",
+    "value": "Hospital Grade, Commercial"
+   },
+   {
+    "name": "Self-Test",
+    "value": "AUTOGUARD, every 30 seconds"
+   },
+   {
+    "name": "Construction",
+    "value": "Triple wipe"
+   },
+   {
+    "name": "Standard",
+    "value": "2015 UL 943"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/Products/Electrical-Electronic/Hospital-Products/GFCI-Receptacles/GFRST83W/p/1725972"
+ },
+ {
+  "mpn": "HBL3431C",
+  "brand": "Hubbell WIRING DEVICE-KELLEMS",
+  "name": "Hubbell WIRING DEVICE-KELLEMS Insulgrip Twist-Lock Male Plug, 30A 3-Phase WYE 120/208VAC, ",
+  "category": "electrical",
+  "subcategory": "Insulgrip Twist-Lock Male Plug, 30A 3-Ph",
+  "description": "Industrial male Insulgrip Twist-Lock plug, 30A 120/208VAC 3-phase WYE, 4-pole 4-wire non-grounding non-NEMA, screw terminal, nylon housing, wire range #16-8 AWG stranded copper.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell WIRING DEVICE-KELLEMS",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Twist-Lock Male Plug, 30A 3-Phase WYE 120/208VAC, 4-Pole 4-Wire Non-Grounding"
+   },
+   {
+    "name": "Amperage",
+    "value": "30A"
+   },
+   {
+    "name": "Voltage",
+    "value": "120/208VAC 3-Phase WYE"
+   },
+   {
+    "name": "Configuration",
+    "value": "4-Pole, 4-Wire Non-Grounding, Non-NEMA"
+   },
+   {
+    "name": "Terminal",
+    "value": "Screw"
+   },
+   {
+    "name": "Wire Range",
+    "value": "#16-#8 AWG Stranded Copper"
+   },
+   {
+    "name": "Color",
+    "value": "Black and White Nylon"
+   },
+   {
+    "name": "Cord Range",
+    "value": "0.350-1.150 in (9-29 mm)"
+   },
+   {
+    "name": "Temp Rating",
+    "value": "-40°C to 75°C continuous"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/wiringdevice-kellems/en/products/locking-devices-twist-lock-industrial-male-plug-30a-3-phase-120208vac-4-pole-4-wire-non-grounding-non-nema-screw-terminal-black-and-white/p/158344"
+ },
+ {
+  "mpn": "7314",
+  "brand": "Hubbell BRYANT",
+  "name": "Hubbell BRYANT Insulgrip Twist-Lock Female Connector Body, 20A 250V, Non-NEMA 7314",
+  "category": "electrical",
+  "subcategory": "Insulgrip Twist-Lock Female Connector Bo",
+  "description": "Industrial Insulgrip Twist-Lock female connector body, 20A 250V, 2-pole 3-wire grounding, non-NEMA, screw terminal, black and white composite, rated -40°C to 75°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BRYANT",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Insulgrip Twist-Lock Female Connector Body, 20A 250V, Non-NEMA"
+   },
+   {
+    "name": "Amperage",
+    "value": "20A"
+   },
+   {
+    "name": "Voltage",
+    "value": "125/250VAC"
+   },
+   {
+    "name": "Configuration",
+    "value": "2-Pole, 3-Wire Grounding, Non-NEMA"
+   },
+   {
+    "name": "Terminal",
+    "value": "Screw, Internal Cord Clamp"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Material",
+    "value": "Composite"
+   },
+   {
+    "name": "Temp Rating",
+    "value": "-40°C to 75°C continuous"
+   },
+   {
+    "name": "Dimensions",
+    "value": "3.73 in H x 2.11 in L"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/bryant/en/Products/Electrical-Electronic/Wiring-Devices/Locking-Devices/Insulgrip-Twist-Lock/7314/p/1638893"
+ },
+ {
+  "mpn": "3548-3",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 2 in. 90-Degree Liquidtight Connector, Insulated with Ground Lug (Hazardous L",
+  "category": "electrical",
+  "subcategory": "2 in. 90-Degree Liquidtight Connector, I",
+  "description": "2 in. 90-degree liquidtight conduit connector with insulated throat and external ground lug for flexible metallic liquidtight conduit; malleable iron, zinc electroplated, UL Listed/CSA, suitable for Class I Div 2 / Class",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "2 in. 90-Degree Liquidtight Connector, Insulated with Ground Lug (Hazardous Location)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2 in."
+   },
+   {
+    "name": "Angle",
+    "value": "90°"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metallic Liquidtight (LFMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable Iron, Zinc Electroplated"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div 2; Class II Div 1 & 2; Class III Div 1 & 2"
+   },
+   {
+    "name": "Grounding",
+    "value": "External Ground Lug"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Hazardous-Location/Liquidtight-Fittings/2-in-90-Degree-Liquidtight-Connector-Insulated-with-Ground-Lug/p/1658067"
+ },
+ {
+  "mpn": "3550-3",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 2-1/2 in. 90-Degree Liquidtight Connector, Insulated with Ground Lug (Hazardo",
+  "category": "electrical",
+  "subcategory": "2-1/2 in. 90-Degree Liquidtight Connecto",
+  "description": "2-1/2 in. 90-degree liquidtight conduit connector with insulated throat and external ground lug for flexible metallic liquidtight conduit; malleable iron, zinc electroplated, UL Listed/CSA, rated for hazardous locations ",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "2-1/2 in. 90-Degree Liquidtight Connector, Insulated with Ground Lug (Hazardous Location)"
+   },
+   {
+    "name": "Trade Size",
+    "value": "2-1/2 in."
+   },
+   {
+    "name": "Angle",
+    "value": "90°"
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Flexible Metallic Liquidtight (LFMC)"
+   },
+   {
+    "name": "Material",
+    "value": "Malleable Iron, Zinc Electroplated"
+   },
+   {
+    "name": "Hazardous Location",
+    "value": "Class I Div 2; Class II Div 1 & 2; Class III Div 1 & 2"
+   },
+   {
+    "name": "Grounding",
+    "value": "External Ground Lug"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbell.com/raco/en/Products/Electrical-Electronic/Fittings/Hazardous-Location/Liquidtight-Fittings/3550-3/p/142764"
+ },
+ {
+  "mpn": "QPX4444",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY VERSITAP Heavy Duty Copper Tapping Connector (Run/Tap: 500-1000 kcmil) QPX4",
+  "category": "electrical",
+  "subcategory": "VERSITAP Heavy Duty Copper Tapping Conne",
+  "description": "VERSITAP Type QPX heavy-duty copper parallel tapping connector for 500-1000 kcmil run and tap conductors; supports Tee, Cross, Parallel, Butt and Tap configurations; DURIUM silicon bronze hardware, UL Listed/CSA.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "VERSITAP Heavy Duty Copper Tapping Connector (Run/Tap: 500-1000 kcmil)"
+   },
+   {
+    "name": "Run Range",
+    "value": "500-1000 kcmil"
+   },
+   {
+    "name": "Tap Range",
+    "value": "500-1000 kcmil"
+   },
+   {
+    "name": "Material (Body)",
+    "value": "Copper"
+   },
+   {
+    "name": "Hardware",
+    "value": "DURIUM Silicon Bronze"
+   },
+   {
+    "name": "Installation Torque",
+    "value": "240 lb-in"
+   },
+   {
+    "name": "Dimensions",
+    "value": "2.62 in L x 2.56 in W x 3.44 in H"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Approved, UL 486A-486B"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/products/qpx4444-heavy-duty-copper-tapping-connector-run-tap-500-1000-kcmil/p/490745"
+ },
+ {
+  "mpn": "YHO150",
+  "brand": "Hubbell BURNDY",
+  "name": "Hubbell BURNDY Aluminum Overhead H-Style Compression Tap Connector YHO150",
+  "category": "electrical",
+  "subcategory": "Aluminum Overhead H-Style Compression Ta",
+  "description": "Wide-range universal reversible Figure H aluminum compression overhead tap connector for copper, aluminum, ACSR, AAAC, compact, and steel conductors; bendable tabs, pre-filled with PENETROX joint compound.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell BURNDY",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Overhead H-Style Compression Tap Connector"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum"
+   },
+   {
+    "name": "Compatible Conductors",
+    "value": "AL, CU, ACSR, AAAC, Steel"
+   },
+   {
+    "name": "Shape",
+    "value": "H-Style (Figure H)"
+   },
+   {
+    "name": "Joint Compound",
+    "value": "Pre-filled with PENETROX"
+   },
+   {
+    "name": "Design",
+    "value": "Bendable tabs, reversible"
+   },
+   {
+    "name": "Application",
+    "value": "Overhead distribution tap"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/burndy/en/Products/Electrical-Electronic/Compression-Connectors-and-Terminals/H-Style/YHO150/p/1710744"
+ },
+ {
+  "mpn": "3005",
+  "brand": "Hubbell RACO",
+  "name": "Hubbell RACO 1-1/4 in. Rigid/IMC Set-Screw Connector, Insulated 3005",
+  "category": "electrical",
+  "subcategory": "1-1/4 in. Rigid/IMC Set-Screw Connector,",
+  "description": "1-1/4 in. trade size steel set-screw connector for bonding unthreaded rigid/IMC conduit to an enclosure or box; insulated throat, zinc electroplated, UL Listed, suitable for dry locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell RACO",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "1-1/4 in. Rigid/IMC Set-Screw Connector, Insulated"
+   },
+   {
+    "name": "Trade Size",
+    "value": "1-1/4 in."
+   },
+   {
+    "name": "Conduit Type",
+    "value": "Rigid/IMC"
+   },
+   {
+    "name": "Material",
+    "value": "Steel, Zinc Electroplated"
+   },
+   {
+    "name": "Insulation",
+    "value": "Insulated throat"
+   },
+   {
+    "name": "Installation",
+    "value": "Set-Screw"
+   },
+   {
+    "name": "Application",
+    "value": "Conduit to box/enclosure bonding"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.hubbell.com/raco/en"
+ },
+ {
+  "mpn": "78358582890-1",
+  "brand": "Hubbell",
+  "name": "Hubbell Locking Receptacle 78358582890-1",
+  "category": "electrical",
+  "subcategory": "Locking Receptacle",
+  "description": "Hubbell CS8269 industrial Twist-Lock receptacle, 50A 250V, 2-pole 3-wire grounding, Non-NEMA California Standard, black.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Locking Receptacle"
+   },
+   {
+    "name": "Current Rating",
+    "value": "50A"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "250V"
+   },
+   {
+    "name": "Configuration",
+    "value": "2-Pole 3-Wire Grounding"
+   },
+   {
+    "name": "NEMA Type",
+    "value": "Non-NEMA (California Standard CS8269)"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Screw Terminal"
+   },
+   {
+    "name": "Construction",
+    "value": "Thermoset body, armored housing"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/WDK_CA-CS8269-SPEC-EN.pdf"
+ },
+ {
+  "mpn": "78358582820-1",
+  "brand": "Hubbell",
+  "name": "Hubbell Locking Flanged Inlet 78358582820-1",
+  "category": "electrical",
+  "subcategory": "Locking Flanged Inlet",
+  "description": "Hubbell CS6375 industrial Twist-Lock flanged inlet, 50A 125/250V, 3-pole 4-wire grounding, Non-NEMA California Standard, steel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Hubbell",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Locking Flanged Inlet"
+   },
+   {
+    "name": "Current Rating",
+    "value": "50A"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "125/250V AC"
+   },
+   {
+    "name": "Configuration",
+    "value": "3-Pole 4-Wire Grounding"
+   },
+   {
+    "name": "NEMA Type",
+    "value": "Non-NEMA (California Standard CS6375)"
+   },
+   {
+    "name": "Body Material",
+    "value": "Zinc-plated steel"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Screw Terminal"
+   },
+   {
+    "name": "Mounting",
+    "value": "Flanged"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://hubbellcdn.com/specsheet/WIRING_CS6375_spec.pdf"
  }
 ];
