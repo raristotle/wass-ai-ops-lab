@@ -17,13 +17,26 @@ function extractResults(file) {
   for (let k = s0; k < raw.length; k++) { const c = raw[k]; if (inStr) { if (esc) esc = false; else if (c === "\\") esc = true; else if (c === '"') inStr = false; continue; } if (c === '"') inStr = true; else if (c === "{") depth++; else if (c === "}") { depth--; if (depth === 0) { end = k + 1; break; } } }
   return JSON.parse(raw.slice(s0, end)).results || [];
 }
-const obj = { results: OUTFILE.split(",").flatMap((f) => extractResults(f.trim())) };
+let allResults = OUTFILE.split(",").flatMap((f) => extractResults(f.trim()));
+// optional brand filter (ENRICH_KEEP=hub | nonhub) — lets one combined workflow output feed two tiers
+const isHub = (b) => /hubbell|wiegmann|burndy|killark|bryant|kellems|taymac|raco|pcore|chance|anderson/i.test(String(b || ""));
+const KEEP = process.env.ENRICH_KEEP || "";
+if (KEEP === "hub") allResults = allResults.filter((r) => isHub(r.brand));
+else if (KEEP === "nonhub") allResults = allResults.filter((r) => !isHub(r.brand));
+const obj = { results: allResults };
 
 // map the agent's coarse category to a valid ProductCategory (electrical | datacom)
 const DATACOM = /datacom|network|cat ?[56]|fiber|coax|\brf\b|camera|nvr|patch|ethernet|telecom|av\b|audio|video/i;
 const catFor = (r) => (DATACOM.test(`${r.category} ${r.productType}`) ? "datacom" : "electrical");
 
 const seen = new Set(); const out = [];
+// append mode: keep everything already in the tier file, dedupe new results against it
+if (fs.existsSync(OUT_TS)) {
+  const ex = fs.readFileSync(OUT_TS, "utf8");
+  const a = ex.indexOf("= ["), b = ex.lastIndexOf("];");
+  if (a >= 0 && b > a) { try { for (const e of JSON.parse(ex.slice(a + 2, b + 1))) { const k = norm(e.mpn); if (k && !seen.has(k)) { seen.add(k); out.push(e); } } } catch { /* regenerate from scratch */ } }
+}
+const preexisting = out.length;
 for (const r of (obj.results || [])) {
   if (!r.found) continue;
   const part = clean(r.part); if (!part) continue;
@@ -56,4 +69,4 @@ export const ${CONST}: ExternalProductEntry[] = ${JSON.stringify(out, null, 1)};
 `;
 fs.writeFileSync(OUT_TS, ts);
 const withUrl = out.filter((e) => e.specSheetUrl).length;
-console.log(`Wrote ${OUT_TS}: ${out.length} enriched products (of ${(obj.results || []).length} researched), ${withUrl} with datasheet URLs, avg specs ${(out.reduce((s, e) => s + e.specs.length, 0) / (out.length || 1)).toFixed(1)}`);
+console.log(`Wrote ${OUT_TS}: ${out.length} enriched products (+${out.length - preexisting} new this run, ${(obj.results || []).length} researched), ${withUrl} with datasheet URLs, avg specs ${(out.reduce((s, e) => s + e.specs.length, 0) / (out.length || 1)).toFixed(1)}`);
