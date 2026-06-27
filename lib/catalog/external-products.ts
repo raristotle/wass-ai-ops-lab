@@ -4,6 +4,7 @@ import { HUBBELL_CATALOG_PACKED } from "@/data/real/hubbell-catalog";
 import { BOM_PRODUCTS } from "@/data/real/bom-products";
 import { SECURITY_BRAND_PRODUCTS } from "@/data/real/security-brand-products";
 import { ATKORE_PRODUCTS } from "@/data/real/atkore-products";
+import { ENRICHED_CROSS_TARGETS } from "@/data/real/enriched-cross-targets";
 
 /**
  * External bulk-source product tier — REAL products ingested from large, openly-
@@ -229,6 +230,30 @@ function atkoreToCatalog(e: ExternalProductEntry): CatalogProduct {
   };
 }
 
+// Web-enriched cross-target SKUs — real products with verified specs from manufacturer sources.
+function enrichedToCatalog(e: ExternalProductEntry): CatalogProduct {
+  return {
+    id: `EXT-ENR-${e.mpn.replace(/[^A-Za-z0-9.-]/g, "_")}`,
+    sku: e.mpn,
+    name: e.name,
+    brand: e.brand,
+    category: e.category,
+    subcategory: e.subcategory,
+    description: e.description,
+    unitPrice: 0,
+    uom: "EA",
+    specs: e.specs,
+    preferred: false,
+    branchStock: [],
+    dcStock: [],
+    externalSources: [],
+    imageIcon: e.category === "datacom" ? "🔌" : "⚡",
+    dataSource: "verified",
+    specSheetUrl: e.specSheetUrl,
+    priceNote: "Specs web-verified from manufacturer datasheet; price on request.",
+  };
+}
+
 function build(): CatalogProduct[] {
   const out: CatalogProduct[] = [];
   const seenSku = new Set<string>();
@@ -250,6 +275,10 @@ function build(): CatalogProduct[] {
   for (const e of ATKORE_PRODUCTS) {
     if (!e.specs.some((s) => s.isNonNeg)) continue;
     push(atkoreToCatalog(e));
+  }
+  for (const e of ENRICHED_CROSS_TARGETS) {
+    if (!e.specs.some((s) => s.isNonNeg)) continue;
+    push(enrichedToCatalog(e));
   }
   for (const e of ENERGY_STAR_LIGHTING) {
     if (!e.specs.some((s) => s.isNonNeg)) continue;
