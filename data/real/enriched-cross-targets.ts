@@ -377391,5 +377391,9424 @@ export const ENRICHED_CROSS_TARGETS: ExternalProductEntry[] = [
   ],
   "verifiedAt": "2026-06-26",
   "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606406"
+ },
+ {
+  "mpn": "WAL615523 + WAL624622 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Tee Connector with Walring Nuts WAL615523 + WAL624622 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Tee Connector with Walring Nu",
+  "description": "WAL615523: Banjo/adjustable tee connector (RSTS 20 SR-WD A4GS), 20mm OD, M30x2 tube ports, G3/4 BSP port, 315 bar, carbon steel with Guardian Seal, Nitrile seal; supplied with 2x WAL624622 Walring nuts (W-R 20 S VI, M30x",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Tee Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL615523 – BANJO RSTS 20 SR-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624622 – W-R 20 S VI Walring Nut, M30x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "20 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M30x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 3/4"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "315 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL615523"
+ },
+ {
+  "mpn": "WAL606396 + WAL624613 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nuts WAL606396 + WAL624613 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606396: Banjo/adjustable 90-degree elbow (RSWS 22 LM-WD A4GS), 22mm OD, M30x2 / M26x1.5 threads, 250 bar, carbon steel with Guardian Seal, Nitrile seal; supplied with 2x WAL624613 Walring nuts (W-R 22L, M33x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606396 – BANJO RSWS 22 LM-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624613 – Walring Nut W-R 22L, M33x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "22 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M30x2"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M26x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606396"
+ },
+ {
+  "mpn": "WAL607438 + WAL624613 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Tee Connector with Walring Nuts WAL607438 + WAL624613 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Tee Connector with Walring Nu",
+  "description": "WAL607438: Banjo/adjustable tee (RSTS 22 LR-WD A4GS), 22mm OD, M30x2 tube ports / G3/4 BSP port, 250 bar, carbon steel with Guardian Seal, Nitrile seal; supplied with 2x WAL624613 Walring nuts (M33x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Tee Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL607438 – BANJO RSTS 22 LR-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624613 – Walring Nut M33x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "22 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M30x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 3/4"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL607438"
+ },
+ {
+  "mpn": "WAL608979",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector (90-degree, Tee, Heavy Duty) WAL608979",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector (90-degree, T",
+  "description": "WAL608979: Banjo/adjustable elbow connector (P-RSTV 25 SR-WD A4GS), 25mm OD, M36x2 tube ports, G1 BSP port, 250 bar, carbon steel with Guardian Seal, Nitrile seal.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector (90-degree, Tee, Heavy Duty)"
+   },
+   {
+    "name": "Product Name",
+    "value": "BANJO P-RSTV 25 SR-WD A4GS"
+   },
+   {
+    "name": "Tube OD",
+    "value": "25 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M36x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 1"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   },
+   {
+    "name": "Dimensions",
+    "value": "110mm L x 46mm W x 77mm H"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL608979"
+ },
+ {
+  "mpn": "WAL606407 + WAL624623 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nuts WAL606407 + WAL624623 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606407: Banjo/adjustable 90-degree elbow (RSWS 25 SM-WD A4GS), 25mm OD, M36x2 / M33x2 threads, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624623 Walring nuts (M36x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606407 – BANJO RSWS 25 SM-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624623 – Walring Nut M36x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "25 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M36x2"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M33x2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606407"
+ },
+ {
+  "mpn": "WAL606397 + WAL624614 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nuts WAL606397 + WAL624614 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606397: Banjo/adjustable 90-degree elbow (RSWS 28 LM-WD A4GS), 28mm OD, M36x2 / M33x2 threads, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624614 Walring nuts (W-R 28 L VI, M36x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606397 – BANJO RSWS 28 LM-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624614 – W-R 28 L VI Walring Nut, M36x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M36x2"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M33x2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606397"
+ },
+ {
+  "mpn": "WAL609874 + WAL624614 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Tee Connector with Walring Nuts WAL609874 + WAL624614 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Tee Connector with Walring Nu",
+  "description": "WAL609874: Banjo/adjustable tee (RSTS 28 LR-WD A4GS), 28mm OD, M36x2 tube ports / G1 BSP port, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624614 Walring nuts (W-R 28 L VI, M36x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Tee Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL609874 – BANJO RSTS 28 LR-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624614 – Walring Nut W-R 28 L VI, M36x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M36x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 1"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL609874"
+ },
+ {
+  "mpn": "WAL606408 + WAL624624 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nuts WAL606408 + WAL624624 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606408: Banjo/adjustable 90-degree elbow (RSWS 30 SM-WD A4GS), 30mm OD, M42x2 threads on both ends, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624624 Walring nuts (M42x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606408 – BANJO RSWS 30 SM-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624624 – Walring Nut M42x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Thread (both ends)",
+    "value": "M42x2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   },
+   {
+    "name": "Dimensions",
+    "value": "77.5mm L x 55mm W x 90mm H"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606408"
+ },
+ {
+  "mpn": "WAL615525 + WAL624624 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Tee Connector with Walring Nuts WAL615525 + WAL624624 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Tee Connector with Walring Nu",
+  "description": "WAL615525: Banjo/adjustable tee (RSTS 30 SR-WD A4GS), 30mm OD, M42x2 tube ports / G1-1/4 BSP port, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624624 Walring nuts (M42x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Tee Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL615525 – BANJO RSTS 30 SR-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624624 – Walring Nut M42x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M42x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 1 1/4"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL615525"
+ },
+ {
+  "mpn": "WAL606398 + WAL624615 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nuts WAL606398 + WAL624615 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606398: Banjo/adjustable 90-degree elbow (RSWS 35 LM-WD A4GS), 35mm OD, M45x2 / M42x2 threads, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624615 Walring nuts (M45x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606398 – BANJO RSWS 35 LM-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624615 – Walring Nut M45x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M45x2"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M42x2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606398"
+ },
+ {
+  "mpn": "WAL608195 + WAL624615 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Tee Connector with Walring Nuts WAL608195 + WAL624615 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Tee Connector with Walring Nu",
+  "description": "WAL608195: Banjo/adjustable tee (RSTS 35 LR-WD A4GS), 35mm OD, M45x2 tube ports / G1-1/4 BSP port, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624615 Walring nuts (M45x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Tee Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL608195 – BANJO RSTS 35 LR-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624615 – Walring Nut M45x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M45x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 1 1/4"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL608195"
+ },
+ {
+  "mpn": "WAL606409 + WAL624625 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nuts WAL606409 + WAL624625 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606409: Banjo/adjustable 90-degree elbow (RSWS 38 SM-WD A4GS), 38mm OD, M52x2 / M48x2 threads, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624625 Walring nuts (M52x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606409 – BANJO RSWS 38 SM-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624625 – Walring Nut M52x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M52x2"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M48x2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606409"
+ },
+ {
+  "mpn": "WAL612599 + WAL624625 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Tee Connector with Walring Nuts WAL612599 + WAL624625 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Tee Connector with Walring Nu",
+  "description": "WAL612599: Banjo/adjustable tee (RSTS 38 SR-WD A4GS), 38mm OD, M52x2 tube ports / G1-1/2 BSP port, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624625 Walring nuts (M52x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Tee Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL612599 – BANJO RSTS 38 SR-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624625 – Walring Nut M52x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M52x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 1 1/2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL612599"
+ },
+ {
+  "mpn": "WAL606399 + WAL624616 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nuts WAL606399 + WAL624616 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606399: Banjo/adjustable 90-degree elbow (RSWS 42 LM-WD A4GS), 42mm OD, M52x2 / M48x2 threads, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624616 Walring nuts (M52x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606399 – BANJO RSWS 42 LM-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624616 – Walring Nut M52x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M52x2"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M48x2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606399"
+ },
+ {
+  "mpn": "WAL608196 + WAL624616 (X2)",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Tee Connector with Walring Nuts WAL608196 + WAL624616 (X2)",
+  "category": "electrical",
+  "subcategory": "Adjustable Tee Connector with Walring Nu",
+  "description": "WAL608196: Banjo/adjustable tee (RSTS 42 LR-WD A4GS), 42mm OD, M52x2 tube ports / G1-1/2 BSP port, 250 bar, carbon steel, Nitrile seal; supplied with 2x WAL624616 Walring nuts (M52x2).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Tee Connector with Walring Nuts"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL608196 – BANJO RSTS 42 LR-WD A4GS"
+   },
+   {
+    "name": "Nut Part (x2)",
+    "value": "WAL624616 – Walring Nut M52x2"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Thread (tube ports)",
+    "value": "M52x2"
+   },
+   {
+    "name": "Thread (BSP port)",
+    "value": "G 1 1/2"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "250 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL608196"
+ },
+ {
+  "mpn": "WAL606689 + WAL624617",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606689 + WAL624617",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606689: Banjo/adjustable 90-degree elbow (RSWS 6 SM A4GS), 6mm OD, M14x1.5 / M12x1.5 threads, 500 bar, carbon steel, Nitrile seal; supplied with 1x WAL624617 Walring nut.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606689 – BANJO RSWS 6 SM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624617 – Walring Nut (6mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "6 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M14x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M12x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606689"
+ },
+ {
+  "mpn": "WAL606640 + WAL624607",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606640 + WAL624607",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606640: Banjo/adjustable 90-degree elbow (RSWS 6 LM A4GS), 6mm OD, M12x1.5 / M10x1 threads, 500 bar, carbon steel, Nitrile seal; supplied with 1x WAL624607 Walring nut (6mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606640 – BANJO RSWS 6 LM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624607 – Walring Nut (6mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "6 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M12x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M10x1"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606640"
+ },
+ {
+  "mpn": "WAL606664 + WAL624607",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606664 + WAL624607",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606664: Banjo/adjustable 90-degree elbow (RSWS 6 LR A4GS), 6mm OD, M12x1.5 / G1/8 threads, 500 bar, carbon steel, Nitrile seal; supplied with 1x WAL624607 Walring nut (6mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606664 – BANJO RSWS 6 LR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624607 – Walring Nut (6mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "6 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M12x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 1/8 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606664"
+ },
+ {
+  "mpn": "WAL606671 + WAL624617",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606671 + WAL624617",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606671: Banjo/adjustable 90-degree elbow (RSWS 6 SR A4GS), 6mm OD, M14x1.5 / G1/4 threads, 500 bar, carbon steel, FKM seal; supplied with 1x WAL624617 Walring nut (6mm S-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606671 – BANJO RSWS 6 SR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624617 – Walring Nut (6mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "6 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M14x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 1/4 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606671"
+ },
+ {
+  "mpn": "WAL606690 + WAL624618",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606690 + WAL624618",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606690: Banjo/adjustable 90-degree elbow (RSWS 8 SM A4GS), 8mm OD, M16x1.5 / M14x1.5 threads, 500 bar, carbon steel, FKM seal; supplied with 1x WAL624618 Walring nut (8mm S-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606690 – BANJO RSWS 8 SM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624618 – Walring Nut (8mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "8 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M16x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M14x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606690"
+ },
+ {
+  "mpn": "WAL606680 + WAL624608",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606680 + WAL624608",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606680: Banjo/adjustable 90-degree elbow (RSWS 8 LM A4GS), 8mm OD, M14x1.5 / M12x1.5 threads, 500 bar, carbon steel, FKM seal; supplied with 1x WAL624608 Walring nut (8mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606680 – BANJO RSWS 8 LM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624608 – Walring Nut (8mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "8 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M14x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M12x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606680"
+ },
+ {
+  "mpn": "WAL607323 + WAL624608",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL607323 + WAL624608",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL607323: Banjo/adjustable 90-degree elbow (RSWS 8 LR A4GS), 8mm OD, M14x1.5 / G1/4 threads, 500 bar, carbon steel, Nitrile seal; supplied with 1x WAL624608 Walring nut (8mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL607323 – BANJO RSWS 8 LR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624608 – Walring Nut (8mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "8 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M14x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 1/4 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL607323"
+ },
+ {
+  "mpn": "WAL606672 + WAL624618",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606672 + WAL624618",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606672: Banjo/adjustable 90-degree elbow (RSWS 8 SR A4GS), 8mm OD, M16x1.5 / G1/4 threads, 500 bar, carbon steel, FKM seal; supplied with 1x WAL624618 Walring nut (8mm S-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606672 – BANJO RSWS 8 SR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624618 – Walring Nut (8mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "8 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M16x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 1/4 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606672"
+ },
+ {
+  "mpn": "WAL606691 + WAL624619",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606691 + WAL624619",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606691: Banjo/adjustable 90-degree elbow (RSWS 10 SM A4GS), 10mm OD, M18x1.5 / M16x1.5 threads, 500 bar, carbon steel, Nitrile seal; supplied with 1x WAL624619 Walring nut (10mm S-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606691 – BANJO RSWS 10 SM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624619 – Walring Nut (10mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "10 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M18x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M16x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606691"
+ },
+ {
+  "mpn": "WAL607321 + WAL624609",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL607321 + WAL624609",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL607321: Banjo/adjustable 90-degree elbow (RSWS 10 LM A4GS), 10mm OD, M16x1.5 / M14x1.5 threads, 500 bar, carbon steel, FKM seal; supplied with 1x WAL624609 Walring nut (10mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL607321 – BANJO RSWS 10 LM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624609 – Walring Nut (10mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "10 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M16x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M14x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL607321"
+ },
+ {
+  "mpn": "WAL606508 + WAL624609",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606508 + WAL624609",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606508: Banjo/adjustable 90-degree elbow (RSWS 10 LR A4GS), 10mm OD, M16x1.5 / G1/4 threads, 500 bar, carbon steel, Nitrile seal; supplied with 1x WAL624609 Walring nut (10mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606508 – BANJO RSWS 10 LR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624609 – Walring Nut (10mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "10 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M16x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 1/4 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606508"
+ },
+ {
+  "mpn": "WAL606673 + WAL624619",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606673 + WAL624619",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606673: Banjo/adjustable 90-degree elbow (RSWS 10 SR A4GS), 10mm OD, M18x1.5 / G3/8 threads, 500 bar, carbon steel, FKM seal; supplied with 1x WAL624619 Walring nut (10mm S-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606673 – BANJO RSWS 10 SR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624619 – Walring Nut (10mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "10 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M18x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 3/8 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "500 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606673"
+ },
+ {
+  "mpn": "WAL606692 + WAL624620",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606692 + WAL624620",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606692: Banjo/adjustable 90-degree elbow (RSWS 12 SM A4GS), 12mm OD, M20x1.5 / M18x1.5 threads, 400 bar, carbon steel, Nitrile seal; supplied with 1x WAL624620 Walring nut (12mm S-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606692 – BANJO RSWS 12 SM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624620 – Walring Nut (12mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "12 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M20x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M18x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "400 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606692"
+ },
+ {
+  "mpn": "WAL606681 + WAL624610",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606681 + WAL624610",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606681: Banjo/adjustable 90-degree elbow (RSWS 12 LM A4GS), 12mm OD, M18x1.5 / M16x1.5 threads, 400 bar, carbon steel, FKM seal; supplied with 1x WAL624610 Walring nut (12mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606681 – BANJO RSWS 12 LM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624610 – Walring Nut (12mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "12 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M18x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M16x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "400 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606681"
+ },
+ {
+  "mpn": "WAL606674 + WAL624620",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606674 + WAL624620",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606674: Banjo/adjustable 90-degree elbow (RSWS 12 SR A4GS), 12mm OD, M20x1.5 / G3/8 threads, 400 bar, carbon steel, FKM seal; supplied with 1x WAL624620 Walring nut (12mm S-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606674 – BANJO RSWS 12 SR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624620 – Walring Nut (12mm S-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "12 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M20x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 3/8 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "400 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Fluorocarbon (FKM)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606674"
+ },
+ {
+  "mpn": "WAL606683 + WAL624611",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606683 + WAL624611",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606683: Banjo/adjustable 90-degree elbow (RSWS 15 LM A4GS), 15mm OD, M22x1.5 / M18x1.5 threads, 400 bar, carbon steel, Nitrile seal; supplied with 1x WAL624611 Walring nut (15mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606683 – BANJO RSWS 15 LM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624611 – Walring Nut (15mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "15 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M22x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M18x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "400 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606683"
+ },
+ {
+  "mpn": "WAL607367 + WAL624611",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL607367 + WAL624611",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL607367: Banjo/adjustable 90-degree elbow (RSWS 15 LR A4GS), 15mm OD, M22x1.5 / G1/2 threads, 400 bar, carbon steel, Nitrile seal; supplied with 1x WAL624611 Walring nut (15mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL607367 – BANJO RSWS 15 LR A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624611 – Walring Nut (15mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "15 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M22x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "G 1/2 BSP"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "400 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL607367"
+ },
+ {
+  "mpn": "WAL606684 + WAL624612",
+  "brand": "Waltech (Danfoss)",
+  "name": "Waltech (Danfoss) Adjustable Elbow Connector with Walring Nut WAL606684 + WAL624612",
+  "category": "electrical",
+  "subcategory": "Adjustable Elbow Connector with Walring ",
+  "description": "WAL606684: Banjo/adjustable 90-degree elbow (RSWS 18 LM A4GS), 18mm OD, M26x1.5 / M22x1.5 threads, 400 bar, carbon steel, Nitrile seal; supplied with 1x WAL624612 Walring nut (18mm L-series).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Waltech (Danfoss)",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Adjustable Elbow Connector with Walring Nut"
+   },
+   {
+    "name": "Body Part",
+    "value": "WAL606684 – BANJO RSWS 18 LM A4GS"
+   },
+   {
+    "name": "Nut Part",
+    "value": "WAL624612 – Walring Nut (18mm L-series)"
+   },
+   {
+    "name": "Tube OD",
+    "value": "18 mm"
+   },
+   {
+    "name": "Thread End 1",
+    "value": "M26x1.5"
+   },
+   {
+    "name": "Thread End 2",
+    "value": "M22x1.5"
+   },
+   {
+    "name": "Working Pressure",
+    "value": "400 bar"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel, Guardian Seal plating"
+   },
+   {
+    "name": "Seal",
+    "value": "Nitrile (NBR)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://powersource.danfoss.com/products/hoses-and-fittings/connectors-and-quick-disconnect-couplings/tube-fittings/p/WAL606684"
+ },
+ {
+  "mpn": "WAL606667 + WAL624612",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 18LR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 18LR banjo coupling body with NBR elastomer seal for 18 mm L-series tube and G 1/2 A port, sold with companion sealing ring set WAL624612; rated 400 bar (5801 psi) per DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 18LR) + Sealing Ring Set (WAL624612)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 18LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "18 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1/2 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "400 bar (5801 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606694 + WAL624622",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 20SM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 20SM banjo coupling body with NBR elastomer seal for 20 mm S-series tube and M 27x2 metric port, sold with companion sealing ring set WAL624622; rated 315 bar (4569 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 20SM) + Sealing Ring Set (WAL624622)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 20SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "20 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 27x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "315 bar (4569 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606644 + WAL624622",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 20SR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 20SR banjo coupling body with NBR elastomer seal for 20 mm S-series tube and G 3/4 A BSP port, sold with companion sealing ring set WAL624622; rated 315 bar (4569 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 20SR) + Sealing Ring Set (WAL624622)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 20SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "20 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 3/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "315 bar (4569 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606685 + WAL624613",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 22LM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 22LM banjo coupling body with NBR elastomer seal for 22 mm L-series tube and M 26x1.5 metric port, sold with companion sealing ring set WAL624613; rated 400 bar (5801 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 22LM) + Sealing Ring Set (WAL624613)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 22LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "22 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 26x1.5 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "400 bar (5801 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606668 + WAL624613",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 22LR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 22LR banjo coupling body with NBR elastomer seal for 22 mm L-series tube and G 3/4 A BSP port, sold with companion sealing ring set WAL624613; rated 400 bar (5801 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 22LR) + Sealing Ring Set (WAL624613)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 22LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "22 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 3/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "400 bar (5801 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607045",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 25SM) WAL607045",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 25SM banjo port fitting (stud end) with NBR elastomer seal for 25 mm S-series tube and M 33x2 metric port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 25SM)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 25SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "25 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 33x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607322",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 25SM) WAL607322",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 25SM banjo coupling body with NBR elastomer seal for 25 mm S-series tube and M 33x2 metric port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 25SM)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 25SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "25 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 33x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607322 + WAL624623",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 25SM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 25SM banjo coupling body with NBR elastomer seal for 25 mm S-series tube and M 33x2 metric port, sold with companion sealing ring set WAL624623; rated 250 bar (3626 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 25SM) + Sealing Ring Set (WAL624623)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 25SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "25 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 33x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607021",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 25SR) WAL607021",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 25SR banjo port fitting (stud end) with NBR elastomer seal for 25 mm S-series tube and G 1 A BSP port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 25SR)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 25SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "25 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607324 + WAL624623",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 25SR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 25SR banjo coupling body with NBR elastomer seal for 25 mm S-series tube and G 1 A BSP port, sold with companion sealing ring set WAL624623; rated 250 bar (3626 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 25SR) + Sealing Ring Set (WAL624623)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 25SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "25 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607035",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 28LM) WAL607035",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 28LM banjo port fitting (stud end) with NBR elastomer seal for 28 mm L-series tube and M 33x2 metric port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 28LM)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 28LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 33x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606686",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 28LM) WAL606686",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 28LM banjo coupling body with NBR elastomer seal for 28 mm L-series tube and M 33x2 metric port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 28LM)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 28LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 33x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607011",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 28LR) WAL607011",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 28LR banjo port fitting (stud end) with NBR elastomer seal for 28 mm L-series tube and G 1 A BSP port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 28LR)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 28LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606669",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 28LR) WAL606669",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 28LR banjo coupling body with NBR elastomer seal for 28 mm L-series tube and G 1 A BSP port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 28LR)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 28LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606686 + WAL624614",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 28LM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 28LM banjo coupling body with NBR elastomer seal for 28 mm L-series tube and M 33x2 metric port, sold with companion sealing ring set WAL624614; rated 250 bar (3626 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 28LM) + Sealing Ring Set (WAL624614)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 28LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 33x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606669 + WAL624614",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 28LR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 28LR banjo coupling body with NBR elastomer seal for 28 mm L-series tube and G 1 A BSP port, sold with companion sealing ring set WAL624614; rated 250 bar (3626 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 28LR) + Sealing Ring Set (WAL624614)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 28LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "28 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607046",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 30SM) WAL607046",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 30SM banjo port fitting (stud end) with NBR elastomer seal for 30 mm S-series tube and M 42x2 metric port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 30SM)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 30SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 42x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606695",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 30SM) WAL606695",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 30SM banjo coupling body with NBR elastomer seal for 30 mm S-series tube and M 42x2 metric port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 30SM)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 30SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 42x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606695 + WAL624624",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 30SM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 30SM banjo coupling body with NBR elastomer seal for 30 mm S-series tube and M 42x2 metric port, sold with companion sealing ring set WAL624624; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 30SM) + Sealing Ring Set (WAL624624)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 30SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 42x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607022",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 30SR) WAL607022",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 30SR banjo port fitting (stud end) with NBR elastomer seal for 30 mm S-series tube and G 1 1/4 A BSP port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 30SR)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 30SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606677",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 30SR) WAL606677",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 30SR banjo coupling body with NBR elastomer seal for 30 mm S-series tube and G 1 1/4 A BSP port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 30SR)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 30SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606677 + WAL624624",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 30SR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 30SR banjo coupling body with NBR elastomer seal for 30 mm S-series tube and G 1 1/4 A BSP port, sold with companion sealing ring set WAL624624; rated 250 bar (3626 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 30SR) + Sealing Ring Set (WAL624624)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 30SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "30 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607036",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 35LM) WAL607036",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 35LM banjo port fitting (stud end) with NBR elastomer seal for 35 mm L-series tube and M 42x2 metric port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 35LM)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 35LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 42x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606687",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 35LM) WAL606687",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 35LM banjo coupling body with NBR elastomer seal for 35 mm L-series tube and M 42x2 metric port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 35LM)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 35LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 42x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607012",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 35LR) WAL607012",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 35LR banjo port fitting (stud end) with NBR elastomer seal for 35 mm L-series tube and G 1 1/4 A BSP port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 35LR)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 35LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606599",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 35LR) WAL606599",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 35LR banjo coupling body with NBR elastomer seal for 35 mm L-series tube and G 1 1/4 A BSP port; rated 250 bar (3626 psi), built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 35LR)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 35LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606687 + WAL624615",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 35LM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 35LM banjo coupling body with NBR elastomer seal for 35 mm L-series tube and M 42x2 metric port, sold with companion sealing ring set WAL624615; rated 250 bar (3626 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 35LM) + Sealing Ring Set (WAL624615)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 35LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 42x2 (metric)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606599 + WAL624615",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 35LR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 35LR banjo coupling body with NBR elastomer seal for 35 mm L-series tube and G 1 1/4 A BSP port, sold with companion sealing ring set WAL624615; rated 250 bar (3626 psi).",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 35LR) + Sealing Ring Set (WAL624615)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 35LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "35 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/4 A (BSP)"
+   },
+   {
+    "name": "Max operating pressure",
+    "value": "250 bar (3626 psi)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607047",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 38SM) WAL607047",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 38SM banjo port fitting (stud end) with NBR elastomer seal for 38 mm S-series tube and M 48x2 metric port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 38SM)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 38SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 48x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606696",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 38SM) WAL606696",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 38SM banjo coupling body with NBR elastomer seal for 38 mm S-series tube and M 48x2 metric port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 38SM)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 38SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 48x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606696 + WAL624625",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 38SM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 38SM banjo coupling body with NBR elastomer seal for 38 mm S-series tube and M 48x2 metric port, sold with companion sealing ring set WAL624625; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 38SM) + Sealing Ring Set (WAL624625)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 38SM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 48x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607023",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 38SR) WAL607023",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 38SR banjo port fitting (stud end) with NBR elastomer seal for 38 mm S-series tube and G 1 1/2 A BSP port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 38SR)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 38SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/2 A (BSP)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607326",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 38SR) WAL607326",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 38SR banjo coupling body with NBR elastomer seal for 38 mm S-series tube and G 1 1/2 A BSP port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 38SR)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 38SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/2 A (BSP)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607326 + WAL624625",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 38SR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 38SR banjo coupling body with NBR elastomer seal for 38 mm S-series tube and G 1 1/2 A BSP port, sold with companion sealing ring set WAL624625; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 38SR) + Sealing Ring Set (WAL624625)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 38SR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "38 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "S"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/2 A (BSP)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607037",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 42LM) WAL607037",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 42LM banjo port fitting (stud end) with NBR elastomer seal for 42 mm L-series tube and M 48x2 metric port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 42LM)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 42LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 48x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606688",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 42LM) WAL606688",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 42LM banjo coupling body with NBR elastomer seal for 42 mm L-series tube and M 48x2 metric port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 42LM)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 42LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 48x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL607013",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Port Fitting with Elastomer Seal (P-RSWV 42LR) WAL607013",
+  "category": "electrical",
+  "subcategory": "Banjo Port Fitting with Elastomer Seal (",
+  "description": "Danfoss Waltech P-RSWV 42LR banjo port fitting (stud end) with NBR elastomer seal for 42 mm L-series tube and G 1 1/2 A BSP port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Port Fitting with Elastomer Seal (P-RSWV 42LR)"
+   },
+   {
+    "name": "Model",
+    "value": "P-RSWV 42LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/2 A (BSP)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606670",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 42LR) WAL606670",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 42LR banjo coupling body with NBR elastomer seal for 42 mm L-series tube and G 1 1/2 A BSP port; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 42LR)"
+   },
+   {
+    "name": "Model",
+    "value": "RSWS 42LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/2 A (BSP)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606688 + WAL624616",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 42LM) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 42LM banjo coupling body with NBR elastomer seal for 42 mm L-series tube and M 48x2 metric port, sold with companion sealing ring set WAL624616; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 42LM) + Sealing Ring Set (WAL624616)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 42LM"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "M 48x2 (metric)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "WAL606670 + WAL624616",
+  "brand": "Danfoss Waltech",
+  "name": "Danfoss Waltech Banjo Coupling Body with Elastomer Seal (RSWS 42LR) + Sealing Ring Set (WA",
+  "category": "electrical",
+  "subcategory": "Banjo Coupling Body with Elastomer Seal ",
+  "description": "Danfoss Waltech RSWS 42LR banjo coupling body with NBR elastomer seal for 42 mm L-series tube and G 1 1/2 A BSP port, sold with companion sealing ring set WAL624616; built to DIN EN ISO 8434-1.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Danfoss Waltech",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Banjo Coupling Body with Elastomer Seal (RSWS 42LR) + Sealing Ring Set (WAL624616)"
+   },
+   {
+    "name": "Model (body)",
+    "value": "RSWS 42LR"
+   },
+   {
+    "name": "Tube OD",
+    "value": "42 mm"
+   },
+   {
+    "name": "Pressure series",
+    "value": "L"
+   },
+   {
+    "name": "Port thread",
+    "value": "G 1 1/2 A (BSP)"
+   },
+   {
+    "name": "Seal material",
+    "value": "NBR (elastomer)"
+   },
+   {
+    "name": "Standard",
+    "value": "DIN EN ISO 8434-1 (24° cone)"
+   },
+   {
+    "name": "Material",
+    "value": "Carbon steel"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.customhydraulicsdesign.com/customer/docs/Waltech_Catalog_Doc-compressed.pdf"
+ },
+ {
+  "mpn": "T075X000C1C-BK",
+  "brand": "Panduit",
+  "name": "Panduit P1 Nylon Cloth Continuous Tape Cassette T075X000C1C-BK",
+  "category": "electrical",
+  "subcategory": "P1 Nylon Cloth Continuous Tape Cassette",
+  "description": "P1 cassette with nylon cloth continuous tape, 0.75 in wide x 18 ft long, black print on white, for PanTher LS8E/LS8EQ hand-held thermal transfer printers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "P1 Nylon Cloth Continuous Tape Cassette"
+   },
+   {
+    "name": "Tape Width",
+    "value": "0.75 in (19.1 mm)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "18 ft (5.5 m)"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon Cloth"
+   },
+   {
+    "name": "Color",
+    "value": "Black on White"
+   },
+   {
+    "name": "Print Method",
+    "value": "Thermal Transfer"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-40°F to +285°F"
+   },
+   {
+    "name": "Compatible Printer",
+    "value": "Panduit P1 / LS8E / LS8EQ"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/portable-printer-labels-cassettes/p202591.html"
+ },
+ {
+  "mpn": "HTDU3R-E",
+  "brand": "Panduit",
+  "name": "Panduit Underground Detectable Hazard Tape HTDU3R-E",
+  "category": "electrical",
+  "subcategory": "Underground Detectable Hazard Tape",
+  "description": "Underground detectable hazard tape, 3.00 in wide x 1000 ft, aluminum/laminated construction with 'Caution Electric Line Buried Below' legend, black/red, for burial over underground electrical lines.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Underground Detectable Hazard Tape"
+   },
+   {
+    "name": "Width",
+    "value": "3.00 in"
+   },
+   {
+    "name": "Length",
+    "value": "1000 ft"
+   },
+   {
+    "name": "Material",
+    "value": "Detectable Laminated Aluminum"
+   },
+   {
+    "name": "Color",
+    "value": "Black/Red"
+   },
+   {
+    "name": "Legend",
+    "value": "Caution Electric Line Buried Below"
+   },
+   {
+    "name": "Application",
+    "value": "Underground burial hazard marking"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/safety-identification-tape/underground-hazard-tape/htdu3r-e.html"
+ },
+ {
+  "mpn": "PMDR-WHT",
+  "brand": "Panduit",
+  "name": "Panduit PAN-CODE Pre-Printed Wire Marker Tape Refill PMDR-WHT",
+  "category": "electrical",
+  "subcategory": "PAN-CODE Pre-Printed Wire Marker Tape Re",
+  "description": "PAN-CODE pre-printed roll wire marker tape refill, 'WHT' (white) legend, polyester, 8 ft roll, for use with PMD/PMDR dispensers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PAN-CODE Pre-Printed Wire Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "WHT"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Roll Length",
+    "value": "8 ft"
+   },
+   {
+    "name": "Color",
+    "value": "White background, black print"
+   },
+   {
+    "name": "Package Qty",
+    "value": "10 rolls"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD/PMDR"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "LS8EQ",
+  "brand": "Panduit",
+  "name": "Panduit PanTher Hand-Held Thermal Transfer Label Printer LS8EQ",
+  "category": "electrical",
+  "subcategory": "PanTher Hand-Held Thermal Transfer Label",
+  "description": "PanTher LS8EQ handheld thermal transfer printer with QWERTY keypad, prints on continuous tapes, heat-shrink tubing, and die-cut labels; includes PANTHERLINK PC software and partial-cut feature.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PanTher Hand-Held Thermal Transfer Label Printer"
+   },
+   {
+    "name": "Print Method",
+    "value": "Thermal Transfer"
+   },
+   {
+    "name": "Keypad",
+    "value": "QWERTY"
+   },
+   {
+    "name": "Label Types",
+    "value": "Continuous tape, heat-shrink, die-cut, self-laminating"
+   },
+   {
+    "name": "PC Interface",
+    "value": "Yes (PANTHERLINK software)"
+   },
+   {
+    "name": "Power",
+    "value": "6 AA alkaline batteries"
+   },
+   {
+    "name": "Cassette System",
+    "value": "P1 auto-recognition cassette"
+   },
+   {
+    "name": "Compliance",
+    "value": "RoHS"
+   },
+   {
+    "name": "Status",
+    "value": "Discontinued / limited stock"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-printers-accessories/ls8eq.html"
+ },
+ {
+  "mpn": "PV8-12RX-XY",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl Expanded Insulation Ring Terminal PV8-12RX-XY",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl Expanded Insulation Ring ",
+  "description": "Pan-Term loose-piece vinyl expanded insulation ring terminal, 8 AWG, 1/2 in stud, brazed seam, red; discontinued product.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl Expanded Insulation Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "8 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2 in (12.7 mm)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl, expanded entry"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Seam",
+    "value": "Brazed"
+   },
+   {
+    "name": "Status",
+    "value": "Discontinued"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204318.html"
+ },
+ {
+  "mpn": "HSTT75-CC",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT75-CC",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Dry-Shrink thin wall cross-linked polyolefin heat shrink tubing, 0.75 in ID, 2:1 shrink ratio, clear, 100 ft continuous reel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.75 in (19.1 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Clear"
+   },
+   {
+    "name": "Length",
+    "value": "100 ft (30.5 m) reel"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt75-cc.html"
+ },
+ {
+  "mpn": "LAA1000-58-1",
+  "brand": "Panduit",
+  "name": "Panduit Aluminum Mechanical Long Barrel Compression Lug LAA1000-58-1",
+  "category": "electrical",
+  "subcategory": "Aluminum Mechanical Long Barrel Compress",
+  "description": "Aluminum long barrel, one-hole, single barrel compression lug for 1000 kcmil conductor with 5/8 in stud hole, tin plated.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Mechanical Long Barrel Compression Lug"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "1000 kcmil"
+   },
+   {
+    "name": "Stud Hole Size",
+    "value": "5/8 in (15.9 mm)"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   },
+   {
+    "name": "Barrels",
+    "value": "1"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, tin plated"
+   },
+   {
+    "name": "Overall Length",
+    "value": "7.38 in"
+   },
+   {
+    "name": "Width",
+    "value": "2.56 in"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/lugs-splices-split-bolts-accessories/mechanical-compression-lugs-splices/laa750581.html"
+ },
+ {
+  "mpn": "HST1.1-48-5-2Y",
+  "brand": "Panduit",
+  "name": "Panduit Wet-Shrink Thick Wall Adhesive-Lined Heat Shrink Tubing HST1.1-48-5-2Y",
+  "category": "electrical",
+  "subcategory": "Wet-Shrink Thick Wall Adhesive-Lined Hea",
+  "description": "Wet-Shrink thick wall adhesive-lined heat shrink tubing, 1.1 in ID, 3:1 shrink ratio, red, 48 in (4 ft) piece, 5-pack; rated for outdoor and wet locations.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Wet-Shrink Thick Wall Adhesive-Lined Heat Shrink Tubing"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "1.1 in (27.9 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "3:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, adhesive lined"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (1219.2 mm) per piece"
+   },
+   {
+    "name": "Package Qty",
+    "value": "5 pieces"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 230°F (-55°C to 110°C)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V (UL 486D)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hst1_1-48-5-2y.html"
+ },
+ {
+  "mpn": "S14-120-TL",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Heavy-Duty Nylon Cable Tie (AH-2 Plenum Rated) S14-120-TL",
+  "category": "electrical",
+  "subcategory": "StrongHold Heavy-Duty Nylon Cable Tie (A",
+  "description": "StrongHold heavy-duty plenum-rated nylon cable tie, 14.49 in long, AH-2 Plenum rated, black, for commercial construction and general-purpose bundling, 250-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Heavy-Duty Nylon Cable Tie (AH-2 Plenum Rated)"
+   },
+   {
+    "name": "Length",
+    "value": "14.49 in (368 mm)"
+   },
+   {
+    "name": "Max Bundle Diameter",
+    "value": "4.02 in (102 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Nylon 6.6, AH-2 Plenum Rated"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Package Qty",
+    "value": "250"
+   },
+   {
+    "name": "Tensile Strength",
+    "value": "120 lb"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/cable-ties/light-heavy-cable-ties/s14-120-tl.html"
+ },
+ {
+  "mpn": "EV10-8RB-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Ring Terminal EV10-8RB-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Ring Terminal",
+  "description": "StrongHold contractor-grade vinyl insulated ring terminal, 12-10 AWG, #8 stud, yellow, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/ring-terminals/ev10-8rb-q.html"
+ },
+ {
+  "mpn": "EV10-10FB-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Fork Terminal EV10-10FB-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Fork Terminal",
+  "description": "StrongHold contractor-grade vinyl insulated fork terminal, 12-10 AWG, #10 stud, yellow, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/fork-terminals/ev10-10fb-q.html"
+ },
+ {
+  "mpn": "EV10-8FB-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Fork Terminal EV10-8FB-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Fork Terminal",
+  "description": "StrongHold contractor-grade vinyl insulated fork terminal, 12-10 AWG, #8 stud, yellow, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/fork-terminals/ev10-8fb-q.html"
+ },
+ {
+  "mpn": "EDV10-250-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Female Quick Disconnect EDV10-250-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Female Quick ",
+  "description": "StrongHold contractor-grade vinyl insulated female quick disconnect, 12-10 AWG, 0.250 x 0.032 in tab, yellow, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.250 x 0.032 in"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Gender",
+    "value": "Female"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/disconnects/edv10-250-q.html"
+ },
+ {
+  "mpn": "EV10-8LFB-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Locking Fork Terminal EV10-8LFB-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Locking Fork ",
+  "description": "StrongHold contractor-grade vinyl insulated locking fork terminal, 12-10 AWG, #8 stud, yellow, 25-pack; locking tab prevents accidental disconnection.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/fork-terminals/ev10-8lfb-q.html"
+ },
+ {
+  "mpn": "EDV10-250M-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Male Quick Disconnect EDV10-250M-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Male Quick Di",
+  "description": "StrongHold contractor-grade vinyl insulated male quick disconnect, 12-10 AWG, 0.250 x 0.032 in tab, yellow, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Male Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.250 x 0.032 in"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Gender",
+    "value": "Male"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/disconnects/edv10-250m-q.html"
+ },
+ {
+  "mpn": "EV10-38RB-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Ring Terminal EV10-38RB-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Ring Terminal",
+  "description": "StrongHold contractor-grade vinyl insulated ring terminal, 12-10 AWG, 3/8 in stud, yellow, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.31 in"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/ring-terminals/ev10-38rb-q.html"
+ },
+ {
+  "mpn": "EDNF10-250FI-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Nylon Fully-Insulated Female Quick Disconnect EDNF10-250FI-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Nylon Fully-Insulated Female ",
+  "description": "StrongHold contractor-grade nylon fully insulated female quick disconnect, 12-10 AWG, 0.250 x 0.032 in tab, yellow, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Nylon Fully-Insulated Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.250 x 0.032 in (1/4 in)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon, fully insulated"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Gender",
+    "value": "Female"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/disconnects/ednf10-250fi-q.html"
+ },
+ {
+  "mpn": "E10-10FB-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Fork Terminal E10-10FB-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Fork Terminal",
+  "description": "StrongHold contractor-grade vinyl insulated fork terminal, 12-10 AWG, #10 stud, yellow, 25-pack; funnel entry and butted seam barrel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/contractor-products/terminals/fork-terminals/p204446.html"
+ },
+ {
+  "mpn": "PX-2",
+  "brand": "Panduit",
+  "name": "Panduit Permanent Marking Pen PX-2",
+  "category": "electrical",
+  "subcategory": "Permanent Marking Pen",
+  "description": "PX-2 permanent marking pen with regular tip, red ink, for wire and cable marking.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Permanent Marking Pen"
+   },
+   {
+    "name": "Tip Type",
+    "value": "Regular"
+   },
+   {
+    "name": "Ink Color",
+    "value": "Red"
+   },
+   {
+    "name": "Ink Type",
+    "value": "Permanent"
+   },
+   {
+    "name": "Application",
+    "value": "Wire and cable marking"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/emea/en/products/wire-routing-management-protection/cable-wire-ties-mounts-straps/cable-marking-pens/px2.html"
+ },
+ {
+  "mpn": "PV12-56HDR-L",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Heavy-Duty Vinyl Insulated Ring Terminal PV12-56HDR-L",
+  "category": "electrical",
+  "subcategory": "Pan-Term Heavy-Duty Vinyl Insulated Ring",
+  "description": "Pan-Term heavy-duty vinyl insulated ring terminal, 16-12 AWG, 5/16 in stud, funnel entry, loose piece; discontinued — suggested replacement is PV12-38HDR-D.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Heavy-Duty Vinyl Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-12 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16 in"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl, heavy-duty"
+   },
+   {
+    "name": "Entry",
+    "value": "Funnel"
+   },
+   {
+    "name": "Form Factor",
+    "value": "Loose piece"
+   },
+   {
+    "name": "Status",
+    "value": "Discontinued"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/pv12-56hdr-l.html"
+ },
+ {
+  "mpn": "SA1000-1",
+  "brand": "Panduit",
+  "name": "Panduit Aluminum Compression Butt Splice SA1000-1",
+  "category": "electrical",
+  "subcategory": "Aluminum Compression Butt Splice",
+  "description": "Aluminum type-SA compression butt splice, tin plated, rated for 1000 kcmil conductor.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Aluminum Compression Butt Splice"
+   },
+   {
+    "name": "Conductor Size",
+    "value": "1000 kcmil"
+   },
+   {
+    "name": "Material",
+    "value": "Aluminum, tin plated"
+   },
+   {
+    "name": "Type",
+    "value": "Butt splice, compression"
+   },
+   {
+    "name": "Holes",
+    "value": "1"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/lugs-splices-split-bolts-accessories/splices/sa1000-1.html"
+ },
+ {
+  "mpn": "P22-6F-C",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Fork Terminal P22-6F-C",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Fork Terminal",
+  "description": "Pan-Term non-insulated fork terminal, 22 AWG, #6 stud, standard barrel, clam-shell packaging.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (non-insulated)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Packaging",
+    "value": "Clam-shell (C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p22-6f-c.html"
+ },
+ {
+  "mpn": "PMDR-3",
+  "brand": "Panduit",
+  "name": "Panduit PAN-CODE Pre-Printed Wire Marker Tape Refill PMDR-3",
+  "category": "electrical",
+  "subcategory": "PAN-CODE Pre-Printed Wire Marker Tape Re",
+  "description": "PAN-CODE pre-printed roll wire marker tape refill, legend '3', polyester, 8 ft roll, white background with black print, for PMD/PMDR dispensers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PAN-CODE Pre-Printed Wire Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "3"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Roll Length",
+    "value": "8 ft (2.4 m)"
+   },
+   {
+    "name": "Width",
+    "value": "0.22 in"
+   },
+   {
+    "name": "Color",
+    "value": "White background, black print"
+   },
+   {
+    "name": "Package Qty",
+    "value": "10 rolls"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmdr-3.html"
+ },
+ {
+  "mpn": "PMDR-4",
+  "brand": "Panduit",
+  "name": "Panduit PAN-CODE Pre-Printed Wire Marker Tape Refill PMDR-4",
+  "category": "electrical",
+  "subcategory": "PAN-CODE Pre-Printed Wire Marker Tape Re",
+  "description": "PAN-CODE pre-printed roll wire marker tape refill, legend '4', polyester, 8 ft roll, white background with black print, for PMD/PMDR dispensers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PAN-CODE Pre-Printed Wire Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "4"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Roll Length",
+    "value": "8 ft (2.4 m)"
+   },
+   {
+    "name": "Width",
+    "value": "0.22 in"
+   },
+   {
+    "name": "Color",
+    "value": "White background, black print"
+   },
+   {
+    "name": "Package Qty",
+    "value": "10 rolls"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/emea/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmdr-4.html"
+ },
+ {
+  "mpn": "PMDR-5",
+  "brand": "Panduit",
+  "name": "Panduit PAN-CODE Pre-Printed Wire Marker Tape Refill PMDR-5",
+  "category": "electrical",
+  "subcategory": "PAN-CODE Pre-Printed Wire Marker Tape Re",
+  "description": "PAN-CODE pre-printed roll wire marker tape refill, legend '5', polyester, 8 ft roll, white background with black print, for PMD/PMDR dispensers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PAN-CODE Pre-Printed Wire Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "5"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester (PET)"
+   },
+   {
+    "name": "Roll Length",
+    "value": "8 ft (2.4 m)"
+   },
+   {
+    "name": "Width",
+    "value": "0.22 in"
+   },
+   {
+    "name": "Color",
+    "value": "White background, black print"
+   },
+   {
+    "name": "Package Qty",
+    "value": "10 rolls"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-A",
+  "brand": "Panduit",
+  "name": "Panduit PAN-CODE Pre-Printed Wire Marker Tape Refill PMDR-A",
+  "category": "electrical",
+  "subcategory": "PAN-CODE Pre-Printed Wire Marker Tape Re",
+  "description": "PAN-CODE pre-printed roll wire marker tape refill, legend 'A', polyester, 8 ft roll, for PMD/PMDR dispensers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PAN-CODE Pre-Printed Wire Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "A"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Roll Length",
+    "value": "8 ft"
+   },
+   {
+    "name": "Color",
+    "value": "White background, black print"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD/PMDR"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/emea/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmdra.html"
+ },
+ {
+  "mpn": "PMDR-T3",
+  "brand": "Panduit",
+  "name": "Panduit PAN-CODE Pre-Printed Wire Marker Tape Refill PMDR-T3",
+  "category": "electrical",
+  "subcategory": "PAN-CODE Pre-Printed Wire Marker Tape Re",
+  "description": "PAN-CODE pre-printed roll wire marker tape refill, legend 'T3', polyester, 8 ft roll, for PMD/PMDR dispensers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PAN-CODE Pre-Printed Wire Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "T3"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Roll Length",
+    "value": "8 ft"
+   },
+   {
+    "name": "Color",
+    "value": "White background, black print"
+   },
+   {
+    "name": "Package Qty",
+    "value": "10 rolls"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD/PMDR"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://panduit.com/mena/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmdrt.html"
+ },
+ {
+  "mpn": "PMDR-X",
+  "brand": "Panduit",
+  "name": "Panduit PAN-CODE Pre-Printed Wire Marker Tape Refill PMDR-X",
+  "category": "electrical",
+  "subcategory": "PAN-CODE Pre-Printed Wire Marker Tape Re",
+  "description": "PAN-CODE pre-printed roll wire marker tape refill, legend 'X', polyester, spool, white, for PMD/PMDR dispensers.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "PAN-CODE Pre-Printed Wire Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "X"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White background, black print"
+   },
+   {
+    "name": "Form Factor",
+    "value": "Spool"
+   },
+   {
+    "name": "Series",
+    "value": "PAN-CODE"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD/PMDR"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "HSTT50-T45",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel (Green/Yellow) HSTT50-T45",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Dry-Shrink thin wall cross-linked polyolefin heat shrink tubing, 0.50 in ID, 2:1 shrink ratio, yellow/green (ground/earth color code), 200 ft continuous reel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel (Green/Yellow)"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.50 in (12.7 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow/Green"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft (61 m) reel"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   },
+   {
+    "name": "Compliance",
+    "value": "RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/p201718.html"
+ },
+ {
+  "mpn": "HSTT12-48-Q45",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT12-48-Q45",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Dry-Shrink thin wall cross-linked polyolefin heat shrink tubing, 1/8 in (0.125 in) ID, 2:1 shrink ratio, yellow/green (ground color code), 48 in (4 ft) pieces, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.125 in (3.2 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow/Green"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) per piece"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25 pieces"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/mena/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt1248q45.html"
+ },
+ {
+  "mpn": "PNF18-38R-C",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon Insulated Funnel Entry Ring Terminal PNF18-38R-C",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon Insulated Funnel Entry Ri",
+  "description": "Pan-Term nylon insulated funnel entry ring terminal, 22-18 AWG, 3/8 in stud, red; clam-shell pack with metal insulation grip sleeve for high-vibration applications.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon Insulated Funnel Entry Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon, funnel entry"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Max Temperature",
+    "value": "221°F (105°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204327.html"
+ },
+ {
+  "mpn": "D10-250-D",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Female Quick Disconnect D10-250-D",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Female Quick Disc",
+  "description": "Pan-Term non-insulated female quick disconnect, 12-10 AWG, 0.250 x 0.032 in tab, tin plated, standard barrel, box of 500.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.250 x 0.032 in (6.3 x 0.8 mm)"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (non-insulated)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin plated"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.72 in (18.3 mm)"
+   },
+   {
+    "name": "Package Qty",
+    "value": "500"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/d10-250-d.html"
+ },
+ {
+  "mpn": "ESV10BX-Q",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Vinyl-Insulated Butt Splice ESV10BX-Q",
+  "category": "electrical",
+  "subcategory": "StrongHold Vinyl-Insulated Butt Splice",
+  "description": "StrongHold contractor-grade vinyl insulated butt splice connector, 12-10 AWG, yellow, 25-pack; for splicing and extending solid or stranded wire.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Vinyl-Insulated Butt Splice"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Insulation",
+    "value": "Vinyl"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Type",
+    "value": "Butt splice"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/latam/es/products/contractor-products/terminals/splices/esv10bx-q.html"
+ },
+ {
+  "mpn": "PN14-10LF-C",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon Insulated Locking Fork Terminal PN14-10LF-C",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon Insulated Locking Fork Te",
+  "description": "Pan-Term nylon insulated locking fork terminal, 18-14 AWG, #10 stud, blue; UL Listed, 100-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "18-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon, locking"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Material",
+    "value": "Copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Qty",
+    "value": "100"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p204473.html"
+ },
+ {
+  "mpn": "PNF10-38R-D",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon Insulated Funnel Entry Ring Terminal PNF10-38R-D",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon Insulated Funnel Entry Ri",
+  "description": "Pan-Term nylon insulated funnel entry ring terminal, 12-10 AWG, 3/8 in stud, yellow; metal insulation grip sleeve for high-vibration environments.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon Insulated Funnel Entry Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8 in"
+   },
+   {
+    "name": "Insulation",
+    "value": "Nylon, funnel entry"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Material",
+    "value": "Copper, tin plated"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Max Temperature",
+    "value": "221°F (105°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/pn10-38r-d.html"
+ },
+ {
+  "mpn": "HSTTA25-Y",
+  "brand": "Panduit",
+  "name": "Panduit Damp-Shrink Dual-Wall Adhesive-Lined Heat Shrink Tubing HSTTA25-Y",
+  "category": "electrical",
+  "subcategory": "Damp-Shrink Dual-Wall Adhesive-Lined Hea",
+  "description": "Damp-Shrink dual wall adhesive-lined heat shrink tubing, 1/4 in (0.25 in) ID, black, 6 in piece; rated for damp and outdoor locations with moisture-sealing adhesive.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Damp-Shrink Dual-Wall Adhesive-Lined Heat Shrink Tubing"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.25 in (6.4 mm)"
+   },
+   {
+    "name": "Construction",
+    "value": "Dual wall, adhesive lined"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Length",
+    "value": "6 in per piece"
+   },
+   {
+    "name": "Environment Rating",
+    "value": "Damp/outdoor locations"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/p201210.html"
+ },
+ {
+  "mpn": "HSTT06-48-Q6",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT06-48-Q6",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Dry-Shrink thin wall cross-linked polyolefin heat shrink tubing, 1/16 in (0.06 in) ID, 2:1 shrink ratio, blue, 48 in pieces, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.06 in (1.6 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) per piece"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt06-48-q6.html"
+ },
+ {
+  "mpn": "HSTT06-48-Q4",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT06-48-Q4",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Dry-Shrink thin wall cross-linked polyolefin heat shrink tubing, 1/16 in (0.06 in) ID, 2:1 shrink ratio, yellow, 48 in pieces, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.06 in (1.6 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) per piece"
+   },
+   {
+    "name": "Package Qty",
+    "value": "25"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/p201197.html"
+ },
+ {
+  "mpn": "HSTT50-T4",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT50-T4",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "1/2\" (12.7 mm) expanded dia., yellow, cross-linked polyolefin heat shrink tubing on a 200 ft reel; 2:1 shrink ratio, flame retardant, -55°C to 135°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.500 in (12.7 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.250 in (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "90°C min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT75-T6",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT75-T6",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/4\" (19.1 mm) expanded dia., blue, cross-linked polyolefin heat shrink tubing on a 200 ft reel; 2:1 shrink ratio, flame retardant, -55°C to 135°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.750 in (19.1 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.375 in (9.5 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "90°C min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT05-48-Q6",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT05-48-Q6",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/64\" (1.2 mm) expanded dia., blue, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, pack of 25.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.046 in (1.2 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "25 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT38-T4",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT38-T4",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/8\" (9.5 mm) expanded dia., yellow, cross-linked polyolefin heat shrink tubing on a 200 ft reel; 2:1 shrink ratio, flame retardant, -55°C to 135°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.375 in (9.5 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.188 in (4.8 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "90°C min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT75-C10",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT75-C10",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/4\" (19.1 mm) expanded dia., white, cross-linked polyolefin heat shrink tubing on a 100 ft reel; 2:1 shrink ratio, flame retardant, -55°C to 135°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.750 in (19.1 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.375 in (9.5 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "White"
+   },
+   {
+    "name": "Length",
+    "value": "100 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "90°C min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT50-48-Q5",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT50-48-Q5",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "1/2\" (12.7 mm) expanded dia., green, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, pack of 25.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.500 in (12.7 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.250 in (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Green"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "25 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT50-T6",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT50-T6",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "1/2\" (12.7 mm) expanded dia., blue, cross-linked polyolefin heat shrink tubing on a 200 ft reel; 2:1 shrink ratio, flame retardant, -55°C to 135°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.500 in (12.7 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.250 in (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "90°C min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT50-48-5-6",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT50-48-5-6",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "1/2\" (12.7 mm) expanded dia., blue, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, 5 pieces per pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.500 in (12.7 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.250 in (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "5 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT50-T2",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT50-T2",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "1/2\" (12.7 mm) expanded dia., red, cross-linked polyolefin heat shrink tubing on a 200 ft reel; 2:1 shrink ratio, flame retardant, -55°C to 135°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.500 in (12.7 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.250 in (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "90°C min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT200-48-5-6",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT200-48-5-6",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "2\" (50.8 mm) expanded dia., blue, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, 5 pieces per pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "2.000 in (50.8 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "1.000 in (25.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "5 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT200-48-5C",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT200-48-5C",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "2\" (50.8 mm) expanded dia., clear, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, 5 pieces per pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "2.000 in (50.8 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "1.000 in (25.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Clear"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "5 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt200-48-5c.html"
+ },
+ {
+  "mpn": "HSTT09-48-Q6",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT09-48-Q6",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/32\" (2.4 mm) expanded dia., blue, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, pack of 25.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.093 in (2.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Blue"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "25 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT05-48-Q2",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT05-48-Q2",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/64\" (1.2 mm) expanded dia., red, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, pack of 25.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.046 in (1.2 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Red"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "25 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT05-48-Q4",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT05-48-Q4",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/64\" (1.2 mm) expanded dia., yellow, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, pack of 25.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.046 in (1.2 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "25 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT400-48-2C",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT400-48-2C",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "4\" (101.6 mm) expanded dia., clear, irradiated polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, 2 pieces per pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "4.000 in (101.6 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "2.000 in (50.8 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Clear"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "2 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Polyolefin, irradiated"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt400-48-2c.html"
+ },
+ {
+  "mpn": "HSTT05-C",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT05-C",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/64\" (1.2 mm) expanded dia., black, cross-linked polyolefin heat shrink tubing on a 100 ft reel; 2:1 shrink ratio, flame retardant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.046 in (1.2 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Length",
+    "value": "100 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   },
+   {
+    "name": "Shrink Temperature",
+    "value": "90°C min"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT75-48-5-5",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces HSTT75-48-5-5",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/4\" (19.1 mm) expanded dia., green, cross-linked polyolefin heat shrink tubing; 48\" pieces, 2:1 shrink ratio, 5 pieces per pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing 4 ft Pieces"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.750 in (19.1 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.375 in (9.5 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Green"
+   },
+   {
+    "name": "Length",
+    "value": "48 in (4 ft) pieces"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "5 pieces"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt75-48-5-5.html"
+ },
+ {
+  "mpn": "DPF18-206FIB-C",
+  "brand": "Panduit",
+  "name": "Panduit DiscoGrip Nylon-Insulated Female Disconnect DPF18-206FIB-C",
+  "category": "electrical",
+  "subcategory": "DiscoGrip Nylon-Insulated Female Disconn",
+  "description": "Vibration-resistant female disconnect for 22-18 AWG; 0.187/0.205\" tab, red premium nylon insulation, tin-plated brass barrel, 100/pkg.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "DiscoGrip Nylon-Insulated Female Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG (0.5-1.0 mm²)"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.205/0.187 in x 0.020 in (5.2/4.7 x 0.5 mm)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Red premium nylon, fully insulated"
+   },
+   {
+    "name": "Barrel Material",
+    "value": "Tin-plated brass, butted seam, funnel entry"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.78 in (19.8 mm)"
+   },
+   {
+    "name": "Overall Width",
+    "value": "0.31 in (7.9 mm)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "100"
+   },
+   {
+    "name": "Series",
+    "value": "DiscoGrip"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/dpf18-206fib-c.html"
+ },
+ {
+  "mpn": "DNF10-250FIB-D",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Female Disconnect DNF10-250FIB-D",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Female Disconne",
+  "description": "Nylon-insulated female disconnect for 12-10 AWG; 0.250\" tab, yellow nylon, tin-plated brass, vibration-resistant funnel entry barrel, 600V, 105°C.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Female Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG (4-6 mm²)"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.250 in x 0.032 in (6.35 x 0.81 mm)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Yellow nylon, fully insulated"
+   },
+   {
+    "name": "Barrel Material",
+    "value": "Tin-plated brass, butted seam, funnel entry"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Max Temperature",
+    "value": "105°C"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.960 in (24.4 mm)"
+   },
+   {
+    "name": "Series",
+    "value": "Pan-Term"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/dnf10-250fib-d.html"
+ },
+ {
+  "mpn": "DNF14-188FIB-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Female Disconnect DNF14-188FIB-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Female Disconne",
+  "description": "Nylon-insulated vibration-resistant female disconnect for 16-14 AWG; 0.187\" tab, blue nylon, tin-plated brass, funnel entry barrel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Female Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG (1.5-2.5 mm²)"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.187 in x 0.020 in (4.8 x 0.5 mm)"
+   },
+   {
+    "name": "Insulation",
+    "value": "Blue nylon, fully insulated"
+   },
+   {
+    "name": "Barrel Material",
+    "value": "Tin-plated brass, butted seam, funnel entry"
+   },
+   {
+    "name": "Series",
+    "value": "DNF-FIB, Pan-Term"
+   },
+   {
+    "name": "Packaging",
+    "value": "Loose piece (M suffix = multiple piece bag)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/dnf14-188fib-c.html"
+ },
+ {
+  "mpn": "P10-8LF-D",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Locking Fork Terminal P10-8LF-D",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Locking Fork Term",
+  "description": "Non-insulated locking fork tongue terminal for 14-10 AWG (#8 stud); tin-plated brass, locking tab prevents accidental removal, loose piece bulk.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "14-10 AWG (6 mm²)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8 (M4)"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (non-insulated)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork tongue"
+   },
+   {
+    "name": "Packaging",
+    "value": "Bulk (D suffix = bag pack)"
+   },
+   {
+    "name": "Series",
+    "value": "Pan-Term P-LF"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p10-8lf-d.html"
+ },
+ {
+  "mpn": "D14-188-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Female Disconnect D14-188-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Female Disconnect",
+  "description": "Non-insulated female disconnect for 16-14 AWG; 0.187\" tab, tin-plated brass, butted seam barrel, loose piece.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Female Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.187 in x 0.020 in (4.75 x 0.51 mm)"
+   },
+   {
+    "name": "Insulation",
+    "value": "None (non-insulated)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.580 in (14.7 mm)"
+   },
+   {
+    "name": "Termination",
+    "value": "Crimp, serrated"
+   },
+   {
+    "name": "Series",
+    "value": "Pan-Term"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/d14-188-m.html"
+ },
+ {
+  "mpn": "PMDR-MIN",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-MIN",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"Min\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, 0.125 in legend height, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "Min"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Legend Height",
+    "value": "0.125 in (3.2 mm)"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-0",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-0",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"0\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "0 (numeral zero)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-2",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-2",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"2\" (symbol/numeral) legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "2 (symbol/numeral)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmdr-2.html"
+ },
+ {
+  "mpn": "PMDR-6",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-6",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"6\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "6 (numeral six)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmdr-6.html"
+ },
+ {
+  "mpn": "PMDR-9",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-9",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"9\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "9 (numeral nine)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-L",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-L",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"L\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "L (letter)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   },
+   {
+    "name": "Status",
+    "value": "Obsolete"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-L1",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-L1",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"L1\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "L1"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-L2",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-L2",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"L2\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "L2"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-T",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-T",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"T\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "T (letter)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://panduit.com/mena/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmdrt.html"
+ },
+ {
+  "mpn": "PMDR-T1",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-T1",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"T1\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "T1"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-T2",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-T2",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"T2\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "T2"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "PMDR-Z",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Marker Tape Refill PMDR-Z",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Marker Tape Refill",
+  "description": "Pre-printed \"Z\" legend polyester marker tape refill for PMD dispenser; 8 ft roll, white background, black legend.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Marker Tape Refill"
+   },
+   {
+    "name": "Legend",
+    "value": "Z (letter)"
+   },
+   {
+    "name": "Tape Length",
+    "value": "8 ft (2.4 m) per roll"
+   },
+   {
+    "name": "Material",
+    "value": "Polyester"
+   },
+   {
+    "name": "Color",
+    "value": "White with black legend"
+   },
+   {
+    "name": "Compatible Dispenser",
+    "value": "PMD"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/p202366.html"
+ },
+ {
+  "mpn": "HSTT75-T45",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT75-T45",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/4\" (19.1 mm) expanded dia., yellow-green (ground), cross-linked polyolefin heat shrink tubing on a 200 ft reel; 2:1 shrink ratio, flame retardant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.750 in (19.1 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.375 in (9.5 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow-Green (ground color)"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "HSTT38-T45",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT38-T45",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "3/8\" (9.5 mm) expanded dia., yellow-green (ground), cross-linked polyolefin heat shrink tubing on a 200 ft reel; 2:1 shrink ratio, flame retardant.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded Diameter",
+    "value": "0.375 in (9.5 mm)"
+   },
+   {
+    "name": "Recovered Diameter",
+    "value": "0.188 in (4.8 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Color",
+    "value": "Yellow-Green (ground color)"
+   },
+   {
+    "name": "Length",
+    "value": "200 ft reel"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-55°C to 135°C"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/1/81/181/2181/22181.pdf"
+ },
+ {
+  "mpn": "PCMB-11",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold Pre-Printed Wire Marker Book PCMB-11",
+  "category": "electrical",
+  "subcategory": "StrongHold Pre-Printed Wire Marker Book",
+  "description": "Pocket-sized pre-printed wire marker book with legend \"11\"; vinyl cloth markers, 15 markers per legend, 10 pages per book, tearable halves.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold Pre-Printed Wire Marker Book"
+   },
+   {
+    "name": "Legend",
+    "value": "11"
+   },
+   {
+    "name": "Material",
+    "value": "Vinyl cloth"
+   },
+   {
+    "name": "Markers per Legend",
+    "value": "15"
+   },
+   {
+    "name": "Pages per Book",
+    "value": "10"
+   },
+   {
+    "name": "Color",
+    "value": "White with black print"
+   },
+   {
+    "name": "Application",
+    "value": "Wire and cable identification"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PCMB"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/pre-printed-write-on-wire-identification-labels/pcmb-11.html"
+ },
+ {
+  "mpn": "PNF10-6LF-L",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Locking Fork Terminal PNF10-6LF-L",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Locking Fork Te",
+  "description": "Nylon-insulated locking fork terminal for 12-10 AWG (#6 stud); yellow nylon, funnel entry, locking tab, 600V, metal insulation grip sleeve.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG (4-6 mm²)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation",
+    "value": "Yellow nylon, fully insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass barrel"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork with funnel entry"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Series",
+    "value": "Pan-Term PNF"
+   },
+   {
+    "name": "Packaging",
+    "value": "Reel (L suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pnf10-8lf-l.html"
+ },
+ {
+  "mpn": "PNF10-8LF-L",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Locking Fork Terminal PNF10-8LF-L",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Locking Fork Te",
+  "description": "Nylon-insulated locking fork terminal for 12-10 AWG (#8 stud); yellow nylon, funnel entry, locking tab, 600V, metal insulation grip sleeve.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG (4-6 mm²)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation",
+    "value": "Yellow nylon, fully insulated"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass barrel"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork with funnel entry"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Series",
+    "value": "Pan-Term PNF"
+   },
+   {
+    "name": "Packaging",
+    "value": "Reel (L suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pnf10-8lf-l.html"
+ },
+ {
+  "mpn": "PMD",
+  "brand": "Panduit",
+  "name": "Panduit StrongHold PAN-CODE Wire Marker Tape Dispenser (Empty) PMD",
+  "category": "electrical",
+  "subcategory": "StrongHold PAN-CODE Wire Marker Tape Dis",
+  "description": "Empty polypropylene wire marker tape dispenser for PAN-CODE PMDR refill rolls; belt-clip capable, accommodates standard 8 ft PMDR tape rolls.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "StrongHold PAN-CODE Wire Marker Tape Dispenser (Empty)"
+   },
+   {
+    "name": "Material",
+    "value": "Polypropylene"
+   },
+   {
+    "name": "External Length",
+    "value": "127 mm (5 in approx.)"
+   },
+   {
+    "name": "External Width",
+    "value": "42 mm"
+   },
+   {
+    "name": "External Depth",
+    "value": "35 mm"
+   },
+   {
+    "name": "Compatible Refills",
+    "value": "PMDR series (PAN-CODE 8 ft rolls)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1"
+   },
+   {
+    "name": "Series",
+    "value": "StrongHold PAN-CODE"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/label-marker-accessories/pmd.html"
+ },
+ {
+  "mpn": "PSCB-3Y",
+  "brand": "Panduit",
+  "name": "Panduit Self-Laminating Write-On Wire Marker Book PSCB-3Y",
+  "category": "electrical",
+  "subcategory": "Self-Laminating Write-On Wire Marker Boo",
+  "description": "StrongHold blank self-laminating write-on cable marker book, vinyl, 3\" x 1\", 60 markers per book, white.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Self-Laminating Write-On Wire Marker Book"
+   },
+   {
+    "name": "Marker Dimensions",
+    "value": "3.00\" x 1.00\" (76.2 mm x 25.4 mm)"
+   },
+   {
+    "name": "Quantity per Book",
+    "value": "60 markers (10 pages)"
+   },
+   {
+    "name": "Material",
+    "value": "Vinyl, self-laminating"
+   },
+   {
+    "name": "Color",
+    "value": "White with clear laminate overlay"
+   },
+   {
+    "name": "Wire OD Max",
+    "value": "0.38\" (9.50 mm)"
+   },
+   {
+    "name": "Marker Usable Dimensions",
+    "value": "0.22\" x 1.38\" (5.60 mm x 34.90 mm)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/signs-labels-identification/labels-markers-printers/pre-printed-write-on-wire-identification-labels/pscb3y.html"
+ },
+ {
+  "mpn": "PNF14-4R-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Funnel Entry Ring Terminal PNF14-4R-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Funnel Entry Ri",
+  "description": "Nylon-insulated funnel entry ring terminal for 16-14 AWG wire, #4 stud size, with metal insulation grip sleeve for vibration resistance, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Funnel Entry Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#4"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Nylon (funnel entry with insulation grip sleeve)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam barrel"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "221°F (105°C)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204327.html"
+ },
+ {
+  "mpn": "P18-10LF-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Locking Fork Terminal P18-10LF-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Locking Fork Term",
+  "description": "Non-insulated locking fork terminal for 22-16 AWG wire, #10 stud size, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-16 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam barrel"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p204454.html"
+ },
+ {
+  "mpn": "PV10-10LFX-L",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl Expanded-Insulation Locking Fork Terminal PV10-10LFX-L",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl Expanded-Insulation Locki",
+  "description": "Locking fork terminal with expanded vinyl insulation for 12-10 AWG wire, #10 stud size, loose piece, 50-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl Expanded-Insulation Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Expanded vinyl (yellow)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "50 (-L suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pv10-10lf-l.html"
+ },
+ {
+  "mpn": "PV10-8LFX-L",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl Expanded-Insulation Locking Fork Terminal PV10-8LFX-L",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl Expanded-Insulation Locki",
+  "description": "Locking fork terminal with expanded vinyl insulation for 12-10 AWG wire, #8 stud size, loose piece.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl Expanded-Insulation Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Expanded vinyl (yellow)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, butted seam"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "50 (-L suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pv10-8lf-l.html"
+ },
+ {
+  "mpn": "PV14-38R-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Ring Terminal PV14-38R-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Ring Terminal",
+  "description": "Vinyl-insulated funnel entry ring terminal for 16-14 AWG wire, 3/8\" stud size, blue, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "3/8\""
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (blue)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "221°F (105°C)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204344.html"
+ },
+ {
+  "mpn": "PV14-4R-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Ring Terminal PV14-4R-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Ring Terminal",
+  "description": "Vinyl-insulated funnel entry ring terminal for 16-14 AWG wire, #4 stud size, blue, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#4"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (blue)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "221°F (105°C)"
+   },
+   {
+    "name": "Length",
+    "value": "0.84 in"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/pv14-14r-m.html"
+ },
+ {
+  "mpn": "PV14-56R-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Ring Terminal PV14-56R-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Ring Terminal",
+  "description": "Vinyl-insulated ring terminal for 16-14 AWG wire, 5/16\" stud size, blue, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16\""
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (blue)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "221°F (105°C)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204344.html"
+ },
+ {
+  "mpn": "PV14-6RN-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Ring Terminal PV14-6RN-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Ring Terminal",
+  "description": "Vinyl-insulated ring terminal for 16-14 AWG wire, #6 stud size, blue, narrow tongue, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (blue)"
+   },
+   {
+    "name": "Material",
+    "value": "Copper with tin plating"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.840\" (21.34 mm)"
+   },
+   {
+    "name": "Tongue Width",
+    "value": "0.250\" (6.35 mm)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/latam/es/products/wire-termination/terminals-terminal-kits/ring-terminals/pv14-6rn-m.html"
+ },
+ {
+  "mpn": "PV14-8FF-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Flanged Fork Terminal PV14-8FF-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Flanged Fork Te",
+  "description": "Vinyl-insulated flanged fork terminal for 16-14 AWG wire, #8 stud size, funnel entry, blue, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Flanged Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (blue), funnel entry"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Flanged fork"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p204470.html"
+ },
+ {
+  "mpn": "PV18-6FN-MY",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Narrow Fork Terminal PV18-6FN-MY",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Narrow Fork Ter",
+  "description": "Vinyl-insulated narrow tongue fork terminal for 22-16 AWG wire, #6 stud size, funnel entry, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Narrow Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-16 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl, funnel entry"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Narrow fork"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -MY suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/emea/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pv186fnmy.html"
+ },
+ {
+  "mpn": "DVF14-250-C",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Female Quick Disconnect DVF14-250-C",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Female Quick Di",
+  "description": "Vinyl barrel-insulated female quick disconnect for 16-14 AWG wire, 0.250\" x 0.032\" tab size, blue, bottle of 100.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.250\" x 0.032\" (6.35 x 0.81 mm)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl barrel insulation (blue)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.810\" (20.57 mm)"
+   },
+   {
+    "name": "RoHS Compliant",
+    "value": "Yes"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "100 (-C suffix, bottle)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/ausnz/en/products/wire-termination/terminals-terminal-kits/disconnects/dvf14250c.html"
+ },
+ {
+  "mpn": "PV10-6LF-D",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Locking Fork Terminal PV10-6LF-D",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Locking Fork Te",
+  "description": "Vinyl-insulated locking fork terminal for 12-10 AWG wire, #6 stud size, funnel entry, butted seam, yellow, 500-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl, funnel entry (yellow)"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork, butted seam"
+   },
+   {
+    "name": "Tongue Width",
+    "value": "0.30 in"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "221°F (105°C)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "500 (-D suffix, bulk)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pv10-6lf-d.html"
+ },
+ {
+  "mpn": "PN10-8RX-L",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Expanded Ring Terminal PN10-8RX-L",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Expanded Ring T",
+  "description": "Nylon-insulated expanded ring terminal for 12-10 AWG wire, #8 stud size, metal insulation grip sleeve, yellow, loose piece.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Expanded Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Expanded nylon (yellow), insulation grip sleeve"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "221°F (105°C)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "50 (-L suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204327.html"
+ },
+ {
+  "mpn": "PNF14-6LF-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Locking Fork Terminal PNF14-6LF-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Locking Fork Te",
+  "description": "Nylon-insulated locking fork terminal for 18-14 AWG wire, #6 stud size, funnel entry, metal insulation grip sleeve, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "18-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Nylon, funnel entry with insulation grip sleeve"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/emea/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pnf14-6lf-m.html"
+ },
+ {
+  "mpn": "PN14-8FF-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Flanged Fork Terminal PN14-8FF-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Flanged Fork Te",
+  "description": "Nylon-insulated flanged fork terminal for 18-14 AWG wire, #8 stud size, blue, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Flanged Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "18-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Nylon (blue)"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Flanged fork"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pn14-8ff-m.html"
+ },
+ {
+  "mpn": "CJS688TGY",
+  "brand": "Panduit",
+  "name": "Panduit Mini-Com TX6 PLUS Shielded Cat 6 RJ45 TG Jack Module CJS688TGY",
+  "category": "datacom",
+  "subcategory": "Mini-Com TX6 PLUS Shielded Cat 6 RJ45 TG",
+  "description": "Mini-Com TX6 PLUS shielded Cat 6 RJ45 TG jack module, 8P8C, 22-26 AWG, black ABS, tool-less termination, individually serialized.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Mini-Com TX6 PLUS Shielded Cat 6 RJ45 TG Jack Module"
+   },
+   {
+    "name": "Category Rating",
+    "value": "Cat 6 (exceeds ANSI/TIA-568-C.2, ISO 11801 Class E)"
+   },
+   {
+    "name": "Connector Type",
+    "value": "8P8C RJ45, shielded"
+   },
+   {
+    "name": "Wire Gauge Range",
+    "value": "22-26 AWG, 4-pair"
+   },
+   {
+    "name": "Swept Frequency",
+    "value": "Up to 250 MHz"
+   },
+   {
+    "name": "Termination Style",
+    "value": "TG (tool-less)"
+   },
+   {
+    "name": "PoE Rating",
+    "value": "IEEE 802.3af/at and 802.3bt Type 3/4 up to 100W"
+   },
+   {
+    "name": "Color",
+    "value": "Black ABS"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL 1863, UL 2043, RoHS, IEC 60603-7"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/copper-systems/connectors/jack-modules/cjs688tgy.html"
+ },
+ {
+  "mpn": "DNF14-187-C",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Female Quick Disconnect DNF14-187-C",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Female Quick Di",
+  "description": "Nylon barrel-insulated female quick disconnect for 16-14 AWG wire, 0.187\" x 0.032\" tab, blue, bottle of 100.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.187\" x 0.032\" (4.8 x 0.81 mm)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Nylon barrel (blue), insulation grip sleeve, funnel entry"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.76\" (19.3 mm)"
+   },
+   {
+    "name": "Width",
+    "value": "0.23\" (5.8 mm)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "100 (-C suffix, bottle)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/dnf14-187-m.html"
+ },
+ {
+  "mpn": "HSTTV50-48-Q",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall VW-1 Heat Shrink Tubing, 4 ft piece HSTTV50-48-Q",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall VW-1 Heat Shrink Tu",
+  "description": "Thin-wall VW-1 rated heat shrink tubing, 1/2\" expanded ID, 2:1 shrink ratio, black cross-linked polyolefin, 4 ft pieces, 25-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall VW-1 Heat Shrink Tubing, 4 ft piece"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.500\" (12.7 mm)"
+   },
+   {
+    "name": "Recovered ID",
+    "value": "0.250\" (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant, VW-1"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Length per Piece",
+    "value": "4 ft (48\")"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "25 (-Q suffix)"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/7/87/387/1387/101111387.pdf"
+ },
+ {
+  "mpn": "HSTT50-48-Q4",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing, 4 ft piece HSTT50-48-Q4",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing,",
+  "description": "Thin-wall heat shrink tubing, 1/2\" expanded ID, 2:1 shrink ratio, black cross-linked polyolefin, 4 ft pieces, pack of 4.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing, 4 ft piece"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.500\" (12.7 mm)"
+   },
+   {
+    "name": "Recovered ID",
+    "value": "0.250\" (6.4 mm)"
+   },
+   {
+    "name": "Recovered Wall Thickness",
+    "value": "0.025 in"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Black"
+   },
+   {
+    "name": "Length per Piece",
+    "value": "4 ft (48\")"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "4 (-Q4 suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt50-48-q4.html"
+ },
+ {
+  "mpn": "P14-8LF-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Locking Fork Terminal P14-8LF-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Locking Fork Term",
+  "description": "Non-insulated (bare) locking fork terminal for 18-14 AWG wire, #8 stud size, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "18-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p204454.html"
+ },
+ {
+  "mpn": "DR18-206-C",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated 90-Degree Flag Female Disconnect DR18-206-C",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated 90-Degree Flag Fe",
+  "description": "Non-insulated 90-degree flag female quick disconnect for 22-18 AWG wire, 0.187\"/0.205\" tab, bottle of 100.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated 90-Degree Flag Female Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.187\" / 0.205\" x 0.020\" (4.75 / 5.21 mm)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated"
+   },
+   {
+    "name": "Orientation",
+    "value": "90-degree flag (right angle)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "100 (-C suffix, bottle)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects.html"
+ },
+ {
+  "mpn": "D18-188-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Female Quick Disconnect D18-188-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Female Quick Disc",
+  "description": "Non-insulated vibration-resistant female quick disconnect for 22-18 AWG wire, 0.187\" tab, sleeved barrel, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.187\" x 0.020\" (4.8 x 0.5 mm)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated, sleeved barrel"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.58\" (14.7 mm)"
+   },
+   {
+    "name": "Width",
+    "value": "0.23\" (5.8 mm)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/d18-188-m.html"
+ },
+ {
+  "mpn": "P18-4R-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Ring Terminal P18-4R-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Ring Terminal",
+  "description": "Non-insulated ring terminal for 22-18 AWG wire, #4 stud size, brazed seam, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#4"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.62 in"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p18-4r-m.html"
+ },
+ {
+  "mpn": "P18-6LF-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Locking Fork Terminal P18-6LF-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Locking Fork Term",
+  "description": "Non-insulated locking fork terminal for 22-16 AWG wire, #6 (M3.5) stud size, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-16 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#6 (M3.5)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p18-6lf-m.html"
+ },
+ {
+  "mpn": "P18-8LF-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Locking Fork Terminal P18-8LF-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Locking Fork Term",
+  "description": "Non-insulated locking fork terminal for 22-16 AWG wire, #8 (M4) stud size, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-16 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#8 (M4)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p18-6lf-m.html"
+ },
+ {
+  "mpn": "PV14-10FN-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Narrow Fork Terminal PV14-10FN-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Narrow Fork Ter",
+  "description": "Vinyl-insulated narrow tongue fork terminal for 16-14 AWG wire, #10 stud size, funnel entry, blue, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Narrow Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "16-14 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (blue), funnel entry"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Narrow fork"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.92 in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/p204470.html"
+ },
+ {
+  "mpn": "PV18-4R-MY",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl-Insulated Ring Terminal PV18-4R-MY",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl-Insulated Ring Terminal",
+  "description": "Vinyl-insulated funnel entry ring terminal for 22-18 AWG wire, #4 stud size, red, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl-Insulated Ring Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#4"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl (red), funnel entry"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -MY suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/pv18-4r-my.html"
+ },
+ {
+  "mpn": "DV18-188B-MY",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl Barrel-Insulated Female Quick Disconnect DV18-188B-MY",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl Barrel-Insulated Female Q",
+  "description": "Vinyl barrel-insulated female quick disconnect for 22-18 AWG wire, 0.187\" tab, funnel entry, red, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl Barrel-Insulated Female Quick Disconnect"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG"
+   },
+   {
+    "name": "Tab Size",
+    "value": "0.187\" x 0.020\" (4.8 x 0.5 mm)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Vinyl barrel (red), funnel entry"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass"
+   },
+   {
+    "name": "Overall Length",
+    "value": "0.76\" (19.3 mm)"
+   },
+   {
+    "name": "Width",
+    "value": "0.23\" (5.8 mm)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -MY suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects/dv18-188b-my.html"
+ },
+ {
+  "mpn": "PS16-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Parallel Splice PS16-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Parallel Splice",
+  "description": "Non-insulated parallel splice for 20-16 AWG wire, tin-plated brass, requires one crimp, bulk package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Parallel Splice"
+   },
+   {
+    "name": "Wire Range",
+    "value": "20-16 AWG"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Parallel splice"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass"
+   },
+   {
+    "name": "Conductor Area",
+    "value": "1.5 mm²"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects.html"
+ },
+ {
+  "mpn": "P8-12R-T",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Large Wire Ring Terminal P8-12R-T",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Large Wire Ring T",
+  "description": "Non-insulated large wire ring terminal for 8 AWG, 1/2\" stud size, tin-plated copper, UL/CSA, 200-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Large Wire Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "8 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2\" (M12)"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "2000 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "302°F (150°C)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "200 (-T suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204314.html"
+ },
+ {
+  "mpn": "P8-14R-T",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Large Wire Ring Terminal P8-14R-T",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Large Wire Ring T",
+  "description": "Non-insulated large wire ring terminal for 8 AWG, 1/4\" stud size, tin-plated copper, UL/CSA, 200-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Large Wire Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "8 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/4\""
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "2000 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "302°F (150°C)"
+   },
+   {
+    "name": "Dimensions",
+    "value": "1.14\" x 0.47\" (29 x 11.9 mm)"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "200 (-T suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p8-14r-t.html"
+ },
+ {
+  "mpn": "BSN18-M",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Butt Splice BSN18-M",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Butt Splice",
+  "description": "Nylon-insulated butt splice connector for 22-18 AWG wire, red nylon housing, brazed seam, bulk package of 1000.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Butt Splice"
+   },
+   {
+    "name": "Wire Range",
+    "value": "22-18 AWG"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Nylon (red)"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Butt splice"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated brass, brazed seam"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.15 in"
+   },
+   {
+    "name": "Max Insulation OD",
+    "value": "0.115 in"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "1000 (bulk -M suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/disconnects.html"
+ },
+ {
+  "mpn": "PV8-56RX-TY",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Vinyl Expanded-Insulation Large Wire Ring Terminal PV8-56RX-TY",
+  "category": "electrical",
+  "subcategory": "Pan-Term Vinyl Expanded-Insulation Large",
+  "description": "Vinyl expanded-insulation large wire ring terminal for 8 AWG, 5/16\" stud size, yellow, standard package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Vinyl Expanded-Insulation Large Wire Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "8 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "5/16\""
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Expanded vinyl (yellow)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "221°F (105°C), UL 94V-0"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "25 (-TY suffix, standard)"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL, CSA"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p204318.html"
+ },
+ {
+  "mpn": "PNF10-10LF-L",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Nylon-Insulated Locking Fork Terminal PNF10-10LF-L",
+  "category": "electrical",
+  "subcategory": "Pan-Term Nylon-Insulated Locking Fork Te",
+  "description": "Nylon-insulated locking fork terminal for 12-10 AWG wire, #10 stud size, funnel entry, metal insulation grip sleeve, yellow, 50-pack.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Nylon-Insulated Locking Fork Terminal"
+   },
+   {
+    "name": "Wire Range",
+    "value": "12-10 AWG"
+   },
+   {
+    "name": "Stud Size",
+    "value": "#10"
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Nylon, funnel entry with insulation grip sleeve (yellow)"
+   },
+   {
+    "name": "Terminal Type",
+    "value": "Locking fork"
+   },
+   {
+    "name": "Overall Length",
+    "value": "1.05 in"
+   },
+   {
+    "name": "Tongue Size",
+    "value": "0.34\" W x 0.04\" THK"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Package Quantity",
+    "value": "50 (-L suffix)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-termination/terminals-terminal-kits/fork-terminals/pnf10-10lf-l.html"
+ },
+ {
+  "mpn": "P4-12R-T",
+  "brand": "Panduit",
+  "name": "Panduit Pan-Term Non-Insulated Large Wire Ring Terminal P4-12R-T",
+  "category": "electrical",
+  "subcategory": "Pan-Term Non-Insulated Large Wire Ring T",
+  "description": "Non-insulated large wire ring terminal for 4 AWG, 1/2\" stud size, tin-plated copper, UL/CSA, standard package.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Pan-Term Non-Insulated Large Wire Ring Terminal"
+   },
+   {
+    "name": "Wire Size",
+    "value": "4 AWG (fits #8-2 AWG range)"
+   },
+   {
+    "name": "Stud Size",
+    "value": "1/2\""
+   },
+   {
+    "name": "Insulation Type",
+    "value": "Non-insulated (bare)"
+   },
+   {
+    "name": "Material",
+    "value": "Tin-plated copper, brazed seam"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "2000 V"
+   },
+   {
+    "name": "Temperature Rating",
+    "value": "302°F (150°C)"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Listed, CSA, RoHS"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://panduit.com/en/products/wire-termination/terminals-terminal-kits/ring-terminals/p4-12r-t.html"
+ },
+ {
+  "mpn": "HSTT50-C2",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT50-C2",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Thin-wall heat shrink tubing, 1/2\" expanded diameter, red cross-linked polyolefin, 100 ft reel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.500\" (12.7 mm)"
+   },
+   {
+    "name": "Recovered ID",
+    "value": "0.250\" (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Red (-C2 suffix)"
+   },
+   {
+    "name": "Length per Reel",
+    "value": "100 ft (30.5 m)"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt50-c.html"
+ },
+ {
+  "mpn": "HSTT25-C10",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT25-C10",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Thin-wall heat shrink tubing, 1/4\" expanded diameter, white cross-linked polyolefin, 100 ft reel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.250\" (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "White (-C10 suffix)"
+   },
+   {
+    "name": "Length per Reel",
+    "value": "100 ft (30.5 m)"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   },
+   {
+    "name": "Certifications",
+    "value": "UL Recognized, CSA Certified"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt25-c.html"
+ },
+ {
+  "mpn": "HSTT50-C5",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT50-C5",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Thin-wall heat shrink tubing, 1/2\" expanded diameter, green cross-linked polyolefin, 100 ft reel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.500\" (12.7 mm)"
+   },
+   {
+    "name": "Recovered ID",
+    "value": "0.250\" (6.4 mm)"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Green (-C5 suffix)"
+   },
+   {
+    "name": "Length per Reel",
+    "value": "100 ft (30.5 m)"
+   },
+   {
+    "name": "Temperature Range",
+    "value": "-67°F to 275°F (-55°C to 135°C)"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt50-c.html"
+ },
+ {
+  "mpn": "HSTT38-C2",
+  "brand": "Panduit",
+  "name": "Panduit Dry-Shrink Thin Wall Heat Shrink Tubing Reel HSTT38-C2",
+  "category": "electrical",
+  "subcategory": "Dry-Shrink Thin Wall Heat Shrink Tubing ",
+  "description": "Thin-wall heat shrink tubing, 3/8\" expanded diameter, red cross-linked polyolefin, 100 ft reel.",
+  "specs": [
+   {
+    "name": "Manufacturer",
+    "value": "Panduit",
+    "isNonNeg": true
+   },
+   {
+    "name": "Product Type",
+    "value": "Dry-Shrink Thin Wall Heat Shrink Tubing Reel"
+   },
+   {
+    "name": "Expanded ID",
+    "value": "0.375\" (9.5 mm)"
+   },
+   {
+    "name": "Recovered ID",
+    "value": "0.187\" (4.75 mm)"
+   },
+   {
+    "name": "Recovered Wall Thickness",
+    "value": "0.025 in"
+   },
+   {
+    "name": "Shrink Ratio",
+    "value": "2:1"
+   },
+   {
+    "name": "Material",
+    "value": "Cross-linked polyolefin, flame retardant"
+   },
+   {
+    "name": "Color",
+    "value": "Red (-C2 suffix)"
+   },
+   {
+    "name": "Length per Reel",
+    "value": "100 ft (30.5 m)"
+   },
+   {
+    "name": "Voltage Rating",
+    "value": "600 V"
+   }
+  ],
+  "verifiedAt": "2026-06-26",
+  "specSheetUrl": "https://www.panduit.com/en/products/wire-routing-management-protection/abrasion-protection/heat-shrink-tubing-accessories/hstt38-c.html"
  }
 ];
