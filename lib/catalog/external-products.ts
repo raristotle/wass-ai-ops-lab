@@ -5,6 +5,7 @@ import { BOM_PRODUCTS } from "@/data/real/bom-products";
 import { SECURITY_BRAND_PRODUCTS } from "@/data/real/security-brand-products";
 import { ATKORE_PRODUCTS } from "@/data/real/atkore-products";
 import { ENRICHED_CROSS_TARGETS } from "@/data/real/enriched-cross-targets";
+import { ENRICHED_HUBBELL } from "@/data/real/enriched-hubbell";
 
 /**
  * External bulk-source product tier — REAL products ingested from large, openly-
@@ -277,6 +278,10 @@ function build(): CatalogProduct[] {
     push(atkoreToCatalog(e));
   }
   for (const e of ENRICHED_CROSS_TARGETS) {
+    if (!e.specs.some((s) => s.isNonNeg)) continue;
+    push(enrichedToCatalog(e));
+  }
+  for (const e of ENRICHED_HUBBELL) {
     if (!e.specs.some((s) => s.isNonNeg)) continue;
     push(enrichedToCatalog(e));
   }
