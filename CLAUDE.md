@@ -1,5 +1,10 @@
 # WASS AI Ops Lab — Claude Guide
 
+## Session Start
+1. Read the **Gotchas / Mistakes & Corrections (MUST READ)** section below before writing code.
+2. Context: this repo is two apps — the **product recommender** (routed `/product-finder`) is the real product; the unrouted ops-lab demo is excluded from coverage. Check recent commits / memory for current state.
+3. If a skill fits — including this repo's own skills in `.claude/skills/` (e.g. `ingest-xref`) — use it before improvising.
+
 ## Commands
 
 Run all scripts from the **repo root** unless otherwise noted.
@@ -13,6 +18,8 @@ Run all scripts from the **repo root** unless otherwise noted.
 | `npx prisma generate` | Regenerate Prisma client after schema changes |
 | `npx prisma migrate dev --name <name>` | Create + apply a new migration |
 | `npx prisma studio` | Open Prisma Studio GUI at :5555 |
+| `npm test` | Run the Vitest suite (`vitest run`) |
+| `npm run coverage` | Vitest + V8 coverage |
 
 ## Stack
 
@@ -71,6 +78,20 @@ Configured in `apps/web/tsconfig.json` (TS) and `apps/web/next.config.ts` (webpa
 - Conventional Commits: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`.
 - Never commit `.env`, API keys, or any credentials.
 - Keep PRs small and focused on a single concern.
+
+## Gotchas / Mistakes & Corrections (MUST READ)
+Each rule carries its *why* — the reason is what stops a well-meaning workaround.
+- ⚠️ **Path aliases resolve from the repo root, not `apps/web`** (see Path Aliases). An import that "should" work but doesn't is usually this.
+- ⚠️ **Lint runs from the root** (`eslint .`, flat config at the repo root) — run it there, not inside `apps/web`.
+- ⚠️ **No secrets in code; mock data only.** The only sanctioned real-data paths are `data/real/real-products.ts` (verified, link-checked) and the optional env-gated `lib/integration/distributor-live.ts` (per-request, never persisted). Everything else stays mock/`simulated`.
+- ⚠️ **Guard browser APIs for SSR.** Server Components render first — gate `localStorage`/`window` access behind `typeof window !== "undefined"` (or `typeof localStorage`), or it throws on the server.
+
+## Skills
+Use a skill when one fits — including this repo's own skills in `.claude/skills/` (e.g. `ingest-xref`, which folds manufacturer cross-reference spreadsheets into the xref engine). Don't reinvent what a skill already does.
+
+## Definition of Done
+Before claiming a change works, run and confirm green:
+`npm run lint && npm run typecheck && npm test` (add `npm run coverage` for coverage work). Evidence before assertions — don't declare "fixed" off a code read alone.
 
 ---
 
