@@ -3,7 +3,7 @@ import { getCatalog } from "@/lib/catalog/index";
 import { companionsFor, type Companion } from "@/lib/catalog/companion-graph";
 import { getStore, forTenant } from "@/lib/server/persistence";
 import { tenantForRequest } from "@/lib/server/api-auth";
-import { loadImportedRulesIndex } from "@/lib/catalog/order-history-rules";
+import { loadRulesIndex } from "@/lib/catalog/order-history-rules";
 
 export const dynamic = "force-dynamic";
 
@@ -38,19 +38,22 @@ export function GET(req: Request, ctx: { params: Promise<{ id: string }> }) {
     const { searchParams } = new URL(req.url);
     const branchId = searchParams.get("branchId") ?? undefined;
     const k = Math.min(12, Math.max(1, Number(searchParams.get("k")) || 6));
-    // Blend in mined co-purchase lift when order history has been imported for this
-    // scope (tenant when sessions are on, else global). Cached + fail-closed.
+    // Blend in mined co-purchase lift for this scope (tenant when sessions are on, else global):
+    // real imported rules when present, otherwise the labeled demo baskets (B10) so the rail is alive
+    // on day one. Cached + fail-closed. `demo` tells the UI which one drove the rail.
     const tenant = tenantForRequest(req);
-    const rulesBySubcat =
-      (await loadImportedRulesIndex(forTenant(getStore(), tenant), tenant ?? "global")) ?? undefined;
-    const companions = companionsFor(product, k, { branchId, rulesBySubcat });
+    const { index, demo } = await loadRulesIndex(forTenant(getStore(), tenant), tenant ?? "global");
+    const companions = companionsFor(product, k, { branchId, rulesBySubcat: index ?? undefined });
+    const behavioral = companions.some((c) => c.sources.includes("market-basket"));
     return NextResponse.json({
       sku: product.sku,
       companions: companions.map(withMeta),
       required: companions.filter((c) => c.relation === "required").length,
       // True only when mined lift actually influenced THIS product's rail (not merely
       // because some import exists) — the market-basket source is added per-edge.
-      behavioral: companions.some((c) => c.sources.includes("market-basket")),
+      behavioral,
+      // B10: the market-basket lift on THIS rail came from labeled demo baskets, not real orders.
+      demo: behavioral && demo,
     });
   });
 }

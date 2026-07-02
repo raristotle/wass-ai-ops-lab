@@ -15,7 +15,8 @@
  */
 
 import type { KvStore } from "@/lib/server/persistence";
-import { indexByAntecedent, type AssocRule } from "@/lib/catalog/market-basket";
+import { getCatalog } from "@/lib/catalog/index";
+import { indexByAntecedent, mineAssociationRules, type AssocRule, type Basket } from "@/lib/catalog/market-basket";
 
 export const ORDER_HISTORY_NS = "order-history";
 const RULES_KEY = "rules";
@@ -108,4 +109,92 @@ export async function loadImportedRulesIndex(
     _cache.set(scopeKey, { index: null, at: nowMs });
     return null;
   }
+}
+
+// ── B10: labeled demo co-purchase baskets ────────────────────────────────────
+// So a branch manager demoing on day one sees a LIVE cross-sell rail before any real order history
+// is imported — clearly labeled as demo (the companions API returns `demo:true`) and auto-superseded
+// the instant real orders load. Mirrors the `source:"demo"` pattern proven by crosswalk.ts.
+
+/** The label for the demo cross-sell model — clearly NOT real customer data. */
+export const DEMO_ORDER_LABEL = "Demo baskets";
+
+// Electrical "job" bundles as subcategory KEYWORD sets. Each keyword resolves to a REAL catalog
+// subcategory at runtime, so the mined rules key on subcategories products actually have. Repeated
+// below so co-purchase pairs clear the mining noise floor and the lift is meaningful.
+const DEMO_JOBS: readonly string[][] = [
+  ["breaker", "wire", "receptacle", "plate"], // device rough-in
+  ["breaker", "wire", "conduit", "connector"], // feeder / homerun
+  ["receptacle", "plate", "box"], // device trim-out
+  ["conduit", "fitting", "connector"], // raceway
+  ["lug", "connector", "wire"], // terminations
+  ["breaker", "lug", "wire"], // panel build
+  ["conduit", "strut", "fitting"], // strut / support
+  ["receptacle", "wire", "connector"], // small-power
+];
+
+const gg = globalThis as unknown as { __demoRulesIndex?: Map<string, AssocRule[]> | null };
+
+/** Deterministic labeled demo baskets built from real catalog subcategories (see DEMO_JOBS). */
+function demoBaskets(): Basket[] {
+  const { products } = getCatalog();
+  const rep = new Map<string, string>(); // subcategory -> first productId (deterministic)
+  for (const p of products) if (!rep.has(p.subcategory)) rep.set(p.subcategory, p.id);
+
+  const kwCache = new Map<string, string | null>();
+  const resolveKw = (kw: string): string | null => {
+    const cached = kwCache.get(kw);
+    if (cached !== undefined) return cached;
+    const lower = kw.toLowerCase();
+    let hit: string | null = null;
+    for (const sub of rep.keys()) {
+      if (sub.toLowerCase().includes(lower)) { hit = sub; break; }
+    }
+    kwCache.set(kw, hit);
+    return hit;
+  };
+
+  const baskets: Basket[] = [];
+  for (const job of DEMO_JOBS) {
+    const subs = [...new Set(job.map(resolveKw).filter((s): s is string => s !== null))];
+    if (subs.length < 2) continue; // need a pair to mine a rule
+    const items = subs.map((sub) => ({ productId: rep.get(sub) as string, subcategory: sub }));
+    for (let n = 0; n < 5; n++) baskets.push({ items }); // repeat so pair counts clear minCount
+  }
+  return baskets;
+}
+
+/**
+ * The demo cross-sell rules index (B10) — mined once from the labeled demo baskets and cached on
+ * globalThis. Null only if the catalog somehow yields no minable demo pairs. The catalog is static,
+ * so this never needs invalidation.
+ */
+export function demoRulesIndex(): Map<string, AssocRule[]> | null {
+  if (gg.__demoRulesIndex !== undefined) return gg.__demoRulesIndex;
+  const rules = mineAssociationRules(demoBaskets(), { grain: "subcategory", minCount: 2, minLift: 1.0 });
+  gg.__demoRulesIndex = rules.length > 0 ? indexByAntecedent(rules) : null;
+  return gg.__demoRulesIndex;
+}
+
+/** Test-only reset of the demo-rules cache. */
+export function _resetDemoRulesIndex(): void {
+  delete gg.__demoRulesIndex;
+}
+
+/**
+ * The rules index that drives the cross-sell rail for a scope, WITH provenance: real imported rules
+ * when present (`demo:false`), otherwise the labeled demo fallback (`demo:true`). `index` is null only
+ * when neither exists. Companion routes call this so the rail is always alive AND honest about whether
+ * the co-purchase signal is real or demo. Real orders auto-supersede the demo (loadImportedRulesIndex
+ * wins whenever it returns a non-null index).
+ */
+export async function loadRulesIndex(
+  store: KvStore,
+  scopeKey: string,
+  nowMs: number = Date.now(),
+): Promise<{ index: Map<string, AssocRule[]> | null; demo: boolean }> {
+  const real = await loadImportedRulesIndex(store, scopeKey, nowMs);
+  if (real) return { index: real, demo: false };
+  const demo = demoRulesIndex();
+  return { index: demo, demo: demo !== null };
 }

@@ -190,7 +190,7 @@ export function OrderHistoryImportModal() {
             </div>
           ) : (
             <div className="rounded-lg border border-[#B7C9D3] bg-[#F8FAFB] px-3 py-2.5 text-sm text-[#4F758B]">
-              No order history imported yet — the cross-sell rail is running on the deterministic spec-rule + affinity model. Import a file to add real co-purchase lift.
+              No order history imported yet — the cross-sell rail is alive on <span className="font-medium">labeled demo baskets</span> (clearly marked &ldquo;demo co-purchase data&rdquo;) plus the deterministic spec-rule + affinity model. Import a file to replace the demo lift with real co-purchase behavior.
             </div>
           )}
 

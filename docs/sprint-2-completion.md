@@ -68,13 +68,24 @@ UPC-shaped query actually misses a direct cross lookup, so it's $0 until used).
   test), `SearchBar.tsx` ("via Leviton UPC" provenance chip), Help note.
 - $0 / local — no web fetch; does not touch the parked enrichment loop.
 
-## Part 3 — remaining (next iteration)
+## Part 3 — B10 (SHIPPED 2026-07-01) — Sprint 2 COMPLETE
 
-- **B10 · Labeled demo order-basket seed** — seed clearly-labeled demo co-purchase baskets so the
-  cross-sell rail is alive before real data lands, auto-hidden once a real import exists. This is the
-  most cross-cutting item: it changes the live cross-sell rail's default data source, needs a
-  "demo vs real" flag surfaced through the companions API and the rail UI, and must never mislabel
-  demo lift as real — so it's being done deliberately in its own pass rather than rushed.
+### B10 · Labeled demo order-basket seed
+The cross-sell rail is now **alive on day one**, before any order history is imported: deterministic
+demo co-purchase baskets — built from the real catalog's electrical subcategories (device rough-in,
+feeder runs, terminations, …) — are mined into association rules and blended into the rail, exactly
+like a real import would be. It's **clearly labeled**: the companions API returns `demo: true` when
+the market-basket lift came from demo baskets, and the rail shows a "demo co-purchase data" chip so
+it's never mistaken for real. It **auto-supersedes**: the instant real orders are imported,
+`loadRulesIndex` serves the real rules (`demo: false`) and the chip disappears.
+- Files: `lib/catalog/order-history-rules.ts` (`demoRulesIndex()` + `loadRulesIndex()` with a
+  `{index, demo}` return), both companion routes (`demo` flag), `product-finder-api.ts`
+  (`apiCompanionsWithMeta`), `CompanionsPanel.tsx` (demo chip), import-status + Help copy. Tests for
+  the demo index, the fallback, and the demo label.
+- Mirrors the honest `source:"demo"` pattern already proven by `crosswalk.ts`; $0 / deterministic.
+
+**Sprint 2 is complete** — all six items (B6, B7, B8, B9, B10, B11) shipped to production. Gate green:
+lint 0 · typecheck · 3,600+ tests · build ok.
 
 ## ACTION REQUIRED (you)
 

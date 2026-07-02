@@ -1,15 +1,20 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import type { CatalogProduct } from "@/features/product-finder/types";
-import type { CompanionItem } from "@/lib/product-finder-api";
+import type { CompanionItem, CompanionsResult } from "@/lib/product-finder-api";
 
 // The panel fetches companions over HTTP; mock that seam so the render test is
 // deterministic and offline. `vi.hoisted` defines the spy before the hoisted
 // vi.mock factory references it (otherwise the factory runs first → ReferenceError).
-const { apiCompanions } = vi.hoisted(() => ({
-  apiCompanions: vi.fn<(id: string, opts?: unknown) => Promise<CompanionItem[]>>(),
+const { apiCompanionsWithMeta } = vi.hoisted(() => ({
+  apiCompanionsWithMeta: vi.fn<(id: string, opts?: unknown) => Promise<CompanionsResult>>(),
 }));
-vi.mock("@/lib/product-finder-api", () => ({ apiCompanions }));
+vi.mock("@/lib/product-finder-api", () => ({ apiCompanionsWithMeta }));
+
+/** Wrap a companion list in the meta envelope the panel now consumes. */
+function result(items: CompanionItem[], demo = false): CompanionsResult {
+  return { items, demo, behavioral: items.some((c) => c.sources.includes("market-basket")) };
+}
 
 import { CompanionsPanel } from "@/features/product-finder/CompanionsPanel";
 import { useProductFinder } from "@/lib/product-finder-store";
@@ -62,24 +67,24 @@ const SEED: CatalogProduct = {
 describe("CompanionsPanel (component)", () => {
   beforeEach(() => {
     useProductFinder.setState({ cart: {} });
-    apiCompanions.mockReset();
+    apiCompanionsWithMeta.mockReset();
   });
   afterEach(() => useProductFinder.setState({ cart: {} }));
 
   it("renders nothing while loading and when there are no companions", async () => {
-    apiCompanions.mockResolvedValue([]);
+    apiCompanionsWithMeta.mockResolvedValue(result([]));
     const { container } = render(<CompanionsPanel product={SEED} />);
     // Empty result → the whole section stays out of the DOM.
-    await waitFor(() => expect(apiCompanions).toHaveBeenCalled());
+    await waitFor(() => expect(apiCompanionsWithMeta).toHaveBeenCalled());
     expect(container).toBeEmptyDOMElement();
   });
 
   it("splits required vs recommended and shows the attach score", async () => {
-    apiCompanions.mockResolvedValue([
+    apiCompanionsWithMeta.mockResolvedValue(result([
       product("WP-1", "1-Gang Wall Plate", "required"),
       product("WP-2", "2-Gang Wall Plate", "required"),
       product("LB-1", "Cable Label", "recommended"),
-    ]);
+    ]));
     render(<CompanionsPanel product={SEED} />);
 
     expect(await screen.findByText("Cross-sell companions")).toBeInTheDocument();
@@ -92,11 +97,11 @@ describe("CompanionsPanel (component)", () => {
   });
 
   it("'Add all required' adds every required companion to the cart", async () => {
-    apiCompanions.mockResolvedValue([
+    apiCompanionsWithMeta.mockResolvedValue(result([
       product("WP-1", "1-Gang Wall Plate", "required"),
       product("WP-2", "2-Gang Wall Plate", "required"),
       product("LB-1", "Cable Label", "recommended"),
-    ]);
+    ]));
     render(<CompanionsPanel product={SEED} />);
 
     const btn = await screen.findByRole("button", { name: /Add all required \(2\)/ });
@@ -110,7 +115,7 @@ describe("CompanionsPanel (component)", () => {
   });
 
   it("a single + button adds just that companion", async () => {
-    apiCompanions.mockResolvedValue([product("WP-1", "1-Gang Wall Plate", "required")]);
+    apiCompanionsWithMeta.mockResolvedValue(result([product("WP-1", "1-Gang Wall Plate", "required")]));
     render(<CompanionsPanel product={SEED} />);
 
     const addBtn = await screen.findByRole("button", { name: "Add 1-Gang Wall Plate to basket" });
@@ -119,5 +124,19 @@ describe("CompanionsPanel (component)", () => {
 
     // No 2nd required item → the bulk CTA is hidden.
     expect(screen.queryByRole("button", { name: /Add all required/ })).not.toBeInTheDocument();
+  });
+
+  it("shows the B10 'demo co-purchase data' label only when the lift is from demo baskets", async () => {
+    const items = [product("WP-1", "1-Gang Wall Plate", "required")];
+    // demo:false → no label.
+    apiCompanionsWithMeta.mockResolvedValueOnce(result(items, false));
+    const { unmount } = render(<CompanionsPanel product={SEED} />);
+    await screen.findByText("Cross-sell companions");
+    expect(screen.queryByText(/demo co-purchase data/)).not.toBeInTheDocument();
+    unmount();
+    // demo:true → the label is shown.
+    apiCompanionsWithMeta.mockResolvedValueOnce(result(items, true));
+    render(<CompanionsPanel product={SEED} />);
+    expect(await screen.findByText(/demo co-purchase data/)).toBeInTheDocument();
   });
 });

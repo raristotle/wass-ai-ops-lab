@@ -12,7 +12,7 @@ import {
 import { mineAssociationRules, indexByAntecedent, type Basket } from "@/lib/catalog/market-basket";
 import { getStore, forTenant } from "@/lib/server/persistence";
 import { tenantForRequest } from "@/lib/server/api-auth";
-import { loadImportedRulesIndex } from "@/lib/catalog/order-history-rules";
+import { loadRulesIndex } from "@/lib/catalog/order-history-rules";
 
 export const dynamic = "force-dynamic";
 
@@ -67,16 +67,19 @@ export async function POST(req: Request) {
     if (products.length === 0) return NextResponse.json({ unresolved: true, missingRequired: [], recommended: [], attach: [] });
 
     const ctx: CompanionContext = { branchId: body.branchId };
-    // Behavioral market-basket overlay: a caller's request-supplied baskets win (a
-    // one-off context); otherwise fall back to the app-global rules mined from any
-    // IMPORTED order history, so the rail reflects real co-purchase by default.
+    // Behavioral market-basket overlay: a caller's request-supplied baskets win (a one-off context);
+    // otherwise fall back to real IMPORTED order history, or the labeled demo baskets (B10) so the
+    // rail is alive by default. `demo` flags when the fallback was demo, not real.
+    let demo = false;
     if (body.baskets && body.baskets.length > 0) {
       const baskets = body.baskets as Basket[];
       const rules = mineAssociationRules(baskets, { grain: "subcategory", minCount: 2, minLift: 1 });
       ctx.rulesBySubcat = indexByAntecedent(rules);
     } else {
       const tenant = tenantForRequest(req);
-      ctx.rulesBySubcat = (await loadImportedRulesIndex(forTenant(getStore(), tenant), tenant ?? "global")) ?? undefined;
+      const loaded = await loadRulesIndex(forTenant(getStore(), tenant), tenant ?? "global");
+      ctx.rulesBySubcat = loaded.index ?? undefined;
+      demo = loaded.demo;
     }
 
     if (body.mode === "complete-assembly") {
@@ -85,10 +88,11 @@ export async function POST(req: Request) {
         resolved: products.length,
         missingRequired: res.missingRequired.map(slim),
         recommended: res.recommended.map(slim),
+        demo,
       });
     }
     const attach = attachSuggestionsForCart(products, ctx, 8);
-    return NextResponse.json({ resolved: products.length, attach: attach.map(slim) });
+    return NextResponse.json({ resolved: products.length, attach: attach.map(slim), demo });
   } catch (e) {
     logApiError("/api/companions:POST", e);
     return NextResponse.json({ error: "Companion lookup failed" }, { status: 500 });

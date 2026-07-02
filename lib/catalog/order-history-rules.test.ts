@@ -6,7 +6,10 @@ import {
   clearOrderHistory,
   getOrderHistoryManifest,
   loadImportedRulesIndex,
+  loadRulesIndex,
+  demoRulesIndex,
   _resetOrderHistoryCache,
+  _resetDemoRulesIndex,
   type OrderHistoryManifest,
 } from "@/lib/catalog/order-history-rules";
 
@@ -80,5 +83,34 @@ describe("order-history-rules store", () => {
     await clearOrderHistory(store);
     expect(await getOrderHistoryManifest(store)).toBeNull();
     expect(await loadImportedRulesIndex(store, "global", 99_000)).toBeNull();
+  });
+});
+
+describe("B10 — labeled demo cross-sell baskets", () => {
+  beforeEach(() => {
+    _resetOrderHistoryCache();
+    _resetDemoRulesIndex();
+  });
+
+  it("mines a non-empty demo rules index from the real catalog's subcategories", () => {
+    const idx = demoRulesIndex();
+    expect(idx).not.toBeNull();
+    expect(idx!.size).toBeGreaterThan(0);
+  });
+
+  it("loadRulesIndex falls back to the DEMO rules (demo:true) when nothing is imported", async () => {
+    const store = new MemoryStore();
+    const { index, demo } = await loadRulesIndex(store, "global", 1000);
+    expect(demo).toBe(true);
+    expect(index).not.toBeNull();
+  });
+
+  it("loadRulesIndex serves REAL imported rules (demo:false), auto-superseding the demo", async () => {
+    const store = new MemoryStore();
+    await saveOrderHistory(store, mineAssociationRules(baskets(), { minCount: 2, minLift: 0 }), manifest());
+    const { index, demo } = await loadRulesIndex(store, "global", 2000);
+    expect(demo).toBe(false);
+    expect(index).not.toBeNull();
+    expect(index!.get("Switches")?.some((r) => r.b === "Wall Plates & Covers")).toBe(true);
   });
 });

@@ -240,21 +240,39 @@ export interface CompanionItem {
   product: import("@/features/product-finder/types").CatalogProduct;
 }
 
-export async function apiCompanions(
+export interface CompanionsResult {
+  items: CompanionItem[];
+  /** B10: the market-basket lift shown came from labeled DEMO baskets, not real order history. */
+  demo: boolean;
+  /** True when mined co-purchase lift actually influenced this rail (vs. deterministic backbone only). */
+  behavioral: boolean;
+}
+
+/** Companions for a product WITH provenance meta (demo/behavioral) — used by the rail so it can
+ *  clearly label a demo cross-sell signal (B10). */
+export async function apiCompanionsWithMeta(
   id: string,
   opts: { branchId?: string; k?: number } = {},
-): Promise<CompanionItem[]> {
+): Promise<CompanionsResult> {
   const params = new URLSearchParams();
   if (opts.branchId) params.set("branchId", opts.branchId);
   if (opts.k) params.set("k", String(opts.k));
   const qs = params.toString();
   try {
     const res = await fetch(`/api/products/${encodeURIComponent(id)}/companions${qs ? `?${qs}` : ""}`);
-    if (!res.ok) return [];
-    return ((await res.json()).companions ?? []) as CompanionItem[];
+    if (!res.ok) return { items: [], demo: false, behavioral: false };
+    const j = await res.json();
+    return { items: (j.companions ?? []) as CompanionItem[], demo: !!j.demo, behavioral: !!j.behavioral };
   } catch {
-    return [];
+    return { items: [], demo: false, behavioral: false };
   }
+}
+
+export async function apiCompanions(
+  id: string,
+  opts: { branchId?: string; k?: number } = {},
+): Promise<CompanionItem[]> {
+  return (await apiCompanionsWithMeta(id, opts)).items;
 }
 
 // ─── Cart upsell bundle (v5-S2: preferred swaps + segment coverage) ──────────

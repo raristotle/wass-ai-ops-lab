@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { apiCompanions, type CompanionItem } from "@/lib/product-finder-api";
+import { apiCompanionsWithMeta, type CompanionItem } from "@/lib/product-finder-api";
 import { useProductFinder, selectActiveCustomer } from "@/lib/product-finder-store";
 import { contractForCustomer, isOnContract, contractPrice, type Contract } from "@/lib/product-finder-contract";
 import { Badge } from "@/components/ui/badge";
@@ -111,15 +111,18 @@ export function CompanionsPanel({ product, branchId }: Props) {
   const activeCustomer = useProductFinder(selectActiveCustomer);
   const contract = contractForCustomer(activeCustomer?.name);
   const [items, setItems] = useState<CompanionItem[]>([]);
+  const [demo, setDemo] = useState(false); // B10: cross-sell lift is from labeled demo baskets
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     setItems([]);
+    setDemo(false);
     setLoaded(false);
-    void apiCompanions(product.id, { branchId, k: 8 }).then((res) => {
+    void apiCompanionsWithMeta(product.id, { branchId, k: 8 }).then((res) => {
       if (!cancelled) {
-        setItems(res);
+        setItems(res.items);
+        setDemo(res.demo);
         setLoaded(true);
       }
     });
@@ -138,9 +141,21 @@ export function CompanionsPanel({ product, branchId }: Props) {
 
   return (
     <div className="border-b border-[#B7C9D3]/40 px-6 py-5 print:hidden" data-testid="companions-panel">
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#1D252D]">
-        Cross-sell companions
-      </h3>
+      <div className="mb-3 flex items-center gap-2">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#1D252D]">
+          Cross-sell companions
+        </h3>
+        {/* B10: the co-purchase lift here is from labeled demo baskets — import real order history
+            (📥 Load data) to replace it with genuine "bought-together" lift. */}
+        {demo && (
+          <span
+            className="rounded-full bg-[#EAAA00]/15 px-2 py-0.5 text-[10px] font-semibold text-[#8a6d00]"
+            title="Cross-sell lift shown here is from labeled demo baskets. Import your order history (📥 Load data) to replace it with real co-purchase lift."
+          >
+            demo co-purchase data
+          </span>
+        )}
+      </div>
 
       {required.length > 0 && (
         <section className="mb-4">

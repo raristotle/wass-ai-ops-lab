@@ -82,12 +82,10 @@ already paid for. Plus turn on the measurement everything later depends on.
 
 ## Sprint 2 — "Real data in" (all Small; attacks the strategic bottleneck directly)
 
-> 🚧 **Parts 1–2 SHIPPED to production 2026-07-01** — B6 (Load-your-data hub), B7 (crosswalk-first
-> guard), B8 (post-import what-changed), B9 (sample CSVs + tour), **B11 (Leviton UPC/GTIN → cross)**.
-> Gate green: lint 0 · typecheck · 3,641 tests · build ok. **Remaining: B10 (labeled demo baskets)** —
-> the most cross-cutting item (changes the live cross-sell rail's default source + needs a demo flag
-> through the companions API and rail UI), done deliberately next. Full report:
-> [sprint-2-completion.md](./sprint-2-completion.md).
+> ✅ **COMPLETE — all 6 items SHIPPED to production 2026-07-01** — B6 (Load-your-data hub), B7
+> (crosswalk-first guard), B8 (post-import what-changed), B9 (sample CSVs + tour), B10 (labeled demo
+> cross-sell baskets), B11 (Leviton UPC/GTIN → cross). Gate green: lint 0 · typecheck · 3,600+ tests ·
+> build ok. Full report: [sprint-2-completion.md](./sprint-2-completion.md).
 
 Theme: the engines that make the app feel alive (market-basket, also-bought, forecasts,
 next-best-action) are shipped but starved. Make loading real data discoverable, ordered, and
