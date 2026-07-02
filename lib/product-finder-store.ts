@@ -371,6 +371,9 @@ export interface ProductFinderState {
   setOrderHistoryOpen: (v: boolean) => void;
   crosswalkOpen: boolean;
   setCrosswalkOpen: (v: boolean) => void;
+  /** B6: the "Load your data" hub — a visible home for both pilot-onboarding imports. */
+  dataHubOpen: boolean;
+  setDataHubOpen: (v: boolean) => void;
   // Data ingestion (Sprint D1) — renewable source-adapter framework admin panel
   ingestOpen: boolean;
   setIngestOpen: (v: boolean) => void;
@@ -1544,6 +1547,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
   setOrderHistoryOpen(v) { set({ orderHistoryOpen: v }); },
   crosswalkOpen: false,
   setCrosswalkOpen(v) { set({ crosswalkOpen: v }); },
+  dataHubOpen: false,
+  setDataHubOpen(v) { set({ dataHubOpen: v }); },
   ingestOpen: false,
   setIngestOpen(v) { set({ ingestOpen: v }); },
 

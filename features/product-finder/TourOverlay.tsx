@@ -24,6 +24,7 @@ export function TourOverlay() {
   const runNlSearch = useProductFinder((s) => s.runNlSearch);
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
   const setJobWizardOpen = useProductFinder((s) => s.setJobWizardOpen);
+  const setDataHubOpen = useProductFinder((s) => s.setDataHubOpen); // B9: tour → Load your data hub
   const router = useRouter();
 
   // ── Auto-open: first-ever visit (per browser), signed-in users only ────────
@@ -63,6 +64,8 @@ export function TourOverlay() {
       setCartOpen(true);
     } else if (action.kind === "openJobWizard") {
       setJobWizardOpen(true);
+    } else if (action.kind === "openDataHub") {
+      setDataHubOpen(true);
     } else {
       router.push(action.href);
     }

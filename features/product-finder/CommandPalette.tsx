@@ -46,6 +46,7 @@ export function CommandPalette() {
   const setAccount360Open = useProductFinder((s) => s.setAccount360Open);
   const setOrderHistoryOpen = useProductFinder((s) => s.setOrderHistoryOpen);
   const setCrosswalkOpen = useProductFinder((s) => s.setCrosswalkOpen);
+  const setDataHubOpen = useProductFinder((s) => s.setDataHubOpen);
   const setIngestOpen = useProductFinder((s) => s.setIngestOpen);
   const setBarcodeOpen = useProductFinder((s) => s.setBarcodeOpen);
   const setCycleCountOpen = useProductFinder((s) => s.setCycleCountOpen);
@@ -90,6 +91,7 @@ export function CommandPalette() {
         s.willCallOpen ||
         s.vmiOpen ||
         s.quickOrderOpen ||
+        s.dataHubOpen ||
         s.barcodeOpen ||
         s.cycleCountOpen ||
         s.specMatchOpen ||
@@ -152,6 +154,7 @@ export function CommandPalette() {
         else if (action.target === "account360") setAccount360Open(true);
         else if (action.target === "order-history") setOrderHistoryOpen(true);
         else if (action.target === "crosswalk") setCrosswalkOpen(true);
+        else if (action.target === "data-hub") setDataHubOpen(true);
         else if (action.target === "ingest") setIngestOpen(true);
         else if (action.target === "barcode") setBarcodeOpen(true);
         else if (action.target === "cyclecount") setCycleCountOpen(true);

@@ -346,6 +346,9 @@ export interface OrderHistoryImportResult {
   manifest?: OrderHistoryManifest;
   headline?: string;
   error?: string;
+  /** B7: server hint that a real catalog-number crosswalk should be loaded first
+   *  (set on a zero/low-resolution import when only the demo crosswalk is active). */
+  needsCrosswalk?: boolean;
 }
 
 export async function apiOrderHistoryStatus(): Promise<OrderHistoryStatus> {

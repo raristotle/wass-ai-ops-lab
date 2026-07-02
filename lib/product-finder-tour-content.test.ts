@@ -2,8 +2,8 @@ import { describe, it, expect } from "vitest";
 import { TOUR_STEPS } from "@/lib/product-finder-tour-content";
 
 describe("TOUR_STEPS", () => {
-  it("has exactly 10 steps", () => {
-    expect(TOUR_STEPS).toHaveLength(10);
+  it("has exactly 11 steps", () => {
+    expect(TOUR_STEPS).toHaveLength(11);
   });
 
   it("ids are unique and in the exact expected order", () => {
@@ -19,8 +19,17 @@ describe("TOUR_STEPS", () => {
       "basket-quote",
       "close-the-deal",
       "insights",
+      "load-your-data",
       "more-tools",
     ]);
+  });
+
+  it("load-your-data step opens the data hub and mentions both imports", () => {
+    const step = TOUR_STEPS.find((s) => s.id === "load-your-data")!;
+    expect(step.action?.kind).toBe("openDataHub");
+    const text = step.body.join(" ").toLowerCase();
+    expect(text).toContain("crosswalk");
+    expect(text).toContain("order history");
   });
 
   it("close-the-deal step covers e-signature and rebates", () => {

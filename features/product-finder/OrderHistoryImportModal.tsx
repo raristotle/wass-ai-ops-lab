@@ -11,6 +11,7 @@ import {
 } from "@/lib/product-finder-api";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics-client";
+import { SAMPLE_ORDER_HISTORY_CSV, downloadTextFile } from "@/lib/product-finder-samples";
 
 /**
  * Order History Import (pilot data onboarding) — the single highest-leverage data
@@ -26,6 +27,8 @@ import { track } from "@/lib/analytics-client";
 export function OrderHistoryImportModal() {
   const open = useProductFinder((s) => s.orderHistoryOpen);
   const setOpen = useProductFinder((s) => s.setOrderHistoryOpen);
+  const setCrosswalkOpen = useProductFinder((s) => s.setCrosswalkOpen); // B7: jump to crosswalk import
+  const runNlSearch = useProductFinder((s) => s.runNlSearch); // B8: deep-link to the awakened surface
   const closeRef = useModalA11y(open, () => setOpen(false));
 
   const [csv, setCsv] = useState("");
@@ -34,6 +37,7 @@ export function OrderHistoryImportModal() {
   const [msg, setMsg] = useState<string | null>(null);
   const [manifest, setManifest] = useState<OrderHistoryManifest | null>(null);
   const [durable, setDurable] = useState(false);
+  const [needsCrosswalk, setNeedsCrosswalk] = useState(false); // B7: server flagged low resolution
 
   // Load the current import status whenever the modal opens.
   useEffect(() => {
@@ -67,8 +71,11 @@ export function OrderHistoryImportModal() {
     }
     setBusy(true);
     setMsg(null);
+    setNeedsCrosswalk(false);
     try {
       const res = await apiImportOrderHistory(csv, customer.trim() || undefined);
+      // B7: surface the crosswalk-first prompt on either a rejected or a low-resolution import.
+      setNeedsCrosswalk(!!res.needsCrosswalk);
       if (res.error) {
         setMsg(res.error);
       } else {
@@ -81,6 +88,14 @@ export function OrderHistoryImportModal() {
     } finally {
       setBusy(false);
     }
+  }
+
+  // B8: deep-link the operator to a surface where the freshly-mined signal now shows —
+  // running a search for a top-pair subcategory lands them on results whose cross-sell
+  // rail reflects the real co-purchase lift. Closes the modal on the way.
+  function exploreSubcategory(subcategory: string) {
+    setOpen(false);
+    runNlSearch(subcategory);
   }
 
   async function handleClear() {
@@ -147,6 +162,28 @@ export function OrderHistoryImportModal() {
                   ))}
                 </ul>
               )}
+              {/* B8 — post-import "what changed": deep-link to a surface where the freshly
+                  mined signal now appears, so the operator sees the impact, not a receipt. */}
+              {manifest.topPairs.length > 0 && (
+                <div className="mt-2 border-t border-[#00AA13]/20 pt-2">
+                  <p className="text-[11px] font-semibold text-[#1D252D]">See where it shows up now →</p>
+                  <div className="mt-1 flex flex-wrap gap-1.5">
+                    {[...new Set(manifest.topPairs.map((p) => p.a))].slice(0, 3).map((subcat) => (
+                      <button
+                        key={subcat}
+                        type="button"
+                        onClick={() => exploreSubcategory(subcat)}
+                        className="rounded-full border border-[#00573F]/40 bg-white px-2.5 py-0.5 text-[11px] font-medium text-[#00573F] hover:bg-[#00573F]/5"
+                      >
+                        Explore {subcat} →
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-1 text-[10px] text-[#4F758B]">
+                    Open a product in one of these and its cross-sell rail now blends the real co-purchase lift you just imported.
+                  </p>
+                </div>
+              )}
               <button type="button" onClick={handleClear} disabled={busy} className="mt-1.5 text-xs text-[#DB6B30] underline hover:text-[#993C1D] disabled:opacity-50">
                 Clear imported history
               </button>
@@ -175,10 +212,19 @@ export function OrderHistoryImportModal() {
               <label className="text-xs font-semibold text-[#1D252D]" htmlFor="oh-csv">
                 Order lines (CSV)
               </label>
-              <label className="cursor-pointer text-xs text-[#4F758B] underline hover:text-[#1D252D]">
-                Upload file
-                <input type="file" accept=".csv,.tsv,.txt,text/csv" onChange={handleFile} className="hidden" />
-              </label>
+              <div className="flex items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => downloadTextFile("meridian-sample-order-history.csv", SAMPLE_ORDER_HISTORY_CSV)}
+                  className="text-xs text-[#4F758B] underline hover:text-[#1D252D]"
+                >
+                  Sample CSV
+                </button>
+                <label className="cursor-pointer text-xs text-[#4F758B] underline hover:text-[#1D252D]">
+                  Upload file
+                  <input type="file" accept=".csv,.tsv,.txt,text/csv" onChange={handleFile} className="hidden" />
+                </label>
+              </div>
             </div>
             <textarea
               id="oh-csv"
@@ -194,6 +240,29 @@ export function OrderHistoryImportModal() {
           </div>
 
           {msg && <p className="text-sm text-[#1D252D]">{msg}</p>}
+
+          {/* B7 — crosswalk-first guard: few/no lines resolved and no real crosswalk is
+              loaded. Offer a one-click jump to the crosswalk import so a Wesco-numbered
+              file resolves instead of silently mining an empty model. */}
+          {needsCrosswalk && (
+            <div className="rounded-lg border border-[#DB6B30]/40 bg-[#DB6B30]/5 px-3 py-2.5 text-sm">
+              <p className="font-semibold text-[#993C1D]">Load your catalog-number crosswalk first</p>
+              <p className="mt-0.5 text-xs text-[#1D252D]">
+                Your file&rsquo;s part numbers didn&rsquo;t match our SKUs. If it uses your own catalog numbers or
+                Wesco stock numbers, import the crosswalk that maps them to carried products — then re-import this file.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  setCrosswalkOpen(true);
+                }}
+                className="mt-1.5 rounded-md bg-[#DB6B30] px-3 py-1 text-xs font-semibold text-white hover:bg-[#993C1D]"
+              >
+                Load catalog crosswalk →
+              </button>
+            </div>
+          )}
 
           <Button onClick={handleImport} disabled={busy || csv.trim().length === 0} className="w-full bg-[#00AA13] text-white hover:bg-[#008f10]">
             {busy ? "Mining…" : "Import & mine co-purchase rules"}

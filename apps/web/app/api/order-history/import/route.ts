@@ -5,7 +5,7 @@ import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { getStore, forTenant } from "@/lib/server/persistence";
 import { resolveBySku } from "@/lib/catalog/sku-index";
-import { crosswalkIndex, resolveCustomerNumber } from "@/lib/catalog/crosswalk";
+import { crosswalkIndex, resolveCustomerNumber, getCrosswalkManifest } from "@/lib/catalog/crosswalk";
 import { parseOrderHistoryCsv } from "@/lib/catalog/order-history";
 import { mineAssociationRules, type Basket } from "@/lib/catalog/market-basket";
 import {
@@ -69,6 +69,13 @@ export async function POST(req: Request) {
     const tenant = tenantForRequest(req);
     const store = forTenant(getStore(), tenant);
     const crosswalk = await crosswalkIndex(store, tenant ?? "global");
+    // B7 (crosswalk-first guard): is a REAL customer crosswalk loaded, or only the
+    // illustrative demo seed? With wescoSku/customer-number columns unresolvable
+    // without it, a Wesco-numbered export resolves almost nothing — the #1 first-week
+    // "it's broken" moment. When resolution is poor AND no real crosswalk exists, we
+    // tell the operator to load the crosswalk first (structured flag, so the modal can
+    // deep-link them straight to that import) rather than silently mining a thin model.
+    const hasRealCrosswalk = (await getCrosswalkManifest(store)) !== null;
 
     // Resolve a line to a carried product: exact SKU first, then the customer
     // catalog-number crosswalk (so a real distributor's export that keys on THEIR own
@@ -103,7 +110,14 @@ export async function POST(req: Request) {
 
     if (baskets.length === 0) {
       return NextResponse.json(
-        { error: "None of the order lines matched a carried product — tried exact SKU and the customer catalog-number crosswalk. Check the part-number column, or import a crosswalk / the catalog for these numbers first." },
+        {
+          error: hasRealCrosswalk
+            ? "None of the order lines matched a carried product — tried exact SKU and your imported catalog-number crosswalk. Check the part-number column against the numbers your crosswalk maps."
+            : "None of the order lines matched a carried product. If this file uses your own catalog or Wesco stock numbers, load your catalog-number crosswalk first — then re-import.",
+          // B7: no real crosswalk + zero resolution → almost certainly the missing-crosswalk
+          // failure mode. Flag it so the modal offers a one-click jump to the crosswalk import.
+          needsCrosswalk: !hasRealCrosswalk,
+        },
         { status: 422 },
       );
     }
@@ -128,10 +142,18 @@ export async function POST(req: Request) {
     };
     await saveOrderHistory(store, rules, manifest);
 
+    // B7: even when SOME lines matched, a low resolution rate with no real crosswalk
+    // usually means the file keys on numbers the crosswalk would resolve — surface the
+    // hint (non-blocking; the partial import still stands).
+    const totalLines = resolved + unresolved;
+    const poorResolution = totalLines > 0 && resolved / totalLines < 0.5;
+    const needsCrosswalk = poorResolution && !hasRealCrosswalk;
+
     return NextResponse.json({
       ok: true,
       persisted: store.backend, // "postgres" (durable) or "memory" (per-instance demo)
       manifest,
+      needsCrosswalk,
       // A clear, honest signal of what mining found — the demo headline.
       headline:
         rules.length > 0

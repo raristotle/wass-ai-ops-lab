@@ -25,6 +25,7 @@ import { QuoteCopilotModal } from "@/features/product-finder/QuoteCopilotModal";
 import { Account360Modal } from "@/features/product-finder/Account360Modal";
 import { OrderHistoryImportModal } from "@/features/product-finder/OrderHistoryImportModal";
 import { CrosswalkImportModal } from "@/features/product-finder/CrosswalkImportModal";
+import { DataHubModal } from "@/features/product-finder/DataHubModal";
 import { IngestionPanelModal } from "@/features/product-finder/IngestionPanelModal";
 import { BarcodeScannerModal } from "@/features/product-finder/BarcodeScannerModal";
 import { CycleCountModal } from "@/features/product-finder/CycleCountModal";
@@ -54,6 +55,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
   const setCartOpen = useProductFinder((s) => s.setCartOpen);
   const setHelpOpen = useProductFinder((s) => s.setHelpOpen);
   const setPaletteOpen = useProductFinder((s) => s.setPaletteOpen);
+  const setDataHubOpen = useProductFinder((s) => s.setDataHubOpen); // B6: "Load your data" hub
   const cartCount = useProductFinder(selectCartCount);
   const customers = useProductFinder((s) => s.customers);
   const activeCustomerId = useProductFinder((s) => s.activeCustomerId);
@@ -181,6 +183,18 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
             </Link>
           )}
 
+          {/* B6 — "Load your data" hub: a visible home for the pilot-onboarding imports */}
+          <button
+            type="button"
+            onClick={() => setDataHubOpen(true)}
+            aria-label="Load your data"
+            title="Load your data — order history & catalog crosswalk"
+            className="flex h-9 items-center gap-1.5 rounded-lg border border-[#4F758B] px-2.5 text-xs font-bold text-[#B7C9D3] transition-colors hover:border-[#64CCC9] hover:text-[#64CCC9]"
+          >
+            <span aria-hidden="true">📥</span>
+            <span className="hidden sm:inline">Load data</span>
+          </button>
+
           {/* Command palette — pointless on touch; hidden below sm */}
           <button
             type="button"
@@ -279,6 +293,7 @@ export function ProductFinderShell({ children }: ProductFinderShellProps) {
       <Account360Modal />
       <OrderHistoryImportModal />
       <CrosswalkImportModal />
+      <DataHubModal />
       <IngestionPanelModal />
       <BarcodeScannerModal />
       <CycleCountModal />

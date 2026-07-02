@@ -46,8 +46,12 @@ describe("OrderHistoryImportModal (component)", () => {
     useProductFinder.setState({ orderHistoryOpen: true });
     render(<OrderHistoryImportModal />);
     expect(await screen.findByText(/Behavioral signal active/)).toBeInTheDocument();
-    expect(screen.getByText(/Circuit Breakers/)).toBeInTheDocument();
+    // The consequent is unique to the top-pair row (the antecedent "Circuit Breakers"
+    // now also appears as a B8 "Explore …" deep-link button, so match on the pair's b + lift).
+    expect(screen.getByText(/Lugs & Wire Connectors/)).toBeInTheDocument();
     expect(screen.getByText(/3.2× lift/)).toBeInTheDocument();
+    // B8: the deep-link chip to the awakened surface renders the antecedent subcategory.
+    expect(screen.getByRole("button", { name: /Explore Circuit Breakers/ })).toBeInTheDocument();
   });
 
   it("imports pasted CSV and shows the mining headline", async () => {

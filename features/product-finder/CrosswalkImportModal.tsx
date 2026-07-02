@@ -11,6 +11,7 @@ import {
 } from "@/lib/product-finder-api";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics-client";
+import { SAMPLE_CROSSWALK_CSV, downloadTextFile } from "@/lib/product-finder-samples";
 
 /**
  * Customer Catalog-Number Crosswalk import (pilot data onboarding) — load the
@@ -159,10 +160,19 @@ export function CrosswalkImportModal() {
               <label className="text-xs font-semibold text-[#1D252D]" htmlFor="cw-csv">
                 Crosswalk (CSV)
               </label>
-              <label className="cursor-pointer text-xs text-[#4F758B] underline hover:text-[#1D252D]">
-                Upload file
-                <input type="file" accept=".csv,.tsv,.txt,text/csv" onChange={handleFile} className="hidden" />
-              </label>
+              <div className="flex items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => downloadTextFile("meridian-sample-crosswalk.csv", SAMPLE_CROSSWALK_CSV)}
+                  className="text-xs text-[#4F758B] underline hover:text-[#1D252D]"
+                >
+                  Sample CSV
+                </button>
+                <label className="cursor-pointer text-xs text-[#4F758B] underline hover:text-[#1D252D]">
+                  Upload file
+                  <input type="file" accept=".csv,.tsv,.txt,text/csv" onChange={handleFile} className="hidden" />
+                </label>
+              </div>
             </div>
             <textarea
               id="cw-csv"

@@ -20,7 +20,7 @@ export type CommandAction =
       target:
         | "cart" | "help" | "bom" | "bulk" | "bulk-cross" | "jobwizard" | "assistant"
         | "guided" | "rfq" | "bomiq" | "compare" | "submittal" | "jobs" | "vmi" | "quickorder" | "barcode"
-        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360" | "order-history" | "crosswalk" | "ingest";
+        | "cyclecount" | "spec-match" | "risk-sweep" | "copilot" | "account360" | "order-history" | "crosswalk" | "ingest" | "data-hub";
     }
   | { kind: "tour" }
   | { kind: "role"; email: string }
@@ -109,6 +109,13 @@ export function buildCommandRegistry(ctx: CommandContext): CommandItem[] {
       group: "Open",
       keywords: ["account", "360", "whitespace", "call prep", "customer", "reorder", "share of wallet"],
       action: { kind: "open", target: "account360" },
+    },
+    {
+      id: "open-data-hub",
+      label: "Load your data — order history & catalog crosswalk",
+      group: "Open",
+      keywords: ["load data", "load your data", "import", "onboard", "data hub", "order history", "crosswalk", "pilot", "sample csv", "get started"],
+      action: { kind: "open", target: "data-hub" },
     },
     {
       id: "open-order-history",

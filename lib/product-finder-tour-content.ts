@@ -12,6 +12,7 @@ export type TourAction =
   | { kind: "nlSearch"; label: string; query: string }
   | { kind: "openCart"; label: string }
   | { kind: "openJobWizard"; label: string }
+  | { kind: "openDataHub"; label: string }
   | { kind: "navigate"; label: string; href: string };
 
 export interface TourStep {
@@ -134,6 +135,18 @@ export const TOUR_STEPS: readonly TourStep[] = [
     ],
     action: { kind: "navigate", label: "Open Insights", href: "/product-finder/dashboard" },
     actionRoles: ["manager", "admin"],
+  },
+  {
+    id: "load-your-data",
+    title: "Load your own data — make it yours",
+    body: [
+      "The demo runs on illustrative data, but the recommender gets sharper the moment you bring your own. The 📥 Load data button (top bar) is the home for both pilot imports:",
+      "• Catalog crosswalk — map your own item numbers or Wesco stock numbers to carried products, so buyers search the way they think and their numbers resolve.",
+      "• Order history — import past orders and the cross-sell rail learns real “bought-together” lift from them, then shows you exactly where that new signal appears.",
+      "• Load the crosswalk FIRST, then order history — so a Wesco-numbered order file resolves instead of coming up empty. Each import has a one-click Sample CSV so you can try the whole flow before touching real data.",
+      "Everything you import stays in your workspace; unmatched numbers are reported, never invented.",
+    ],
+    action: { kind: "openDataHub", label: "Open Load your data" },
   },
   {
     id: "more-tools",

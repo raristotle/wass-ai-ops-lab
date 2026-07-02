@@ -82,6 +82,12 @@ already paid for. Plus turn on the measurement everything later depends on.
 
 ## Sprint 2 — "Real data in" (all Small; attacks the strategic bottleneck directly)
 
+> 🚧 **Part 1 SHIPPED to production 2026-07-01** — B6 (Load-your-data hub), B7 (crosswalk-first
+> guard), B8 (post-import what-changed), B9 (sample CSVs + tour). Gate green: lint 0 · typecheck ·
+> 3,634 tests · build ok. **Remaining: B10 (labeled demo baskets), B11 (Leviton UPCs → GTIN)** —
+> deeper items (behavioral-engine + data-tier), done next. Full report:
+> [sprint-2-completion.md](./sprint-2-completion.md).
+
 Theme: the engines that make the app feel alive (market-basket, also-bought, forecasts,
 next-best-action) are shipped but starved. Make loading real data discoverable, ordered, and
 rewarding — and add honest identifiers we already possess.
