@@ -115,6 +115,10 @@ rewarding — and add honest identifiers we already possess.
 
 ## Sprint 3 — "Quote with confidence" (rep-workflow depth)
 
+> ✅ **SHIPPED to production 2026-07-02** — B12 (spec-aware Find Alternatives), B13 (price-on-request
+> fast path), B14 (datasheet link-rot monitor, dormant). Gate green. Full report + the one opt-in
+> action (enable the B14 cron): [sprint-3-completion.md](./sprint-3-completion.md).
+
 Theme: the moments where a rep stakes credibility — proposing a substitute, quoting price, sending a
 submittal.
 

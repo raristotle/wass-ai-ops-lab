@@ -159,3 +159,38 @@ export function sharedNonNegCount(reference: CatalogProduct, candidate: CatalogP
   }
   return shared;
 }
+
+// B12: canonical (interchangeability) attribute matches are worth far more than incidental
+// datasheet extras, so they dominate; incidental matches only break ties among candidates that
+// already agree on the same number of canonical keys.
+const CANONICAL_SPEC_WEIGHT = 3;
+const INCIDENTAL_SPEC_WEIGHT = 1;
+
+/**
+ * B12 — Spec-aware Find Alternatives. A weighted VERIFIED-ATTRIBUTE overlap between two products,
+ * leveraging the enriched spec sets (avg ~9 specs on real parts): canonical key specs
+ * (amperage/voltage/poles/gauge/…) count heavily, every other shared enriched spec (name+value both
+ * matching, resolved onto the taxonomy vocabulary for canonical keys) counts lightly. Deterministic,
+ * $0, non-mutating. Used to rank near-matches by real attribute agreement rather than name/keyword
+ * similarity — so a genuinely closer part outranks a lexical near-miss.
+ */
+export function specOverlapScore(reference: CatalogProduct, candidate: CatalogProduct): number {
+  const canonical = new Set(canonicalKeys(reference.subcategory));
+  let score = 0;
+
+  // Canonical keys — resolved onto the shared vocabulary (heavy weight).
+  for (const key of canonical) {
+    const rv = canonicalValue(reference, key);
+    if (rv !== undefined && canonicalValue(candidate, key) === rv) score += CANONICAL_SPEC_WEIGHT;
+  }
+
+  // Incidental enriched specs — exact name+value agreement (light weight). Skip canonical names
+  // (already scored above) so they aren't double-counted.
+  const candByName = new Map(candidate.specs.map((s) => [norm(s.name), norm(s.value)]));
+  for (const s of reference.specs) {
+    if (canonical.has(s.name)) continue;
+    const cv = candByName.get(norm(s.name));
+    if (cv !== undefined && cv === norm(s.value)) score += INCIDENTAL_SPEC_WEIGHT;
+  }
+  return score;
+}

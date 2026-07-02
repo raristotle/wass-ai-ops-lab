@@ -76,6 +76,7 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• ✓ CROSS-REF (green) = a genuine functional equivalent: same subcategory and identical key specs (amperage, voltage, poles, gauge…) — interchangeable, just a different brand/price/stock.",
       "• SIMILAR = a close match shown only to round out the list when few exact equivalents exist.",
       "• A match ring (Excellent / Good / Partial), reason chips, and “Why recommended?” explain the ranking.",
+      "• When no exact cross exists, near-matches are ranked by VERIFIED ATTRIBUTE overlap — real agreement on the datasheet specs (amperage, voltage, rating, gauge…) from our enriched data — so the genuinely closest part rises above a mere name look-alike.",
       "The #1 alternative is always a true interchangeable part when one exists.",
     ],
   },
@@ -109,6 +110,7 @@ export const HELP_TOPICS: HelpTopic[] = [
       "• Each enriched product lists ~9 attributes (amperage, voltage, material, trade size, conductor range, rating…) and links straight to the manufacturer datasheet.",
       "• Every value is confirmed on an authoritative page — nothing is guessed or fabricated. A part we couldn't verify is left without specs rather than filled with assumptions.",
       "• Search by part number to pull these up; the spec sheet and datasheet link are in View Details.",
+      "• Link freshness: an optional scheduled sweep checks the datasheet links and shows a “⚠ link may be outdated” flag next to any that have gone 404, so you catch a stale link before emailing a submittal. It's off until an admin enables it (no false alarms until then).",
     ],
   },
   {
@@ -127,6 +129,7 @@ export const HELP_TOPICS: HelpTopic[] = [
     body: [
       "Add products at any quantity, then open the Cart:",
       "• Volume and contract pricing apply per line automatically.",
+      "• Price on request — a real carried part with no list price is quoted “Price on request” (pending a branch price-check), not $0: it's excluded from the subtotal, flagged in the basket footer, and carries through to the quote, revisions, and audit trail so you can send it and confirm pricing without a dead end.",
       "• Generate Quote (PDF) — branded quote with auto number, 30-day validity, your name & branch.",
       "• Share Basket copies a link that rebuilds the basket for anyone who opens it.",
       "• Export CSV downloads the basket as a spreadsheet with effective pricing and a total row.",

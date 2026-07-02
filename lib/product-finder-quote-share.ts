@@ -19,6 +19,8 @@ export interface QuoteShareLine {
   name: string;
   qty: number;
   unitPrice: number;
+  /** B13: quoted "price on request" — no unit price yet, pending a branch price-check. */
+  pending?: boolean;
 }
 
 export interface QuoteSharePayload {
@@ -56,7 +58,8 @@ function isLine(x: unknown): x is QuoteShareLine {
     typeof o.sku === "string" &&
     typeof o.name === "string" &&
     typeof o.qty === "number" && Number.isFinite(o.qty) && o.qty >= 1 &&
-    typeof o.unitPrice === "number" && Number.isFinite(o.unitPrice) && o.unitPrice >= 0
+    typeof o.unitPrice === "number" && Number.isFinite(o.unitPrice) && o.unitPrice >= 0 &&
+    (o.pending === undefined || typeof o.pending === "boolean") // B13
   );
 }
 

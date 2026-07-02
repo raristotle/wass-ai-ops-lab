@@ -51,6 +51,7 @@ import {
 import { quoteNumber } from "@/lib/product-finder-quote";
 import { quoteEvent, appendEvent } from "@/lib/product-finder-quote-events";
 import { basketMargin } from "@/lib/product-finder-margin";
+import { isPriceOnRequest } from "@/lib/product-finder-price-status";
 import { clampOverride } from "@/lib/product-finder-override";
 import type { WatchEntry } from "@/lib/product-finder-notifications";
 import {
@@ -2094,10 +2095,19 @@ export function selectCartCount(state: ProductFinderState) {
 }
 
 export function selectCartTotal(state: ProductFinderState) {
-  return Object.values(state.cart).reduce(
-    (sum, { product, qty }) => sum + lineUnitPrice(state, product, qty) * qty,
-    0
-  );
+  return Object.values(state.cart).reduce((sum, { product, qty }) => {
+    // B13: a "price on request" line (real part, no list price) contributes nothing to the numeric
+    // total — it's quoted pending a branch price-check, not as $0 — unless the rep set a manual price.
+    if (isPriceOnRequest(product) && state.priceOverrides[product.id] === undefined) return sum;
+    return sum + lineUnitPrice(state, product, qty) * qty;
+  }, 0);
+}
+
+/** B13: count of basket lines quoted "price on request" (real part, no list price, no manual override). */
+export function selectPendingPriceCount(state: ProductFinderState): number {
+  return Object.values(state.cart).filter(
+    ({ product }) => isPriceOnRequest(product) && state.priceOverrides[product.id] === undefined,
+  ).length;
 }
 
 /**

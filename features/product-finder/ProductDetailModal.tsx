@@ -8,6 +8,7 @@ import { priceTiers } from "@/lib/product-finder-pricing";
 import { apiGoesWith } from "@/lib/product-finder-api";
 import { fetchProductDetailCached } from "@/lib/product-finder-prefetch";
 import { ProductImage } from "@/features/product-finder/ProductImage";
+import { DatasheetLinkRotBadge } from "@/features/product-finder/DatasheetLinkRotBadge";
 import { LiveDistributorPanel } from "@/features/product-finder/LiveDistributorPanel";
 import { OfferLadderPanel } from "@/features/product-finder/OfferLadderPanel";
 import { VerifiedCrossPanel } from "@/features/product-finder/VerifiedCrossPanel";
@@ -589,17 +590,21 @@ export function ProductDetailModal() {
             </h3>
             <div className="flex items-center gap-2">
               {product.specSheetUrl && (
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="text-xs border-[#00AA13] text-[#00AA13]"
-                  asChild
-                >
-                  <a href={product.specSheetUrl} target="_blank" rel="noreferrer">
-                    Manufacturer Spec Sheet
-                    <ExternalLinkIcon />
-                  </a>
-                </Button>
+                <>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="text-xs border-[#00AA13] text-[#00AA13]"
+                    asChild
+                  >
+                    <a href={product.specSheetUrl} target="_blank" rel="noreferrer">
+                      Manufacturer Spec Sheet
+                      <ExternalLinkIcon />
+                    </a>
+                  </Button>
+                  {/* B14: warns if the scheduled link-rot sweep found this datasheet gone (404/410). */}
+                  <DatasheetLinkRotBadge url={product.specSheetUrl} />
+                </>
               )}
               <Button
                 size="sm"

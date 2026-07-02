@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState, useRef } from "react";
-import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer } from "@/lib/product-finder-store";
+import { useProductFinder, selectCartCount, selectCartTotal, selectActiveCustomer, selectPendingPriceCount } from "@/lib/product-finder-store";
+import { isPriceOnRequest, PRICE_ON_REQUEST_LABEL, PRICE_ON_REQUEST_HINT } from "@/lib/product-finder-price-status";
 import { priceTiers } from "@/lib/product-finder-pricing";
 import { overrideBounds } from "@/lib/product-finder-override";
 import type { SavedBasket, Order } from "@/lib/product-finder-store";
@@ -52,6 +53,7 @@ export function CartDrawer() {
   const addToCart = useProductFinder((s) => s.addToCart);
   const cartCount = useProductFinder(selectCartCount);
   const cartTotal = useProductFinder(selectCartTotal);
+  const pendingPriceCount = useProductFinder(selectPendingPriceCount); // B13
   const user = useProductFinder((s) => s.user);
   const brand = getBrand(useProductFinder((s) => s.brandId));
   const priceOverrides = useProductFinder((s) => s.priceOverrides);
@@ -325,16 +327,23 @@ export function CartDrawer() {
     const ts = Date.now();
     const num = quoteNumber(new Date(ts));
     const provider = getPricingProvider();
-    const payloadLines = items.map(({ product, qty }) => ({
-      id: product.id,
-      sku: product.sku,
-      name: product.name,
-      qty,
-      unitPrice:
-        priceOverrides[product.id] ??
-        provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice,
-    }));
-    const total = payloadLines.reduce((s, l) => s + l.unitPrice * l.qty, 0);
+    const payloadLines = items.map(({ product, qty }) => {
+      // B13: a real part with no list price ships to the customer as "price on request", not $0.
+      const pendingLine = isPriceOnRequest(product) && priceOverrides[product.id] === undefined;
+      return {
+        id: product.id,
+        sku: product.sku,
+        name: product.name,
+        qty,
+        unitPrice: pendingLine
+          ? 0
+          : (priceOverrides[product.id] ??
+            provider.getPricing(product, { customer: activeCustomer, qty }).effectiveUnitPrice),
+        ...(pendingLine ? { pending: true } : {}),
+      };
+    });
+    // Pending lines carry no price into the total (excluded, not $0).
+    const total = payloadLines.reduce((s, l) => s + (l.pending ? 0 : l.unitPrice * l.qty), 0);
     const pending = margin ? needsApproval(margin.marginPct) : false;
     const payload: QuoteSharePayload = {
       v: QUOTE_SHARE_VERSION,
@@ -678,6 +687,9 @@ export function CartDrawer() {
                 const hasVolBreak = activeTier !== undefined && activeTier.minQty > 1 && !isOverridden;
                 const bounds = overrideBounds(product);
                 const isEditingPrice = editingPriceId === product.id;
+                // B13: a real carried part with no list price → quote it "price on request", not $0,
+                // unless the rep has typed a manual price (then it's a normal priced line).
+                const isPending = isPriceOnRequest(product) && !isOverridden;
                 return (
                   <li key={product.id} className="px-4 py-4">
                     <div className="flex items-start gap-3">
@@ -699,7 +711,16 @@ export function CartDrawer() {
 
                         {/* Unit price × qty */}
                         <div className="mt-1">
-                          {hasContract ? (
+                          {isPending ? (
+                            /* B13 — price on request: a real part we carry but hold no list price for.
+                               Quoted pending a branch price-check, excluded from the total, not shown as $0. */
+                            <div className="rounded border border-[#DB6B30]/40 bg-[#DB6B30]/5 px-2 py-1">
+                              <p className="text-xs font-semibold text-[#993C1D]">
+                                {PRICE_ON_REQUEST_LABEL} · {qty} {product.uom}
+                              </p>
+                              <p className="text-[10px] text-[#DB6B30]">{PRICE_ON_REQUEST_HINT}</p>
+                            </div>
+                          ) : hasContract ? (
                             <>
                               <p className="text-xs text-[#4F758B]">
                                 <span className="font-semibold text-[#00AA13]">
@@ -1513,6 +1534,13 @@ export function CartDrawer() {
                 ${cartTotal.toFixed(2)}
               </span>
             </div>
+
+            {/* B13 — price-on-request lines: excluded from the subtotal, flagged for a branch price-check. */}
+            {pendingPriceCount > 0 && (
+              <p className="rounded border border-[#DB6B30]/40 bg-[#DB6B30]/5 px-3 py-1.5 text-[11px] text-[#993C1D]">
+                + {pendingPriceCount} line{pendingPriceCount === 1 ? "" : "s"} <span className="font-semibold">price on request</span> — confirm branch pricing before sending; they carry through to the quote flagged for price-check.
+              </p>
+            )}
 
             {/* Internal basket margin — never shown to customers */}
             {margin && (

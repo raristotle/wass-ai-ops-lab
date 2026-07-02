@@ -5,6 +5,7 @@ import {
   isFunctionalEquivalent,
   functionalEquivalents,
   sharedNonNegCount,
+  specOverlapScore,
 } from "@/lib/catalog/equivalence";
 
 /**
@@ -33,13 +34,25 @@ export function findEquivalents(product: CatalogProduct, k = 8, branchId?: strin
     (p) => !have.has(p.id) && p.category === product.category && p.subcategory !== product.subcategory,
   );
 
+  // B12: rank near-matches by VERIFIED ATTRIBUTE overlap, not name similarity. Primary signal is
+  // the count of shared canonical (interchangeability) specs; among candidates tied on that, the
+  // richer weighted spec-overlap (which rewards agreement on the enriched datasheet attributes)
+  // breaks the tie — so a genuinely closer part outranks a lexical near-miss — and only then does
+  // the general recommendation score (keyword/stock/preferred) apply.
   const backfill = [...sameSub, ...sameCat]
     .map((p) => ({
       p,
       shared: sharedNonNegCount(product, p),
+      overlap: specOverlapScore(product, p),
       score: scoreProduct(p, product, branchId).total,
     }))
-    .sort((a, b) => b.shared - a.shared || b.score - a.score || a.p.id.localeCompare(b.p.id))
+    .sort(
+      (a, b) =>
+        b.shared - a.shared ||
+        b.overlap - a.overlap ||
+        b.score - a.score ||
+        a.p.id.localeCompare(b.p.id),
+    )
     .slice(0, k - exact.length)
     .map((x) => x.p);
 

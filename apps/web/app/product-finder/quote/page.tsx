@@ -244,11 +244,12 @@ export default function QuoteAcceptancePage() {
                     <td className="border border-[#B7C9D3]/60 px-3 py-2 font-mono text-[#4F758B]">{line.sku}</td>
                     <td className="border border-[#B7C9D3]/60 px-3 py-2 text-[#1D252D]">{line.name}</td>
                     <td className="border border-[#B7C9D3]/60 px-3 py-2 text-right text-[#1D252D]">{line.qty}</td>
+                    {/* B13: a price-on-request line shows "Price on request", not $0.00. */}
                     <td className="border border-[#B7C9D3]/60 px-3 py-2 text-right text-[#1D252D]">
-                      ${line.unitPrice.toFixed(2)}
+                      {line.pending ? <span className="italic text-[#993C1D]">Price on request</span> : `$${line.unitPrice.toFixed(2)}`}
                     </td>
                     <td className="border border-[#B7C9D3]/60 px-3 py-2 text-right font-semibold text-[#1D252D]">
-                      ${(line.unitPrice * line.qty).toFixed(2)}
+                      {line.pending ? <span className="italic text-[#4F758B]">—</span> : `$${(line.unitPrice * line.qty).toFixed(2)}`}
                     </td>
                   </tr>
                 ))}
