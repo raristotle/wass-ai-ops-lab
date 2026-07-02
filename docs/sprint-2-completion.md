@@ -54,20 +54,27 @@ that opens the hub and explains the crosswalk-first order.
 *(Also hardened the two known cold-module-load pricing tests from 30 s → 60 s so full-suite CPU
 contention can't flake the gate.)*
 
-## Part 2 — remaining (next iteration)
+## Part 2 — B11 (SHIPPED 2026-07-01)
 
-Two items remain; both are more involved than the Part-1 UI work and are being done next rather than
-rushed:
+### B11 · Leviton UPCs → GTIN
+Ingested the 8,220 Leviton MPN→UPC rows we parsed but honestly declined to mislabel as Wesco stock
+numbers. Those Leviton parts are cross-reference **targets**, not stand-alone catalog products, so
+rather than bloat the catalog with 8K spec-less entries, a Leviton **UPC/GTIN now resolves to the
+Leviton MPN and its documented cross** — a rep who scans or types a physical Leviton barcode gets the
+Wesco cross. Normalizes UPC-A (11-digit, leading zero dropped) and GTIN-12; parses lazily (only when a
+UPC-shaped query actually misses a direct cross lookup, so it's $0 until used).
+- Files: `data/real/leviton-gtin.ts` (packed GTIN-12→MPN, 8,220 pairs), `lib/catalog/leviton-gtin.ts`
+  (resolver, + test), `lib/catalog/xref-index.ts` (`lookupXref` GTIN fallback + `viaGtin` hit field, +
+  test), `SearchBar.tsx` ("via Leviton UPC" provenance chip), Help note.
+- $0 / local — no web fetch; does not touch the parked enrichment loop.
 
-- **B10 · Labeled demo order-basket seed** — seed 25–50 clearly-labeled demo co-purchase baskets so
-  the cross-sell rail is alive before real data lands, auto-hidden once a real import exists. This
-  touches the behavioral engine (`AssocRule` has no provenance field today) and the rail's rendering,
-  so it needs a "demo vs real" flag threaded through carefully — done right so it never mislabels
-  demo lift as real.
-- **B11 · Leviton UPCs → GTIN** — ingest the 8,219 Leviton MPN→UPC rows we already parsed
-  (`xref-wesco.tsv`, currently only in the scratch pipeline) as GTIN identifiers so GTIN search hits
-  Leviton parts. Needs a packed `data/real` tier + GTIN normalization + catalog wiring + tests.
-  $0/local (no web fetch), so it does not touch the parked enrichment loop.
+## Part 3 — remaining (next iteration)
+
+- **B10 · Labeled demo order-basket seed** — seed clearly-labeled demo co-purchase baskets so the
+  cross-sell rail is alive before real data lands, auto-hidden once a real import exists. This is the
+  most cross-cutting item: it changes the live cross-sell rail's default data source, needs a
+  "demo vs real" flag surfaced through the companions API and the rail UI, and must never mislabel
+  demo lift as real — so it's being done deliberately in its own pass rather than rushed.
 
 ## ACTION REQUIRED (you)
 

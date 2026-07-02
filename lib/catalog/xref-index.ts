@@ -1,5 +1,6 @@
 import { XREF_BRANDS, XREF_SOURCES, XREF_PACKED } from "@/data/real/xref-crosses";
 import { identifierKey } from "@/lib/catalog/identifiers";
+import { resolveLevitonGtin } from "@/lib/catalog/leviton-gtin";
 
 /**
  * Bulk cross-reference index — 766k real competitor→target cross pairs ingested from manufacturer
@@ -40,6 +41,9 @@ export interface XrefHit {
    *  this is what it crosses TO; "target" = you searched the stocked/target part and this competitor
    *  part crosses to it. */
   matchedAs: CrossDirection;
+  /** B11: set (to the resolved GTIN-12) when the query was a Leviton UPC/GTIN that resolved to the
+   *  Leviton MPN before the cross lookup — provenance is "UPC from Leviton cross file". */
+  viaGtin?: string;
 }
 
 interface XrefState {
@@ -106,7 +110,15 @@ export function lookupXref(part: string, limit = 8): XrefHit[] {
   // Fill the remainder with reverse matches the forward direction didn't already cover.
   const seen = new Set(fwd.map((h) => identifierKey(h.targetPart)));
   const rev = (st.reverse.get(k) ?? []).filter((h) => !seen.has(identifierKey(h.competitorPart)));
-  return [...fwd, ...rev].slice(0, limit);
+  const direct = [...fwd, ...rev];
+  if (direct.length > 0) return direct.slice(0, limit);
+
+  // B11: nothing matched the part number directly — if it's a Leviton UPC/GTIN, resolve it to the
+  // Leviton MPN and cross THAT, so scanning/typing a physical Leviton barcode still returns the
+  // documented cross. Tagged `viaGtin` so the UI can cite "UPC from Leviton cross file".
+  const gtin = resolveLevitonGtin(part);
+  if (gtin) return lookupXref(gtin.mpn, limit).map((h) => ({ ...h, viaGtin: gtin.gtin }));
+  return [];
 }
 
 /** Number of distinct part keys indexed across both directions (for health/diagnostics). */

@@ -198,6 +198,12 @@ function CrossReferenceModal({
                         {h.matchedAs === "target" && (
                           <span className="text-[10px] text-[#4F758B]">matched your part as the target</span>
                         )}
+                        {/* B11: resolved from a scanned/typed Leviton UPC. */}
+                        {h.viaGtin && (
+                          <span className="text-[10px] font-medium text-[#004986]" title="UPC from Leviton cross file">
+                            via Leviton UPC {h.viaGtin}
+                          </span>
+                        )}
                         <span className="text-[10px] text-[#4F758B]">· {h.source}</span>
                       </div>
                     </li>

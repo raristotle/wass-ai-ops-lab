@@ -307,6 +307,7 @@ export const HELP_TOPICS: HelpTopic[] = [
       "Backed by 766,000+ documented manufacturer cross-references (Hubbell, Eaton/Danfoss, Panduit, Leviton, 3M, Ferraz, Atkore comparables, tools, security/camera, RF/coax, semiconductor, and lighting lines — including ones extracted from manufacturer PDF guides).",
       "• If we stock an equivalent, you get the product. If not, you still see every documented cross-reference for the part — each tagged with a confidence chip: green Documented equivalent (drop-in) or blue Functional substitute (confirm the flagged specs) — plus the source file it came from.",
       "• Every pair is from a real manufacturer file — nothing is invented. A part with no documented cross says so honestly.",
+      "• Scan or type a Leviton UPC/barcode: 8,200+ Leviton UPCs resolve to the Leviton part and its documented cross, tagged “via Leviton UPC” so you know how it matched.",
       "Each product's detail view also lists the parts it Replaces.",
     ],
   },

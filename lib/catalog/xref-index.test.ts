@@ -21,6 +21,21 @@ describe("bulk cross-reference index (ingested manufacturer xref files)", () => 
     expect(hits.some((h) => h.matchedAs === "target" && /CD530MF7W/i.test(h.competitorPart))).toBe(true);
   });
 
+  it("resolves a Leviton UPC/GTIN to its MPN's documented cross (B11)", () => {
+    // 078477251471 is the UPC-A for Leviton 530MF7WLEV — a rep scanning the physical Leviton box.
+    const viaGtin = lookupXref("078477251471");
+    expect(viaGtin.length).toBeGreaterThan(0);
+    // Every hit is tagged with the resolved GTIN (provenance = "UPC from Leviton cross file")…
+    expect(viaGtin.every((h) => h.viaGtin === "078477251471")).toBe(true);
+    // …and resolves to the SAME crosses as looking up the MPN directly.
+    const viaMpn = lookupXref("530MF7WLEV");
+    expect(viaGtin.map((h) => h.competitorPart).sort()).toEqual(viaMpn.map((h) => h.competitorPart).sort());
+    // The 11-digit form (leading zero dropped) resolves identically.
+    expect(lookupXref("78477251471").length).toBe(viaGtin.length);
+    // A random non-UPC number does not spuriously resolve.
+    expect(lookupXref("999999999999")).toEqual([]);
+  });
+
   it("normalizes the query (case/separators) and returns capped, well-formed hits with a relation (B2)", () => {
     const hits = lookupXref("cd530mf7w");
     expect(hits.length).toBeGreaterThan(0);
