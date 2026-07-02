@@ -42,7 +42,7 @@ describe("esign record", () => {
   });
 
   it("signed is terminal — a later event can't downgrade it", () => {
-    let r = transitionEsign(base(), "signed", 1200);
+    const r = transitionEsign(base(), "signed", 1200);
     const after = transitionEsign(r, "viewed", 1300);
     expect(after).toBe(r); // unchanged reference
     expect(after.status).toBe("signed");

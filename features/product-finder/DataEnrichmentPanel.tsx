@@ -90,7 +90,7 @@ export function DataEnrichmentPanel({ product }: { product: CatalogProduct }) {
           </ul>
           <p className="mt-1 text-[10px] italic text-[#4F758B]">
             Indicative — inferred from stated materials against the ECHA REACH SVHC, EU RoHS, and CA Prop 65 lists.
-            Confirm with the manufacturer's declaration.
+            Confirm with the manufacturer&rsquo;s declaration.
           </p>
         </div>
       )}

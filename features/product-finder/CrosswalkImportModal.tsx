@@ -10,6 +10,7 @@ import {
   type CrosswalkManifest,
 } from "@/lib/product-finder-api";
 import { Button } from "@/components/ui/button";
+import { track } from "@/lib/analytics-client";
 
 /**
  * Customer Catalog-Number Crosswalk import (pilot data onboarding) — load the
@@ -69,6 +70,8 @@ export function CrosswalkImportModal() {
         setManifest(res.manifest ?? null);
         setMsg(res.headline ?? "Imported.");
         setCsv("");
+        // B4: activation event — mapping count only, no customer identifiers.
+        track("crosswalk_import", { entries: res.manifest?.entries });
       }
     } finally {
       setBusy(false);

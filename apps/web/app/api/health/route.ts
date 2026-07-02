@@ -34,6 +34,7 @@ import { gleifConfigured } from "@/lib/integration/gleif-live";
 import { wikidataConfigured } from "@/lib/integration/wikidata-live";
 import { blsPpiConfigured } from "@/lib/integration/bls-ppi-live";
 import { urdbConfigured } from "@/lib/integration/urdb-live";
+import { xrefIndexStatsIfBuilt } from "@/lib/catalog/xref-index";
 
 export const dynamic = "force-dynamic";
 
@@ -93,5 +94,10 @@ export function GET() {
       analytics: Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.POSTHOG_KEY),
       sentry: Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN),
     },
+    // Cold-start observability (B5): the bulk cross-reference index is a ~35MB literal parsed lazily
+    // on this instance's first cross-match. `null` until then (this probe never triggers the parse);
+    // after it's built, reports rows / distinct keys / one-time build cost so cold-start regressions
+    // are visible without a paid observability stack.
+    xrefIndex: xrefIndexStatsIfBuilt(),
   });
 }

@@ -10,6 +10,7 @@ import {
   type OrderHistoryManifest,
 } from "@/lib/product-finder-api";
 import { Button } from "@/components/ui/button";
+import { track } from "@/lib/analytics-client";
 
 /**
  * Order History Import (pilot data onboarding) — the single highest-leverage data
@@ -74,6 +75,8 @@ export function OrderHistoryImportModal() {
         setManifest(res.manifest ?? null);
         setMsg(res.headline ?? "Imported.");
         setCsv("");
+        // B4: activation event — counts only (orders / resolved lines), no customer identifiers.
+        track("order_history_import", { orders: res.manifest?.orders, resolved: res.manifest?.resolved });
       }
     } finally {
       setBusy(false);

@@ -14,6 +14,8 @@ import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { apiSuggest, apiCrossLookup } from "@/lib/product-finder-api";
 import type { XrefHit } from "@/lib/catalog/xref-index";
+import { crossRelationMeta } from "@/lib/catalog/xref-index";
+import { track } from "@/lib/analytics-client";
 import { QUICK_PICKS } from "@/lib/product-finder-commands";
 import { normalizeTranscript } from "@/lib/product-finder-voice";
 import { VoiceSearchButton } from "@/features/product-finder/VoiceSearchButton";
@@ -86,6 +88,8 @@ function CrossReferenceModal({
     setXrefHits([]);
     try {
       const { suggestion, xref } = await apiCrossLookup(sku);
+      // B4: outcome only (stocked / documented / miss) — never the part number typed.
+      track("cross_lookup", { outcome: suggestion ? "stocked" : xref.length > 0 ? "documented" : "miss" });
       if (suggestion) {
         // A stocked equivalent — open its product detail.
         setDetailModalProduct(suggestion.product);
@@ -173,18 +177,32 @@ function CrossReferenceModal({
                 Documented cross-reference{xrefHits.length > 1 ? "s" : ""}
               </div>
               <ul className="divide-y divide-[#B7C9D3]/40 max-h-64 overflow-y-auto">
-                {xrefHits.map((h, i) => (
-                  <li key={`${h.targetBrand}-${h.targetPart}-${i}`} className="px-4 py-2.5 text-sm">
-                    <div className="flex items-baseline gap-1.5 flex-wrap">
-                      <span className="text-[#4F758B]">{h.competitorBrand} {h.competitorPart}</span>
-                      <span className="text-[#00AA13] font-bold">→</span>
-                      <span className="font-semibold text-[#1D252D]">{h.targetBrand} {h.targetPart}</span>
-                    </div>
-                    <div className="text-[10px] text-[#4F758B] mt-0.5">
-                      {h.relation === "equivalent" ? "Equivalent" : "Functional substitute"} · {h.source}
-                    </div>
-                  </li>
-                ))}
+                {xrefHits.map((h, i) => {
+                  const band = crossRelationMeta(h.relation); // B2: relation confidence chip
+                  return (
+                    <li key={`${h.competitorPart}-${h.targetPart}-${i}`} className="px-4 py-2.5 text-sm">
+                      <div className="flex items-baseline gap-1.5 flex-wrap">
+                        <span className="text-[#4F758B]">{h.competitorBrand} {h.competitorPart}</span>
+                        <span className="text-[#00AA13] font-bold">→</span>
+                        <span className="font-semibold text-[#1D252D]">{h.targetBrand} {h.targetPart}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+                        <span
+                          className="inline-block rounded px-1.5 py-0.5 text-[10px] font-semibold text-white"
+                          style={{ backgroundColor: band.color }}
+                          title={band.blurb}
+                        >
+                          {band.label}
+                        </span>
+                        {/* B1: this hit surfaced because the rep searched the TARGET/stocked side. */}
+                        {h.matchedAs === "target" && (
+                          <span className="text-[10px] text-[#4F758B]">matched your part as the target</span>
+                        )}
+                        <span className="text-[10px] text-[#4F758B]">· {h.source}</span>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}

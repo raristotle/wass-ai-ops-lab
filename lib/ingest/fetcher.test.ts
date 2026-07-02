@@ -102,7 +102,7 @@ describe("productsFromHtml", () => {
 describe("politeGet", () => {
   it("rate-limits per host (waits when called twice quickly) and returns a RawPayload", async () => {
     const waits: number[] = [];
-    let clock = 1_000_000;
+    const clock = 1_000_000;
     const fetchImpl = (async (url: string) =>
       new Response("body-of " + url, { status: 200, headers: { "content-type": "text/html" } })) as unknown as typeof fetch;
     const deps = {

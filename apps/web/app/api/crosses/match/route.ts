@@ -7,6 +7,10 @@ import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { recordCrossMiss } from "@/lib/server/cross-misses";
 
 export const dynamic = "force-dynamic";
+// B5: explicit cap for a route that parses the ~35MB xref index on a cold instance's first hit, so a
+// pathological cold-start-plus-parse can't ride the platform default timeout. (Prior hardening only
+// covered paid/AI routes; this one is read-hot but not cost-bearing.)
+export const maxDuration = 30;
 
 const CROSS_LIMIT = { limit: 60, windowMs: 60_000 };
 

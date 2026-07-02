@@ -11,6 +11,9 @@ import { fuseSemanticLane } from "@/lib/catalog/semantic-search";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
+// B5: explicit cap for the read-hot search route (builds the catalog + optional cross counts on a
+// cold instance); previously only paid/AI routes carried an explicit maxDuration.
+export const maxDuration = 30;
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);

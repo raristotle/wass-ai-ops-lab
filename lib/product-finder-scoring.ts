@@ -12,6 +12,12 @@ export const SCORE_WEIGHTS = {
   preferred: 15,
   cheaper: 8,
   subcategory: 7,
+  // B3 (provenance-aware ranking): a small boost so a REAL, spec-verified product outranks a
+  // synthetic/simulated one on otherwise-equal relevance — a rep should never see a fake SKU with a
+  // fake price above a genuine equivalent. Deliberately smaller than `spec` so a truly better match
+  // still wins; this is a tie-breaker/demotion of padding, not a thumb that overrides fit.
+  provenanceVerified: 10,
+  provenanceCurated: 5,
 } as const;
 
 // 1 point per 5% cheaper than the reference; saturates at 40% cheaper (= SCORE_WEIGHTS.cheaper).
@@ -113,9 +119,20 @@ export function scoreProduct(
     factors.push({ label: "Same product subcategory", points: subPoints, positive: true });
   }
 
+  // 6. Provenance (B3): real, spec-verified > real-but-unverified > synthetic demo data.
+  let provPoints = 0;
+  if (candidate.dataSource === "verified") {
+    provPoints = SCORE_WEIGHTS.provenanceVerified;
+    factors.push({ label: "Real part, specs verified from manufacturer", points: provPoints, positive: true });
+  } else if (candidate.dataSource === "curated") {
+    provPoints = SCORE_WEIGHTS.provenanceCurated;
+    factors.push({ label: "Real cataloged part", points: provPoints, positive: true });
+  }
+  // "simulated" / undefined earn no provenance points, so they sort below real equivalents on a tie.
+
   const total = Math.max(
     0,
-    Math.min(100, specPoints + stockPoints + preferredPoints + pricePoints + subPoints),
+    Math.min(100, specPoints + stockPoints + preferredPoints + pricePoints + subPoints + provPoints),
   );
 
   factors.sort((a, b) => {

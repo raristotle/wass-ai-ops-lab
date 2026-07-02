@@ -42,6 +42,11 @@ real-data paths. Product-data enrichment continuation is **explicitly parked** b
 
 ## Sprint 1 — "Trust the moat" (all Small; pure leverage of existing data)
 
+> ✅ **SHIPPED to production 2026-07-01.** All five items (B1–B5) live; full delivery report,
+> gate results, and the one owner action (activate PostHog for B4) in
+> [sprint-1-completion.md](./sprint-1-completion.md). Gate green: lint 0 · typecheck clean ·
+> 3,627 tests · build ok.
+
 Theme: the 766K crosses exist but half the query direction misses, no confidence signal shows, and
 fake products can outrank real ones. Fix findability + trust first — it's loss recovery on data
 already paid for. Plus turn on the measurement everything later depends on.

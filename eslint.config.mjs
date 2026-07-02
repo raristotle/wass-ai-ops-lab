@@ -29,6 +29,15 @@ const eslintConfig = [
       ],
     },
   },
+  {
+    // Standalone CommonJS Node tooling (e.g. scripts/ingest-xref/*.cjs) runs directly
+    // under `node`, never through the Next/ESM app build. `require()` is the correct
+    // module system there, so the ESM-only rule that forbids it does not apply.
+    files: ["**/*.cjs"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

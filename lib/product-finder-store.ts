@@ -2,6 +2,7 @@ import { create } from "zustand";
 import type { FilterState, ParsedFilter, SortKey, ViewMode, CatalogProduct, BomLine, AuthUser, ProductCategory, SearchResponse } from "@/features/product-finder/types";
 import type { CustomerAccount } from "@/lib/integration/types";
 import { getCustomerProvider } from "@/lib/integration/index";
+import { track } from "@/lib/analytics-client";
 
 // ─── SavedBasket type ─────────────────────────────────────────────────────────
 export type SavedBasket = {
@@ -548,6 +549,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
       return { filters, appliedNlFilters: parsed.filters, query: raw };
     });
     await get().runSearch();
+    // B4: named analytics event (dormant unless PostHog key set). Count only — never the query text
+    // (may contain customer part numbers). `noCorrect` recursion is excluded so an auto-applied
+    // spelling fix doesn't double-count one user search.
+    if (raw.trim() && !opts?.noCorrect) track("search_run", { results: get().total });
 
     // ── "Did you mean…?" flow — only after the search resolves ──────────────
     if (opts?.noCorrect || !raw.trim()) {
@@ -887,6 +892,8 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
         },
       };
     });
+    // B4: track the add (dormant unless PostHog key set) — qty + provenance, no PII.
+    track("add_to_cart", { qty, provenance: product.dataSource });
   },
 
   removeFromCart(id) {

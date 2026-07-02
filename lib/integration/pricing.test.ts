@@ -302,12 +302,17 @@ describe("mockPricingProvider — savingsPct edge cases", () => {
 
 // ─── getPricingProvider registry integration ──────────────────────────────────
 
+// These two dynamically import the integration barrel (@/lib/integration/index),
+// which transitively initializes the full catalog/cross-reference module graph
+// (incl. the multi-MB bulk cross-reference tier) on first load. That cold module
+// evaluation can exceed Vitest's 5s default on a cold/CI machine, so give these a
+// realistic ceiling — the pricing math itself is instant and fully covered above.
 describe("getPricingProvider from index", () => {
   it("getPricingProvider() returns a provider with a getPricing function", async () => {
     const { getPricingProvider } = await import("@/lib/integration/index");
     const provider = getPricingProvider();
     expect(typeof provider.getPricing).toBe("function");
-  });
+  }, 30000);
 
   it("getPricingProvider().getPricing works end-to-end (no customer, list price)", async () => {
     const { getPricingProvider } = await import("@/lib/integration/index");
@@ -316,5 +321,5 @@ describe("getPricingProvider from index", () => {
     expect(result.listPrice).toBe(50);
     expect(result.contractPrice).toBeNull();
     expect(result.effectiveUnitPrice).toBe(50);
-  });
+  }, 30000);
 });

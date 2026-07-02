@@ -98,9 +98,19 @@ function keywordScore(p: CatalogProduct, terms: string[]): number {
 // fuzzy lane is bounded (skipped for very broad matches to keep search snappy).
 const HYBRID_FUZZY_CAP = 3000;
 
+// B3 (provenance-aware ranking): real, spec-verified data ranks above real-but-unverified, above
+// synthetic/simulated demo data. Used only as a tie-breaker so keyword relevance still leads — but a
+// simulated padding SKU never sorts above a genuine equivalent that matched the query just as well.
+function provenanceRank(p: CatalogProduct): number {
+  return p.dataSource === "verified" ? 2 : p.dataSource === "curated" ? 1 : 0;
+}
+
 function hybridRelevance(matched: CatalogProduct[], text: string, terms: string[]): CatalogProduct[] {
   const keyword = [...matched].sort(
-    (a, b) => keywordScore(b, terms) - keywordScore(a, terms) || (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0),
+    (a, b) =>
+      keywordScore(b, terms) - keywordScore(a, terms) ||
+      (b.preferred ? 1 : 0) - (a.preferred ? 1 : 0) ||
+      provenanceRank(b) - provenanceRank(a),
   );
   if (matched.length > HYBRID_FUZZY_CAP) return keyword;
   const fuzzy = [...matched].sort((a, b) => matchConfidence(text, b) - matchConfidence(text, a));
