@@ -152,3 +152,28 @@ and **only** hosts on an explicit operator allow-list are fetchable. It is dorma
 `ul.com,intertek.com,schneider-electric.com`); responses are size-capped and tag-stripped to a text
 snippet. Health flag `grounding`. Only add domains you trust.
 
+
+## API ergonomics for MCP / punchout consumers (B16)
+
+**Typed error envelope.** Every error response carries a stable machine `code` alongside the human
+`error` string, so a client can branch programmatically (existing consumers that only read `error`
+are unaffected):
+
+```jsonc
+{ "error": "queries must be a string array", "code": "invalid_request" }
+{ "error": "Rate limit exceeded — slow down and try again shortly.",
+  "code": "rate_limited", "retryAfterMs": 4000 }   // 429s also send Retry-After + X-RateLimit-* headers
+```
+
+Codes: `invalid_request`, `unauthorized`, `forbidden`, `not_found`, `rate_limited`,
+`payload_too_large`, `internal`. Helper: `apiError(code, message, status, { retryAfterMs })` in
+`lib/server/api-envelope.ts`.
+
+**Opaque cursor pagination.** List endpoints return a `nextCursor` when more results exist (absent on
+the last page). Echo it back as `?cursor=…` to fetch the next page — it's an opaque token, so don't
+parse it. UI consumers keep using `page` and simply ignore `nextCursor`. Live on `/api/products/search`:
+
+```
+GET /api/products/search?q=breaker            → { items:[…], total, page, pageSize, nextCursor:"Mg" }
+GET /api/products/search?q=breaker&cursor=Mg  → next page
+```

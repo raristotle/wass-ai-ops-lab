@@ -7,6 +7,7 @@ import {
   saveCrosswalk,
   clearCrosswalk,
   getCrosswalkManifest,
+  captureCrosswalkEntry,
   _resetCrosswalkCache,
   type CrosswalkEntry,
   type CrosswalkManifest,
@@ -81,5 +82,32 @@ describe("crosswalkIndex + resolveCustomerNumber", () => {
     const idx = await crosswalkIndex(store, "test", 9000);
     expect(resolveCustomerNumber(idx, "A")).toBeNull();
     expect(resolveCustomerNumber(idx, "WX-100000")).not.toBeNull();
+  });
+});
+
+describe("captureCrosswalkEntry (B17 — Wesco stock-# capture)", () => {
+  beforeEach(() => _resetCrosswalkCache());
+
+  it("appends a captured mapping, dedups by normalized number, and resolves as source 'captured'", async () => {
+    const store = new MemoryStore();
+    const a = await captureCrosswalkEntry(store, "WX 123", "CB-1");
+    expect(a).toEqual({ entries: 1, added: true });
+    // Re-capturing the same number (different separators/case) updates in place — no duplicate.
+    const b = await captureCrosswalkEntry(store, "wx-123", "CB-2");
+    expect(b).toEqual({ entries: 1, added: false });
+
+    const idx = await crosswalkIndex(store, "test", 3000);
+    const hit = resolveCustomerNumber(idx, "WX123");
+    expect(hit?.sku).toBe("CB-2");
+    expect(hit?.source).toBe("captured");
+  });
+
+  it("preserves an existing import's manifest customer label while bumping the count", async () => {
+    const store = new MemoryStore();
+    await saveCrosswalk(store, [{ customerNumber: "X1", sku: "S1", source: "import" }], manifest({ customer: "Gulf Coast", entries: 1 }));
+    await captureCrosswalkEntry(store, "X2", "S2");
+    const m = await getCrosswalkManifest(store);
+    expect(m?.customer).toBe("Gulf Coast");
+    expect(m?.entries).toBe(2);
   });
 });

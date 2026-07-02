@@ -35,6 +35,7 @@ import { wikidataConfigured } from "@/lib/integration/wikidata-live";
 import { blsPpiConfigured } from "@/lib/integration/bls-ppi-live";
 import { urdbConfigured } from "@/lib/integration/urdb-live";
 import { xrefIndexStatsIfBuilt } from "@/lib/catalog/xref-index";
+import { xrefSourceLabel } from "@/lib/server/xref-pg";
 
 export const dynamic = "force-dynamic";
 
@@ -99,5 +100,7 @@ export function GET() {
     // after it's built, reports rows / distinct keys / one-time build cost so cold-start regressions
     // are visible without a paid observability stack.
     xrefIndex: xrefIndexStatsIfBuilt(),
+    // B15: which tier answers cross lookups right now — "memory" (default, $0) or "postgres".
+    xrefSource: xrefSourceLabel(),
   });
 }

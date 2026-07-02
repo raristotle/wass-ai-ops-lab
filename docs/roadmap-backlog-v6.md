@@ -138,6 +138,13 @@ submittal.
 
 ## Sprint 4 — "Harden for scale" (Medium items, sequenced after usage exists)
 
+> ✅ **SHIPPED to production 2026-07-02** — B15 (crosses → Neon Postgres, **dormant**; you run the
+> one-time load), B16 (MCP/punchout typed errors + cursor pagination), B17 (Wesco stock-# capture).
+> Gate green. Full report + the load/flag steps: [sprint-4-completion.md](./sprint-4-completion.md).
+>
+> 🎉 **All scheduled v6 items (Sprints 1–4, B1–B17) are now in production.** Remaining: only the
+> explicitly-parked B18 (enrichment continuation) and B19 (paid-account activation).
+
 Theme: durability once Sprints 1–3 prove demand. B15 supersedes the interim in-memory work.
 
 - **B15 · Crosses → Neon Postgres** — *As the platform, I want the 766K pairs in an indexed table

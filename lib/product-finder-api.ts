@@ -454,6 +454,28 @@ export async function apiClearCrosswalk(): Promise<boolean> {
   }
 }
 
+/** B17: capture a single Wesco stock #→sku mapping into the crosswalk (deduped, provenance "captured"). */
+export interface CaptureWescoResult {
+  ok?: boolean;
+  entries?: number;
+  added?: boolean;
+  sku?: string;
+  name?: string;
+  error?: string;
+}
+export async function apiCaptureWescoSku(number: string, sku: string): Promise<CaptureWescoResult> {
+  try {
+    const res = await fetch("/api/catalog/crosswalk/capture", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ number, sku }),
+    });
+    return (await res.json()) as CaptureWescoResult;
+  } catch {
+    return { error: "Capture request failed" };
+  }
+}
+
 // ─── Data ingestion (Sprint D1) — renewable source-adapter framework ─────────
 export interface IngestRunReport {
   adapterId: string;

@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { resolvedCrossEntries, resolveStocked, provenancedIndex } from "@/lib/catalog/cross-runtime";
 import { findCrossSuggestion } from "@/lib/catalog/bom-cross";
-import { lookupXref } from "@/lib/catalog/xref-index";
+import { lookupXrefAsync } from "@/lib/server/xref-pg"; // B15: PG when opted in, else in-memory
 import { identifierKey } from "@/lib/catalog/identifiers";
 import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { recordCrossMiss } from "@/lib/server/cross-misses";
+import { apiError } from "@/lib/server/api-envelope";
 
 export const dynamic = "force-dynamic";
 // B5: explicit cap for a route that parses the ~35MB xref index on a cold instance's first hit, so a
@@ -29,11 +30,11 @@ export async function POST(req: Request) {
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+    return apiError("invalid_request", "Invalid JSON", 400); // B16: typed envelope for MCP clients
   }
   const queries = (body as { queries?: unknown })?.queries;
   if (!Array.isArray(queries) || queries.some((q) => typeof q !== "string")) {
-    return NextResponse.json({ error: "queries must be a string array" }, { status: 400 });
+    return apiError("invalid_request", "queries must be a string array", 400);
   }
 
   const entries = resolvedCrossEntries();
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
   // Bulk ingested cross-references (Hubbell/Eaton-Danfoss/Panduit/Leviton, 539k pairs) — the
   // documented equivalent even when we don't stock the target. Returned alongside the stocked
   // suggestion so a rep always sees what a competitor part crosses to.
-  const xref = capped.map((q) => lookupXref(q));
+  const xref = await Promise.all(capped.map((q) => lookupXrefAsync(q)));
 
   // Record the MISSES (deduped per SKU, bounded, best-effort) so the coverage-gap
   // queue ranks the competitor parts customers look up but we don't cross yet.

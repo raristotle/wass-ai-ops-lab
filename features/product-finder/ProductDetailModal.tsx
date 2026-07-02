@@ -9,6 +9,7 @@ import { apiGoesWith } from "@/lib/product-finder-api";
 import { fetchProductDetailCached } from "@/lib/product-finder-prefetch";
 import { ProductImage } from "@/features/product-finder/ProductImage";
 import { DatasheetLinkRotBadge } from "@/features/product-finder/DatasheetLinkRotBadge";
+import { WescoStockCapture } from "@/features/product-finder/WescoStockCapture";
 import { LiveDistributorPanel } from "@/features/product-finder/LiveDistributorPanel";
 import { OfferLadderPanel } from "@/features/product-finder/OfferLadderPanel";
 import { VerifiedCrossPanel } from "@/features/product-finder/VerifiedCrossPanel";
@@ -695,6 +696,15 @@ export function ProductDetailModal() {
                   </td>
                   <td className="px-3 py-2 text-[#1D252D] font-mono border border-[#B7C9D3]/60" colSpan={2}>
                     {product.sku}
+                  </td>
+                </tr>
+                {/* B17 — capture this product's Wesco stock # so future searches by that number resolve here. */}
+                <tr className="border-b border-[#B7C9D3]/60 print:hidden">
+                  <td className="px-3 py-2 text-[#4F758B] font-medium border border-[#B7C9D3]/60 bg-[#F8FAFB]">
+                    Wesco stock #
+                  </td>
+                  <td className="px-3 py-2 border border-[#B7C9D3]/60" colSpan={2}>
+                    <WescoStockCapture product={product} />
                   </td>
                 </tr>
                 <tr>

@@ -35,6 +35,7 @@ export const HELP_TOPICS: HelpTopic[] = [
     body: [
       "The 📥 Load data button (top bar, also ⌘K → “Load your data”) is the home for the two pilot imports that make the recommender yours.",
       "• Catalog crosswalk — map your own item numbers or Wesco stock numbers to carried products, so buyers search the way they think and their numbers resolve.",
+      "• Capture as you go — any product's View Details has a “+ Add Wesco stock #” field; whatever you type is saved to the crosswalk (deduped) so a search for that number resolves to the part next time. Real identifiers build up as a byproduct of daily use.",
       "• Order history — import past orders and the cross-sell rail learns real “bought-together” lift from them.",
       "• Day one, before any import, the cross-sell rail is already alive on labeled demo baskets — shown with a “demo co-purchase data” tag so it's never mistaken for real; importing real orders replaces it automatically.",
       "• Load the crosswalk FIRST, then order history — otherwise a file that uses your own/Wesco numbers can come up empty (if it does, the import offers a one-click jump to load the crosswalk).",

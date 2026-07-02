@@ -8,6 +8,7 @@ import { rerankConfigured, rerankCandidates } from "@/lib/integration/rerank-liv
 import { embeddingsConfigured, embedQuery } from "@/lib/integration/embeddings-live";
 import { vectorStoreConfigured, knnSearch } from "@/lib/server/vector-store";
 import { fuseSemanticLane } from "@/lib/catalog/semantic-search";
+import { decodeCursor, nextCursor } from "@/lib/server/api-envelope";
 import type { CatalogProduct } from "@/features/product-finder/types";
 
 export const dynamic = "force-dynamic";
@@ -18,6 +19,10 @@ export const maxDuration = 30;
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const params = parseSearchQuery(searchParams);
+  // B16: opaque cursor pagination for API/MCP consumers. A `cursor` (from a prior response's
+  // `nextCursor`) overrides the page param; UI consumers keep using `page` and ignore `nextCursor`.
+  const cursor = searchParams.get("cursor");
+  if (cursor) params.page = decodeCursor(cursor);
   const response = searchCatalog(params);
 
   // Attach the best in-stock substitute for each out-of-stock result so the
@@ -74,5 +79,11 @@ export async function GET(req: Request) {
     }
   }
 
-  return NextResponse.json({ ...response, items, substitutes });
+  return NextResponse.json({
+    ...response,
+    items,
+    substitutes,
+    // B16: opaque cursor to the next page (absent on the last page). Backward-compatible add-on.
+    nextCursor: nextCursor(response.page, response.pageSize, response.total),
+  });
 }

@@ -17,7 +17,7 @@ import { getCatalog } from "@/lib/catalog/index";
 import { identifierKey } from "@/lib/catalog/identifiers";
 import type { KvStore } from "@/lib/server/persistence";
 
-export type CrosswalkSource = "demo" | "import";
+export type CrosswalkSource = "demo" | "import" | "captured";
 
 export interface CrosswalkEntry {
   /** The customer's own catalog/part number. */
@@ -180,6 +180,44 @@ export async function getCrosswalkManifest(store: KvStore): Promise<CrosswalkMan
   }
 }
 
+/**
+ * B17 — Wesco stock-number capture. Append a single number→sku mapping into the crosswalk (source
+ * "captured"), DEDUPED by the normalized number so a re-capture updates in place rather than
+ * duplicating. Preserves any existing import's manifest label and bumps the entry count. The CALLER
+ * validates the sku is a carried product (never invent). Reps drip-feed real Wesco stock numbers this
+ * way — the per-entry complement to the batch crosswalk import (B7), so real identifiers accrue as a
+ * byproduct of daily use.
+ */
+export async function captureCrosswalkEntry(
+  store: KvStore,
+  number: string,
+  sku: string,
+): Promise<{ entries: number; added: boolean }> {
+  const num = number.trim();
+  const s = sku.trim();
+  const key = identifierKey(num);
+  const entries = (await store.get<CrosswalkEntry[]>(CROSSWALK_NS, ENTRIES_KEY)) ?? [];
+  const idx = entries.findIndex((e) => identifierKey(e.customerNumber) === key);
+  let added = false;
+  if (idx >= 0) {
+    entries[idx] = { customerNumber: num, sku: s, source: "captured" };
+  } else {
+    entries.push({ customerNumber: num, sku: s, source: "captured" });
+    added = true;
+  }
+  const prev = await getCrosswalkManifest(store);
+  const manifest: CrosswalkManifest = {
+    version: (prev?.version ?? 0) + 1,
+    customer: prev?.customer ?? "Captured (reps)",
+    entries: entries.length,
+    resolved: entries.length,
+    unresolved: 0,
+    importedAtIso: new Date().toISOString(),
+  };
+  await saveCrosswalk(store, entries, manifest);
+  return { entries: entries.length, added };
+}
+
 // ── Per-scope index (demo seed + imported entries), cached ────────────────────
 const TTL_MS = 20_000;
 const _cache = new Map<string, { index: Map<string, CrosswalkHit>; at: number }>();
@@ -204,7 +242,7 @@ export async function crosswalkIndex(store: KvStore, scopeKey: string, nowMs: nu
   try {
     const imported = await store.get<CrosswalkEntry[]>(CROSSWALK_NS, ENTRIES_KEY);
     if (imported) {
-      for (const e of imported) index.set(identifierKey(e.customerNumber), { sku: e.sku, source: "import", customerNumber: e.customerNumber });
+      for (const e of imported) index.set(identifierKey(e.customerNumber), { sku: e.sku, source: e.source, customerNumber: e.customerNumber });
     }
   } catch {
     /* keep the demo-only index */

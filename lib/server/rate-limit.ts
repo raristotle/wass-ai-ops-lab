@@ -131,7 +131,13 @@ export async function rateLimit(req: Request, opts: RateLimitOptions): Promise<R
 export function tooManyRequests(result: RateLimitResult): Response {
   const retrySec = Math.max(1, Math.ceil((result.resetAt - Date.now()) / 1000));
   return new Response(
-    JSON.stringify({ error: "Rate limit exceeded — slow down and try again shortly." }),
+    // B16: typed envelope — `code` + `retryAfterMs` so MCP/punchout clients branch + back off
+    // programmatically; the `error` string stays for existing consumers.
+    JSON.stringify({
+      error: "Rate limit exceeded — slow down and try again shortly.",
+      code: "rate_limited",
+      retryAfterMs: retrySec * 1000,
+    }),
     {
       status: 429,
       headers: {
