@@ -21,6 +21,10 @@ export interface RawOrderLine {
 
 export interface RawOrder {
   orderId: string;
+  /** Epoch-ms (UTC midnight) parsed from the order's date column. Undefined when
+   *  no date column exists or every line's date was unparseable — the row still
+   *  parses fine for market-basket mining, it just can't feed the dated engines. */
+  date?: number;
   lines: RawOrderLine[];
 }
 
@@ -34,7 +38,10 @@ export interface ParseStats {
   /** Total resolved-or-not order lines across all orders. */
   lines: number;
   /** The header columns we mapped, for the import summary / debugging. */
-  mapping: { order: string | null; sku: string | null; qty: string | null };
+  mapping: { order: string | null; sku: string | null; qty: string | null; date: string | null };
+  /** Distinct orders that ended up with a usable date — lets the caller tell
+   *  "no date column at all" apart from "a few rows had bad dates". */
+  dated: number;
 }
 
 export interface ParsedOrderHistory {
@@ -47,6 +54,7 @@ export interface ParsedOrderHistory {
 const ORDER_HEADERS = ["order", "order_id", "orderid", "order number", "order_no", "ordernumber", "po", "po_number", "invoice", "invoice_no", "transaction", "ticket", "sales_order", "so", "so_number"];
 const SKU_HEADERS = ["sku", "part", "part_number", "partnumber", "part number", "item", "item_number", "itemnumber", "item number", "product", "product_code", "catalog", "catalog_number", "mpn", "material"];
 const QTY_HEADERS = ["qty", "quantity", "qty_ordered", "order_qty", "ordered", "units", "count"];
+const DATE_HEADERS = ["date", "order_date", "orderdate", "order date", "invoice_date", "invoicedate", "po_date", "podate", "transaction_date", "transactiondate", "placed", "placed_at", "placedat"];
 
 /** Split one CSV line, honoring simple double-quoted fields (incl. embedded commas/quotes). */
 function splitCsvLine(line: string, delim: string): string[] {
@@ -125,6 +133,56 @@ function parseQty(raw: string | undefined): number {
   return Number.isFinite(n) && n > 0 ? n : 1;
 }
 
+const MIN_REASONABLE_YEAR = 1990;
+const MAX_REASONABLE_YEAR = 2100;
+
+function epochFromParts(year: number, month1: number, day: number): number | undefined {
+  if (
+    !Number.isInteger(year) || !Number.isInteger(month1) || !Number.isInteger(day) ||
+    year < MIN_REASONABLE_YEAR || year > MAX_REASONABLE_YEAR ||
+    month1 < 1 || month1 > 12 || day < 1 || day > 31
+  ) {
+    return undefined;
+  }
+  // UTC midnight — never local-timezone drift, which would shift a date across
+  // the day boundary depending on where the import runs.
+  const ms = Date.UTC(year, month1 - 1, day);
+  // Reject "overflow" dates JS silently normalizes (e.g. month=2,day=30 → March).
+  const d = new Date(ms);
+  if (d.getUTCFullYear() !== year || d.getUTCMonth() !== month1 - 1 || d.getUTCDate() !== day) return undefined;
+  return ms;
+}
+
+/**
+ * Tolerant date parser for real-world distributor/ERP exports. Tries, in order:
+ *   1. ISO 8601 (`2026-07-06`, `2026/07/06`, with an optional time component),
+ *   2. `M/D/YYYY` or `MM/DD/YYYY` (US convention — the overwhelmingly common
+ *      export format), also accepting `-` as the separator,
+ *   3. 2-digit years for the slash/dash formats (`7/6/26` → 2026; `70`+ → 1900s).
+ * Returns undefined (never throws, never guesses) when the text doesn't match
+ * any of the above or resolves to an impossible calendar date — the row is kept,
+ * it just contributes to market-basket only, exactly like an undated file today.
+ */
+export function parseOrderDate(raw: string | undefined): number | undefined {
+  if (!raw) return undefined;
+  const s = raw.trim();
+  if (!s) return undefined;
+
+  // ISO: YYYY-MM-DD or YYYY/MM/DD, optionally followed by a time component.
+  const iso = s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})(?:[T ].*)?$/);
+  if (iso) return epochFromParts(Number(iso[1]), Number(iso[2]), Number(iso[3]));
+
+  // US-style: M/D/YYYY or M-D-YYYY, 2- or 4-digit year.
+  const us = s.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{2,4})$/);
+  if (us) {
+    let year = Number(us[3]);
+    if (year < 100) year += year >= 70 ? 1900 : 2000;
+    return epochFromParts(year, Number(us[1]), Number(us[2]));
+  }
+
+  return undefined;
+}
+
 /**
  * Parse a CSV order export into grouped orders. The header row is required (we map
  * columns by name). When no `order` column is present, EVERY row is treated as its
@@ -135,7 +193,7 @@ function parseQty(raw: string | undefined): number {
 export function parseOrderHistoryCsv(csv: string): ParsedOrderHistory {
   const empty: ParsedOrderHistory = {
     orders: [],
-    stats: { rows: 0, dropped: 0, orders: 0, lines: 0, mapping: { order: null, sku: null, qty: null } },
+    stats: { rows: 0, dropped: 0, orders: 0, lines: 0, mapping: { order: null, sku: null, qty: null, date: null }, dated: 0 },
   };
   if (!csv || !csv.trim()) return empty;
 
@@ -147,16 +205,21 @@ export function parseOrderHistoryCsv(csv: string): ParsedOrderHistory {
   const orderCol = findColumn(headers, ORDER_HEADERS);
   const skuCol = findColumn(headers, SKU_HEADERS);
   const qtyCol = findColumn(headers, QTY_HEADERS);
+  const dateCol = findColumn(headers, DATE_HEADERS);
 
   const mapping = {
     order: orderCol === -1 ? null : headers[orderCol],
     sku: skuCol === -1 ? null : headers[skuCol],
     qty: qtyCol === -1 ? null : headers[qtyCol],
+    date: dateCol === -1 ? null : headers[dateCol],
   };
   if (skuCol === -1) return { orders: [], stats: { ...empty.stats, rows: allLines.length - 1, mapping } };
 
   // Group lines by order id (or synthesize a per-row id when no order column).
+  // The first successfully-parsed date seen for an order id wins — real exports
+  // repeat the same order date on every line of a multi-line order.
   const byOrder = new Map<string, RawOrderLine[]>();
+  const dateByOrder = new Map<string, number>();
   let rows = 0;
   let dropped = 0;
   let lines = 0;
@@ -174,11 +237,19 @@ export function parseOrderHistoryCsv(csv: string): ParsedOrderHistory {
     list.push({ sku, qty });
     byOrder.set(orderId, list);
     lines++;
+
+    if (dateCol !== -1 && !dateByOrder.has(orderId)) {
+      const parsed = parseOrderDate(cells[dateCol]);
+      if (parsed !== undefined) dateByOrder.set(orderId, parsed);
+    }
   }
 
-  const orders: RawOrder[] = [...byOrder.entries()].map(([orderId, l]) => ({ orderId, lines: l }));
+  const orders: RawOrder[] = [...byOrder.entries()].map(([orderId, l]) => {
+    const date = dateByOrder.get(orderId);
+    return date === undefined ? { orderId, lines: l } : { orderId, date, lines: l };
+  });
   return {
     orders,
-    stats: { rows, dropped, orders: orders.length, lines, mapping },
+    stats: { rows, dropped, orders: orders.length, lines, mapping, dated: dateByOrder.size },
   };
 }

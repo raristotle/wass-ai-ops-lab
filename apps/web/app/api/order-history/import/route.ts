@@ -14,6 +14,7 @@ import {
   type OrderHistoryManifest,
   type TopPair,
 } from "@/lib/catalog/order-history-rules";
+import { saveDatedOrders, type ResolvedOrder } from "@/lib/catalog/order-history-orders";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
@@ -88,12 +89,14 @@ export async function POST(req: Request) {
     };
 
     const baskets: Basket[] = [];
+    const resolvedOrders: ResolvedOrder[] = [];
     const resolvedSkus = new Set<string>();
     const subcats = new Set<string>();
     let resolved = 0;
     let unresolved = 0;
     for (const order of parsed.orders) {
       const items = [];
+      const orderLines = [];
       for (const line of order.lines) {
         const product = resolveLine(line.sku);
         if (!product) {
@@ -104,8 +107,10 @@ export async function POST(req: Request) {
         resolvedSkus.add(product.sku);
         subcats.add(product.subcategory);
         items.push({ productId: product.id, subcategory: product.subcategory });
+        orderLines.push({ product, qty: line.qty });
       }
       if (items.length > 0) baskets.push({ items });
+      if (orderLines.length > 0) resolvedOrders.push({ orderId: order.orderId, date: order.date, lines: orderLines });
     }
 
     if (baskets.length === 0) {
@@ -142,6 +147,18 @@ export async function POST(req: Request) {
     };
     await saveOrderHistory(store, rules, manifest);
 
+    // B20: also persist a dated per-customer Order representation so the
+    // date-windowed forecast/next-best-action/whitespace engines wake up on a
+    // real import — not only the cross-sell rail above. Fails closed: a store
+    // error here must never fail the (already-successful) rules import.
+    let datedOrders;
+    try {
+      datedOrders = await saveDatedOrders(store, resolvedOrders, manifest.customer, Date.now());
+    } catch (e) {
+      logApiError("/api/order-history/import:datedOrders", e);
+      datedOrders = null;
+    }
+
     // B7: even when SOME lines matched, a low resolution rate with no real crosswalk
     // usually means the file keys on numbers the crosswalk would resolve — surface the
     // hint (non-blocking; the partial import still stands).
@@ -153,6 +170,7 @@ export async function POST(req: Request) {
       ok: true,
       persisted: store.backend, // "postgres" (durable) or "memory" (per-instance demo)
       manifest,
+      datedOrders,
       needsCrosswalk,
       // A clear, honest signal of what mining found — the demo headline.
       headline:

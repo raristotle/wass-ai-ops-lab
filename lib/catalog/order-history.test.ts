@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseOrderHistoryCsv } from "@/lib/catalog/order-history";
+import { parseOrderHistoryCsv, parseOrderDate } from "@/lib/catalog/order-history";
 
 describe("parseOrderHistoryCsv", () => {
   it("groups lines by order id and maps common column names", () => {
@@ -12,7 +12,7 @@ describe("parseOrderHistoryCsv", () => {
     const { orders, stats } = parseOrderHistoryCsv(csv);
     expect(stats.orders).toBe(2);
     expect(stats.lines).toBe(3);
-    expect(stats.mapping).toEqual({ order: "Order Number", sku: "SKU", qty: "Quantity" });
+    expect(stats.mapping).toEqual({ order: "Order Number", sku: "SKU", qty: "Quantity", date: null });
     const o1 = orders.find((o) => o.orderId === "1001")!;
     expect(o1.lines.map((l) => l.sku)).toEqual(["CB-SQU-28", "WP-1G"]);
     expect(o1.lines[0].qty).toBe(10);
@@ -68,9 +68,91 @@ describe("parseOrderHistoryCsv", () => {
   it("maps a 'po' / no-separator header by token and longer substring", () => {
     // token match: "po" header → order; "Item Number" → sku; "Qty Ordered" → qty.
     const a = parseOrderHistoryCsv(["po,Item Number,Qty Ordered", "9,XYZ,4"].join("\n"));
-    expect(a.stats.mapping).toEqual({ order: "po", sku: "Item Number", qty: "Qty Ordered" });
+    expect(a.stats.mapping).toEqual({ order: "po", sku: "Item Number", qty: "Qty Ordered", date: null });
     // contains match (≥4) for a glued header: "ordernumber" → order.
     const b = parseOrderHistoryCsv(["ordernumber,sku", "7,Q"].join("\n"));
     expect(b.stats.mapping.order).toBe("ordernumber");
+  });
+});
+
+describe("parseOrderDate", () => {
+  it("parses ISO 8601 dates (YYYY-MM-DD and YYYY/MM/DD)", () => {
+    expect(parseOrderDate("2026-07-06")).toBe(Date.UTC(2026, 6, 6));
+    expect(parseOrderDate("2026/07/06")).toBe(Date.UTC(2026, 6, 6));
+  });
+
+  it("parses ISO datetimes by taking the date component", () => {
+    expect(parseOrderDate("2026-07-06T14:30:00Z")).toBe(Date.UTC(2026, 6, 6));
+    expect(parseOrderDate("2026-07-06 14:30:00")).toBe(Date.UTC(2026, 6, 6));
+  });
+
+  it("parses US-style M/D/YYYY and MM-DD-YYYY", () => {
+    expect(parseOrderDate("7/6/2026")).toBe(Date.UTC(2026, 6, 6));
+    expect(parseOrderDate("07/06/2026")).toBe(Date.UTC(2026, 6, 6));
+    expect(parseOrderDate("07-06-2026")).toBe(Date.UTC(2026, 6, 6));
+  });
+
+  it("parses 2-digit years with a sane century pivot", () => {
+    expect(parseOrderDate("7/6/26")).toBe(Date.UTC(2026, 6, 6));
+    expect(parseOrderDate("7/6/95")).toBe(Date.UTC(1995, 6, 6));
+  });
+
+  it("returns undefined (never throws) for garbage, empty, or impossible dates", () => {
+    expect(parseOrderDate(undefined)).toBeUndefined();
+    expect(parseOrderDate("")).toBeUndefined();
+    expect(parseOrderDate("not a date")).toBeUndefined();
+    expect(parseOrderDate("2026-02-30")).toBeUndefined(); // Feb 30 doesn't exist
+    expect(parseOrderDate("13/40/2026")).toBeUndefined(); // month 13, day 40
+    expect(parseOrderDate("2026-13-01")).toBeUndefined(); // month 13
+  });
+});
+
+describe("parseOrderHistoryCsv — dates", () => {
+  it("parses a dated order (common column name + ISO format)", () => {
+    const csv = ["order,sku,qty,order_date", "1001,CB-SQU-28,10,2026-07-06"].join("\n");
+    const { orders, stats } = parseOrderHistoryCsv(csv);
+    expect(stats.mapping.date).toBe("order_date");
+    expect(stats.dated).toBe(1);
+    expect(orders[0].date).toBe(Date.UTC(2026, 6, 6));
+  });
+
+  it("carries the order date across every line of a multi-line order", () => {
+    const csv = ["order,sku,qty,date", "1001,A,1,7/6/2026", "1001,B,2,7/6/2026"].join("\n");
+    const { orders } = parseOrderHistoryCsv(csv);
+    expect(orders).toHaveLength(1);
+    expect(orders[0].date).toBe(Date.UTC(2026, 6, 6));
+    expect(orders[0].lines).toHaveLength(2);
+  });
+
+  it("degrades gracefully when a row's date is unparseable — row is kept, just undated", () => {
+    const csv = ["order,sku,qty,date", "1001,A,1,not-a-date"].join("\n");
+    const { orders, stats } = parseOrderHistoryCsv(csv);
+    expect(orders).toHaveLength(1);
+    expect(orders[0].lines).toHaveLength(1); // line is NOT dropped
+    expect(orders[0].date).toBeUndefined();
+    expect(stats.dropped).toBe(0);
+    expect(stats.dated).toBe(0);
+  });
+
+  it("behaves exactly as before when there is no date column at all", () => {
+    const csv = ["order,sku,qty", "1001,A,1"].join("\n");
+    const { orders, stats } = parseOrderHistoryCsv(csv);
+    expect(stats.mapping.date).toBeNull();
+    expect(stats.dated).toBe(0);
+    expect(orders[0].date).toBeUndefined();
+  });
+
+  it("mixed file: some orders dated, some not, dated count reflects only successes", () => {
+    const csv = [
+      "order,sku,qty,date",
+      "1001,A,1,2026-07-06",
+      "1002,B,1,garbage",
+      "1003,C,1,2026-07-01",
+    ].join("\n");
+    const { orders, stats } = parseOrderHistoryCsv(csv);
+    expect(stats.dated).toBe(2);
+    expect(orders.find((o) => o.orderId === "1001")!.date).toBeDefined();
+    expect(orders.find((o) => o.orderId === "1002")!.date).toBeUndefined();
+    expect(orders.find((o) => o.orderId === "1003")!.date).toBeDefined();
   });
 });
