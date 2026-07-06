@@ -9,6 +9,7 @@ import { TAXONOMY } from "@/lib/catalog/taxonomy";
 import { makeRng, randInt } from "@/lib/catalog/prng";
 import { REAL_PRODUCT_ENTRIES } from "@/data/real/real-products";
 import { assessCatalog, type CatalogAssessment } from "@/lib/catalog/provenance";
+import { normalizeGtin } from "@/lib/catalog/identifiers";
 
 /**
  * A web-researched, link-verified real product as emitted by
@@ -75,7 +76,7 @@ function iconFor(category: ProductCategory, subcategory: string): string {
   return sub?.icon ?? "📦";
 }
 
-function toCatalogProduct(e: RealProductEntry): CatalogProduct {
+export function toCatalogProduct(e: RealProductEntry): CatalogProduct {
   const rng = makeRng(hash32(`${e.brand}|${e.mpn}`));
   // Popular commodity items: stocked broadly (simulated quantities, labeled in UI).
   const branchStock = BRANCHES.map((b) => ({ ...b, quantity: rng() < 0.8 ? randInt(rng, 4, 200) : 0 })).filter(
@@ -104,7 +105,10 @@ function toCatalogProduct(e: RealProductEntry): CatalogProduct {
     priceNote: `Est. list price, researched ${e.verifiedAt} (${e.priceSource}) — not a quote`,
     wescoSku: e.wescoSku,
     catalogNumber: e.catalogNumber,
-    gtin: e.gtin,
+    // Prefer an explicit researched gtin; otherwise rescue the entry's UPC
+    // (validated via GS1 check digit — an unparseable/invalid UPC is skipped
+    // silently, never stored, and never throws).
+    gtin: e.gtin ?? (e.upc ? (normalizeGtin(e.upc) ?? undefined) : undefined),
   };
 }
 
