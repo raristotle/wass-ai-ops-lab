@@ -188,3 +188,23 @@ Theme: durability once Sprints 1–3 prove demand. B15 supersedes the interim in
 proposals deduped into 19 items; convergence was strong — bidirectional lookup, bulk-tier
 confidence, provenance ranking, and PostHog instrumentation were each independently proposed by
 2–4 lenses.*
+
+---
+
+## v7 candidates — activation gaps (added 2026-07-06, Fable architecture pass)
+
+Grounded in a full code map of the shipped v6 seams. **Corrects a stale note** in
+personal memory that listed "build an order-history import seam" and "re-key the catalog to
+real Wesco SKUs" as the next architecture work — both are *already shipped* (B6/B7/B8 import
+hub; B15 crosses→Neon; B17 stock-# capture). The remaining leverage is **activation**, not
+construction. Full specs: `Claude-Workspace/fable-final-day-2026-07-06/03-product-finder-blueprints.md`.
+
+| ID | Story | Value | Cost | Ratio | Notes |
+|---|---|---|---|---|---|
+| B20 | **Dated order-history import → wake the forecast/NBA/whitespace engines** | 9 | M | 3.0 | The importer (`lib/catalog/order-history.ts`) parses only order/sku/qty — **no date column** — so imported history feeds ONLY the market-basket cross-sell rail, never the date-windowed `demandForecast`/next-best-actions/whitespace engines, which stay dormant even after a real upload. Add tolerant date parsing + persist a dated `Order` representation per customer (reuse existing shapes; idempotent; `forTenant`-scoped; fail-closed) and feed the engines. Highest-value activation item remaining. Delegate: **Sonnet/Codex cold**. |
+| B21 | **UPC→GTIN rescue (free, in-repo data)** | 6 | S | 6.0 | 111 real `RealProductEntry.upc` values already sit in `data/real/real-products.ts` but `toCatalogProduct` (`lib/catalog/real.ts:105-107`) never maps `upc→gtin`, so they never reach a product. Map + validate via `normalizeGtin`. Cheapest real-identifier win in the app; **do first**. Delegate: **Sonnet/Codex cold**. |
+| B22 | **Bulk Wesco stock-number crosswalk population** | 7 | M | 2.3 | `wescoSku`/`catalogNumber` are ~0% populated on live products though the resolver (`lib/catalog/sku-index.ts`) already indexes them. Populate via the existing crosswalk seam. **Gated on the owner supplying a real crosswalk source** (Wesco PIM export / rep drip / customer order CSV) — the blocker is data, not code. Respect the 9-vs-11-digit synthetic-collision guard. Delegate: **Sonnet**, once data is provided. |
+
+**Sequencing:** B21 first (free, ~30 min), then B20 (the activation payoff), then B22 when a real
+crosswalk source exists. All $0. None are feature waves — they make the *already-built* moat
+load-bearing on real data, consistent with the standing strategic frame.

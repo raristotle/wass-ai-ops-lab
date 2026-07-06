@@ -14,6 +14,14 @@ the theme dominates (≈16 of 20 items). **Cost guardrail honored:** S1–S4 (14
 are entirely **$0** (first-party data + open standards + free tiers); only S5–S6 touch
 paid third parties, each shipped **env-gated dormant — no key, no money**.
 
+## Status (updated 2026-07-06)
+
+**S1–S4 (items 1–16) are ALL SHIPPED** — S1 `9b6d499` (companion engine core) · S2 `8bffaf0`
+(rep-facing attach surfaces) · S3 `dc90dc7` (relations + agentic; Icecat/Salesforce env-gated
+dormant) · S4 `6292a19` (D2C quick-order chips + reorder/subscription). **S5–S6 (items 17–20)
+remain unbuilt by design** — paid/dormant integrations awaiting funding + keys. Successor
+backlog: `roadmap-backlog-v6.md` (v6 B1–B17 shipped; v7 activation items B20–B22 pending).
+
 ## Ranked top-20 (by value ÷ cost)
 
 | # | Item | Area | V | C | V/C | Cross-sell payoff | 3rd-party (verified) | Sprint |
