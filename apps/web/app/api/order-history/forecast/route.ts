@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { getStore, forTenant } from "@/lib/server/persistence";
-import { getDatedOrders, getDatedOrdersManifest } from "@/lib/catalog/order-history-orders";
+import { getDatedOrders, getDatedOrdersManifest, forecastReferenceNow } from "@/lib/catalog/order-history-orders";
 import { demandForecast } from "@/lib/product-finder-forecast";
 
 export const dynamic = "force-dynamic";
@@ -17,6 +17,12 @@ export const dynamic = "force-dynamic";
  * `demo` flag the cross-sell rail already reports via `order-history-rules.ts`.
  * Fails closed: any read/compute error returns an empty, demo-labeled forecast
  * rather than a 500.
+ *
+ * The trailing-90-day forecast window is anchored to the import's own latest
+ * order date (`forecastReferenceNow`), not wall-clock `Date.now()` — a real
+ * historical export is virtually always more than 90 days old by upload time,
+ * so windowing off "now" would silently return an empty forecast for exactly
+ * the imports this endpoint exists to wake up (2026-07-10 correctness fix).
  *
  * GET → { demo: boolean, forecast: SubcategoryDemand[], dateRange: {start,end}|null }
  */
@@ -33,7 +39,7 @@ export async function GET(req: Request) {
       return NextResponse.json({ demo: true, forecast: [], dateRange: null });
     }
 
-    const now = Date.now();
+    const now = forecastReferenceNow(manifest, Date.now());
     const forecast = demandForecast(orders, [], now, 6);
     return NextResponse.json({
       demo: false,

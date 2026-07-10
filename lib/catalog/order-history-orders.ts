@@ -41,7 +41,13 @@ export interface ResolvedOrder {
 export interface DatedOrdersManifest {
   /** Bumped on every successful persist. */
   version: number;
-  /** Content hash of (customer + orderId set) — re-importing the same set is a no-op. */
+  /**
+   * Content hash of (customer + each order's id AND date) — re-importing the
+   * identical set is a no-op. Dates are part of the identity (not just the
+   * order-id set) so a corrected re-import — same order ids, fixed/added
+   * dates — is recognized as new content and fully re-applied instead of
+   * silently short-circuiting on a stale hash (see `contentHashFor` below).
+   */
   contentHash: string;
   customer: string | null;
   ordersPersisted: number;
@@ -102,18 +108,30 @@ export function buildDatedOrders(resolved: ResolvedOrder[], now: number): { orde
   return { orders, allDatesReal: anyDated };
 }
 
-function contentHashFor(customer: string | null, orderIds: string[]): string {
-  const sorted = [...orderIds].sort();
+/**
+ * B20 fix (2026-07-10): the hash MUST include each order's date, not just its
+ * id. `saveDatedOrders` short-circuits when the hash matches the prior
+ * import, so hashing the order-id set alone made a corrected re-import (same
+ * order ids, a repaired date column re-uploaded) indistinguishable from a
+ * byte-identical duplicate: the co-purchase rules store
+ * (`order-history-rules.ts`) updates unconditionally on every import while
+ * this store silently kept the stale/synthesized dates — the forecast stayed
+ * demo-labeled with no error, half-applying the correction. Folding the date
+ * into each order's key makes a date correction a genuine content change.
+ */
+function contentHashFor(customer: string | null, resolved: ResolvedOrder[]): string {
+  const sorted = [...resolved].map((o) => `${o.orderId}@${o.date ?? ""}`).sort();
   return fnv1aHex(`${customer ?? ""}::${sorted.join(",")}`);
 }
 
 /**
  * Persist the dated orders for this scope (idempotent by content hash of the
- * customer + order-id set). Replaces the prior persisted set for the customer —
- * matches the app-global-for-pilot design (one distributor → one behavioral
- * model) used by the sibling `order-history-rules.ts`. Returns the manifest;
- * returns the PRIOR manifest unchanged (no write) when the content hash matches,
- * so a byte-identical re-upload never double-counts.
+ * customer + order-id+date set). Replaces the prior persisted set for the
+ * customer — matches the app-global-for-pilot design (one distributor → one
+ * behavioral model) used by the sibling `order-history-rules.ts`. Returns the
+ * manifest; returns the PRIOR manifest unchanged (no write) when the content
+ * hash matches, so a byte-identical re-upload never double-counts — but a
+ * corrected re-import (same order ids, different dates) always re-applies.
  */
 export async function saveDatedOrders(
   store: KvStore,
@@ -121,8 +139,7 @@ export async function saveDatedOrders(
   customer: string | null,
   now: number,
 ): Promise<DatedOrdersManifest> {
-  const orderIds = resolved.map((o) => o.orderId);
-  const contentHash = contentHashFor(customer, orderIds);
+  const contentHash = contentHashFor(customer, resolved);
 
   const prev = await getDatedOrdersManifest(store);
   if (prev && prev.contentHash === contentHash) return prev; // idempotent re-import: no-op
@@ -171,6 +188,22 @@ export async function getDatedOrdersManifest(store: KvStore): Promise<DatedOrder
   } catch {
     return null;
   }
+}
+
+/**
+ * B20 fix (2026-07-10): the reference "now" the date-windowed engines
+ * (`demandForecast` today; next-best-actions/whitespace when they start
+ * consuming this store) should window against. A real order-history export
+ * is virtually always months/years old by the time it's uploaded — anchoring
+ * the trailing-90-day window on wall-clock `Date.now()` filtered out every
+ * order and silently produced an empty forecast for exactly the historical
+ * imports this feature exists to wake up. Anchoring on the import's own
+ * latest order date (`manifest.dateRangeEnd`) makes "trailing 90 days" mean
+ * "the last 90 days the import actually covers." Falls back to
+ * `fallbackNow` (normally `Date.now()`) when there's no manifest yet.
+ */
+export function forecastReferenceNow(manifest: DatedOrdersManifest | null, fallbackNow: number): number {
+  return manifest?.dateRangeEnd ?? fallbackNow;
 }
 
 /** Clear the persisted dated orders for this scope (mirrors `clearOrderHistory`). */
