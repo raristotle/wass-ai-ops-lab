@@ -201,10 +201,46 @@ construction. Full specs: `Claude-Workspace/fable-final-day-2026-07-06/03-produc
 
 | ID | Story | Value | Cost | Ratio | Notes |
 |---|---|---|---|---|---|
-| B20 | **Dated order-history import → wake the forecast/NBA/whitespace engines** | 9 | M | 3.0 | The importer (`lib/catalog/order-history.ts`) parses only order/sku/qty — **no date column** — so imported history feeds ONLY the market-basket cross-sell rail, never the date-windowed `demandForecast`/next-best-actions/whitespace engines, which stay dormant even after a real upload. Add tolerant date parsing + persist a dated `Order` representation per customer (reuse existing shapes; idempotent; `forTenant`-scoped; fail-closed) and feed the engines. Highest-value activation item remaining. Delegate: **Sonnet/Codex cold**. |
-| B21 | **UPC→GTIN rescue (free, in-repo data)** | 6 | S | 6.0 | 111 real `RealProductEntry.upc` values already sit in `data/real/real-products.ts` but `toCatalogProduct` (`lib/catalog/real.ts:105-107`) never maps `upc→gtin`, so they never reach a product. Map + validate via `normalizeGtin`. Cheapest real-identifier win in the app; **do first**. Delegate: **Sonnet/Codex cold**. |
+| B20 | ✅ **SHIPPED** — Dated order-history import → wake the forecast/NBA/whitespace engines | 9 | M | 3.0 | The importer (`lib/catalog/order-history.ts`) parses only order/sku/qty — **no date column** — so imported history feeds ONLY the market-basket cross-sell rail, never the date-windowed `demandForecast`/next-best-actions/whitespace engines, which stay dormant even after a real upload. Add tolerant date parsing + persist a dated `Order` representation per customer (reuse existing shapes; idempotent; `forTenant`-scoped; fail-closed) and feed the engines. Highest-value activation item remaining. Delegate: **Sonnet/Codex cold**. |
+| B21 | ✅ **SHIPPED** — UPC→GTIN rescue (free, in-repo data) | 6 | S | 6.0 | 111 real `RealProductEntry.upc` values already sit in `data/real/real-products.ts` but `toCatalogProduct` (`lib/catalog/real.ts:105-107`) never maps `upc→gtin`, so they never reach a product. Map + validate via `normalizeGtin`. Cheapest real-identifier win in the app; **do first**. Delegate: **Sonnet/Codex cold**. |
 | B22 | **Bulk Wesco stock-number crosswalk population** | 7 | M | 2.3 | `wescoSku`/`catalogNumber` are ~0% populated on live products though the resolver (`lib/catalog/sku-index.ts`) already indexes them. Populate via the existing crosswalk seam. **Gated on the owner supplying a real crosswalk source** (Wesco PIM export / rep drip / customer order CSV) — the blocker is data, not code. Respect the 9-vs-11-digit synthetic-collision guard. Delegate: **Sonnet**, once data is provided. |
 
 **Sequencing:** B21 first (free, ~30 min), then B20 (the activation payoff), then B22 when a real
 crosswalk source exists. All $0. None are feature waves — they make the *already-built* moat
 load-bearing on real data, consistent with the standing strategic frame.
+
+> ✅ **B21 SHIPPED 2026-07-06** (commit `22071cf`, predates the fix pass below) —
+> `toCatalogProduct` maps `RealProductEntry.upc → CatalogProduct.gtin` via the
+> existing `normalizeGtin` GS1 check-digit validator whenever no explicit
+> researched `gtin` is present; an invalid/unparseable UPC is skipped silently
+> (product still created, just without a `gtin` — never throws). Rescues all
+> 111 real UPC values in `data/real/real-products.ts`. Tests:
+> `lib/catalog/real.test.ts` (valid/invalid/garbage/no-upc/explicit-gtin-wins
+> cases, plus an exhaustive check that every entry's UPC is rescued onto its
+> product). Verified complete during the 2026-07-10 pass — no gap to build.
+>
+> ✅ **B20 SHIPPED 2026-07-06** (commit `a933af7`); **two correctness bugs found
+> by the 2026-07-06 portfolio audit
+> (`Claude-Workspace/portfolio-code-audit-2026-07-06/wass-ai-ops-lab.md`) fixed
+> 2026-07-10:**
+> 1. *Forecast window keyed off wall-clock now.* `/api/order-history/forecast`
+>    anchored the trailing-90-day window on `Date.now()` instead of the
+>    import's own latest order date — real historical exports are virtually
+>    always >90 days old, so the headline "wake the forecast" feature silently
+>    no-op'd for exactly the imports it targets. Fixed via
+>    `forecastReferenceNow()` (new, in `lib/catalog/order-history-orders.ts`),
+>    which anchors on `manifest.dateRangeEnd` and falls back to wall-clock now
+>    only when no manifest exists yet.
+> 2. *Idempotency hash ignored dates.* The dated-orders content hash keyed on
+>    `customer + orderId set` only, so a corrected re-import (same order ids,
+>    fixed dates) hashed identically to the original and was silently dropped
+>    — the co-purchase rules store updated (unconditional) while the dated
+>    orders store kept the stale/synthesized dates, half-applying the
+>    correction with no error. Fixed by folding each order's date into
+>    `contentHashFor()`.
+>
+> Regression tests added to `lib/catalog/order-history-orders.test.ts`
+> (historical-export-wakes-forecast, corrected-re-import-fully-applies, plus
+> unit coverage for `forecastReferenceNow`) — confirmed to fail against the
+> pre-fix logic and pass against the fix. B22 remains gated on a real
+> crosswalk source.
