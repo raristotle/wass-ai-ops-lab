@@ -113,6 +113,18 @@ const eslintConfig = [
                 "data/real/* are server datasets — never bundle them into client code. Fetch via an API route (see docs/perf-audit-2026-07-10.md).",
               allowTypeImports: true,
             },
+            {
+              group: ["**/lib/catalog/index*"],
+              message:
+                "the catalog barrel builds the full generated catalog — server-only. Fetch via an API route (see docs/perf-audit-2026-07-10.md).",
+              allowTypeImports: true,
+            },
+            {
+              group: ["**/lib/catalog/xref-index*", "**/lib/catalog/external-products*", "**/lib/catalog/generate*", "**/lib/catalog/equivalence.ts", "**/lib/catalog/equivalence.js", "**/lib/catalog/goeswith*", "**/lib/integration/catalog-index*", "**/lib/integration/cross-reference*"],
+              message:
+                "these modules embed or depend on the packed datasets — server-only. Fetch via an API route (see docs/perf-audit-2026-07-10.md).",
+              allowTypeImports: true,
+            },
           ],
         },
       ],

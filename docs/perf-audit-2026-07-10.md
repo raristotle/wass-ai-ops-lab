@@ -47,6 +47,10 @@ Lesson for future tracing: barrel imports come in two spellings (`@/lib/catalog`
    `generate`, `@/lib/catalog/index`, `@/lib/integration/catalog-index`, and
    `@/lib/integration/cross-reference` (type imports allowed).
 
+## 2026-07-11 hardening
+
+Extended `eslint.config.mjs` with `patterns` in the `@typescript-eslint/no-restricted-imports` block to close alternate-spelling bypasses: the barrel import ban now catches `@/lib/catalog` + `@/lib/catalog/index` (in all spellings incl. relative `**/lib/catalog/*`), and the heavy-module ban catches relative forms (`**/lib/catalog/xref-index.*`, `**/lib/integration/catalog-index*`, etc.). A review probe had proven the original `paths`-only configuration was bypassable by alternate import spellings (e.g., `import { getCatalog } from "../../lib/catalog/index"` vs. the banned `@/lib/catalog`); patterns close that gap.
+
 ## Measured result (clean build, gate green: 0 lint errors / typecheck / 3,698 tests)
 
 | Route | Before | After | Δ |
