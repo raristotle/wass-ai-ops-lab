@@ -4,14 +4,15 @@
 // Replace the mock return values with real CRM/ERP API clients when connectivity
 // is available; the interfaces in types.ts are the contracts.
 
-import type { CustomerProvider, PricingProvider, InventoryProvider, CatalogProvider } from "@/lib/integration/types";
+import type { CustomerProvider, PricingProvider, InventoryProvider } from "@/lib/integration/types";
 import { mockCustomerProvider } from "@/lib/integration/customers";
 import { mockPricingProvider } from "@/lib/integration/pricing";
 import { mockInventoryProvider } from "@/lib/integration/inventory";
-import { mockCatalogProvider } from "@/lib/integration/catalog-source";
-import { lookupCrossReference, crossReferencesFor } from "@/lib/integration/cross-reference";
-import type { CompetitorRef } from "@/lib/integration/cross-reference";
-import type { CatalogProduct } from "@/features/product-finder/types";
+
+// NOTE: getCatalogProvider / getCrossReferenceProvider live in catalog-index.ts
+// (server-only) — their graph embeds the generated catalog datasets, and THIS module
+// is imported by the client store. See docs/perf-audit-2026-07-10.md before "tidying"
+// them back into one barrel: that tidy-up costs ~18 MB of browser JS on every route.
 
 /**
  * Returns the customer account provider.
@@ -38,30 +39,6 @@ export function getPricingProvider(): PricingProvider {
  */
 export function getInventoryProvider(): InventoryProvider {
   return mockInventoryProvider;
-}
-
-/**
- * Returns the catalog / PIM source provider.
- * INTEGRATION SEAM — replace with real PIM API client here;
- * interface in lib/integration/types.ts is the contract.
- */
-export function getCatalogProvider(): CatalogProvider {
-  return mockCatalogProvider;
-}
-
-/**
- * Returns a thin cross-reference provider object wrapping the pure functions.
- * INTEGRATION SEAM — replace with a real competitor cross-reference feed here;
- * the function signatures are the contract.
- */
-export function getCrossReferenceProvider(): {
-  lookup(sku: string): CatalogProduct | null;
-  referencesFor(product: CatalogProduct): CompetitorRef[];
-} {
-  return {
-    lookup: lookupCrossReference,
-    referencesFor: crossReferencesFor,
-  };
 }
 
 // Future registry functions (added by later tasks):

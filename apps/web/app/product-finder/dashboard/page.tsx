@@ -32,7 +32,6 @@ import {
 import { useProductFinder } from "@/lib/product-finder-store";
 import { AuthGuard } from "@/features/product-finder/AuthGuard";
 import { ProductFinderShell } from "@/features/product-finder/ProductFinderShell";
-import { getCatalog } from "@/lib/catalog/index";
 import { CATEGORIES } from "@/lib/catalog/taxonomy";
 import {
   salesKpis,
@@ -145,11 +144,12 @@ function DashboardContent() {
   const router = useRouter();
 
   // Compute all analytics once per `orders` change — never on re-render.
-  const catalog = useMemo(() => getCatalog(), []);
   const now = useMemo(() => Date.now(), []);
 
   const kpis = useMemo(() => salesKpis(orders), [orders]);
-  const categories = useMemo(() => topCategories(orders, catalog, 6), [orders, catalog]);
+  // No catalog arg: order lines embed their catalog product, and importing the
+  // catalog here shipped it to the browser (docs/perf-audit-2026-07-10.md).
+  const categories = useMemo(() => topCategories(orders, undefined, 6), [orders]);
   const products = useMemo(() => topProducts(orders, 8), [orders]);
   const overTime = useMemo(() => ordersOverTime(orders, now, 6), [orders, now]);
   const mix = useMemo(() => customerMix(orders), [orders]);

@@ -100,13 +100,16 @@ export function salesKpis(orders: Order[]): SalesKpis {
  * @param catalog - used for category lookups; falls back to product.category
  * @param k - max entries to return (default 6)
  */
-export function topCategories(orders: Order[], catalog: Catalog, k = 6): CategoryStat[] {
+export function topCategories(orders: Order[], catalog?: Catalog, k = 6): CategoryStat[] {
   const byCategory = new Map<string, { value: number; qty: number }>();
 
   for (const order of orders) {
     for (const line of order.lines) {
-      // Use catalog for authoritative category; fall back to embedded product.category
-      const product = catalog.byId.get(line.product.id) ?? line.product;
+      // Authoritative category from the catalog when a caller has one (server code);
+      // otherwise the line's embedded product — identical for orders built from
+      // catalog products, and it keeps the catalog out of the client bundle
+      // (docs/perf-audit-2026-07-10.md — the dashboard passes undefined).
+      const product = catalog?.byId.get(line.product.id) ?? line.product;
       const category = product.category;
       const lineValue = product.unitPrice * line.qty;
       const existing = byCategory.get(category) ?? { value: 0, qty: 0 };

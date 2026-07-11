@@ -1,11 +1,15 @@
 import { describe, it, expect } from "vitest";
-import {
-  suggestCompletions,
-  completeTheJob,
-} from "@/lib/product-finder-complete-job";
+import { suggestCompletions, type CompletionSuggestion } from "@/lib/product-finder-complete-job";
 import { getCatalog } from "@/lib/catalog/index";
-import { AFFINITY } from "@/lib/catalog/goeswith";
+import { AFFINITY, goesWith } from "@/lib/catalog/goeswith";
 import type { CatalogProduct } from "@/features/product-finder/types";
+
+// The old convenience wrapper, bound over the real catalog. It moved out of
+// complete-job.ts (which is now pure/client-safe — perf-audit-2026-07-10); the
+// production caller (CartDrawer) injects complements from the goes-with API instead.
+function completeTheJob(basket: { product: CatalogProduct }[], k = 4): CompletionSuggestion[] {
+  return suggestCompletions(basket, (prod) => goesWith(prod, 8), k);
+}
 
 function p(id: string, subcategory: string): CatalogProduct {
   return {

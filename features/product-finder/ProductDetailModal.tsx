@@ -18,7 +18,8 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CatalogProduct } from "@/features/product-finder/types";
 import { isInStock } from "@/lib/product-finder-leadtime";
-import { getPricingProvider, getInventoryProvider, getCrossReferenceProvider } from "@/lib/integration/index";
+import { getPricingProvider, getInventoryProvider } from "@/lib/integration/index";
+import type { CompetitorRef } from "@/lib/integration/cross-reference";
 import { isObsolescent, LIFECYCLE_META } from "@/lib/catalog/lifecycle";
 import { pickActiveSuccessor } from "@/lib/catalog/successor";
 import { useModalA11y } from "@/features/product-finder/useModalA11y";
@@ -114,6 +115,27 @@ export function ProductDetailModal() {
   const [successor, setSuccessor] = useState<CatalogProduct | null>(null);
   // Second-source / multi-sourcing coverage grade (single-source risk)
   const [coverage, setCoverage] = useState<SourcingGrade | null>(null);
+  // Competitor cross-references — fetched from the API: computing them client-side
+  // imported the catalog graph into the bundle (docs/perf-audit-2026-07-10.md).
+  const [competitorRefs, setCompetitorRefs] = useState<CompetitorRef[]>([]);
+
+  useEffect(() => {
+    if (!product) {
+      setCompetitorRefs([]);
+      return;
+    }
+    let cancelled = false;
+    setCompetitorRefs([]);
+    void fetch(`/api/products/competitor-refs?id=${encodeURIComponent(product.id)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: { refs?: CompetitorRef[] } | null) => {
+        if (!cancelled && d && Array.isArray(d.refs)) setCompetitorRefs(d.refs);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [product?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Reset qty and fetch goes-with each time a new product opens
   useEffect(() => {
@@ -722,7 +744,7 @@ export function ProductDetailModal() {
 
         {/* ── Cross-references / Replaces ────────────────────── */}
         {(() => {
-          const refs = getCrossReferenceProvider().referencesFor(product);
+          const refs = competitorRefs;
           if (refs.length === 0) return null;
           return (
             <div className="print:hidden px-6 py-4 border-b border-[#B7C9D3]/40">

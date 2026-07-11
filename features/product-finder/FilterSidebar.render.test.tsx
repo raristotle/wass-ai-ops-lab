@@ -11,10 +11,27 @@ import type { FilterState, Facet } from "@/features/product-finder/types";
 function stubSearchFetch() {
   vi.stubGlobal(
     "fetch",
-    vi.fn(async () => ({
-      ok: true,
-      json: async () => ({ items: [], total: 0, page: 0, pageSize: 24, facets: [] }),
-    })),
+    vi.fn(async (input: RequestInfo | URL) => {
+      // CatalogSourceStrip fetches its descriptor from the API (perf-audit-2026-07-10);
+      // everything else here is the search shape.
+      if (String(input).includes("/api/catalog/source")) {
+        return {
+          ok: true,
+          json: async () => ({
+            source: "PIM (simulated)",
+            productCount: 1234,
+            lastSyncedAt: new Date(0).toISOString(),
+            attributeCompleteness: 90,
+            categories: 5,
+            subcategories: 20,
+          }),
+        };
+      }
+      return {
+        ok: true,
+        json: async () => ({ items: [], total: 0, page: 0, pageSize: 24, facets: [] }),
+      };
+    }),
   );
 }
 
@@ -34,15 +51,16 @@ afterEach(() => {
 });
 
 describe("FilterSidebar (render + branches)", () => {
-  it("render-smoke: mounts with empty filters and shows core sections + catalog source strip", () => {
+  it("render-smoke: mounts with empty filters and shows core sections + catalog source strip", async () => {
     render(<FilterSidebar />);
     // Sidebar section headers are always rendered (open by default).
     expect(screen.getAllByText("Category").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Stock Availability").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Product Lifecycle").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Price Range").length).toBeGreaterThan(0);
-    // CatalogSourceStrip provenance label (depends on getCatalogProvider().getSource(new Date())).
-    expect(screen.getAllByText("Catalog source").length).toBeGreaterThan(0);
+    // CatalogSourceStrip provenance label — now async (fetched from /api/catalog/source).
+    expect((await screen.findAllByText("Catalog source")).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/1,234 products/).length).toBeGreaterThan(0);
     // No active filters → "Clear All Filters" is NOT shown.
     expect(screen.queryByText("Clear All Filters")).not.toBeInTheDocument();
   });

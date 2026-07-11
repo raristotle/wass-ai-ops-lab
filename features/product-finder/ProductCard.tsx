@@ -15,7 +15,7 @@ import { useIntentPrefetch } from "@/features/product-finder/useIntentPrefetch";
 import { volumeTierHint } from "@/lib/product-finder-pricing";
 import { isInStock, leadTimeFor } from "@/lib/product-finder-leadtime";
 import { getPricingProvider } from "@/lib/integration/index";
-import { isFunctionalEquivalent } from "@/lib/catalog/equivalence";
+import { isFunctionalEquivalent } from "@/lib/catalog/equivalence-core";
 import { isObsolescent, LIFECYCLE_META } from "@/lib/catalog/lifecycle";
 
 interface ProductCardProps {

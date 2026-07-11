@@ -144,13 +144,7 @@ export function xrefIndexStatsIfBuilt(): { rows: number; keys: number; buildMs: 
   return { rows: st.rows, keys: st.forward.size + st.reverse.size, buildMs: st.buildMs };
 }
 
-/**
- * Banded confidence chip for a documented cross relation (B2). "Equivalent" is a drop-in documented
- * replacement; "functional-substitute" performs the same function but confirm the flagged specs.
- * Colors are Meridian brand tertiaries (WCAG-safe on white).
- */
-export function crossRelationMeta(relation: XrefHit["relation"]): { label: string; color: string; blurb: string } {
-  return relation === "equivalent"
-    ? { label: "Documented equivalent", color: "#00573F", blurb: "Manufacturer-documented drop-in equivalent." }
-    : { label: "Functional substitute", color: "#004986", blurb: "Performs the same function — confirm the application-critical specs before substituting." };
-}
+// crossRelationMeta lives in xref-meta.ts (client-safe, data-free): importing it from
+// THIS module pulled the packed dataset into the browser bundle (perf-audit-2026-07-10).
+// Re-exported here so server-side callers keep their import path.
+export { crossRelationMeta, type XrefRelation } from "@/lib/catalog/xref-meta";

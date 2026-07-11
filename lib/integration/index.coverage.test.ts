@@ -3,9 +3,9 @@ import {
   getCustomerProvider,
   getPricingProvider,
   getInventoryProvider,
-  getCatalogProvider,
-  getCrossReferenceProvider,
 } from "@/lib/integration/index";
+// Catalog-graph providers live in the server-only registry half (perf-audit-2026-07-10).
+import { getCatalogProvider, getCrossReferenceProvider } from "@/lib/integration/catalog-index";
 import { mockCustomerProvider } from "@/lib/integration/customers";
 import { mockPricingProvider } from "@/lib/integration/pricing";
 import { mockInventoryProvider } from "@/lib/integration/inventory";

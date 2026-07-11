@@ -1,9 +1,13 @@
 import type { CatalogProduct } from "@/features/product-finder/types";
-import { goesWith } from "@/lib/catalog/goeswith";
 
 /**
  * "Complete this job" — surfaces complementary products the basket is missing,
  * so a rep doesn't ship conduit with no fittings or a receptacle with no plate.
+ *
+ * CLIENT-SAFE: this module is pure — complements are INJECTED. Binding it to the
+ * catalog's goesWith() here dragged the generated catalog into the browser bundle
+ * (docs/perf-audit-2026-07-10.md); CartDrawer injects complements fetched from
+ * /api/products/[id]/goeswith, and server callers can bind goesWith directly.
  */
 
 export interface CompletionSuggestion {
@@ -37,12 +41,4 @@ export function suggestCompletions(
     }
   }
   return out;
-}
-
-/** Convenience wrapper using the catalog's goes-with affinity. */
-export function completeTheJob(
-  basket: { product: CatalogProduct }[],
-  k = 4,
-): CompletionSuggestion[] {
-  return suggestCompletions(basket, (p) => goesWith(p, 8), k);
 }

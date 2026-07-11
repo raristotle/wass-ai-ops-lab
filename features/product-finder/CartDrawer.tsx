@@ -29,7 +29,7 @@ import {
 import { TERMS_BLOCKS, resolveTerms } from "@/lib/product-finder-terms";
 import { EVENT_ICON, EVENT_LABEL } from "@/lib/product-finder-quote-events";
 import { SubmittalPackage } from "@/features/product-finder/SubmittalPackage";
-import { completeTheJob } from "@/lib/product-finder-complete-job";
+import { suggestCompletions, type CompletionSuggestion } from "@/lib/product-finder-complete-job";
 import { isValidEmail, guessRecipient, defaultQuoteSubject, quoteEmailHtml } from "@/lib/product-finder-email";
 import {
   estimatedUnitCost, marginPct, marginTier, MARGIN_TIER_COLOR, basketMargin,
@@ -37,7 +37,7 @@ import {
 import { optimizeMargin } from "@/lib/product-finder-margin-optimizer";
 import { marginGuidance } from "@/lib/product-finder-winloss";
 import { stockWarning } from "@/lib/product-finder-stock-warning";
-import { apiCrossSavings } from "@/lib/product-finder-api";
+import { apiCrossSavings, apiGoesWith } from "@/lib/product-finder-api";
 import { bestCrossSaving, totalCrossSavings, type CrossCandidate, type CrossSaving } from "@/lib/catalog/cross-savings";
 import { getBrand } from "@/lib/brand";
 import { Button } from "@/components/ui/button";
@@ -250,8 +250,29 @@ export function CartDrawer() {
     return { days, date: addDays(new Date(), days) };
   }, [items, user?.branchId]);
 
-  // "Complete this job" — complementary products the basket is missing
-  const completions = useMemo(() => (items.length === 0 ? [] : completeTheJob(items, 4)), [items]);
+  // "Complete this job" — complementary products the basket is missing. Complements
+  // come from the goes-with API (computing them client-side imported the catalog
+  // graph into the bundle — docs/perf-audit-2026-07-10.md); the gap-filtering core
+  // (suggestCompletions) stays pure and injected.
+  const [completions, setCompletions] = useState<CompletionSuggestion[]>([]);
+  const itemIdsKey = items.map((l) => l.product.id).join("|");
+  useEffect(() => {
+    if (items.length === 0) {
+      setCompletions([]);
+      return;
+    }
+    let cancelled = false;
+    void Promise.all(items.map((l) => apiGoesWith(l.product.id).catch(() => [])))
+      .then((complementLists) => {
+        if (cancelled) return;
+        const byId = new Map(items.map((l, i) => [l.product.id, complementLists[i]]));
+        setCompletions(suggestCompletions(items, (p) => byId.get(p.id) ?? [], 4));
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemIdsKey]);
 
   // Internal margin across the basket (effective price vs estimated cost).
   // Override-aware: a manually re-priced line contributes its custom price.

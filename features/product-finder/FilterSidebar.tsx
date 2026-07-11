@@ -7,13 +7,28 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { FilterState, EnumFacet, RangeFacet } from "@/features/product-finder/types";
-import { getCatalogProvider } from "@/lib/integration/index";
+import type { CatalogSource } from "@/lib/integration/types";
 
 const VISIBLE_LIMIT = 8;
 
 /** Small provenance strip shown at the bottom of the sidebar. */
 function CatalogSourceStrip() {
-  const catalogSource = getCatalogProvider().getSource(new Date());
+  // Fetched from the API: computing this client-side imported the catalog graph and
+  // shipped the generated datasets to the browser (docs/perf-audit-2026-07-10.md).
+  const [catalogSource, setCatalogSource] = useState<CatalogSource | null>(null);
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/catalog/source")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: CatalogSource | null) => {
+        if (alive && d && typeof d.productCount === "number") setCatalogSource(d);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+  if (!catalogSource) return null;
   const productCountFormatted = catalogSource.productCount.toLocaleString("en-US");
   const syncedAt = new Date(catalogSource.lastSyncedAt).toLocaleString("en-US", {
     month: "short",

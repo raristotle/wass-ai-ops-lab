@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { useProductFinder } from "@/lib/product-finder-store";
 import { apiSuggest, apiCrossLookup } from "@/lib/product-finder-api";
 import type { XrefHit } from "@/lib/catalog/xref-index";
-import { crossRelationMeta } from "@/lib/catalog/xref-index";
+import { crossRelationMeta } from "@/lib/catalog/xref-meta";
 import { track } from "@/lib/analytics-client";
 import { QUICK_PICKS } from "@/lib/product-finder-commands";
 import { normalizeTranscript } from "@/lib/product-finder-voice";

@@ -137,6 +137,9 @@ describe("AC38 (partial) — route surface is frozen", () => {
       "[id]/offers/route.ts",
       "[id]/relations/route.ts",
       "[id]/route.ts",
+      // Competitor-ref chips moved server-side (perf-audit-2026-07-10): client code
+      // must not import the cross-reference/catalog graph.
+      "competitor-refs/route.ts",
       "quick-resolve/route.ts",
       "resolve/route.ts",
       "search/route.ts",
