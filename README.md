@@ -82,7 +82,9 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-> **Note:** The app runs entirely on mock data — no real API calls or secrets are required.
+> **Note:** Default path is mock / deterministic synthetic catalog — no secrets
+> required. Optional **env-gated** live seams (Mouser/Digi-Key, FRED metals, SSO,
+> Resend, PostHog, etc.) stay dormant until keys are set; see `.env.example`.
 
 ## Project Structure
 
@@ -132,6 +134,8 @@ wass-ai-ops-lab/
 | `npm run start` | Serve production build |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | TypeScript type check (no emit) |
+| `npm test` | Vitest suite (`vitest run`) — **3,698** tests as of 2026-07-12 |
+| `npm run coverage` | Vitest + V8 coverage (product-finder scoped) |
 
 ## Deployment
 
@@ -160,4 +164,7 @@ npx prisma studio             # GUI at http://localhost:5555
 |---|---|---|
 | `DATABASE_URL` | `file:./dev.db` | SQLite file path |
 
-No other variables are required. All data is mocked — there are no external API calls.
+Only `DATABASE_URL` is required for local run. Optional live/integration keys
+are documented in `.env.example` (distributor quotes, commodity index, SSO,
+email, analytics, persistence). Unset = dormant / synthetic path — never
+required for the demo.

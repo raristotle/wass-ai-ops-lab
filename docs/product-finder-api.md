@@ -1,14 +1,17 @@
 # Product Finder — API Guide
 
 How to use, manage, and extend the Product Finder's HTTP API.
-Catalog endpoints are **read-only GET** routes under `/api/products/*`, served by
-Next.js route handlers in `apps/web/app/api/products/`. They run against the
-in-memory deterministic catalog (`lib/catalog/`) — no database, no auth required.
-The catalog GETs are not rate-limited; the cost- and write-sensitive routes are
-(see **Rate limiting** below). Two routes reach outside the catalog:
-`/api/products/[id]/live` (real distributor data) and `/api/quote-email`
-(real email via Resend) — both documented below. Operational endpoints:
-`/api/health` (readiness/integration status, below).
+Catalog endpoints are **read-only GET** routes under `/api/products/*` (plus a
+small `/api/catalog/*` family), served by Next.js route handlers under
+`apps/web/app/api/`. They run against the in-memory deterministic catalog
+(`lib/catalog/`) — no database. Most catalog **read** GETs need **no auth**
+(same-origin UI + public demo); write/import and durable business routes are
+auth-gated (see **Auth & tenancy**). Rate limits: **search / suggest / product
+detail / goeswith** are intentionally uncapped; several sibling catalog-support
+GETs are polite-capped at 30/min (see **Rate limiting**). Two routes reach
+outside the catalog: `/api/products/[id]/live` (real distributor data) and
+`/api/quote-email` (real email via Resend) — both documented below. Operational
+endpoints: `/api/health` (readiness/integration status, below).
 
 Base URL (production): `https://app.raristotle.com`
 
@@ -95,6 +98,25 @@ branch" (e.g. `B-HOU-01`). 404 with `{ "error": "Not found" }` for unknown ids.
 ### `GET /api/products/[id]/goeswith`
 
 Complementary products for cross-sell. Returns `{ "items": CatalogProduct[] }`.
+
+### `GET /api/products/competitor-refs?id=<productId>`
+
+**Cross-reference chips** for the product detail modal (“Cross-references /
+Replaces”). Returns `{ "refs": … }` from the synthetic competitor/legacy
+cross-reference graph. Empty `id` or unknown product → `{ "refs": [] }`.
+**Open read** (no auth) — same public-read posture as `/api/products/suggest`.
+**Rate-limited 30/min** (politeness, not security; payload is synthetic).
+Served server-side so the client never imports the cross-reference/catalog
+graph (see [perf-audit-2026-07-10.md](perf-audit-2026-07-10.md)).
+
+### `GET /api/catalog/source`
+
+**PIM / catalog provenance strip** for the filter sidebar. Returns the
+metadata-only source descriptor from `getCatalogProvider().getSource()`
+(product count + synthetic sync info — not product rows). **Open read +
+rate-limited 30/min** (like suggest). Auth was **removed 2026-07-11** so the
+sidebar provenance strip works in sessions-OFF pilot/dev mode; the payload is
+catalog metadata only.
 
 ### `GET /api/products/[id]/live`
 
@@ -329,6 +351,14 @@ Cost- and write-sensitive routes use a fixed-window per-caller limiter
 | `GET /api/commodity` | 30 / min |
 | `GET /api/rfq` | 30 / min |
 | `GET /api/auth/sso/start` | 30 / min |
+| `GET /api/catalog/source` | 30 / min (open read; metadata only) |
+| `GET /api/products/competitor-refs` | 30 / min (open read; synthetic refs) |
+| `POST /api/products/quick-resolve` · `GET /api/products/[id]/offers` | 30 / min |
+| `POST /api/catalog/crosswalk/import` · crosswalk write verbs | 10 / min (auth-gated) |
+
+Uncapped catalog GETs (by design, not omission): `GET /api/products/search`,
+`suggest`, `[id]`, `[id]/goeswith` (and related pure-detail companions that do
+not currently call `rateLimit`).
 
 Over the limit returns `429` with `Retry-After` (seconds until the window
 resets), `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset`
@@ -380,8 +410,9 @@ environment — safe to hard-code in demos and tests.
    `export const dynamic = "force-dynamic"` and a `GET` that parses params
    (extend `lib/catalog/schemas.ts`) and returns `NextResponse.json(...)`.
 3. Add a client wrapper in `lib/product-finder-api.ts`.
-4. `npm run typecheck && npm test`, then deploy (push to `master` →
-   Vercel auto-deploys production).
+4. `npm run lint && npm run typecheck && npm test`, then deploy **manually**
+   with `npx vercel --prod` from a linked checkout (pushing to `master` does
+   **not** auto-deploy — see root README).
 
 ### Extending search filters
 
@@ -392,7 +423,8 @@ in `lib/catalog/search.test.ts`.
 
 ### Operations
 
-- **Deploy**: push to `master` (GitHub → Vercel) or `vercel --prod`.
+- **Deploy**: `npx vercel --prod` from a linked checkout (manual; no GitHub
+  auto-deploy on `master`).
 - **Logs**: `vercel logs <deployment-url>` or the Vercel dashboard.
 - **Smoke test**:
   `curl "https://app.raristotle.com/api/products/search?q=QO115" | jq .total`

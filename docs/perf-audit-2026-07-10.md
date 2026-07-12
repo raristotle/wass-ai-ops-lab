@@ -36,8 +36,11 @@ Lesson for future tracing: barrel imports come in two spellings (`@/lib/catalog`
    the light providers (customers/pricing/inventory) + a do-not-retidy comment.
 2. **`GET /api/catalog/source`** (new): serves the PIM source descriptor;
    `FilterSidebar`'s `CatalogSourceStrip` fetches it (renders nothing until loaded).
+   **Open + 30/min rate-limit** (auth removed 2026-07-11 so sessions-OFF pilot
+   still shows the provenance strip; metadata-only payload).
 3. **`GET /api/products/competitor-refs?id=`** (new): serves the competitor-ref chips;
    `ProductDetailModal` fetches per product (same lifecycle as its goes-with fetch).
+   **Open + 30/min rate-limit** (same public-read posture as suggest; synthetic).
 4. **`lib/catalog/xref-meta.ts`** (new, data-free): `crossRelationMeta` + `XrefRelation`
    moved out of `xref-index` (which re-exports them for server callers); SearchBar
    imports the meta module.

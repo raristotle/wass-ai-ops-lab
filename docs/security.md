@@ -9,9 +9,13 @@ Hardening applied in the wave-3 pass, and the known follow-ups.
   `Referrer-Policy: strict-origin-when-cross-origin`,
   `Permissions-Policy: camera=(), geolocation=(), microphone=(self)`,
   `Strict-Transport-Security`.
-- **Rate limiting** (`lib/server/rate-limit.ts`) on the public API routes — the
-  cost-bearing assistant route is capped hardest (20/min/IP), cross routes 60/min,
-  SSO start 30/min. Returns `429` + `Retry-After`.
+- **Rate limiting** (`lib/server/rate-limit.ts`) on cost- and write-sensitive
+  routes — assistant hardest (20/min/IP), cross routes 60/min, SSO start 30/min.
+  Bundle-split catalog-support GETs (`/api/catalog/source`,
+  `/api/products/competitor-refs`) are also polite-capped at 30/min while staying
+  **open read** in pilot mode (metadata / synthetic only — see API guide).
+  Core catalog search/suggest/detail GETs remain uncapped. Returns `429` +
+  `Retry-After`.
 - **No internal leakage** — API error responses no longer echo exception
   messages to the client; errors are logged server-side (`lib/server/log.ts`).
 - **XSS** — the assistant reply and all user-derived text render through React
