@@ -20,6 +20,24 @@ Run all scripts from the **repo root** unless otherwise noted.
 | `npx prisma studio` | Open Prisma Studio GUI at :5555 |
 | `npm test` | Run the Vitest suite (`vitest run`) |
 | `npm run coverage` | Vitest + V8 coverage |
+| `npm run verify:perf` | Production build **then** the First-Load-JS budget guard (`lib/perf-budget.test.ts`) |
+
+### The `verify:perf` ritual
+
+`lib/perf-budget.test.ts` enforces per-route First-Load-JS budgets by measuring
+the real `.next` build output. It needs a build, and **nothing runs it
+automatically** — there is no CI in this repo by design. So:
+
+```
+npm run verify:perf
+```
+
+is the one command, and it is on you to run it after any change to client
+components, imports, or dependencies.
+
+Under a plain `npm test` with no build present, the guard **skips** (with a loud
+warning naming `verify:perf`) rather than throwing. A green `npm test` is
+therefore *not* evidence the budgets hold — check whether it skipped.
 
 ## Stack
 
@@ -85,6 +103,9 @@ Each rule carries its *why* — the reason is what stops a well-meaning workarou
 - ⚠️ **Lint runs from the root** (`eslint .`, flat config at the repo root) — run it there, not inside `apps/web`.
 - ⚠️ **No secrets in code; mock data only.** The only sanctioned real-data paths are `data/real/real-products.ts` (verified, link-checked) and the optional env-gated `lib/integration/distributor-live.ts` (per-request, never persisted). Everything else stays mock/`simulated`.
 - ⚠️ **Guard browser APIs for SSR.** Server Components render first — gate `localStorage`/`window` access behind `typeof window !== "undefined"` (or `typeof localStorage`), or it throws on the server.
+- ⚠️ **When the First-Load-JS budget goes red, DO NOT just raise the number.** The budget in `lib/perf-budget.test.ts` is the only thing watching client bundle size, and there is no CI to argue with you — raising it to get green converts a caught regression into a permanent one. Read the per-chunk breakdown the failure prints, then find what newly entered the client graph (nearly always a client component value-importing a server module or a dataset, the exact failure mode of `docs/perf-audit-2026-07-10.md`) and fix the import. Re-baselining is legitimate only when the extra weight is genuinely intended, a dependency/Next upgrade moved the floor, or the measurement method itself changed — and then update the `measured:` comment and the date alongside the number, because a budget with a stale measurement is indistinguishable from an inflated one.
+- ⚠️ **Perf-budget numbers are raw bytes, not `next build` numbers.** `next build` prints gzipped sizes (~3.5x smaller). Comparing the two will convince you of a regression or a win that isn't there.
+- ⚠️ **Never `npm run build` while `npm run dev` is live** — they share `apps/web/.next`, and the build corrupts the dev server's client chunks. Stop the dev server before `npm run verify:perf`.
 
 ## Skills
 Use a skill when one fits — including this repo's own skills in `.claude/skills/` (e.g. `ingest-xref`, which folds manufacturer cross-reference spreadsheets into the xref engine). Don't reinvent what a skill already does.
@@ -92,6 +113,9 @@ Use a skill when one fits — including this repo's own skills in `.claude/skill
 ## Definition of Done
 Before claiming a change works, run and confirm green:
 `npm run lint && npm run typecheck && npm test` (add `npm run coverage` for coverage work). Evidence before assertions — don't declare "fixed" off a code read alone.
+
+If the change touched client components, imports, or dependencies, also run
+`npm run verify:perf` — `npm test` alone skips the First-Load-JS budget guard when there is no build.
 
 ---
 

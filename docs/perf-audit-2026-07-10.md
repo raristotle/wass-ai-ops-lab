@@ -76,6 +76,67 @@ imports poison a module for ALL importers (don't rely on tree-shaking without
 `sideEffects: false`); the shell cwd resets between tool calls — cd explicitly in every
 command or a repo-wide test run can silently sweep the wrong directory.
 
+## 2026-07-24 → 2026-07-26: the standing budget guard
+
+The ESLint import ban above stops the *known* offenders by name. `lib/perf-budget.test.ts`
+(added 2026-07-24, made rebuild-proof 2026-07-26) catches the ones nobody has thought of
+yet: it reads `apps/web/.next/app-build-manifest.json`, sums the raw JS bytes each main
+`/product-finder` route must download, and fails when a route exceeds a fixed kB ceiling.
+
+**Run it:** `npm run verify:perf` (builds, then runs exactly that test). Nothing runs it
+automatically — this repo has no CI by design.
+
+Three fragilities in the original version were fixed on 2026-07-26:
+
+| Was | Now |
+|---|---|
+| `readFileSync` on the manifest with no existence check → confusing `ENOENT` from `npm test` on a never-built checkout | Detects the missing build and **skips** via `it.skipIf`, printing a warning that names `npm run verify:perf`. Visible as *skipped* in the run output, never silently green. |
+| `sharedChunks` was a hardcoded set of content-hashed filenames — the hashes change on every build, after which those bytes silently began counting against per-route budgets | Shared chunks are **derived from the manifest** each run: any `.js` asset referenced by ≥90% of route entries. In the 2026-07-26 build the four real infrastructure chunks hit 98/98 while the next-most-shared hits 8/98, so the threshold has an order of magnitude of margin. Survives a rebuild with entirely different hashes. |
+| Nothing ever ran it | `npm run verify:perf` — one documented command. (Still human-triggered; adding CI was explicitly out of scope.) |
+
+A fourth, unlisted bug was found and fixed in the process: chunks were resolved by
+`path.basename()` against a **non-recursive** `readdirSync` of `.next/static/chunks`, so
+every route's own entry chunk — which lives in the `static/chunks/app/**` subdirectory —
+was never found and was counted as **0 kB**. (Basename is doubly wrong here: Next.js also
+gives every trivial API route handler the identical basename `route-<hash>.js` in a
+different directory.) Chunks are now resolved by full manifest-relative path, and a file
+that cannot be stat'd is a **failure**, not a silent zero.
+
+That fix is why the 2026-07-26 budgets are numerically higher than the 2026-07-24 ones.
+**The app did not get bigger** — the guard simply started counting each route's own code:
++94 kB on `/product-finder`, +52 kB on `/dashboard`, +16 kB on `/quote`, +8 kB on
+`/login`, +7 kB on `/customer`.
+
+Re-measured 2026-07-26, budget = `ceil(measured × 1.15)`:
+
+| Route | Measured (raw, shared excluded) | Budget |
+|---|---|---|
+| `/product-finder` | 931 kB | 1071 kB |
+| `/product-finder/customer` | 844 kB | 971 kB |
+| `/product-finder/dashboard` | 1266 kB | 1456 kB |
+| `/product-finder/quote` | 307 kB | 354 kB |
+| `/product-finder/login` | 268 kB | 309 kB |
+| shared infrastructure (new) | 344 kB | 396 kB |
+
+The shared-infrastructure budget is new: because shared chunks are excluded from every
+per-route budget, without it a regression in the framework/runtime/app-shell layer — the
+bytes every single route pays — would have been watched by nobody.
+
+**Raw vs gzipped:** these are uncompressed bytes on disk, so they do *not* match the "First
+Load JS" figures in the `next build` output or in the tables above, which are gzipped and
+~3.5x smaller (`/product-finder` 2026-07-26: 1275 kB raw incl. shared = 349 kB gzipped).
+Compare each series only with itself.
+
+⚠️ **When the guard goes red, do not reflexively raise the budget.** Read the per-chunk
+breakdown in the failure, identify what newly entered the client graph, and fix the import.
+Re-baselining is legitimate when the weight is genuinely intended, a dependency upgrade
+moved the floor, or the measurement method changed — and then the `measured:` comment and
+date move with the number.
+
+Known gap: `/product-finder/crosses` (43 kB) and `/product-finder/supplier` (36 kB) are
+built but not budgeted — they are the two lightest routes and still prove the achievable
+floor.
+
 ## Baseline (before)
 
 ```

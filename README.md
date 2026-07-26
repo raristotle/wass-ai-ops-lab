@@ -136,6 +136,48 @@ wass-ai-ops-lab/
 | `npm run typecheck` | TypeScript type check (no emit) |
 | `npm test` | Vitest suite (`vitest run`) — **3,698** tests as of 2026-07-12 |
 | `npm run coverage` | Vitest + V8 coverage (product-finder scoped) |
+| `npm run verify:perf` | Production build **then** the First-Load-JS budget guard (see below) |
+
+## Performance budgets
+
+`lib/perf-budget.test.ts` is a per-route **First-Load-JS budget guard** — it reads
+the real build output (`apps/web/.next/app-build-manifest.json`), sums the raw
+JS bytes each `/product-finder` route must download, and fails if a route
+exceeds its ceiling. It is the safety net for the class of bug documented in
+[`docs/perf-audit-2026-07-10.md`](docs/perf-audit-2026-07-10.md), where one
+value-import shipped an ~18 MB dataset chunk on every main route.
+
+**Run it with one command:**
+
+```bash
+npm run verify:perf     # builds, then runs exactly this test
+```
+
+Nothing runs it for you — this repo has no CI by design. Run it before shipping
+anything that touches client components, imports, or dependencies.
+
+A plain `npm test` on a checkout that has never been built **skips** the guard
+(loudly, naming this command) instead of failing — so a green `npm test` is not
+evidence that the budgets hold. Read the skip warning.
+
+Notes:
+
+- **Shared chunks are excluded** from the per-route budgets (the webpack
+  runtime, the framework chunk, the app shell — downloaded once, reused
+  everywhere) and given their own budget, so they are excluded but not
+  unwatched. Which chunks count as shared is derived from the manifest on every
+  run, so a rebuild with new content hashes does not break the guard.
+- **These are raw, uncompressed bytes** — deliberately *not* the numbers
+  `next build` prints, which are gzipped and roughly 3.5x smaller. Never compare
+  the two.
+- ⚠️ **When it goes red, do not just raise the number.** Read the per-chunk
+  breakdown in the failure, find what newly entered the client graph (nearly
+  always a client component value-importing a server module or a dataset), and
+  fix the import. Raising the budget to get green makes the regression permanent
+  and nothing else is watching. Re-baselining is legitimate only when the weight
+  is genuinely intended, a dependency upgrade moved the floor, or the
+  measurement method changed — and then you update the `measured:` comment and
+  the date in the file along with the number.
 
 ## Deployment
 
