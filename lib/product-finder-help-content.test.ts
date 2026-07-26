@@ -171,6 +171,14 @@ describe("HELP_TOPICS", () => {
     expect(ids.has("catalog-crosswalk")).toBe(true);
   });
 
+  it("tells the operator what to do with unresolved crosswalk rows (PF-5)", () => {
+    const body = HELP_TOPICS.find((t) => t.id === "catalog-crosswalk")!.body.join(" ");
+    // The export must be named, not just implied — it's the only route from a count to a list.
+    expect(body).toMatch(/Download unresolved rows/);
+    // …and the loop it belongs to: fix the source file, then re-import.
+    expect(body).toMatch(/re-import/i);
+  });
+
   it("covers the data-sources D1 ingestion framework (gate + diff + provenance + $0 default)", () => {
     const ids = new Set(HELP_TOPICS.map((t) => t.id));
     expect(ids.has("data-ingestion")).toBe(true);

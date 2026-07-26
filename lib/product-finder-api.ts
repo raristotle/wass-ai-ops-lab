@@ -4,6 +4,9 @@ import type {
   ProductDetail,
   FilterState,
 } from "@/features/product-finder/types";
+// Type-only (erased at build time) — `crosswalk-reject` is the small pure taxonomy
+// module, deliberately separate from the catalog-loading `lib/catalog/crosswalk.ts`.
+import type { CrosswalkRejectReport } from "@/lib/catalog/crosswalk-reject";
 
 export function filtersToQuery(
   filters: FilterState,
@@ -413,6 +416,8 @@ export interface CrosswalkManifest {
 export interface CrosswalkStatus {
   durable: boolean;
   manifest: CrosswalkManifest | null;
+  /** PF-5: the last import's unresolved rows, so the triage export survives a reload. */
+  rejects?: CrosswalkRejectReport | null;
 }
 export interface CrosswalkImportResult {
   ok?: boolean;
@@ -420,15 +425,20 @@ export interface CrosswalkImportResult {
   manifest?: CrosswalkManifest;
   headline?: string;
   error?: string;
+  /**
+   * PF-5: the rows that did NOT become mappings. Present on success AND on the
+   * "nothing matched" 422 — that failure is exactly when the list is most useful.
+   */
+  rejects?: CrosswalkRejectReport | null;
 }
 
 export async function apiCrosswalkStatus(): Promise<CrosswalkStatus> {
   try {
     const res = await fetch("/api/catalog/crosswalk");
-    if (!res.ok) return { durable: false, manifest: null };
+    if (!res.ok) return { durable: false, manifest: null, rejects: null };
     return (await res.json()) as CrosswalkStatus;
   } catch {
-    return { durable: false, manifest: null };
+    return { durable: false, manifest: null, rejects: null };
   }
 }
 

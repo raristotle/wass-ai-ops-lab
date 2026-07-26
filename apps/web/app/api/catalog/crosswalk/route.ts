@@ -3,13 +3,14 @@ import { rateLimit, tooManyRequests } from "@/lib/server/rate-limit";
 import { requireApiAuth, tenantForRequest } from "@/lib/server/api-auth";
 import { logApiError } from "@/lib/server/log";
 import { getStore, forTenant, persistenceConfigured } from "@/lib/server/persistence";
-import { getCrosswalkManifest, clearCrosswalk } from "@/lib/catalog/crosswalk";
+import { getCrosswalkManifest, getCrosswalkRejects, clearCrosswalk } from "@/lib/catalog/crosswalk";
 
 export const dynamic = "force-dynamic";
 
 /**
  * Customer crosswalk status + management.
- *   GET    → the import manifest (entry counts), or null when only the demo seed is active.
+ *   GET    → the import manifest (entry counts) + the last import's unresolved-row
+ *            triage report, or nulls when only the demo seed is active.
  *   DELETE → clear the imported crosswalk (resolution falls back to the demo seed).
  * Auth-gated; tenant-scoped.
  */
@@ -17,11 +18,15 @@ export async function GET(req: Request) {
   const denied = requireApiAuth(req);
   if (denied) return denied;
   try {
-    const manifest = await getCrosswalkManifest(forTenant(getStore(), tenantForRequest(req)));
-    return NextResponse.json({ durable: persistenceConfigured(), manifest });
+    const store = forTenant(getStore(), tenantForRequest(req));
+    const manifest = await getCrosswalkManifest(store);
+    // PF-5: served alongside the manifest so re-opening the modal later still offers the
+    // triage export — the unresolved rows outlive the import response that produced them.
+    const rejects = await getCrosswalkRejects(store);
+    return NextResponse.json({ durable: persistenceConfigured(), manifest, rejects });
   } catch (e) {
     logApiError("/api/catalog/crosswalk:GET", e);
-    return NextResponse.json({ durable: persistenceConfigured(), manifest: null });
+    return NextResponse.json({ durable: persistenceConfigured(), manifest: null, rejects: null });
   }
 }
 

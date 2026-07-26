@@ -46,6 +46,14 @@ describe("csvField", () => {
     expect(csvField("+1")).toBe("'+1");
     expect(csvField("@cmd")).toBe("'@cmd");
   });
+
+  it("guards a leading TAB or CR too (spreadsheets strip them before parsing a formula)", () => {
+    expect(csvField("\t=HYPERLINK(1)")).toBe("'\t=HYPERLINK(1)");
+    // A CR additionally forces quoting, since it would otherwise break the row.
+    expect(csvField("\r=1+1")).toBe('"\'\r=1+1"');
+    // An interior tab is harmless and must not be touched.
+    expect(csvField("15\tA")).toBe("15\tA");
+  });
 });
 
 describe("toCsv", () => {

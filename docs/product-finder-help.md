@@ -307,6 +307,29 @@ Every matched line also carries a **confidence score (0–100%)**:
 - **Typos are rescued automatically** — `5x circut breakr` matches as *circuit
   breaker* with a "corrected to…" note on the line.
 
+### Your own catalog numbers (crosswalk import)
+**Ctrl/Cmd-K → "Import catalog numbers"** loads a CSV mapping *your* item numbers (or
+Wesco stock numbers) to the products we carry, so buyers can search the numbers they
+already use. Exact manufacturer SKU is always tried first, so your number can never
+shadow a real SKU.
+
+**When rows don't import — you get the list, not just a number.**
+- If any row fails, the import panel shows "**N rows didn't import**" with a
+  **Download unresolved rows (CSV)** button. No failures → no button.
+- The CSV has one line per failed row: the **row number in your file**, the number and
+  SKU **exactly as you supplied them**, the reason, the normalized key we actually
+  looked up, and what to do about it.
+- Three reasons: **`missing_customer_number`** (blank number cell),
+  **`missing_sku`** (blank SKU cell), and **`sku_not_carried`** (the SKU matches no
+  product under any identity — manufacturer SKU, Wesco stock #, catalog #, or GTIN).
+- If the *whole file* failed, check the **Near match** column: when it's filled in, your
+  two columns are swapped — one fix instead of hundreds.
+- **The loop:** export → fix those rows in your source file → re-import. Each import
+  replaces the crosswalk *and* the report, so the download always describes your latest
+  file. It survives closing the panel or reloading the page.
+
+Full detail: [`docs/catalog-crosswalk.md`](catalog-crosswalk.md).
+
 ### External sources
 - If a product is **out of stock at Meridian Supply Co.**, the app lists **external distributors**
   (with price, quantity, and lead time) so you still have an answer.

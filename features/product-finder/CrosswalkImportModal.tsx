@@ -12,6 +12,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics-client";
 import { SAMPLE_CROSSWALK_CSV, downloadTextFile } from "@/lib/product-finder-samples";
+import {
+  crosswalkRejectsCsv,
+  CROSSWALK_REJECTS_FILENAME,
+  type CrosswalkRejectReport,
+} from "@/lib/catalog/crosswalk-reject";
 
 /**
  * Customer Catalog-Number Crosswalk import (pilot data onboarding) — load the
@@ -34,12 +39,18 @@ export function CrosswalkImportModal() {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [manifest, setManifest] = useState<CrosswalkManifest | null>(null);
+  // PF-5: the rows that didn't import. Loaded from the server on open (so it survives a
+  // reload) and refreshed from every import response — including a failed one, which is
+  // when knowing WHICH rows failed matters most.
+  const [rejects, setRejects] = useState<CrosswalkRejectReport | null>(null);
 
   useEffect(() => {
     if (!open) return;
     let cancelled = false;
     void apiCrosswalkStatus().then((s) => {
-      if (!cancelled) setManifest(s.manifest);
+      if (cancelled) return;
+      setManifest(s.manifest);
+      setRejects(s.rejects ?? null);
     });
     return () => {
       cancelled = true;
@@ -66,6 +77,8 @@ export function CrosswalkImportModal() {
     setMsg(null);
     try {
       const res = await apiImportCrosswalk(csv, customer.trim() || undefined);
+      // Always adopt the server's triage list — a failed import returns one too.
+      setRejects(res.rejects ?? null);
       if (res.error) setMsg(res.error);
       else {
         setManifest(res.manifest ?? null);
@@ -84,10 +97,20 @@ export function CrosswalkImportModal() {
     try {
       await apiClearCrosswalk();
       setManifest(null);
+      // The report described the crosswalk that was just cleared — drop it with them.
+      setRejects(null);
       setMsg("Cleared — back to the illustrative demo crosswalk.");
     } finally {
       setBusy(false);
     }
+  }
+
+  /** Download the unresolved rows so they can be fixed in the source file and re-imported. */
+  function handleDownloadRejects() {
+    if (!rejects || rejects.rows.length === 0) return;
+    downloadTextFile(CROSSWALK_REJECTS_FILENAME, crosswalkRejectsCsv(rejects.rows));
+    // B4-style activation event — row count only, never a customer identifier.
+    track("crosswalk_rejects_export", { rows: rejects.rows.length });
   }
 
   if (!open) return null;
@@ -188,6 +211,30 @@ export function CrosswalkImportModal() {
           </div>
 
           {msg && <p className="text-sm text-[#1D252D]">{msg}</p>}
+
+          {/* PF-5 — unresolved-row triage. Rendered ONLY when the last import actually
+              left rows behind, so a clean import stays clean. The count is the honest
+              total (`total`), which can exceed the downloadable rows when a very large
+              file was capped — say so rather than silently under-reporting. */}
+          {rejects && rejects.rows.length > 0 && (
+            <div className="rounded-lg border border-[#DB6B30]/40 bg-[#DB6B30]/5 px-3 py-2.5 text-sm">
+              <p className="font-semibold text-[#1D252D]">
+                {rejects.total.toLocaleString()} {rejects.total === 1 ? "row" : "rows"} didn&rsquo;t import
+              </p>
+              <p className="text-xs text-[#4F758B]">
+                Download them to see which number failed and why — fix those rows in your source file, then
+                re-import.
+                {rejects.truncated ? ` Showing the first ${rejects.rows.length.toLocaleString()}.` : ""}
+              </p>
+              <button
+                type="button"
+                onClick={handleDownloadRejects}
+                className="mt-1.5 text-xs text-[#DB6B30] underline hover:text-[#993C1D]"
+              >
+                Download unresolved rows (CSV)
+              </button>
+            </div>
+          )}
 
           <Button onClick={handleImport} disabled={busy || csv.trim().length === 0} className="w-full bg-[#00AA13] text-white hover:bg-[#008f10]">
             {busy ? "Importing…" : "Import catalog crosswalk"}

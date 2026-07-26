@@ -6,10 +6,16 @@ import type { CatalogProduct } from "@/features/product-finder/types";
  * Escape one CSV field: quote when it contains a delimiter/quote/newline, and
  * prefix a leading apostrophe on =/+/-/@ so spreadsheet apps never interpret a
  * catalog value as a formula (CSV-injection guard).
+ *
+ * A leading TAB or CR is guarded too: Excel and LibreOffice strip leading control
+ * whitespace before deciding whether a cell is a formula, so "\t=cmd|'/c calc'!A1"
+ * would otherwise slip a live formula past a guard that only looked at char 0. This
+ * matters most for exports built from user-uploaded files (e.g. the crosswalk triage
+ * export), where every cell is untrusted text.
  */
 export function csvField(value: string | number): string {
   let s = String(value);
-  if (/^[=+\-@]/.test(s)) s = `'${s}`;
+  if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
   if (/[",\r\n]/.test(s)) s = `"${s.replace(/"/g, '""')}"`;
   return s;
 }

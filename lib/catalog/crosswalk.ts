@@ -16,6 +16,11 @@
 import { getCatalog } from "@/lib/catalog/index";
 import { identifierKey } from "@/lib/catalog/identifiers";
 import type { KvStore } from "@/lib/server/persistence";
+import {
+  MAX_STORED_CROSSWALK_REJECTS,
+  type CrosswalkReject,
+  type CrosswalkRejectReport,
+} from "@/lib/catalog/crosswalk-reject";
 
 export type CrosswalkSource = "demo" | "import" | "captured";
 
@@ -36,6 +41,8 @@ export interface CrosswalkHit {
 export const CROSSWALK_NS = "catalog-crosswalk";
 const ENTRIES_KEY = "entries";
 const MANIFEST_KEY = "manifest";
+/** PF-5: the triage report for the LAST import's unresolved rows (replaced each import). */
+const REJECTS_KEY = "rejects";
 
 export interface CrosswalkManifest {
   version: number;
@@ -52,6 +59,20 @@ export interface CrosswalkParseStats {
   dropped: number;
   entries: number;
   mapping: { customerNumber: string | null; sku: string | null };
+  /**
+   * PF-5: the dropped rows themselves, not just `dropped`'s count — one entry per row
+   * the parser discarded, carrying its source line number and which side was blank.
+   * Empty when the header row is unmappable: that is a whole-FILE failure the import
+   * route rejects up front, so there is nothing per-row to triage.
+   */
+  rejects: CrosswalkReject[];
+}
+
+/** A parsed row plus its 1-based source line number (so a later failure can name it). */
+export interface CrosswalkParsedRow {
+  customerNumber: string;
+  sku: string;
+  line: number;
 }
 
 // The LOOKUP-KEY column: the number a rep types. Covers both a customer's own item number
@@ -114,16 +135,29 @@ function findColumn(headers: string[], synonyms: string[], exclude = -1): number
 
 /**
  * Parse a customer crosswalk CSV (a `customer number,sku` mapping). Header row
- * required. Rows missing either side are dropped + counted (never invented).
+ * required. Rows missing either side are dropped + counted (never invented) AND
+ * recorded in `stats.rejects` with their source line number, so the operator can be
+ * handed the list instead of only the tally (PF-5).
+ *
+ * Blank lines are skipped for parsing but still consume a line number, so every
+ * reported `line` matches what the operator sees in their spreadsheet.
  */
-export function parseCrosswalkCsv(csv: string): { entries: { customerNumber: string; sku: string }[]; stats: CrosswalkParseStats } {
-  const empty = { entries: [], stats: { rows: 0, dropped: 0, entries: 0, mapping: { customerNumber: null, sku: null } } };
+export function parseCrosswalkCsv(csv: string): { entries: CrosswalkParsedRow[]; stats: CrosswalkParseStats } {
+  const empty = {
+    entries: [],
+    stats: { rows: 0, dropped: 0, entries: 0, mapping: { customerNumber: null, sku: null }, rejects: [] },
+  };
   if (!csv || !csv.trim()) return empty;
-  const lines = csv.split(/\r\n|\r|\n/).filter((l) => l.trim().length > 0);
+  // Keep each surviving line's ORIGINAL 1-based position; filtering blanks away first
+  // would make every reported row number wrong for any file with a blank line in it.
+  const lines: { text: string; line: number }[] = [];
+  csv.split(/\r\n|\r|\n/).forEach((text, i) => {
+    if (text.trim().length > 0) lines.push({ text, line: i + 1 });
+  });
   if (lines.length < 2) return empty;
 
-  const delim = detectDelimiter(lines[0]);
-  const headers = splitCsvLine(lines[0], delim);
+  const delim = detectDelimiter(lines[0].text);
+  const headers = splitCsvLine(lines[0].text, delim);
   const custCol = findColumn(headers, CUSTOMER_HEADERS);
   // The carried-SKU column must not be the lookup-key column — exclude it, so a header like
   // "wesco_sku" (which matches both detectors) maps to the lookup key, not both.
@@ -134,19 +168,73 @@ export function parseCrosswalkCsv(csv: string): { entries: { customerNumber: str
     sku: skuCol === -1 ? null : headers[skuCol],
   };
   if (custCol === -1 || skuCol === -1) {
-    return { entries: [], stats: { rows: lines.length - 1, dropped: lines.length - 1, entries: 0, mapping } };
+    // Whole-file failure (unmappable header): every row is dropped, but a per-row
+    // report would just repeat "we couldn't read this file" N times. The route 400s
+    // with a message naming both required columns instead.
+    return { entries: [], stats: { rows: lines.length - 1, dropped: lines.length - 1, entries: 0, mapping, rejects: [] } };
   }
 
-  const entries: { customerNumber: string; sku: string }[] = [];
-  let dropped = 0;
+  const entries: CrosswalkParsedRow[] = [];
+  const rejects: CrosswalkReject[] = [];
   for (let r = 1; r < lines.length; r++) {
-    const cells = splitCsvLine(lines[r], delim);
+    const cells = splitCsvLine(lines[r].text, delim);
     const customerNumber = (cells[custCol] ?? "").trim();
     const sku = (cells[skuCol] ?? "").trim();
-    if (!customerNumber || !sku) { dropped++; continue; }
-    entries.push({ customerNumber, sku });
+    if (!customerNumber || !sku) {
+      // Which side is blank IS the fix, so the two cases are separate reasons. A row
+      // missing both reports the customer-number side (the lookup key is the row's
+      // reason to exist — without it the mapping is meaningless either way).
+      rejects.push({
+        line: lines[r].line,
+        customerNumber,
+        sku,
+        reason: !customerNumber ? "missing_customer_number" : "missing_sku",
+        lookupKey: "",
+        nearMatch: "",
+      });
+      continue;
+    }
+    entries.push({ customerNumber, sku, line: lines[r].line });
   }
-  return { entries, stats: { rows: lines.length - 1, dropped, entries: entries.length, mapping } };
+  return { entries, stats: { rows: lines.length - 1, dropped: rejects.length, entries: entries.length, mapping, rejects } };
+}
+
+/**
+ * Verify each parsed row's SKU against the catalog, splitting the file into the
+ * mappings to keep and the rows to triage (PF-5).
+ *
+ * The resolver is INJECTED (`resolveBySku` in the route) so this stays pure and every
+ * failure branch is unit-testable without loading the 200k-product catalog. It returns
+ * the canonical catalog SKU — stored in place of the customer's spelling so resolution
+ * is stable — or null when the part isn't carried.
+ *
+ * Near-match: when a SKU doesn't resolve we try the row's OTHER cell. A hit proves the
+ * columns are swapped, which is a single one-line fix for the whole file rather than
+ * hundreds of "typo" edits. This is an exact O(1) lookup, never a fuzzy guess — if we
+ * can't prove a candidate, `nearMatch` stays empty.
+ */
+export function resolveCrosswalkRows(
+  rows: CrosswalkParsedRow[],
+  resolveSku: (identifier: string) => string | null,
+): { entries: CrosswalkEntry[]; rejects: CrosswalkReject[] } {
+  const entries: CrosswalkEntry[] = [];
+  const rejects: CrosswalkReject[] = [];
+  for (const row of rows) {
+    const canonical = resolveSku(row.sku);
+    if (canonical) {
+      entries.push({ customerNumber: row.customerNumber, sku: canonical, source: "import" });
+      continue;
+    }
+    rejects.push({
+      line: row.line,
+      customerNumber: row.customerNumber,
+      sku: row.sku,
+      reason: "sku_not_carried",
+      lookupKey: identifierKey(row.sku),
+      nearMatch: resolveSku(row.customerNumber) ?? "",
+    });
+  }
+  return { entries, rejects };
 }
 
 // ── Demo seed (illustrative, deterministic, NOT real customer data) ───────────
@@ -170,6 +258,9 @@ export async function saveCrosswalk(store: KvStore, entries: CrosswalkEntry[], m
 export async function clearCrosswalk(store: KvStore): Promise<void> {
   await store.delete(CROSSWALK_NS, ENTRIES_KEY);
   await store.delete(CROSSWALK_NS, MANIFEST_KEY);
+  // The triage report describes an import that no longer exists — clear it too, or the
+  // modal would offer a download of rows from a crosswalk the operator just deleted.
+  await store.delete(CROSSWALK_NS, REJECTS_KEY);
   _resetCrosswalkCache();
 }
 export async function getCrosswalkManifest(store: KvStore): Promise<CrosswalkManifest | null> {
@@ -178,6 +269,40 @@ export async function getCrosswalkManifest(store: KvStore): Promise<CrosswalkMan
   } catch {
     return null;
   }
+}
+
+/**
+ * PF-5 — persist the LAST import's unresolved rows so the triage export survives a page
+ * reload (the whole point: a count you can't act on is what this replaces). Pass null to
+ * clear, which is what a clean import does — a stale report from a previous file would be
+ * actively misleading. Bounded by MAX_STORED_CROSSWALK_REJECTS; the caller records the
+ * true total in `report.total` so the UI never understates the problem.
+ */
+export async function saveCrosswalkRejects(store: KvStore, report: CrosswalkRejectReport | null): Promise<void> {
+  if (!report || report.rows.length === 0) {
+    await store.delete(CROSSWALK_NS, REJECTS_KEY);
+    return;
+  }
+  await store.put(CROSSWALK_NS, REJECTS_KEY, report);
+}
+
+/** The stored triage report, or null when the last import had nothing unresolved. */
+export async function getCrosswalkRejects(store: KvStore): Promise<CrosswalkRejectReport | null> {
+  try {
+    return await store.get<CrosswalkRejectReport>(CROSSWALK_NS, REJECTS_KEY);
+  } catch {
+    return null;
+  }
+}
+
+/** Cap a reject list into a storable/returnable report, preserving the true total. */
+export function buildCrosswalkRejectReport(rejects: CrosswalkReject[], importedAtIso: string): CrosswalkRejectReport {
+  return {
+    rows: rejects.slice(0, MAX_STORED_CROSSWALK_REJECTS),
+    total: rejects.length,
+    truncated: rejects.length > MAX_STORED_CROSSWALK_REJECTS,
+    importedAtIso,
+  };
 }
 
 /**

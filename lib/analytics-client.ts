@@ -20,6 +20,9 @@ export type AnalyticsEvent =
   | "bom_import"
   | "order_history_import"
   | "crosswalk_import"
+  // PF-5: the operator downloaded the unresolved-row triage export — the signal that
+  // a failed import is being acted on rather than abandoned. Row count only.
+  | "crosswalk_rejects_export"
   | "quote_sent"
   | "quote_accepted"
   | "substitute_saved"
