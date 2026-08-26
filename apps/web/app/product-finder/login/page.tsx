@@ -63,14 +63,48 @@ export default function LoginPage() {
     }, 900);
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
-    const success = login(email, password);
-    if (success) {
-      router.push("/product-finder");
-    } else {
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = (await res.json().catch(() => null)) as {
+        ok?: boolean;
+        sessions?: boolean;
+        role?: "admin" | "manager" | "sales";
+        error?: string;
+      } | null;
+
+      if (data?.sessions === false) {
+        if (login(email, password)) router.push("/product-finder");
+        else setIsSubmitting(false);
+        return;
+      }
+
+      if (res.ok && data?.ok && data.role) {
+        const known = DEMO_USERS.find((u) => u.email.toLowerCase() === email.trim().toLowerCase());
+        loginWithSso({
+          email: email.trim().toLowerCase(),
+          name: known?.name ?? (email.split("@")[0] || "User"),
+          role: data.role,
+          branch: known?.branch ?? "Corporate",
+          branchId: "B-CORP",
+        });
+        router.push("/product-finder");
+        return;
+      }
+
+      useProductFinder.setState({
+        authError: data?.error === "Login is not configured." ? data.error : "Invalid email or password.",
+      });
       setIsSubmitting(false);
+    } catch {
+      if (login(email, password)) router.push("/product-finder");
+      else setIsSubmitting(false);
     }
   }
 
@@ -195,11 +229,11 @@ export default function LoginPage() {
             </CardContent>
           </Card>
 
-          {/* Demo credentials info box */}
+          {/* Allowlisted demo accounts — password is server-configured, not published here. */}
           <div className="mt-6 rounded-lg border border-[#B7C9D3] bg-[#EEF4F7] px-5 py-4 text-sm text-[#1D252D]">
             <p className="mb-3 font-semibold text-[#4F758B]">
-              Demo credentials — password for all:{" "}
-              <span className="font-bold text-[#1D252D]">meridian2024</span>
+              Allowlisted demo accounts. The sign-in password is set on the server
+              and is not published in this app.
             </p>
             <ul className="flex flex-col gap-2">
               {DEMO_USERS.map((u) => (

@@ -509,11 +509,10 @@ export const useProductFinder = create<ProductFinderState>((set, get) => ({
     return true;
   },
 
-  /** Establish a session from an SSO-mapped identity (no password). */
+  /** Apply an SSO-mapped identity (cookie already set by the IdP callback). */
   loginWithSso(user) {
     set({ user, authError: null, activeCustomerId: null });
     if (typeof localStorage !== "undefined") localStorage.setItem("pf_user", JSON.stringify(user));
-    establishServerSession(user.email, DEMO_PASSWORD, user.name);
   },
 
   logout() {

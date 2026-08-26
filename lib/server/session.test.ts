@@ -5,7 +5,7 @@ import {
   readSession,
   sessionsEnabled,
   tenantFromEmail,
-  roleFromEmail,
+  assertProductionSessionSecret,
   SESSION_COOKIE,
 } from "@/lib/server/session";
 
@@ -64,15 +64,39 @@ describe("session signing", () => {
   });
 });
 
-describe("tenant + role derivation", () => {
+describe("tenant derivation", () => {
   it("tenantFromEmail uses the email domain", () => {
     expect(tenantFromEmail("rep@acme-corp.com")).toEqual({ tenantId: "acme-corp-com", tenantName: "acme-corp.com" });
     expect(tenantFromEmail("noatsign").tenantId).toBe("demo");
   });
-  it("roleFromEmail maps admin / manager / sales", () => {
-    expect(roleFromEmail("admin@x.com")).toBe("admin");
-    expect(roleFromEmail("manager@x.com")).toBe("manager");
-    expect(roleFromEmail("sales@x.com")).toBe("sales");
-    expect(roleFromEmail("jdoe@x.com")).toBe("sales");
+});
+
+describe("assertProductionSessionSecret", () => {
+  const prevVercel = process.env.VERCEL_ENV;
+  const prevSecret = process.env.SESSION_SECRET;
+
+  afterEach(() => {
+    if (prevVercel === undefined) delete process.env.VERCEL_ENV;
+    else process.env.VERCEL_ENV = prevVercel;
+    if (prevSecret === undefined) delete process.env.SESSION_SECRET;
+    else process.env.SESSION_SECRET = prevSecret;
+  });
+
+  it("does not throw outside production", () => {
+    expect(() => assertProductionSessionSecret({ SESSION_SECRET: undefined })).not.toThrow();
+    expect(() => assertProductionSessionSecret({ VERCEL_ENV: "preview" })).not.toThrow();
+  });
+
+  it("throws in production when SESSION_SECRET is unset or blank", () => {
+    expect(() => assertProductionSessionSecret({ VERCEL_ENV: "production" })).toThrow(/SESSION_SECRET/);
+    expect(() => assertProductionSessionSecret({ VERCEL_ENV: "production", SESSION_SECRET: "  " })).toThrow(
+      /SESSION_SECRET/,
+    );
+  });
+
+  it("passes in production when SESSION_SECRET is set", () => {
+    expect(() =>
+      assertProductionSessionSecret({ VERCEL_ENV: "production", SESSION_SECRET: "set-in-prod" }),
+    ).not.toThrow();
   });
 });
