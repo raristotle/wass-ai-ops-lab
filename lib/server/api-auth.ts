@@ -1,4 +1,4 @@
-import { readSession, sessionsEnabled, type Session } from "@/lib/server/session";
+import { assertProductionSessionSecret, readSession, sessionsEnabled, type Session } from "@/lib/server/session";
 
 /**
  * Auth + tenancy gate for the durable business endpoints (jobs, orders, vmi, rfq,
@@ -21,21 +21,10 @@ import { readSession, sessionsEnabled, type Session } from "@/lib/server/session
 
 type Outcome = { allowed: true; tenantId: string | null; session: Session | null } | { allowed: false };
 
-// Fail-LOUD if a PRODUCTION deploy is running without per-tenant sessions: the gate then
-// has no real tenancy (Origin is forgeable, tenantId:null collapses every caller into one
-// shared namespace). In that misconfiguration the forgeable same-origin allowance is
-// dropped below — a write requires WRITE_API_TOKEN. Real prod runs sessions ON, so this is
-// a backstop against accidentally shipping prod with SESSION_SECRET unset.
-if (process.env.VERCEL_ENV === "production" && !sessionsEnabled()) {
-  console.error(
-    JSON.stringify({
-      level: "error",
-      scope: "api-auth",
-      message:
-        "SESSION_SECRET is not set in production — per-tenant isolation is OFF and same-origin writes are denied (WRITE_API_TOKEN required). Set SESSION_SECRET to enable SSO sessions.",
-    }),
-  );
-}
+// Production must not boot without SESSION_SECRET (throws). The same-origin
+// allowance below is still dropped when VERCEL_ENV is production, so a missed
+// import path cannot collapse every caller into one shared namespace.
+assertProductionSessionSecret();
 
 function tokenOk(req: Request): boolean {
   const token = process.env.WRITE_API_TOKEN?.trim();

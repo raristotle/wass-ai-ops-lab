@@ -6,9 +6,9 @@ import { createHmac, timingSafeEqual } from "node:crypto";
  * and their tenant; the durable endpoints verify it and scope all data to the
  * tenant. Stateless (HMAC-signed, no server store), so it works on serverless.
  *
- * Activated by setting SESSION_SECRET. When unset, sessions are dormant and the
- * endpoints fall back to the pilot same-origin/token gate (no tenancy) — so this
- * upgrade is opt-in and changes nothing until the secret is configured.
+ * Activated by setting SESSION_SECRET. When unset (dev/preview only), sessions
+ * are dormant and the endpoints fall back to the pilot same-origin/token gate
+ * (no tenancy). Production (VERCEL_ENV=production) throws if it is unset.
  */
 
 export type AppRole = "admin" | "manager" | "sales";
@@ -38,6 +38,21 @@ function secret(): string | null {
 export function sessionsEnabled(): boolean {
   return secret() !== null;
 }
+
+/**
+ * Production must not boot without SESSION_SECRET (no silent sessions-off
+ * collapse into a shared namespace). VERCEL_ENV is the production signal so
+ * local `next build` / tests are unaffected.
+ */
+export function assertProductionSessionSecret(env: NodeJS.ProcessEnv = process.env): void {
+  if (env.VERCEL_ENV === "production" && !env.SESSION_SECRET?.trim()) {
+    throw new Error(
+      "SESSION_SECRET is not set in production — per-tenant sessions cannot start. Set SESSION_SECRET.",
+    );
+  }
+}
+
+assertProductionSessionSecret();
 
 function hmac(data: string, key: string): string {
   return createHmac("sha256", key).update(data).digest("base64url");
@@ -104,10 +119,3 @@ export function tenantFromEmail(email: string): { tenantId: string; tenantName: 
   return { tenantId, tenantName: domain };
 }
 
-/** Heuristic app role from a demo email local-part (sales@…, manager@…, admin@…). */
-export function roleFromEmail(email: string): AppRole {
-  const local = email.split("@")[0]?.toLowerCase() ?? "";
-  if (local.includes("admin")) return "admin";
-  if (local.includes("manager")) return "manager";
-  return "sales";
-}
