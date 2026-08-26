@@ -44,7 +44,7 @@ export function sessionsEnabled(): boolean {
  * collapse into a shared namespace). VERCEL_ENV is the production signal so
  * local `next build` / tests are unaffected.
  */
-export function assertProductionSessionSecret(env: NodeJS.ProcessEnv = process.env): void {
+export function assertProductionSessionSecret(env: Record<string, string | undefined> = process.env): void {
   if (env.VERCEL_ENV === "production" && !env.SESSION_SECRET?.trim()) {
     throw new Error(
       "SESSION_SECRET is not set in production — per-tenant sessions cannot start. Set SESSION_SECRET.",

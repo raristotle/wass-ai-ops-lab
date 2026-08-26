@@ -27,8 +27,10 @@ function isAppRole(value: string): value is AppRole {
   return ROLES.has(value as AppRole);
 }
 
+type Env = Record<string, string | undefined>;
+
 /** Shared demo password from env, or null when unset (no fallback). */
-export function demoLoginPassword(env: NodeJS.ProcessEnv = process.env): string | null {
+export function demoLoginPassword(env: Env = process.env): string | null {
   const value = env.DEMO_LOGIN_PASSWORD?.trim();
   return value ? value : null;
 }
@@ -52,7 +54,7 @@ export function passwordsMatch(given: string, expected: string): boolean {
  * When the env var is unset/blank, the built-in demo allowlist is used.
  * When it is set, it replaces the built-in map entirely (empty → nobody).
  */
-export function loginRoleMap(env: NodeJS.ProcessEnv = process.env): ReadonlyMap<string, AppRole> {
+export function loginRoleMap(env: Env = process.env): ReadonlyMap<string, AppRole> {
   const raw = env.DEMO_LOGIN_ROLES;
   if (raw === undefined) return new Map(Object.entries(DEFAULT_LOGIN_ROLES));
   const trimmed = raw.trim();
@@ -73,7 +75,7 @@ export function loginRoleMap(env: NodeJS.ProcessEnv = process.env): ReadonlyMap<
 }
 
 /** Allowlisted role for this email, or null if the address is unknown. */
-export function roleForLoginEmail(email: string, env: NodeJS.ProcessEnv = process.env): AppRole | null {
+export function roleForLoginEmail(email: string, env: Env = process.env): AppRole | null {
   return loginRoleMap(env).get(email.trim().toLowerCase()) ?? null;
 }
 
@@ -84,7 +86,7 @@ export function roleForLoginEmail(email: string, env: NodeJS.ProcessEnv = proces
 export function evaluateDemoLogin(
   email: string,
   password: string,
-  env: NodeJS.ProcessEnv = process.env,
+  env: Env = process.env,
 ): DemoLoginResult {
   const expected = demoLoginPassword(env);
   if (!expected) {

@@ -89,7 +89,7 @@ export default function LoginPage() {
         const known = DEMO_USERS.find((u) => u.email.toLowerCase() === email.trim().toLowerCase());
         loginWithSso({
           email: email.trim().toLowerCase(),
-          name: known?.name ?? email.split("@")[0] || "User",
+          name: known?.name ?? (email.split("@")[0] || "User"),
           role: data.role,
           branch: known?.branch ?? "Corporate",
           branchId: "B-CORP",
